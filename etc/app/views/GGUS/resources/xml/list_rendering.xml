@@ -1,0 +1,19 @@
+<config version="14" >
+    <pre-renderers>
+        <namespace prefix="e" uri="http://software.in2p3.fr/lavoisier/entries.xsd"/>
+        <title>concat(/e:entries/e:entries[1]/e:entries/e:entry[@key='Community'], ' Tickets : ',
+            count(/e:entries/e:entries))
+        </title>
+        <row foreach="/e:entries/e:entries">
+            <column label="id">e:entry[@key='GHD_Request_ID']</column>
+            <column label="GGUS status">e:entry[@key='GHD_Status']</column>
+            <column label="Group ID">e:entries/e:entry[@key='GroupId']</column>
+            <column label="GGUS SU">e:entry[@key='GHD_Responsible_Unit']</column>
+            <column label="NGI">e:entries/e:entry[@key='Ngi']</column>
+            <column label="Site">e:entry[@key='GHD_Affected_Site']</column>
+            <column label="Community">e:entries/e:entry[@key='Community']</column>
+            <column label="Step">e:entries/e:entry[@key='Step']</column>
+            <column label="StepLabel">e:entries/e:entry[@key='StepLabel']</column>
+        </row>
+    </pre-renderers>
+</config>

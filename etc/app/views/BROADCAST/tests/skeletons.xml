@@ -1,0 +1,47 @@
+<test-suite>
+    <entries view="gmRecipientsView">
+        <Recipients><Recipient><id/><email/><label/></Recipient></Recipients>
+    </entries>
+    <entries view="nmRecipientsView">
+        <Recipients><Recipient ROC_NAME=""><id/><email/><label/></Recipient></Recipients>
+    </entries>
+    <entries view="vmRecipientsViewBase">
+        <result><row><id/><email/><label/></row></result>
+    </entries>
+    <entries view="vmRecipientsView">
+        <Recipients><Recipient key=""><id/><email/><label/></Recipient></Recipients>
+    </entries>
+    <entries view="vsecRecipientsViewBase">
+        <result><row><id/><email/><label/></row></result>
+    </entries>
+    <entries view="vsecRecipientsView">
+        <Recipients><Recipient key=""><id/><email/><label/></Recipient></Recipients>
+    </entries>
+    <entries view="vuRecipientsView">
+        <Recipients><Recipient><id/><email/><label/></Recipient></Recipients>
+    </entries>
+    <entries view="vsRecipientsView">
+        <Recipients><Recipient><id/><email/><label/></Recipient></Recipients>
+    </entries>
+    <entries view="gmJSTreeView">
+        <html_data><li id="" rel=""><input id="" name="" value="" type="" disabled=""/><ul><li id="" rel=""><input id="" name="" value="" type="" disabled=""/><a href=""/></li></ul><span class="" rel=""/></li></html_data>
+    </entries>
+    <entries view="nmJSTreeView">
+        <html_data><li id="" rel=""><input id="" name="" value="" type="" disabled=""/><ul><li id="" rel=""><input id="" name="" value="" type="" disabled=""/><a href=""/></li></ul><a class="" href=""/></li></html_data>
+    </entries>
+    <entries view="vmJSTreeView">
+        <html_data><li id="" rel=""><input id="" name="" value="" type="" disabled=""/><ul/><a class="" href=""/></li></html_data>
+    </entries>
+    <entries view="vuJSTreeView">
+        <html_data><li id="" rel=""><input id="" name="" value="" type="" disabled=""/><ul><li id="" rel=""><input id="" name="" value="" type="" disabled=""/><a href=""/></li></ul><a class="" href=""/></li></html_data>
+    </entries>
+    <entries view="vsecJSTreeView">
+        <html_data><li id="" rel=""><input id="" name="" value="" type="" disabled=""/><ul/><a class="" href=""/></li></html_data>
+    </entries>
+    <entries view="vsJSTreeView">
+        <html_data><li id="" rel=""><input id="" name="" value="" type="" disabled=""/><ul><li id="" rel=""><input id="" name="" value="" type="" disabled=""/><a href=""/></li></ul><a class="" href=""/></li></html_data>
+    </entries>
+    <entries view="saJSTreeView">
+        <html_data><li id="" rel=""><input id="" name="" value="" type="" disabled=""/><ul><li id="" rel=""><input id="" name="" value="" type="" disabled=""/><ul><li id="" rel=""><input id="" name="" value="" type="" disabled=""/><a href=""/></li></ul><a href=""/></li></ul><a class="" href=""/></li></html_data>
+    </entries>
+</test-suite>

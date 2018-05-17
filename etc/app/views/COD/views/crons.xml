@@ -1,0 +1,49 @@
+<config xmlns="http://software.in2p3.fr/lavoisier/config.xsd" xmlns:xi="http://www.w3.org/2001/XInclude" version="14">
+
+    <view-template name="COD_xii_RTicket" stylesheet="COD/resources/template/OpsImportCron.xsl">
+        <info>
+            <type>cron</type>
+            <category>COD crons</category>
+            <description>Xml import ROD tickets</description>
+        </info>
+        <parameter name="base_url">COD.dashboard.base.url</parameter>
+        <parameter name="collection">COD_ticket_alerts</parameter>
+        <parameter name="cache_time">10</parameter>
+    </view-template>
+
+    <view-template name="COD_xii_MWTicket" stylesheet="COD/resources/template/OpsImportCron.xsl">
+        <info>
+            <type>cron</type>
+            <category>COD crons</category>
+            <description>Xml import ROD tickets</description>
+        </info>
+        <parameter name="base_url">COD.dashboard.base.url</parameter>
+        <parameter name="collection">COD_MW_ticket_alerts</parameter>
+        <parameter name="cache_time">8</parameter>
+    </view-template>
+
+    <view-template name="COD_xii_RNagios" stylesheet="COD/resources/template/OpsImportCron.xsl">
+        <info>
+            <type>cron</type>
+            <category>COD crons</category>
+            <description>Xml import ROD nagios</description>
+        </info>
+        <parameter name="base_url">COD.dashboard.base.url</parameter>
+        <parameter name="collection">COD_nagios_problem</parameter>
+        <parameter name="cache_time">6</parameter>
+    </view-template>
+
+    <view-template name="COD_xii_RDowntime" stylesheet="COD/resources/template/OpsImportCron.xsl">
+        <info>
+            <type>cron</type>
+            <category>COD crons</category>
+            <description>Xml import Downtime</description>
+        </info>
+        <parameter name="base_url">COD.dashboard.base.url</parameter>
+        <parameter name="collection">COD_Downtime</parameter>
+        <parameter name="cache_time">9</parameter>
+    </view-template>
+
+
+
+</config>

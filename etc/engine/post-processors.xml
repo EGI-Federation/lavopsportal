@@ -1,0 +1,13 @@
+<processors-list xmlns="http://software.in2p3.fr/lavoisier/application.xsd">
+    <processors>
+        <processor type="SelectWindowProcessor" match="/*/*" disabled="not(arguments()[@key='_window_']/text())">
+            <parameter name="offset" eval="substring-before(arguments()[@key='_window_']/text(), '-')"/>
+            <parameter name="length" eval="substring-after(arguments()[@key='_window_']/text(), '-') - number(substring-before(arguments()[@key='_window_']/text(), '-')) + 1"/>
+        </processor>
+        <processor type="LimitProcessor" match="/*" disabled="not(arguments()[@key='_limit_'])">
+            <parameter name="size" eval="arguments()[@key='_limit_']/text()"/>
+        </processor>
+        <processor type="ExtractProcessor" match="/*" disabled="not(arguments()[@key='_extract_'])"/>
+        <processor type="SkeletonProcessor" match="/*" disabled="not(arguments()[@key='_skeleton_'])"/>
+    </processors>
+</processors-list>

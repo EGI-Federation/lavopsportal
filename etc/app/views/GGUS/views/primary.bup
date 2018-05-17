@@ -1,0 +1,193 @@
+<config xmlns="http://software.in2p3.fr/lavoisier/config.xsd" xmlns:xi="http://www.w3.org/2001/XInclude" version="14">
+
+    <view xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" name="GGUS_header">
+        <info>
+            <category>Hidden</category>
+            <description>SOAP header</description>
+        </info>
+        <argument name="service_id"/>
+        <connector type="XMLConnector">
+            <parameter name="content" eval="document('GGUS/resources/xml/header.xml')"/>
+        </connector>
+        <processors>
+            <processor type="ReplaceProcessor" match="/AuthenticationInfo/userName/text()">
+                <parameter name="nodes" eval="property(concat('GGUS.user_name.',$service_id))"/>
+            </processor>
+            <processor type="ReplaceProcessor" match="/AuthenticationInfo/password/text()">
+                <parameter name="nodes" eval="property(concat('GGUS.password.',$service_id))"/>
+            </processor>
+        </processors>
+    </view>
+
+    <!-- GGUS_OPS terminal states (solved, unsolved, verified, closed) tickets -->
+    <view-template name="GGUS_OPS_terminal_state"
+                   xmlns:ns="urn:GGUS_OPS"
+                   xmlns:cfg="http://software.in2p3.fr/lavoisier/config.xsd"
+                   stylesheet="template/SOAPTemplate.xsl">
+        <info>
+            <category>Hidden</category>
+            <description>Raw OPS ticket list</description>
+        </info>
+        <argument name="service_id">GGUS_OPS</argument>
+        <parameter name="url" eval="concat(property('GGUS.url'), $service_id )"/>
+        <parameter name="operation">ns:OpGetListOps</parameter>
+        <parameter name="parameters" eval="new_element('Qualification', concat(apos('GHD_Meta Status'), ' = 1'))"/>
+
+        <parameter name="SOAPHeader" eval="view('GGUS_header', entry( 'service_id',$service_id ))"/>
+
+    </view-template>
+
+
+    <!--
+      NB :We are forced to have different templates for each operation because operations in this template can't be dynamic
+    -->
+    <view-template name="GGUS_OPS_base"
+                   xmlns:ns="urn:GGUS_OPS"
+                   xmlns:cfg="http://software.in2p3.fr/lavoisier/config.xsd"
+                   stylesheet="template/SOAPTemplate.xsl">
+        <info>
+            <category>Hidden</category>
+            <description>Raw OPS ticket list</description>
+        </info>
+        <argument name="service_id">GGUS_OPS</argument>
+        <parameter name="url" eval="concat(property('GGUS.url'), $service_id )"/>
+        <parameter name="operation">ns:OpGetListOps</parameter>
+
+        <parameter name="SOAPHeader" eval="view('GGUS_header', entry( 'service_id',$service_id ))"/>
+
+    </view-template>
+
+    <view name="GGUS_OPS"
+          xmlns:str="http://exslt.org/strings"
+          xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd"
+          xmlns:ns0="urn:GGUS_OPS">
+        <info>
+            <category>GGUS</category>
+            <description>OPS ticket list with ngi</description>
+        </info>
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('GGUS_OPS_base')"/>
+        </connector>
+
+    </view>
+
+    <view-template xmlns:ns="urn:GGUS_TEAM" xmlns:cfg="http://software.in2p3.fr/lavoisier/config.xsd" name="GGUS_TEAM"
+                   stylesheet="template/SOAPTemplate.xsl">
+        <info>
+            <category>Hidden</category>
+            <description>Raw OPS ticket list</description>
+        </info>
+        <argument name="service_id">GGUS_TEAM</argument>
+        <parameter name="url" eval="concat(property('GGUS.url'), $service_id )"/>
+        <parameter name="operation">ns:OpGetListTeam</parameter>
+        <parameter name="SOAPHeader" eval="view('GGUS_header',entry( 'service_id',$service_id ))"/>
+
+    </view-template>
+
+
+    <view name="StepMapping">
+        <info>
+            <category>GGUS</category>
+            <description>Mapping with CIC tickets</description>
+        </info>
+        <argument name="community">ROD</argument>
+        <argument name="old_label">false</argument>
+        <argument name="subcommunity">false</argument>
+        <connector type="FileConnector">
+            <parameter name="path">GGUS/resources/xml/StepMapping.xml</parameter>
+        </connector>
+
+        <processors>
+            <processor
+                    match="eval(concat('/Mapping/Steps/',$community,'[@SubCommunity=',quot($subcommunity),']/step[@old_label=',quot($old_label),']'))"
+                    type="SelectProcessor" disabled="$old_label='false'">
+            </processor>
+            <processor match="eval(concat('/Mapping/Steps/',$community,'[@SubCommunity=',quot($subcommunity),']'))"
+                       type="SelectProcessor" disabled="$old_label!='false'">
+            </processor>
+        </processors>
+    </view>
+
+    <!--
+      Generic request to call GGUS open tickets
+    -->
+    <view xmlns:gg="urn:GGUS_OPS" xmlns:str="http://exslt.org/strings"
+          xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" name="GGUS_Opened">
+        <info>
+            <category>GGUS</category>
+            <description>Filtered opened tickets</description>
+        </info>
+        <argument name="service_id"/>
+        <argument name="community_id"/>
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view($service_id, entry( 'service_id',$service_id ))"/>
+        </connector>
+        <processors>
+            <xi:include href="GGUS/resources/xml/convert_GGUS_Soap_Client_Data.xml" xpointer="element(/1/*)"/>
+
+            <!-- select community, clean namespaces -->
+            <select match="/gg:OpGetListOpsResponse/gg:getListValues[not(gg:GHD_Status = 'verified' or   gg:GHD_Status = 'closed')][gg:GHD_Soap_Client_Data]"/>
+
+            <processor
+                    match="/e:entries/gg:getListValues[gg:GHD_Soap_Client_Data/e:entries/e:entry[@key='Community' and text()=$community_id]]"
+                    type="SelectProcessor">
+            </processor>
+
+            <xi:include href="GGUS/resources/xml/convert_toEntries.xml" xpointer="element(/1/*)"/>
+
+            <!-- copy available GHD_Soap_Client_Data/Ngi in parent element to preserve query homogeneity with 'GHD_Affected_Site' query -->
+            <insert match="/e:entries/e:entries[e:entries/e:entry[@key='Ngi']]"
+                    nodes="e:entries/e:entry[@key='Ngi']"/>
+
+
+        </processors>
+    </view>
+
+
+    <view xmlns:gg="urn:GGUS_OPS" xmlns:str="http://exslt.org/strings" xmlns:date="http://exslt.org/dates-and-times"
+          xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" name="GGUS_Closed">
+        <info>
+            <category>GGUS</category>
+            <description>Filtered closed tickets</description>
+        </info>
+        <argument name="service_id"/>
+        <argument name="community_id"/>
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view($service_id, entry( 'service_id',$service_id ))"/>
+        </connector>
+        <processors>
+            <processor type="EncodeProcessor" match="/*"/>
+
+            <!-- revert XML encoding in GHD_Soap_Client_Data node -->
+            <!-- 1. push text node for (view) to convert it in valid XML -->
+            <insert match="/gg:OpGetListOpsResponse/gg:getListValues/gg:GHD_Soap_Client_Data[* or not(*)]">
+                <connector type="StringConnector">
+                    <parameter name="content" eval="str:concat(parent_match()/text())"/>
+                </connector>
+            </insert>
+
+            <!-- 2. remove text node-->
+            <remove match="/gg:OpGetListOpsResponse/gg:getListValues/gg:GHD_Soap_Client_Data/text()"/>
+
+            <!-- select community, clean namespaces -->
+            <select match="/gg:OpGetListOpsResponse/gg:getListValues[gg:GHD_Status = 'verified' or   gg:GHD_Status = 'closed'][gg:GHD_Soap_Client_Data]"/>
+
+            <processor
+                    match="/e:entries[gg:getListValues/gg:GHD_Soap_Client_Data/e:entries/e:entry/@key='Community' and gg:getListValues/gg:GHD_Soap_Client_Data/e:entries/e:entry/text()=$community_id]/*"
+                    type="SelectProcessor">
+            </processor>
+
+            <processor type="ChangeNamespaceProcessor" match="//gg:*"/>
+
+            <rename match="/*/getListValues" name="e:entries"/>
+            <replace match="/e:entries/e:entries/*[text()]" nodes="entry(local-name(),text())"/>
+            <insert match="/e:entries/e:entries/GHD_Soap_Client_Data"
+                    nodes="new_attribute('key','GHD_Soap_Client_Data')"/>
+            <rename match="/e:entries/e:entries/GHD_Soap_Client_Data" name="e:entries"/>
+            <remove match="/e:entries/e:entries/e:entries[@key='GHD_Soap_Client_Data']/e:entries" depth="1"/>
+
+        </processors>
+
+    </view>
+
+</config>

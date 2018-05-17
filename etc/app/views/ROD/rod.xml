@@ -1,0 +1,198 @@
+<config xmlns="http://software.in2p3.fr/lavoisier/config.xsd" xmlns:xi="http://www.w3.org/2001/XInclude" version="16">
+
+
+    <view name="ROC_CleanUP">
+        <info>
+            <category>ROD</category>
+        </info>
+        <connector type="HTTPConnector">
+            <parameter name="url" eval="property('ROD.portal.clean.url')"/>
+            <parameter name="certificate" eval="property('certificate.path')"/>
+            <parameter name="passphrase" eval="property('certificate.password')"/>
+            <parameter name="force-redirect">true</parameter>
+        </connector>
+
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="hours">4</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+
+        </cache>
+    </view>
+
+
+
+
+    <view name="ROD_COD_Items">
+        <info>
+            <category>ROD</category>
+        </info>
+        <connector type="SQLConnector">
+            <parameter name="driver">com.mysql.jdbc.Driver</parameter>
+            <parameter name="url" eval="property('ROD.db.url')"/>
+            <parameter name="username" eval="property('ROD.db.username')"/>
+            <parameter name="password" eval="property('ROD.db.password')"/>
+            <parameter name="query">
+                (SELECT site , ngi , service , host_name , details from cod_nagios_problem where status!='0')
+                UNION
+                (SELECT site , ngi , service , host_name , details from cod_downtime_problem where status!='0')
+                UNION
+                (SELECT site , ngi , service , host_name , details from cod_ticket_problem where status!='0')
+                UNION
+                (SELECT site , ngi , service , host_name , details from cod_ticket_mw_problem where status!='0')
+            </parameter>
+        </connector>
+        <processors>
+            <processor match="/result" type="RenameProcessor"><parameter name="node_name">e:entries</parameter></processor>
+            <processor match="/e:entries/row" type="RenameProcessor"><parameter name="node_name">e:entries</parameter></processor>
+            <processor match="/e:entries/e:entries/*[text()]" type="ReplaceProcessor"><parameter name="nodes" eval="entry(local-name(),.)"/></processor>
+        </processors>
+
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="minutes">4</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+        </cache>
+    </view>
+
+    <view name="ROD_COD_Items_count">
+        <info>
+            <category>ROD</category>
+        </info>
+        <argument name="entity_type" pattern="ngi|site|all"/>
+        <argument name="entity_parent">none</argument>
+        <argument name="prepath">/e:entries/e:entries[e:entry[(@key='ngi' and text()='NGI_FRANCE')]]</argument>
+
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view_path('ROD_COD_Items',$prepath)"/>
+        </connector>
+
+        <processors>
+
+            <processor match="/e:entries/e:entries[*]" type="InsertProcessor"><parameter name="nodes" eval="new_attribute('site',choose(e:entry[@key='site']/text(),e:entry[@key='site']/text(),'NA'))"/></processor>
+            <processor match="/e:entries/e:entries[*]" type="InsertProcessor"><parameter name="nodes" eval="new_attribute('ngi',choose(e:entry[@key='ngi']/text(), e:entry[@key='ngi']/text(),'NA'))"/></processor>
+
+            <processor type="RemoveProcessor" disabled="$entity_parent = 'none' " match="/e:entries/e:entries[@ngi!=$entity_parent]"/>
+
+            <processor type="SelectGroupByProcessor" disabled="$entity_type = 'ngi' " match="/e:entries/e:entries">
+                <parameter name="group_by" eval="@site"/>
+            </processor>
+
+            <processor type="SelectGroupByProcessor" disabled="$entity_type = 'site' " match="/e:entries/e:entries">
+                <parameter name="group_by" eval="@ngi"/>
+            </processor>
+
+            <processor match="/e:entries/e:entry" type="AppendAggregateProcessor"><parameter name="function">count</parameter><parameter name="node_name">count</parameter><parameter name="node_values" eval="e:entries"/></processor>
+
+            <processor match="/e:entries/e:entry/e:entries" type="RemoveProcessor"/>
+            <processor match="/e:entries/e:entry/e:count[text()]" type="ReplaceProcessor"><parameter name="nodes" eval="text()"/></processor>
+
+        </processors>
+
+    </view>
+
+    <view name="ROD_XML">
+
+        <info>
+            <category>ROD</category>
+        </info>
+
+        <connector type="HTTPConnector">
+            <parameter name="url" eval="property('ROD.portal.metrics')"/>
+            <parameter name="certificate" eval="property('certificate.path')"/>
+            <parameter name="passphrase" eval="property('certificate.password')"/>
+            <parameter name="force-redirect">true</parameter>
+
+        </connector>
+        <serializer type="HTMLSerializer"/>
+
+        <processors>
+
+        <processor match="//*" type="ChangeNamespaceProcessor"/>
+        </processors>
+        <cache type="FileCache">
+            <trigger type="ViewAccessedTrigger" ignore-during="PT5M"/>
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="hours">1</parameter>
+            </trigger>
+        </cache>
+    </view>
+
+    <view name="Rod_Metrics_Generation">
+        <info>
+            <category>ROD</category>
+        </info>
+        <connector type="HTTPConnector">
+            <parameter name="url" eval="property('ROD.portal.metrics.generation')"/>
+            <parameter name="certificate" eval="property('certificate.path')"/>
+            <parameter name="passphrase" eval="property('certificate.password')"/>
+            <parameter name="force-redirect">true</parameter>
+        </connector>
+        <cache type="FileCache">
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="hours">1</parameter>
+            </trigger>
+        </cache>
+
+    </view>
+
+    <view name="Nagios_Roles_Bonus">
+        <info>
+            <category>ROD</category>
+        </info>
+
+        <connector type="FileConnector">
+            <parameter name="path">ROD/resources/nagios_roles_bonus.conf</parameter>
+        </connector>
+        <serializer type="EncapsulateSerializer"/>
+
+        <cache type="FileCache">
+
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="hours">3</parameter>
+            </trigger>
+        </cache>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/plain</parameter>
+            </renderer>
+        </renderers>
+
+    </view>
+
+    <view name="Rod_Nagios_Role_Conf">
+        <info>
+            <category>ROD</category>
+        </info>
+
+
+        <connector type="FileConnector">
+            <parameter name="path">ROD/resources/nagios_roles_bonus.conf</parameter>
+        </connector>
+
+        <serializer type="EncapsulateSerializer"/>
+
+        <cache type="FileCache">
+
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="hours">2</parameter>
+            </trigger>
+        </cache>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/plain</parameter>
+            </renderer>
+        </renderers>
+
+    </view>
+
+
+</config>

@@ -1,0 +1,661 @@
+<config xmlns="http://software.in2p3.fr/lavoisier/config.xsd" xmlns:xi="http://www.w3.org/2001/XInclude" version="16">
+
+    <!--<view name="OPSCORE_users">-->
+        <!--<info>-->
+            <!--<category>Users</category>-->
+            <!--<description>EGI users</description>-->
+        <!--</info>-->
+        <!--<connector type="HTTPConnector">-->
+            <!--<parameter name="url">http://cclavoisierfr:9000/LavoisierService/view/egi_users</parameter>-->
+        <!--</connector>-->
+
+        <!--<cache type="FileCache">-->
+            <!--<trigger type="DeltaTimeTrigger">-->
+                <!--<parameter name="hours">3</parameter>-->
+            <!--</trigger>-->
+            <!--<trigger type="ViewNotifiedTrigger"/>-->
+            <!--<trigger ignore-during="PT3H" type="ViewCreatedTrigger"/>-->
+        <!--</cache>-->
+    <!--</view>-->
+
+<view name="OPSCORE_superUser">
+    <connector type="FileConnector">
+        <parameter name="path">OPSCORE/resources/xml/superUser.xml</parameter>
+    </connector>
+
+</view>
+
+    <view name="OPSCORE_users">
+        <info>
+            <category>Users</category>
+            <description>EGI users</description>
+        </info>
+        <connector type="XSLTConnector">
+            <!-- required: The XSLT stylesheet (Xml) -->
+            <parameter name="stylesheet" eval="document('OPSCORE/resources/xsl/egi_users.xsl')"/>
+
+
+
+            <parameter name="documents">
+                <entry key="get_user" eval="view('OPSCORE_users_goc')"/>
+                <entry key="voms-team-users" eval="view('OPSCORE_users_voms')"/>
+                <entry key="csi_csirt-team" eval="view('OPSCORE_users_csi')"/>
+            </parameter>
+        </connector>
+
+        <processors>
+            <element in="root">
+                <element in="EGEE_USER" if="@ID='1902G0'">
+                    <element-create>view('OPSCORE_superUser')</element-create>
+                </element>
+            </element>
+
+        </processors>
+
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="hours">3</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="ViewCreatedTrigger"/>
+        </cache>
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+
+    </view>
+
+    <view name="OPSCORE_users_agg">
+        <info>
+            <category>Users</category>
+            <description>EGI users</description>
+        </info>
+
+
+
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('OPSCORE_users_goc')"/>
+        </connector>
+
+        <processors>
+
+            <element in="results">
+                <element-create as="last-child">view('OPSCORE_users_cic')</element-create>
+                <element-create as="last-child">view('OPSCORE_users_csi')</element-create>
+            </element>
+
+            <element in="results" out="e:entries">
+
+                <element in="EGEE_USER" out="e:entries">
+
+                    <element-create>entry('NAME',new_text(concat(../FORENAME/text(),../SURNAME/text())))</element-create>
+                    <element-create>entry('EMAIL',new_text(../EMAIL/text()))</element-create>
+                    <element-create>entry('CERTDN',new_text(../CERTDN/text()))</element-create>
+                    <element-ignore if="name()!='USER_ROLE'"/>
+
+                    <element-ignore in="USER_ROLE">
+                        <element-create>entry('ROLES',concat(../USER_ROLE/text(),'::',../ENTITY_TYPE/text(),'::',../ON_ENTITY/text()))</element-create>
+                    </element-ignore>
+                </element>
+
+                <element-ignore in="result">
+                    <element in="row" out="e:entries">
+                        <element-create>entry('ROLES',concat(../e:entry[@key="USER_ROLE"]/text(),'::',../e:entry[@key="ENTITY_TYPE"]/text(),'::',../e:entry[@key="ON_ENTITY"]/text()))</element-create>
+                        <element-ignore if="@key='USER_ROLE' or @key='ENTITY_TYPE' or @key='ON_ENTITY'"/>
+                        <element in="e:entry" if="@key='CN'">
+                           <attribute-ignore in="key"/>
+                            <attribute-create out="key">'NAME'</attribute-create>
+                        </element>
+                    </element>
+                </element-ignore>
+
+                <element in="CSIRTTeam" out="e:entries">
+                    <element-ignore/>
+                    <element-ignore in="Users">
+                        <element in="EGEE_USER" out="e:entries">
+                            <element-create>entry('NAME',new_text(concat(../FORENAME/text(),../SURNAME/text())))</element-create>
+                            <element-create>entry('EMAIL',new_text(../EMAIL/text()))</element-create>
+                            <element-create>entry('CERTDN',new_text(../CERTDN/text()))</element-create>
+                            <element-ignore if="name()!='USER_ROLE'"/>
+
+                            <element-ignore in="USER_ROLE">
+                                <element-create>entry('ROLES',concat(../USER_ROLE/text(),'::',../ENTITY_TYPE/text(),'::',../ON_ENTITY/text()))</element-create>
+                            </element-ignore>
+                        </element>
+                    </element-ignore>
+                </element>
+
+
+            </element>
+
+
+            <element in="e:entries">
+                <element in="e:entries">
+                    <attribute-create out="key">../e:entry[@key="CERTDN"]/text()</attribute-create>
+                </element>
+            </element>
+
+            <element in="e:entries">
+                <element-create as="first-child">choose(view("OPSCORE_fake_users")/e:entries/*,view("OPSCORE_fake_users")/e:entries/*,entries())</element-create>
+            </element>
+
+            <element in="e:entries">
+                <element-ignore in="e:entries" if="@key='' or @key='-' or @key='--'"/>
+            </element>
+
+
+
+
+            <element in="e:entries">
+                <element-ignore/>
+                <element-create>sort_by_string(../e:entries,'@key')</element-create>
+            </element>
+
+            <element in="e:entries">
+                <element-create-as-parent out="e:entries" group-by="@key" attributes="@key">
+                    <element in="e:entries"/>
+                </element-create-as-parent>
+            </element>
+
+            <element in="e:entries">
+                <element in="e:entries">
+                    <element-ignore in="e:entries">
+                        <element/>
+                    </element-ignore>
+                </element>
+            </element>
+
+            <element in="e:entries">
+                <element in="e:entries">
+                    <element-ignore in="e:entry" if="@key!='ROLES'"/>
+                    <element-create>entry('NAME',choose(../e:entry[@key='NAME'][1]/text(),../e:entry[@key='NAME'][1]/text(),'NA'))</element-create>
+                    <element-create>entry('EMAIL',choose(../e:entry[@key='EMAIL'][1]/text(),../e:entry[@key='EMAIL'][1]/text(),'NA'))</element-create>
+                    <element-create>entry('CERTDN',choose(../e:entry[@key='CERTDN'][1]/text(),../e:entry[@key='CERTDN'][1]/text(),'NA'))</element-create>
+                </element>
+            </element>
+
+
+
+            <element in="e:entries">
+                <element in="e:entries">
+                   <element-create-as-parent out="e:entries">
+                       <element in="e:entry" if="@key='ROLES'"/>
+                   </element-create-as-parent>
+                </element>
+            </element>
+
+
+            <element in="e:entries">
+                <element in="e:entries">
+                    <element in="e:entries">
+                        <attribute-create out="key">'ROLES'</attribute-create>
+                        <element in="e:entry">
+                            <attribute-ignore/>
+                        </element>
+                    </element>
+                </element>
+            </element>
+
+
+
+
+            <elements path="e:entries/e:entries">
+                <element in="e:entries" if="@key='ROLES'">
+                    <element-ignore in="e:entry"/>
+                    <element-create>uniq(../e:entry,'text()')</element-create>
+                </element>
+
+            </elements>
+
+        </processors>
+
+
+
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="minutes">31</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+
+        </cache>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+
+    </view>
+
+    <view name="OPSCORE_fake_users">
+        <info>
+            <category>Users</category>
+            <description>users used for tests</description>
+        </info>
+
+        <argument name="envnt" eval="property('env')"/>
+
+        <connector type="FileConnector">
+            <parameter name="path">OPSCORE/resources/xml/fake_users.xml</parameter>
+        </connector>
+
+        <processors>
+            <element in="e:entries">
+                <element if="starts-with($envnt,'TEST')"/>
+                <element if="$envnt='PROD' and not(contains(@key,'test'))"/>
+                <element-ignore/>
+            </element>
+        </processors>
+
+
+
+    </view>
+
+
+    <view name="OPSCORE_user">
+        <info>
+            <category>Users</category>
+            <description>EGI users</description>
+        </info>
+
+        <argument name="DN"/>
+
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('OPSCORE_users_agg')"/>
+        </connector>
+
+        <processors>
+            <element in="e:entries">
+               <element in="e:entries" if="e:entry[@key='CERTDN']/text()=$DN"/>
+                <element-ignore/>
+            </element>
+
+
+      </processors>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+
+    </view>
+
+
+    <view name="OPSCORE_users_csi">
+        <info>
+            <category>Users</category>
+            <description>EGI users</description>
+        </info>
+        <connector type="HTTPConnector">
+            <parameter name="url" eval="property('OPSCORE.users.csi')"/>
+            <parameter name="certificate" eval="property('certificate.path')"/>
+            <parameter name="passphrase" eval="property('certificate.password')"/>
+            <parameter name="force-redirect">true</parameter>
+            <parameter name="connect-timeout">30</parameter>
+            <parameter name="read-timeout">30</parameter>
+        </connector>
+
+
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="hours">3</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger ignore-during="PT3H" type="ViewCreatedTrigger"/>
+        </cache>
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+    </view>
+
+
+    <view name="OPSCORE_users_voms">
+        <info>
+            <category>Users</category>
+            <description>EGI users</description>
+        </info>
+        <connector type="HTTPConnector">
+            <parameter name="url" eval="property('OPSCORE.users.voms')"/>
+            <parameter name="certificate" eval="property('certificate.path')"/>
+            <parameter name="passphrase" eval="property('certificate.password')"/>
+            <parameter name="force-redirect">true</parameter>
+            <parameter name="connect-timeout">100</parameter>
+            <parameter name="read-timeout">100</parameter>
+        </connector>
+
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="hours">3</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger ignore-during="PT3H" type="ViewCreatedTrigger"/>
+        </cache>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+    </view>
+
+    <view name="OPSCORE_users_goc">
+        <info>
+            <category>Users</category>
+            <description>EGI users</description>
+        </info>
+        <connector type="HTTPConnector">
+            <parameter name="url" eval="property('OPSCORE.gocdb.get_user')"/>
+            <parameter name="certificate" eval="property('certificate.path')"/>
+            <parameter name="passphrase" eval="property('certificate.password')"/>
+            <parameter name="force-redirect">true</parameter>
+        </connector>
+
+        <processors>
+            <elements path="/results/EGEE_USER">
+                <element in="USER_ROLE">
+                    <element-ignore in="PRIMARY_KEY"/>
+                </element>
+            </elements>
+        </processors>
+
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="hours">3</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger ignore-during="PT3H" type="ViewCreatedTrigger"/>
+        </cache>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+    </view>
+
+
+
+    <view name="OPSCORE_users_cic">
+        <info>
+            <category>Users</category>
+            <description>EGI users</description>
+        </info>
+
+        <connector type="SQLConnector">
+            <parameter name="driver">com.mysql.jdbc.Driver</parameter>
+            <parameter name="url" eval="property('OPSCORE.db.url')"/>
+            <parameter name="username" eval="property('OPSCORE.db.username')"/>
+            <parameter name="password" eval="property('OPSCORE.db.password')"/>
+            <parameter name="query">
+                SELECT v.name as ON_ENTITY, password( concat(c.first_name,' ' ,c.last_name) ) as PRIMARY_KEY,
+                concat(c.first_name,' ' ,c.last_name) as CN , c.email as EMAIL , c.DN as CERTDN , p.profile as USER_ROLE
+                FROM vo v, vo_header h, vo_contacts c, vo_contact_has_profile cp, vo_user_profile p
+                WHERE v.header_id = h.id
+                AND v.serial = cp.serial
+                AND cp.contact_id = c.id
+                AND cp.user_profile_id = p.id
+            </parameter>
+        </connector>
+
+        <processors>
+            <processor match="/result/row/*[text()]" type="ReplaceProcessor"><parameter name="nodes" eval="entry(local-name(),text())"/></processor>
+            <processor match="/result/row" type="InsertProcessor"><parameter name="nodes" eval="entry('ENTITY_TYPE','vo')"/></processor>
+            <processor match="/result" type="InsertProcessor"><parameter name="nodes" eval="view('OPSCORE_users_grid_body')/result/row"/><parameter name="destination_as">first_child</parameter></processor>
+        </processors>
+
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="hours">1</parameter>
+            </trigger>
+            <trigger type="DependencyRefreshedTrigger">
+                <parameter name="views">
+                    <entry>OPSCORE_users_grid_body</entry>
+                </parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+        </cache>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+
+    </view>
+
+
+    <view name="OPSCORE_users_grid_body">
+        <info>
+            <category>Users</category>
+            <description>EGI users</description>
+        </info>
+
+        <connector type="SQLConnector">
+            <parameter name="driver">com.mysql.jdbc.Driver</parameter>
+            <parameter name="url" eval="property('OPSCORE.db.url')"/>
+            <parameter name="username" eval="property('OPSCORE.db.username')"/>
+            <parameter name="password" eval="property('OPSCORE.db.password')"/>
+            <parameter name="query">
+                SELECT password( concat(c.first_name,' ' ,c.last_name) ) as PRIMARY_KEY, concat(c.first_name,' '
+                ,c.last_name) as CN , c.email as EMAIL , c.DN as CERTDN
+                FROM vo_contacts c
+                WHERE c.grid_body='1'
+            </parameter>
+        </connector>
+
+        <processors>
+            <processor match="/result/row/*[text()]" type="ReplaceProcessor"><parameter name="nodes" eval="entry(local-name(),text())"/></processor>
+            <processor match="/result/row" type="InsertProcessor"><parameter name="nodes" eval="entry('ENTITY_TYPE','project')"/></processor>
+            <processor match="/result/row" type="InsertProcessor"><parameter name="nodes" eval="entry('ON_ENTITY','EGI')"/></processor>
+            <processor match="/result/row" type="InsertProcessor"><parameter name="nodes" eval="entry('USER_ROLE','GRID BODY')"/></processor>
+        </processors>
+
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="hours">1</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger ignore-during="PT1H" type="ViewCreatedTrigger"/>
+        </cache>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+
+    </view>
+
+    <view name="OPSCORE_vo_users_raw">
+        <info>
+            <category>Users</category>
+            <description>VO users</description>
+            <accept>xml</accept>
+        </info>
+        <connector type="SQLConnector">
+            <parameter name="driver">com.mysql.jdbc.Driver</parameter>
+            <parameter name="url" eval="property('OPSCORE.db.url')"/>
+            <parameter name="username" eval="property('OPSCORE.db.username')"/>
+            <parameter name="password" eval="property('OPSCORE.db.password')"/>
+            <parameter name="query">
+                SELECT USERVO , DN as CERTDN , CA, VO , EMAIL , LAST_UPDATE , FIRST_UPDATE
+                FROM vo_users
+                WHERE
+                DATEDIFF(NOW(),LAST_UPDATE)&lt; 5
+            </parameter>
+
+        </connector>
+
+        <cache type="FileCache">
+         <trigger type="DeltaTimeTrigger">
+             <parameter name="hours">3</parameter>
+             <parameter name="minutes">6</parameter>
+         </trigger>
+
+        </cache>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+    </view>
+
+    <view name="OPSCORE_vo_users_history">
+        <info>
+            <category>Users</category>
+            <description>VO users</description>
+        </info>
+
+        <connector type="SQLConnector">
+            <parameter name="driver">com.mysql.jdbc.Driver</parameter>
+            <parameter name="url" eval="property('OPSCORE.db.url')"/>
+            <parameter name="username" eval="property('OPSCORE.db.username')"/>
+            <parameter name="password" eval="property('OPSCORE.db.password')"/>
+            <parameter name="query">
+               SELECT vo , u_month , u_year , nbtotal , nbremoved , nbadded
+                FROM vo_users_history
+            </parameter>
+
+
+
+        </connector>
+
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="hours">3</parameter>
+                <parameter name="minutes">25</parameter>
+            </trigger>
+
+        </cache>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+
+    </view>
+
+    <view name="OPSCORE_vo_users_robots">
+        <info>
+            <category>Users</category>
+            <description>VO users</description>
+        </info>
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('OPSCORE_vo_users_raw')"/>
+        </connector>
+        <processors>
+            <processor match="/result/row[not(contains(CERTDN,'Robot:'))]" type="RemoveProcessor"/>
+        </processors>
+
+        <cache type="FileCache">
+            <trigger type="DependencyRefreshedTrigger">
+                <parameter name="views">
+                    <entry>OPSCORE_vo_users_raw</entry>
+                </parameter>
+            </trigger>
+        </cache>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+    </view>
+
+
+    <view xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" name="OPSCORE_users_roles">
+        <info>
+            <category>Users</category>
+            <description>EGI users and local users</description>
+        </info>
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('OPSCORE_users')"/>
+        </connector>
+
+        <processors>
+
+            <processor match="/root/EGEE_USER/USER_ROLE[ENTITY_TYPE = 'group' and ON_ENTITY='EGI']/ENTITY_TYPE/text()" type="ReplaceProcessor"><namespaces><entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry></namespaces><parameter name="nodes" eval="new_text('project')"/></processor>
+            <processor match="/root/EGEE_USER/USER_ROLE[ENTITY_TYPE = 'group']/ENTITY_TYPE/text()" type="ReplaceProcessor"><namespaces><entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry></namespaces><parameter name="nodes" eval="new_text('ngi')"/></processor>
+            <processor match="/root/EGEE_USER/*[text()]" type="ReplaceProcessor"><namespaces><entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry></namespaces><parameter name="nodes" eval="entry(local-name(),text()) "/></processor>
+            <processor match="/root/EGEE_USER/*/*[text()]" type="ReplaceProcessor"><namespaces><entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry></namespaces><parameter name="nodes" eval="entry(local-name(),text()) "/></processor>
+
+            <processor match="/root/EGEE_USER" type="InsertProcessor"><namespaces><entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry></namespaces><parameter name="nodes" eval="entry('PRIMARY_KEY',@PRIMARY_KEY)"/><parameter name="destination_as">first_child</parameter></processor>
+
+            <processor match="/root/EGEE_USER/USER_ROLE" type="RenameProcessor"><namespaces><entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry></namespaces><parameter name="node_name">e:entries</parameter></processor>
+            <processor match="/root/EGEE_USER" type="RenameProcessor"><namespaces><entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry></namespaces><parameter name="node_name">e:entries</parameter></processor>
+            <processor match="/root" type="RenameProcessor"><namespaces><entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry></namespaces><parameter name="node_name">e:entries</parameter></processor>
+
+
+            <processor match="/e:entries" type="InsertProcessor"><namespaces><entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry></namespaces><parameter name="nodes" eval="view('OPSCORE_users_cic')"/><parameter name="destination_as">first_child</parameter></processor>
+            <processor match="/e:entries/result" type="RemoveProcessor"><namespaces><entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry></namespaces><parameter name="depth">1</parameter></processor>
+
+            <processor match="/e:entries/row" type="RenameProcessor"><namespaces><entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry></namespaces><parameter name="node_name">e:entries</parameter></processor>
+
+            <processor match="/e:entries/e:entries[*]" type="SelectGroupByProcessor"><namespaces><entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry></namespaces><parameter name="group_by" eval="e:entry[@key='CERTDN']/text()"/></processor>
+
+            <processor match="/e:entries/e:entry[*]" type="InsertProcessor"><namespaces><entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry></namespaces><parameter name="nodes" eval="new_attribute('PRIMARY_KEY',choose(e:entries/@PRIMARY_KEY, e:entries/@PRIMARY_KEY,choose(e:entries/e:entry[@key='PRIMARY_KEY']/text(),e:entries/e:entry[@key='PRIMARY_KEY']/text(), 'N.A.'))) |          new_attribute('EMAIL',choose(e:entries/e:entry[@key='EMAIL']/text(),e:entries/e:entry[@key='EMAIL']/text(),'ERROR')) | new_attribute('CN',choose(e:entries/e:entry[@key='CN']/text(),e:entries/e:entry[@key='CN']/text(),'ERROR'))"/></processor>
+
+
+            <processor match="/e:entries/e:entry/e:entries[@PRIMARY_KEY]" type="RemoveProcessor"><namespaces><entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry></namespaces><parameter name="depth">1</parameter></processor>
+            <processor match="/e:entries/e:entry/e:entry" type="RemoveProcessor"><namespaces><entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry></namespaces></processor>
+            <processor match="/e:entries/e:entry/e:entries/e:entry[@key!='USER_ROLE' and  @key!='ON_ENTITY' and  @key!='ENTITY_TYPE' ]" type="RemoveProcessor"><namespaces><entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry></namespaces></processor>
+            <processor match="/e:entries/e:entry[count(e:entries)=0]" type="RemoveProcessor"><namespaces><entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry></namespaces></processor>
+
+            <processor match="/*/*" type="SelectWindowProcessor">
+                <parameter name="length">3</parameter>
+            </processor>
+
+
+
+            <processor match="/e:entries/e:entry" type="InsertProcessor"><namespaces><entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry></namespaces><parameter name="destination_as">first_child</parameter><parameter name="nodes" eval="new_element('e:entries', new_attribute('key', 'user') | eval('entry(local-name(), .)', @*) )"/></processor>
+            <!-- check if lines are conssistent -->
+            <processor match="/e:entries/e:entry/*[text()]" type="ReplaceProcessor"><namespaces><entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry></namespaces><parameter name="nodes" eval="entry(local-name(),text()) "/></processor>
+            <processor match="/e:entries/e:entry/e:entry" type="InsertParentProcessor"><namespaces><entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry></namespaces><parameter name="node_name">e:entries</parameter></processor>
+            <!--<insert match="/e:entries/e:entry/e:entries[not(e:entry/@key='USER_ROLE')]" nodes="new_attribute('key','user')"/>-->
+            <processor match="/e:entries/e:entry" type="RenameProcessor"><namespaces><entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry></namespaces><parameter name="node_name">e:entries</parameter></processor>
+        </processors>
+
+       <!-- <cache type="FileCache">
+            <trigger ignore-during="PT3H" type="DependencyRefreshedTrigger"><parameter name="views">
+                    <entry>OPSCORE_users</entry>
+                    <entry>OPSCORE_users_cic</entry>
+                </parameter><parameter name="all">true</parameter></trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+        </cache>-->
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+    </view>
+
+    <view name="OPSCORE_get_roc_contacts">
+        <info>
+            <category>Users</category>
+            <description>get_roc_contacts method</description>
+        </info>
+        <connector type="HTTPConnector">
+            <parameter name="url" eval="property('OPSCORE.gocdb.get_roc_contacts')"/>
+            <parameter name="certificate" eval="property('certificate.path')"/>
+            <parameter name="passphrase" eval="property('certificate.password')"/>
+        </connector>
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="hours">3</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger ignore-during="PT3H" type="ViewCreatedTrigger"/>
+        </cache>
+    </view>
+
+
+
+</config>

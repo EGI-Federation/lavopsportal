@@ -1,0 +1,11 @@
+<authenticators-list xmlns="http://software.in2p3.fr/lavoisier/application.xsd">
+    <!-- used by library "gui-admin" -->
+    <authenticators name="admin">
+        <authenticator type="IPAddressAuthenticator">
+            <parameter name="addresses">
+                <entry>127.0.0.1</entry>
+                <entry>0:0:0:0:0:0:0:1</entry>
+            </parameter>
+        </authenticator>
+    </authenticators>
+</authenticators-list>

@@ -1,0 +1,52 @@
+<Mapping>
+    <Steps>
+        <ROD SubCommunity="false" Workflow="workflow_rod" HelpDesk="ggus_helpdesk_ops">
+            <step id="new" new_label="Site escalation (1st)" old_label="1st mail to site admins"/>
+            <step id="new" new_label="Site escalation (1st)" old_label="test"/>
+            <step id="esc1" new_label="Site escalation (2nd)" old_label="2nd mail to site admins"/>
+            <step id="esc2" new_label="NGI escalation" old_label="Case transfered to NGI"/>
+            <step id="esc3" new_label="COD escalation" old_label="Case transfered to political instances"/>
+        </ROD>
+        <ROD SubCommunity="Middleware" Workflow="workflow_middleware" HelpDesk="ggus_helpdesk_ops">
+            <step id="new" new_label="EMI 2 retirement" old_label="1st mail to site admins"/>
+            <step id="esc1" new_label="EMI 2 retirement" old_label="2nd mail to site admins"/>
+        </ROD>
+        <COD SubCommunity="false" Workflow="workflow_cod" HelpDesk="ggus_helpdesk_ops">
+            <step id="COD_new" new_label="NGI escalation (1st)" old_label="1st mail to site admins"/>
+            <step id="COD_esc1" new_label="NGI escalation (2nd)" old_label="2nd mail to site admins"/>
+            <step id="COD_esc2" new_label="COO escalation" old_label="Case transfered to political instances"/>
+        </COD>
+        <VOM SubCommunity="false" Workflow="workflow_vo" HelpDesk="ggus_helpdesk_ops">
+            <step id="registration" new_label="VO creation" old_label="1st mail to site admins"/>
+            <step id="ggus_su_request" new_label="GGUS SU Request" old_label="1st mail to site admins"/>
+            <step id="voms_help_request" new_label="VOMS help request" old_label="1st mail to site admins"/>
+        </VOM>
+
+    </Steps>
+    <Fields>
+        <parameter key="ModificationDate">GHD_Modified_Date</parameter>
+        <parameter key="ResponsibleUnit">GHD_Responsible_Unit</parameter>
+        <parameter key="Status">GHD_Status</parameter>
+        <parameter key="Modifier">GHD_Last_Modifier</parameter>
+        <parameter key="Submitter">GHD_Submitter</parameter>
+        <parameter key="Priority">GHD_Priority</parameter>
+        <parameter key="Solution">GHD_Solution</parameter>
+        <parameter key="ResponsibleEmail">GHD_Assigned_To</parameter>
+        <parameter key="DiaryOfSteps">GHD_Change_Diary</parameter>
+        <parameter key="Description">GHD_Description</parameter>
+        <parameter key="Involve">GHD_Involve</parameter>
+        <parameter key="ProblemType">GHD_Problem_Type</parameter>
+        <parameter key="VoSpecific">GHD_VO_Specific</parameter>
+        <parameter key="Comment">GHD_Public_Diary</parameter>
+        <parameter key="InternalDiary">GHD_Internal_Diary</parameter>
+        <parameter key="Site">GHD_Affected_Site</parameter>
+        <parameter key="Vo">GHD_Affected_VO</parameter>
+        <parameter key="Id">GHD_Request_ID</parameter>
+        <parameter key="CreateDate">GHD_Create_Date</parameter>
+        <parameter key="NotificationStrategy">GHD_User_Notification</parameter>
+        <parameter key="Comment">GHD_Public_Diary</parameter>
+        <parameter key="Involve">GHD_Involve</parameter>
+        <parameter key="Subject">GHD_Subject</parameter>
+    </Fields>
+</Mapping>
+

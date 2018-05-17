@@ -1,0 +1,35 @@
+<entries>
+    <entries key="COD_XML">
+        <entry key="COD Tickets">codTickets</entry>
+        <entry key="Downtime > 1 month">DowntimeOneMonth</entry>
+        <entry key="Notification > 72h">Alarm72h</entry>
+        <entry key="ROD Ticket not treated">rodTicketsOld</entry>
+        <entry key="ROD Tickets Expired">rodTicketsExpired</entry>
+        <entry key="Middleware Tickets Expired">middlewareTicketsExpired</entry>
+        <entry key="COD Notepads">codNotepads</entry>
+    </entries>
+    <entries key="CSI_XML">
+        <entry key="Critical security issues">nagiosCritical</entry>
+        <entry key="High security issues">nagiosWarning</entry>
+        <entry key="CSI Tickets">onGoingTickets</entry>
+        <entry key="Created Tickets">ticketsCreated</entry>
+        <entry key="Closed Tickets">ticketsClosed</entry>
+    </entries>
+    <entries key="ROD_XML">
+        <entry key="Downtimes">downtimes</entry>
+        <entry key="Nagios critical">nagiosCritical</entry>
+        <entry key="Nagios warning">nagiosWarning</entry>
+        <entry key="Nagios unknown">nagiosUnknown</entry>
+        <entry key="ROD Notepads">notepads</entry>
+        <entry key="Ticket on-going">onGoingTickets</entry>
+        <entry key="Ticket expiring">expiringTickets</entry>
+        <entry key="Ticket expired">expiredTickets</entry>
+        <entry key="Cod Items">codItems</entry>
+        <entry key="Closed Tickets">ticketscreated</entry>
+        <entry key="Created Tickets">ticketsclosed</entry>
+        <entry key="Middleware Ticket on-going">MW_onGoingTickets</entry>
+        <entry key="Middleware Ticket expiring">MW_expiringTickets</entry>
+        <entry key="Middleware Ticket expired">MW_expiredTickets</entry>
+    </entries>
+</entries>
+

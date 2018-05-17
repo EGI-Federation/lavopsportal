@@ -1,0 +1,723 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="" />
+    <ignored path="$PROJECT_DIR$/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CheckStyle-IDEA-workspace">
+    <option name="configuration">
+      <map>
+        <entry key="last-active-plugin-version" value="5.18.4" />
+      </map>
+    </option>
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="skeletons.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/etc/app/views/BROADCAST/tests/skeletons.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tests_suite.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/etc/app/views/BROADCAST/tests/tests_suite.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.properties" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/etc/app/app.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="883">
+              <caret line="191" column="0" lean-forward="false" selection-start-line="191" selection-start-column="0" selection-end-line="191" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="vo.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/etc/app/views/VO/views/vo.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-450">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="rod.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/etc/app/views/ROD/rod.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="857">
+              <caret line="196" column="0" lean-forward="false" selection-start-line="196" selection-start-column="0" selection-end-line="196" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.txt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/etc/app/html/README.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" column="7" lean-forward="true" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ggus.bup" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/etc/app/views/GGUS/views/ggus.bup">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="27" lean-forward="false" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
+              <folding>
+                <marker date="1526560545050" expanded="true" signature="117:17479" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="148:500" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="163:266" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="363:488" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="624:1937" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="639:784" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="874:975" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="996:1833" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="1638:1711" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="1965:3483" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="1980:2117" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="2157:2331" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="2196:2310" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="2352:3251" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="2444:2656" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="2492:2634" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="2911:3134" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="3284:3471" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="3518:4219" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="3533:3670" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="3710:3884" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="3749:3863" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="3906:4057" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="4091:4207" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="4297:4914" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="4312:4435" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="4510:4851" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="4549:4830" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="4942:6389" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="4957:5083" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="5123:5297" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="5162:5276" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="5318:6226" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="5547:5759" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="5595:5737" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="5885:6108" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="6261:6377" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="6418:8710" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="6433:6570" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="6610:6784" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="6649:6763" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="6805:7654" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="7068:7280" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="7116:7258" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="7334:7536" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="7688:7948" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="7794:7931" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="7835:7908" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="7973:8697" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="8161:8672" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="8738:9266" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="8753:8890" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="8930:9105" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="8969:9084" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="9138:9254" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="10689:11680" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="10704:10847" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="11164:11263" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="11285:11667" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="11338:11436" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="11554:11592" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="11777:12869" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="11792:11935" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="12252:12444" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="12291:12423" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="12467:12856" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="12520:12618" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="12736:12774" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="12943:14410" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="13111:13254" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="13556:13655" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="13677:14398" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="13731:13829" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="13954:14315" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="14529:15929" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="14638:14772" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="14814:14899" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="14921:15917" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="14976:15302" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="15571:15676" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="15728:15833" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="16051:17467" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="16160:16294" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="16336:16428" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="16450:17455" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="16504:16841" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="17109:17214" ph="..." />
+                <marker date="1526560545050" expanded="true" signature="17266:17371" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="lavoisier-config.properties" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/etc/app/views/ROD/lavoisier-config.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="csi.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/etc/app/views/CSI/csi.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GradleLocalSettings">
+    <option name="externalProjectsViewState">
+      <projects_view />
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/etc/app/views/BROADCAST/lavoisier-config.properties" />
+        <option value="$PROJECT_DIR$/etc/app/views/COD/lavoisier-config.properties" />
+        <option value="$PROJECT_DIR$/etc/app/views/CSI/lavoisier-config.properties" />
+        <option value="$PROJECT_DIR$/etc/app/views/GGUS/lavoisier-config.test.properties" />
+        <option value="$PROJECT_DIR$/etc/app/views/GGUS/lavoisier-config.properties" />
+        <option value="$PROJECT_DIR$/etc/app/views/GGUS/views/lavoisier-config.xml" />
+        <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/lavoisier-config.properties" />
+        <option value="$PROJECT_DIR$/etc/app/views/ROD/lavoisier-config.properties" />
+        <option value="$PROJECT_DIR$/etc/app/views/ROD/rod.xml" />
+        <option value="$PROJECT_DIR$/etc/app/views/VO/lavoisier-config.properties" />
+        <option value="$PROJECT_DIR$/etc/app/app.properties" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="65" />
+    <option name="y" value="124" />
+    <option name="width" value="1845" />
+    <option name="height" value="879" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="AndroidView" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="lavopsportal" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lavopsportal" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lavopsportal" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lavopsportal" type="462c0819:PsiDirectoryNode" />
+              <item name="log" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/etc/app/views/VO/views" />
+      <recent name="$PROJECT_DIR$/etc/app/views/GGUS/views" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/etc/app/views" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <module />
+    </configuration>
+    <configuration name="Start Lavoisier server" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" value="fr.in2p3.lavoisier.command.StartServer" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="lavopsportal" />
+      <envs />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file id="idea.log" enabled="true" />
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="" />
+      <created>1526559679554</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1526559679554</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="65" y="124" width="1857" height="1175" extended-state="6" />
+    <layout>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project Explorer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Job Explorer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32973504" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="CheckStyle" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33038348" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="FAQ Robot" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24958587" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/etc/app/views/BROADCAST/readme.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/etc/app/views/BROADCAST/tests/skeletons.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/etc/app/views/BROADCAST/tests/tests_suite.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/etc/app/views/BROADCAST/lavoisier-config.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/etc/app/views/COD/lavoisier-config.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/etc/app/views/CSI/lavoisier-config.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/etc/app/views/DASHBOARD/lavoisier-config.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/etc/app/views/CSI/csi.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/etc/app/views/GGUS/lavoisier-config.test.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/etc/app/views/GGUS/lavoisier-config.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/lavoisier-config.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/lavoisier-config.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/readme.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/etc/app/views/GGUS/views/ggus.bup">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="27" lean-forward="false" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
+          <folding>
+            <marker date="1526560545050" expanded="true" signature="117:17479" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="148:500" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="163:266" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="363:488" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="624:1937" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="639:784" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="874:975" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="996:1833" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="1638:1711" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="1965:3483" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="1980:2117" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="2157:2331" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="2196:2310" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="2352:3251" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="2444:2656" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="2492:2634" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="2911:3134" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="3284:3471" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="3518:4219" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="3533:3670" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="3710:3884" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="3749:3863" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="3906:4057" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="4091:4207" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="4297:4914" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="4312:4435" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="4510:4851" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="4549:4830" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="4942:6389" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="4957:5083" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="5123:5297" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="5162:5276" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="5318:6226" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="5547:5759" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="5595:5737" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="5885:6108" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="6261:6377" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="6418:8710" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="6433:6570" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="6610:6784" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="6649:6763" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="6805:7654" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="7068:7280" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="7116:7258" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="7334:7536" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="7688:7948" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="7794:7931" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="7835:7908" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="7973:8697" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="8161:8672" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="8738:9266" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="8753:8890" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="8930:9105" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="8969:9084" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="9138:9254" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="10689:11680" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="10704:10847" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="11164:11263" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="11285:11667" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="11338:11436" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="11554:11592" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="11777:12869" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="11792:11935" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="12252:12444" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="12291:12423" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="12467:12856" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="12520:12618" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="12736:12774" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="12943:14410" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="13111:13254" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="13556:13655" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="13677:14398" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="13731:13829" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="13954:14315" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="14529:15929" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="14638:14772" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="14814:14899" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="14921:15917" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="14976:15302" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="15571:15676" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="15728:15833" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="16051:17467" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="16160:16294" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="16336:16428" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="16450:17455" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="16504:16841" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="17109:17214" ph="..." />
+            <marker date="1526560545050" expanded="true" signature="17266:17371" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/etc/app/views/ROD/lavoisier-config.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/etc/app/views/ROD/readme.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/etc/app/views/GGUS/readme.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/etc/app/app.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="883">
+          <caret line="191" column="0" lean-forward="false" selection-start-line="191" selection-start-column="0" selection-end-line="191" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/etc/app/views/VO/views/vo.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-450">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/etc/app/views/VO/lavoisier-config.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/etc/app/views/ROD/rod.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="857">
+          <caret line="196" column="0" lean-forward="false" selection-start-line="196" selection-start-column="0" selection-end-line="196" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/etc/app/html/README.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="7" lean-forward="true" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

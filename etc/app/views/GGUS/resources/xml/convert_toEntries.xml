@@ -1,0 +1,10 @@
+<config version="14" >
+    <processor type="ChangeNamespaceProcessor" match="//gg:*"/>
+
+    <rename match="/*/getListValues" name="e:entries"/>
+    <replace match="/e:entries/e:entries/*[text()]" nodes="entry(local-name(),text())"/>
+    <insert match="/e:entries/e:entries/GHD_Soap_Client_Data"
+            nodes="new_attribute('key','GHD_Soap_Client_Data')"/>
+    <rename match="/e:entries/e:entries/GHD_Soap_Client_Data" name="e:entries"/>
+    <remove match="/e:entries/e:entries/e:entries[@key='GHD_Soap_Client_Data']/e:entries" depth="1"/>
+</config>

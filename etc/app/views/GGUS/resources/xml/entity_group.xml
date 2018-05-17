@@ -1,0 +1,11 @@
+<config version="14" >
+    <processor match="/e:entries/e:entries[*]" type="SelectGroupByProcessor" disabled="not($entity_type='site')">
+        <parameter name="group_by" eval="e:entry[@key='GHD_Affected_Site']/text()"/>
+        <parameter name="sort_type">text</parameter>
+    </processor>
+
+    <processor match="/e:entries/e:entries[*]" type="SelectGroupByProcessor" disabled="not($entity_type='ngi')">
+        <parameter name="group_by" eval="e:entries/e:entry[@key='Ngi']/text()"/>
+        <parameter name="sort_type">text</parameter>
+    </processor>
+</config>

@@ -1,0 +1,124 @@
+<e:entries xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+
+    <e:entries key="/C=test/O=fake/CN=User">
+        <e:entry key="NAME">user</e:entry>
+        <e:entry key="EMAIL">cic-information@cc.in2p3.fr</e:entry>
+        <e:entry key="CERTDN">/C=test/O=fake/CN=user</e:entry>
+    </e:entries>
+
+    <e:entries key="/C=test/O=fake/CN=UserVo">
+
+        <e:entry key="ROLES">VO MANAGER::vo::atlas</e:entry>
+        <e:entry key="ROLES">VO DEPUTY::vo::aegis</e:entry>
+        <e:entry key="ROLES">VO EXPERT::vo::dteam</e:entry>
+
+
+        <e:entry key="NAME">uservo</e:entry>
+        <e:entry key="EMAIL">cic-information@cc.in2p3.fr</e:entry>
+        <e:entry key="CERTDN">/C=test/O=fake/CN=UserVo</e:entry>
+
+    </e:entries>
+    <e:entries key="/C=test/O=fake/CN=UserVoExpert">
+
+        <e:entry key="ROLES">VO EXPERT::vo::atlas</e:entry>
+
+        <e:entry key="NAME">uservoexpert</e:entry>
+
+        <e:entry key="EMAIL">cic-information@cc.in2p3.fr</e:entry>
+
+        <e:entry key="CERTDN">/C=test/O=fake/CN=UserVoExpert</e:entry>
+
+    </e:entries>
+    <e:entries key="/C=test/O=fake/CN=UserGridBody">
+
+
+        <e:entry key="ROLES">GRID BODY::project::EGI</e:entry>
+
+
+        <e:entry key="NAME">User GridBody</e:entry>
+        <e:entry key="EMAIL">cic-information@cc.in2p3.fr</e:entry>
+        <e:entry key="CERTDN">/C=test/O=fake/CN=UserGridBody</e:entry>
+
+    </e:entries>
+    <e:entries key="/C=test/O=fake/CN=UserNgiRod">
+
+
+        <e:entry key="ROLES">Regional Staff (ROD)::ngi::NGI_FRANCE</e:entry>
+
+
+        <e:entry key="NAME">User NgiRod</e:entry>
+
+        <e:entry key="EMAIL">cic-information@cc.in2p3.fr</e:entry>
+
+        <e:entry key="CERTDN">/C=test/O=fake/CN=UserNgiRod</e:entry>
+
+    </e:entries>
+    <e:entries key="/C=test/O=fake/CN=Usersite">
+
+
+        <e:entry key="ROLES">Site Operations Manager::site::IN2P3-CC</e:entry>
+
+
+        <e:entry key="NAME">User site</e:entry>
+        <e:entry key="EMAIL">cic-information@cc.in2p3.fr</e:entry>
+        <e:entry key="CERTDN">/C=test/O=fake/CN=User site</e:entry>
+
+    </e:entries>
+    <e:entries key="/C=test/O=fake/CN=Usersite-2">
+
+
+        <e:entry key="ROLES">Site Operations Manager::site::IN2P3-CC-T2</e:entry>
+
+        <e:entry key="NAME">User site</e:entry>
+        <e:entry key="EMAIL">cic-information@cc.in2p3.fr</e:entry>
+        <e:entry key="CERTDN">/C=test/O=fake/CN=User site</e:entry>
+
+    </e:entries>
+    <e:entries key="/C=test/O=fake/CN=Usersite-2">
+
+        <e:entry key="ROLES">Site Operations Manager::site::IN2P3-LKZ</e:entry>
+        <e:entry key="NAME">User site</e:entry>
+        <e:entry key="EMAIL">cic-information@cc.in2p3.fr</e:entry>
+        <e:entry key="CERTDN">/C=test/O=fake/CN=User site</e:entry>
+
+    </e:entries>
+    <e:entries key="/C=DE/O=GermanGrid/OU=KIT/CN=Pavel Weber">
+
+
+        <e:entry key="ROLES">GRID BODY::project::EGI</e:entry>
+        <e:entry key="ROLES">Site Operations Manager::site::FZK-LCG2</e:entry>
+
+
+        <e:entry key="NAME">Pavel Weber</e:entry>
+        <e:entry key="EMAIL">pavel.weber@kit.edu</e:entry>
+        <e:entry key="CERTDN">/C=DE/O=GermanGrid/OU=KIT/CN=Pavel Weber</e:entry>
+
+    </e:entries>
+
+    <e:entries key="/DC=org/DC=terena/DC=tcs/C=NL/O=EGI/OU=Operations/CN=Baptiste Grenier">
+
+        <e:entry key="ROLES">GRID BODY::project::EGI</e:entry>
+
+        <e:entry key="NAME">Baptiste Grenier</e:entry>
+        <e:entry key="EMAIL">baptiste.grenier@egi.eu</e:entry>
+        <e:entry key="CERTDN">/DC=org/DC=terena/DC=tcs/C=NL/O=EGI/OU=Operations/CN=Baptiste Grenier</e:entry>
+    </e:entries>
+
+    <e:entries key="/DC=org/DC=terena/DC=tcs/C=NL/O=Stichting EGI/OU=Operations/CN=Bruce Becker">
+
+        <e:entry key="ROLES">GRID BODY::project::EGI</e:entry>
+
+        <e:entry key="NAME">Bruce Becker</e:entry>
+        <e:entry key="EMAIL">bruce.becker@egi.eu</e:entry>
+        <e:entry key="CERTDN">/DC=org/DC=terena/DC=tcs/C=NL/O=Stichting EGI/OU=Operations/CN=Bruce Becker</e:entry>
+    </e:entries>
+
+    <e:entries key="/C=UK/O=eScience/OU=CLRC/L=RAL/CN=matthew viljoen">
+
+        <e:entry key="ROLES">GRID BODY::project::EGI</e:entry>
+
+        <e:entry key="NAME">Matthew Viljoen</e:entry>
+        <e:entry key="EMAIL">matthew.viljoen@stfc.ac.uk</e:entry>
+        <e:entry key="CERTDN">/C=UK/O=eScience/OU=CLRC/L=RAL/CN=matthew viljoen</e:entry>
+    </e:entries>
+</e:entries>

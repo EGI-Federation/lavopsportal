@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: fr.in2p3.lavoisier:html-template-engine:2.1.3-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/fr/in2p3/lavoisier/html-template-engine/2.1.3-SNAPSHOT/html-template-engine-2.1.3-20180427.150159-77.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/fr/in2p3/lavoisier/html-template-engine/2.1.3-SNAPSHOT/html-template-engine-2.1.3-20180427.150159-77-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/fr/in2p3/lavoisier/html-template-engine/2.1.3-SNAPSHOT/html-template-engine-2.1.3-20180427.150159-77-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

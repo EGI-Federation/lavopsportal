@@ -1,0 +1,40 @@
+<config xmlns="http://software.in2p3.fr/lavoisier/config.xsd" xmlns:xi="http://www.w3.org/2001/XInclude" version="14">
+
+    <!--
+
+    !!!!!!!!! THIS FILE SHOULD BE USED ONLY IF VAPOR MODULE IS DEACTIVATED !!!!!!!!!!
+
+    -->
+
+    <view name="VAPOR_Endpoints_Policy">
+        <connector type="HTTPConnector">
+            <parameter name="url" eval="property('VAPOR_Endpoints_Policy.url')"></parameter>
+        </connector>
+
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="minutes">43</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"></trigger>
+        </cache>
+    </view>
+
+
+    <view name="VAPOR_VO">
+        <connector type="HTTPConnector">
+            <parameter name="url" eval="property('VAPOR_VO.url')"></parameter>
+        </connector>
+
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="minutes">43</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"></trigger>
+        </cache>
+    </view>
+
+
+
+
+
+</config>

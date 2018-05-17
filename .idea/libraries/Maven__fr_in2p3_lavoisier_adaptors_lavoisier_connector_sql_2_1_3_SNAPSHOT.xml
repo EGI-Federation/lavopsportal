@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: fr.in2p3.lavoisier.adaptors:lavoisier-connector-sql:2.1.3-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/fr/in2p3/lavoisier/adaptors/lavoisier-connector-sql/2.1.3-SNAPSHOT/lavoisier-connector-sql-2.1.3-20180427.150126-78.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/fr/in2p3/lavoisier/adaptors/lavoisier-connector-sql/2.1.3-SNAPSHOT/lavoisier-connector-sql-2.1.3-20180427.150126-78-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/fr/in2p3/lavoisier/adaptors/lavoisier-connector-sql/2.1.3-SNAPSHOT/lavoisier-connector-sql-2.1.3-20180427.150126-78-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

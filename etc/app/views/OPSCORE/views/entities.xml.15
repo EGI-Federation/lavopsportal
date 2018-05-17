@@ -1,0 +1,615 @@
+<config xmlns="http://software.in2p3.fr/lavoisier/config.xsd" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" xmlns:xi="http://www.w3.org/2001/XInclude" version="15">
+
+
+
+    <view name="OPSCORE_get_site"><namespace prefix="e" uri="http://software.in2p3.fr/lavoisier/entries.xsd"/>
+        <info>
+            <category>Entities</category>
+            <description>get_site method</description>
+        </info>
+        <connector type="HTTPConnector">
+            <parameter name="url" eval="property('OPSCORE.gocdb.get_sites')"/>
+            <parameter name="certificate" eval="property('certificate.path')"/>
+            <parameter name="passphrase" eval="property('certificate.password')"/>
+        </connector>
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="hours">1</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger ignore-during="PT1H" type="ViewCreatedTrigger"/>
+        </cache>
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+
+    </view>
+
+    <view name="OPSCORE_SITE"><namespace prefix="e" uri="http://software.in2p3.fr/lavoisier/entries.xsd"/>
+        <info>
+            <category>Entities</category>
+            <description>Site list - entries</description>
+        </info>
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('OPSCORE_get_site')"/>
+        </connector>
+
+        <processors>
+            <element in="results" out="e:entries">
+                <element in="SITE" out="e:entries">
+                    <attribute-create out="key">../@NAME</attribute-create>
+                    <attribute-ignore/>
+
+                    <element-create>entry('PRIMARY_KEY',../PRIMARY_KEY/text())</element-create>
+                    <element-create>entry('NAME',../SHORT_NAME/text())</element-create>
+                    <element-create>entry('NGI',../ROC/text())</element-create>
+                    <element-create>entry('COUNTRY',../COUNTRY_CODE/text())</element-create>
+                    <element-create>entry('PRODUCTION_INFRASTRUCTURE',../PRODUCTION_INFRASTRUCTURE/text())</element-create>
+                    <element-create>entry('CERTIFICATION_STATUS',../CERTIFICATION_STATUS/text())</element-create>
+                    <element-ignore/>
+                </element>
+
+            </element>
+        </processors>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+
+
+    </view>
+
+    <view name="OPSCORE_SITE_CANDIDATE"><namespace prefix="e" uri="http://software.in2p3.fr/lavoisier/entries.xsd"/>
+        <info>
+            <category>Entities</category>
+            <description>Candidate Site list - entries</description>
+        </info>
+        <connector type="HTTPConnector">
+            <parameter name="url" eval="property('OPSCORE.gocdb.get_sites_candidate')"/>
+            <parameter name="certificate" eval="property('certificate.path')"/>
+            <parameter name="passphrase" eval="property('certificate.password')"/>
+        </connector>
+
+
+        <processors>
+            <element in="results" out="e:entries">
+                <element in="SITE" out="e:entries">
+                    <attribute-create out="key">../@NAME</attribute-create>
+                    <attribute-ignore/>
+                    <element-create>entry('PRIMARY_KEY',../@PRIMARY_KEY)</element-create>
+                    <element-create>entry('NAME',../@NAME)</element-create>
+                    <element-create>entry('NGI',../@ROC)</element-create>
+                    <element-create>entry('COUNTRY',../@COUNTRY_CODE)</element-create>
+                    <element-ignore/>
+                </element>
+
+            </element>
+        </processors>
+
+
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="hours">1</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger ignore-during="PT1H" type="ViewCreatedTrigger"/>
+        </cache>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+
+    </view>
+
+
+    <view name="OPSCORE_site_T1"><namespace prefix="e" uri="http://software.in2p3.fr/lavoisier/entries.xsd"/>
+        <info>
+            <category>Entities</category>
+            <description>get_site method with Tier1 only</description>
+        </info>
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('OPSCORE_get_site')"/>
+        </connector>
+
+        <processors>
+            <element in="results">
+                <element in="SITE" if="TIER/text()=1"/>
+                <element-ignore/>
+            </element>
+        </processors>
+
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="hours">1</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger ignore-during="PT1H" type="ViewCreatedTrigger"/>
+        </cache>
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+
+
+    </view>
+
+    <view name="roc-site_INDEX"><namespace prefix="e" uri="http://software.in2p3.fr/lavoisier/entries.xsd"/>
+
+        <info>
+            <category>cclavoisierfr</category>
+            <description>replace roc-site_Index method</description>
+        </info>
+        <connector type="HTTPConnector">
+            <parameter name="url" eval="property('OPSCORE.gocdb.get_prod_sites')"/>
+            <parameter name="certificate" eval="property('certificate.path')"/>
+            <parameter name="passphrase" eval="property('certificate.password')"/>
+        </connector>
+
+    <processors>
+        <remove match="/results/SITE/*[name()!='ROC' and name()!='CONTACT_EMAIL']"/>
+        <insert match="/results/SITE[*]" nodes="new_attribute('Email',choose(match()/CONTACT_EMAIL/text(),match()/CONTACT_EMAIL/text(),'NA') ) "/>
+
+        <select match="/results/SITE">
+            <group by="ROC/text()" sort="text"/>
+        </select>
+        <rename match="/results" name="Rocs"/>
+        <insert match="/Rocs/e:entry[*]" nodes="new_element('Id',new_text(match()/@key))" as="first_child"/>
+        <rename match="/Rocs/e:entry" name="Roc"/>
+        <insert-parent match="/Rocs/Roc/SITE" name="Sites"/>
+        <insert match="/Rocs/Roc/Sites" nodes="new_attribute('PARSING_CHILDREN_MODE','FORCE_INDEX')"/>
+        <rename match="/Rocs/Roc/Sites/SITE" name="SiteName"/>
+        <remove match="/Rocs/Roc/Sites/SiteName/@ID"/>
+        <rename match="/Rocs/Roc/@key" name="id"/>
+        <rename match="/Rocs/Roc/Sites/SiteName/@PRIMARY_KEY" name="GocId"/>
+        <insert match="/Rocs/Roc/Sites/SiteName" nodes="new_text(@NAME)"/>
+        <remove match="/Rocs/Roc/Sites/SiteName/@NAME"/>
+    </processors>
+
+
+
+        <!--<cache type="FileCache">-->
+            <!--<trigger type="DeltaTimeTrigger">-->
+                <!--<parameter name="hours">2</parameter>-->
+            <!--</trigger>-->
+            <!--<trigger type="ViewNotifiedTrigger"/>-->
+            <!--<trigger ignore-during="PT2H" type="ViewCreatedTrigger"/>-->
+        <!--</cache>-->
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+
+    </view>
+
+    <view name="OPSCORE_site_list_prod"><namespace prefix="e" uri="http://software.in2p3.fr/lavoisier/entries.xsd"/><namespace prefix="e" uri="http://software.in2p3.fr/lavoisier/entries.xsd"/>
+        <info>
+            <category>Entities</category>
+            <description>get_site list</description>
+        </info>
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('OPSCORE_get_site')"/>
+        </connector>
+
+        <processors>
+            <select match="/results/SITE[PRODUCTION_INFRASTRUCTURE='Production'][CERTIFICATION_STATUS='Certified']"/>
+            <remove match="/e:entries/SITE/*[local-name()!='ROC' and local-name()!='SHORT_NAME']"/>
+            <remove match="/e:entries/SITE/@*[local-name()!='NAME']"/>
+            <rename match="/e:entries/SITE" name="e:entries"/>
+            <replace match="/e:entries/e:entries/SHORT_NAME[text()]" nodes="entry('site',text())"/>
+            <replace match="/e:entries/e:entries/ROC[text()]" nodes="entry('ngi',text())"/>
+        </processors>
+
+        <cache type="FileCache">
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="DependencyRefreshedTrigger">
+                <parameter name="views">
+                    <entry>OPSCORE_get_site</entry>
+                </parameter>
+            </trigger>
+        </cache>
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+
+    </view>
+
+
+    <view name="OPSCORE_update_siteDB"><namespace prefix="e" uri="http://software.in2p3.fr/lavoisier/entries.xsd"/><namespace prefix="e" uri="http://software.in2p3.fr/lavoisier/entries.xsd"/>
+        <info>
+            <category>Entities</category>
+            <description>update the site info into the DB</description>
+        </info>
+        <connector type="HTTPConnector">
+            <parameter name="url" eval="property('OPSCORE.update.siteDB')"/>
+            <parameter name="certificate" eval="property('certificate.path')"/>
+            <parameter name="passphrase" eval="property('certificate.password')"/>
+            <parameter name="force-redirect">true</parameter>
+            <parameter name="connect-timeout">120</parameter>
+            <parameter name="read-timeout">120</parameter>
+        </connector>
+
+        <cache type="FileCache">
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="hours">6</parameter>
+            </trigger>
+
+        </cache>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+
+
+    </view>
+
+
+
+    <view name="OPSCORE_prod_entities_0"><info><category>Hidden</category></info><argument name="disable-default-XPath" path-format="value">true</argument><connector type="XMLConnector">
+                    <parameter name="content" eval="view('OPSCORE_get_roc_contacts')"/>
+                </connector><processors>
+                    <select match="/results/ROC[@ROC_NAME = parent_match()/@Name]/MAIL_CONTACT" single="true"/>
+                </processors></view><view name="OPSCORE_prod_entities">
+        <info>
+            <category>Entities</category>
+            <description>Entities NGI/Site Production,Certified</description>
+        </info>
+
+        <connector type="HTTPConnector">
+            <!--<parameter name="url" eval="property('OPSCORE.gocdb.get_prod_sites')"/>-->
+            <parameter name="url" eval="property('OPSCORE.gocdb.get_sites')"/>
+            <parameter name="certificate" eval="property('certificate.path')"/>
+            <parameter name="passphrase" eval="property('certificate.password')"/>
+        </connector>
+
+        <processors>
+
+            <!-- preparing structure -->
+            <remove match="/results/SITE/*[not(name()='ROC' or name()='CONTACT_EMAIL' or name()='CSIRT_EMAIL' or name()='PRODUCTION_INFRASTRUCTURE' or name()='CERTIFICATION_STATUS')]"/>
+            <merge match="/results/SITE/*"/>
+            <merge match="/results/SITE" count="5"/>
+            <select match="/results/SITE">
+                <group by="@ROC" sort="text"/>
+            </select>
+            <rename match="/results/e:entry" name="NGI"/>
+            <rename match="/results/NGI/@key" name="name"/>
+            <rename match="/results" name="NGIs"/>
+            <insert match="/NGIs/NGI" as="first_child" nodes="new_element('tmp')"/>
+            <insert match="/NGIs/NGI/tmp" nodes="new_attribute('name', ancestor::NGI/@name)"/>
+
+            <!-- joining NGI data -->
+            <insert match="/NGIs/NGI/tmp[* or not(*)]" nodes="view('OPSCORE_NGIs')/NGIs/NGI[@Name = match()/@name]"/>
+            <insert match="/NGIs/NGI/tmp/NGI[* or not(*)]" nodes="view_path_post('OPSCORE_prod_entities_0', choose(path(false()), path(false()), ''), match(), arguments())"/>
+            <rename match="/NGIs/NGI/tmp/NGI/MAIL_CONTACT" name="contact_email"/>
+            <merge match="/NGIs/NGI/tmp/NGI/contact_email"/>
+
+            <merge match="/NGIs/NGI/tmp/NGI"/>
+
+            <remove match="/NGIs/NGI/tmp" depth="1"/>
+            <merge match="/NGIs/NGI"/>
+            <rename match="/NGIs/NGI/@GgusSU" name="ggus_su"/>
+            <rename match="/NGIs/NGI/@RodMail" name="rod_email"/>
+
+
+            <insert match="/NGIs/NGI" as="last_child" nodes="new_element('Sites')"/>
+            <move match="/NGIs/NGI/SITE">
+                <to-following-sibling name="Sites"/>
+            </move>
+            <rename match="/NGIs/NGI/Sites/SITE" name="Site"/>
+            <remove match="/NGIs/NGI/@Name"/>
+
+            <rename match="/NGIs/NGI/Sites/Site/@ROC" name="ngi"/>
+            <rename match="/NGIs/NGI/Sites/Site/@PRIMARY_KEY" name="primary_key"/>
+            <rename match="/NGIs/NGI/Sites/Site/@NAME" name="name"/>
+            <rename match="/NGIs/NGI/Sites/Site/@CONTACT_EMAIL" name="contact_email"/>
+            <rename match="/NGIs/NGI/Sites/Site/@CSIRT_EMAIL" name="csirt_email"/>
+            <rename match="/NGIs/NGI/Sites/Site/@ID" name="id"/>
+
+            <replace match="/NGIs/NGI/Sites/Site/@PRODUCTION_INFRASTRUCTURE" nodes="new_attribute('production',choose(match()='Production',1,0))"/>
+            <replace match="/NGIs/NGI/Sites/Site/@CERTIFICATION_STATUS" nodes="new_attribute('certified',choose(match()='Certified',1,0))"/>
+
+
+        </processors>
+
+        <cache type="FileCache">
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="DependencyRefreshedTrigger">
+                <parameter name="views">
+                    <entry>OPSCORE_users</entry>
+                    <entry>OPSCORE_downtime_ongoing_raw</entry>
+                </parameter>
+                <parameter name="all">true</parameter>
+            </trigger>
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="minutes">18</parameter>
+            </trigger>
+        </cache>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+    </view>
+
+    <view name="OPSCORE_prod_entities_certified"><namespace prefix="e" uri="http://software.in2p3.fr/lavoisier/entries.xsd"/><namespace prefix="e" uri="http://software.in2p3.fr/lavoisier/entries.xsd"/>
+        <info>
+            <category>Entities</category>
+            <description>Entities NGI/Site Production,Certified</description>
+        </info>
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('OPSCORE_prod_entities')"/>
+        </connector>
+        <processors>
+
+            <remove match="/NGIs/NGI/Sites/Site[@production=0 or @certified=0]"/>
+        </processors>
+
+        <cache type="FileCache">
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="DependencyRefreshedTrigger">
+                <parameter name="views">
+                    <entry>OPSCORE_prod_entities</entry>
+                </parameter>
+
+            </trigger>
+        </cache>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+    </view>
+
+    <view name="OPSCORE_entities_map"><namespace prefix="e" uri="http://software.in2p3.fr/lavoisier/entries.xsd"/><namespace prefix="e" uri="http://software.in2p3.fr/lavoisier/entries.xsd"/>
+        <info>
+            <category>Entities</category>
+            <description/>
+        </info>
+        <argument name="entry_key" path-format="none"/>
+        <argument name="entry_value" path-format="none"/>
+        <argument name="entity_type" path-format="none" pattern="ngi|site"/>
+        <argument name="xpath" path-format="none" eval="choose($entity_type = 'site','/NGIs/NGI/Sites/Site', '/NGIs/NGI')"/>
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('OPSCORE_prod_entities')"/>
+        </connector>
+
+        <processors>
+            <processor type="RenameProcessor" match="eval(concat(choose($entity_type = 'site','/NGIs/NGI/Sites/Site', '/NGIs/NGI'),'/@',$entry_value))">
+                <parameter name="node_name">entry_value</parameter>
+            </processor>
+            <processor type="RenameProcessor" match="eval(concat(choose($entity_type = 'site','/NGIs/NGI/Sites/Site', '/NGIs/NGI'),'/@',$entry_key))">
+                <parameter name="node_name">entry_key</parameter>
+            </processor>
+            <processor type="ReplaceProcessor" match="eval(concat(choose($entity_type = 'site','/NGIs/NGI/Sites/Site', '/NGIs/NGI'),'[@entry_key]'))">
+                <parameter name="nodes" eval="entry(@entry_key , choose(@entry_value, @entry_value, ''))"/>
+            </processor>
+            <remove match="//*[not(self::e:entry | self::NGIs)]" depth="1"/>
+            <rename match="/NGIs" name="e:entries"/>
+            <processor type="SelectProcessor" match="eval(path())" disabled="not(boolean(path(false())))">
+                <namespaces>
+                    <entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry>
+                </namespaces>
+
+            </processor>
+
+        </processors>
+    </view>
+
+
+
+
+    <view name="OPSCORE_get_site_av_re"><namespace prefix="e" uri="http://software.in2p3.fr/lavoisier/entries.xsd"/>
+        <info>
+            <category>Cron</category>
+            <description>Retrieving AR from trunk / DB</description>
+        </info>
+        <connector type="HTTPConnector">
+            <parameter name="url" eval="property('OPSCORE.get_sites_av_re')"/>
+            <parameter name="certificate" eval="property('certificate.path')"/>
+            <parameter name="passphrase" eval="property('certificate.password')"/>
+            <parameter name="force-redirect">true</parameter>
+            <parameter name="connect-timeout">60</parameter>
+            <parameter name="read-timeout">60</parameter>
+        </connector>
+
+        <processors>
+
+            <rename match="/root/site/@name" name="key"/>
+            <move match="/root/site/@*[local-name()!='key']">
+                <to-following-sibling/>
+            </move>
+            <rename match="/root/site" name="e:entries"/>
+            <rename match="/root" name="e:entries"/>
+            <insert match="/e:entries/e:entries" nodes="entry('availability', @availability)"/>
+            <insert match="/e:entries/e:entries" nodes="entry('reliability', @reliability)"/>
+        </processors>
+
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="hours">4</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger ignore-during="PT4H" type="ViewCreatedTrigger"/>
+        </cache>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+
+    </view>
+
+    <view name="OPSCORE_NGIs"><namespace prefix="e" uri="http://software.in2p3.fr/lavoisier/entries.xsd"/>
+        <info>
+            <category>Entities</category>
+            <description>Ngi data aggregation</description>
+        </info>
+        <connector type="HTTPConnector">
+            <parameter name="url" eval="property('OPSCORE.gocdb.get_ngis')"/>
+            <parameter name="certificate" eval="property('certificate.path')"/>
+            <parameter name="passphrase" eval="property('certificate.password')"/>
+            <parameter name="force-redirect">true</parameter>
+        </connector>
+
+        <processors>
+            <rename match="/results" name="NGIs"/>
+            <remove match="/NGIs/NGI/*[local-name()!='GGUS_SU' and local-name()!='ROD_EMAIL' and local-name()!='SECURITY_EMAIL']"/>
+            <merge match="/NGIs/NGI/*"/>
+            <merge match="/NGIs/NGI" count="3"/>
+            <!-- match original ngi_info flat file case -->
+            <rename match="/NGIs/NGI/@ROD_EMAIL" name="RodMail"/>
+            <rename match="/NGIs/NGI/@SECURITY_EMAIL" name="SecurityMail"/>
+            <rename match="/NGIs/NGI/@GGUS_SU" name="GgusSU"/>
+            <rename match="/NGIs/NGI/@NAME" name="Name"/>
+        </processors>
+
+    </view>
+
+    <view name="OPSCORE_NGI"><namespace prefix="e" uri="http://software.in2p3.fr/lavoisier/entries.xsd"/>
+        <info>
+            <category>Entities</category>
+            <description>Ngi data aggregation</description>
+        </info>
+        <connector type="HTTPConnector">
+            <parameter name="url" eval="property('OPSCORE.gocdb.get_ngis')"/>
+            <parameter name="certificate" eval="property('certificate.path')"/>
+            <parameter name="passphrase" eval="property('certificate.password')"/>
+            <parameter name="force-redirect">true</parameter>
+        </connector>
+
+        <processors>
+            <element in="results" out="e:entries">
+                <element in="NGI" out="e:entries">
+                    <attribute-create out="key">../@NAME</attribute-create>
+                    <attribute-ignore in="NAME"/>
+
+                    <element-create>entry('PRIMARY_KEY',../PRIMARY_KEY/text())</element-create>
+                    <element-create>entry('NAME',../NAME/text())</element-create>
+                    <element-create>entry('EMAIL',../EMAIL/text())</element-create>
+                    <element-create>entry('ROD_EMAIL',../ROD_EMAIL/text())</element-create>
+                    <element-create>entry('SECURITY_EMAIL',../SECURITY_EMAIL/text())</element-create>
+                    <element-ignore/>
+                </element>
+            </element>
+        </processors>
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+
+    </view>
+
+    <view name="OPSCORE_osg_sites"><namespace prefix="e" uri="http://software.in2p3.fr/lavoisier/entries.xsd"/>
+        <info>
+            <category>Entities</category>
+            <description>OSG Sites List</description>
+        </info>
+        <connector type="HTTPConnector">
+            <parameter name="url" eval="property('OPSCORE.osg.sites')"/>
+        </connector>
+
+        <processors>
+            <element in="RSVStatusMap" out="Sites">
+                <element-ignore in="Sites">
+                    <element in="Site">
+                        <attribute-create out="name">../Name/text()</attribute-create>
+                        <attribute-create out="Id">../ID/text()</attribute-create>
+                        <attribute-create out="Status">Production</attribute-create>
+                        <element-ignore/>
+                    </element>
+                </element-ignore>
+            </element>
+
+        </processors>
+
+
+    </view>
+
+    <view name="OPSCORE_ENDPOINTS_Indexed"><namespace prefix="e" uri="http://software.in2p3.fr/lavoisier/entries.xsd"/>
+
+        <info>
+            <category>Entities</category>
+            <description>Endpoints list by ngi , sites</description>
+        </info>
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('OPSCORE_endpoints')"/>
+        </connector>
+        <processors>
+
+            <element in="results" out="e:entries">
+                <element-ignore in="e:entries"/>
+                <element-create>sort_by_string(../e:entries,'@ngi')</element-create>
+            </element>
+
+            <element in="e:entries">
+                <element-create-as-parent out="e:entries" group-by="@ngi" attributes="@*">
+                    <element in="e:entries">
+                        <attribute-ignore in="key"/>
+                    </element>
+                </element-create-as-parent>
+            </element>
+
+
+
+            <element in="e:entries">
+                <element in="e:entries">
+                    <attribute-ignore/>
+                    <attribute-create out="key">../@ngi</attribute-create>
+                    <element-ignore in="e:entries"/>
+                    <element-create>sort_by_string(../e:entries,'@site')</element-create>
+                </element>
+            </element>
+
+            <element in="e:entries">
+            <element in="e:entries">
+
+                <element-create-as-parent out="e:entries" group-by="@site" attributes="@site">
+                    <element in="e:entries">
+
+                    </element>
+                </element-create-as-parent>
+            </element>
+            </element>
+            <element in="e:entries">
+                <element in="e:entries">
+                        <element in="e:entries">
+                            <attribute in="site" out="key"/>
+                            <element in="e:entries">
+                                <attribute-ignore/>
+                                <attribute-create out="key">../@hostname</attribute-create>
+                            </element>
+                        </element>
+
+                </element>
+            </element>
+
+
+
+
+        </processors>
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+
+    </view>
+
+
+</config>

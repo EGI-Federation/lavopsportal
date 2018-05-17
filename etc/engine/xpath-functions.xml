@@ -1,0 +1,8 @@
+<functions xmlns="http://software.in2p3.fr/lavoisier/functions.xsd"
+           xmlns:date="http://exslt.org/dates-and-times">                <!-- optional (for editing) -->
+    <namespace prefix="date">http://exslt.org/dates-and-times</namespace><!-- required (for runtime) -->
+    <function name="timestamp-to-date"
+              eval="date:add(date:date('1970-01-01T00:00:00'),date:duration($timestamp))">
+        <argument>timestamp</argument>
+    </function>
+</functions>

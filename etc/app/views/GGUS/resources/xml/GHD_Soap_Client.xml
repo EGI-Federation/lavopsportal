@@ -1,0 +1,13 @@
+<e:entries key="GHD_Soap_Client_Data" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+    <e:entry key="Helpdesk"></e:entry>
+    <e:entry key="Workflow"></e:entry>
+    <e:entry key="Step"></e:entry>
+    <e:entry key="StepLabel"></e:entry>
+    <e:entry key="Community"></e:entry>
+    <e:entry key="SubCommunity"/>
+    <e:entry key="EndDate"></e:entry>
+    <e:entry key="GroupId"></e:entry>
+    <e:entry key="Author"></e:entry>
+    <e:entry key="GroupUrl">Oldcic</e:entry>
+    <e:entry key="CloseDate"/>
+</e:entries>

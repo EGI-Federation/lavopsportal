@@ -1,0 +1,151 @@
+<config xmlns="http://software.in2p3.fr/lavoisier/config.xsd" xmlns:xi="http://www.w3.org/2001/XInclude" version="14">
+
+    <view xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" xmlns:str="http://exslt.org/strings" name="voms_vo">
+        <info>
+            <category>Voms</category>
+            <description>List of VOMS / VO</description>
+        </info>
+
+        <connector type="XMLConnector"><parameter name="content" eval="view('vo-voms_INDEX')"></parameter></connector>
+        <processors>
+            <replace match="/data/Vo/VoVomsServer/VoVomsServer/memberslisturl/text()" nodes="str:replace(.,'/services/VOMSAdmin?method=listMembers','/apiv2/user-stats.action')"/>
+            <remove match="/data/Vo/@*"/>
+            <remove match="/data/Vo/*[local-name()!='VoVomsServer' and local-name()!='name']"/>
+        </processors>
+
+        <cache type="FileCache">
+            <trigger type="ViewNotifiedTrigger"/>
+        </cache>
+    </view>
+
+    <view name="Voms_Users_Connector">
+
+        <info>
+            <category>Voms</category>
+            <description>VOMS Users Connector</description>
+        </info>
+
+        <argument name="voms_url"/>
+        <argument name="vo"/>
+
+        <connector type="HTTPConnector">
+            <parameter name="url" eval="$voms_url"/>
+            <parameter name="certificate" eval="property('certificate.path')"/>
+            <parameter name="passphrase" eval="property('certificate.password')"/>
+
+            <parameter name="connect-timeout">45</parameter>
+            <parameter name="read-timeout">35</parameter>
+
+            <parameter name="header">
+                <entry key="X-VOMS-CSRF-GUARD">;</entry>
+            </parameter>
+
+            <fallback>
+                <exception type="java.io.IOException"/>
+                <exception type="java.net.NoRouteToHostException"/>
+                <exception type="java.io.FileNotFoundException"/>
+                <exception type="java.lang.Exception"/>
+                <exception type="java.net.SocketTimeoutException"/>
+                <exception type="java.net.UnknownHostException"/>
+                <exception type="java.net.SocketException"/>
+                <exception type="java.lang.NullPointerException"/>
+            </fallback>
+        </connector>
+        <serializer type="EncapsulateSerializer"/>
+        <processors>
+            <processor match="//*" type="ChangeNamespaceProcessor"></processor>
+            <insert match="/" nodes="new_attribute('vo',$vo)"/>
+        </processors>
+
+    </view>
+
+
+    <view name="voms_users">
+
+        <info>
+            <category>Voms</category>
+            <description>List of VOMS Users</description>
+        </info>
+
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('voms_vo')"/>
+        </connector>
+
+        <processors>
+            <insert match="/data/Vo[VoVomsServer/VoVomsServer/memberslisturl and VoVomsServer/VoVomsServer/memberslisturl/text()!='']" nodes="view('Voms_Users_Connector',entry('voms_url',match()/VoVomsServer/VoVomsServer/memberslisturl/text())|entry('vo',match()/name/text()))">
+            </insert>
+        </processors>
+
+        <cache type="IndexedFileCache">
+
+            <parameter name="index_depth">1</parameter>
+            <parameter name="xpath" eval="path(false())"/>
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="DependencyRefreshedTrigger">
+                <parameter name="views">
+                    <entry>voms_vo</entry>
+                </parameter>
+            </trigger>
+
+        </cache>
+
+        <pre-renderers>
+            <title>"VOMS NEW API"</title>
+            <row foreach="/data/Vo/object">
+                <column label="vo">@vo</column>
+                <column label="Users Nb" unit="nb">@usersCount</column>
+                <column label="expired Users Nb" unit="nb">@expiredUsersCount</column>
+                <column label="suspended Users Nb" unit="nb">@suspendedUsersCount</column>
+            </row>
+        </pre-renderers>
+
+    </view>
+
+    <!--<view name="voms_users_old">-->
+
+    <!--<info>-->
+    <!--<category>VOMS</category>-->
+    <!--<description>List of VOMS Users</description>-->
+    <!--</info>-->
+
+    <!--<connector type="XMLConnector">-->
+    <!--<parameter name="content" eval="view('voms_vo')"></parameter>-->
+    <!--</connector>-->
+    <!--<processors>-->
+
+    <!--<insert match="/data/Vo/VoVomsServer/VoVomsServer[memberslisturl/text()]">-->
+
+    <!--<connector type="HTTPConnector">-->
+    <!--<parameter name="url" eval="parent_match()/memberslisturl/text()"/>-->
+    <!--<parameter name="certificate" eval="property('certificate.path')"/>-->
+    <!--<parameter name="passphrase" eval="property('certificate.password')"/>-->
+
+    <!--<parameter name="connect-timeout">5</parameter>-->
+    <!--<parameter name="read-timeout">5</parameter>-->
+
+    <!--<parameter name="header">-->
+    <!--<entry key="X-VOMS-CSRF-GUARD">;</entry>-->
+    <!--</parameter>-->
+
+    <!--</connector>-->
+    <!--<serializer type="JSONSerializer"></serializer>-->
+    <!--</insert>-->
+
+
+    <!--</processors>-->
+
+    <!--<cache type="IndexedFileCache">-->
+
+    <!--<parameter name="indexDepth">1</parameter>-->
+    <!--<parameter name="xpath" eval="path(false())"/>-->
+    <!--<trigger type="ViewNotifiedTrigger"/>-->
+    <!--<trigger type="DependencyRefreshedTrigger">-->
+    <!--<parameter name="views">-->
+    <!--<entry>voms_vo</entry>-->
+    <!--</parameter>-->
+    <!--</trigger>-->
+    <!--</cache>-->
+
+
+    <!--</view>-->
+</config>

@@ -1,0 +1,1073 @@
+<config xmlns="http://software.in2p3.fr/lavoisier/config.xsd" xmlns:xi="http://www.w3.org/2001/XInclude" version="16">
+
+
+    <authenticators name="local">
+        <authenticator type="IPAddressAuthenticator">
+            <parameter name="addresses">
+                <entry>134.158.230.0/23</entry>
+                <entry>134.158.64.0/21</entry>
+            </parameter>
+        </authenticator>
+    </authenticators>
+
+
+    <view name="CSITriggerCriticalIssues">
+        <info>
+            <category>CSI</category>
+            <description>Raise Email with critical Issues</description>
+        </info>
+        <connector type="HTTPConnector">
+            <parameter name="url" eval="property('CSI.portal.notifications.critical')"/>
+            <parameter name="certificate" eval="property('certificate.path')"/>
+            <parameter name="passphrase" eval="property('certificate.password')"/>
+        </connector>
+
+        <serializer type="HTMLSerializer"/>
+
+        <cache type="FileCache">
+            <trigger type="FixedTimeTrigger">
+                <parameter name="hour">7</parameter>
+            </trigger>
+        </cache>
+
+    </view>
+
+    <view name="CSITriggerWarningIssues">
+        <info>
+            <category>CSI</category>
+            <description>Raise Email with critical Issues</description>
+        </info>
+        <connector type="HTTPConnector">
+            <parameter name="url" eval="property('CSI.portal.notifications.warning')"/>
+            <parameter name="certificate" eval="property('certificate.path')"/>
+            <parameter name="passphrase" eval="property('certificate.password')"/>
+        </connector>
+        <serializer type="HTMLSerializer"/>
+        <cache type="FileCache">
+            <trigger type="FixedTimeTrigger">
+                <parameter name="day">monday</parameter>
+                <parameter name="hour">7</parameter>
+                <parameter name="minute">5</parameter>
+            </trigger>
+        </cache>
+
+    </view>
+
+    <view name="CSIproblem">
+        <connector type="FileConnector">
+            <parameter name="path">CsiNagiosRecords.xml</parameter>
+        </connector>
+
+        <processors>
+            <elements path="Data/Issues">
+                <element in="Issue">
+                    <attribute-create out="Id">concat(../@pk1,'-',../@pk2)</attribute-create>
+                </element>
+
+            </elements>
+
+            <elements path="Data/Issues">
+                <element in="Issue" if="@Id=preceding-sibling::Issue/@Id">
+                </element>
+                <element-ignore/>
+            </elements>
+
+
+
+        </processors>
+
+
+    </view>
+
+
+
+    <view authenticators="local" name="CsiNagios">
+        <info>
+            <category>CSI</category>
+            <description>Security Issues raised by Nagios</description>
+        </info>
+        <connector type="HTTPConnector">
+            <parameter name="url" eval="property('CSI.nagiosBoxUrl')"/>
+            <parameter name="certificate" eval="property('certificate.path')"/>
+            <parameter name="passphrase" eval="property('certificate.password')"/>
+        </connector>
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="minutes">15</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+
+        </cache>
+
+    </view>
+
+    <view authenticators="local" name="CsiNagiosRecords">
+        <info>
+            <category>CSI</category>
+            <description>Security Issues arranged for the DB</description>
+        </info>
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('CsiNagios')"/>
+        </connector>
+        <processors>
+
+                <processor match="/nagios" type="RenameProcessor"><parameter name="node_name">Data</parameter></processor>
+                <processor match="/Data" type="InsertProcessor"><parameter name="nodes" eval="new_attribute('problem_table_name','CsiNagiosProblem')|new_attribute('history_table_name','CsiNagiosHistory')"/></processor>
+                <processor match="/Data/servicestatus" type="RenameProcessor"><parameter name="node_name">Issue</parameter></processor>
+
+
+
+                <processor match="/Data/Issue[*]" type="SelectGroupByProcessor"><parameter name="group_by" eval="last_hard_state/@value"/></processor>
+
+            <processor match="/Data/e:entry[@key=0]" type="RenameProcessor"><parameter name="node_name">Recoveries</parameter></processor>
+            <processor match="/Data/e:entry" type="InsertParentProcessor"><parameter name="node_name">e:Issues</parameter></processor>
+            <processor match="/Data/e:Issues/e:entry" type="RemoveProcessor"><parameter name="depth">1</parameter></processor>
+            <processor match="//*" type="ChangeNamespaceProcessor"/>
+
+            <processor match="/Data/*/Issue[*]" type="InsertProcessor"><parameter name="nodes" eval="new_element('site',substring-after(_SITE_NAME/@value,';'))"/></processor>
+            <processor match="/Data/*/Issue/*[@value]" type="InsertProcessor"><parameter name="nodes" eval="new_text(@value)"/></processor>
+            <processor match="/Data/*/Issue/_SITE_NAME" type="RemoveProcessor"/>
+
+
+
+
+            <processor match="/Data/*/Issue[*]" type="InsertProcessor"><parameter name="nodes" eval="view('CsiNagiosProbes')/probe_descriptions/services/service[@name=match()/service_description/text()]"/></processor>
+            <processor match="/Data/*/Issue[*]" type="InsertProcessor"><parameter name="nodes" eval="new_element('friendly_name',new_text(choose(service/@friendly_name,service/@friendly_name,service_description/text())))"/></processor>
+            <processor match="/Data/*/Issue[*]" type="InsertProcessor"><parameter name="nodes" eval="new_element('description',new_text(choose(service/@description,service/@description,'No description available')))"/></processor>
+            <processor match="/Data/*/Issue[*]" type="InsertProcessor"><parameter name="nodes" eval="new_element('urltohelp',new_text(choose(service/@url,service/@url,'https://wiki.egi.eu/wiki/EGI_CSIRT:SMG#Monitoring_probe')))"/></processor>
+            <processor match="/Data/*/Issue[*]" type="InsertProcessor"><parameter name="nodes" eval="new_element('cod',new_text(choose(service/@cod,service/@cod,'false')))"/></processor>
+            <processor match="/Data/*/Issue[not(service)]" type="RemoveProcessor"/>
+            <processor match="/Data/*/Issue/service" type="RemoveProcessor"/>
+            <processor match="/Data/*/Issue/*/@value" type="RemoveProcessor"/>
+            <processor match="/Data/*/Issue[*]" type="InsertProcessor"><parameter name="nodes" eval="new_element('GenerationDate',new_text(substring(str:replace(date:add('1970-01-01T00:00:00Z', date:duration(last_check/text())),'T',' '),1,19)))"/></processor>
+            <processor match="/Data/*/Issue[*]" type="InsertProcessor"><parameter name="nodes" eval="new_element('ngi',new_text(view('OPSCORE_prod_entities')/NGIs/NGI[Sites/Site/@name=match()/site/text()]/@name))"/></processor>
+            <processor match="/Data/*/Issue/ngi[text()='']" type="ReplaceProcessor"><parameter name="nodes" eval="new_element('ngi',new_text('Unknown'))"/></processor>
+            <processor match="/Data" type="InsertProcessor"><parameter name="nodes" eval="new_attribute('global_date',str:replace(substring(date:add(date:date-time(),concat('-PT',substring(date:date-time(),21,2),'H')),1,19),'T',' '))"/></processor>
+            <!--
+             const DEFAULT_SUPPORT_URL = 'https://wiki.egi.eu/wiki/MW_Nagios_tests';
+        const DEFAULT_DESCRIPTION = 'No description available';
+        const BASE_SUPPORT_URL    = 'https://bugzilla.redhat.com/show_bug.cgi?id=';
+        const DEFAULT_SUPPORT_URL = 'https://wiki.egi.eu/wiki/EGI_CSIRT:SMG#Monitoring_probes';
+            -->
+
+            <element in="Data">
+                <element>
+                    <element in="Issue" if="contains(plugin_output/text(),'Pakiti-Vuln')">
+                        <element-create as="first-child">new_element('wn',substring-before(substring-after(../plugin_output/text(),' - '),':'))</element-create>
+                    </element>
+                    <element in="Issue" if="not(contains(plugin_output/text(),'Pakiti-Vuln'))">
+                        <element-create as="first-child">new_element('wn',substring-before(../plugin_output/text(),': '))</element-create>
+                    </element>
+                </element>
+            </element>
+
+            <element in="Data">
+                <element>
+                    <element in="Issue">
+                        <element in="plugin_output">
+                            <text-ignore/>
+                            <text-create>choose(../../wn/text()!='',concat(../../wn/text(),'****',../text()),../text())</text-create>
+                        </element>
+                        <element in="long_plugin_output">
+                            <text-ignore/>
+                            <text-create>choose(../../wn/text()!='',concat(../../wn/text(),'****',../text()),../text())</text-create>
+                        </element>
+                    </element>
+                </element>
+            </element>
+
+            <element in="Data">
+                <element>
+                    <element in="Issue">
+                    <attribute-create out="pk1">choose(../service_description/text()!='',../service_description/text(),'__service')</attribute-create>
+                    <attribute-create out="pk2">choose(../host_name/text()!='',../host_name/text(),'__hostname')</attribute-create>
+                    </element>
+                </element>
+            </element>
+        </processors>
+
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">xml</parameter>
+            </renderer>
+        </renderers>
+
+
+
+    </view>
+
+
+
+    <view authenticators="local" name="CsiNagiosProbes">
+        <info>
+            <category>CSI</category>
+            <description>description of the issues</description>
+        </info>
+        <connector type="HTTPConnector">
+            <parameter name="url" eval="property('CSI.NagiosProbes')"/>
+            <parameter name="certificate" eval="property('certificate.path')"/>
+            <parameter name="passphrase" eval="property('certificate.password')"/>
+        </connector>
+
+
+
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="minutes">15</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="ViewCreatedTrigger"/>
+        </cache>
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">xml</parameter>
+            </renderer>
+        </renderers>
+
+
+    </view>
+
+
+    <view authenticators="local" name="CSI_CleanUP">
+        <info>
+            <category>CSI</category>
+            <description>Cron to clean old issues and tickets </description>
+        </info>
+        <connector type="HTTPConnector">
+            <parameter name="url" eval="property('CSI.portal.clean.url')"/>
+            <parameter name="certificate" eval="property('certificate.path')"/>
+            <parameter name="passphrase" eval="property('certificate.password')"/>
+            <parameter name="force-redirect">true</parameter>
+        </connector>
+
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="hours">4</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+
+        </cache>
+    </view>
+
+    <view-template name="CSI_xii_Nagios" stylesheet="COD/resources/template/OpsImportCron.xsl">
+        <info>
+            <type>cron</type>
+            <category>CSI crons</category>
+            <description>Xml import CSI Nagios</description>
+        </info>
+        <parameter name="base_url">CSI.portal.url</parameter>
+        <parameter name="collection">CsiNagiosRecords</parameter>
+        <parameter name="cache_time">5</parameter>
+    </view-template>
+
+
+
+
+    <view authenticators="local" name="CSI_XML">
+
+        <info>
+            <category>CSI</category>
+            <description>XML feed extracted from the csi dashboard</description>
+        </info>
+
+        <connector type="HTTPConnector">
+            <parameter name="url" eval="property('CSI.portal.metrics')"/>
+            <parameter name="certificate" eval="property('certificate.path')"/>
+            <parameter name="passphrase" eval="property('certificate.password')"/>
+            <parameter name="force-redirect">true</parameter>
+
+        </connector>
+        <serializer type="HTMLSerializer"/>
+        <processors>
+            <processor match="//*" type="ChangeNamespaceProcessor"/>
+        </processors>
+        <cache type="FileCache">
+            <trigger type="ViewAccessedTrigger" ignore-during="PT5M"/>
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="hours">1</parameter>
+            </trigger>
+        </cache>
+    </view>
+
+    <view xmlns:html="http://www.w3.org/1999/xhtml" authenticators="local" name="CSI_Issues_XML">
+
+        <info>
+            <category>CSI</category>
+            <description>XML feed extracted from the csi dashboard</description>
+        </info>
+
+        <connector type="HTTPConnector">
+            <parameter name="url" eval="property('CSI.portal.issues')"/>
+            <parameter name="certificate" eval="property('certificate.path')"/>
+            <parameter name="passphrase" eval="property('certificate.password')"/>
+            <parameter name="force-redirect">true</parameter>
+        </connector>
+
+        <serializer type="HTMLSerializer"/>
+
+        <processors>
+            <processor match="//*" type="ChangeNamespaceProcessor"/>
+       
+            <element in="html" out="html">
+
+                <elements-ignore path="body/div/div">
+                    <element-ignore in="div">
+                        <element-ignore in="section">
+                            <element in="table" out="table"/>
+                        </element-ignore>
+                    </element-ignore>
+                    <element-ignore/>
+                </elements-ignore>
+
+                <element-ignore/>
+            </element>
+
+            <element in="html" out="Issues">
+                <attribute-ignore/>
+                <element-ignore in="table">
+                   <element-ignore in="thead"/>
+                    <element-ignore in="tbody">
+                        <element in="tr" out="Issue">
+                            <element in="td" out="entry">
+                                <attribute-ignore/>
+                              <attribute-create out="key">../@rel</attribute-create>
+                                <element-ignore in="a">
+                                    <text-ignore/>
+                                    <text-create>normalize-space(../text())</text-create>
+                                    <element-ignore in="span">
+                                        <text-ignore/>
+                                        <text-create>normalize-space(../text())</text-create>
+                                    </element-ignore>
+                                </element-ignore>
+                                <element-ignore in="span">
+                                    <text-ignore/>
+                                    <text-create>normalize-space(../text())</text-create>
+                                </element-ignore>
+                                <text-ignore/>
+                                <text-create>normalize-space(../text())</text-create>
+                            </element>
+                            <element-ignore/>
+                        </element>
+                        <element-ignore/>
+                    </element-ignore>
+                </element-ignore>
+
+            </element>
+
+        </processors>
+        <cache type="FileCache">
+            <trigger type="ViewAccessedTrigger" ignore-during="PT5M"/>
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="hours">1</parameter>
+            </trigger>
+        </cache>
+        <pre-renderers><namespace prefix="html" uri="http://www.w3.org/1999/xhtml"/>
+            <row foreach="/Issues/Issue">
+                <column label="Problem">entry[@key='id']/text()</column>
+                <column label="entity">entry[@key='entity']/text()</column>
+                <column label="ngi">entry[@key='ngi']/text()</column>
+                <column label="status">entry[@key='status']/text()</column>
+                <column label="age">entry[@key='age']/text()</column>
+
+            </row>
+        </pre-renderers>
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+
+
+    </view>
+
+    <view authenticators="local" name="Csi_Metrics_Generation">
+        <info>
+            <category>CSI</category>
+            <description>Cron to generate metrics</description>
+        </info>
+        <connector type="HTTPConnector">
+            <parameter name="url" eval="property('CSI.portal.metrics.generation')"/>
+            <parameter name="certificate" eval="property('certificate.path')"/>
+            <parameter name="passphrase" eval="property('certificate.password')"/>
+            <parameter name="force-redirect">true</parameter>
+        </connector>
+        <cache type="FileCache">
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="hours">1</parameter>
+            </trigger>
+        </cache>
+
+    </view>
+
+    <view authenticators="local" name="Csi_RT_Ticket_List">
+        <info>
+            <category>CSI</category>
+            <description>List of security tickets open in RT </description>
+
+        </info>
+
+        <connector type="HTTPConnector">
+            <parameter name="url" eval="property('rt.listtickets')"/>
+            <parameter name="method">POST</parameter>
+        </connector>
+        <serializer type="DeprecatedTextSerializer">
+            <parameter name="patterns">
+                    <entry>(\d+).*</entry>
+                    <entry>(.*)</entry>
+                </parameter>
+
+        </serializer>
+
+        <processors>
+
+            <element in="lines" out="e:entries">
+                <element in="line" out="e:entries" if="@pattern=1">
+                    <attribute-ignore/>
+                    <element-create>view('Csi_RT_Ticket_Details',entry('ticketId',../group/text()))</element-create>
+                </element>
+                <element-ignore/>
+            </element>
+
+            <element in="e:entries">
+                <element in="e:entries">
+                    <element-ignore in="lines">
+                        <element-ignore in="line">
+                            <element-create if="../group[@id=1] and ../group[@id=2]">entry(../group[@id=1],../group[@id=2])</element-create>
+                        </element-ignore>
+                    </element-ignore>
+                </element>
+            </element>
+
+            <elements path="e:entries/e:entries">
+                <element in="group" out="e:entry">
+                    <set variable="listSites">view('OPSCORE_prod_entities')</set>
+                    <attribute-create out="key">'id'</attribute-create>
+                    <attribute-ignore/>
+                </element>
+
+                <element-create>entry('Community','CSI')</element-create>
+
+                <element-create>
+                    entry('CF.{TargetSite}',choose(../e:entry[@key='CF.{TargetSite}']/text()!='',../e:entry[@key='CF.{TargetSite}']/text(),'N.A'))
+                </element-create>
+                <element-create>
+                    entry('ngi',choose($listSites/NGIs/NGI/Sites/Site[@name=current()/../e:entry[@key='CF.{TargetSite}']/text()]/@ngi,
+                    $listSites/NGIs/NGI/Sites/Site[@name=current()/../e:entry[@key='CF.{TargetSite}']/text()]/@ngi,
+                    'N.A'))
+                </element-create>
+                <element-create>
+                    entry('site',choose(../e:entry[@key='CF.{TargetSite}']/text()!='',../e:entry[@key='CF.{TargetSite}']/text(),'N.A'))
+                </element-create>
+                <element-create if="not(../entry[@key='CF.{Helpdesk}'])">
+                    entry('CF.{Helpdesk}','rt_helpdesk_ops')
+                </element-create>
+                <element-create if="not(../entry[@key='CF.{Workflow}'])">
+                    entry('CF.{Workflow}','workflow_csi')
+                </element-create>
+                <element-create if="not(../entry[@key='CF.{Step}'])">
+                    entry('CF.{Step}',../e:entry[@key='Status']/text())
+                </element-create>
+                <element-create if="not(../entry[@key='CF.{StepLabel}'])">
+                    entry('CF.{StepLabel}',../e:entry[@key='Status']/text())
+                </element-create>
+                <element-create>
+                    entry('GroupId',../e:entry[@key='CF.{GroupOfIssuesId}']/text())
+                </element-create>
+
+
+                <element-ignore in="e:entry" if="@key='id'"/>
+            </elements>
+        </processors>
+
+
+
+
+        <cache type="FileCache">
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="minutes">10</parameter>
+            </trigger>
+        </cache>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">xml</parameter>
+            </renderer>
+        </renderers>
+    </view>
+
+    <view authenticators="local" name="Csi_RT_Ticket_full_byID">
+        <info>
+            <category>CSI</category>
+            <description>List of security tickets open in RT </description>
+
+        </info>
+
+        <argument name="id"/>
+
+        <connector type="HTTPConnector">
+            <parameter name="url" eval="concat(property('rt.listtickets.full'),'ANDId=',quot($id))"/>
+            <parameter name="method">POST</parameter>
+        </connector>
+        <serializer type="DeprecatedTextSerializer">
+            <parameter name="patterns">
+                <entry>(\d+).*</entry>
+                <entry>(.*)</entry>
+            </parameter>
+
+        </serializer>
+
+        <processors>
+
+            <element in="lines" out="e:entries">
+                <element in="line" out="e:entries" if="@pattern=1">
+                    <attribute-ignore/>
+                    <element-create>view('Csi_RT_Ticket_Details',entry('ticketId',../group/text()))</element-create>
+                </element>
+                <element-ignore/>
+            </element>
+
+            <element in="e:entries">
+                <element in="e:entries">
+                    <element-ignore in="lines">
+                        <element-ignore in="line">
+                            <element-create if="../group[@id=1] and ../group[@id=2]">entry(../group[@id=1],../group[@id=2])</element-create>
+                        </element-ignore>
+                    </element-ignore>
+                </element>
+            </element>
+
+            <elements path="e:entries/e:entries">
+                <element in="group" out="e:entry">
+                    <set variable="listSites">view('OPSCORE_prod_entities')</set>
+                    <attribute-create out="key">'id'</attribute-create>
+                    <attribute-ignore/>
+                </element>
+
+                <element-create>entry('Community','CSI')</element-create>
+
+                <element-create>
+                    entry('CF.{TargetSite}',choose(../e:entry[@key='CF.{TargetSite}']/text()!='',../e:entry[@key='CF.{TargetSite}']/text(),'N.A'))
+                </element-create>
+                <element-create>
+                    entry('ngi',choose($listSites/NGIs/NGI/Sites/Site[@name=current()/../e:entry[@key='CF.{TargetSite}']/text()]/@ngi,
+                    $listSites/NGIs/NGI/Sites/Site[@name=current()/../e:entry[@key='CF.{TargetSite}']/text()]/@ngi,
+                    'N.A'))
+                </element-create>
+                <element-create>
+                    entry('site',choose(../e:entry[@key='CF.{TargetSite}']/text()!='',../e:entry[@key='CF.{TargetSite}']/text(),'N.A'))
+                </element-create>
+                <element-create if="not(../entry[@key='CF.{Helpdesk}'])">
+                    entry('CF.{Helpdesk}','rt_helpdesk_ops')
+                </element-create>
+                <element-create if="not(../entry[@key='CF.{Workflow}'])">
+                    entry('CF.{Workflow}','workflow_csi')
+                </element-create>
+                <element-create if="not(../entry[@key='CF.{Step}'])">
+                    entry('CF.{Step}',../e:entry[@key='Status']/text())
+                </element-create>
+                <element-create if="not(../entry[@key='CF.{StepLabel}'])">
+                    entry('CF.{StepLabel}',../e:entry[@key='Status']/text())
+                </element-create>
+                <element-create>
+                    entry('GroupId',../e:entry[@key='CF.{GroupOfIssuesId}']/text())
+                </element-create>
+
+
+                <element-ignore in="e:entry" if="@key='id'"/>
+            </elements>
+        </processors>
+
+
+
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">xml</parameter>
+            </renderer>
+        </renderers>
+    </view>
+
+
+    <view authenticators="local" name="Csi_RT_Ticket_List_byEntity">
+        <info>
+            <category>CSI</category>
+            <description>List of security tickets open in RT - additional parameter ngi or site or ticketId</description>
+        </info>
+
+        <argument name="site">false</argument>
+        <argument name="ngi">false</argument>
+        <argument name="ticketId">false</argument>
+
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('Csi_RT_Ticket_List')"/>
+        </connector>
+
+        <processors>
+            <element in="e:entries">
+                <element-ignore in="e:entries" if="$site!='false' and e:entry[@key='site']!=$site"/>
+            </element>
+
+            <element in="e:entries">
+                <element-ignore in="e:entries" if="$ngi!='false' and e:entry[@key='ngi']!=$ngi"/>
+            </element>
+
+
+            <element in="e:entries">
+                <element-ignore in="e:entries" if="$ticketId!='false' and e:entry[@key='id']!=$ticketId"/>
+            </element>
+
+        </processors>
+
+
+    </view>
+
+    <view xmlns:date="http://exslt.org/dates-and-times" authenticators="local" name="Csi_RT_ClosedTicket_List_24h">
+        <info>
+            <category>CSI</category>
+            <description>List of security tickets closed in RT in the last day </description>
+        </info>
+        <variable name="yesterday" eval="substring(date:add(date:date(),'-P1D'),0,11)"/>
+        <connector type="HTTPConnector">
+            <parameter name="url" eval="property('rt.listtickets.closed.withdate')"/>
+
+        </connector>
+
+        <serializer type="DeprecatedTextSerializer">
+            <parameter name="patterns">
+                <entry>(\d+).*</entry>
+                <entry>(.*)</entry>
+            </parameter>
+        </serializer>
+
+        <processors>
+
+            <element in="lines" out="e:entries">
+                <element in="line" out="e:entries" if="@pattern=1">
+                    <attribute-ignore/>
+                    <element-create>view('Csi_RT_Ticket_Details',entry('ticketId',../group/text()))</element-create>
+                </element>
+                <element-ignore/>
+            </element>
+
+            <element in="e:entries">
+                <element in="e:entries">
+                    <element-ignore in="lines">
+                        <element-ignore in="line">
+                            <element-create if="../group[@id=1] and ../group[@id=2]">entry(../group[@id=1],../group[@id=2])</element-create>
+                        </element-ignore>
+                    </element-ignore>
+                </element>
+            </element>
+
+            <elements path="e:entries/e:entries">
+                <element in="group" out="e:entry">
+                    <set variable="listSites">view('OPSCORE_prod_entities')</set>
+                    <attribute-create out="key">'id'</attribute-create>
+                    <attribute-ignore/>
+                </element>
+
+                <element-create>
+                    entry('ngi',choose($listSites/NGIs/NGI/Sites/Site[@name=current()/../e:entry[@key='CF.{TargetSite}']/text()]/@ngi,
+                    $listSites/NGIs/NGI/Sites/Site[@name=current()/../e:entry[@key='CF.{TargetSite}']/text()]/@ngi,
+                    'N.A'))
+                </element-create>
+                <element-create>
+                    entry('site',choose(../e:entry[@key='CF.{TargetSite}']/text()!='',../e:entry[@key='CF.{TargetSite}']/text(),'N.A'))
+                </element-create>
+
+
+
+                <element-ignore in="e:entry" if="@key='id'"/>
+            </elements>
+        </processors>
+
+        <cache type="FileCache">
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="minutes">10</parameter>
+            </trigger>
+        </cache>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">xml</parameter>
+            </renderer>
+        </renderers>
+    </view>
+
+
+    <view xmlns:date="http://exslt.org/dates-and-times" authenticators="local" name="Csi_RT_OpenedTicket_List_24h">
+        <info>
+            <category>CSI</category>
+            <description>List of security tickets open in RT in the last day </description>
+        </info>
+        <variable name="yesterday" eval="substring(date:add(date:date(),'-P1D'),0,11)"/>
+        <connector type="HTTPConnector">
+            <parameter name="url" eval="concat(property('rt.listtickets.opened.withdate'),quot($yesterday))"/>
+
+        </connector>
+
+        <serializer type="DeprecatedTextSerializer">
+            <parameter name="patterns">
+                <entry>(\d+).*</entry>
+                <entry>(.*)</entry>
+            </parameter>
+        </serializer>
+
+        <processors>
+
+            <element in="lines" out="e:entries">
+                <element in="line" out="e:entries" if="@pattern=1">
+                    <attribute-ignore/>
+                    <element-create>view('Csi_RT_Ticket_Details',entry('ticketId',../group/text()))</element-create>
+                </element>
+                <element-ignore/>
+            </element>
+
+            <element in="e:entries">
+                <element in="e:entries">
+                    <element-ignore in="lines">
+                        <element-ignore in="line">
+                            <element-create if="../group[@id=1] and ../group[@id=2]">entry(../group[@id=1],../group[@id=2])</element-create>
+                        </element-ignore>
+                    </element-ignore>
+                </element>
+            </element>
+
+            <elements path="e:entries/e:entries">
+                <element in="group" out="e:entry">
+                    <set variable="listSites">view('OPSCORE_prod_entities')</set>
+                    <attribute-create out="key">'id'</attribute-create>
+                    <attribute-ignore/>
+                </element>
+                <element-create>
+                    entry('ngi',choose($listSites/NGIs/NGI/Sites/Site[@name=current()/../e:entry[@key='CF.{TargetSite}']/text()]/@ngi,
+                    $listSites/NGIs/NGI/Sites/Site[@name=current()/../e:entry[@key='CF.{TargetSite}']/text()]/@ngi,
+                    'N.A'))
+                </element-create>
+                <element-create>
+                    entry('site',choose(../e:entry[@key='CF.{TargetSite}']/text()!='',../e:entry[@key='CF.{TargetSite}']/text(),'N.A'))
+                </element-create>
+                <element-ignore in="e:entry" if="@key='id'"/>
+            </elements>
+        </processors>
+
+        <cache type="FileCache">
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="minutes">10</parameter>
+            </trigger>
+        </cache>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">xml</parameter>
+            </renderer>
+        </renderers>
+    </view>
+
+
+
+    <view authenticators="local" name="Csi_Metrics_Count">
+        <info>
+            <category>CSI</category>
+            <description>view used for metrics - counter of closed/open tickets</description>
+        </info>
+
+        <argument name="viewRT" path-format="none">Csi_RT_ClosedTicket_List_24h</argument>
+
+        <argument name="entity_type" pattern="ngi|site">site</argument>
+        <argument name="pre_path">/*/*</argument>
+
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view_path($viewRT, $pre_path)"/>
+        </connector>
+
+
+
+
+        <processors>
+
+            <element in="e:entries">
+                <element-ignore in="e:entries">
+                    <element in="e:entry" if="choose($entity_type='site',@key='site',@key='ngi')"/>
+                    <element-ignore/>
+                </element-ignore>
+            </element>
+
+            <element in="e:entries">
+
+                <element-create>sort_by_string(../e:entry,'text()')</element-create>
+                <element-ignore in="e:entry"/>
+            </element>
+            <element in="e:entries">
+                    <element-create-as-parent out="e:entry" group-by="../e:entry/text()">
+                        <element in="e:entry"/>
+                    </element-create-as-parent>
+            </element>
+            <element in="e:entries">
+                <element in="e:entry">
+                    <attribute-create out="key">../e:entry[1]/text()</attribute-create>
+                    <attribute-create out="nbTickets">count(../e:entry)</attribute-create>
+                    <element-create>entry('nbTickets',count(../e:entry))</element-create>
+                    <element-ignore/>
+                </element>
+            </element>
+
+        </processors>
+
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">xml</parameter>
+            </renderer>
+        </renderers>
+
+
+
+    </view>
+
+    <view authenticators="local" name="Csi_RT_Ticket_Details">
+
+        <info>
+            <category>CSI</category>
+            <description>Access to the ticket detail with the ticketId parameter</description>
+        </info>
+
+        <argument name="ticketId"/>
+        <connector type="HTTPConnector">
+            <parameter name="url" eval="concat(property('rt.ticketdetails'),$ticketId)"/>
+        </connector>
+
+        <serializer type="DeprecatedTextSerializer">
+            <parameter name="patterns">
+                <entry>(\w*): (.*)</entry>
+                <entry>(CF.*): (.*)</entry>
+                <entry>(.*)</entry>
+            </parameter>
+
+        </serializer>
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">xml</parameter>
+            </renderer>
+        </renderers>
+
+    </view>
+
+
+    <view authenticators="local" name="Csi_VoContacts_List">
+
+        <info>
+            <category>CSI</category>
+            <description>Access to the VO security contact list</description>
+        </info>
+
+        <connector type="SQLConnector">
+            <parameter name="driver">com.mysql.jdbc.Driver</parameter>
+            <parameter name="url" eval="property('CSI.db.url')"/>
+            <parameter name="username" eval="property('CSI.db.username')"/>
+            <parameter name="password" eval="property('CSI.db.password')"/>
+            <parameter name="query">(SELECT name , security_contact_mailing_list, id, serial FROM Vo LEFT JOIN vo_mailing_list on vo_mailing_list.serial=vo.serial)
+                UNION (SELECT serial,  email FROM vo_contact_has_profile chp, vo_contacts vc, vo_user_profile vup
+                WHERE vup.profile = 'VO MANAGER'
+                AND LEFT JOIN vo_contacts ON vo_contacts.id = vo_user_profile.user_id
+                AND LEFT JOIN vo_user_profile ON vo_contacts.id = vo_contact_has_profile.id )
+            </parameter>
+        </connector>
+
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">xml</parameter>
+            </renderer>
+        </renderers>
+
+    </view>
+
+
+    <view name="csi_colors">
+        <connector type="XMLConnector">
+            <parameter name="content">
+                <entry key="0">#5cb85c</entry>
+                <entry key="1">#f29547</entry>
+                <entry key="2">#d9534f</entry>
+                <entry key="3">#5bc0de</entry>
+            </parameter>
+        </connector>
+
+
+        <cache type="FileCache">
+            <trigger type="ViewNotifiedTrigger"/>
+        </cache>
+
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">xml</parameter>
+            </renderer>
+        </renderers>
+    </view>
+
+    <view name="csi_status">
+        <connector type="XMLConnector">
+            <parameter name="content">
+                <entry key="0">ok</entry>
+                <entry key="1">warning</entry>
+                <entry key="2">critical</entry>
+                <entry key="3">unknown</entry>
+            </parameter>
+        </connector>
+
+
+        <cache type="FileCache">
+            <trigger type="ViewCreatedTrigger"/>
+            <trigger type="ViewNotifiedTrigger"/>
+        </cache>
+
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">xml</parameter>
+            </renderer>
+        </renderers>
+    </view>
+
+
+
+    <view xmlns:date="http://exslt.org/dates-and-times" xmlns:str="http://exslt.org/strings" authenticators="local" name="Csi_Issues_Complete">
+
+        <info>
+            <category>CSI</category>
+            <description>Access to the Issues of a given month</description>
+        </info>
+
+        <argument name="date"/>
+        <argument name="start_date" eval="concat($date,'T00:00:00+01:00')"/>
+        <argument name="end_date" eval="date:add($start_date,'P1M')"/>
+
+        <argument name="ngi">_NGI_</argument>
+
+
+
+        <connector type="SQLConnector">
+            <parameter name="driver">com.mysql.jdbc.Driver</parameter>
+            <parameter name="url" eval="property('CSI.db.url')"/>
+            <parameter name="username" eval="property('CSI.db.username')"/>
+            <parameter name="password" eval="property('CSI.db.password')"/>
+            <parameter name="query">
+                <entry>SELECT * from csi_nagios_history_complete</entry>
+                <entry> where (month(start_date)=month(</entry>
+                <entry eval="quot($start_date)"/>
+                <entry>)</entry>
+                <entry> and </entry>
+                <entry> year(start_date)=year(</entry>
+                <entry eval="quot($start_date)"/>
+                <entry>)) OR </entry>
+                <entry> ( month(end_date)=month(</entry>
+                <entry eval="quot($start_date)"/>
+                <entry>) </entry>
+                <entry> and </entry>
+                <entry> year(end_date)=year(</entry>
+                <entry eval="quot($start_date)"/>
+                <entry>) )</entry>
+            </parameter>
+        </connector>
+
+
+        <processors>
+            <element in="result" out="e:entries">
+                <set variable="csi_colors">view('csi_colors')</set>
+                <set variable="csi_status">view('csi_status')</set>
+                <element in="row" out="e:entries">
+                    <attribute-create out="id">concat(../test_name/text(),'---',../host_name/text())</attribute-create>
+                    <element-create>entry('start_date',choose(date:seconds(str:replace(../start_date/text(),' ','T'))-date:seconds($start_date) &lt; 0, $start_date,../start_date/text()))</element-create>
+                    <element-create>entry('end_date',choose(date:seconds(str:replace(../end_date/text(),' ','T'))-date:seconds($end_date) &gt; 0, $end_date,../end_date/text()))</element-create>
+
+                    <element-create>entry('exec_start_date',../start_date/text())</element-create>
+                    <element-create>entry('exec_end_date',../end_date/text())</element-create>
+
+                    <element-create>entry('duration',number(date:seconds(date:difference(str:replace(../start_date/text(),' ','T'),str:replace(../end_date/text(),' ','T')))) div 86400)</element-create>
+                    <element-create>entry('test_name',../test_name/text())</element-create>
+                    <element-create>entry('host_name',../host_name/text())</element-create>
+                    <element-create>entry('status',new_text($csi_status/e:entries/e:entry[@key=current()/../status/text()]/text()))</element-create>
+                    <element-create>entry('color',new_text($csi_colors/e:entries/e:entry[@key=current()/../status/text()]/text()))</element-create>
+                    <element-create>entry('site',../site/text())</element-create>
+                    <element-create>entry('ngi',../ngi/text())</element-create>
+
+                    <element-ignore/>
+                </element>
+
+
+
+            </element>
+
+            <element in="e:entries">
+                <element in="e:entries">
+
+                    <element in="e:entry" if="@key='start_date' ">
+                        <text-ignore/>
+                        <text-create>substring(str:replace(../text(),'T',' '),1,19)</text-create>
+                    </element>
+                    <element in="e:entry" if="@key='end_date'">
+                        <text-ignore/>
+                        <text-create>substring(str:replace(../text(),'T',' '),1,19)</text-create>
+                    </element>
+
+                </element>
+
+            </element>
+
+            <elements path="e:entries">
+                <element in="e:entries" if="$ngi='_NGI_' or e:entry[@key='ngi']/text()=$ngi"/>
+                <element-ignore/>
+            </elements>
+
+            <element in="e:entries">
+                <element-ignore in="e:entries"/>
+                <element-create>
+                    sort_by_string(../e:entries,'@id')
+                </element-create>
+            </element>
+
+            <element in="e:entries">
+                <element in="e:entries" if="following-sibling::e:entries/@id=current()/@id">
+                    <element in="e:entry" if="@key='end_date'">
+                        <text>../../following-sibling::e:entries/e:entry[@key='start_date']/text()</text>
+                    </element>
+                </element>
+            </element>
+
+
+        </processors>
+
+        <pre-renderers><namespace prefix="date" uri="http://exslt.org/dates-and-times"/><namespace prefix="str" uri="http://exslt.org/strings"/>
+            <row foreach="/e:entries/e:entries">
+                <column label="start_date">e:entry[@key='exec_start_date']/text()</column>
+                <column label="end_date">e:entry[@key='exec_end_date']/text()</column>
+                <column label="test_name">e:entry[@key='test_name']/text()</column>
+                <column label="host_name">e:entry[@key='host_name']/text()</column>
+
+                <column label="status">e:entry[@key='status']/text()</column>
+                <column label="ngi">e:entry[@key='ngi']/text()</column>
+                <column label="site">e:entry[@key='site']/text()</column>
+                <column label="duration (d)">e:entry[@key='duration']/text()</column>
+            </row>
+        </pre-renderers>
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">xml</parameter>
+            </renderer>
+        </renderers>
+
+
+    </view>
+
+
+
+</config>

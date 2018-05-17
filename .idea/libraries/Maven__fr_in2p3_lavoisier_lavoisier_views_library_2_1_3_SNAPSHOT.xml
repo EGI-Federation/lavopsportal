@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: fr.in2p3.lavoisier:lavoisier-views-library:2.1.3-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/fr/in2p3/lavoisier/lavoisier-views-library/2.1.3-SNAPSHOT/lavoisier-views-library-2.1.3-20180427.150441-36.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/fr/in2p3/lavoisier/lavoisier-views-library/2.1.3-SNAPSHOT/lavoisier-views-library-2.1.3-20180427.150441-36-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/fr/in2p3/lavoisier/lavoisier-views-library/2.1.3-SNAPSHOT/lavoisier-views-library-2.1.3-20180427.150441-36-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
