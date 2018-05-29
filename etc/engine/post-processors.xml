@@ -10,4 +10,158 @@
         <processor type="ExtractProcessor" match="/*" disabled="not(arguments()[@key='_extract_'])"/>
         <processor type="SkeletonProcessor" match="/*" disabled="not(arguments()[@key='_skeleton_'])"/>
     </processors>
+
+    <processors xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" xmlns:date="http://exslt.org/dates-and-times" xmlns:str="http://exslt.org/strings" name="downtime">
+
+        <element in="results">
+            <element-ignore in="DOWNTIME"/>
+            <element-create>sort_by_string(../DOWNTIME,'@PRIMARY_KEY')</element-create>
+        </element>
+
+        <element in="results">
+            <element-create-as-parent out="entries" group-by="@PRIMARY_KEY" attributes="@*">
+                <element in="DOWNTIME"> </element>
+            </element-create-as-parent>
+        </element>
+
+
+        <element in="results">
+            <element in="entries">
+                <element-create as="first-child">entry('GOCDB_PORTAL_URL',str:concat(../DOWNTIME[1]/GOCDB_PORTAL_URL/text()))</element-create>
+                <element-create as="first-child">entry('SEVERITY',../DOWNTIME[1]/SEVERITY/text())</element-create>
+                <element-create as="first-child">entry('DESCRIPTION',../DOWNTIME[1]/DESCRIPTION/text())</element-create>
+                <element-create as="first-child">entry('FORMATED_START_DATE',../DOWNTIME[1]/FORMATED_START_DATE/text())</element-create>
+                <element-create as="first-child">entry('FORMATED_END_DATE',../DOWNTIME[1]/FORMATED_END_DATE/text())</element-create>
+                <element-create as="first-child">entry('START_DATE',../DOWNTIME[1]/START_DATE/text())</element-create>
+                <element-create as="first-child">entry('END_DATE',../DOWNTIME[1]/END_DATE/text())</element-create>
+                <element-create as="first-child">entry('NGI',choose(../DOWNTIME[1]/NGI/text(),../DOWNTIME[1]/NGI/text(),'NA'))</element-create>
+                <element-create as="first-child">entry('SITE',../DOWNTIME[1]/HOSTED_BY/text())</element-create>
+                <element-create as="first-child">entry('TIER',str:concat(../DOWNTIME[1]/TIER/text()))</element-create>
+                <element-create as="first-child">entry('CLASSIFICATION',../DOWNTIME[1]/@CLASSIFICATION)</element-create>
+                <element-create as="first-child">entry('INSERT_DATE',date:format-date(date:add('1970-01-01T00:00:00',concat('PT',../DOWNTIME[1]/INSERT_DATE/text(),'S')),'yyyy-MM-dd HH:mm'))</element-create>
+
+
+                <element in="DOWNTIME">
+                    <attribute-ignore/>
+                    <element if="name()='HOSTNAME' or name()='SERVICE_TYPE' or name()='AFFECTED_ENDPOINTS'"/>
+                    <element-ignore/>
+                </element>
+
+
+            </element>
+
+        </element>
+
+        <element in="results" out="e:entries">
+            <element in="entries" out="e:entries">
+
+                <element-create-as-parent out="e:entries">
+                    <element in="DOWNTIME" out="e:entries">
+                        <element-create>
+                            new_element('entity',new_attribute('key','entities')|new_text(concat(' ',../HOSTNAME/text(),'-',../SERVICE_TYPE/text(),' ')))
+                        </element-create>
+                        <element in="HOSTNAME" out="host">
+                            <attribute-create out="key">'host'</attribute-create>
+                        </element>
+                        <element-ignore/>
+                    </element>
+                </element-create-as-parent>
+            </element>
+        </element>
+
+        <elements path="e:entries/e:entries">
+            <element in="e:entries">
+                <element-ignore in="e:entries">
+                    <element/>
+                </element-ignore>
+            </element>
+        </elements>
+
+        <elements path="e:entries/e:entries/e:entries">
+            <element-ignore/>
+            <element-create>
+                sort_by_string(../*,'name()')
+            </element-create>
+        </elements>
+
+        <elements path="e:entries/e:entries/e:entries">
+            <element-ignore/>
+            <element-create>
+                uniq(../*,'text()')
+            </element-create>
+        </elements>
+
+        <elements path="e:entries/e:entries/e:entries">
+            <element-create-as-parent out="e:entries" attributes="@*">
+                <element in="host"/>
+            </element-create-as-parent>
+
+            <element-create-as-parent out="e:entries" attributes="@*">
+                <element in="entity" out="e:entry">
+                    <attribute-ignore/>
+                </element>
+            </element-create-as-parent>
+        </elements>
+
+        <elements path="e:entries/e:entries">
+            <element-ignore in="e:entries">
+                <element in="e:entries"/>
+            </element-ignore>
+        </elements>
+
+
+
+
+
+
+        <elements path="e:entries/e:entries">
+            <element-create>entry('Endpoints',str:concat(../e:entries[@key='entities']/e:entry/text()))</element-create>
+        </elements>
+
+
+        <element in="e:entries">
+            <set variable="VAPOR_Endpoints_Policy">view('VAPOR_Endpoints_Policy')/*</set>
+            <element in="e:entries">
+                <element in="e:entries" if="@key='host'">
+                    <element in="host">
+                        <element-create>$VAPOR_Endpoints_Policy/e:entries[contains(@id,current()/../text()) and string-length(current()/../text()) &gt; 3 and VO]/VO</element-create>
+                    </element>
+
+                </element>
+            </element>
+
+        </element>
+
+        <elements path="e:entries/e:entries">
+            <element-ignore in="e:entries" if="@key='host'">
+                <element-ignore in="host">
+                    <element in="VO"/>
+                </element-ignore>
+            </element-ignore>
+        </elements>
+        <elements path="e:entries/e:entries">
+            <element-ignore in="VO"/>
+            <element-create>uniq(../VO,'text()')</element-create>
+        </elements>
+        <elements path="e:entries/e:entries">
+            <element-create-as-parent out="e:entries">
+                <element in="VO" out="e:entry">
+                    <attribute-create out="key">'vo'</attribute-create>
+                </element>
+            </element-create-as-parent>
+        </elements>
+
+
+        <elements path="e:entries/e:entries">
+            <element in="e:entries" if="e:entry[@key='vo']">
+                <attribute-create out="key">'vos'</attribute-create>
+                <element in="e:entry">
+                    <attribute-ignore/>
+                </element>
+            </element>
+        </elements>
+    </processors>
+
+
+
 </processors-list>

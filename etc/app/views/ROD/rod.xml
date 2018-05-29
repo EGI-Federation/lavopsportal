@@ -1,10 +1,8 @@
-<config xmlns="http://software.in2p3.fr/lavoisier/config.xsd" xmlns:xi="http://www.w3.org/2001/XInclude" version="16">
+<views xmlns="http://software.in2p3.fr/lavoisier/application.xsd" >
 
 
     <view name="ROC_CleanUP">
-        <info>
-            <category>ROD</category>
-        </info>
+
         <connector type="HTTPConnector">
             <parameter name="url" eval="property('ROD.portal.clean.url')"/>
             <parameter name="certificate" eval="property('certificate.path')"/>
@@ -24,10 +22,8 @@
 
 
 
-    <view name="ROD_COD_Items">
-        <info>
-            <category>ROD</category>
-        </info>
+    <view name="ROD_COD_Items" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+
         <connector type="SQLConnector">
             <parameter name="driver">com.mysql.jdbc.Driver</parameter>
             <parameter name="url" eval="property('ROD.db.url')"/>
@@ -57,10 +53,8 @@
         </cache>
     </view>
 
-    <view name="ROD_COD_Items_count">
-        <info>
-            <category>ROD</category>
-        </info>
+    <view name="ROD_COD_Items_count" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+
         <argument name="entity_type" pattern="ngi|site|all"/>
         <argument name="entity_parent">none</argument>
         <argument name="prepath">/e:entries/e:entries[e:entry[(@key='ngi' and text()='NGI_FRANCE')]]</argument>
@@ -95,9 +89,7 @@
 
     <view name="ROD_XML">
 
-        <info>
-            <category>ROD</category>
-        </info>
+
 
         <connector type="HTTPConnector">
             <parameter name="url" eval="property('ROD.portal.metrics')"/>
@@ -122,9 +114,7 @@
     </view>
 
     <view name="Rod_Metrics_Generation">
-        <info>
-            <category>ROD</category>
-        </info>
+
         <connector type="HTTPConnector">
             <parameter name="url" eval="property('ROD.portal.metrics.generation')"/>
             <parameter name="certificate" eval="property('certificate.path')"/>
@@ -141,12 +131,9 @@
     </view>
 
     <view name="Nagios_Roles_Bonus">
-        <info>
-            <category>ROD</category>
-        </info>
 
         <connector type="FileConnector">
-            <parameter name="path">ROD/resources/nagios_roles_bonus.conf</parameter>
+            <parameter name="path">/app/resources/template/nagios_roles_bonus.conf</parameter>
         </connector>
         <serializer type="EncapsulateSerializer"/>
 
@@ -167,13 +154,11 @@
     </view>
 
     <view name="Rod_Nagios_Role_Conf">
-        <info>
-            <category>ROD</category>
-        </info>
+
 
 
         <connector type="FileConnector">
-            <parameter name="path">ROD/resources/nagios_roles_bonus.conf</parameter>
+            <parameter name="path">/app/resources/template/nagios_roles_bonus.conf</parameter>
         </connector>
 
         <serializer type="EncapsulateSerializer"/>
@@ -195,4 +180,4 @@
     </view>
 
 
-</config>
+</views>

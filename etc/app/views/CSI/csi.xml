@@ -1,21 +1,31 @@
-<config xmlns="http://software.in2p3.fr/lavoisier/config.xsd" xmlns:xi="http://www.w3.org/2001/XInclude" version="16">
+<views xmlns="http://software.in2p3.fr/lavoisier/application.xsd"  >
 
 
-    <authenticators name="local">
-        <authenticator type="IPAddressAuthenticator">
-            <parameter name="addresses">
-                <entry>134.158.230.0/23</entry>
-                <entry>134.158.64.0/21</entry>
-            </parameter>
-        </authenticator>
-    </authenticators>
+    <view name="CSI_xii_Nagios">
+       
+
+        <variable name="base_url" eval="property('CSI.portal.url')"/>
+        <variable name="collection">CsiNagiosRecords</variable>
+
+
+        <!-- view templateCrons dans COD/crons.xml-->
+        <connector type="XMLConnector">
+            <parameter name="content"
+                       eval="view('templateCrons',entry('base_url',$base_url)|entry('collection',$collection))"/>
+        </connector>
+
+        <cache type="FileCache">
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="minutes">5</parameter>
+            </trigger>
+        </cache>
+
+    </view>
 
 
     <view name="CSITriggerCriticalIssues">
-        <info>
-            <category>CSI</category>
-            <description>Raise Email with critical Issues</description>
-        </info>
+
         <connector type="HTTPConnector">
             <parameter name="url" eval="property('CSI.portal.notifications.critical')"/>
             <parameter name="certificate" eval="property('certificate.path')"/>
@@ -33,10 +43,7 @@
     </view>
 
     <view name="CSITriggerWarningIssues">
-        <info>
-            <category>CSI</category>
-            <description>Raise Email with critical Issues</description>
-        </info>
+
         <connector type="HTTPConnector">
             <parameter name="url" eval="property('CSI.portal.notifications.warning')"/>
             <parameter name="certificate" eval="property('certificate.path')"/>
@@ -53,39 +60,12 @@
 
     </view>
 
-    <view name="CSIproblem">
-        <connector type="FileConnector">
-            <parameter name="path">CsiNagiosRecords.xml</parameter>
-        </connector>
 
-        <processors>
-            <elements path="Data/Issues">
-                <element in="Issue">
-                    <attribute-create out="Id">concat(../@pk1,'-',../@pk2)</attribute-create>
-                </element>
-
-            </elements>
-
-            <elements path="Data/Issues">
-                <element in="Issue" if="@Id=preceding-sibling::Issue/@Id">
-                </element>
-                <element-ignore/>
-            </elements>
-
-
-
-        </processors>
-
-
-    </view>
 
 
 
     <view authenticators="local" name="CsiNagios">
-        <info>
-            <category>CSI</category>
-            <description>Security Issues raised by Nagios</description>
-        </info>
+
         <connector type="HTTPConnector">
             <parameter name="url" eval="property('CSI.nagiosBoxUrl')"/>
             <parameter name="certificate" eval="property('certificate.path')"/>
@@ -101,11 +81,8 @@
 
     </view>
 
-    <view authenticators="local" name="CsiNagiosRecords">
-        <info>
-            <category>CSI</category>
-            <description>Security Issues arranged for the DB</description>
-        </info>
+    <view authenticators="local" name="CsiNagiosRecords"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
+
         <connector type="XMLConnector">
             <parameter name="content" eval="view('CsiNagios')"/>
         </connector>
@@ -200,10 +177,7 @@
 
 
     <view authenticators="local" name="CsiNagiosProbes">
-        <info>
-            <category>CSI</category>
-            <description>description of the issues</description>
-        </info>
+
         <connector type="HTTPConnector">
             <parameter name="url" eval="property('CSI.NagiosProbes')"/>
             <parameter name="certificate" eval="property('certificate.path')"/>
@@ -230,10 +204,7 @@
 
 
     <view authenticators="local" name="CSI_CleanUP">
-        <info>
-            <category>CSI</category>
-            <description>Cron to clean old issues and tickets </description>
-        </info>
+
         <connector type="HTTPConnector">
             <parameter name="url" eval="property('CSI.portal.clean.url')"/>
             <parameter name="certificate" eval="property('certificate.path')"/>
@@ -250,26 +221,10 @@
         </cache>
     </view>
 
-    <view-template name="CSI_xii_Nagios" stylesheet="COD/resources/template/OpsImportCron.xsl">
-        <info>
-            <type>cron</type>
-            <category>CSI crons</category>
-            <description>Xml import CSI Nagios</description>
-        </info>
-        <parameter name="base_url">CSI.portal.url</parameter>
-        <parameter name="collection">CsiNagiosRecords</parameter>
-        <parameter name="cache_time">5</parameter>
-    </view-template>
-
-
 
 
     <view authenticators="local" name="CSI_XML">
 
-        <info>
-            <category>CSI</category>
-            <description>XML feed extracted from the csi dashboard</description>
-        </info>
 
         <connector type="HTTPConnector">
             <parameter name="url" eval="property('CSI.portal.metrics')"/>
@@ -293,10 +248,6 @@
 
     <view xmlns:html="http://www.w3.org/1999/xhtml" authenticators="local" name="CSI_Issues_XML">
 
-        <info>
-            <category>CSI</category>
-            <description>XML feed extracted from the csi dashboard</description>
-        </info>
 
         <connector type="HTTPConnector">
             <parameter name="url" eval="property('CSI.portal.issues')"/>
@@ -384,10 +335,7 @@
     </view>
 
     <view authenticators="local" name="Csi_Metrics_Generation">
-        <info>
-            <category>CSI</category>
-            <description>Cron to generate metrics</description>
-        </info>
+
         <connector type="HTTPConnector">
             <parameter name="url" eval="property('CSI.portal.metrics.generation')"/>
             <parameter name="certificate" eval="property('certificate.path')"/>
@@ -403,12 +351,8 @@
 
     </view>
 
-    <view authenticators="local" name="Csi_RT_Ticket_List">
-        <info>
-            <category>CSI</category>
-            <description>List of security tickets open in RT </description>
+    <view authenticators="local" name="Csi_RT_Ticket_List"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
 
-        </info>
 
         <connector type="HTTPConnector">
             <parameter name="url" eval="property('rt.listtickets')"/>
@@ -500,12 +444,8 @@
         </renderers>
     </view>
 
-    <view authenticators="local" name="Csi_RT_Ticket_full_byID">
-        <info>
-            <category>CSI</category>
-            <description>List of security tickets open in RT </description>
+    <view authenticators="local" name="Csi_RT_Ticket_full_byID"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
 
-        </info>
 
         <argument name="id"/>
 
@@ -593,11 +533,8 @@
     </view>
 
 
-    <view authenticators="local" name="Csi_RT_Ticket_List_byEntity">
-        <info>
-            <category>CSI</category>
-            <description>List of security tickets open in RT - additional parameter ngi or site or ticketId</description>
-        </info>
+    <view authenticators="local" name="Csi_RT_Ticket_List_byEntity"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
+
 
         <argument name="site">false</argument>
         <argument name="ngi">false</argument>
@@ -626,11 +563,8 @@
 
     </view>
 
-    <view xmlns:date="http://exslt.org/dates-and-times" authenticators="local" name="Csi_RT_ClosedTicket_List_24h">
-        <info>
-            <category>CSI</category>
-            <description>List of security tickets closed in RT in the last day </description>
-        </info>
+    <view xmlns:date="http://exslt.org/dates-and-times"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd"  authenticators="local" name="Csi_RT_ClosedTicket_List_24h">
+
         <variable name="yesterday" eval="substring(date:add(date:date(),'-P1D'),0,11)"/>
         <connector type="HTTPConnector">
             <parameter name="url" eval="property('rt.listtickets.closed.withdate')"/>
@@ -701,11 +635,8 @@
     </view>
 
 
-    <view xmlns:date="http://exslt.org/dates-and-times" authenticators="local" name="Csi_RT_OpenedTicket_List_24h">
-        <info>
-            <category>CSI</category>
-            <description>List of security tickets open in RT in the last day </description>
-        </info>
+    <view xmlns:date="http://exslt.org/dates-and-times"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd"  authenticators="local" name="Csi_RT_OpenedTicket_List_24h">
+
         <variable name="yesterday" eval="substring(date:add(date:date(),'-P1D'),0,11)"/>
         <connector type="HTTPConnector">
             <parameter name="url" eval="concat(property('rt.listtickets.opened.withdate'),quot($yesterday))"/>
@@ -773,11 +704,8 @@
 
 
 
-    <view authenticators="local" name="Csi_Metrics_Count">
-        <info>
-            <category>CSI</category>
-            <description>view used for metrics - counter of closed/open tickets</description>
-        </info>
+    <view authenticators="local"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd"  name="Csi_Metrics_Count">
+
 
         <argument name="viewRT" path-format="none">Csi_RT_ClosedTicket_List_24h</argument>
 
@@ -832,12 +760,8 @@
 
     </view>
 
-    <view authenticators="local" name="Csi_RT_Ticket_Details">
+    <view authenticators="local" name="Csi_RT_Ticket_Details"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
 
-        <info>
-            <category>CSI</category>
-            <description>Access to the ticket detail with the ticketId parameter</description>
-        </info>
 
         <argument name="ticketId"/>
         <connector type="HTTPConnector">
@@ -861,12 +785,9 @@
     </view>
 
 
-    <view authenticators="local" name="Csi_VoContacts_List">
+    <view authenticators="local" name="Csi_VoContacts_List"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
 
-        <info>
-            <category>CSI</category>
-            <description>Access to the VO security contact list</description>
-        </info>
+
 
         <connector type="SQLConnector">
             <parameter name="driver">com.mysql.jdbc.Driver</parameter>
@@ -940,12 +861,9 @@
 
 
 
-    <view xmlns:date="http://exslt.org/dates-and-times" xmlns:str="http://exslt.org/strings" authenticators="local" name="Csi_Issues_Complete">
+    <view xmlns:date="http://exslt.org/dates-and-times" xmlns:str="http://exslt.org/strings"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd"  authenticators="local" name="Csi_Issues_Complete">
 
-        <info>
-            <category>CSI</category>
-            <description>Access to the Issues of a given month</description>
-        </info>
+
 
         <argument name="date"/>
         <argument name="start_date" eval="concat($date,'T00:00:00+01:00')"/>
@@ -1070,4 +988,4 @@
 
 
 
-</config>
+</views>

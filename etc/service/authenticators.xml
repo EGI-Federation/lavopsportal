@@ -8,4 +8,14 @@
             </parameter>
         </authenticator>
     </authenticators>
+
+    <authenticators name="local">
+        <authenticator type="IPAddressAuthenticator">
+            <parameter name="addresses">
+                <entry>134.158.230.0/23</entry>
+                <entry>134.158.64.0/21</entry>
+            </parameter>
+        </authenticator>
+    </authenticators>
+
 </authenticators-list>

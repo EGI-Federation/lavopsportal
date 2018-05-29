@@ -1,0 +1,266 @@
+<views xmlns="http://software.in2p3.fr/lavoisier/application.xsd">
+
+    <view xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" name="GGUS_header">
+        <argument name="service_id"/>
+        <connector type="XMLConnector">
+            <parameter name="content" eval="document('app/resources/xml/header.xml')"/>
+        </connector>
+        <processors>
+            <processor type="ReplaceProcessor" match="/AuthenticationInfo/userName/text()">
+                <parameter name="nodes" eval="property(concat('GGUS.user_name.',$service_id))"/>
+            </processor>
+            <processor type="ReplaceProcessor" match="/AuthenticationInfo/password/text()">
+                <parameter name="nodes" eval="property(concat('GGUS.password.',$service_id))"/>
+            </processor>
+        </processors>
+    </view>
+
+
+
+    <view name="ggus_soap" xmlns:op="urn:CIC_HelpDesk" xmlns:param="urn:GGUS_OPS">
+
+
+
+        <argument name="operation">OpGetOps</argument>
+        <argument name="service"/>
+        <argument name="ggus_user"/>
+        <argument name="password"/>
+        <argument name="ggus_message">ggus_message_base</argument>
+
+        <variable name="header" eval="concat('&lt;AuthenticationInfo&gt;&lt;userName&gt;',$ggus_user,'&lt;/userName&gt;&lt;password&gt;',$password,'&lt;/password&gt;&lt;/AuthenticationInfo&gt;')" />
+
+
+        <connector type="XMLConnector" >
+            <parameter name="content" eval="view_post('SOAP_execute',
+                    view($ggus_message),
+                    entry('url', concat(property('GGUS.url.test'),$service))|
+                    entry('header', $header)|
+                    entry('operation', concat('urn:CIC_HelpDesk/',$operation)))
+                "/>
+        </connector>
+    </view>
+
+
+
+    <view name="ggus_message_base" xmlns:op="urn:CIC_HelpDesk" >
+        <argument name="operation">OpGetListOps</argument>
+        <connector type="XMLConnector">
+            <parameter name="content" eval="new_element(concat('op:',$operation))"/>
+        </connector>
+    </view>
+
+    <view name="ggus_message_terminal_state" xmlns:op="urn:CIC_HelpDesk" xmlns:param="urn:GGUS_OPS">
+        <argument name="operation">OpGetListOps</argument>
+        <connector type="XMLConnector">
+            <parameter name="content" eval="new_element(concat('op:',$operation),new_element('Qualification', concat(apos('GHD_Meta Status'), ' = 0 ')))"/>
+        </connector>
+    </view>
+
+    <!--<view name="ggus_message_terminal_state" xmlns:op="urn:CIC_HelpDesk" xmlns:param="urn:GGUS_OPS">-->
+        <!--<argument name="operation">OpGetListOps</argument>-->
+        <!--<connector type="XMLConnector">-->
+            <!--<parameter name="content" eval="new_element(concat('op:',$operation),new_element('Qualification', concat(apos('GHD_Ticket Type'), ' = 1 ')))"/>-->
+        <!--</connector>-->
+    <!--</view>-->
+
+    <view name="ggus_message_ticket_id" xmlns:op="urn:CIC_HelpDesk" xmlns:param="urn:GGUS_OPS">
+
+        <argument name="operation">OpGet</argument>
+        <connector type="XMLConnector">
+            <parameter name="content" eval="new_element(concat('op:',$operation),new_element('param:GHD_Request_ID','53692'))"/>
+        </connector>
+    </view>
+
+
+    <view name="GGUS_OPS"
+          xmlns:str="http://exslt.org/strings"
+          xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd"
+          xmlns:ns0="urn:GGUS_OPS">
+
+        <argument name="service">GGUS_OPS</argument>
+        <argument name="operation">OpGetListOps</argument>
+        <argument name="ggus_user" eval="property('GGUS_OPS.user_name')"/>
+        <argument name="password" eval="property('GGUS_OPS.password')"/>
+
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('ggus_soap',entry('service',$service)|entry('operation',$operation)|entry('ggus_user',$ggus_user)|entry('password',$password)|entry('ggus_message','ggus_message_base'))"/>
+        </connector>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+    </view>
+
+    <view name="GGUS_OPS_terminal_state"
+          xmlns:str="http://exslt.org/strings"
+          xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd"
+          xmlns:ns0="urn:GGUS_OPS">
+
+        <argument name="service">GGUS_OPS</argument>
+        <argument name="operation">OpGetListOps</argument>
+        <argument name="ggus_user" eval="property('GGUS_OPS.user_name')"/>
+        <argument name="password" eval="property('GGUS_OPS.password')"/>
+
+
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('ggus_soap',entry('service',$service)|
+            entry('operation',$operation)|entry('ggus_user',$ggus_user)|entry('password',$password)|entry('ggus_message','ggus_message_terminal_state'))"/>
+        </connector>
+
+        <processors>
+            <element in="ns0:OpGetListOpsResponse">
+                <element-ignore in="ns0:getListValues" if="ns0:GHD_Status/text()!='solved' and ns0:GHD_Status/text()!='unsolved' and ns0:GHD_Status/text()!='verified' and ns0:GHD_Status/text()!='closed' "></element-ignore>
+            </element>
+        </processors>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+
+    </view>
+
+
+
+
+    <!--<view-template xmlns:ns="urn:GGUS_TEAM" xmlns:cfg="http://software.in2p3.fr/lavoisier/config.xsd" name="GGUS_TEAM"-->
+                   <!--stylesheet="template/SOAPTemplate.xsl">-->
+
+        <!--<argument name="service_id">GGUS_TEAM</argument>-->
+        <!--<parameter name="url" eval="concat(property('GGUS.url'), $service_id )"/>-->
+        <!--<parameter name="operation">ns:OpGetListTeam</parameter>-->
+        <!--<parameter name="SOAPHeader" eval="view('GGUS_header',entry( 'service_id',$service_id ))"/>-->
+
+    <!--</view-template>-->
+
+
+    <view name="StepMapping">
+
+        <argument name="community">ROD</argument>
+        <argument name="old_label">false</argument>
+        <argument name="subcommunity">false</argument>
+        <connector type="FileConnector">
+            <parameter name="path">app/resources/xml/StepMapping.xml</parameter>
+        </connector>
+
+        <processors>
+            <processor
+                    match="eval(concat('/Mapping/Steps/',$community,'[@SubCommunity=',quot($subcommunity),']/step[@old_label=',quot($old_label),']'))"
+                    type="SelectProcessor" disabled="$old_label='false'">
+            </processor>
+            <processor match="eval(concat('/Mapping/Steps/',$community,'[@SubCommunity=',quot($subcommunity),']'))"
+                       type="SelectProcessor" disabled="$old_label!='false'">
+            </processor>
+        </processors>
+    </view>
+
+    <!--
+      Generic request to call GGUS open tickets
+    -->
+    <view xmlns:ns0="urn:GGUS_OPS" xmlns:str="http://exslt.org/strings"
+          xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" name="GGUS_Opened">
+
+        <argument name="service_id"/>
+        <argument name="community_id">ROD</argument>
+
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('GGUS_OPS')"/>
+        </connector>
+
+        <processors>
+
+
+            <elements path="/ns0:OpGetListOpsResponse/ns0:getListValues/ns0:GHD_Soap_Client_Data">
+                <text-ignore/>
+                <element-create>xml(../text())/e:entries</element-create>
+            </elements>
+
+
+            <element in="ns0:OpGetListOpsResponse" out="e:entries">
+                <element-ignore in="ns0:getListValues" if="ns0:GHD_Soap_Client_Data/e:entries/e:entry[@key='Community' and text()!=$community_id]"/>
+            </element>
+
+           <element in="e:entries">
+               <element in="ns0:getListValues" out="e:entries">
+
+                   <element-ignore>
+                       <element-create if="../text()">entry(local-name(..),../text())</element-create>
+                       <element if="not(text())">
+                           <attribute-create out="key">'GHD_Soap_Client_Data'</attribute-create>
+                       </element>
+                   </element-ignore>
+
+               </element>
+           </element>
+
+            <elements path="e:entries/e:entries">
+                <element-create if="../e:entries/e:entry[@key='Ngi']/text()">entry('Ngi',../e:entries/e:entry[@key='Ngi']/text())</element-create>
+                <element-create if="not(../e:entries/e:entry[@key='Ngi']/text())">entry('Ngi','NA')</element-create>
+            </elements>
+
+
+        </processors>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+    </view>
+
+
+    <view xmlns:ns0="urn:GGUS_OPS" xmlns:str="http://exslt.org/strings" xmlns:date="http://exslt.org/dates-and-times"
+          xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" name="GGUS_Closed">
+
+        <argument name="service_id"/>
+        <argument name="community_id">ROD</argument>
+
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('GGUS_OPS_terminal_state')"/>
+        </connector>
+        <processors>
+
+
+                <elements path="/ns0:OpGetListOpsResponse/ns0:getListValues/ns0:GHD_Soap_Client_Data">
+                    <text-ignore/>
+                    <element-create>xml(../text())/e:entries</element-create>
+                </elements>
+
+
+                <element in="ns0:OpGetListOpsResponse" out="e:entries">
+                    <element-ignore in="ns0:getListValues" if="ns0:GHD_Soap_Client_Data/e:entries/e:entry[@key='Community' and text()!=$community_id]"/>
+                </element>
+
+                <element in="e:entries">
+                    <element in="ns0:getListValues" out="e:entries">
+
+                        <element-ignore>
+                            <element-create if="../text()">entry(local-name(..),../text())</element-create>
+                            <element if="not(text())">
+                                <attribute-create out="key">'GHD_Soap_Client_Data'</attribute-create>
+                            </element>
+                        </element-ignore>
+
+                    </element>
+                </element>
+
+                <elements path="e:entries/e:entries">
+                    <element-create if="../e:entries/e:entry[@key='Ngi']/text()">entry('Ngi',../e:entries/e:entry[@key='Ngi']/text())</element-create>
+                    <element-create if="not(../e:entries/e:entry[@key='Ngi']/text())">entry('Ngi','NA')</element-create>
+                </elements>
+
+
+        </processors>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+
+    </view>
+
+</views>

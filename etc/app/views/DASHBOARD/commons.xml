@@ -1,0 +1,458 @@
+
+<views xmlns="http://software.in2p3.fr/lavoisier/application.xsd">
+
+    <view name="DASHBOARD_probes_list"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
+        <connector type="HTTPConnector">
+            <parameter name="url" >https://poem.egi.eu/poem/api/0.2/json/metrics_in_profiles?vo_name=ops</parameter>
+        </connector>
+
+        <serializer type="JSONSerializer"/>
+
+        <processors>
+                <element in="object" out="e:entries">
+                    <elements-ignore path="array/item/object/profiles/item/object/metrics/item">
+                        <element in="object" out="e:entry">
+                            <attribute-create out="profile">../../../../@name</attribute-create>
+                        </element>
+                    </elements-ignore>
+                </element>
+        </processors>
+
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="minutes">52</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+        </cache>
+
+    </view>
+
+<view name="DASHBOARD_alarm_history"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
+    <argument name="id"></argument>
+    <connector type="SQLConnector">
+        <parameter name="driver">com.mysql.jdbc.Driver</parameter>
+        <parameter name="url" eval="property('ROD.db.url')"/>
+        <parameter name="username" eval="property('ROD.db.username')"/>
+        <parameter name="password" eval="property('ROD.db.password')"/>
+        <parameter name="query">
+            <entry>SELECT * from rod_nagios_history where monitor_id =</entry>
+            <entry eval="quot($id)"/>
+            <entry> order by created_at asc</entry>
+        </parameter>
+    </connector>
+
+    <processors>
+
+        <element in="result" out="e:entries">
+            <element in="row" out="e:entries">
+                <element-ignore>
+                    <element-create if="../text()">entry(local-name(..),../text())</element-create>
+                </element-ignore>
+
+            </element>
+        </element>
+
+    </processors>
+
+    <renderers>
+        <renderer type="DefaultRenderer">
+            <parameter name="contentType">text/xml</parameter>
+        </renderer>
+    </renderers>
+</view>
+
+    <view name="DASHBOARD_notepads"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
+
+
+    <connector type="SQLConnector">
+        <parameter name="driver">com.mysql.jdbc.Driver</parameter>
+        <parameter name="url" eval="property('ROD.db.url')"/>
+        <parameter name="username" eval="property('ROD.db.username')"/>
+        <parameter name="password" eval="property('ROD.db.password')"/>
+        <parameter name="query">
+            SELECT * from notepad
+        </parameter>
+    </connector>
+
+        <processors>
+            <element in="result" out="e:entries">
+                <element in="row" out="e:entries">
+                    <element-ignore>
+                        <element-create if="../text()">entry(local-name(..),../text())</element-create>
+                    </element-ignore>
+                </element>
+            </element>
+
+        </processors>
+
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="minutes">8</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="ViewCreatedTrigger"/>
+        </cache>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+    </view>
+
+<view name="DASHBOARD_alarms"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
+
+
+    <connector type="SQLConnector">
+        <parameter name="driver">com.mysql.jdbc.Driver</parameter>
+        <parameter name="url" eval="property('ROD.db.url')"/>
+        <parameter name="username" eval="property('ROD.db.username')"/>
+        <parameter name="password" eval="property('ROD.db.password')"/>
+        <parameter name="query">
+            SELECT * from rod_nagios_problem
+        </parameter>
+    </connector>
+
+    <processors>
+
+        <element in="result" out="e:entries">
+            <element in="row" out="e:entries">
+                <element-ignore>
+                    <element-create if="../text()">entry(local-name(..),../text())</element-create>
+                </element-ignore>
+                <element-create>entry('endpoint',concat(../host_name/text(),'__',../service/text()))</element-create>
+            </element>
+        </element>
+
+        <element in="e:entries">
+
+            <set variable="endpoints" index="e:entry[@key='endpoint']/text()">uniq(view('DASHBOARD_endpoints')/e:entries/e:entries,"e:entry[@key='endpoint']/text()")</set>
+
+            <!--<set variable="listProbes">view('DASHBOARD_probes_list')/e:entries</set>-->
+                <element in="e:entries">
+                        <set variable="endpoint">find($endpoints,e:entry[@key='endpoint']/text())</set>
+                    <set variable="probeList">view('DASHBOARD_probes_list')/e:entries</set>
+                        <element-create>
+                            entry('in_production',
+                                choose($endpoint/e:entry[@key='in_production']/text(),$endpoint/e:entry[@key='in_production']/text(),-1))
+                        </element-create>
+                    <element-create>
+                        entry('monitored',
+                        choose($endpoint/e:entry[@key='monitored']/text(),$endpoint/e:entry[@key='monitored']/text(),-1))
+                    </element-create>
+                    <element-create>$probeList/e:entry[@name=current()/../e:entry[@key='test_name']/text()]</element-create>
+                </element>
+        </element>
+
+        <element in="e:entries">
+            <element in="e:entries">
+                <element-create-as-parent out="e:entries" attributes="new_attribute('key','profiles')">
+                    <element in="e:entry" if="@profile">
+                        <attribute-ignore/>
+                        <text-create>../@profile</text-create>
+                    </element>
+                </element-create-as-parent>
+
+            </element>
+        </element>
+    </processors>
+
+    <cache type="FileCache">
+        <trigger type="DeltaTimeTrigger">
+            <parameter name="minutes">6</parameter>
+        </trigger>
+        <trigger type="ViewNotifiedTrigger"/>
+        <trigger type="ViewCreatedTrigger"/>
+    </cache>
+
+    <renderers>
+        <renderer type="DefaultRenderer">
+            <parameter name="contentType">text/xml</parameter>
+        </renderer>
+    </renderers>
+</view>
+
+    <view name="DASHBOARD_ALARMS-L"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
+
+        <argument name="ListID">024341cb-33e9-11e8-b58b-1418776844f0,031d8565-33e9-11e8-b58b-1418776844f0</argument>
+        <variable name="ListIDFormatted" eval="concat(',',$ListID,',')"></variable>
+        <connector type="XMLConnector">
+
+            <parameter name="content" eval="view('DASHBOARD_alarms')"/>
+        </connector>
+
+        <processors>
+
+            <element in="e:entries">
+                <element-ignore in="e:entries" if="not(contains($ListIDFormatted,concat(',',e:entry[@key='id']/text(),',')))"/>
+            </element>
+        </processors>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+
+    </view>
+
+    <view name="DASHBOARD_sites"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
+
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('OPSCORE_get_site')"/>
+        </connector>
+
+        <processors>
+            <element in="results" out="e:entries">
+                <element in="SITE" out="e:entries">
+                    <attribute-create out="key">../@NAME</attribute-create>
+                    <attribute-ignore/>
+
+                    <element-create>entry('PRIMARY_KEY',../PRIMARY_KEY/text())</element-create>
+                    <element-create>entry('NAME',../SHORT_NAME/text())</element-create>
+                    <element-create>entry('NGI',../ROC/text())</element-create>
+                    <element-create>entry('COUNTRY',../COUNTRY_CODE/text())</element-create>
+                    <element-create>entry('PRODUCTION_INFRASTRUCTURE',../PRODUCTION_INFRASTRUCTURE/text())</element-create>
+                    <element-create>entry('CERTIFICATION_STATUS',../CERTIFICATION_STATUS/text())</element-create>
+                    <element-create>entry('LINK',join(../GOCDB_PORTAL_URL/text(),''))</element-create>
+                    <element-ignore/>
+                </element>
+
+            </element>
+        </processors>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+
+    </view>
+
+
+
+
+
+    <view name="DASHBOARD_AV_RE"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
+
+        <argument name="summary">_summary_</argument>
+
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('OPSCORE_AR_SITES')"/>
+        </connector>
+
+        <processors>
+
+           <!-- </root/Profile/Site/Availability-->
+
+            <element in="root" out="e:entries">
+
+                <element-ignore in="Profile">
+                    <element in="Site" out="e:entries" if="$summary='_summary_'">
+                        <attribute in="site" out="key"/>
+                        <element-create >entry('availability',choose(../@Availability_average,../@Availability_average,'N.A'))</element-create>
+                        <element-create>entry('reliability',choose(../@Reliability_average,../@Reliability_average,'N.A'))</element-create>
+                        <element-create>entry('unknown',choose(../@Unknown_average,../@Unknown_average,'N.A'))</element-create>
+                        <element-ignore/>
+                    </element>
+
+                    <element in="Site" out="e:entries" if="$summary!='_summary_'">
+                            <attribute in="site" out="key"/>
+                        <attribute-ignore/>
+                            <element in="Availability" out="e:entries">
+                                <attribute-ignore/>
+                                <attribute-create out="key">choose(../@timestamp,../@timestamp,'N.A')</attribute-create>
+                                <element-create >entry('availability',choose(../@availability,../@availability,'N.A'))</element-create>
+                                <element-create>entry('reliability',choose(../@reliability,../@reliability,'N.A'))</element-create>
+                                <element-create>entry('unknown',choose(../@unknown,../@unknown,'N.A'))</element-create>
+
+                            </element>
+
+                    </element>
+
+                </element-ignore>
+            </element>
+
+
+        </processors>
+    </view>
+
+
+    <view name="DASHBOARD_TICKETS" xmlns:ns0="urn:GGUS_OPS"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('GGUS_OPS')"/>
+        </connector>
+
+        <processors>
+            <element in="ns0:OpGetListOpsResponse" out="e:entries">
+
+                <element in="ns0:getListValues" out="e:entries">
+
+                    <element-ignore>
+                        <element-create if="../text()">entry(local-name(..),../text())</element-create>
+                    </element-ignore>
+                </element>
+            </element>
+
+            <element in="e:entries">
+                <element-ignore in="e:entries" if="not(e:entry[@key='GHD_Affected_Site'])"/>
+            </element>
+
+        </processors>
+    </view>
+
+
+    <view name="DASHBOARD_endpoints"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
+
+        <connector type="HTTPConnector">
+            <parameter name="url" eval="property('OPSCORE.gocdb.get_service_endpoint')"/>
+            <parameter name="certificate" eval="property('certificate.path')"/>
+            <parameter name="passphrase" eval="property('certificate.password')"/>
+        </connector>
+
+        <processors>
+
+            <element in="results" out="e:entries">
+
+                <element in="SERVICE_ENDPOINT" out="e:entries">
+                    <element-create>entry('id',../@PRIMARY_KEY)</element-create>
+                    <element-create>entry('hostname',../HOSTNAME/text())</element-create>
+                    <element-create>entry('service',../SERVICE_TYPE/text())</element-create>
+                    <element-create>entry('in_production',choose(../IN_PRODUCTION/text()='Y','1','0'))</element-create>
+                    <element-create>entry('monitored',choose(../NODE_MONITORED/text()='Y','1','0'))</element-create>
+                    <element-create>entry('endpoint',concat(../HOSTNAME/text(),'__',../SERVICE_TYPE/text()))</element-create>
+                    <element-create>entry('link',join(../GOCDB_PORTAL_URL/text(),''))</element-create>
+                    <element-ignore/>
+                </element>
+            </element>
+    </processors>
+
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="minutes">26</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+        </cache>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+
+    </view>
+
+
+    <view name="DASHBOARD_VIEW"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
+
+        <argument name="SitesList">IN2P3-CC,INFN-T1,IN2P3-IRES,Taiwan-LCG2,CYFRONET-LCG2</argument>
+        <argument name="statusList">1,2</argument>
+        <argument name="profilesList">ARGO_MON_OPERATORS,MW_MONITOR,OPS_MONITOR</argument>
+        <argument name="summary">_summary_</argument>
+        <argument name="FilterAssigned">_filter_</argument>
+
+
+        <variable name="SitesListFormatted" eval="concat(',',$SitesList,',')"/>
+        <variable name="statusListFormatted" eval="concat(',',$statusList,',')"/>
+        <variable name="profilesListFormatted" eval="concat(',',$profilesList,',')"/>
+
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('DASHBOARD_sites')"/>
+        </connector>
+
+        <processors>
+
+            <elements path="e:entries/e:entries">
+                <element-create-as-parent out="e:entries" attributes="new_attribute('key','site')">
+                    <element in="e:entry"/>
+                </element-create-as-parent>
+            </elements>
+
+            <elements path="e:entries">
+                <element in="e:entries" if="contains($SitesListFormatted,concat(',',@key,','))">
+                    <element-create>new_element('e:entries',new_attribute('key','alarms'))</element-create>
+                    <element-create>new_element('e:entries',new_attribute('key','tickets'))</element-create>
+                    <element-create>new_element('e:entries',new_attribute('key','notepads'))</element-create>
+                    <element-create>new_element('e:entries',new_attribute('key','avre'))</element-create>
+                    <element-create>new_element('e:entries',new_attribute('key','downtimes'))</element-create>
+                </element>
+              <element-ignore/>
+            </elements>
+
+            <elements path="e:entries">
+                <set variable="alarms">view('DASHBOARD_alarms')/e:entries</set>
+                <set variable="avRe">view('DASHBOARD_AV_RE',entry('summary',$summary))/e:entries</set>
+                <set variable="downtimes">view('OPSCORE_downtime_ongoing')/e:entries</set>
+                <set variable="tickets">view('DASHBOARD_TICKETS')/e:entries</set>
+                <set variable="notepads">view('DASHBOARD_notepads')/e:entries</set>
+
+                <element in="e:entries">
+                    <element in="e:entries" if="@key='alarms' and $FilterAssigned='_filter_'">
+                        <element-create>$alarms/e:entries[e:entry[@key='site']/text()=current()/../../@key][contains($statusListFormatted,concat(',',e:entry[@key='status']/text(),','))][e:entry[@key='ops_flags']/text()!=2][contains($profilesListFormatted,concat(',',e:entries[@key='profiles']/e:entry/text(),','))]</element-create>
+                    </element>
+
+                    <element in="e:entries" if="@key='alarms' and not($FilterAssigned)">
+                        <element-create>$alarms/e:entries[e:entry[@key='site']/text()=current()/../../@key][contains($statusListFormatted,concat(',',e:entry[@key='status']/text(),','))][contains($profilesListFormatted,concat(',',e:entries[@key='profiles']/e:entry/text(),','))]</element-create>
+                    </element>
+
+                    <element in="e:entries" if="@key='avre'">
+                        <element-create>$avRe/e:entries[@key=current()/../../@key]/*</element-create>
+                    </element>
+
+                    <element in="e:entries" if="@key='downtimes'">
+                        <element-create>$downtimes/e:entry[e:entry[@key='HOSTED_BY']/text()=current()/../../@key]</element-create>
+                    </element>
+
+                    <element in="e:entries" if="@key='tickets'">
+                        <element-create>$tickets/e:entries[e:entry[@key='GHD_Affected_Site']/text()=current()/../../@key]</element-create>
+                    </element>
+
+                    <element in="e:entries" if="@key='notepads'">
+                        <element-create>$notepads/e:entries[e:entry[@key='site']/text()=current()/../../@key]</element-create>
+                    </element>
+
+                </element>
+            </elements>
+
+
+
+            <element in="e:entries" if="$summary='_summary_'">
+
+                <element in="e:entries">
+                    <element in="e:entries" if="@key='alarms'">
+                        <element-create>entry('nb_alarms_ok',count(../e:entries[e:entry[@key='status']/text()=0]))</element-create>
+                        <element-create>entry('nb_alarms_warning',count(../e:entries[e:entry[@key='status']/text()=1]))</element-create>
+                        <element-create>entry('nb_alarms_critical',count(../e:entries[e:entry[@key='status']/text()=2]))</element-create>
+                        <element-create>entry('nb_alarms_unknown',count(../e:entries[e:entry[@key='status']/text()=3]))</element-create>
+                        <element-ignore/>
+                    </element>
+
+                    <element in="e:entries" if="@key='tickets'">
+                        <element-create>entry('nb_tickets',count(../e:entries))</element-create>
+                        <element-ignore/>
+                    </element>
+
+                    <element in="e:entries" if="@key='notepads'">
+                        <element-create>entry('nb_notepads',count(../e:entries))</element-create>
+                        <element-ignore/>
+                    </element>
+
+                    <element in="e:entries" if="@key='downtimes'">
+                        <element-create>entry('nb_downtimes',count(../e:entry))</element-create>
+                        <element-ignore/>
+                    </element>
+
+                </element>
+
+
+            </element>
+
+        </processors>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+    </view>
+</views>

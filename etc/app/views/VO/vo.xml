@@ -1,0 +1,2451 @@
+<views xmlns="http://software.in2p3.fr/lavoisier/application.xsd" >
+
+
+    <view name="VO_full_0">
+
+        <argument xmlns:html="http://www.w3.org/1999/xhtml" name="vo">all</argument>
+        <connector xmlns:html="http://www.w3.org/1999/xhtml" type="HTTPConnector">
+            <parameter name="url"
+                       eval="concat(property('portal.base_url'),'/cron/voDatabaseDump/voname/',parent_match()/name/text())"/>
+            <parameter name="certificate" eval="property('certificate.path')"/>
+            <parameter name="passphrase" eval="property('certificate.password')"/>
+            <parameter name="force-redirect">true</parameter>
+            <fallback eval="new_element('ERROR', arguments())">
+                <exception type="java.io"/>
+                <exception type="org.xml.sax"/>
+                <exception type="java.net.SocketTimeoutException"/>
+                <exception type="java.net.ConnectException" predicate-on-message="contains(.,'Connection refused')"/>
+                <exception type="org.xml.sax.SAXParseException"/>
+                <exception type="java.io.FileNotFoundException"/>
+            </fallback>
+        </connector>
+        <serializer xmlns:html="http://www.w3.org/1999/xhtml" type="HTMLSerializer"/>
+        <processors xmlns:html="http://www.w3.org/1999/xhtml">
+            <processor match="//*" type="ChangeNamespaceProcessor"/>
+        </processors>
+    </view>
+    
+    <view xmlns:html="http://www.w3.org/1999/xhtml" name="VO_full">
+        
+        <argument name="vo">all</argument>
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('VoListUrl')"/>
+        </connector>
+        <processors>
+
+            <processor match="/data/Vo[*]" type="InsertProcessor">
+                <parameter name="nodes"
+                           eval="view_path_post('VO_full_0', choose(path(false()), path(false()), ''), match(), arguments())"/>
+            </processor>
+
+            <elements path="/data/Vo">
+                <element in="data" out="data">
+                    <element in="Vo" out="Vo">
+                        <element in="name" out="name"/>
+                        <element in="validationdate" out="validationdate"/>
+                        <element in="creationdate" out="creationdate"/>
+                        <element in="VoHeader" out="VoHeader">
+                            <element in="name" out="name"/>
+                            <element in="enrollmenturl" out="enrollmenturl"/>
+
+                            <element in="VoScope" out="VoScope">
+                                <element in="scope" out="scope"/>
+                                <element in="roc" out="roc"/>
+                            </element>
+                            <element in="VoStatus" out="VoStatus">
+                                <element in="status" out="status"/>
+                                <element in="description" out="description"/>
+                            </element>
+                        </element>
+
+
+                    </element>
+
+                </element>
+
+            </elements>
+
+        </processors>
+
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="hours">3</parameter>
+                <parameter name="minutes">48</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+
+        </cache>
+    </view>
+
+
+    <view name="VO_full_full_0">
+
+        <argument xmlns:html="http://www.w3.org/1999/xhtml" name="vo">all</argument>
+        <connector xmlns:html="http://www.w3.org/1999/xhtml" type="HTTPConnector">
+            <parameter name="url"
+                       eval="concat(property('portal.base_url'),'/cron/voDatabaseDump/voname/',parent_match()/name/text())"/>
+            <parameter name="certificate" eval="property('certificate.path')"/>
+            <parameter name="passphrase" eval="property('certificate.password')"/>
+            <parameter name="force-redirect">true</parameter>
+            <fallback eval="new_element('ERROR', arguments())">
+                <exception type="java.io"/>
+                <exception type="org.xml.sax"/>
+                <exception type="java.net.SocketTimeoutException"/>
+                <exception type="java.net.ConnectException" predicate-on-message="contains(.,'Connection refused')"/>
+                <exception type="org.xml.sax.SAXParseException"/>
+                <exception type="java.io.FileNotFoundException"/>
+            </fallback>
+        </connector>
+        <serializer xmlns:html="http://www.w3.org/1999/xhtml" type="HTMLSerializer"/>
+        <processors xmlns:html="http://www.w3.org/1999/xhtml">
+            <processor match="//*" type="ChangeNamespaceProcessor"/>
+        </processors>
+    </view>
+    <view xmlns:html="http://www.w3.org/1999/xhtml" name="VO_full_full">
+        
+        <argument name="vo">all</argument>
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('VoListUrl')"/>
+        </connector>
+        <processors>
+
+            <processor match="/data/Vo[*]" type="InsertProcessor">
+                <parameter name="nodes"
+                           eval="view_path_post('VO_full_full_0', choose(path(false()), path(false()), ''), match(), arguments())"/>
+            </processor>
+
+
+            <elements path="/data/Vo">
+                <element in="html:data" out="data">
+                    <element in="html:Vo" out="Vo">
+                        <element in="html:name" out="name"/>
+                        <element in="html:validationdate" out="validationdate"/>
+                        <element in="html:creationdate" out="creationdate"/>
+                        <element in="html:VoHeader" out="VoHeader">
+                            <element in="html:name" out="name"/>
+                            <element in="html:enrollmenturl" out="enrollmenturl"/>
+
+                            <element in="html:VoScope" out="VoScope">
+                                <element in="html:scope" out="scope"/>
+                                <element in="html:roc" out="roc"/>
+                            </element>
+                            <element in="html:VoStatus" out="VoStatus">
+                                <element in="html:status" out="status"/>
+                                <element in="html:description" out="description"/>
+                            </element>
+                        </element>
+
+
+                    </element>
+
+                </element>
+
+            </elements>
+
+        </processors>
+
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="hours">4</parameter>
+                <parameter name="minutes">12</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+
+        </cache>
+    </view>
+
+    <view name="VO">
+
+        <argument name="vo">all</argument>
+
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('VO_full')"/>
+        </connector>
+        <processors>
+            <processor match="/data/Vo[name/text()!=$vo]" type="RemoveProcessor" disabled="$vo='all'"/>
+            <processor match="/data/Vo/data" type="RemoveProcessor">
+                <namespaces>
+                    <entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry>
+                </namespaces>
+                <parameter name="depth">1</parameter>
+            </processor>
+            <processor match="/data/Vo/Vo" type="RemoveProcessor">
+                <namespaces>
+                    <entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry>
+                </namespaces>
+                <parameter name="depth">1</parameter>
+            </processor>
+            <processor match="/data/Vo/DoctrineCollection" type="MoveProcessor">
+                <namespaces>
+                    <entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry>
+                </namespaces>
+                <parameter name="destination_axis">ancestor</parameter>
+                <parameter name="destination_name">data</parameter>
+            </processor>
+
+            <processor match="/data/Vo/name[position()=2]" type="RemoveProcessor">
+                <namespaces>
+                    <entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry>
+                </namespaces>
+            </processor>
+            <processor match="/data/Vo/validationdate[position()=2]" type="RemoveProcessor">
+                <namespaces>
+                    <entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry>
+                </namespaces>
+            </processor>
+            <processor match="/data/Vo/creationdate[position()=2]" type="RemoveProcessor">
+                <namespaces>
+                    <entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry>
+                </namespaces>
+            </processor>
+            <processor match="/data/Vo/lastchange[position()=2]" type="RemoveProcessor">
+                <namespaces>
+                    <entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry>
+                </namespaces>
+            </processor>
+
+        </processors>
+
+
+    </view>
+
+    <view xmlns:str="http://exslt.org/strings" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd"  name="VO_export">
+
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('VO_full')"/>
+        </connector>
+
+        <processors>
+            <element in="data" out="e:entries">
+                <element in="Vo" attributes="@*[local-name()='serial']">
+                    <set variable="vo_disciplines">view('VoDisciplinesTree_Metrics')</set>
+                    <element-create>entry('validationDate',../validationdate/text())</element-create>
+                    <element-create>entry('name',../name/text())</element-create>
+                    <element-create>
+                        entry('scope',choose(../data/Vo/VoHeader/VoScope/scope/text(),../data/Vo/VoHeader/VoScope/scope/text(),'NA'))
+                    </element-create>
+                    <element-create>
+                        entry('status',choose(../data/Vo/VoHeader/VoStatus/status/text(),../data/Vo/VoHeader/VoStatus/status/text(),'NA'))
+                    </element-create>
+                    <element-create>entry('Middlewares',concat(
+                        choose(../data/Vo/VoHeader/@arc_supported='1','Arc - '),
+                        choose(../data/Vo/VoHeader/@glite_supported='1','gLite - '),
+                        choose(../data/Vo/VoHeader/@unicore_supported='1','Unicore - '),
+                        choose(../data/Vo/VoHeader/@globus_supported='1','Globus - '),
+                        choose(../data/Vo/VoHeader/@cloud_computing_supported='1','Cloud Computing Resources - '),
+                        choose(../data/Vo/VoHeader/@cloud_storage_supported='1','Cloud Storage Resources')
+                        ))
+                    </element-create>
+                    <element-create>entry('Number of
+                        Members',choose($vo_disciplines/disciplines/discipline//row[@name=current()/../name/text()]/@NbUsers,$vo_disciplines/disciplines/discipline//row[@name=current()/../name/text()]/@NbUsers,'NA'))
+                    </element-create>
+
+
+                    <elements-ignore path="data/DoctrineCollection">
+                        <element-ignore in="Disciplines">
+                            <element-create>entry('discipline',concat(../disciplinelabel/text()," - "))</element-create>
+                        </element-ignore>
+                        <element-ignore in="VoContactHasProfile">
+                            <element-ignore/>
+                            <element-create>entry('contact',concat(../VoContacts/firstname/text(),'
+                                ',../VoContacts/lastname/text(),' : ',../VoContacts/email/text(),' :
+                                ',../VoUserProfile/profile/text(),' - '))
+                            </element-create>
+                        </element-ignore>
+                    </elements-ignore>
+
+
+                    <element-ignore/>
+                </element>
+
+            </element>
+            <elements path="e:entries/Vo">
+                <element-create>entry('disciplines',str:concat(../e:entry[@key='discipline']/text()))</element-create>
+                <element-create>entry('contacts',str:concat(../e:entry[@key='contact']/text()))</element-create>
+            </elements>
+
+
+            <elements path="e:entries/Vo">
+                <element-ignore in="e:entry" if="@key='contact' or @key='discipline'">
+                </element-ignore>
+            </elements>
+
+
+        </processors>
+
+
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="hours">4</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="ViewCreatedTrigger"/>
+        </cache>
+
+        <pre-renderers>
+            <namespace prefix="e" uri="http://software.in2p3.fr/lavoisier/entries.xsd"/>
+            <namespace prefix="str" uri="http://exslt.org/strings"/>
+            <row foreach="e:entries/Vo">
+                <column label="name">e:entry[@key='name']/text()</column>
+                <column label="validationDate">e:entry[@key='validationDate']/text()</column>
+                <column label="scope">e:entry[@key='scope']/text()</column>
+                <column label="status">e:entry[@key='status']/text()</column>
+                <column label="Number of Members">e:entry[@key='Number of Members']/text()</column>
+                <column label="disciplines">e:entry[@key='disciplines']/text()</column>
+                <column label="Middlewares">e:entry[@key='Middlewares']/text()</column>
+                <column label="contacts">e:entry[@key='contacts']/text()</column>
+
+            </row>
+        </pre-renderers>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+    </view>
+
+    <view name="VoDisciplines">
+
+        <connector type="HTTPConnector">
+            <parameter name="url" eval="property('appdbpi.vo.disciplines')"/>
+            <parameter name="certificate" eval="property('certificate.path')"/>
+            <parameter name="passphrase" eval="property('certificate.password')"/>
+            <parameter name="force-redirect">true</parameter>
+        </connector>
+        <processors>
+            <processor type="ChangeNamespaceProcessor" match="//*"/>
+        </processors>
+
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="hours">4</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+
+
+        </cache>
+        <pre-renderers>
+            <namespace prefix="e" uri="http://software.in2p3.fr/lavoisier/entries.xsd"/>
+            <row foreach="/appdb/version/discipline">
+                <column label="discipline_id">@id</column>
+                <column label="discipline_label">@value</column>
+            </row>
+        </pre-renderers>
+
+
+    </view>
+
+
+    <view name="VoDisciplinesTree_Raw">
+
+        <connector type="XSLTConnector">
+            <parameter name="stylesheet" eval="document('/app/resources/xsl/voTree.xsl')"/>
+            <parameter name="input" eval="view('VoDisciplines')"/>
+        </connector>
+
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+
+    </view>
+
+    <view name="VoMetrics" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
+
+        <argument name="DisciplineId" path-format="value">false</argument>
+        <argument name="level">false</argument>
+
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('VoDisciplinesTree_Metrics')"/>
+        </connector>
+        <processors>
+            <processor match="/disciplines//discipline" type="SelectGroupByProcessor">
+                <namespaces>
+                    <entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry>
+                </namespaces>
+                <parameter name="group_by" eval="row/@name"/>
+            </processor>
+        </processors>
+
+        <pre-renderers>
+            <namespace prefix="e" uri="http://software.in2p3.fr/lavoisier/entries.xsd"/>
+            <row foreach="/disciplines/e:entry/discipline">
+
+                <column label="name" order="ascending">ancestor::e:entry/@key</column>
+                <column label="Discipline Id">@id</column>
+                <column label="Discipline Label">@value</column>
+                <column label="Level" unit="level">@level</column>
+            </row>
+        </pre-renderers>
+    </view>
+
+
+    <view name="VoDisciplinesTree_Metrics_old">
+
+        <argument name="DisciplineId" path-format="value">false</argument>
+        <argument name="RemoveEmptyDisciplines">false</argument>
+
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('VoDisciplinesTree_Raw')"/>
+        </connector>
+
+        <processors>
+            <processor match="/disciplines/discipline" type="InsertProcessor">
+                <namespaces>
+                    <entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry>
+                </namespaces>
+                <parameter name="nodes"
+                           eval="view('VoDisciplinesAll')/result/row[discipline_id/text()=match()/@id]/vo_id"/>
+                <parameter name="destination_as">first_child</parameter>
+            </processor>
+            <processor match="/disciplines//discipline" type="InsertProcessor">
+                <namespaces>
+                    <entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry>
+                </namespaces>
+                <parameter name="nodes" eval="view('VoDisciplinesAll')/result/row[@discipline_id=match()/@id]"/>
+                <parameter name="destination_as">first_child</parameter>
+            </processor>
+            <processor match="/disciplines//row" type="InsertProcessor">
+                <namespaces>
+                    <entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry>
+                </namespaces>
+                <parameter name="nodes"
+                           eval="new_attribute('NbUsers',choose(view('VoUsersAccounting')/result/row[VO/text()=match()/@name]/nbUsers/text(),view('VoUsersAccounting')/result/row[VO/text()=match()/@name]/nbUsers/text(),0))"/>
+            </processor>
+
+
+            <processor match="/disciplines//discipline[*]" type="InsertProcessor">
+                <namespaces>
+                    <entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry>
+                </namespaces>
+                <parameter name="nodes"
+                           eval="new_attribute('SumNbUsers',sum(row[not(@vo_id=ancestor::row/@vo_id) and not(@vo_id=preceding-sibling::discipline/row/@row_id)]/@NbUsers))"/>
+            </processor>
+
+            <processor match="/disciplines//discipline[*]" type="InsertProcessor">
+                <namespaces>
+                    <entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry>
+                </namespaces>
+                <parameter name="nodes"
+                           eval="new_attribute('TotalSumNbUsers',sum(//row[not(@vo_id=ancestor::row/@vo_id) and not(@vo_id=preceding-sibling::discipline/row/@row_id)]/@NbUsers))"/>
+            </processor>
+            <processor match="/disciplines/discipline/discipline/discipline[*]" type="InsertProcessor">
+                <namespaces>
+                    <entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry>
+                </namespaces>
+                <parameter name="nodes" eval="new_attribute('NbVoLocal',count(row[@vo_id]))"/>
+            </processor>
+
+            <processor match="/disciplines/discipline/discipline[*]" type="InsertProcessor">
+                <namespaces>
+                    <entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry>
+                </namespaces>
+                <parameter name="nodes" eval="new_attribute('NbVoLocal',count(row[@vo_id]))"/>
+            </processor>
+            <processor match="/disciplines/discipline[*]" type="InsertProcessor">
+                <namespaces>
+                    <entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry>
+                </namespaces>
+                <parameter name="nodes" eval="new_attribute('NbVoLocal',count(row[@vo_id]))"/>
+            </processor>
+
+            <processor match="/disciplines/discipline/discipline/discipline[*]" type="InsertProcessor">
+                <namespaces>
+                    <entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry>
+                </namespaces>
+                <parameter name="nodes"
+                           eval="new_attribute('NbVo',count(//row[@vo_id!=ancestor::row/@vo_id and @vo_id!=preceding-sibling::discipline/row/@row_id]))"/>
+            </processor>
+            <processor match="/disciplines/discipline/discipline[*]" type="InsertProcessor">
+                <namespaces>
+                    <entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry>
+                </namespaces>
+                <parameter name="nodes"
+                           eval="new_attribute('NbVo',count(//row[not(@vo_id=ancestor::row/@vo_id) and not(@vo_id=preceding-sibling::discipline/row/@row_id)]))"/>
+            </processor>
+            <processor match="/disciplines/discipline[*]" type="InsertProcessor">
+                <namespaces>
+                    <entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry>
+                </namespaces>
+                <parameter name="nodes"
+                           eval="new_attribute('NbVo',count(//row[not(@vo_id=ancestor::row/@vo_id) and not(@vo_id=preceding-sibling::discipline/row/@row_id)]))"/>
+            </processor>
+
+
+            <processor match="/disciplines/discipline/discipline/discipline" type="InsertProcessor">
+                <namespaces>
+                    <entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry>
+                </namespaces>
+                <parameter name="nodes" eval="new_attribute('level',1)"/>
+            </processor>
+            <processor match="/disciplines/discipline/discipline" type="InsertProcessor">
+                <namespaces>
+                    <entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry>
+                </namespaces>
+                <parameter name="nodes" eval="new_attribute('level',2)"/>
+            </processor>
+            <processor match="/disciplines/discipline" type="InsertProcessor">
+                <namespaces>
+                    <entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry>
+                </namespaces>
+                <parameter name="nodes" eval="new_attribute('level',3)"/>
+            </processor>
+
+
+            <processor match="//discipline[not(@SumNbUsers)]" type="InsertProcessor">
+                <namespaces>
+                    <entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry>
+                </namespaces>
+                <parameter name="nodes" eval="new_attribute('SumNbUsers',0)"/>
+            </processor>
+            <processor match="//discipline[not(@TotalSumNbUsers)]" type="InsertProcessor">
+                <namespaces>
+                    <entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry>
+                </namespaces>
+                <parameter name="nodes" eval="new_attribute('TotalSumNbUsers',0)"/>
+            </processor>
+            <processor match="//discipline[not(@NbVoLocal)]" type="InsertProcessor">
+                <namespaces>
+                    <entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry>
+                </namespaces>
+                <parameter name="nodes" eval="new_attribute('NbVoLocal',0)"/>
+            </processor>
+            <processor match="//discipline[not(@NbVo)]" type="InsertProcessor">
+                <namespaces>
+                    <entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry>
+                </namespaces>
+                <parameter name="nodes" eval="new_attribute('NbVo',0)"/>
+            </processor>
+
+
+            <!--<processor match="/disciplines//discipline[@id=$DisciplineId]" type="SelectProcessor" disabled="$DisciplineId='false'">-->
+            <!--<parameter name="single_node">true</parameter>-->
+            <!--</processor>-->
+
+            <!--<processor match="/discipline" type="RemoveProcessor" disabled="$DisciplineId='false'">-->
+            <!--<parameter name="depth">1</parameter>-->
+            <!--</processor>-->
+
+            <!--<processor match="/row" type="RemoveProcessor" disabled="$DisciplineId='false'">-->
+            <!--<parameter name="depth">1</parameter>-->
+            <!--</processor>-->
+
+            <!--<processor match="/discipline" type="InsertParentProcessor" disabled="$DisciplineId='false'" >-->
+            <!--<parameter name="node_name">disciplines</parameter>-->
+            <!--</processor>-->
+
+
+            <!--<processor match="//discipline[@NbVo='0.0']" type="RemoveProcessor" disabled="$RemoveEmptyDisciplines='false'"></processor>-->
+            <!--<processor match="//row" type="RemoveProcessor" disabled="$RemoveEmptyDisciplines='false'"></processor>-->
+
+        </processors>
+        <pre-renderers>
+            <namespace prefix="e" uri="http://software.in2p3.fr/lavoisier/entries.xsd"/>
+            <title>concat('Users and Vo Distribution per Discipline - ',/disciplines/@disciplineName)</title>
+            <row foreach="/disciplines/discipline">
+                <column label="discipline">@value</column>
+                <column label="Nb VO" unit="vo">@NbVo</column>
+                <column label="Nb Users" unit="users">@SumNbUsers</column>
+
+            </row>
+        </pre-renderers>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+            <renderer type="ChartRenderer">
+                <parameter name="types">
+                    <entry>column</entry>
+                    <entry>column</entry>
+                </parameter>
+
+            </renderer>
+
+        </renderers>
+
+
+    </view>
+
+    <view name="VoDisciplinesTree_Metrics">
+
+
+        <argument name="RemoveEmptyDisciplines">false</argument>
+        <argument name="date">false</argument>
+        <argument name="DisciplineId" path-format="value">false</argument>
+        <argument name="AllVO">_prod_</argument>
+
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('VoDisciplinesTree_Raw')"/>
+        </connector>
+
+        <processors>
+
+
+            <!--<insert match="/disciplines/discipline" nodes="choose($AllVO='_prod_',view('VoDisciplinesAll')/result/row[discipline_id/text()=match()/@id]/@vo_id,view('VoDisciplinesAllVOs')/result/row[discipline_id/text()=match()/@id]/@vo_id)" as="first_child"/>-->
+            <!--<insert match="/disciplines//discipline" nodes="choose($AllVO='_prod_',view('VoDisciplinesAll')/result/row[@discipline_id=match()/@id]/@vo_id,view('VoDisciplinesAllVOs')/result/row[discipline_id/text()=match()/@id]/@vo_id)" as="first_child"/>-->
+
+
+            <processor match="/disciplines/discipline" type="InsertProcessor">
+                <namespaces>
+                    <entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry>
+                </namespaces>
+                <parameter name="nodes" eval="view('VoDisciplinesAll')/result/row[discipline_id/text()=match()/@id]"/>
+                <parameter name="destination_as">first_child</parameter>
+            </processor>
+            <processor match="/disciplines//discipline" type="InsertProcessor">
+                <namespaces>
+                    <entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry>
+                </namespaces>
+                <parameter name="nodes" eval="view('VoDisciplinesAll')/result/row[@discipline_id=match()/@id]"/>
+                <parameter name="destination_as">first_child</parameter>
+            </processor>
+
+
+            <processor match="/disciplines//row" type="InsertProcessor">
+                <namespaces>
+                    <entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry>
+                </namespaces>
+                <parameter name="nodes"
+                           eval="new_attribute('NbUsers',             choose($date='false',             choose( view('VoUsersAccounting')/result/row[VO/text()=match()/@name]/nbUsers/text(),view('VoUsersAccounting')/result/row[VO/text()=match()/@name]/nbUsers/text(), 0),             choose( view('VoUsersAccountingByDate',entry('date',$date))/result/row[VO/text()=match()/@name]/nbUsers/text(), view('VoUsersAccountingByDate',entry('date',$date))/result/row[VO/text()=match()/@name]/nbUsers/text(), 0))             )             "/>
+            </processor>
+
+
+            <element in="disciplines">
+                <element in="discipline">
+                    <attribute-create out="NbVoLocal">count(../row)</attribute-create>
+                    <attribute-create out="NbVo">count(uniq(../descendant::row, '@vo_id'))</attribute-create>
+                    <attribute-create out="SumNbUsers">sum(../row/@NbUsers)</attribute-create>
+                    <attribute-create out="TotalSumNbUsers">sum(uniq(../descendant::row, '@vo_id')/@NbUsers)
+                    </attribute-create>
+                    <attribute-create out="level">3</attribute-create>
+                    <element in="discipline">
+                        <!--<attribute-create out="NbVoLocal">count(../row)</attribute-create>-->
+                        <attribute-create out="NbVo">count(uniq(../descendant::row, '@vo_id'))</attribute-create>
+                        <!--<attribute-create out="SumNbUsers">  sum(../row/@NbUsers)</attribute-create>-->
+                        <attribute-create out="TotalSumNbUsers">sum(uniq(../descendant::row, '@vo_id')/@NbUsers)
+                        </attribute-create>
+                        <attribute-create out="level">2</attribute-create>
+                        <element in="discipline">
+                            <!--<attribute-create out="NbVoLocal">count(../row)</attribute-create>-->
+                            <attribute-create out="NbVo">count(uniq(../descendant::row, '@vo_id'))</attribute-create>
+                            <!--<attribute-create out="SumNbUsers">  sum(../row/@NbUsers)</attribute-create>-->
+                            <attribute-create out="TotalSumNbUsers">sum(uniq(../descendant::row, '@vo_id')/@NbUsers)
+                            </attribute-create>
+                            <attribute-create out="level">1</attribute-create>
+                        </element>
+                    </element>
+                </element>
+            </element>
+
+
+            <elements path="disciplines">
+                <attribute-create out="disciplineName" if="$DisciplineId!='false'">
+                    ../descendant::discipline[@id=$DisciplineId]/@value
+                </attribute-create>
+                <attribute-create out="disciplineName" if="$DisciplineId='false'">'1st Level Disciplines'
+                </attribute-create>
+                <attribute-create out="level" if="$DisciplineId!='false'">
+                    ../descendant::discipline[@id=$DisciplineId]/@level
+                </attribute-create>
+                <element-ignore in="discipline"
+                                if="$DisciplineId!='false' and not(ancestor-or-self::discipline/@id=$DisciplineId)">
+                    <element-recursive count="3" ancestor="1"/>
+                    <element in="discipline" if="ancestor-or-self::discipline/@id=$DisciplineId">
+                        <element in="row"/>
+                    </element>
+                </element-ignore>
+            </elements>
+
+            <elements path="disciplines">
+                <element-ignore if="$DisciplineId!='false' ">
+                    <element/>
+                </element-ignore>
+            </elements>
+
+
+            <processor match="//discipline[not(@SumNbUsers)]" type="InsertProcessor">
+                <namespaces>
+                    <entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry>
+                </namespaces>
+                <parameter name="nodes" eval="new_attribute('SumNbUsers',0)"/>
+            </processor>
+            <processor match="//discipline[not(@TotalSumNbUsers)]" type="InsertProcessor">
+                <namespaces>
+                    <entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry>
+                </namespaces>
+                <parameter name="nodes" eval="new_attribute('TotalSumNbUsers',0)"/>
+            </processor>
+            <processor match="//discipline[not(@NbVoLocal)]" type="InsertProcessor">
+                <namespaces>
+                    <entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry>
+                </namespaces>
+                <parameter name="nodes" eval="new_attribute('NbVoLocal',0)"/>
+            </processor>
+            <processor match="//discipline[not(@NbVo)]" type="InsertProcessor">
+                <namespaces>
+                    <entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry>
+                </namespaces>
+                <parameter name="nodes" eval="new_attribute('NbVo',0)"/>
+            </processor>
+
+
+            <processor match="//discipline[@NbVo='0.0']" type="RemoveProcessor"
+                       disabled="$RemoveEmptyDisciplines='false'"/>
+            <processor match="//row" type="RemoveProcessor" disabled="$RemoveEmptyDisciplines='false'"/>
+
+
+        </processors>
+        <pre-renderers>
+            <namespace prefix="e" uri="http://software.in2p3.fr/lavoisier/entries.xsd"/>
+            <title>concat('Users and Vo Distribution per Discipline - ',/disciplines/@disciplineName)</title>
+            <row foreach="/disciplines/discipline">
+                <column label="discipline">@value</column>
+                <column label="Nb VO" unit="vo">@NbVo</column>
+                <column label="Nb  Users" unit="users">@TotalSumNbUsers</column>
+
+            </row>
+        </pre-renderers>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+            <renderer type="ChartRenderer">
+                <parameter name="types">
+                    <entry>column</entry>
+                    <entry>column</entry>
+                </parameter>
+
+            </renderer>
+
+        </renderers>
+
+
+    </view>
+
+    <view name="VoWaitingList" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
+
+
+        <connector type="SQLConnector">
+            <parameter name="driver">com.mysql.jdbc.Driver</parameter>
+            <parameter name="url" eval="property('VO.db.url')"/>
+            <parameter name="username" eval="property('VO.db.username')"/>
+            <parameter name="password" eval="property('VO.db.password')"/>
+            <parameter name="query">
+                SELECT vo.serial, vo.name ,vo.ggus_ticket_id, vo.need_voms_help, vo.need_ggus_support,
+                vo.ggus_ticket_id_su_creation , vo.voms_ticket_id , vo.creation_date ,vo_scope.id as scope ,
+                vo_status.status FROM vo , vo_header vh , vo_scope , vo_status where vh.status_id=vo_status.id and
+                vh.scope_id=vo_scope.id and vh.id=vo.header_id and ( vh.status_id=8 or vh.status_id=1)
+            </parameter>
+        </connector>
+
+        <processors>
+
+            <element in="result" out="e:entries">
+                <element in="row" out="e:entries">
+
+                    <element-ignore>
+                        <element-create>entry(name(..),../text())</element-create>
+                    </element-ignore>
+                </element>
+            </element>
+        </processors>
+
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="hours">4</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+        </cache>
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+    </view>
+
+    <view name="VoDisciplineHierarchy">
+
+
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('VoDisciplinesTree_Metrics')"/>
+        </connector>
+
+        <processors>
+            <element in="disciplines">
+                <attribute-ignore/>
+                <element in="discipline">
+                    <attribute in="id"/>
+                    <attribute in="value"/>
+                    <attribute-ignore/>
+                    <element in="row" out="vo">
+                        <attribute in="name"/>
+                        <attribute-ignore/>
+                    </element>
+
+                    <element in="discipline">
+                        <attribute in="id"/>
+                        <attribute in="value"/>
+                        <attribute-ignore/>
+                        <element in="row" out="vo">
+                            <attribute in="name"/>
+                            <attribute-ignore/>
+
+                        </element>
+                        <element in="discipline">
+                            <attribute in="id"/>
+                            <attribute in="value"/>
+                            <attribute-ignore/>
+                            <element in="row" out="vo">
+                                <attribute in="name"/>
+                                <attribute-ignore/>
+
+                            </element>
+                        </element>
+
+                    </element>
+
+
+                </element>
+            </element>
+        </processors>
+
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="hours">4</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+        </cache>
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+
+    </view>
+    <view name="VoDisciplinesData">
+
+
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('VoDisciplinesTree_Metrics')"/>
+        </connector>
+
+        <processors>
+            <element in="disciplines">
+
+                <element-ignore in="discipline">
+                    <element in="row">
+                        <element-create>ancestor::discipline[@id!=current()/parent::row/@discipline_id]</element-create>
+                    </element>
+                    <element-recursive count="3"/>
+                </element-ignore>
+            </element>
+
+            <elements path="disciplines/row/discipline">
+                <element-ignore/>
+            </elements>
+
+            <elements path="disciplines">
+                <element in="row" flat="true">
+                    <element in="discipline" out="row">
+                        <attribute in="id" out="discipline_id"/>
+                        <attribute-ignore/>
+                        <attribute-create out="name">../parent::row/@name</attribute-create>
+                        <attribute-create out="vo_id">../parent::row/@vo_id</attribute-create>
+
+                    </element>
+                </element>
+            </elements>
+
+            <elements path="disciplines/row">
+                <attribute-create out="Globalid">concat(../@vo_id,'-',../@discipline_id)</attribute-create>
+
+            </elements>
+            <elements path="disciplines">
+                <element-ignore in="row" if="@Globalid=preceding-sibling::row/@Globalid"/>
+            </elements>
+
+        </processors>
+
+        <pre-renderers>
+            <namespace prefix="e" uri="http://software.in2p3.fr/lavoisier/entries.xsd"/>
+            <row foreach="/disciplines/row">
+                <column label="discipline_id">@discipline_id</column>
+                <column label="vo_id">@vo_id</column>
+            </row>
+        </pre-renderers>
+
+
+    </view>
+
+    <view name="VO_list_search">
+
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('VoList')"/>
+        </connector>
+
+        <processors>
+            <element in="data">
+                <set variable="disciplines">view('VoDisciplinesTree_Metrics')</set>
+                <element in="Vo">
+                    <element-create>$disciplines/*/*</element-create>
+                </element>
+            </element>
+
+            <element in="data">
+                <element in="Vo">
+                    <element in="discipline">
+                        <element-ignore in="row" if="@name!=../../@name">
+                        </element-ignore>
+                        <element in="discipline">
+                            <element-ignore in="row" if="@name!=../../../@name"/>
+                            <element in="discipline">
+                                <element-ignore in="row" if="@name!=../../../../@name"/>
+                            </element>
+
+                        </element>
+                    </element>
+                </element>
+            </element>
+
+            <element in="data">
+                <element in="Vo">
+                    <element in="discipline">
+                        <element in="discipline">
+                            <element-ignore in="discipline" if="not(row)"/>
+                        </element>
+                    </element>
+                </element>
+            </element>
+
+            <element in="data">
+                <element in="Vo">
+                    <element in="discipline">
+                        <element-ignore in="discipline" if="not(row)"/>
+                    </element>
+                </element>
+            </element>
+
+            <element in="data">
+                <element in="Vo">
+                    <element-ignore in="discipline" if="not(row)"/>
+                </element>
+            </element>
+
+            <element in="data">
+                <element in="Vo">
+                    <element in="discipline">
+                        <attribute-ignore if="name()!='value'"/>
+                        <element-ignore in="row"/>
+                        <element in="discipline">
+                            <attribute-ignore if="name()!='value'"/>
+                            <element-ignore in="row"/>
+                            <element in="discipline">
+                                <attribute-ignore if="name()!='value'"/>
+                                <element-ignore in="row"/>
+                            </element>
+                        </element>
+                    </element>
+                </element>
+            </element>
+
+
+        </processors>
+
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="minutes">14</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+        </cache>
+
+    </view>
+
+    <view name="VoDisciplinesTree_Metrics_Chart" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
+
+        <argument name="DisciplineId" path-format="value">false</argument>
+
+
+        <connector type="HTTPConnector">
+            <parameter name="url"
+                       eval="concat('http://localhost:',property('lavoisier.http.port'),'/lavoisier/VoDisciplinesTree_Metrics?DisciplineId=',$DisciplineId,'&amp;accept=chart')"/>
+        </connector>
+
+        <serializer type="HTMLSerializer"/>
+
+        <processors>
+            <processor match="/html/head/META/meta/script" type="SelectProcessor"/>
+            <processor match="/e:entries/script[@src]" type="RemoveProcessor">
+                <namespaces>
+                    <entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry>
+                </namespaces>
+            </processor>
+            <processor match="/e:entries" type="RemoveProcessor">
+                <namespaces>
+                    <entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry>
+                </namespaces>
+                <parameter name="depth">1</parameter>
+            </processor>
+        </processors>
+
+
+    </view>
+
+    <view name="VoDisciplinesTree">
+
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('VoDisciplinesTree_Raw')"/>
+        </connector>
+
+        <processors>
+
+            <processor match="/disciplines/discipline/discipline/discipline" type="RenameProcessor">
+                <namespaces>
+                    <entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry>
+                </namespaces>
+                <parameter name="node_name">li</parameter>
+            </processor>
+            <processor match="/disciplines/discipline/discipline" type="RenameProcessor">
+                <namespaces>
+                    <entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry>
+                </namespaces>
+                <parameter name="node_name">li</parameter>
+            </processor>
+
+            <processor match="/disciplines/discipline" type="RenameProcessor">
+                <namespaces>
+                    <entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry>
+                </namespaces>
+                <parameter name="node_name">li</parameter>
+            </processor>
+
+            <processor match="/disciplines/li/li/li" type="InsertParentProcessor">
+                <namespaces>
+                    <entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry>
+                </namespaces>
+                <parameter name="node_name">ul</parameter>
+            </processor>
+            <processor match="/disciplines/li/li" type="InsertParentProcessor">
+                <namespaces>
+                    <entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry>
+                </namespaces>
+                <parameter name="node_name">ul</parameter>
+            </processor>
+            <processor match="//li[@value]" type="InsertProcessor">
+                <namespaces>
+                    <entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry>
+                </namespaces>
+                <parameter name="nodes" eval="new_element('a',new_attribute('href','#')|new_text(@value))"/>
+                <parameter name="destination_as">first_child</parameter>
+            </processor>
+            <processor match="//li/@value" type="RemoveProcessor">
+                <namespaces>
+                    <entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry>
+                </namespaces>
+            </processor>
+            <processor match="/disciplines" type="RenameProcessor">
+                <namespaces>
+                    <entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry>
+                </namespaces>
+                <parameter name="node_name">ul</parameter>
+            </processor>
+
+        </processors>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+
+    </view>
+
+    <view name="VoDisciplinesAll">
+
+
+        <connector type="SQLConnector">
+            <parameter name="driver">com.mysql.jdbc.Driver</parameter>
+            <parameter name="url" eval="property('VO.db.url')"/>
+            <parameter name="username" eval="property('VO.db.username')"/>
+            <parameter name="password" eval="property('VO.db.password')"/>
+            <parameter name="query">SELECT vd.discipline_id , vd.vo_id , vo.name FROM vo_disciplines vd , vo , vo_header
+                vh where vd.vo_id=vo.serial and vh.id=vo.header_id and vh.status_id=2
+            </parameter>
+
+        </connector>
+        <processors>
+            <processor match="/result/row/*" type="MultiMergeProcessor">
+                <namespaces>
+                    <entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry>
+                </namespaces>
+                <parameter name="count">3</parameter>
+            </processor>
+            <processor match="/result/row" type="MultiMergeProcessor">
+                <namespaces>
+                    <entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry>
+                </namespaces>
+                <parameter name="count">3</parameter>
+            </processor>
+        </processors>
+
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="hours">4</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+        </cache>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+
+    </view>
+
+    <view name="VoDisciplinesAllVOs">
+
+        <connector type="SQLConnector">
+            <parameter name="driver">com.mysql.jdbc.Driver</parameter>
+            <parameter name="url" eval="property('VO.db.url')"/>
+            <parameter name="username" eval="property('VO.db.username')"/>
+            <parameter name="password" eval="property('VO.db.password')"/>
+            <parameter name="query">SELECT vd.discipline_id , vd.vo_id , vo.name FROM vo_disciplines vd , vo , vo_header
+                vh where vd.vo_id=vo.serial and vh.id=vo.header_id
+            </parameter>
+
+        </connector>
+        <processors>
+            <processor match="/result/row/*" type="MultiMergeProcessor">
+                <namespaces>
+                    <entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry>
+                </namespaces>
+                <parameter name="count">3</parameter>
+            </processor>
+            <processor match="/result/row" type="MultiMergeProcessor">
+                <namespaces>
+                    <entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry>
+                </namespaces>
+                <parameter name="count">3</parameter>
+            </processor>
+        </processors>
+
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="hours">4</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+        </cache>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+
+    </view>
+
+    <view name="VoUsersAccounting">
+
+
+        <connector type="SQLConnector">
+            <parameter name="driver">com.mysql.jdbc.Driver</parameter>
+            <parameter name="url" eval="property('VO.db.url')"/>
+            <parameter name="username" eval="property('VO.db.username')"/>
+            <parameter name="password" eval="property('VO.db.password')"/>
+            <parameter name="query">SELECT COUNT( distinct USERVO ) as nbUsers , VO FROM vo_users where
+                DATEDIFF(NOW(),LAST_UPDATE) &lt; 5 group by VO
+            </parameter>
+        </connector>
+
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="hours">4</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+        </cache>
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+
+    </view>
+
+    <view name="VoUsersAccountingTotal">
+
+
+        <connector type="SQLConnector">
+            <parameter name="driver">com.mysql.jdbc.Driver</parameter>
+            <parameter name="url" eval="property('VO.db.url')"/>
+            <parameter name="username" eval="property('VO.db.username')"/>
+            <parameter name="password" eval="property('VO.db.password')"/>
+            <parameter name="query">SELECT COUNT( distinct USERVO ) as nbUsers , VO FROM vo_users group by VO
+            </parameter>
+        </connector>
+
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="hours">5</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+        </cache>
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+
+    </view>
+
+
+    <view name="VoUsersAccountingByDate">
+
+
+        <argument name="option">VO</argument>
+
+        <argument name="date">2016-08</argument>
+        <connector type="SQLConnector">
+            <parameter name="driver">com.mysql.jdbc.Driver</parameter>
+            <parameter name="url" eval="property('VO.db.url')"/>
+            <parameter name="username" eval="property('VO.db.username')"/>
+            <parameter name="password" eval="property('VO.db.password')"/>
+            <parameter name="query">
+                <entry>SELECT COUNT( distinct USERVO ) as nbUsers ,</entry>
+                <entry eval="$option"/>
+                <entry>FROM vo_users where LAST_UPDATE &gt;</entry>
+                <entry eval="quot($date)"/>
+                <entry>AND FIRST_UPDATE &lt;</entry>
+                <entry eval="quot($date)"/>
+                <entry>group by</entry>
+                <entry eval="$option"/>
+                <entry>order by nbUsers desc</entry>
+            </parameter>
+        </connector>
+
+        <processors>
+            <element in="result">
+                <attribute-create out="dateQuery">$date</attribute-create>
+            </element>
+        </processors>
+
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+
+    </view>
+
+
+    <view name="VoDisciplinesByID">
+
+        <argument name="voId"/>
+        <connector type="SQLConnector">
+            <parameter name="driver">com.mysql.jdbc.Driver</parameter>
+            <parameter name="url" eval="property('VO.db.url')"/>
+            <parameter name="username" eval="property('VO.db.username')"/>
+            <parameter name="password" eval="property('VO.db.password')"/>
+            <parameter name="query">SELECT discipline_id FROM vo_disciplines WHERE vo_id like
+                <entry eval="quot($voId)"/>
+            </parameter>
+        </connector>
+
+        <processors>
+            <processor match="/result/row[*]" type="InsertProcessor">
+                <namespaces>
+                    <entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry>
+                </namespaces>
+                <parameter name="nodes"
+                           eval="new_attribute('id',discipline_id/text())|new_text(view('VoDisciplines')/appdb/version/discipline[@id=match()/discipline_id/text()]/@value)"/>
+            </processor>
+            <processor match="/result/row/*" type="RemoveProcessor">
+                <namespaces>
+                    <entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry>
+                </namespaces>
+            </processor>
+
+            <processor match="/result/row" type="RenameProcessor">
+                <namespaces>
+                    <entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry>
+                </namespaces>
+                <parameter name="node_name">discipline</parameter>
+            </processor>
+            <processor match="/result" type="RenameProcessor">
+                <namespaces>
+                    <entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry>
+                </namespaces>
+                <parameter name="node_name">disciplines</parameter>
+            </processor>
+        </processors>
+
+
+    </view>
+
+    <view name="generateMetricsCron">
+
+        <connector type="HTTPConnector">
+            <parameter name="url" eval="property('OPSCORE.users.metrics')"/>
+            <parameter name="certificate" eval="property('certificate.path')"/>
+            <parameter name="passphrase" eval="property('certificate.password')"/>
+            <parameter name="force-redirect">true</parameter>
+        </connector>
+
+
+        <cache type="FileCache">
+            <trigger type="FixedTimeTrigger">
+                <parameter name="hour">7</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+        </cache>
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+    </view>
+
+
+    <view name="VoUsersMetricsTable">
+
+        <connector type="SQLConnector">
+            <parameter name="driver">com.mysql.jdbc.Driver</parameter>
+            <parameter name="url" eval="property('VO.db.url')"/>
+            <parameter name="username" eval="property('VO.db.username')"/>
+            <parameter name="password" eval="property('VO.db.password')"/>
+            <parameter name="query">select vh.vo as vo , vh.nbtotal as total, vh.u_year , vh.u_month, vh.nbremoved,
+                vh.nbadded from vo_users_history vh
+            </parameter>
+        </connector>
+
+
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="hours">4</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+        </cache>
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+    </view>
+
+    <view name="CaUsersMetricsTable">
+
+        <connector type="SQLConnector">
+            <parameter name="driver">com.mysql.jdbc.Driver</parameter>
+            <parameter name="url" eval="property('VO.db.url')"/>
+            <parameter name="username" eval="property('VO.db.username')"/>
+            <parameter name="password" eval="property('VO.db.password')"/>
+            <parameter name="query">select ca , day_date , nbtotal as total from vo_users_metrics_ca vh where day_date
+                like '%-01'
+            </parameter>
+        </connector>
+
+        <processors>
+
+        </processors>
+
+
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="hours">4</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+        </cache>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+    </view>
+
+    <view name="CaUsersMetrics"  xmlns:date="http://exslt.org/dates-and-times"  xmlns:str="http://exslt.org/strings" >
+
+        <argument name="calist">
+            /C=AU/O=APACGrid/OU=CA/CN=APACGrid/Email=camanager@vpac.org,/C=AT/O=AustrianGrid/OU=Certification
+            Authority/CN=Certificate Issuer
+        </argument>
+        <argument name="date_start">2013-10-01</argument>
+        <argument name="date_end">2014-10-01</argument>
+        <argument name="startdate" eval="date:format-date($date_start,property('date_format'))"/>
+        <argument name="enddate" eval="date:format-date($date_end,property('date_format'))"/>
+
+
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('CaUsersMetricsTable')"/>
+        </connector>
+
+        <processors>
+            <element in="result">
+                <attribute-create out="startdate">$startdate</attribute-create>
+                <attribute-create out="enddate">$enddate</attribute-create>
+                <attribute-create out="timestamp_end">date:seconds($enddate)</attribute-create>
+                <attribute-create out="timestamp_start">date:seconds($startdate)</attribute-create>
+            </element>
+
+            <elements path="result/row">
+
+                <element-create as="first-child">
+                    new_element('yearMonth',concat(current()/../day_date,'T00:00:00'))
+                </element-create>
+
+            </elements>
+
+            <elements path="result/row">
+                <attribute-create out="timestamp">date:seconds(../yearMonth/text())</attribute-create>
+            </elements>
+
+            <element in="result">
+                <element in="row"
+                         if="@timestamp &lt;= ancestor::result/@timestamp_end and @timestamp &gt;= ancestor::result/@timestamp_start "/>
+                <element-ignore/>
+            </element>
+
+            <element in="result">
+                <element-create as="first-child">str:split($calist,',')</element-create>
+
+                <element in="row">
+                    <attribute-ignore in="timestamp"/>
+                    <element in="yearMonth">
+                        <text>substring(.,0,8)</text>
+                    </element>
+                    <element-ignore in="day_date"/>
+                </element>
+            </element>
+
+            <element in="result">
+                <element-ignore in="row" if="not(current()/ca/text()=/result/token/text())"/>
+                <element-ignore in="token"/>
+
+            </element>
+
+            <!--<element in="result">-->
+            <!--<element in="row" if="@timestamp &lt;= ancestor::result/@timestamp_end and @timestamp &gt;= ancestor::result/@timestamp_start "></element>-->
+            <!--<element-ignore></element-ignore>-->
+            <!--</element>-->
+
+            <!--<element in="result">-->
+            <!--<element-create as="first-child">str:split($calist,',')</element-create>-->
+
+            <!--<element in="row">-->
+            <!--<attribute-ignore in="timestamp"></attribute-ignore>-->
+            <!--<element in="day_date" out="yearMonth">-->
+            <!--<text>substring(.,0,8)</text>-->
+            <!--</element>-->
+
+            <!--</element>-->
+            <!--</element>-->
+
+            <!--<element in="result">-->
+            <!--<attribute-ignore in="day"></attribute-ignore>-->
+            <!--<element-ignore in="row" if="not(current()/ca/text()=/result/token/text())"></element-ignore>-->
+            <!--<element-ignore in="token"></element-ignore>-->
+
+            <!--</element>-->
+
+        </processors>
+
+    </view>
+
+    <view name="VoUsersMetrics"  xmlns:date="http://exslt.org/dates-and-times" xmlns:str="http://exslt.org/strings">
+
+
+        <argument name="volist">alice,atlas,cms</argument>
+        <argument name="date_start">2013-10-01</argument>
+        <argument name="date_end">2014-10-01</argument>
+        <argument name="startdate" eval="date:format-date($date_start,property('date_format'))"/>
+        <argument name="enddate" eval="date:format-date($date_end,property('date_format'))"/>
+
+
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('VoUsersMetricsTable')"/>
+        </connector>
+
+        <processors>
+            <elements path="result/row">
+                <element in="u_month">
+                    <text if=".&lt;10">concat('0',.)</text>
+                </element>
+
+
+            </elements>
+            <element in="result">
+                <attribute-create out="startdate">$startdate</attribute-create>
+                <attribute-create out="enddate">$enddate</attribute-create>
+                <attribute-create out="timestamp_end">date:seconds($enddate)</attribute-create>
+                <attribute-create out="timestamp_start">date:seconds($startdate)</attribute-create>
+            </element>
+
+            <elements path="result/row">
+                <element-create as="first-child">
+                    new_element('yearMonth',date:format-date(concat(current()/../u_year/text(),'-',current()/../u_month/text(),'-01'),property('date_format')))
+                </element-create>
+                <element-ignore in="u_year"/>
+                <element-ignore in="u_month"/>
+            </elements>
+            <elements path="result/row">
+                <attribute-create out="timestamp">date:seconds(../yearMonth/text())</attribute-create>
+            </elements>
+
+            <element in="result">
+                <element in="row"
+                         if="@timestamp &lt;= ancestor::result/@timestamp_end and @timestamp &gt;= ancestor::result/@timestamp_start "/>
+                <element-ignore/>
+            </element>
+
+            <element in="result">
+                <element-create as="first-child">str:split($volist,',')</element-create>
+
+                <element in="row">
+                    <attribute-ignore in="timestamp"/>
+                    <element in="yearMonth">
+                        <text>substring(.,0,8)</text>
+                    </element>
+                </element>
+            </element>
+
+            <element in="result">
+                <element-ignore in="row" if="not(current()/vo/text()=/result/token/text())"/>
+                <element-ignore in="token"/>
+
+            </element>
+
+        </processors>
+
+
+    </view>
+
+
+    <view name="VoAccountingHistoryBase" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
+
+        <argument name="date">2016-08</argument>
+
+        <connector type="SQLConnector">
+            <parameter name="driver">com.mysql.jdbc.Driver</parameter>
+            <parameter name="url" eval="property('VO.db.url')"/>
+            <parameter name="username" eval="property('VO.db.username')"/>
+            <parameter name="password" eval="property('VO.db.password')"/>
+            <parameter name="query">
+                <entry>SELECT serial, status_id , scope_id FROM `vo_header` WHERE validated='1' and validation_date &lt;=</entry>
+                <entry eval="quot($date)"/>
+                <entry>order by serial , insert_date</entry>
+            </parameter>
+        </connector>
+
+        <processors>
+
+
+            <elements path="result">
+                <attribute-create out="dateQuery">$date</attribute-create>
+                <element in="row" if="not(serial/text()=following-sibling::row/serial/text())"></element>
+                <element-ignore/>
+            </elements>
+
+
+            <element in="result" out="e:entries">
+
+                <element-create as="first-child">entry('International VOs',count(../row[scope_id/text()='2' and
+                    status_id/text()='2']))
+                </element-create>
+                <element-create as="first-child">entry('National VOs',count(../row[scope_id/text()!='2' and
+                    status_id/text()='2']))
+                </element-create>
+                <!--<element-create as="first-child">entry('Vo in Production Status',count(../row[status_id/text()='2']))</element-create>-->
+                <!--<element-create as="first-child">entry('Vo in New  Status',count(../row[status_id/text()='8']))</element-create>-->
+                <!--<element-create as="first-child">entry('Vo in Pending  Status',count(../row[status_id/text()='1']))</element-create>-->
+                <!--<element-create as="first-child">entry('VO in Deleted - Removed Status',count(../row[status_id/text()='6' or status_id/text()='7' or status_id/text()='3']))</element-create>-->
+
+                <element-ignore/>
+            </element>
+
+        </processors>
+
+    </view>
+
+    <view name="VoAccountingHistory" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
+
+        <argument name="date1"/>
+        <argument name="date2"/>
+        <argument name="date3"/>
+        <argument name="date4"/>
+
+
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('VoAccountingHistoryBase',entry('date',$date1))"/>
+        </connector>
+
+        <processors>
+            <element in="e:entries">
+                <attribute-ignore/>
+                <element-create-as-parent out="e:entries" attributes="ancestor::e:entries/@*">
+                    <element/>
+                </element-create-as-parent>
+            </element>
+            <element in="e:entries">
+                <element-create as="last-child">
+                    view('VoAccountingHistoryBase',entry('date',$date2))
+                </element-create>
+                <element-create as="last-child">
+                    view('VoAccountingHistoryBase',entry('date',$date3))
+                </element-create>
+                <element-create as="last-child">
+                    view('VoAccountingHistoryBase',entry('date',$date4))
+                </element-create>
+            </element>
+        </processors>
+
+
+        <pre-renderers>
+            <namespace prefix="e" uri="http://software.in2p3.fr/lavoisier/entries.xsd"/>
+            <row foreach="/e:entries/e:entries">
+                <column label="Date">@dateQuery</column>
+                <column label="International Vos" unit="number">e:entry[@key='International VOs']/text()</column>
+                <column label="National Vos" unit="number">e:entry[@key='National VOs']/text()</column>
+            </row>
+        </pre-renderers>
+    </view>
+
+    <view name="VouserAccountingHistory" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
+
+        <argument name="date1"/>
+        <argument name="date2"/>
+        <argument name="date3"/>
+        <argument name="date4"/>
+        <argument name="option">VO</argument>
+
+        <connector type="XMLConnector">
+            <parameter name="content"
+                       eval="view('VoUsersAccountingByDate',entry('date',$date1)|entry('option',$option))"/>
+        </connector>
+
+        <processors>
+            <element in="result" out="e:entries">
+                <attribute-ignore/>
+                <element-create-as-parent out="e:entries" attributes="ancestor::result/@*">
+                    <element/>
+                </element-create-as-parent>
+            </element>
+            <element in="e:entries">
+                <element-create as="last-child">
+                    view('VoUsersAccountingByDate',entry('date',$date2)|entry('option',$option))
+                </element-create>
+                <element-create as="last-child">
+                    view('VoUsersAccountingByDate',entry('date',$date3)|entry('option',$option))
+                </element-create>
+                <element-create as="last-child">
+                    view('VoUsersAccountingByDate',entry('date',$date4)|entry('option',$option))
+                </element-create>
+            </element>
+
+            <element in="e:entries">
+                <element in="result" out="e:entries"/>
+            </element>
+
+            <element in="e:entries">
+                <element in="e:entries">
+                    <element in="row" out="e:entries">
+                        <element in="nbUsers" out="e:entry">
+                            <attribute-create out="key">'nbUsers'</attribute-create>
+                        </element>
+                        <element in="VO" out="e:entry" if="$option='VO'">
+                            <attribute-create out="key">'VO'</attribute-create>
+                        </element>
+                        <element in="CA" out="e:entry" if="$option='CA'">
+                            <attribute-create out="key">'CA'</attribute-create>
+                        </element>
+                    </element>
+                </element>
+            </element>
+        </processors>
+
+        <pre-renderers>
+            <namespace prefix="e" uri="http://software.in2p3.fr/lavoisier/entries.xsd"/>
+            <row foreach="/e:entries/e:entries">
+                <column label="Date">@dateQuery</column>
+                <column label="Name" unit="number">entry[@key='VO' or @key='CA']/text()</column>
+                <column label="User Number" unit="number">entry[@key='nbUsers']/text()</column>
+            </row>
+        </pre-renderers>
+
+    </view>
+
+
+    <view name="VoUsersAccountingHistory" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
+
+        <argument name="date1"/>
+        <argument name="date2"/>
+        <argument name="date3"/>
+        <argument name="date4"/>
+
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('VoUsersAccountingByDate',entry('date',$date1))"/>
+        </connector>
+
+        <processors>
+            <element in="result" out="e:entries">
+                <attribute-ignore/>
+                <element-create-as-parent out="e:entries" attributes="ancestor::result/@*">
+                    <element/>
+                </element-create-as-parent>
+            </element>
+            <element in="e:entries">
+                <element-create as="last-child">
+                    view('VoUsersAccountingByDate',entry('date',$date2))
+                </element-create>
+                <element-create as="last-child">
+                    view('VoUsersAccountingByDate',entry('date',$date3))
+                </element-create>
+                <element-create as="last-child">
+                    view('VoUsersAccountingByDate',entry('date',$date4))
+                </element-create>
+            </element>
+
+            <element in="e:entries">
+                <element in="result" out="e:entries"/>
+            </element>
+
+            <element in="e:entries">
+                <element in="e:entries">
+                    <element in="row" out="e:entries">
+                        <element in="nbUsers" out="e:entry">
+                            <attribute-create out="key">ancestor::e:entries/@dateQuery</attribute-create>
+                        </element>
+                        <element in="VO" out="e:entry">
+                            <attribute-create out="key">'VO'</attribute-create>
+                        </element>
+                    </element>
+                </element>
+            </element>
+            <element in="e:entries">
+                <element in="e:entries">
+                    <element in="e:entries">
+                        <element-create>
+                            ../ancestor::e:entries[e:entry[@key='VO']/text()=../e:entry[@key='VO']/text()]/e:entry[@key=$date2]
+                        </element-create>
+                    </element>
+                </element>
+            </element>
+        </processors>
+
+        <pre-renderers>
+            <namespace prefix="e" uri="http://software.in2p3.fr/lavoisier/entries.xsd"/>
+            <row foreach="/e:entries/e:entries">
+                <column label="Date">@dateQuery</column>
+                <column label="Vo Name" unit="number">entry[@key='VO']/text()</column>
+                <column label="User Number" unit="number">entry[@key='nbUsers']/text()</column>
+            </row>
+        </pre-renderers>
+
+    </view>
+
+
+    <view name="VoRoles" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
+
+
+        <connector type="SQLConnector">
+            <parameter name="driver">com.mysql.jdbc.Driver</parameter>
+            <parameter name="url" eval="property('VO.db.url')"/>
+            <parameter name="username" eval="property('VO.db.username')"/>
+            <parameter name="password" eval="property('VO.db.password')"/>
+            <parameter name="query">
+                (SELECT vchp.serial, vc.* , vo.name , vo.last_change FROM vo_contact_has_profile vchp, vo_contacts vc ,
+                vo WHERE vo.last_change!='0000-00-00 00:00:00' and user_profile_id in (1,2) and vc.id=vchp.contact_id
+                and vo.serial=vchp.serial)
+                UNION
+                (SELECT vchp.serial, vc.* , vo.name , '0000-00-00 00:00:00' FROM vo_contact_has_profile vchp,
+                vo_contacts vc , vo WHERE vo.last_change='0000-00-00 00:00:00' and user_profile_id in (1,2) and
+                vc.id=vchp.contact_id and vo.serial=vchp.serial)
+            </parameter>
+        </connector>
+
+        <processors>
+
+            <element in="result" out="e:entries">
+                <set variable="VoYearly">view('VoYearly')/*</set>
+                <set variable="VoStatus">view('VoStatusScope')/*</set>
+                <element in="row" out="e:entries">
+
+                    <element-ignore>
+                        <text-ignore/>
+                        <element-create>entry(name(..),../text())</element-create>
+                    </element-ignore>
+                    <element-create>$VoYearly/row[serial/text()=current()/../serial/text()]/*</element-create>
+                    <element-create>$VoStatus/row[serial/text()=current()/../serial/text()]/*</element-create>
+                </element>
+
+            </element>
+
+            <elements path="e:entries/e:entries">
+                <element in="e:entry"/>
+                <element-ignore/>
+
+                <element-create>
+                    entry('date_validation',choose(../date_validation/text(),../date_validation/text(),'0000-00-00
+                    00:00:00'))
+                </element-create>
+                <element-create>
+                    entry('date_last_email_sending',choose(../date_last_email_sending/text(),../date_last_email_sending/text(),'0000-00-00
+                    00:00:00'))
+                </element-create>
+                <element-create as="first-child">entry('status',choose(../status/text(),../status/text(),100))
+                </element-create>
+            </elements>
+
+
+        </processors>
+
+
+        <cache type="FileCache">
+            <trigger type="DependencyRefreshedTrigger">
+                <parameter name="views">
+                    <entry>VoYearly</entry>
+                    <entry>VoStatusScope</entry>
+                </parameter>
+            </trigger>
+
+
+            <trigger type="ViewNotifiedTrigger"/>
+        </cache>
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+    </view>
+
+    <view name="VoRolesDN" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
+
+
+        <argument name="DN"/>
+
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('VoRoles')"/>
+        </connector>
+
+        <processors>
+            <element in="e:entries">
+                <element in="e:entries" if="e:entry[@key='dn']/text()=$DN"/>
+                <element-ignore/>
+            </element>
+        </processors>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+    </view>
+
+
+    <view name="VoStatusScope">
+
+
+        <connector type="SQLConnector">
+            <parameter name="driver">com.mysql.jdbc.Driver</parameter>
+            <parameter name="url" eval="property('VO.db.url')"/>
+            <parameter name="username" eval="property('VO.db.username')"/>
+            <parameter name="password" eval="property('VO.db.password')"/>
+            <parameter name="query">
+                (SELECT vo.name, vo.serial , vs.status ,vo.creation_date, vo.validation_date, vo.last_change,
+                vh.homepage_url , vsc.scope , vh.arc_supported, vh.glite_supported, vh.unicore_supported,
+                vh.globus_supported, vh.cloud_computing_supported , vh.cloud_storage_supported from vo ,vo_header vh,
+                vo_status vs , vo_scope vsc where vo.last_change!='0000-00-00 00:00:00' and
+                vo.validation_date!='0000-00-00 00:00:00' and vo.header_id=vh.id and vh.status_id=vs.id and
+                vh.scope_id=vsc.id)
+                UNION
+                (SELECT vo.name, vo.serial , vs.status ,vo.creation_date, vo.validation_date, '0000-00-00 00:00:00' as
+                last_change, vh.homepage_url , vsc.scope , vh.arc_supported, vh.glite_supported, vh.unicore_supported,
+                vh.globus_supported, vh.cloud_computing_supported , vh.cloud_storage_supported from vo ,vo_header vh,
+                vo_status vs , vo_scope vsc where vo.last_change='0000-00-00 00:00:00' and
+                vo.validation_date!='0000-00-00 00:00:00' and vo.header_id=vh.id and vh.status_id=vs.id and
+                vh.scope_id=vsc.id)
+                UNION
+                (SELECT vo.name, vo.serial , vs.status ,vo.creation_date, '0000-00-00 00:00:00' as validation_date,
+                vo.last_change, vh.homepage_url , vsc.scope , vh.arc_supported, vh.glite_supported,
+                vh.unicore_supported, vh.globus_supported, vh.cloud_computing_supported , vh.cloud_storage_supported
+                from vo ,vo_header vh, vo_status vs , vo_scope vsc where vo.last_change!='0000-00-00 00:00:00' and
+                vo.validation_date='0000-00-00 00:00:00' and vo.header_id=vh.id and vh.status_id=vs.id and
+                vh.scope_id=vsc.id)
+                UNION
+                (SELECT vo.name, vo.serial , vs.status ,'0000-00-00 00:00:00' as creation_date, '0000-00-00 00:00:00' as
+                validation_date, vo.last_change, vh.homepage_url , vsc.scope , vh.arc_supported, vh.glite_supported,
+                vh.unicore_supported, vh.globus_supported, vh.cloud_computing_supported , vh.cloud_storage_supported
+                from vo ,vo_header vh, vo_status vs , vo_scope vsc where vo.last_change='0000-00-00 00:00:00' and
+                vo.validation_date='0000-00-00 00:00:00' and vo.header_id=vh.id and vh.status_id=vs.id and
+                vh.scope_id=vsc.id)
+            </parameter>
+        </connector>
+
+
+        <cache type="FileCache">
+
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="hours">1</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+        </cache>
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+
+
+    </view>
+    <view name="VoYearly">
+
+
+        <connector type="SQLConnector">
+            <parameter name="driver">com.mysql.jdbc.Driver</parameter>
+            <parameter name="url" eval="property('VO.db.url')"/>
+            <parameter name="username" eval="property('VO.db.username')"/>
+            <parameter name="password" eval="property('VO.db.password')"/>
+            <parameter name="query">
+                (SELECT vyv.id , vyv.serial , vyv.date_validation, vyv.date_last_email_sending FROM vo_yearly_validation
+                vyv where vyv.date_last_email_sending!='0000-00-00 00:00:00' and vyv.date_validation!='0000-00-00
+                00:00:00' )
+                UNION
+                (SELECT vyv.id , vyv.serial , vyv.date_validation, '0000-00-00 00:00:00' FROM vo_yearly_validation vyv
+                where vyv.date_last_email_sending='0000-00-00 00:00:00')
+                UNION
+                (SELECT vyv.id , vyv.serial , '0000-00-00 00:00:00', vyv.date_last_email_sending FROM
+                vo_yearly_validation vyv where vyv.date_validation='0000-00-00 00:00:00')
+            </parameter>
+
+
+        </connector>
+
+
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="hours">1</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+
+        </cache>
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+    </view>
+
+    <view xmlns:str="http://exslt.org/strings" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd"  name="VoEntries">
+
+
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('VoStatusScope')"/>
+        </connector>
+
+        <processors>
+            <element in="result">
+                <set variable="vo_disciplines">view('VoDisciplinesTree_Metrics',entry('AllVO','all'))</set>
+                <set variable="VoUsersAccountingTotal">view('VoUsersAccountingTotal')</set>
+
+                <element in="row" out="e:entries">
+                    <attribute-create out="key">../serial/text()</attribute-create>
+
+                    <element-create>entry("status",../status/text())</element-create>
+                    <element-create>entry("name",../name/text())</element-create>
+                    <element-create>entry("scope",../scope/text())</element-create>
+                    <element-create>entry("homeUrl",choose(../homepage_url/text(),../homepage_url/text(),'NA'))
+                    </element-create>
+                    <element-create>
+                        entry("members",choose($vo_disciplines/disciplines/discipline//row[@name=current()/../name/text()]/@NbUsers,
+                        $vo_disciplines/disciplines/discipline//row[@name=current()/../name/text()]/@NbUsers,'NA'))
+                    </element-create>
+
+                    <element-create>
+                        entry("membersTotal",choose($VoUsersAccountingTotal/result/row[VO/text()=current()/../name/text()]/nbUsers/text(),$VoUsersAccountingTotal/result/row[VO/text()=current()/../name/text()]/nbUsers/text(),0))
+                    </element-create>
+                    <element-create>entry("creation_date",../creation_date/text())</element-create>
+                    <element-create>entry("validation_date",../validation_date/text())</element-create>
+                    <element-create>entry("last_change",../last_change/text())</element-create>
+
+
+                    <element-create as="last-child">entry("middlewares",concat(
+                        choose(../arc_supported/text()='1',',Arc'),
+                        choose(../glite_supported/text()='1',',gLite'),
+                        choose(../unicore_supported/text()='1',',Unicore'),
+                        choose(../globus_supported/text()='1',',Globus'),
+                        choose(../cloud_computing_supported/text()='1',',Cloud Computing Resources'),
+                        choose(../cloud_storage_supported/text()='1',',Cloud Storage Resources')
+                        ))
+                    </element-create>
+
+
+                    <element-ignore/>
+
+
+                </element>
+                <element-ignore/>
+            </element>
+
+            <element in="result" out="e:entries">
+                <element in="e:entries">
+
+
+                    <element in="e:entry" if="@key='middlewares'" out="e:entries">
+                        <element-create>str:split(../text(),',')</element-create>
+                    </element>
+
+                </element>
+
+            </element>
+
+            <elements path="e:entries/e:entries/e:entries">
+                <text-ignore/>
+                <element in="token" out="e:entry" if="text()!=''"/>
+                <element-ignore/>
+            </elements>
+
+            <elements path="e:entries/e:entries">
+                <element-create>view('VoDisciplinesEntries_VO',entry('vo',../e:entry[@key='name']/text()))
+                </element-create>
+            </elements>
+
+
+        </processors>
+
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="minutes">12</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="DependencyRefreshedTrigger">
+                <parameter name="views">
+                    <entry>VoDisciplinesAll</entry>
+                    <entry>VoDisciplinesEntries</entry>
+                    <entry>VoStatusScope</entry>
+                </parameter>
+            </trigger>
+        </cache>
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+
+    </view>
+
+    <view xmlns:str="http://exslt.org/strings" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd"  name="VoDisciplinesEntries">
+
+
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('VoDisciplinesTree_Metrics',entry('AllVO','all'))"/>
+        </connector>
+
+        <processors>
+
+            <element in="disciplines" out="e:entries">
+                <attribute-ignore/>
+
+                <attribute-create out="key">'disciplines'</attribute-create>
+
+                <element in="discipline" out="e:entries">
+                    <attribute-ignore if="local-name()!='value'"/>
+                    <attribute in="value" out="key"/>
+                    <element in="row" out="vo">
+                        <attribute-ignore if="local-name()!='name'"/>
+                    </element>
+
+                    <element in="discipline" out="e:entries">
+
+                        <attribute-ignore if="local-name()!='value'"/>
+                        <attribute in="value" out="key"/>
+                        <element in="row" out="vo">
+                            <attribute-ignore if="local-name()!='name'"/>
+                        </element>
+
+                        <element in="discipline" out="e:entry">
+                            <attribute-ignore if="local-name()!='value'"/>
+                            <attribute in="value" out="key"/>
+                            <element in="row" out="vo">
+                                <attribute-ignore if="local-name()!='name'"/>
+                            </element>
+                        </element>
+                    </element>
+                </element>
+
+
+            </element>
+        </processors>
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="minutes">152</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+
+
+        </cache>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+    </view>
+
+    <view xmlns:str="http://exslt.org/strings" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd"  name="VoDisciplinesEntries_VO">
+
+        <argument name="vo">biomed</argument>
+
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('VoDisciplinesEntries')"/>
+        </connector>
+
+        <processors>
+
+
+            <element in="e:entries">
+                <element in="e:entries" if="vo/@name=$vo or e:entries/vo/@name=$vo or e:entries/e:entry/vo/@name=$vo">
+                    <element in="e:entries" if="vo/@name=$vo or e:entry/vo/@name=$vo">
+                        <element in="e:entry" if="vo/@name=$vo">
+                            <element-ignore/>
+                        </element>
+                        <element-ignore/>
+                    </element>
+                    <element-ignore/>
+                </element>
+
+                <element-ignore/>
+
+            </element>
+
+
+        </processors>
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+    </view>
+
+
+    <view xmlns:date="http://exslt.org/dates-and-times" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd"  name="VO_CPU_Raw">
+
+
+        <argument name="dateStart">2015-01-01</argument>
+        <argument name="dateEnd" eval="date:date()"/>
+
+        <variable name="eYear" eval="date:year($dateEnd)"/>
+        <variable name="eMonth" eval="date:month-in-year($dateEnd)"/>
+
+        <variable name="sYear" eval="date:year($dateStart)"/>
+        <variable name="sMonth" eval="date:month-in-year($dateStart)"/>
+
+        <connector type="HTTPConnector">
+            <parameter name="url"
+                       eval="concat('https://accounting-support.egi.eu/custom_xml.php?query=sumcpu&amp;option=REGION&amp;sYear=',$sYear,'&amp;sMonth=',$sMonth,'&amp;eYear=',$eYear,'&amp;eMonth=',$eMonth,'&amp;yrange=DATE&amp;xrange=VO&amp;tree=EGI&amp;localJobs=onlyinfrajobs&amp;groupVO=egi&amp;optval=')"/>
+        </connector>
+
+
+        <serializer type="JSONStreamSerializer"/>
+
+        <processors>
+            <element>
+                <element in="object"
+                         if="not(contains(id/text(),'legend')) and not(contains(id/text(),'Total')) and not(contains(id/text(),'Percent')) and not(contains(id/text(),'var'))"/>
+                <element-ignore/>
+            </element>
+        </processors>
+
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="minutes">153</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+        </cache>
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+
+    </view>
+
+
+    <view xmlns:date="http://exslt.org/dates-and-times" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd"  name="VO_CPU">
+
+
+        <argument name="dateStart"/>
+        <argument name="dateEnd"/>
+
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('VO_CPU_Raw')"/>
+        </connector>
+
+        <processors>
+
+            <element out="e:entries">
+                <element in="object" out="e:entries"
+                         if="date:seconds(id/text()) &gt;= date:seconds($dateStart) and date:seconds(id/text()) &lt;= date:seconds($dateEnd)">
+                    <element-ignore if="name()='Percent' or name()='id'"/>
+                </element>
+                <element-ignore/>
+            </element>
+
+            <elements path="e:entries/e:entries">
+                <element>
+                    <text>round(sum(../../../e:entries/*[name()=name(current()/..)]/text()))</text>
+                </element>
+            </elements>
+
+            <elements path="e:entries/e:entries">
+                <element out="e:entry">
+                    <attribute-create out="key">lower-case(name(..))</attribute-create>
+                </element>
+            </elements>
+
+            <element in="e:entries">
+                <element in="e:entries" if="not(preceding-sibling::e:entries)"/>
+                <element-ignore/>
+            </element>
+
+        </processors>
+
+    </view>
+
+
+    <view xmlns:date="http://exslt.org/dates-and-times"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd"  name="VoMembers">
+
+
+        <argument name="dateStart"/>
+        <argument name="dateEnd"/>
+
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('VoUsersMetricsTable')"/>
+        </connector>
+
+
+        <processors>
+            <element in="result">
+                <attribute-create out="key">concat('Vo Member Report : ',$dateStart , ' - ',$dateEnd)</attribute-create>
+                <element in="row">
+                    <element in="u_month" if="text() &lt; 10">
+                        <text>concat(../../u_year/text(),'-0',.)</text>
+                    </element>
+                    <element in="u_month" if="text() &gt;= 10">
+                        <text>concat(../../u_year/text(),'-',.)</text>
+                    </element>
+
+                </element>
+            </element>
+
+            <element in="result">
+                <element in="row"
+                         if="date:seconds(u_month/text()) &gt;= date:seconds($dateStart)  and date:seconds(u_month/text()) &lt;= date:seconds($dateEnd)"/>
+
+                <element-ignore/>
+            </element>
+
+            <element in="result">
+                <element-ignore/>
+                <element-create>sort_by_string(../row,'vo/text()')</element-create>
+            </element>
+
+            <element in="result">
+                <element-create-as-parent out="vo" group-by="vo/text()" attributes="vo">
+                    <element in="row"/>
+                </element-create-as-parent>
+            </element>
+
+            <element in="result" out="e:entries">
+                <element in="vo" out="e:entries">
+                    <attribute in="vo" out="key"/>
+                    <element-create>
+                        entry('numberStart',choose(../row[u_month=$dateStart]/total/text(),../row[u_month=$dateStart]/total/text(),0))
+                    </element-create>
+                    <element-create>
+                        entry('numberEnd',choose(../row[u_month=$dateEnd]/total/text(),../row[u_month=$dateEnd]/total/text(),0))
+                    </element-create>
+                    <element-ignore/>
+                </element>
+
+            </element>
+
+        </processors>
+
+    </view>
+
+
+    <view name="VoActivities" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
+
+        <argument name="dateStart">2016-08</argument>
+        <argument name="dateEnd">2016-11</argument>
+
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('VoList')"/>
+        </connector>
+
+        <processors>
+
+            <element in="data" out="e:entries">
+                <set variable="VO_CPU">view('VO_CPU',entry('dateStart',$dateStart)|entry('dateEnd',$dateEnd))</set>
+                <set variable="VO_Members">view('VoMembers',entry('dateStart',$dateStart)|entry('dateEnd',$dateEnd))
+                </set>
+                <set variable="VoAPPDB">view('VoAPPDB',entry('dateStart',$dateStart)|entry('dateEnd',$dateEnd))</set>
+
+                <attribute-create out="key">concat('Vo Activity Report : ',$dateStart , ' - ',$dateEnd)
+                </attribute-create>
+
+                <element in="Vo" out="e:entries">
+                    <attribute-ignore/>
+                    <attribute-create out="key">../@name</attribute-create>
+                    <element-create>entry('status',../@status)</element-create>
+                    <element-create>entry('scope',../@scope)</element-create>
+                    <element-create>entry('CPU
+                        Consumption',choose($VO_CPU/e:entries/e:entries/e:entry[@key=current()/../@name]/text(),$VO_CPU/e:entries/e:entries/e:entry[@key=current()/../@name]/text(),'NA'))
+                    </element-create>
+                    <element-create>
+                        choose($VO_Members/e:entries/e:entries[@key=current()/../@name]/*,$VO_Members/e:entries/e:entries[@key=current()/../@name]/*,entry('numberStart','NA')|entry('numberEnd','NA')|entry('nbRemoved','NA')|entry('nbAdded','NA'))
+                    </element-create>
+                    <element-create>
+                        choose($VoAPPDB/e:entries/e:entries[@key=current()/../@name]/*,$VoAPPDB/e:entries/e:entries[@key=current()/../@name]/*)
+                    </element-create>
+
+
+                </element>
+            </element>
+
+        </processors>
+    </view>
+
+    <view xmlns:appdb="http://appdb.egi.eu/api/1.0/appdb" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd"  name="VoAPPDB">
+
+        <argument name="dateStart"/>
+        <argument name="dateEnd"/>
+
+        <connector type="HTTPConnector">
+            <parameter name="url"
+                       eval="concat('https://appdb.egi.eu/rest/1.0/stats/vos/appstats/',$dateStart,'-01/',$dateEnd,'-01?listmode=listing')"/>
+        </connector>
+
+        <processors>
+
+            <element in="appdb:appdb" out="e:entries">
+                <element in="appdb:appstats" out="e:entries"/>
+            </element>
+
+            <element in="e:entries">
+                <element-ignore in="e:entries"/>
+                <element-create>sort_by_string(../e:entries,'@voname')</element-create>
+            </element>
+
+            <element in="e:entries">
+                <element-create-as-parent out="e:entries" group-by="@voname" attributes="@voname">
+                    <element in="e:entries"/>
+                </element-create-as-parent>
+            </element>
+
+            <element in="e:entries">
+                <attribute-ignore/>
+                <element in="e:entries">
+                    <attribute in="voname" out="key"/>
+                    <element in="e:entries">
+                        <attribute-ignore/>
+                        <attribute-create out="key">../@type</attribute-create>
+                        <element-create>entry('removals',../@removals)</element-create>
+                        <element-create>entry('addition',../@additions)</element-create>
+                        <element-create if="../@type='virtual appliance'">entry('vmi_updates',../@vmi_updates)
+                        </element-create>
+                        <element-ignore/>
+                    </element>
+                </element>
+            </element>
+
+        </processors>
+    </view>
+
+
+    <view name="VoListUrl">
+        <connector type="SQLConnector">
+            <parameter name="driver">com.mysql.jdbc.Driver</parameter>
+            <parameter name="url" eval="property('VO.db.url')"/>
+            <parameter name="username" eval="property('VO.db.username')"/>
+            <parameter name="password" eval="property('VO.db.password')"/>
+            <parameter name="query">
+                (SELECT v.* , vs.* FROM vo v, vo_header vh , vo_voms_server vs WHERE v.last_change!='0000-00-00
+                00:00:00' and v.validation_date!='0000-00-00 00:00:00' and v.header_id=vh.id and vh.status_id=2 and
+                v.serial=vs.serial)
+
+            </parameter>
+        </connector>
+
+
+        <processors>
+            <element in="result" out="data">
+                <element-ignore in="row"/>
+                <element-create>sort_by_number(../row,'serial/text()')</element-create>
+
+            </element>
+
+            <element in="data">
+                <element-create-as-parent out="Vo" group-by="serial/text()">
+                    <element in="row"/>
+                </element-create-as-parent>
+            </element>
+
+            <element in="data">
+                <element in="Vo">
+                    <attribute-create out="serial">../row[1]/serial/text()</attribute-create>
+                    <attribute-create out="header_id">../row[1]/header_id/text()</attribute-create>
+                    <attribute-create out="ressources_id">../row[1]/ressources_id/text()</attribute-create>
+                    <attribute-create out="mailing_list_id">../row[1]/mailing_list_id/text()</attribute-create>
+                    <attribute-create out="ggus_ticket_id">../row[1]/ggus_ticket_id/text()</attribute-create>
+                    <attribute-create out="need_voms_help">../row[1]/need_voms_help/text()</attribute-create>
+                    <attribute-create out="need_ggus_support">../row[1]/need_ggus_support/text()</attribute-create>
+                    <attribute-create out="voms_ticket_id">../row[1]/voms_ticket_id/text()</attribute-create>
+                    <attribute-create out="ggus_ticket_id_su_creation">../row[1]/ggus_ticket_id_su_creation/text()
+                    </attribute-create>
+                    <attribute-create out="monitored">../row[1]/monitored/text()</attribute-create>
+                    <attribute-create out="enable_team_ticket">../row[1]/enable_team_ticket/text()</attribute-create>
+
+                    <element-create>new_element('name',../row[1]/name/text())</element-create>
+                    <element-create>new_element('validationdate',../row[1]/validation_date/text())</element-create>
+                    <element-create>new_element('creationdate',../row[1]/creation_date/text())</element-create>
+                    <element-create>new_element('lastchange',../row[1]/last_change/text())</element-create>
+
+
+                    <element in="row" out="VoVomsServer">
+                        <element-create>new_element('VoVomsServer',
+                            new_attribute('serial',choose(../serial/text(),../serial/text(),'serial'))|new_attribute('https_port',choose(../https_port/text(),../https_port/text(),'https'))|new_attribute('vomses_port',choose(../vomses_port/text(),../vomses_port/text(),'vomsport'))
+                            |new_attribute('is_vomsadmin_server',choose(../is_vomsadmin_server/text(),../is_vomsadmin_server/text(),'isvomsadmin'))
+                            |new_element('memberslisturl',choose(../members_list_url/text(),../members_list_url/text(),'url'))
+                            |new_element('hostname',choose(../hostname/text(),../hostname/text(),'hostname'))
+                            )
+                        </element-create>
+                        <element-ignore/>
+                    </element>
+
+                </element>
+
+
+            </element>
+
+        </processors>
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="minutes">23</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="ViewCreatedTrigger"/>
+        </cache>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+
+    </view>
+</views>

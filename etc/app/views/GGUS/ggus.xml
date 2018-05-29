@@ -1,0 +1,370 @@
+<views xmlns="http://software.in2p3.fr/lavoisier/application.xsd">
+
+
+
+    <view name="GGUS_wsdl">
+        <argument name="service_id">GGUS_OPS</argument>
+        <connector type="HTTPConnector">
+            <parameter name="url" eval="concat(property('GGUS.wsdl.baseurl'),$service_id)"/>
+        </connector>
+    </view>
+
+    <view name="GGUS_OPS_orphan_groups"  xmlns:gg="urn:GGUS_OPS" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" xmlns:str="http://exslt.org/strings">
+
+        <argument name="community">ROD</argument>
+        <connector type="XMLConnector">
+            <parameter name="content"  eval="view('GGUS_OPS_terminal_state')"/>
+        </connector>
+        <processors>
+            <processor type="EncodeProcessor" match="/*"/>
+
+            <!-- revert XML encoding in GHD_Soap_Client_Data node -->
+            <!-- 1. push text node for (view) to convert it in valid XML -->
+            <insert match="/gg:OpGetListOpsResponse/gg:getListValues/gg:GHD_Soap_Client_Data[* or not(*)]">
+                <connector type="StringConnector">
+                    <parameter name="content" eval="str:concat(parent_match()/text())"/>
+                </connector>
+            </insert>
+
+            <!-- 2. remove text node-->
+            <remove match="/gg:OpGetListOpsResponse/gg:getListValues/gg:GHD_Soap_Client_Data/text()"/>
+            <!-- select community, status 'verified/closed', and ticket with Group to release -->
+            <processor   match="/gg:OpGetListOpsResponse/gg:getListValues[
+                        gg:GHD_Soap_Client_Data/e:entries/e:entry[@key='Community' and text()=$community] and
+                        gg:GHD_Soap_Client_Data/e:entries/e:entry[@key='GroupId' and text()!='null'  and text()!='' and text()!='lost'] and
+                        gg:GHD_Status[text() = 'verified' or text() = 'closed']
+                        ]"
+                         type="SelectProcessor">
+            </processor>
+            <processor type="ChangeNamespaceProcessor" match="//gg:*"/>
+
+            <rename match="/*/getListValues" name="e:entries"/>
+            <replace match="/e:entries/e:entries/*[text()]" nodes="entry(local-name(),text())"/>
+            <insert match="/e:entries/e:entries/GHD_Soap_Client_Data"
+                    nodes="new_attribute('key','GHD_Soap_Client_Data')"/>
+            <rename match="/e:entries/e:entries/GHD_Soap_Client_Data" name="e:entries"/>
+            <remove match="/e:entries/e:entries/e:entries[@key='GHD_Soap_Client_Data']/e:entries" depth="1"/>
+
+        </processors>
+
+        <pre-renderers>
+            <namespace prefix="e" uri="http://software.in2p3.fr/lavoisier/entries.xsd"/>
+            <title>concat(/e:entries/e:entries[1]/e:entries/e:entry[@key='Community'], ' Tickets : ',
+                count(/e:entries/e:entries))
+            </title>
+            <row foreach="/e:entries/e:entries">
+                <column label="id">e:entry[@key='GHD_Request_ID']</column>
+                <column label="GGUS status">e:entry[@key='GHD_Status']</column>
+                <column label="Group ID">e:entries/e:entry[@key='GroupId']</column>
+                <column label="GGUS SU">e:entry[@key='GHD_Responsible_Unit']</column>
+                <column label="NGI">e:entries/e:entry[@key='Ngi']</column>
+                <column label="Site">e:entry[@key='GHD_Affected_Site']</column>
+                <column label="Community">e:entries/e:entry[@key='Community']</column>
+                <column label="Step">e:entries/e:entry[@key='Step']</column>
+                <column label="StepLabel">e:entries/e:entry[@key='StepLabel']</column>
+            </row>
+        </pre-renderers>
+
+    </view>
+
+    <view name="GGUS_ROD" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+
+        <connector type="XMLConnector">
+            <parameter name="content"
+                       eval="view('GGUS_Opened', entry('service_id','GGUS_OPS') | entry('community_id','ROD')) "/>
+        </connector>
+        <processors>
+            <insert match="/e:entries/e:entries/e:entries/e:entry[@key='EndDate'][text()]">
+                <connector type="XMLConnector">
+                    <parameter name="content" eval="view('StatusTicket', entry('date',parent_match()/text()))"/>
+                </connector>
+            </insert>
+            <remove match="/e:entries/e:entries[e:entries/e:entry/@key='SubCommunity'][e:entries/e:entry/text()='Middleware']"/>
+
+            <!-- Ticket Status 3: Expired,  2:Expiring , 1:On Going -->
+            <insert match="/e:entries/e:entries[*]"
+                    nodes="entry('Status',choose(e:entries/e:entry[@key='EndDate']/e:entries/e:entry/text()&gt;0, choose(e:entries/e:entry[@key='EndDate']/e:entries/e:entry/text()&gt;3,'3','2'),'1'))">
+            </insert>
+            <remove match="/e:entries/e:entries/e:entries/e:entry[@key='EndDate']/e:entries"/>
+        </processors>
+        <cache type="FileCache">
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="ViewCreatedTrigger"/>
+            <trigger type="ViewAccessedTrigger" ignore-during="PT3M"/>
+        </cache>
+    </view>
+
+    <view name="GGUS_ROD_Closed" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+
+        <connector type="XMLConnector">
+            <parameter name="content"
+                       eval="view('GGUS_Closed', entry('service_id','GGUS_OPS') | entry('community_id','ROD')) "/>
+        </connector>
+
+        <processors>
+            <remove match="/e:entries/e:entries[e:entries/e:entry/@key='SubCommunity'][e:entries/e:entry/text()='Middleware']"/>
+        </processors>
+
+        <cache type="FileCache">
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="ViewCreatedTrigger"/>
+        </cache>
+    </view>
+
+    <view xmlns:date="http://exslt.org/dates-and-times" name="StatusTicket">
+
+        <argument name="date"/>
+        <connector type="StringConnector">
+            <parameter name="content"
+                       eval="view('diffWWE', entry('date_start',date:format-date($date,property('date_format'))) |                        entry('date_end', view('UTC-now', entry('format',property('date_format')))/*/*/text())  |                        entry('granularity','day'))"/>
+        </connector>
+        <serializer type="EncapsulateSerializer"/>
+    </view>
+
+
+    <view name="GGUS_MW" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+
+        <connector type="XMLConnector">
+            <parameter name="content"
+                       eval="view('GGUS_Opened', entry('service_id','GGUS_OPS') | entry('community_id','ROD')) "/>
+        </connector>
+        <processors>
+
+
+            <select match="/e:entries/e:entries[e:entries/e:entry/@key='SubCommunity' and e:entries/e:entry/text() = 'Middleware']"/>
+
+            <insert match="/e:entries/e:entries/e:entries/e:entry[@key='EndDate'][text()]">
+                <connector type="XMLConnector">
+                    <parameter name="content" eval="view('StatusTicket', entry('date',parent_match()/text()))"/>
+                </connector>
+            </insert>
+
+            <!-- Ticket Status 3: Expired,  2:Expiring , 1:On Going -->
+            <insert match="/e:entries/e:entries[*]"
+                    nodes="entry('Status',choose(e:entries/e:entry[@key='EndDate']/e:entries/e:entry/text()&gt;0, choose(e:entries/e:entry[@key='EndDate']/e:entries/e:entry/text()&gt;3,'3','2'),'1'))">
+            </insert>
+
+            <remove match="/e:entries/e:entries/e:entries/e:entry[@key='EndDate']/e:entries"/>
+        </processors>
+
+
+        <cache type="FileCache">
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="ViewCreatedTrigger"/>
+        </cache>
+    </view>
+
+
+    <view name="GGUS_COD" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+
+        <connector type="XMLConnector">
+            <parameter name="content"
+                       eval="view('GGUS_Opened', entry('service_id','GGUS_OPS') | entry('community_id','COD')) "/>
+        </connector>
+        <processors>
+
+            <select match="/e:entries/e:entries[
+                (e:entry[@key='GHD_Status']/text() != 'solved') and (e:entry[@key='GHD_Status']/text() != 'closed')]"/>
+
+            <insert match="/e:entries/e:entries/e:entries/e:entry[@key='EndDate'][text()]">
+                <connector type="XMLConnector">
+                    <parameter name="content" eval="view('StatusTicket', entry('date',parent_match()/text()))"/>
+                </connector>
+            </insert>
+
+            <insert match="/e:entries/e:entries[*]"
+                    nodes="entry('Status',choose(e:entries/e:entry[@key='EndDate']/e:entries/e:entry/text()&gt;0, choose(e:entries/e:entry[@key='EndDate']/e:entries/e:entry/text()&gt;3,'3','2'),'1'))"/>
+            <remove match="/e:entries/e:entries/e:entries/e:entry[@key='EndDate']/e:entries"/>
+
+        </processors>
+
+        <cache type="FileCache">
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="DependencyRefreshedTrigger">
+                <parameter name="views">
+                    <entry>GGUS_ROD</entry>
+                </parameter>
+            </trigger>
+        </cache>
+
+        <pre-renderers>
+            <title>concat(/e:entries/e:entries[1]/e:entries/e:entry[@key='Community'], ' Tickets : ', count(/e:entries/e:entries))</title>
+            <row foreach="/e:entries/e:entries">
+                <column label="id">e:entry[@key='GHD_Request_ID']</column>
+                <column label="GGUS status">e:entry[@key='GHD_Status']</column>
+                <column label="GGUS SU">e:entry[@key='GHD_Responsible_Unit']</column>
+                <column label="Community">e:entries/e:entry[@key='Community']</column>
+                <column label="Step">e:entries/e:entry[@key='Step']</column>
+                <column label="StepLabel">e:entries/e:entry[@key='StepLabel']</column>
+            </row>
+        </pre-renderers>
+
+    </view>
+
+    <view name="GGUS_CSI">
+
+        <connector type="XMLConnector">
+            <parameter name="content"
+                       eval="view('GGUS_Opened',  entry('service_id','GGUS_OPS') | entry('community_id','CSI')) "/>
+        </connector>
+        <cache type="FileCache">
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="ViewCreatedTrigger"/>
+        </cache>
+    </view>
+
+
+
+    <view xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" name="GGUS_Counters">
+
+
+        <argument name="entity_type" pattern="ngi|site"/>
+        <argument name="view_id">GGUS_ROD</argument>
+        <argument name="ggus_entity" eval="choose($entity_type='ngi','GHD_Responsible_Unit','GHD_Affected_Site')"/>
+        <argument name="pre_path">/*</argument>
+
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view_path($view_id, $pre_path)"/>
+        </connector>
+
+        <processors>
+            <select match="/e:entries/e:entries[*]">
+                <group by="e:entry[@key=$ggus_entity]/text()" sort="text"/>
+            </select>
+
+            <insert match="/e:entries/e:entry[*]" nodes="new_text(count(e:entries/e:entry[@key='GHD_Request_ID']))"
+                    as="first_child"/>
+
+            <remove match="/e:entries/e:entry/*"/>
+
+        </processors>
+
+    </view>
+
+    <view xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" name="GGUS_Counters_Closed">
+
+        <argument name="entity_type" pattern="ngi|site"/>
+        <argument name="view_id">GGUS_ROD</argument>
+        <argument name="ggus_entity" eval="choose($entity_type='ngi','GHD_Responsible_Unit','GHD_Affected_Site')"/>
+        <argument name="pre_path">/*</argument>
+
+        <connector type="XMLConnector">
+            <parameter name="content"
+                       eval="concat(view('GGUS_Opened', entry('service_id','GGUS_OPS') | entry('community_id','ROD')),$pre_path) "/>
+        </connector>
+
+
+        <processors>
+            <select match="/e:entries/e:entries[*]">
+                <group by="e:entry[@key=$ggus_entity]/text()" sort="text"/>
+            </select>
+
+            <insert match="/e:entries/e:entry[*]" nodes="new_text(count(e:entries/e:entry[@key='GHD_Request_ID']))"
+                    as="first_child"/>
+
+            <!--<remove match="/e:entries/e:entry/*"/>-->
+
+        </processors>
+
+    </view>
+
+    <view xmlns:ns0="urn:GGUS_OPS" xmlns:str="http://exslt.org/strings"
+          xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" xmlns:date="http://exslt.org/dates-and-times"
+          name="GGUS_Counters_ByStatus">
+
+
+        <argument name="entity_type" pattern="ngi|site"/>
+        <argument name="view_id">GGUS_ROD</argument>
+        <argument name="ggus_entity" eval="choose($entity_type='ngi','Ngi','GHD_Affected_Site')"/>
+        <argument name="pre_path">/*/*</argument>
+
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view_path($view_id, $pre_path)"/>
+        </connector>
+
+        <processors>
+
+            <select match="/e:entries/e:entries[*]">
+                <group by="e:entry[@key=$ggus_entity]/text()" sort="text"/>
+            </select>
+
+
+            <!-- Ticket Status 3: Expired,  2:Expiring , 1:On Going -->
+            <insert match="/e:entries/e:entry[*]"
+                    nodes="entry('0',count(e:entries/e:entry[@key='GHD_Request_ID']))                     |entry('3',count(e:entries/e:entry[@key='Status'][text()='3']))                     |entry('2',count(e:entries/e:entry[@key='Status'][text()='2']))                     |entry('1',count(e:entries/e:entry[@key='Status'][text()='1']))                     "/>
+
+            <remove match="/e:entries/e:entry/e:entries"/>
+
+        </processors>
+    </view>
+
+    <view xmlns:gg="urn:GGUS_OPS" xmlns:str="http://exslt.org/strings" xmlns:date="http://exslt.org/dates-and-times"
+          xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" name="GGUS_ROD_Opened_24H">
+
+
+
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('GGUS_ROD')"/>
+        </connector>
+
+        <processors>
+
+
+            <insert match="/e:entries/e:entries[*]"
+                    nodes="entry('DurationDays',
+                    date:seconds(date:difference(date:format-date(
+                    choose(  e:entry[@key='GHD_Create_Date']/text(),e:entry[@key='GHD_Create_Date']/text(),view('UTC-now')/*  )   ,
+                    property('date_format')),view('UTC-now')/*)  )  )      "/>
+
+
+            <remove match="/e:entries/e:entries[e:entry[@key='DurationDaysClosed']/text() &gt; number(84600)]"/>
+            <remove match="/e:entries/e:entries[e:entry[@key='DurationDaysClosed']/text()='0.0']"/>
+
+            <select match="/e:entries/e:entries[*]">
+                <group by="e:entry[@key='GHD_Affected_Site']/text()" sort="text"/>
+            </select>
+
+            <insert match="/e:entries/e:entry[*]"
+                    nodes="entry('countTicketsOpened',count(e:entries/e:entry[@key='GHD_Request_ID']))"/>
+
+
+            <remove match="/e:entries/e:entry/e:entries"/>
+
+        </processors>
+    </view>
+
+
+
+
+    <view xmlns:gg="urn:GGUS_OPS" xmlns:str="http://exslt.org/strings" xmlns:date="http://exslt.org/dates-and-times"
+          xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" name="GGUS_ROD_Closed_24H">
+
+
+
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('GGUS_ROD_Closed')"/>
+        </connector>
+
+        <processors>
+
+            <insert match="/e:entries/e:entries[*]"
+                    nodes="entry('DurationDaysClosed', date:seconds(date:difference( date:format-date(choose(e:entries/e:entry[@key='CloseDate']/text(), e:entries/e:entry[@key='CloseDate']/text(), view('UTC-now')/* )  , property('date_format')),view('UTC-now')/*)                        )                        )                     "/>
+
+            <remove match="/e:entries/e:entries[e:entry[@key='DurationDaysClosed']/text() &gt; number(90000)]"/>
+            <remove match="/e:entries/e:entries[e:entry[@key='DurationDaysClosed']/text()='0.0']"/>
+
+            <select match="/e:entries/e:entries[*]">
+                <group by="e:entry[@key='GHD_Affected_Site']/text()" sort="text"/>
+            </select>
+
+            <insert match="/e:entries/e:entry[*]"
+                    nodes="entry('countTicketsClosed',count(e:entries/e:entry[@key='GHD_Request_ID']))"/>
+
+
+            <remove match="/e:entries/e:entry/e:entries"/>
+
+        </processors>
+    </view>
+
+
+</views>
