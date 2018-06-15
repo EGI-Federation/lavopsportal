@@ -184,6 +184,7 @@
     </connector>
     </view>
 
+
     <view xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" name="OPSCORE_bdii_indexed">
 
 
@@ -245,7 +246,7 @@
 
     </view>
 
-    <view name="bdii_urls">
+    <view name="bdii_urls" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
 
 
         <connector type="HTTPConnector">

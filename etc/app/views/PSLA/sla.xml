@@ -1,0 +1,91 @@
+<views xmlns="http://software.in2p3.fr/lavoisier/application.xsd" >
+
+    <view name="JiraAPI" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+
+        <connector type="HTTPConnector">
+            <parameter name="url" eval="concat('https://',property('userJira'),':',property('pwdJira'),'@jira.eosc-hub.eu/rest/api/2/search?jql=issuetype=',quot('Service%20order'))"/>
+
+        </connector>
+
+       <serializer type="JSONStreamSerializer"/>
+
+
+        <processors>
+            <element in="object" out="e:entries">
+
+                <element-ignore in="issues">
+                    <element in="object" out="e:entries">
+                        <element in="id"/>
+                        <element in="self" out="apiUrl"/>
+                        <element-ignore in="fields">
+
+                            <element in="description"/>
+                            <element in="customfield_10104"/>
+
+                            <element in="customfield_10224" out="slaUrl"/>
+                            <element in="customfield_10225" out="name"/>
+                            <element in="customfield_10226" out="surname"/>
+
+                            <element in="customfield_10227" out="email" />
+                            <element in="customfield_10229" out="eoscId" />
+
+                            <element in="customfield_10243" out="Institution" />
+                            <element in="customfield_10244" out="Departement" />
+
+                            <element in="created"/>
+
+                            <element-ignore in="priority">
+                                <element in="name" out="priority"/>
+                            </element-ignore>
+
+                            <element in="labels"/>
+                            <element in="updated"/>
+                            <element in="creator">
+                                <element-ignore in="avatarUrls"/>
+                            </element>
+
+
+                        </element-ignore>
+                    </element>
+
+                </element-ignore>
+
+            </element>
+
+            <element in="e:entries">
+
+                <element-ignore if="not(*)">
+                    <element-create>entry(local-name(..),choose(../text(),../text(),'NA'))</element-create>
+                </element-ignore>
+
+
+            <element in="e:entries">
+                <element if="*" out="e:entries">
+                    <attribute-create out="key">local-name(..)</attribute-create>
+
+                    <element-ignore if="not(*)">
+                        <element-create>entry(local-name(..),choose(../text(),../text(),'NA'))</element-create>
+                    </element-ignore>
+
+                </element>
+
+                <element-ignore if="not(*)">
+                    <element-create>entry(local-name(..),choose(../text(),../text(),'NA'))</element-create>
+                </element-ignore>
+
+            </element>
+
+            </element>
+
+        </processors>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+    </view>
+
+
+
+</views>
