@@ -401,7 +401,7 @@
         </cache>
     </view>
 
-    <view xmlns:date="http://exslt.org/dates-and-times" name="OPSCORE_DOWNTIME_2" post-processors="downtime">
+    <view xmlns:date="http://exslt.org/dates-and-times" xmlns:str="http://exslt.org/strings" name="OPSCORE_DOWNTIME_2" post-processors="downtime">
 
 
 
@@ -477,7 +477,7 @@
         </cache>
     </view>
 
-    <view xmlns:date="http://exslt.org/dates-and-times" name="OPSCORE_DOWNTIME_1" post-processors="downtime">
+    <view xmlns:date="http://exslt.org/dates-and-times" xmlns:str="http://exslt.org/strings" name="OPSCORE_DOWNTIME_1" post-processors="downtime">
 
 
 
@@ -532,7 +532,7 @@
 
     </view>
 
-    <view name="OPSCORE_DOWNTIME_3_cache">
+    <view name="OPSCORE_DOWNTIME_3_cache" xmlns:str="http://exslt.org/strings">
 
 
         <connector type="XMLConnector">
@@ -549,7 +549,7 @@
     </view>
 
 
-    <view xmlns:date="http://exslt.org/dates-and-times" name="OPSCORE_DOWNTIME_3" post-processors="downtime">
+    <view xmlns:date="http://exslt.org/dates-and-times" xmlns:str="http://exslt.org/strings" name="OPSCORE_DOWNTIME_3" post-processors="downtime">
 
 
         <variable name="date_limit_start" eval="date:seconds(date:add(date:date(),'-P60D'))"/>
