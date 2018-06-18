@@ -461,7 +461,7 @@
         </renderers>
     </view>
 
-    <view name="OPSCORE_DOWNTIME_1_cache">
+    <view name="OPSCORE_DOWNTIME_1_cache" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
 
 
         <connector type="XMLConnector">
@@ -532,7 +532,7 @@
 
     </view>
 
-    <view name="OPSCORE_DOWNTIME_3_cache" xmlns:str="http://exslt.org/strings">
+    <view name="OPSCORE_DOWNTIME_3_cache" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" xmlns:str="http://exslt.org/strings">
 
 
         <connector type="XMLConnector">
