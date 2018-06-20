@@ -453,7 +453,7 @@
         
     </view>
 
-    <view name="voms-certificates">
+    <view name="voms-certificates" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
         
 
         <connector type="XMLConnector">
@@ -469,7 +469,7 @@
             </element>
 
             <element in="results">
-                <element-ignore in="entries"/>
+                <element-ignore in="e:entries"/>
             </element>
 
         </processors>
