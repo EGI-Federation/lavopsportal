@@ -468,6 +468,9 @@
                 </element-ignore>
             </element>
 
+            <element in="results">
+                <element-ignore in="entries"/>
+            </element>
 
         </processors>
 
@@ -484,8 +487,9 @@
             </renderer>
         </renderers>
 
-
     </view>
+
+
 
     <view name="vo_users_history">
         
