@@ -240,39 +240,27 @@
 
         <processors>
 
-            <!--
-            <select match="/e:entries/e:entries[*]">
-                <group by="e:entry[@key=$ggus_entity]/text()" sort="text"/>
-            </select>
-
-            <insert match="/e:entries/e:entry[*]" nodes="new_text(count(e:entries/e:entry[@key='GHD_Request_ID']))"
-                    as="first_child"/>
-
-            <remove match="/e:entries/e:entry/*"/>
-            -->
 
 
-
-            <elements path="/e:entries/e:entries">
+            <elements path="/e:entries">
                 <element-ignore in="e:entries"/>
                 <element-create>sort_by_string(../e:entries,'e:entry[@key=$ggus_entity]/text()')</element-create>
             </elements>
 
-            <elements path="/e:entries/e:entries">
+            <elements path="/e:entries">
                     <element-create-as-parent out="e:entry" group-by="e:entry[@key=$ggus_entity]/text()">
                         <element in="e:entries"/>
                     </element-create-as-parent>
             </elements>
 
             <element in="e:entries">
-                <element-ignore in="e:entries">
+
                     <element in="e:entry">
                         <attribute-create out="key">../e:entries/e:entry[@key=$ggus_entity][1]/text()</attribute-create>
                         <text-create>count(../e:entries/e:entry[@key='GHD_Request_ID'])</text-create>
                         <element-ignore/>
                     </element>
 
-                </element-ignore>
             </element>
 
         </processors>
