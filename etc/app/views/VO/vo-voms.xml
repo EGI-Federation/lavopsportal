@@ -13,7 +13,7 @@
                     <attribute-create out="name">../name/text()</attribute-create>
                     <attribute-ignore/>
                     <element in="VoVomsServer">
-                        <element-create as="last-child">view('voms-certificate')/results/X509Cert[@host=current()/../hostname/text()]</element-create>
+                        <element-create as="last-child">view('voms-certificates')/results/X509Cert[@host=current()/../hostname/text()]</element-create>
                     </element>
                 </element>
                 <element-ignore/>
