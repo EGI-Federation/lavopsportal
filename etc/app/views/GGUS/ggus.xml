@@ -353,10 +353,10 @@
             <element in="e:entries">
                 <element in="e:entry">
                     <attribute-create out="key">../e:entries/e:entry[@key=$ggus_entity][1]/text()</attribute-create>
-                    <element-create>entry('0',count(e:entries/e:entry[@key='GHD_Request_ID']))</element-create>
-                    <element-create>entry('1',count(e:entries/e:entry[@key='Status'][text()='1']))</element-create>
-                    <element-create>entry('2',count(e:entries/e:entry[@key='Status'][text()='2']))</element-create>
-                    <element-create>entry('3',count(e:entries/e:entry[@key='Status'][text()='3']))</element-create>
+                    <element-create>entry('0',count(../e:entries/e:entry[@key='GHD_Request_ID']))</element-create>
+                    <element-create>entry('1',count(../e:entries/e:entry[@key='Status'][text()='1']))</element-create>
+                    <element-create>entry('2',count(../e:entries/e:entry[@key='Status'][text()='2']))</element-create>
+                    <element-create>entry('3',count(../e:entries/e:entry[@key='Status'][text()='3']))</element-create>
                     <element-ignore/>
                 </element>
             </element>
