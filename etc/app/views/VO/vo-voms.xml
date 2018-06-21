@@ -25,6 +25,9 @@
 
             </element>
 
+            <element in="vo-voms">
+                <element-ignore in="Vo" if="not(VoVomsServer/VoVomsServer/X509Cert)"/>
+            </element>
 
         </processors>
 
@@ -35,7 +38,7 @@
                 <parameter name="minutes">28</parameter>
             </trigger>
             <trigger type="ViewNotifiedTrigger"/>
-            <trigger type="ViewCreatedTrigger"/>
+
         </cache>
 
         <renderers>
