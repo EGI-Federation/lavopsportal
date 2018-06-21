@@ -16,7 +16,7 @@
 
                     <element in="VoVomsServer">
                         <element in="VoVomsServer">
-                            <element-create as="last-child">view('voms-certificates')/results/X509Cert[1][@host=current()/../hostname/text()]</element-create>
+                            <element-create as="last-child">view('voms-certificates')/results/X509Cert[@host=current()/../hostname/text()][1]</element-create>
                         </element>
                     </element>
 
@@ -35,6 +35,7 @@
                 <parameter name="minutes">28</parameter>
             </trigger>
             <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="ViewCreatedTrigger"/>
         </cache>
 
         <renderers>
