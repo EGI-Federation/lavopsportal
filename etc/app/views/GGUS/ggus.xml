@@ -79,13 +79,18 @@
                     <parameter name="content" eval="view('StatusTicket', entry('date',parent_match()/text()))"/>
                 </connector>
             </insert>
-            <remove match="/e:entries/e:entries[e:entries/e:entry/@key='SubCommunity'][e:entries/e:entry/text()='Middleware']"/>
+
 
             <!-- Ticket Status 3: Expired,  2:Expiring , 1:On Going -->
             <insert match="/e:entries/e:entries[*]"
                     nodes="entry('Status',choose(e:entries/e:entry[@key='EndDate']/e:entries/e:entry/text()&gt;0, choose(e:entries/e:entry[@key='EndDate']/e:entries/e:entry/text()&gt;3,'3','2'),'1'))">
             </insert>
             <remove match="/e:entries/e:entries/e:entries/e:entry[@key='EndDate']/e:entries"/>
+
+            <element in="e:entries">
+                <element-ignore in="e:entries" if="e:entries/e:entry[@key='SubCommunity']/text()='Middleware'"/>
+            </element>
+
         </processors>
         <cache type="FileCache">
             <trigger type="ViewNotifiedTrigger"/>
@@ -131,7 +136,6 @@
         <processors>
 
 
-            <select match="/e:entries/e:entries[e:entries/e:entry/@key='SubCommunity' and e:entries/e:entry/text() = 'Middleware']"/>
 
             <insert match="/e:entries/e:entries/e:entries/e:entry[@key='EndDate'][text()]">
                 <connector type="XMLConnector">
@@ -145,6 +149,10 @@
             </insert>
 
             <remove match="/e:entries/e:entries/e:entries/e:entry[@key='EndDate']/e:entries"/>
+
+            <element in="e:entries">
+                <element-ignore in="e:entries" if="e:entries/e:entry[@key='SubCommunity']/text()!='Middleware'"/>
+            </element>
         </processors>
 
 
