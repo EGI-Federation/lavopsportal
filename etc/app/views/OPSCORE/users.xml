@@ -218,8 +218,8 @@
 
         <processors>
             <element in="e:entries">
-                <element if="starts-with($envnt,'TEST')"/>
-                <element if="$envnt='PROD' and not(contains(@key,'test'))"/>
+                <element if="starts-with($envnt,'test')"/>
+                <element if="$envnt='prod' and not(contains(@key,'test'))"/>
                 <element-ignore/>
             </element>
         </processors>
