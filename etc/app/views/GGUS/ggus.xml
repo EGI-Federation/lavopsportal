@@ -239,12 +239,13 @@
         <argument name="entity_type" pattern="ngi|site"/>
         <argument name="view_id">GGUS_ROD</argument>
 
-        <argument name="pre_path">/e:entries/e:entries[e:entry]</argument>
+        <argument name="pre_path">/*</argument>
         <variable name="ggus_entity" eval="choose($entity_type='ngi','GHD_Responsible_Unit','GHD_Affected_Site')"/>
 
 
+
         <connector type="XMLConnector">
-            <parameter name="content" eval="view($view_id)"/>
+            <parameter name="content" eval="view_path($view_id,$pre_path)"/>
         </connector>
 
         <processors>
@@ -326,7 +327,7 @@
         <argument name="pre_path">/*/*</argument>
 
         <connector type="XMLConnector">
-            <parameter name="content" eval="view($view_id)"/>
+            <parameter name="content" eval="view_path($view_id,$pre_path)"/>
         </connector>
 
         <processors>
