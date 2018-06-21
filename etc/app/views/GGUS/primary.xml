@@ -202,6 +202,9 @@
             </elements>
 
 
+            <element in="e:entries">
+                <element-ignore in="e:entries" if="e:entry[@key=GHD_Status]/text()='verified' or e:entry[@key=GHD_Status]/text()='closed'"/>
+            </element>
         </processors>
 
         <renderers>
