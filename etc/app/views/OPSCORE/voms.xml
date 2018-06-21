@@ -90,51 +90,5 @@
 
     </view>
 
-    <!--<view name="voms_users_old">-->
 
-    <!--<info>-->
-    <!--<category>VOMS</category>-->
-    <!--<description>List of VOMS Users</description>-->
-    <!--</info>-->
-
-    <!--<connector type="XMLConnector">-->
-    <!--<parameter name="content" eval="view('voms_vo')"></parameter>-->
-    <!--</connector>-->
-    <!--<processors>-->
-
-    <!--<insert match="/data/Vo/VoVomsServer/VoVomsServer[memberslisturl/text()]">-->
-
-    <!--<connector type="HTTPConnector">-->
-    <!--<parameter name="url" eval="parent_match()/memberslisturl/text()"/>-->
-    <!--<parameter name="certificate" eval="property('certificate.path')"/>-->
-    <!--<parameter name="passphrase" eval="property('certificate.password')"/>-->
-
-    <!--<parameter name="connect-timeout">5</parameter>-->
-    <!--<parameter name="read-timeout">5</parameter>-->
-
-    <!--<parameter name="header">-->
-    <!--<entry key="X-VOMS-CSRF-GUARD">;</entry>-->
-    <!--</parameter>-->
-
-    <!--</connector>-->
-    <!--<serializer type="JSONSerializer"></serializer>-->
-    <!--</insert>-->
-
-
-    <!--</processors>-->
-
-    <!--<cache type="IndexedFileCache">-->
-
-    <!--<parameter name="indexDepth">1</parameter>-->
-    <!--<parameter name="xpath" eval="path(false())"/>-->
-    <!--<trigger type="ViewNotifiedTrigger"/>-->
-    <!--<trigger type="DependencyRefreshedTrigger">-->
-    <!--<parameter name="views">-->
-    <!--<entry>voms_vo</entry>-->
-    <!--</parameter>-->
-    <!--</trigger>-->
-    <!--</cache>-->
-
-
-    <!--</view>-->
 </views>
