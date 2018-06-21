@@ -151,8 +151,9 @@
             <remove match="/e:entries/e:entries/e:entries/e:entry[@key='EndDate']/e:entries"/>
 
             <element in="e:entries">
-                <element-ignore in="e:entries" if="e:entries/e:entry[@key='SubCommunity']/text()!='Middleware'"/>
+                <element-ignore in="e:entries" if="e:entries/e:entry[@key='SubCommunity']/text()!='Middleware' or not(e:entries/e:entry[@key='SubCommunity']/text())"/>
             </element>
+
         </processors>
 
 
