@@ -8,15 +8,21 @@
         </connector>
 
         <processors>
+
             <element in="data" out="vo-voms">
                 <element in="Vo">
                     <attribute-create out="name">../name/text()</attribute-create>
                     <attribute-ignore/>
+
                     <element in="VoVomsServer">
-                        <element-create as="last-child">view('voms-certificates')/results/X509Cert[@host=current()/../hostname/text()]</element-create>
+                        <element in="VoVomsServer">
+                            <element-create as="last-child">view('voms-certificates')/results/X509Cert[@host=current()/../hostname/text()]</element-create>
+                        </element>
                     </element>
+
+                    <element-ignore/>
                 </element>
-                <element-ignore/>
+
             </element>
 
 
