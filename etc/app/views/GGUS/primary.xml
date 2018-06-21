@@ -33,7 +33,7 @@
         <connector type="XMLConnector" >
             <parameter name="content" eval="view_post('SOAP_execute',
                     view($ggus_message),
-                    entry('url', concat(property('GGUS.url.test'),$service))|
+                    entry('url', concat(property(concat('GGUS.url.',property('env'))),$service))|
                     entry('header', $header)|
                     entry('operation', concat('urn:CIC_HelpDesk/',$operation)))
                 "/>
