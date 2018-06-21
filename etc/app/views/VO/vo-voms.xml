@@ -1,17 +1,48 @@
 <views xmlns="http://software.in2p3.fr/lavoisier/application.xsd" >
 
 
+    <view name="vo-voms">
+
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('vo-voms')"/>
+        </connector>
+
+        <processors>
+            <element in="data" out="vo-voms">
+                <element in="Vo">
+                    <attribute-create out="name">../name/text()</attribute-create>
+                    <attribute-ignore/>
+                    <element in="VoVomsServer">
+                        <element-create as="last-child">view('voms-certificate')/results/X509Cert[@host=current()/../hostname/text()]</element-create>
+                    </element>
+                </element>
+                <element-ignore/>
+            </element>
+
+
+        </processors>
+
+
+
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="minutes">28</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+        </cache>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+
+    </view>
+
 
 
 
     <view name="vo-voms_INDEX">
-        
-        <!--<connector type="HTTPConnector">-->
-            <!--<parameter name="url" eval="property('volist.url')"/>-->
-            <!--<parameter name="certificate" eval="property('certificate.path')"/>-->
-            <!--<parameter name="passphrase" eval="property('certificate.password')"/>-->
-            <!--<parameter name="force-redirect">true</parameter>-->
-        <!--</connector>-->
 
         <connector type="XMLConnector">
             <parameter name="content" eval="view('VoListUrl')"/>
