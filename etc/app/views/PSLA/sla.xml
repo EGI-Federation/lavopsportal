@@ -42,7 +42,7 @@
                             <element in="updated"/>
                             <element in="creator">
                                 <element-ignore in="avatarUrls"/>
-                            </element>OPSCORE_endpoints_postOPSCORE_endpoints_post
+                            </element>
 
 
                         </element-ignore>
