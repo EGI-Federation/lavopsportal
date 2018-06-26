@@ -37,7 +37,7 @@
         </cache>
     </view>
 
-    <view xmlns:cfg="http://software.in2p3.fr/lavoisier/config.xsd"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" xmlns:ns="uri://" name="OPSCORE_endpoints_post">
+    <view xmlns:cfg="http://software.in2p3.fr/lavoisier/config.xsd"   xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" xmlns:ns="uri://" name="OPSCORE_endpoints_post">
 
         <!-- default argument is path if exists -->
         <argument name="xpath" eval="path(false())" path-format="none"/>
@@ -52,7 +52,7 @@
             <processor type="SelectProcessor" match="eval($xpath)" disabled="not($xpath)">
                 <namespaces>
                     <entry key="cfg">http://software.in2p3.fr/lavoisier/config.xsd</entry>
-                    <entry key="_entries_">http://software.in2p3.fr/lavoisier/entries.xsd</entry>
+                    <entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry>
                     <entry key="ns">uri://</entry>
                 </namespaces>
                 

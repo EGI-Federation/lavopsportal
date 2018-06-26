@@ -1,7 +1,7 @@
 <views xmlns="http://software.in2p3.fr/lavoisier/application.xsd" >
 
 
-    <view name="vo-voms">
+    <view name="voVoms">
 
         <connector type="XMLConnector">
             <parameter name="content" eval="view('vo-voms_INDEX')"/>
@@ -9,7 +9,7 @@
 
         <processors>
 
-            <element in="data" out="vo-voms">
+            <element in="data" out="voVoms">
                 <element in="Vo">
                     <attribute-create out="name">../name/text()</attribute-create>
                     <attribute-ignore/>
@@ -25,7 +25,7 @@
 
             </element>
 
-            <element in="vo-voms">
+            <element in="voVoms">
                 <element-ignore in="Vo" if="not(VoVomsServer/VoVomsServer/X509Cert)"/>
             </element>
 
