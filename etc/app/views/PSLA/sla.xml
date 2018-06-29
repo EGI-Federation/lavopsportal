@@ -61,9 +61,9 @@
 
 
     <view name="translationJira">
-            <connector type="FileConnector">
-                <parameter name="path" eval="document('app/resources/xml/jiraEntries.xml')"/>
-            </connector>
+        <connector type="FileConnector">
+                <parameter name="path">app/resources/xml/jiraEntries.xml</parameter>
+        </connector>
     </view>
 
 </views>
