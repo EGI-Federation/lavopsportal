@@ -11,44 +11,14 @@
 
 
         <processors>
+
+
             <element in="object" out="e:entries">
+                <set variable="translationJira">view('translationJira')</set>
 
-                <element-ignore in="issues">
-                    <element in="object" out="e:entries">
-                        <element in="id"/>
-                        <element in="self" out="apiUrl"/>
-                        <element-ignore in="fields">
-
-                            <element in="description"/>
-                            <element in="customfield_10104"/>
-
-                            <element in="customfield_10224" out="slaUrl"/>
-                            <element in="customfield_10225" out="name"/>
-                            <element in="customfield_10226" out="surname"/>
-
-                            <element in="customfield_10227" out="email" />
-                            <element in="customfield_10229" out="eoscId" />
-
-                            <element in="customfield_10243" out="Institution" />
-                            <element in="customfield_10244" out="Departement" />
-
-                            <element in="created"/>
-
-                            <element-ignore in="priority">
-                                <element in="name" out="priority"/>
-                            </element-ignore>
-
-                            <element in="labels"/>
-                            <element in="updated"/>
-                            <element in="creator">
-                                <element-ignore in="avatarUrls"/>
-                            </element>
-
-
-                        </element-ignore>
-                    </element>
-
-                </element-ignore>
+                <element if="view('translationJira')/jiraItems/items[@in=local-name()] and  view('translationJira')/jiraItems/items[@in=local-name()]/@out" out="view('translationJira')/jiraItems/items[@in=local-name()]/@out"/>
+                <element if="view('translationJira')/jiraItems/items[@in=local-name()]"/>
+                <element-ignore/>
 
             </element>
 
@@ -87,5 +57,11 @@
     </view>
 
 
+    <view name="translationJira">
+            <connector type="FileConnector">
+                <parameter name="path" eval="document('app/resources/xml/jiraEntries.xml')"/>
+            </connector>
+    </view>
 
 </views>
+
