@@ -16,14 +16,32 @@
             <element in="object" out="e:entries">
                 <set variable="translationJira">view('translationJira')</set>
 
-                <element future="true" if="view('translationJira')/jiraItems/items[@in=local-name()] and not(view('translationJira')/jiraItems/items[@in=local-name()]/@out)"/>
-                <element-ignore future="true"  if="view('translationJira')/jiraItems/items[@in=local-name()] and  view('translationJira')/jiraItems/items[@in=local-name()]/@out">
-                    <element-create>new_element(view('translationJira')/jiraItems/items[@in=local-name(..)]/@out,../text())</element-create>
+                <element  if="view('translationJira')/jiraItems/items[@in=local-name()] and not(view('translationJira')/jiraItems/items[@in=local-name()]/@out)"/>
+
+                <element-ignore  if="view('translationJira')/jiraItems/items[@in=local-name()] and  view('translationJira')/jiraItems/items[@in=local-name()]/@out">
+                    <element-create >new_element(view('translationJira')/jiraItems/items[@in=local-name(..)]/@out,../text())</element-create>
                 </element-ignore>
 
                 <element-ignore/>
 
             </element>
+
+            <element>
+                <element>
+                    <set variable="translationJira">view('translationJira')</set>
+                    <element  if="view('translationJira')/jiraItems/items[@in=local-name()] and not(view('translationJira')/jiraItems/items[@in=local-name()]/@out)"/>
+
+                    <element-ignore  if="view('translationJira')/jiraItems/items[@in=local-name()] and  view('translationJira')/jiraItems/items[@in=local-name()]/@out">
+                        <element-create >new_element(view('translationJira')/jiraItems/items[@in=local-name(..)]/@out,../text())</element-create>
+                    </element-ignore>
+
+                    <element-ignore/>
+
+                </element>
+
+            </element>
+
+
 
             <element in="e:entries">
 
