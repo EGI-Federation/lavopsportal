@@ -1,0 +1,23 @@
+<jiraItems>
+    <item in="object"/>
+    <item in="fields"/>
+    <item in="self"/>
+    <item in="customfield_10224" out="slaUrl"/>
+    <item in="customfield_10225" out="name"/>
+    <item in="customfield_10226" out="surname"/>
+    <item in="customfield_10227" out="email" />
+    <item in="customfield_10229" out="eoscId" />
+    <item in="customfield_10243" out="Institution" />
+    <item in="customfield_10244" out="Departement" />
+    <item in="lastViewed" />
+    <item in="name"/>
+    <item in="id"/>
+    <item in="status"/>
+    <item in="statusCategory"/>
+    <item in="description"/>
+    <item in="creator"/>
+    <item in="key"/>
+    <item in="emailAddress"/>
+    <item in="displayName"/>
+    <item in="labels"></item>
+</jiraItems>
