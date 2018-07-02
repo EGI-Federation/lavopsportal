@@ -35,14 +35,19 @@
             <parameter name="content" eval="view('OPSCORE_get_roc_contacts')"/>
         </connector>
         <processors>
-            <remove match="//CONTACT"/>
-            <insert match="/results/ROC" nodes="new_element('label', string(@ROC_NAME))"/>
 
-            <rename match="/results" name="Recipients"/>
-            <rename match="//ROC" name="Recipient"/>
-            <rename match="//ROCNAME" name="id"/>
 
-            <rename match="//MAIL_CONTACT" name="email"/>
+            <element in="results" out="Recipients">
+                <element in="ROC" out="Recipient">
+                    <attribute-ignore/>
+                    <element in="ROCNAME" out="label"/>
+                    <element in="MAIL_CONTACT" out="email"/>
+                    <element-create>new_element('id',new_text(../@ROC_NAME))</element-create>
+                    <element-ignore/>
+                </element>
+            </element>
+
+
 
             <elements path="Recipients" >
                 <element-create>
@@ -50,6 +55,7 @@
                 </element-create>
                 <element-ignore/>
             </elements>
+
         </processors>
         <cache type="FileCache">
             <trigger type="DeltaTimeTrigger">
@@ -384,16 +390,25 @@
             <parameter name="content" eval="view('OPSCORE_prod_entities')"/>
         </connector>
         <processors>
-            <remove match="//NGI[@name!='EGI.eu']"/>
-            <remove match="//NGI" depth="1"/>
-            <rename match="/NGIs" name="Recipients"/>
 
-            <remove match="//Sites" depth="1"/>
-            <rename match="//Site" name="Recipient"/>
-            <insert match="/Recipients/Recipient" nodes="new_element('id', string(@primary_key))"/>
-            <insert match="/Recipients/Recipient" nodes="new_element('label', string(@name))"/>
-            <insert match="/Recipients/Recipient" nodes="new_element('email',string(@contact_email))"/>
-            <remove match="/*/*/@*"/>
+            <element in="NGIs" out="Recipients">
+                <element-ignore in="NGI" if="@name!='EGI.eu'">
+                    <element in="Site" out="Recipient">
+                        <attribute-ignore/>
+                        <element-create>new_element('id', string(../@primary_key))</element-create>
+                        <element-create>new_element('label', string(../@name))</element-create>
+                        <element-create>new_element('email', string(../@contact_email))</element-create>
+                    </element>
+
+                </element-ignore>
+
+            </element>
+
+        <element in="Recipients">
+            <element-ignore in="NGI">
+                <element></element>
+            </element-ignore>
+        </element>
 
 
         </processors>
