@@ -329,7 +329,11 @@
         </connector>
         <processors>
 
-            <processor match="/NGIs/NGI/Sites/Site[@production=0 or @certified=0]" type="RemoveProcessor"><namespaces><entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry><entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry></namespaces></processor>
+            <processor match="/NGIs/NGI/Sites/Site[@production=0 or @certified=0]" type="RemoveProcessor">
+                <namespaces>
+                    <entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry>
+                </namespaces>
+            </processor>
         </processors>
 
         <cache type="FileCache">
