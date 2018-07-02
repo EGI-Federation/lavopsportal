@@ -9,7 +9,8 @@
         </connector>
     </view>
 
-    <view name="GGUS_OPS_orphan_groups"  xmlns:gg="urn:GGUS_OPS" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" xmlns:str="http://exslt.org/strings">
+
+    <view name="GGUS_OPS_orphan_groups"  xmlns:ns0="urn:GGUS_OPS" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" xmlns:str="http://exslt.org/strings">
 
         <argument name="community">ROD</argument>
         <connector type="XMLConnector">
@@ -20,30 +21,30 @@
 
             <!-- revert XML encoding in GHD_Soap_Client_Data node -->
             <!-- 1. push text node for (view) to convert it in valid XML -->
-            <insert match="/gg:OpGetListOpsResponse/gg:getListValues/gg:GHD_Soap_Client_Data[* or not(*)]">
-                <connector type="StringConnector">
-                    <parameter name="content" eval="str:concat(parent_match()/text())"/>
-                </connector>
-            </insert>
 
-            <!-- 2. remove text node-->
-            <remove match="/gg:OpGetListOpsResponse/gg:getListValues/gg:GHD_Soap_Client_Data/text()"/>
-            <!-- select community, status 'verified/closed', and ticket with Group to release -->
-            <processor   match="/gg:OpGetListOpsResponse/gg:getListValues[
-                        gg:GHD_Soap_Client_Data/e:entries/e:entry[@key='Community' and text()=$community] and
-                        gg:GHD_Soap_Client_Data/e:entries/e:entry[@key='GroupId' and text()!='null'  and text()!='' and text()!='lost'] and
-                        gg:GHD_Status[text() = 'verified' or text() = 'closed']
-                        ]"
-                         type="SelectProcessor">
-            </processor>
-            <processor type="ChangeNamespaceProcessor" match="//gg:*"/>
+            <elements path="/ns0:OpGetListOpsResponse/ns0:getListValues/ns0:GHD_Soap_Client_Data">
+                <text-ignore/>
+                <element-create>xml(../text())/e:entries</element-create>
+            </elements>
 
-            <rename match="/*/getListValues" name="e:entries"/>
-            <replace match="/e:entries/e:entries/*[text()]" nodes="entry(local-name(),text())"/>
-            <insert match="/e:entries/e:entries/GHD_Soap_Client_Data"
-                    nodes="new_attribute('key','GHD_Soap_Client_Data')"/>
-            <rename match="/e:entries/e:entries/GHD_Soap_Client_Data" name="e:entries"/>
-            <remove match="/e:entries/e:entries/e:entries[@key='GHD_Soap_Client_Data']/e:entries" depth="1"/>
+
+
+            <element in="ns0:OpGetListOpsResponse" out="e:entries">
+                <element-ignore in="ns0:getListValues" if="not(ns0:GHD_Soap_Client_Data/e:entries/e:entry[@key='GroupId']/text()) or ns0:GHD_Soap_Client_Data/e:entries/e:entry[@key='GroupId']/text()='' or ns0:GHD_Soap_Client_Data/e:entries/e:entry[@key='GroupId']/text()='null' or e:entries/e:entry[@key='GroupId']/text()='lost'"/>
+                <element-ignore in="ns0:getListValues"   if="ns0:GHD_Soap_Client_Data/e:entries/e:entry[@key='Community']!=$community"/>
+                <element-ignore in="ns0:getListValues"   if="ns0:GHD_Status/text()!='verified' and ns0:GHD_Status/text()!='closed'"/>
+            </element>
+
+            <element in="e:entries">
+                <element in="ns0:getListValues" out="e:entries">
+                    <element in="ns0:GHD_Soap_Client_Data" out="e:entries"/>
+                    <element-ignore if="not(ns0:GHD_Soap_Client_Data)">
+                        <element-create if="../text()">entry(local-name(..),../text())</element-create>
+                    </element-ignore>
+
+                </element>
+            </element>
+
 
         </processors>
 
@@ -77,27 +78,29 @@
 
         <processors>
 
-            <insert match="/e:entries/e:entries/e:entries/e:entry[@key='EndDate'][text()]">
-                <connector type="XMLConnector">
-                    <parameter name="content" eval="view('StatusTicket', entry('date',parent_match()/text()))"/>
-                </connector>
-            </insert>
+            <elements path="/e:entries/e:entries/e:entries">
+                <element-create if="../e:entry[@key='EndDate'][text()]">
+                    entry('StatusTicket',
+                    view('StatusTicket', entry('date',../e:entry[@key='EndDate']/text())))
+                </element-create>
+                <element-create if="not(../e:entry[@key='EndDate'][text()])">
+                    entry('StatusTicket',99)
+                </element-create>
+            </elements>
 
+            <elements path="/e:entries/e:entries/e:entries">
+                <!-- Ticket Status 3: Expired,  2:Expiring , 1:On Going -->
+                <element-create>entry('Status',choose(../e:entry[@key='StatusTicket']/text()&gt;0, choose(../e:entry[@key='StatusTicket']/text()&gt;3,'3','2'),'1'))</element-create>
+            </elements>
 
-
-                <element in="e:entries">
-                    <element in="e:entries">
-                        <!-- Ticket Status 3: Expired,  2:Expiring , 1:On Going -->
-                        <element-create>entry('Status',choose(../e:entries/e:entry[@key='EndDate']/e:entries/e:entry/text()&gt;0, choose(../e:entries/e:entry[@key='EndDate']/e:entries/e:entry/text()&gt;3,'3','2'),'1'))</element-create>
-
-                    </element>
-                </element>
 
                 <element in="e:entries">
                     <element-ignore in="e:entries" if="e:entries/e:entry[@key='SubCommunity']/text()='Middleware'"/>
                 </element>
 
-
+            <element in="e:entries">
+                <element-ignore in="e:entries" if="e:entries/e:entry[@key='Community']/text()!='ROD'"/>
+            </element>
 
 
         </processors>
@@ -116,7 +119,9 @@
         </connector>
 
         <processors>
-            <remove match="/e:entries/e:entries[e:entries/e:entry/@key='SubCommunity'][e:entries/e:entry/text()='Middleware']"/>
+            <element in="e:entries">
+                <element-ignore in="e:entries" if="e:entries/e:entry[@key='Community']/text()!='ROD'"/>
+            </element>
         </processors>
 
         <cache type="FileCache">
@@ -133,6 +138,8 @@
                        eval="view('diffWWE', entry('date_start',date:format-date($date,property('date_format'))) |                        entry('date_end', view('UTC-now', entry('format',property('date_format')))/*/*/text())  |                        entry('granularity','day'))"/>
         </connector>
         <serializer type="EncapsulateSerializer"/>
+
+
     </view>
 
 
@@ -145,19 +152,21 @@
         <processors>
 
 
+            <elements path="/e:entries/e:entries/e:entries">
+                <element-create if="../e:entry[@key='EndDate'][text()]">
+                    entry('StatusTicket',
+                    view('StatusTicket', entry('date',../e:entry[@key='EndDate']/text())))
+                </element-create>
+                <element-create if="not(../e:entry[@key='EndDate'][text()])">
+                    entry('StatusTicket',99)
+                </element-create>
+            </elements>
 
-            <insert match="/e:entries/e:entries/e:entries/e:entry[@key='EndDate'][text()]">
-                <connector type="XMLConnector">
-                    <parameter name="content" eval="view('StatusTicket', entry('date',parent_match()/text()))"/>
-                </connector>
-            </insert>
+            <elements path="/e:entries/e:entries/e:entries">
+                <element-create>entry('Status',choose(../e:entry[@key='StatusTicket']/text()&gt;0, choose(../e:entry[@key='StatusTicket']/text()&gt;3,'3','2'),'1'))</element-create>
+            </elements>
 
-            <!-- Ticket Status 3: Expired,  2:Expiring , 1:On Going -->
-            <insert match="/e:entries/e:entries[*]"
-                    nodes="entry('Status',choose(e:entries/e:entry[@key='EndDate']/e:entries/e:entry/text()&gt;0, choose(e:entries/e:entry[@key='EndDate']/e:entries/e:entry/text()&gt;3,'3','2'),'1'))">
-            </insert>
 
-            <remove match="/e:entries/e:entries/e:entries/e:entry[@key='EndDate']/e:entries"/>
 
             <element in="e:entries">
                 <element-ignore in="e:entries" if="e:entries/e:entry[@key='SubCommunity']/text()!='Middleware' or not(e:entries/e:entry[@key='SubCommunity']/text())"/>
@@ -181,18 +190,28 @@
         </connector>
         <processors>
 
-            <select match="/e:entries/e:entries[
-                (e:entry[@key='GHD_Status']/text() != 'solved') and (e:entry[@key='GHD_Status']/text() != 'closed')]"/>
 
-            <insert match="/e:entries/e:entries/e:entries/e:entry[@key='EndDate'][text()]">
-                <connector type="XMLConnector">
-                    <parameter name="content" eval="view('StatusTicket', entry('date',parent_match()/text()))"/>
-                </connector>
-            </insert>
 
-            <insert match="/e:entries/e:entries[*]"
-                    nodes="entry('Status',choose(e:entries/e:entry[@key='EndDate']/e:entries/e:entry/text()&gt;0, choose(e:entries/e:entry[@key='EndDate']/e:entries/e:entry/text()&gt;3,'3','2'),'1'))"/>
-            <remove match="/e:entries/e:entries/e:entries/e:entry[@key='EndDate']/e:entries"/>
+
+
+            <elements path="/e:entries/e:entries/e:entries">
+                <element-create if="../e:entry[@key='EndDate'][text()]">
+                    entry('StatusTicket',
+                    view('StatusTicket', entry('date',../e:entry[@key='EndDate']/text())))
+                </element-create>
+                <element-create if="not(../e:entry[@key='EndDate'][text()])">
+                    entry('StatusTicket',99)
+                </element-create>
+            </elements>
+
+            <elements path="/e:entries/e:entries/e:entries">
+                <element-create>entry('Status',choose(../e:entry[@key='StatusTicket']/text()&gt;0, choose(../e:entry[@key='StatusTicket']/text()&gt;3,'3','2'),'1'))</element-create>
+            </elements>
+
+
+            <element in="e:entries">
+                <element-ignore in="e:entries" if="e:entries/e:entry[@key='Community']/text()!='COD' or not(e:entries/e:entry[@key='Community']/text())"/>
+            </element>
 
         </processors>
 
@@ -226,6 +245,8 @@
                        eval="view('GGUS_Opened',  entry('service_id','GGUS_OPS') | entry('community_id','CSI')) "/>
         </connector>
         <cache type="FileCache">
+
+
             <trigger type="ViewNotifiedTrigger"/>
             <trigger type="ViewCreatedTrigger"/>
         </cache>
@@ -379,26 +400,52 @@
 
         <processors>
 
+            <element in="e:entries">
+                <element in="e:entries">
 
-            <insert match="/e:entries/e:entries[*]"
-                    nodes="entry('DurationDays',
-                    date:seconds(date:difference(date:format-date(
-                    choose(  e:entry[@key='GHD_Create_Date']/text(),e:entry[@key='GHD_Create_Date']/text(),view('UTC-now')/*  )   ,
-                    property('date_format')),view('UTC-now')/*)  )  )      "/>
+                    <element-create  if="../e:entry[@key='GHD_Create_Date']/text()!='' and ../e:entry[@key='GHD_Create_Date']/text()">
+                        entry('DurationDays',
+                        date:seconds(date:difference(date:format-date(
+                        ../e:entry[@key='GHD_Create_Date']/text()
+                        ,property('date_format')),view('UTC-now')/*)
+                        ) )
+                    </element-create>
+
+                    <element-create  if="not(../e:entry[@key='GHD_Create_Date']/text()) or ../e:entry[@key='GHD_Create_Date']/text()=''">
+                        entry('DurationDays',
+                        date:seconds(date:difference(date:format-date(
+                        view('UTC-now')/*   ,    property('date_format')),view('UTC-now')/*)
+                        )  )
+                    </element-create>
+                </element>
+            </element>
+
+            <element in="e:entries">
+                    <element-ignore in="e:entries" if="e:entry[@key='DurationDays']/text() &gt; number(84600) or e:entry[@key='DurationDays']/text()='0.0'"/>
+            </element>
 
 
-            <remove match="/e:entries/e:entries[e:entry[@key='DurationDaysClosed']/text() &gt; number(84600)]"/>
-            <remove match="/e:entries/e:entries[e:entry[@key='DurationDaysClosed']/text()='0.0']"/>
+            <element in="e:entries">
+                <element-ignore in="e:entries"/>
+                <element-create>sort_by_string(../e:entries,'e:entry[@key="GHD_Affected_Site"]/text()')</element-create>
+            </element>
 
-            <select match="/e:entries/e:entries[*]">
-                <group by="e:entry[@key='GHD_Affected_Site']/text()" sort="text"/>
-            </select>
+            <element in="e:entries">
 
-            <insert match="/e:entries/e:entry[*]"
-                    nodes="entry('countTicketsOpened',count(e:entries/e:entry[@key='GHD_Request_ID']))"/>
+                <element-create-as-parent out="e:entry" group-by="e:entry[@key='GHD_Affected_Site']/text()">
+                    <element in="e:entries"/>
+                </element-create-as-parent>
+
+            </element>
+
+            <elements path="e:entries/e:entries">
+                <attribute-create out="key">../e:entries/e:entry[@key='GHD_Affected_Site']/text()</attribute-create>
+                <element-create as="first-child">entry('countTicketsOpened',count(../e:entries/e:entry[@key='GHD_Request_ID']))</element-create>
+                <element-ignore/>
+            </elements>
 
 
-            <remove match="/e:entries/e:entry/e:entries"/>
+
 
         </processors>
     </view>
@@ -417,21 +464,52 @@
 
         <processors>
 
-            <insert match="/e:entries/e:entries[*]"
-                    nodes="entry('DurationDaysClosed', date:seconds(date:difference( date:format-date(choose(e:entries/e:entry[@key='CloseDate']/text(), e:entries/e:entry[@key='CloseDate']/text(), view('UTC-now')/* )  , property('date_format')),view('UTC-now')/*)                        )                        )                     "/>
 
-            <remove match="/e:entries/e:entries[e:entry[@key='DurationDaysClosed']/text() &gt; number(90000)]"/>
-            <remove match="/e:entries/e:entries[e:entry[@key='DurationDaysClosed']/text()='0.0']"/>
+            <element in="e:entries">
+                <element in="e:entries">
 
-            <select match="/e:entries/e:entries[*]">
-                <group by="e:entry[@key='GHD_Affected_Site']/text()" sort="text"/>
-            </select>
+                    <element-create if="../e:entries/e:entry[@key='CloseDate']/text()!='' and ../e:entries/e:entry[@key='CloseDate']/text()">
+                        entry('DurationDays',
+                        date:seconds(date:difference(date:format-date(
+                        ../e:entries/e:entry[@key='CloseDate']/text()
+                        ,property('date_format')),view('UTC-now')/*)
+                        ) )
+                    </element-create>
 
-            <insert match="/e:entries/e:entry[*]"
-                    nodes="entry('countTicketsClosed',count(e:entries/e:entry[@key='GHD_Request_ID']))"/>
+                    <element-create if="not(../e:entries/e:entry[@key='CloseDate']/text()) or ../e:entries/e:entry[@key='CloseDate']/text()=''">
+                        entry('DurationDays',
+                        date:seconds(date:difference(date:format-date(
+                        view('UTC-now')/*   ,    property('date_format')),view('UTC-now')/*)
+                        )  )
+                    </element-create>
+
+                </element>
+            </element>
+
+            <element in="e:entries">
+                <element-ignore in="e:entries" if="e:entry[@key='DurationDays']/text() &gt; number(90000) or e:entry[@key='DurationDays']/text()='0.0' "/>
+            </element>
 
 
-            <remove match="/e:entries/e:entry/e:entries"/>
+            <element in="e:entries">
+                <element-ignore in="e:entries"/>
+                <element-create>sort_by_string(../e:entries,'e:entry[@key="GHD_Affected_Site"]/text()')</element-create>
+            </element>
+
+
+            <element in="e:entries">
+                <element-create-as-parent out="e:entry" group-by="e:entry[@key='GHD_Affected_Site']/text()">
+                    <element in="e:entries"/>
+                </element-create-as-parent>
+            </element>
+
+            <elements path="e:entries/e:entries">
+                <attribute-create out="key">../e:entries/e:entry[@key='GHD_Affected_Site']/text()</attribute-create>
+                <element-create as="first-child">entry('countTicketsClosed',count(../e:entries/e:entry[@key='GHD_Request_ID']))</element-create>
+                <element-ignore/>
+            </elements>
+
+
 
         </processors>
     </view>

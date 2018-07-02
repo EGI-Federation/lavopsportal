@@ -15,74 +15,112 @@
 
         <processors>
             <!-- arrange tickets tags -->
-            <replace match="/e:entries/e:entries/e:entry[@key][text()]" nodes="new_element(@key,text())"/>
+            <!--<replace match="/e:entries/e:entries/e:entry[@key][text()]" nodes="new_element(@key,text())"/>-->
 
-            <replace match="/e:entries/e:entries/e:entries/e:entry[@key][text()]" nodes="new_element(@key,text())"/>
-            <replace match="/e:entries/e:entries/e:entries/e:entry[@key]" nodes="new_element(@key)"/>
+            <!--<replace match="/e:entries/e:entries/e:entries/e:entry[@key][text()]" nodes="new_element(@key,text())"/>-->
+            <!--<replace match="/e:entries/e:entries/e:entries/e:entry[@key]" nodes="new_element(@key)"/>-->
 
-            <rename match="/e:entries/e:entries/e:entries" name="GHD_Soap_Client_Data"/>
+            <!--<rename match="/e:entries/e:entries/e:entries" name="GHD_Soap_Client_Data"/>-->
 
-            <rename match="/e:entries/e:entries/GHD_Affected_Site" name="Site"/>
-            <processor type="InsertProcessor" match="/e:entries/e:entries">
-                <parameter name="nodes" eval="new_element('GenerationDate', view('UTC-now')/*/*/text())"/></processor>
+            <!--<rename match="/e:entries/e:entries/GHD_Affected_Site" name="Site"/>-->
 
-            <rename match="/e:entries/e:entries/GHD_Request_ID" name="pk1"/>
-            <insert match="/e:entries/e:entries" nodes="new_attribute('pk2', 'ggus_helpdesk_ops')"/>
-            <merge match="/e:entries/e:entries/pk1"/>
-            <merge match="/e:entries/e:entries"/>
+            <element in="e:entries" out="Data">
 
-            <!-- arrange root tags -->
-            <rename match="/e:entries" name="Issues"/>
-            <insert-parent match="/Issues" name="Data"/>
-            <insert match="/Data" nodes="choose($view='GGUS_MW',new_attribute('history_table_name', 'CodTicketMWHistory'),new_attribute('history_table_name', 'CodTicketHistory'))"/>
-            <insert match="/Data" nodes="choose($view='GGUS_MW',new_attribute('problem_table_name', 'CodTicketMWProblem'),new_attribute('problem_table_name', 'CodTicketProblem'))"/>
+                <element in="e:entries" out="Issue">
 
-            <processor type="InsertProcessor" match="/Data">
+                    <element-ignore in="e:entries">
+                        <element-ignore>
+                            <element-create if="../text()">new_element(../@key,../text())</element-create>
+                            <element-create if="not(../text())">new_element(../@key)</element-create>
+                        </element-ignore>
+                    </element-ignore>
 
-                <parameter name="nodes" eval="new_attribute('global_date', view('UTC-now')/*)"/>
-            </processor>
+                    <element-ignore>
+                        <element-create if="../text()">new_element(../@key,../text())</element-create>
+                        <element-create if="not(../text())">new_element(../@key)</element-create>
+                    </element-ignore>
 
-            <rename match="/Data/Issues/e:entries" name="Issue"/>
-            <rename match="/Data/Issues/Issue/GHD_Create_Date" name="CreateDate"/>
 
-            <remove match="/Data/Issues/Issue/GHD_Soap_Client_Data" depth="1"/>
+                </element>
 
-            <remove match="/Data/Issues/Issue/GHD_Modified_Date"/>
-            <remove match="/Data/Issues/Issue/GHD_Status"/>
-            <remove match="/Data/Issues/Issue/GHD_Priority"/>
-            <remove match="/Data/Issues/Issue/GHD_Last_Modifier"/>
-            <remove match="/Data/Issues/Issue/GHD_Problem_Type"/>
-            <remove match="/Data/Issues/Issue/GHD_Soap_Client_Data"/>
-            <remove match="/Data/Issues/Issue/GHD_Subject"/>
+
+            </element>
+
+            <elements path="Data/Issue">
+                <attribute-create out="pk1">../GHD_Request_ID/text()</attribute-create>
+                <attribute-create out="pk2">'ggus_helpdesk_ops'</attribute-create>
+                <element in="GHD_Affected_Site" out="Site"/>
+                <element-create>new_element('GenerationDate', view('UTC-now')/*/*/text())</element-create>
+
+            </elements>
+
+            <element in="Data">
+                <attribute-create out="history_table_name">choose($view='GGUS_MW','CodTicketMWHistory', 'CodTicketHistory')</attribute-create>
+                <attribute-create out="problem_table_name">choose($view='GGUS_MW','CodTicketMWProblem', 'CodTicketProblem')</attribute-create>
+                <attribute-create out="global_date">view('UTC-now')/*</attribute-create>
+                <element-create-as-parent out="Issues">
+                    <element in="Issue"/>
+                </element-create-as-parent>
+            </element>
+
+
+            <elements path="Data/Issues/Issue">
+                <element in="GHD_Create_Date" out="Create_Date"/>
+                <element-ignore in="GHD_Soap_Client_Data">
+                    <element/>
+                </element-ignore>
+            </elements>
+
+            <elements path="Data/Issues/Issue">
+                <element-ignore if="name()='GHD_Modified_Date' or name()='GHD_Status' or name()='GHD_Priority' or name()='GHD_Last_Modifier' or name()='GHD_Problem_Type' or name()='GHD_Problem_Type'"/>
+            </elements>
+
+            <!--&lt;!&ndash; arrange root tags &ndash;&gt;-->
+            <!--<rename match="/e:entries" name="Issues"/>-->
+            <!--<insert-parent match="/Issues" name="Data"/>-->
+            <!--<insert match="/Data" nodes="choose($view='GGUS_MW',new_attribute('history_table_name', 'CodTicketMWHistory'),new_attribute('history_table_name', 'CodTicketHistory'))"/>-->
+            <!--<insert match="/Data" nodes="choose($view='GGUS_MW',new_attribute('problem_table_name', 'CodTicketMWProblem'),new_attribute('problem_table_name', 'CodTicketProblem'))"/>-->
+
+            <!--<processor type="InsertProcessor" match="/Data">-->
+
+                <!--<parameter name="nodes" eval="new_attribute('global_date', view('UTC-now')/*)"/>-->
+            <!--</processor>-->
+
+            <!--<rename match="/Data/Issues/e:entries" name="Issue"/>-->
+            <!--<rename match="/Data/Issues/Issue/GHD_Create_Date" name="CreateDate"/>-->
+
+            <!--<remove match="/Data/Issues/Issue/GHD_Soap_Client_Data" depth="1"/>-->
+
+            <!--<remove match="/Data/Issues/Issue/GHD_Modified_Date"/>-->
+            <!--<remove match="/Data/Issues/Issue/GHD_Status"/>-->
+            <!--<remove match="/Data/Issues/Issue/GHD_Priority"/>-->
+            <!--<remove match="/Data/Issues/Issue/GHD_Last_Modifier"/>-->
+            <!--<remove match="/Data/Issues/Issue/GHD_Problem_Type"/>-->
+            <!--<remove match="/Data/Issues/Issue/GHD_Soap_Client_Data"/>-->
+            <!--<remove match="/Data/Issues/Issue/GHD_Problem_Type"/>-->
 
             <!-- raise potential notifications -->
 
-            <insert match="/Data/Issues/Issue/CreateDate[text()]">
-                <connector type="XMLConnector">
-                    <parameter name="content" eval="view('COD-alert-TicketOneMonth', entry('date',parent_match()/text()) )"/>
+            <elements path="Data/Issues/Issue">
+                    <element-create if="../Create_Date/text()">new_element('CreateDateStatus',view('COD-alert-TicketOneMonth', entry('date',../Create_Date/text()))/e:entries/e:entry/text())</element-create>
+            </elements>
 
-                </connector>
-            </insert>
-
-            <insert match="/Data/Issues/Issue/EndDate[text()]">
-                <connector type="XMLConnector">
-                    <parameter name="content" eval="view('COD-alert-TicketExpired', entry('date',parent_match()/text()))"/>
-                </connector>
-            </insert>
-
-            <insert match="/Data/Issues/Issue[*]" nodes="
-            new_element('EndDateStatus',EndDate/e:entries/e:entry/text())  |
-            new_element('CreateDateStatus',CreateDate/e:entries/e:entry/text()) |
-            new_element('UrlToHistory',concat(
+            <elements path="Data/Issues/Issue">
+                <element-create if="../EndDate/text()">new_element('EndDateStatus',view('COD-alert-TicketExpired', entry('date',../EndDate/text()))/e:entries/e:entry/text())</element-create>
+                <element-create> new_element('UrlToHistory',concat(
                     property('portal.base_url'),
-                    '/rodDashboard/ticket/',@pk1,
-                    '/site/', Ngi/text(),
-                    '/tab/details/tsid/',concat(Helpdesk/text(), '-', Workflow/text()),
-                    '?page=details'))"/>
+                    '/rodDashboard/ticket/',../@pk1,
+                    '/site/', ../Ngi/text(),
+                    '/tab/details/tsid/',concat(../Helpdesk/text(), '-', ../Workflow/text()),
+                    '?page=details'))
+                </element-create>
+            </elements>
 
-            <remove match="/Data/Issues/Issue/CreateDate/e:entries"/>
-            <remove match="/Data/Issues/Issue/EndDate/e:entries"/>
-            <remove match="/Data/Issues/Issue[CreateDateStatus/text()='0.0' and EndDateStatus/text()='0.0' ]"/>
+
+            <elements path="Data/Issues">
+                <element-ignore in="Issue" if="CreateDateStatus/text()='0.0' and EndDateStatus/text()='0.0' "/>
+            </elements>
+
 
         </processors>
 
@@ -116,15 +154,42 @@
         </connector>
         <processors>
 
-            <rename match="/result/row" name="Issue"/>
-            <rename match="/result" name="Issues"/>
 
-            <insert-parent match="/Issues" name="Data"/>
+            <element in="result" out="Data">
+                <attribute-create out="problem_table_name">'CodNagiosProblem'</attribute-create>
+                <attribute-create out="history_table_name">'CodNagiosHistory'</attribute-create>
+                <attribute-create out="global_date">view('UTC-now')/*</attribute-create>
 
-            <insert match="/Data" nodes="new_attribute('problem_table_name', 'CodNagiosProblem')"/>
-            <insert match="/Data" nodes="new_attribute('history_table_name', 'CodNagiosHistory')"/>
+                <element-create-as-parent out="Issues">
+                    <element in="row" out="Issue"/>
+                </element-create-as-parent>
+            </element>
 
-            <insert match="/Data/Issues/Issue[StartDate]" nodes="new_element('GenerationDate', StartDate/text())"/>
+
+            <elements path="Data/Issues">
+                <element in="Issue">
+                    <attribute-create out="StartDate">../StartDate/text()</attribute-create>
+                    <attribute-create out="pk1">../pk1/text()</attribute-create>
+                    <attribute-create out="pk2">'alarm_72'</attribute-create>
+                    <element-create>new_element('GenerationDate', ../StartDate/text())</element-create>
+                    <element-create>new_element('DetectionDate', view('UTC-now')/e:entries/e:entry/text())</element-create>
+                    <element-create if="../StartDate/text()">new_element('Status', view('COD-alert-NagiosExpired',entry('date',../StartDate/text()))/e:entries/e:entry/text())</element-create>
+                    <element-create>new_element('UrlToHistory',concat( property('portal.base_url'),  '/rodDashboard/issue/',../pk1/text(),  '/related_site/', ../Site/text(),  '/tab/overview/page/issues'))</element-create>
+
+                </element>
+            </elements>
+
+
+            <element in="Data">
+                <element in="Issues">
+                    <element-ignore in="Issue" if="Status/text()='0.0'"/>
+                </element>
+            </element>
+
+
+
+
+        <!--    <insert match="/Data/Issues/Issue[StartDate]" nodes="new_element('GenerationDate', StartDate/text())"/>
 
             <merge match="/Data/Issues/Issue/StartDate"/>
             <rename match="/Data/Issues/Issue/StartDate" name="Status"/>
@@ -132,9 +197,9 @@
                 <connector type="XMLConnector">
                     <parameter name="content" eval="view('COD-alert-NagiosExpired', entry('date',parent_match()/@StartDate))"/>
                 </connector>
-            </insert>
+            </insert>-->
 
-            <processor type="InsertProcessor" match="/Data">
+        <!--    <processor type="InsertProcessor" match="/Data">
 
                 <parameter name="nodes" eval="new_attribute('global_date', view('UTC-now')/*)"/>
             </processor>
@@ -153,7 +218,7 @@
                     property('portal.base_url'),
                     '/rodDashboard/issue/',@pk1,
                     '/related_site/', Site/text(),
-                    '/tab/overview/page/issues'))"/>
+                    '/tab/overview/page/issues'))"/>-->
 
         </processors>
 
@@ -181,44 +246,95 @@
         </connector>
 
         <processors>
-            <rename match="/results/DOWNTIME" name="Issue"/>
+
+
+     <!--       <rename match="/results/DOWNTIME" name="Issue"/>
             <rename match="/results" name="Issues"/>
+            <insert-parent match="/Issues" name="Data"/>-->
 
-            <insert-parent match="/Issues" name="Data"/>
+            <element in="results" out="Data">
+                <attribute-create out="problem_table_name">'CodDowntimeProblem'</attribute-create>
+                <attribute-create out="history_table_name">'CodDowntimeHistory'</attribute-create>
+                <element-create-as-parent out="Issues">
+                    <element in="DOWNTIME" out="Issue"/>
+                </element-create-as-parent>
+            </element>
 
+            <element in="Data">
+                <attribute-create out="global_date">view('UTC-now')/*</attribute-create>
+                <element in="Issues">
+                    <element in="Issue">
+                        <attribute in="ID" out="pk1"/>
+                        <attribute in="PRIMARY_KEY" out="pk2"/>
+                        <attribute-ignore/>
+                    </element>
+
+                </element>
+            </element>
+
+<!--
             <insert match="/Data" nodes="new_attribute('problem_table_name', 'CodDowntimeProblem')"/>
             <insert match="/Data" nodes="new_attribute('history_table_name', 'CodDowntimeHistory')"/>
 
             <remove match="/Data/Issues/Issue/@CLASSIFICATION"/>
             <rename match="/Data/Issues/Issue/@ID" name="pk1"/>
-            <rename match="/Data/Issues/Issue/@PRIMARY_KEY" name="pk2"/>
+            <rename match="/Data/Issues/Issue/@PRIMARY_KEY" name="pk2"/>-->
 
-            <insert match="/Data/Issues/Issue[*]" nodes="new_element('PRODUCTION',view('OPSCORE_endpoints')/results/e:entries[@key=match()/ENDPOINT/text()]/e:entry[@key='IN_PRODUCTION']/text())"/>
+            <elements path="/Data/Issues">
+                <element in="Issue">
+                    <element-create if="../START_DATE/text() and ../END_DATE/text()">new_element('Duration',round(number(../END_DATE/text() - ../START_DATE/text()) div 86400))</element-create>
+                </element>
+            </elements>
+
+
+            <elements path="/Data/Issues">
+                    <element-ignore in="Issue" if="Duration/text() &lt; 30 "/>
+            </elements>
+
+
+            <elements path="/Data/Issues">
+                <set variable="OPSCORE_endpoints">view('OPSCORE_endpoints')</set>
+                <set variable="COD_siteList">view('COD_siteList')</set>
+                <element in="Issue">
+                    <element-create>new_element('UrlToHistory',concat(  property('portal.base_url'), '/rodDashboard/ngi/', ../ROC/text(), '/tab/downtimes/filter/operators/page/downtimes'))</element-create>
+                    <element-create>new_element('PRODUCTION',$OPSCORE_endpoints/results/e:entries[@key=../ENDPOINT/text()]/e:entry[@key='IN_PRODUCTION']/text())</element-create>
+                    <element-create>new_element('ROC',$COD_siteList/results/SITE[SHORT_NAME/text()=../HOSTED_BY/text()]/ROC/text())</element-create>
+                </element>
+            </elements>
+
+            <elements path="/Data/Issues">
+                <element-ignore in="Issue" if="PRODUCTION/text()='N' or PRODUCTION/text()=''"/>
+                <element-ignore in="Issue" if="@pk2=following-sibling::Issue/@pk2"/>
+            </elements>
+
+
+      <!--      <insert match="/Data/Issues/Issue[*]" nodes="new_element('PRODUCTION',view('OPSCORE_endpoints')/results/e:entries[@key=match()/ENDPOINT/text()]/e:entry[@key='IN_PRODUCTION']/text())"/>
 
             <remove match="/Data/Issues/Issue[PRODUCTION/text()='N' or PRODUCTION/text()='']"/>
+
             <remove match="/Data/Issues/Issue[@pk2=following-sibling::Issue/@pk2]"/>
             <processor type="InsertProcessor" match="/Data">
 
                 <parameter name="nodes" eval="new_attribute('global_date', view('UTC-now')/*)"/>
-            </processor>
+            </processor>-->
 
-            <insert match="/Data/Issues/Issue[*]" nodes="view('COD_siteList')/results/SITE[SHORT_NAME/text()=match()/HOSTED_BY/text()]/ROC"/>
+         <!--   <insert match="/Data/Issues/Issue[*]" nodes="view('COD_siteList')/results/SITE[SHORT_NAME/text()=match()/HOSTED_BY/text()]/ROC"/>
             <insert match="/Data/Issues/Issue[END_DATE/text() and START_DATE/text()]" nodes="new_element('Duration', round(number(END_DATE/text() - START_DATE/text()) div 86400))"/>
             <remove match="/Data/Issues/Issue[Duration/text() &lt; 30 ]"/>
 
             <processor type="InsertProcessor" match="/Data/Issues/Issue">
                 <parameter name="nodes" eval="new_element('GenerationDate', view('UTC-now')/*/*/text())"/>
-            </processor>
+            </processor>-->
 
-            <insert match="/Data/Issues/Issue[ROC]" nodes=" new_element('UrlToHistory',concat(
-                    property('portal.base_url'),
-                    '/rodDashboard/ngi/', ROC/text(),
-                    '/tab/downtimes/filter/operators/page/downtimes'))"/>
+            <!--<insert match="/Data/Issues/Issue[ROC]" nodes=" new_element('UrlToHistory',concat(-->
+                    <!--property('portal.base_url'),-->
+                    <!--'/rodDashboard/ngi/', ROC/text(),-->
+                    <!--'/tab/downtimes/filter/operators/page/downtimes'))"/>-->
 
         </processors>
-        <!--  <cache type="FileCache">
+          <cache type="FileCache">
               <trigger type="DeltaTimeTrigger">
-                  <parameter name="minutes">4</parameter>
+                  <parameter name="minutes">18</parameter>
               </trigger>
               <trigger type="ViewNotifiedTrigger"/>
               <trigger type="DependencyRefreshedTrigger">
@@ -226,7 +342,7 @@
                       <entry>OPSCORE_endpoints</entry>
                   </parameter>
               </trigger>
-          </cache>-->
+          </cache>
         <renderers>
             <renderer type="DefaultRenderer">
                 <parameter name="contentType">application/xml</parameter>
@@ -268,7 +384,7 @@
         <serializer type="HTMLSerializer"/>
 
         <processors>
-            <processor match="//*" type="ChangeNamespaceProcessor"></processor>
+            <processor match="//*" type="ChangeNamespaceProcessor"/>
         </processors>
 
         <cache type="FileCache">

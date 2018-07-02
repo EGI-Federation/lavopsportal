@@ -585,9 +585,6 @@
         <processors>
 
 
-            <!--<insert match="/disciplines/discipline" nodes="choose($AllVO='_prod_',view('VoDisciplinesAll')/result/row[discipline_id/text()=match()/@id]/@vo_id,view('VoDisciplinesAllVOs')/result/row[discipline_id/text()=match()/@id]/@vo_id)" as="first_child"/>-->
-            <!--<insert match="/disciplines//discipline" nodes="choose($AllVO='_prod_',view('VoDisciplinesAll')/result/row[@discipline_id=match()/@id]/@vo_id,view('VoDisciplinesAllVOs')/result/row[discipline_id/text()=match()/@id]/@vo_id)" as="first_child"/>-->
-
 
             <processor match="/disciplines/discipline" type="InsertProcessor">
                 <namespaces>
