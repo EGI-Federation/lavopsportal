@@ -14,6 +14,11 @@
             <parameter name="force-redirect">true</parameter>
         </connector>
 
+      <processors>
+          <element in="XIImport">
+              <attribute-create out="url">concat($base_url,'/importXMLIssues?cid=',$collection)</attribute-create>
+          </element>
+      </processors>
 
         <pre-renderers>
             <title>concat('XII import of ', /XIImport/@cid)</title>
@@ -21,7 +26,8 @@
             <field label="data view">/XIImport/@view</field>
             <field label="generation date ">/XIImport/@gdate</field>
             <field label="logs">/XIImport/@logs</field>
-            <field label="url">concat($base_url,'/importXMLIssues?cid=',$collection)</field>
+            <field label="url">/XIImport/@url</field>
+
             <row foreach="/XIImport/Counters">
                 <column label="RaisedBrowsed">concat(RaisedBrowsed, ' ( ',Timers/@raised, ' s )')</column>
                 <column>DateUpdated</column>
