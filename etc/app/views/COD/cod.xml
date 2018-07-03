@@ -175,7 +175,7 @@
                     <element-create>new_element('DetectionDate', view('UTC-now')/e:entries/e:entry/text())</element-create>
                     <element-create if="../StartDate/text()">new_element('Status', view('COD-alert-NagiosExpired',entry('date',../StartDate/text()))/e:entries/e:entry/text())</element-create>
                     <element-create>new_element('UrlToHistory',concat( property('portal.base_url'),  '/rodDashboard/issue/',../pk1/text(),  '/related_site/', ../Site/text(),  '/tab/overview/page/issues'))</element-create>
-
+                    <element-ignore in="pk1"/>
                 </element>
             </elements>
 
