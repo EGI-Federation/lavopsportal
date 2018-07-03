@@ -3,8 +3,10 @@
 
     <view name="templateCrons">
 
-        <variable name="base_url" eval="property('COD.dashboard.base.url')"/>
-        <variable name="collection">COD_ticket_alerts</variable>
+        <argument name="collection"/>
+        <argument name="base_url"/>
+
+
 
 
         <connector type="HTTPConnector">
