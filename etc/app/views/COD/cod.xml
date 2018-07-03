@@ -270,6 +270,7 @@
                     <element-create>new_element('UrlToHistory',concat(  property('portal.base_url'), '/rodDashboard/ngi/', ../ROC/text(), '/tab/downtimes/filter/operators/page/downtimes'))</element-create>
                     <element-create>new_element('PRODUCTION',$OPSCORE_endpoints/results/e:entries[@key=../ENDPOINT/text()]/e:entry[@key='IN_PRODUCTION']/text())</element-create>
                     <element-create>new_element('ROC',$COD_siteList/results/SITE[SHORT_NAME/text()=../HOSTED_BY/text()]/ROC/text())</element-create>
+                    <element-create>new_element('GenerationDate', view('UTC-now')/*/*/text())</element-create>
                 </element>
             </elements>
 
@@ -278,29 +279,6 @@
                 <element-ignore in="Issue" if="@pk2=following-sibling::Issue/@pk2"/>
             </elements>
 
-
-      <!--      <insert match="/Data/Issues/Issue[*]" nodes="new_element('PRODUCTION',view('OPSCORE_endpoints')/results/e:entries[@key=match()/ENDPOINT/text()]/e:entry[@key='IN_PRODUCTION']/text())"/>
-
-            <remove match="/Data/Issues/Issue[PRODUCTION/text()='N' or PRODUCTION/text()='']"/>
-
-            <remove match="/Data/Issues/Issue[@pk2=following-sibling::Issue/@pk2]"/>
-            <processor type="InsertProcessor" match="/Data">
-
-                <parameter name="nodes" eval="new_attribute('global_date', view('UTC-now')/*)"/>
-            </processor>-->
-
-         <!--   <insert match="/Data/Issues/Issue[*]" nodes="view('COD_siteList')/results/SITE[SHORT_NAME/text()=match()/HOSTED_BY/text()]/ROC"/>
-            <insert match="/Data/Issues/Issue[END_DATE/text() and START_DATE/text()]" nodes="new_element('Duration', round(number(END_DATE/text() - START_DATE/text()) div 86400))"/>
-            <remove match="/Data/Issues/Issue[Duration/text() &lt; 30 ]"/>
-
-            <processor type="InsertProcessor" match="/Data/Issues/Issue">
-                <parameter name="nodes" eval="new_element('GenerationDate', view('UTC-now')/*/*/text())"/>
-            </processor>-->
-
-            <!--<insert match="/Data/Issues/Issue[ROC]" nodes=" new_element('UrlToHistory',concat(-->
-                    <!--property('portal.base_url'),-->
-                    <!--'/rodDashboard/ngi/', ROC/text(),-->
-                    <!--'/tab/downtimes/filter/operators/page/downtimes'))"/>-->
 
         </processors>
           <cache type="FileCache">
