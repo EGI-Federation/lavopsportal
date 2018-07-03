@@ -111,7 +111,7 @@
 
         <processors>
             <element in="ns0:OpGetListOpsResponse">
-                <element-ignore in="ns0:getListValues" if="ns0:GHD_Status/text()!='solved' and ns0:GHD_Status/text()!='unsolved' and ns0:GHD_Status/text()!='verified' and ns0:GHD_Status/text()!='closed' "></element-ignore>
+                <element-ignore in="ns0:getListValues" if="ns0:GHD_Status/text()!='solved' and ns0:GHD_Status/text()!='unsolved' and ns0:GHD_Status/text()!='verified' and ns0:GHD_Status/text()!='closed' "/>
             </element>
         </processors>
 

@@ -168,7 +168,7 @@
 
             <elements path="Data/Issues">
                 <element in="Issue">
-                    <attribute-create out="StartDate">../StartDate/text()</attribute-create>
+
                     <attribute-create out="pk1">../pk1/text()</attribute-create>
                     <attribute-create out="pk2">'alarm_72'</attribute-create>
                     <element-create>new_element('GenerationDate', ../StartDate/text())</element-create>
@@ -176,6 +176,7 @@
                     <element-create if="../StartDate/text()">new_element('Status', view('COD-alert-NagiosExpired',entry('date',../StartDate/text()))/e:entries/e:entry/text())</element-create>
                     <element-create>new_element('UrlToHistory',concat( property('portal.base_url'),  '/rodDashboard/issue/',../pk1/text(),  '/related_site/', ../Site/text(),  '/tab/overview/page/issues'))</element-create>
                     <element-ignore in="pk1"/>
+
                 </element>
             </elements>
 
@@ -189,36 +190,6 @@
 
 
 
-        <!--    <insert match="/Data/Issues/Issue[StartDate]" nodes="new_element('GenerationDate', StartDate/text())"/>
-
-            <merge match="/Data/Issues/Issue/StartDate"/>
-            <rename match="/Data/Issues/Issue/StartDate" name="Status"/>
-            <insert match="/Data/Issues/Issue/Status[@StartDate][* or not(*)]">
-                <connector type="XMLConnector">
-                    <parameter name="content" eval="view('COD-alert-NagiosExpired', entry('date',parent_match()/@StartDate))"/>
-                </connector>
-            </insert>-->
-
-        <!--    <processor type="InsertProcessor" match="/Data">
-
-                <parameter name="nodes" eval="new_attribute('global_date', view('UTC-now')/*)"/>
-            </processor>
-
-            <merge match="/Data/Issues/Issue/pk1"/>
-
-            <insert match="/Data/Issues/Issue" nodes="new_attribute('pk2', 'alarm_72')"/>
-            <merge match="/Data/Issues/Issue"/>
-            <remove match="/Data/Issues/Issue/Status/e:entries" depth="2"/>
-            <remove match="/Data/Issues/Issue[Status='0.0']"/>
-            <insert match="/Data/Issues/Issue" nodes="new_element('DetectionDate')"/>
-            <insert match="/Data/Issues/Issue/DetectionDate" nodes="new_text(ancestor::Data/@global_date)"/>
-            <remove match="/Data/Issues/Issue/Status/@StartDate"/>
-
-            <insert match="/Data/Issues/Issue[*]" nodes=" new_element('UrlToHistory',concat(
-                    property('portal.base_url'),
-                    '/rodDashboard/issue/',@pk1,
-                    '/related_site/', Site/text(),
-                    '/tab/overview/page/issues'))"/>-->
 
         </processors>
 
