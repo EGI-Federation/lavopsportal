@@ -14,15 +14,7 @@
         </connector>
 
         <processors>
-            <!-- arrange tickets tags -->
-            <!--<replace match="/e:entries/e:entries/e:entry[@key][text()]" nodes="new_element(@key,text())"/>-->
 
-            <!--<replace match="/e:entries/e:entries/e:entries/e:entry[@key][text()]" nodes="new_element(@key,text())"/>-->
-            <!--<replace match="/e:entries/e:entries/e:entries/e:entry[@key]" nodes="new_element(@key)"/>-->
-
-            <!--<rename match="/e:entries/e:entries/e:entries" name="GHD_Soap_Client_Data"/>-->
-
-            <!--<rename match="/e:entries/e:entries/GHD_Affected_Site" name="Site"/>-->
 
             <element in="e:entries" out="Data">
 
@@ -75,31 +67,7 @@
                 <element-ignore if="name()='GHD_Modified_Date' or name()='GHD_Status' or name()='GHD_Priority' or name()='GHD_Last_Modifier' or name()='GHD_Problem_Type' or name()='GHD_Problem_Type'"/>
             </elements>
 
-            <!--&lt;!&ndash; arrange root tags &ndash;&gt;-->
-            <!--<rename match="/e:entries" name="Issues"/>-->
-            <!--<insert-parent match="/Issues" name="Data"/>-->
-            <!--<insert match="/Data" nodes="choose($view='GGUS_MW',new_attribute('history_table_name', 'CodTicketMWHistory'),new_attribute('history_table_name', 'CodTicketHistory'))"/>-->
-            <!--<insert match="/Data" nodes="choose($view='GGUS_MW',new_attribute('problem_table_name', 'CodTicketMWProblem'),new_attribute('problem_table_name', 'CodTicketProblem'))"/>-->
 
-            <!--<processor type="InsertProcessor" match="/Data">-->
-
-                <!--<parameter name="nodes" eval="new_attribute('global_date', view('UTC-now')/*)"/>-->
-            <!--</processor>-->
-
-            <!--<rename match="/Data/Issues/e:entries" name="Issue"/>-->
-            <!--<rename match="/Data/Issues/Issue/GHD_Create_Date" name="CreateDate"/>-->
-
-            <!--<remove match="/Data/Issues/Issue/GHD_Soap_Client_Data" depth="1"/>-->
-
-            <!--<remove match="/Data/Issues/Issue/GHD_Modified_Date"/>-->
-            <!--<remove match="/Data/Issues/Issue/GHD_Status"/>-->
-            <!--<remove match="/Data/Issues/Issue/GHD_Priority"/>-->
-            <!--<remove match="/Data/Issues/Issue/GHD_Last_Modifier"/>-->
-            <!--<remove match="/Data/Issues/Issue/GHD_Problem_Type"/>-->
-            <!--<remove match="/Data/Issues/Issue/GHD_Soap_Client_Data"/>-->
-            <!--<remove match="/Data/Issues/Issue/GHD_Problem_Type"/>-->
-
-            <!-- raise potential notifications -->
 
             <elements path="Data/Issues/Issue">
                     <element-create if="../Create_Date/text()">new_element('CreateDateStatus',view('COD-alert-TicketOneMonth', entry('date',../Create_Date/text()))/e:entries/e:entry/text())</element-create>
@@ -136,6 +104,12 @@
         <connector type="XMLConnector">
             <parameter name="content" eval="view('COD_ticket_alerts',entry('view','GGUS_MW'))"/>
         </connector>
+
+        <processors>
+            <element in="Data">
+                <element-create if="not(Issues)">new_element('Issues')</element-create>
+            </element>
+        </processors>
     </view>
 
 
@@ -219,9 +193,6 @@
         <processors>
 
 
-     <!--       <rename match="/results/DOWNTIME" name="Issue"/>
-            <rename match="/results" name="Issues"/>
-            <insert-parent match="/Issues" name="Data"/>-->
 
             <element in="results" out="Data">
                 <attribute-create out="problem_table_name">'CodDowntimeProblem'</attribute-create>
@@ -243,13 +214,7 @@
                 </element>
             </element>
 
-<!--
-            <insert match="/Data" nodes="new_attribute('problem_table_name', 'CodDowntimeProblem')"/>
-            <insert match="/Data" nodes="new_attribute('history_table_name', 'CodDowntimeHistory')"/>
 
-            <remove match="/Data/Issues/Issue/@CLASSIFICATION"/>
-            <rename match="/Data/Issues/Issue/@ID" name="pk1"/>
-            <rename match="/Data/Issues/Issue/@PRIMARY_KEY" name="pk2"/>-->
 
             <elements path="/Data/Issues">
                 <element in="Issue">
@@ -281,6 +246,7 @@
 
 
         </processors>
+
           <cache type="FileCache">
               <trigger type="DeltaTimeTrigger">
                   <parameter name="minutes">18</parameter>
