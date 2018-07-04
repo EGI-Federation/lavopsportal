@@ -149,18 +149,28 @@
 
     </processors>
 
+        <cache type="FileCache">
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="minutes">87</parameter>
+            </trigger>
+        </cache>
+
     <renderers>
         <renderer type="DefaultRenderer">
             <parameter name="contentType">text/xml</parameter>
         </renderer>
     </renderers>
+
 </view>
 
 
 <view name="translationJira">
+
 <connector type="FileConnector">
     <parameter name="path">app/resources/xml/jiraEntries.xml</parameter>
 </connector>
+
 </view>
 
 
