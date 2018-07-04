@@ -1,88 +1,168 @@
 <views xmlns="http://software.in2p3.fr/lavoisier/application.xsd" >
 
-    <view name="JiraAPI" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+    <view name="JiraUpdateTicket">
+
+        <argument name="ticketId">EOSCSO-2</argument>
+        <argument name="postJson">{
+            "fields": {
+            "customfield_10226":"harry"
+            }
+            }</argument>
 
         <connector type="HTTPConnector">
-            <parameter name="url" eval="concat('https://',property('userJira'),':',property('pwdJira'),'@jira.eosc-hub.eu/rest/api/2/search?jql=issuetype=',quot('Service%20order'))"/>
+            <parameter name="url"
+                       eval="concat('https://',property('userJira'),':',property('pwdJira'),'@jira.eosc-hub.eu/rest/api/2/issue/',$ticketId)"/>
+
+            <parameter name="method">PUT</parameter>
+            <parameter name="post" eval="$postJson"/>
+            <parameter name="header">
+                <entry key="Content-Type">application/json</entry>
+            </parameter>
+
+            <!--<fallback eval="new_element('ERROR', arguments())">-->
+                <!--<exception type="java.io.ioException"/>-->
+
+                <!--<exception type="java.net.SocketTimeoutException"/>-->
+                <!--<exception type="java.net.ConnectException" predicate-on-message="contains(.,'Connection refused')"/>-->
+                <!--<exception type="org.xml.sax.SAXParseException"/>-->
+                <!--<exception type="java.io.FileNotFoundException"/>-->
+            <!--</fallback>-->
+        </connector>
+
+        <serializer type="EncapsulateSerializer"/>
+
+
+
+
+    </view>
+
+    <view name="JiraTicketList" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
+
+        <connector type="HTTPConnector">
+            <parameter name="url"
+                       eval="concat('https://',property('userJira'),':',property('pwdJira'),'@jira.eosc-hub.eu/rest/api/2/search?jql=issuetype=',quot('Service%20order'))"/>
 
         </connector>
 
-       <serializer type="JSONStreamSerializer"/>
-
+        <serializer type="JSONStreamSerializer"/>
 
         <processors>
 
-
             <element in="object" out="e:entries">
-                <set variable="translationJira">view('translationJira')</set>
 
-                <element  if="view('translationJira')/jiraItems/items[@in=local-name()] and not(view('translationJira')/jiraItems/items[@in=local-name()]/@out)"/>
+                <attribute-create out="key">local-name(..)</attribute-create>
 
-                <element-ignore  if="view('translationJira')/jiraItems/items[@in=local-name()] and  view('translationJira')/jiraItems/items[@in=local-name()]/@out">
-                    <element-create >new_element(view('translationJira')/jiraItems/items[@in=local-name(..)]/@out,../text())</element-create>
+                <element-ignore if="not(*/*)">
+                    <element-create if="../text()">entry(local-name(..),../text())</element-create>
                 </element-ignore>
 
-                <element-ignore/>
+                <element in="issues" out="e:entries">
 
-            </element>
-
-            <element>
-                <element>
-                    <set variable="translationJira">view('translationJira')</set>
-                    <element  if="view('translationJira')/jiraItems/items[@in=local-name()] and not(view('translationJira')/jiraItems/items[@in=local-name()]/@out)"/>
-
-                    <element-ignore  if="view('translationJira')/jiraItems/items[@in=local-name()] and  view('translationJira')/jiraItems/items[@in=local-name()]/@out">
-                        <element-create >new_element(view('translationJira')/jiraItems/items[@in=local-name(..)]/@out,../text())</element-create>
-                    </element-ignore>
-
-                    <element-ignore/>
-
-                </element>
-
-            </element>
-
-
-
-            <element in="e:entries">
-
-                <element-ignore if="not(*)">
-                    <element-create>entry(local-name(..),choose(../text(),../text(),'NA'))</element-create>
-                </element-ignore>
-
-
-            <element in="e:entries">
-                <element if="*" out="e:entries">
                     <attribute-create out="key">local-name(..)</attribute-create>
-
-                    <element-ignore if="not(*)">
-                        <element-create>entry(local-name(..),choose(../text(),../text(),'NA'))</element-create>
+                    <element-ignore if="not(*/*)">
+                        <element-create if="../text()">entry(local-name(..),../text())</element-create>
                     </element-ignore>
 
+                    <element in="object" out="e:entries">
+
+                        <attribute-create out="key">local-name(..)</attribute-create>
+                        <element-ignore if="not(*/*)">
+                            <element-create if="../text()">entry(local-name(..),../text())</element-create>
+                        </element-ignore>
+
+                        <element in="fields" out="e:entries">
+
+                            <attribute-create out="key">local-name(..)</attribute-create>
+
+                            <element-ignore if="not(*/*)">
+                                <element-create if="../text()">entry(local-name(..),../text())</element-create>
+                            </element-ignore>
+
+                            <element in="issuetype" out="e:entries">
+                                <attribute-create out="key">local-name(..)</attribute-create>
+                                <element-ignore if="not(*/*)">
+                                    <element-create if="../text()">entry(local-name(..),../text())</element-create>
+                                </element-ignore>
+                            </element>
+                            <element in="project" out="e:entries">
+                                <attribute-create out="key">local-name(..)</attribute-create>
+                                <element-ignore if="not(*/*)">
+                                    <element-create if="../text()">entry(local-name(..),../text())</element-create>
+                                </element-ignore>
+                            </element>
+                            <element in="priority" out="e:entries">
+                                <attribute-create out="key">local-name(..)</attribute-create>
+                                <element-ignore if="not(*/*)">
+                                    <element-create if="../text()">entry(local-name(..),../text())</element-create>
+                                </element-ignore>
+                            </element>
+                            <element in="labels" out="e:entries">
+                                <attribute-create out="key">local-name(..)</attribute-create>
+                                <element-ignore if="not(*/*)">
+                                    <element-create if="../text()">entry(local-name(..),../text())</element-create>
+                                </element-ignore>
+                            </element>
+                            <element in="assignee" out="e:entries">
+                                <attribute-create out="key">local-name(..)</attribute-create>
+                                <element-ignore if="not(*/*)">
+                                    <element-create if="../text()">entry(local-name(..),../text())</element-create>
+                                </element-ignore>
+                            </element>
+                            <element in="status" out="e:entries">
+                                <attribute-create out="key">local-name(..)</attribute-create>
+                                <element-ignore if="not(*/*)">
+                                    <element-create if="../text()">entry(local-name(..),../text())</element-create>
+                                </element-ignore>
+                            </element>
+                            <element in="customfield_10250" out="e:entries">
+                                <attribute-create out="key">local-name(..)</attribute-create>
+                                <element-ignore if="not(*/*)">
+                                    <element-create if="../text()">entry(local-name(..),../text())</element-create>
+                                </element-ignore>
+                            </element>
+
+                            <element in="customfield_10201" out="e:entries">
+                                <attribute-create out="key">local-name(..)</attribute-create>
+                                <element-ignore if="not(*/*)">
+                                    <element-create if="../text()">entry(local-name(..),../text())</element-create>
+                                </element-ignore>
+                            </element>
+
+
+                            <!--<item in="customfield_10224" out="slaUrl"/>-->
+                            <!--<item in="customfield_10225" out="name"/>-->
+                            <!--<item in="customfield_10226" out="surname"/>-->
+                            <!--<item in="customfield_10227" out="email" />-->
+                            <!--<item in="customfield_10229" out="eoscId" />-->
+                            <!--<item in="customfield_10243" out="Institution" />-->
+                            <!--<item in="customfield_10244" out="Departement" />-->
+
+                            <element-ignore/>
+                        </element>
+                    </element>
                 </element>
 
-                <element-ignore if="not(*)">
-                    <element-create>entry(local-name(..),choose(../text(),../text(),'NA'))</element-create>
-                </element-ignore>
-
             </element>
 
-            </element>
-
-        </processors>
-
-        <renderers>
-            <renderer type="DefaultRenderer">
-                <parameter name="contentType">text/xml</parameter>
-            </renderer>
-        </renderers>
-    </view>
 
 
-    <view name="translationJira">
-        <connector type="FileConnector">
-                <parameter name="path">app/resources/xml/jiraEntries.xml</parameter>
-        </connector>
-    </view>
 
-</views>
+    </processors>
+
+    <renderers>
+        <renderer type="DefaultRenderer">
+            <parameter name="contentType">text/xml</parameter>
+        </renderer>
+    </renderers>
+</view>
+
+
+<view name="translationJira">
+<connector type="FileConnector">
+    <parameter name="path">app/resources/xml/jiraEntries.xml</parameter>
+</connector>
+</view>
+
+
+        </views>
 
