@@ -128,7 +128,7 @@
                                 </element-ignore>
                             </element>
 
-
+                            <element-ignore in="customfield_10000"/>
                             <!--<item in="customfield_10224" out="slaUrl"/>-->
                             <!--<item in="customfield_10225" out="name"/>-->
                             <!--<item in="customfield_10226" out="surname"/>-->
