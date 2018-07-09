@@ -260,7 +260,7 @@
         <argument name="entity_type" pattern="ngi|site"/>
         <argument name="view_id">GGUS_ROD</argument>
 
-        <argument name="pre_path">/*</argument>
+        <argument name="pre_path">/*/*</argument>
         <variable name="ggus_entity" eval="choose($entity_type='ngi','GHD_Responsible_Unit','GHD_Affected_Site')"/>
 
 
@@ -276,16 +276,16 @@
             </element>
 
 
-            <elements path="/e:entries">
+            <element in="e:entries">
                 <element-ignore in="e:entries"/>
                 <element-create>sort_by_string(../e:entries,'e:entry[@key=$ggus_entity]/text()')</element-create>
-            </elements>
+            </element>
 
-            <elements path="/e:entries">
+            <element in="e:entries">
                     <element-create-as-parent out="e:entry" group-by="e:entry[@key=$ggus_entity]/text()">
                         <element in="e:entries"/>
                     </element-create-as-parent>
-            </elements>
+            </element>
 
             <element in="e:entries">
                     <element in="e:entry">
@@ -304,7 +304,7 @@
         <argument name="entity_type" pattern="ngi|site"/>
         <argument name="view_id">GGUS_ROD</argument>
         <argument name="ggus_entity" eval="choose($entity_type='ngi','GHD_Responsible_Unit','GHD_Affected_Site')"/>
-        <argument name="pre_path">/*</argument>
+        <argument name="pre_path">/*/*</argument>
 
         <connector type="XMLConnector">
             <parameter name="content"
