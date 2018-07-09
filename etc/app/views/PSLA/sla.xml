@@ -58,14 +58,14 @@
 
                 <element in="issues" out="e:entries">
 
-                    <attribute-create out="key">../object/key</attribute-create>
+                    <attribute-create out="key">local-name(..)</attribute-create>
                     <element-ignore if="not(*/*)">
                         <element-create if="../text()">entry(local-name(..),../text())</element-create>
                     </element-ignore>
 
                     <element in="object" out="e:entries">
 
-                        <attribute-create out="key">local-name(..)</attribute-create>
+                        <attribute-create out="key">../key</attribute-create>
                         <element-ignore if="not(*/*)">
                             <element-create if="../text()">entry(local-name(..),../text())</element-create>
                         </element-ignore>
