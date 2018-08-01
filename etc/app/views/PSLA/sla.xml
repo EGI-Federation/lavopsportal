@@ -1,6 +1,6 @@
 <views xmlns="http://software.in2p3.fr/lavoisier/application.xsd" >
 
-    <view name="JiraUpdateTicket">
+    <view name="JiraUpdateTicket" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
 
         <argument name="ticketId">EOSCSO-2</argument>
         <argument name="postJson">{
@@ -36,7 +36,7 @@
 
     </view>
 
-    <view name="JiraAddComment">
+    <view name="JiraAddComment" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
 
     <argument name="ticketId">EOSCSO-2</argument>
     <argument name="postJson">
@@ -72,7 +72,7 @@
 
 </view>
 
-    <view name="JiraComment">
+    <view name="JiraComment" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
 
         <argument name="ticketId">EOSCSO-2</argument>
 
