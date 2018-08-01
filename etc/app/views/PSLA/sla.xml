@@ -39,11 +39,7 @@
     <view name="JiraAddComment" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
 
     <argument name="ticketId">EOSCSO-2</argument>
-    <argument name="postJson">
-        {
-        "body": "This is a comment"
-        }
-    </argument>
+    <argument name="postJson">{"body": "This is a new comment"}</argument>
 
     <connector type="HTTPConnector">
         <parameter name="url"
