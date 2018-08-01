@@ -68,6 +68,8 @@
     <serializer type="EncapsulateSerializer"/>
 
 
+
+
 </view>
 
     <view name="JiraComment">
@@ -83,7 +85,33 @@
 
         </connector>
 
+
         <serializer type="JSONStreamSerializer"/>
+
+        <processors>
+            <element in="object" out="e:entries">
+                <attribute-create out="key">'comments'</attribute-create>
+                <element in="comments" out="e:entries">
+                    <attribute-create out="key">'comment'</attribute-create>
+                    <element-ignore in="author">
+                        <element in="displayName" out="e:entry">
+                            <attribute-create out="key">'author'</attribute-create>
+                        </element>
+
+                    </element-ignore>
+                    <element in="created" out="e:entry">
+                        <attribute-create out="key">'date'</attribute-create>
+                    </element>
+                    <element in="body" out="e:entry">
+                        <attribute-create out="key">'body'</attribute-create>
+                    </element>
+
+                    <element-ignore/>
+                </element>
+
+            </element>
+
+        </processors>
 
     </view>
 
