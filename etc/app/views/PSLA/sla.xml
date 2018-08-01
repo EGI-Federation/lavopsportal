@@ -38,39 +38,55 @@
 
     <view name="JiraAddComment">
 
+    <argument name="ticketId">EOSCSO-2</argument>
+    <argument name="postJson">
+        {
+        "body": "This is a comment"
+        }
+    </argument>
+
+    <connector type="HTTPConnector">
+        <parameter name="url"
+                   eval="concat('https://',property('userJira'),':',property('pwdJira'),'@jira.eosc-hub.eu/rest/api/2/issue/',$ticketId,'/comment')"/>
+
+        <parameter name="method">PUT</parameter>
+        <parameter name="post" eval="$postJson"/>
+        <parameter name="header">
+            <entry key="Content-Type">application/json</entry>
+        </parameter>
+
+        <!--<fallback eval="new_element('ERROR', arguments())">-->
+        <!--<exception type="java.io.ioException"/>-->
+
+        <!--<exception type="java.net.SocketTimeoutException"/>-->
+        <!--<exception type="java.net.ConnectException" predicate-on-message="contains(.,'Connection refused')"/>-->
+        <!--<exception type="org.xml.sax.SAXParseException"/>-->
+        <!--<exception type="java.io.FileNotFoundException"/>-->
+        <!--</fallback>-->
+    </connector>
+
+    <serializer type="EncapsulateSerializer"/>
+
+
+</view>
+
+    <view name="JiraComment">
+
         <argument name="ticketId">EOSCSO-2</argument>
-        <argument name="postJson">
-            {
-            "body": "This is a comment"
-            }
-            </argument>
+
+
 
         <connector type="HTTPConnector">
             <parameter name="url"
                        eval="concat('https://',property('userJira'),':',property('pwdJira'),'@jira.eosc-hub.eu/rest/api/2/issue/',$ticketId,'/comment')"/>
 
-            <parameter name="method">PUT</parameter>
-            <parameter name="post" eval="$postJson"/>
-            <parameter name="header">
-                <entry key="Content-Type">application/json</entry>
-            </parameter>
 
-            <!--<fallback eval="new_element('ERROR', arguments())">-->
-            <!--<exception type="java.io.ioException"/>-->
-
-            <!--<exception type="java.net.SocketTimeoutException"/>-->
-            <!--<exception type="java.net.ConnectException" predicate-on-message="contains(.,'Connection refused')"/>-->
-            <!--<exception type="org.xml.sax.SAXParseException"/>-->
-            <!--<exception type="java.io.FileNotFoundException"/>-->
-            <!--</fallback>-->
         </connector>
 
-        <serializer type="EncapsulateSerializer"/>
-
-
-
+        <serializer type="JSONStreamSerializer"/>
 
     </view>
+
 
     <view name="JiraTicketList" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
 
@@ -102,6 +118,7 @@
                     <element in="object" out="e:entries">
 
                         <attribute-create out="key">../key</attribute-create>
+                        <element-create>new_element('comments',view('JiraComment',entry('ticketId',../../key)))</element-create>
                         <element-ignore if="not(*/*)">
                             <element-create if="../text()">entry(local-name(..),../text())</element-create>
                         </element-ignore>
@@ -165,13 +182,7 @@
                             </element>
 
                             <element-ignore in="customfield_10000"/>
-                            <!--<item in="customfield_10224" out="slaUrl"/>-->
-                            <!--<item in="customfield_10225" out="name"/>-->
-                            <!--<item in="customfield_10226" out="surname"/>-->
-                            <!--<item in="customfield_10227" out="email" />-->
-                            <!--<item in="customfield_10229" out="eoscId" />-->
-                            <!--<item in="customfield_10243" out="Institution" />-->
-                            <!--<item in="customfield_10244" out="Departement" />-->
+
 
                             <element-ignore/>
                         </element>
