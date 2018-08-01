@@ -45,7 +45,7 @@
         <parameter name="url"
                    eval="concat('https://',property('userJira'),':',property('pwdJira'),'@jira.eosc-hub.eu/rest/api/2/issue/',$ticketId,'/comment')"/>
 
-        <parameter name="method">PUT</parameter>
+        <parameter name="method">POST</parameter>
         <parameter name="post" eval="$postJson"/>
         <parameter name="header">
             <entry key="Content-Type">application/json</entry>
