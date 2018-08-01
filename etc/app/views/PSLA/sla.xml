@@ -91,7 +91,7 @@
                 <element-ignore in="comments" >
 
                     <element in="object" out="e:entries">
-                        <attribute-create out="key">'comment'</attribute-create>
+                        <attribute-create out="key">concat('comment#',count(../preceding-sibling::object))</attribute-create>
                         <element-ignore in="author">
                             <element in="displayName" out="e:entry">
                                 <attribute-create out="key">'author'</attribute-create>
