@@ -91,7 +91,6 @@
         <processors>
             <element in="object" out="e:entries">
                 <attribute-create out="key">'comments'</attribute-create>
-                <element-ignore/>
 
                 <element in="comments" out="e:entries">
                     <attribute-create out="key">'comment'</attribute-create>
@@ -112,6 +111,7 @@
                         <element-ignore/>
                     </element-ignore>
                 </element>
+                <element-ignore/>
 
             </element>
 
@@ -150,7 +150,7 @@
                     <element in="object" out="e:entries">
 
                         <attribute-create out="key">../key</attribute-create>
-                        <element-create>new_element('comments',view('JiraComment',entry('ticketId',../key)))</element-create>
+                        <element-create>view('JiraComment',entry('ticketId',../key))</element-create>
                         <element-ignore if="not(*/*)">
                             <element-create if="../text()">entry(local-name(..),../text())</element-create>
                         </element-ignore>
