@@ -68,8 +68,8 @@
 
         <connector type="HTTPConnector">
             <parameter name="url" eval="property('CSI.nagiosBoxUrl')"/>
-            <parameter name="certificate" eval="property('certificate.path')"/>
-            <parameter name="passphrase" eval="property('certificate.password')"/>
+            <parameter name="certificate" eval="property('certificate.sec.path')"/>
+            <parameter name="passphrase" eval="property('certificate.sec.password')"/>
         </connector>
         <cache type="FileCache">
             <trigger type="DeltaTimeTrigger">
@@ -91,8 +91,6 @@
                 <processor match="/nagios" type="RenameProcessor"><parameter name="node_name">Data</parameter></processor>
                 <processor match="/Data" type="InsertProcessor"><parameter name="nodes" eval="new_attribute('problem_table_name','CsiNagiosProblem')|new_attribute('history_table_name','CsiNagiosHistory')"/></processor>
                 <processor match="/Data/servicestatus" type="RenameProcessor"><parameter name="node_name">Issue</parameter></processor>
-
-
 
                 <processor match="/Data/Issue[*]" type="SelectGroupByProcessor"><parameter name="group_by" eval="last_hard_state/@value"/></processor>
 
@@ -180,8 +178,8 @@
 
         <connector type="HTTPConnector">
             <parameter name="url" eval="property('CSI.NagiosProbes')"/>
-            <parameter name="certificate" eval="property('certificate.path')"/>
-            <parameter name="passphrase" eval="property('certificate.password')"/>
+            <parameter name="certificate" eval="property('certificate.sec.path')"/>
+            <parameter name="passphrase" eval="property('certificate.sec.password')"/>
         </connector>
 
 
