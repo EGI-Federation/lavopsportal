@@ -121,4 +121,12 @@
         <e:entry key="EMAIL">matthew.viljoen@stfc.ac.uk</e:entry>
         <e:entry key="CERTDN">/C=UK/O=eScience/OU=CLRC/L=RAL/CN=matthew viljoen</e:entry>
     </e:entries>
+
+    <e:entries key="/DC=org/DC=terena/DC=tcs/C=NL/O=Stichting EGI/OU=UCST/CN=Diego Scardaci">
+        <e:entry key="ROLES">GRID BODY::project::EGI</e:entry>
+        <e:entry key="NAME">Matthew Viljoen</e:entry>
+        <e:entry key="EMAIL">matthew.viljoen@stfc.ac.uk</e:entry>
+        <e:entry key="CERTDN">/DC=org/DC=terena/DC=tcs/C=NL/O=Stichting EGI/OU=UCST/CN=Diego Scardaci</e:entry>
+
+    </e:entries>
 </e:entries>
