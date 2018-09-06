@@ -70,7 +70,7 @@
         <parameter name="username" eval="property('ROD.db.username')"/>
         <parameter name="password" eval="property('ROD.db.password')"/>
         <parameter name="query">
-            SELECT * from notepad
+            SELECT * from notepad where creation_date!='0000-00-00 00:00:00' and last_update!='0000-00-00 00:00:00'
         </parameter>
     </connector>
 
