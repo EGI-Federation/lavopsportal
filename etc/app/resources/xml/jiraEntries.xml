@@ -1,5 +1,6 @@
 <jiraItems>
     <item in="object"/>
+    <item in="issues"/>
     <item in="fields"/>
     <item in="self"/>
     <item in="customfield_10224" out="slaUrl"/>
@@ -19,5 +20,5 @@
     <item in="key"/>
     <item in="emailAddress"/>
     <item in="displayName"/>
-    <item in="labels"></item>
+    <item in="labels"/>
 </jiraItems>
