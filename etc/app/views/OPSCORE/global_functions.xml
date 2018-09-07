@@ -227,7 +227,7 @@
         <argument name="name">_RNAME_</argument>
 
         <connector type="HTTPConnector">
-            <parameter name="url">https://gitlab.in2p3.fr/api/v3/projects/1274/issues</parameter>
+            <parameter name="url">https://gitlab.in2p3.fr/api/v4/projects/1274/issues</parameter>
             <parameter name="method">GET</parameter>
             <parameter name="header" eval="concat('PRIVATE-TOKEN: ',property('gitlab.token'))"/>
         </connector>
