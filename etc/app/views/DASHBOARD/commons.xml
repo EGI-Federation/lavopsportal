@@ -299,7 +299,7 @@
             </element>
 
             <element in="e:entries">
-                <element-ignore in="e:entries" if="e:entry[@key='GHD_Problem_Type']/text()='Operations'"/>
+                <element-ignore in="e:entries" if="e:entry[@key='GHD_Problem_Type']/text()!='Operations'"/>
                 <element-ignore in="e:entries" if="e:entry[@key='GHD_Status']/text()='verified'"/>
             </element>
         </processors>
