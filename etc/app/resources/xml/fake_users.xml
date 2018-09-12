@@ -129,4 +129,15 @@
         <e:entry key="CERTDN">/DC=org/DC=terena/DC=tcs/C=NL/O=Stichting EGI/OU=UCST/CN=Diego Scardaci</e:entry>
 
     </e:entries>
+
+    <e:entries key="/C=FR/O=CNRS/OU=USR6402/CN=Francois Letellier/Email=francois.letellier@cc.in2p3.fr">
+        <e:entry key="ROLES">GRID BODY::project::EGI</e:entry>
+        <e:entry key="ROLES">Ngi Operations Manager::ngi::NGI_IT</e:entry>
+        <e:entry key="NAME">François Letellier</e:entry>
+        <e:entry key="EMAIL">francois.letellier@cc.in2p3.fr</e:entry>
+        <e:entry key="CERTDN">/C=FR/O=CNRS/OU=USR6402/CN=Francois Letellier/Email=francois.letellier@cc.in2p3.fr</e:entry>
+
+    </e:entries>
+
+
 </e:entries>
