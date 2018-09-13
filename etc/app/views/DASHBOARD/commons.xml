@@ -402,7 +402,7 @@
 
                     <!-- @TODO : the filters neeed to be refined and this line should be removed and the previous lines uncommented -->
                     <element in="e:entries" if="@key='alarms'">
-                        <element-create>$alarms/e:entries[e:entry[@key='site']/text()=current()/../../@key]/*</element-create>
+                        <element-create>$alarms/e:entries[e:entry[@key='site']/text()=current()/../../@key]</element-create>
                     </element>
                     <!-- @TODO -->
 
