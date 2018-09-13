@@ -350,7 +350,7 @@
     <view name="DASHBOARD_VIEW"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
 
         <argument name="SitesList">IN2P3-CC,INFN-T1,IN2P3-IRES,Taiwan-LCG2,CYFRONET-LCG2</argument>
-        <argument name="statusList">1,2</argument>
+        <argument name="statusList">0,1,2,3</argument>
         <argument name="profilesList">ARGO_MON_OPERATORS,MW_MONITOR,OPS_MONITOR</argument>
         <argument name="summary">_summary_</argument>
         <argument name="FilterAssigned">_filter_</argument>
@@ -398,6 +398,13 @@
                     <element in="e:entries" if="@key='alarms' and not($FilterAssigned)">
                         <element-create>$alarms/e:entries[e:entry[@key='site']/text()=current()/../../@key][contains($statusListFormatted,concat(',',e:entry[@key='status']/text(),','))][contains($profilesListFormatted,concat(',',e:entries[@key='profiles']/e:entry/text(),','))]</element-create>
                     </element>
+
+
+                    <!-- @TODO : the filters neeed to be refined and this line should be removed -->
+                    <element in="e:entries" if="@key='alarms'">
+                        <element-create>$alarms/e:entries[e:entry[@key='site']/text()=current()/../../@key]</element-create>
+                    </element>
+                    <!-- @TODO -->
 
                     <element in="e:entries" if="@key='avre'">
                         <element-create>$avRe/e:entries[@key=current()/../../@key]/*</element-create>
