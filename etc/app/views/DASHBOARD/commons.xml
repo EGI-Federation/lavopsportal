@@ -201,12 +201,12 @@
                 <element-ignore in="e:entries" if="e:entry[@key='ops_flag']=2"/>
             </element>
 
-            <element in="e:entries" if="itesListFormatted!='_1_'">
+            <element in="e:entries" if="$sitesListFormatted!='_1_'">
                 <element-ignore in="e:entries" if="not(contains($SitesListFormatted,concat(',',e:entry[@key='site']/text(),',')))"/>
             </element>
 
 
-            <element in="e:entries" if="tatusListFormatted!='_2_'">
+            <element in="e:entries" if="$statusListFormatted!='_2_'">
                 <element-ignore in="e:entries" if="not(contains($statusListFormatted,concat(',',e:entry[@key='status']/text(),',')))"/>
             </element>
 
