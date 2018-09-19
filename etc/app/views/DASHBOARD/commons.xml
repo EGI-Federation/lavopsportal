@@ -9,12 +9,19 @@
         <serializer type="JSONSerializer"/>
 
         <processors>
+                <elements path="/object/array/item/object/profiles/item/object/metrics">
+                    <element-create if="ancestor::object/@name='ARGO_MON_CRITICAL'">
+                        new_element('item',new_element('object')|new_attribute('name','egi.eu.lowAvailability')|new_attribute('fqan','')|new_attribute('service_flavour','argo.avre'))
+                    </element-create>
+
+                </elements>
+
                 <element in="object" out="e:entries">
                     <elements-ignore path="array/item/object/profiles/item/object/metrics/item">
                         <element in="object" out="e:entry">
                             <attribute-create out="profile">../../../../@name</attribute-create>
                         </element>
-                        <element-create>entry('profile',''|new_attribute('name','egi.eu.lowAvailability')|new_attribute('profile','ARGO_MON_CRITICAL')|new_attribute('fqan','')|new_attribute('service_flavour','siteAvRe'))</element-create>
+
                     </elements-ignore>
                 </element>
         </processors>
