@@ -444,19 +444,9 @@
 
 
                     <element in="e:entries" if="@key='alarms'">
-                        <element-create>$alarms/e:entries[e:entry[@key='site']/text()=current()/../../@key]/*</element-create>
+                        <element-create>$alarms/e:entries[e:entry[@key='site']/text()=current()/../../@key]</element-create>
                     </element>
 
-
-
-
-                    <!--<element in="e:entries" if="@key='alarms'">-->
-                        <!--<element-create>$alarms/e:entries[e:entry[@key='site']/text()=current()/../../@key]</element-create>-->
-                    <!--</element>-->
-
-                    <!--<element in="e:entries" if="@key='alarms' and $FilterAssigned!='_filter_'">-->
-                        <!--<element-create>$alarms/e:entries[e:entry[@key='site']/text()=current()/../../@key][contains($statusListFormatted,concat(',',e:entry[@key='status']/text(),','))][e:entry[@key='ops_flags']/text()!=2][contains($profilesListFormatted,concat(',',e:entries[@key='profiles']/e:entry/text(),','))]</element-create>-->
-                    <!--</element>-->
 
 
                     <element in="e:entries" if="@key='avre'">

@@ -175,14 +175,13 @@
             </elements>
         </processors>
 
-        <!--<pre-renderers row-column="/app/resources/xsl/metricsrowcol.xsl">-->
-            <!--<namespace prefix="e" uri="http://software.in2p3.fr/lavoisier/entries.xsd"/>-->
-            <!--<row foreach="/*">-->
-                <!--<column ></column>-->
-            <!--</row>      -->
-           <!---->
+        <pre-renderers row-column="/app/resources/xsl/metricsrowcol.xsl">
+            <namespace prefix="e" uri="http://software.in2p3.fr/lavoisier/entries.xsd"/>
+            <row foreach="/*">
+                <column label="bidon">test</column>
+            </row>
 
-        <!--</pre-renderers>-->
+        </pre-renderers>
 
         <renderers>
             <renderer type="ChartRenderer">
