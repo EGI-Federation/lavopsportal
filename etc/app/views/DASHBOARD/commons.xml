@@ -214,7 +214,12 @@
                 <element-ignore in="e:entries" if="not(contains($profilesListFormatted,concat(',',e:entries[@key='profiles']/e:entry/text(),',')))"/>
             </element>
 
+            <element in="e:entries">
+                <element in="e:entries">
+                    <attribute-create out="key">../e:entry[@key='id']/text()</attribute-create>
+                </element>
 
+            </element>
         </processors>
 
     </view>
