@@ -11,7 +11,7 @@
         <processors>
                 <elements path="/object/array/item/object/profiles/item/object/metrics">
                     <element-create if="ancestor::object/@name='ARGO_MON_CRITICAL'">
-                        new_element('item',new_element('object')|new_attribute('name','egi.eu.lowAvailability')|new_attribute('fqan','')|new_attribute('service_flavour','argo.avre'))
+                        new_element('item',new_element('object',new_attribute('name','egi.eu.lowAvailability')|new_attribute('fqan','')|new_attribute('service_flavour','argo.avre')))
                     </element-create>
 
                 </elements>
