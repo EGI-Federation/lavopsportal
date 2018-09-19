@@ -201,7 +201,7 @@
                 <element-ignore in="e:entries" if="e:entry[@key='ops_flag']=2"/>
             </element>
 
-            <element in="e:entries" if="$sitesListFormatted!='_1_'">
+            <element in="e:entries" if="$SitesListFormatted!='_1_'">
                 <element-ignore in="e:entries" if="not(contains($SitesListFormatted,concat(',',e:entry[@key='site']/text(),',')))"/>
             </element>
 
