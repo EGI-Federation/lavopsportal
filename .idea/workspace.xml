@@ -2,52 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="remplacement pixtol">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_net_commons_net_2_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_net_commons_net_3_6.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_authenticator_base_2_1_3_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_authenticator_base_2_1_3_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_cache_base_2_1_3_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_cache_base_2_1_3_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_cache_basex_2_1_3_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_cache_basex_2_1_3_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_connector_base_2_1_3_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_connector_base_2_1_3_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_connector_config_2_1_3_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_connector_config_2_1_3_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_connector_diff_2_1_3_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_connector_diff_2_1_3_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_connector_grid_2_1_3_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_connector_grid_2_1_3_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_connector_remctl_2_1_3_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_connector_remctl_2_1_3_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_connector_scala_2_1_3_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_connector_scala_2_1_3_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_connector_sql_2_1_3_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_connector_sql_2_1_3_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_connector_ssh_2_1_3_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_connector_ssh_2_1_3_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_connector_telnet_2_1_3_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_connector_telnet_2_1_3_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_processor_base_2_1_3_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_processor_base_2_1_3_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_renderer_base_2_1_3_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_renderer_base_2_1_3_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_renderer_chart_2_1_3_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_renderer_chart_2_1_3_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_renderer_json_2_1_3_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_renderer_json_2_1_3_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_renderer_pdf_2_1_3_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_renderer_pdf_2_1_3_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_serializer_base_2_1_3_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_serializer_base_2_1_3_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_serializer_html_2_1_3_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_serializer_html_2_1_3_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_serializer_ini_2_1_3_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_serializer_ini_2_1_3_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_serializer_json_2_1_3_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_serializer_json_2_1_3_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_serializer_yaml_2_1_3_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_serializer_yaml_2_1_3_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_trigger_base_2_1_3_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_trigger_base_2_1_3_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_validator_base_2_1_3_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_validator_base_2_1_3_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_html_template_engine_2_1_3_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_html_template_engine_2_1_3_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_lavoisier_chaining_2_1_3_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_lavoisier_chaining_2_1_3_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_lavoisier_configuration_2_1_3_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_lavoisier_configuration_2_1_3_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_lavoisier_engine_2_1_3_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_lavoisier_engine_2_1_3_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_lavoisier_gui_admin_2_1_3_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_lavoisier_gui_admin_2_1_3_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_lavoisier_gui_dashboard_2_1_3_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_lavoisier_gui_dashboard_2_1_3_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_lavoisier_interfaces_2_1_3_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_lavoisier_interfaces_2_1_3_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_lavoisier_package_2_1_3_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_lavoisier_package_2_1_3_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_lavoisier_service_2_1_3_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_lavoisier_service_2_1_3_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_lavoisier_views_library_2_1_3_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_lavoisier_views_library_2_1_3_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_xml_interfaces_2_1_3_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_xml_interfaces_2_1_3_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_xml_template_engine_2_1_3_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_xml_template_engine_2_1_3_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_xpath_absolute_2_1_3_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_xpath_absolute_2_1_3_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_xpath_functions_2_1_3_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_xpath_functions_2_1_3_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_xpath_parser_2_1_3_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_xpath_parser_2_1_3_SNAPSHOT.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/app/resources/xml/jiraEntries.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/resources/xml/jiraEntries.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/app/resources/xml/test.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/resources/xml/test.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/etc/app/views/DASHBOARD/commons.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/DASHBOARD/commons.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lavopsportal.iml" beforeDir="false" afterPath="$PROJECT_DIR$/lavopsportal.iml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -67,51 +23,50 @@
     <session id="-55599360">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="4" />
+          <entry key="project.closed" value="8" />
+          <entry key="project.open.time.10" value="1" />
+          <entry key="project.open.time.19" value="1" />
+          <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.3" value="5" />
-          <entry key="project.opened" value="5" />
+          <entry key="project.open.time.4" value="1" />
+          <entry key="project.open.time.5" value="1" />
+          <entry key="project.opened" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="xml" value="7" />
+          <entry key="xml" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="XML" value="7" />
+          <entry key="XML" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="txt" value="30" />
-          <entry key="xml" value="51" />
+          <entry key="properties" value="1" />
+          <entry key="txt" value="123" />
+          <entry key="xml" value="1111" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="30" />
-          <entry key="XML" value="51" />
+          <entry key="PLAIN_TEXT" value="123" />
+          <entry key="Properties" value="1" />
+          <entry key="XML" value="1111" />
         </counts>
       </usages-collector>
+      <usages-collector id="statistics.vcs.git.usages" />
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/etc/app/views/VO/vo-voms.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3360">
-              <caret line="224" column="45" selection-start-line="224" selection-start-column="45" selection-end-line="224" selection-end-column="45" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/etc/app/resources/xml/fake_users.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="436">
-              <caret line="99" column="62" selection-start-line="99" selection-start-column="62" selection-end-line="99" selection-end-column="62" />
+            <state relative-caret-position="1455">
+              <caret line="97" column="91" selection-start-line="97" selection-start-column="91" selection-end-line="97" selection-end-column="91" />
             </state>
           </provider>
         </entry>
@@ -119,7 +74,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/etc/app/views/ROD/rod.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="354">
+            <state relative-caret-position="630">
               <caret line="42" column="81" selection-start-line="42" selection-start-column="79" selection-end-line="42" selection-end-column="81" />
             </state>
           </provider>
@@ -128,8 +83,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/etc/app/views/DASHBOARD/commons.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="72" column="83" selection-start-line="72" selection-start-column="83" selection-end-line="72" selection-end-column="83" />
+            <state relative-caret-position="240">
+              <caret line="16" column="128" selection-start-line="16" selection-start-column="128" selection-end-line="16" selection-end-column="128" />
             </state>
           </provider>
         </entry>
@@ -137,8 +92,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/etc/app/views/VO/vo.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="795">
-              <caret line="1774" column="38" lean-forward="true" selection-start-line="1774" selection-start-column="38" selection-end-line="1774" selection-end-column="38" />
+            <state relative-caret-position="26610">
+              <caret line="1774" column="38" selection-start-line="1774" selection-start-column="38" selection-end-line="1774" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -148,6 +103,15 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1545">
               <caret line="103" column="72" selection-start-line="103" selection-start-column="72" selection-end-line="103" selection-end-column="72" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/etc/app/views/VO/vo-voms.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="10305">
+              <caret line="687" column="57" selection-start-line="687" selection-start-column="57" selection-end-line="687" selection-end-column="67" />
             </state>
           </provider>
         </entry>
@@ -182,8 +146,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/etc/app/app.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2505">
-              <caret line="167" column="11" selection-start-line="167" selection-start-column="11" selection-end-line="167" selection-end-column="11" />
+            <state relative-caret-position="2715">
+              <caret line="181" column="14" selection-start-line="181" selection-start-column="14" selection-end-line="181" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -199,12 +163,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>COD_ticket_alerts</find>
-      <find>8</find>
-      <find>mw_</find>
-      <find>UTC</find>
-      <find>&lt;element-create&gt;</find>
-      <find>UTC-now</find>
       <find>UTC-N</find>
       <find>UTC-</find>
       <find>form</find>
@@ -227,8 +185,14 @@
       <find>checkUrlsVo</find>
       <find>Notepa</find>
       <find>0000</find>
-      <find>note</find>
       <find>notepad</find>
+      <find>note</find>
+      <find>OPSCORE_VaporReleaseLis</find>
+      <find>OPSCORE_VaporIssuesLis</find>
+      <find>voms</find>
+      <find>fake_u</find>
+      <find>letel</find>
+      <find>DASHBOARD_alarms_filter</find>
     </findStrings>
     <replaceStrings>
       <replace>xmlns=&quot;http://software.in2p3.fr/lavoisier/application.xsd&quot;</replace>
@@ -273,7 +237,6 @@
         <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/skeletons/OPSCORE_users.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/argo.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/date_functions.xml" />
-        <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/global_functions.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/metrics.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/COD/functions.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/GGUS/lavoisier-config.xml" />
@@ -301,8 +264,9 @@
         <option value="$PROJECT_DIR$/etc/app/views/Tutorial/tutorial.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/PSLA/sla.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/CSI/csi.xml" />
-        <option value="$PROJECT_DIR$/etc/app/app-hidden.properties" />
         <option value="$PROJECT_DIR$/etc/app/app.properties" />
+        <option value="$PROJECT_DIR$/etc/app/app-hidden.properties" />
+        <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/global_functions.xml" />
         <option value="$PROJECT_DIR$/etc/app/resources/xml/fake_users.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/DASHBOARD/commons.xml" />
       </list>
@@ -352,7 +316,7 @@
               <item name="lavopsportal" type="462c0819:PsiDirectoryNode" />
               <item name="etc" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="html" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="lavopsportal" type="b2602c69:ProjectViewProjectNode" />
@@ -360,30 +324,6 @@
               <item name="etc" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lavopsportal" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lavopsportal" type="462c0819:PsiDirectoryNode" />
-              <item name="etc" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="BROADCAST" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lavopsportal" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lavopsportal" type="462c0819:PsiDirectoryNode" />
-              <item name="etc" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="COD" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lavopsportal" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lavopsportal" type="462c0819:PsiDirectoryNode" />
-              <item name="etc" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="CSI" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="lavopsportal" type="b2602c69:ProjectViewProjectNode" />
@@ -399,35 +339,19 @@
               <item name="etc" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="GGUS" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lavopsportal" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lavopsportal" type="462c0819:PsiDirectoryNode" />
-              <item name="etc" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="PSLA" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lavopsportal" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lavopsportal" type="462c0819:PsiDirectoryNode" />
-              <item name="etc" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="ROD" type="462c0819:PsiDirectoryNode" />
+              <item name="VO" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="AndroidView" />
       <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1536233534044" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537357666519" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../argo-eosc" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
@@ -455,7 +379,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Run">
+  <component name="RunManager" selected="Application.Start Lavoisier server">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
@@ -465,8 +389,8 @@
     <configuration name="Run" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="fr.in2p3.lavoisier.command.StandaloneExec" />
       <module name="lavopsportal" />
-      <option name="PROGRAM_PARAMETERS" value="JiraComment?nbsteps=999&amp;accept=xml" />
-      <option name="WORKING_DIRECTORY" value="file://$MODULE_DIR$" />
+      <option name="PROGRAM_PARAMETERS" value="DASHBOARD_VIEW?nbsteps=999&amp;accept=xml" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -522,69 +446,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1526559679554</updated>
-    </task>
-    <task id="LOCAL-00023" summary="new vo-voms view for Bruce">
-      <created>1529567068168</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1529567068168</updated>
-    </task>
-    <task id="LOCAL-00024" summary="new vo-voms view for Bruce">
-      <created>1529567188340</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1529567188340</updated>
-    </task>
-    <task id="LOCAL-00025" summary="new vo-voms view for Bruce">
-      <created>1529567481971</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1529567481971</updated>
-    </task>
-    <task id="LOCAL-00026" summary="ggus counters">
-      <created>1529584048200</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1529584048200</updated>
-    </task>
-    <task id="LOCAL-00027" summary="ggus counters">
-      <created>1529584264695</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1529584264695</updated>
-    </task>
-    <task id="LOCAL-00028" summary="ggus counters">
-      <created>1529584693064</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1529584693064</updated>
-    </task>
-    <task id="LOCAL-00029" summary="ggus counters">
-      <created>1529585539620</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1529585539620</updated>
-    </task>
-    <task id="LOCAL-00030" summary="ggus counters">
-      <created>1529585651758</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1529585651758</updated>
-    </task>
-    <task id="LOCAL-00031" summary="ggus counters">
-      <created>1529585930787</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1529585930787</updated>
     </task>
     <task id="LOCAL-00032" summary="probleme naùespace">
       <created>1529914480728</created>
@@ -866,14 +727,77 @@
       <option name="project" value="LOCAL" />
       <updated>1535635222267</updated>
     </task>
-    <option name="localTasksCounter" value="72" />
+    <task id="LOCAL-00072" summary="remplacement date !='0000-00-00 00:00:00'">
+      <created>1536233553632</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1536233553633</updated>
+    </task>
+    <task id="LOCAL-00073" summary="remplacement v3 par v4 dans api gitlab">
+      <created>1536324566587</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1536324566589</updated>
+    </task>
+    <task id="LOCAL-00074" summary="remplacement v3 par v4 dans api gitlab">
+      <created>1536324955388</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1536324955388</updated>
+    </task>
+    <task id="LOCAL-00075" summary="filtre tickets">
+      <created>1536755736442</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1536755736443</updated>
+    </task>
+    <task id="LOCAL-00076" summary="filtre tickets">
+      <created>1536755884417</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1536755884417</updated>
+    </task>
+    <task id="LOCAL-00077" summary="add fake user">
+      <created>1536766575547</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1536766575548</updated>
+    </task>
+    <task id="LOCAL-00078" summary="suppression filtre alarms">
+      <created>1536825963656</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1536825963656</updated>
+    </task>
+    <task id="LOCAL-00079" summary="suppression filtre alarms">
+      <created>1536826487079</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1536826487079</updated>
+    </task>
+    <task id="LOCAL-00080" summary="suppression filtre alarms">
+      <created>1536826671482</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1536826671482</updated>
+    </task>
+    <option name="localTasksCounter" value="81" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="63" y="25" width="1857" height="1175" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22363335" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22363335" />
       <window_info id="Structure" order="1" weight="0.24958587" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -886,12 +810,12 @@
       <window_info id="App Structure" order="10" weight="0.32965213" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32998884" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3402163" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.33988214" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.2487709" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.4137255" />
       <window_info anchor="bottom" id="CheckStyle" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.32940018" />
@@ -914,9 +838,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="test" />
-    <MESSAGE value="version de config prête pour app" />
-    <MESSAGE value="correction namespace" />
     <MESSAGE value="ajout vues manquantes cod" />
     <MESSAGE value="suppression des voms sans certificat" />
     <MESSAGE value="chang env reference" />
@@ -937,7 +858,12 @@
     <MESSAGE value="ajout certificat securité" />
     <MESSAGE value="changement url" />
     <MESSAGE value="ajout super user" />
-    <option name="LAST_COMMIT_MESSAGE" value="ajout super user" />
+    <MESSAGE value="remplacement date !='0000-00-00 00:00:00'" />
+    <MESSAGE value="remplacement v3 par v4 dans api gitlab" />
+    <MESSAGE value="filtre tickets" />
+    <MESSAGE value="add fake user" />
+    <MESSAGE value="suppression filtre alarms" />
+    <option name="LAST_COMMIT_MESSAGE" value="suppression filtre alarms" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/etc/app/views/ROD/lavoisier-config.properties" />
@@ -1122,13 +1048,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/etc/app/views/Tutorial/tutorial.xml" />
-    <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/global_functions.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" selection-start-line="28" selection-end-line="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/etc/app/views/PSLA/sla.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
@@ -1167,10 +1086,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/views/VO/vo-voms.xml">
+    <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/global_functions.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3360">
-          <caret line="224" column="45" selection-start-line="224" selection-start-column="45" selection-end-line="224" selection-end-column="45" />
+        <state relative-caret-position="-386">
+          <caret line="229" column="64" selection-start-line="229" selection-start-column="64" selection-end-line="229" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/etc/app/resources/xml/fake_users.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1455">
+          <caret line="97" column="91" selection-start-line="97" selection-start-column="91" selection-end-line="97" selection-end-column="91" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/etc/app/views/ROD/rod.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="42" column="81" selection-start-line="42" selection-start-column="79" selection-end-line="42" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/etc/app/views/VO/vo.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="26610">
+          <caret line="1774" column="38" selection-start-line="1774" selection-start-column="38" selection-end-line="1774" selection-end-column="38" />
         </state>
       </provider>
     </entry>
@@ -1178,6 +1118,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1545">
           <caret line="103" column="72" selection-start-line="103" selection-start-column="72" selection-end-line="103" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/etc/app/views/VO/vo-voms.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="10305">
+          <caret line="687" column="57" selection-start-line="687" selection-start-column="57" selection-end-line="687" selection-end-column="67" />
         </state>
       </provider>
     </entry>
@@ -1204,36 +1151,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/etc/app/app.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2505">
-          <caret line="167" column="11" selection-start-line="167" selection-start-column="11" selection-end-line="167" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/resources/xml/fake_users.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="436">
-          <caret line="99" column="62" selection-start-line="99" selection-start-column="62" selection-end-line="99" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/views/VO/vo.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="795">
-          <caret line="1774" column="38" lean-forward="true" selection-start-line="1774" selection-start-column="38" selection-end-line="1774" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/views/ROD/rod.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="42" column="81" selection-start-line="42" selection-start-column="79" selection-end-line="42" selection-end-column="81" />
+        <state relative-caret-position="2715">
+          <caret line="181" column="14" selection-start-line="181" selection-start-column="14" selection-end-line="181" selection-end-column="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/etc/app/views/DASHBOARD/commons.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="72" column="83" selection-start-line="72" selection-start-column="83" selection-end-line="72" selection-end-column="83" />
+        <state relative-caret-position="240">
+          <caret line="16" column="128" selection-start-line="16" selection-start-column="128" selection-end-line="16" selection-end-column="128" />
         </state>
       </provider>
     </entry>

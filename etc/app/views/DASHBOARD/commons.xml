@@ -14,6 +14,7 @@
                         <element in="object" out="e:entry">
                             <attribute-create out="profile">../../../../@name</attribute-create>
                         </element>
+                        <element-create>entry('profile',''|new_attribute('name','egi.eu.lowAvailability')|new_attribute('profile','ARGO_MON_CRITICAL')|new_attribute('fqan','')|new_attribute('service_flavour','siteAvRe'))</element-create>
                     </elements-ignore>
                 </element>
         </processors>
@@ -28,7 +29,7 @@
     </view>
 
 <view name="DASHBOARD_alarm_history"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
-    <argument name="id"></argument>
+    <argument name="id"/>
     <connector type="SQLConnector">
         <parameter name="driver">com.mysql.jdbc.Driver</parameter>
         <parameter name="url" eval="property('ROD.db.url')"/>
@@ -141,6 +142,7 @@
                         choose($endpoint/e:entry[@key='monitored']/text(),$endpoint/e:entry[@key='monitored']/text(),-1))
                     </element-create>
                     <element-create>$probeList/e:entry[@name=current()/../e:entry[@key='test_name']/text()]</element-create>
+                    <element-create if="contains(e:entry[@key='summary']/text(),'egi.eu.lowAvailability-')">$probeList/e:entry[@name='egi.eu.lowAvailability']</element-create>
                 </element>
         </element>
 
@@ -155,6 +157,8 @@
 
             </element>
         </element>
+
+
     </processors>
 
     <cache type="FileCache">
@@ -172,10 +176,49 @@
     </renderers>
 </view>
 
+    <view name="DASHBOARD_alarms_filter">
+
+        <argument name="FilterAssigned">_filter_</argument>
+        <argument name="SitesListFormatted">_1_</argument>
+        <argument name="statusListFormatted">_2_</argument>
+        <argument name="profilesListFormatted">_3_</argument>
+
+
+        <connector type="XMLConnector">
+            <parameter name="content">view('DASHBOARD_alarms')</parameter>
+        </connector>
+
+        <processors>
+
+            <element in="e:entries" if="$FilterAssigned!='_filter_'">
+                <element-ignore in="e:entries" if="e:entry[@key='ops_flag']=2"/>
+            </element>
+
+            <element in="e:entries" if="itesListFormatted!='_1_'">
+                <element-ignore in="e:entries" if="not(contains($SitesListFormatted,concat(',',e:entry[@key='site']/text(),',')))"/>
+            </element>
+
+
+            <element in="e:entries" if="tatusListFormatted!='_2_'">
+                <element-ignore in="e:entries" if="not(contains($statusListFormatted,concat(',',e:entry[@key='status']/text(),',')))"/>
+            </element>
+
+            <element in="e:entries" if="$profilesListFormatted!='_2_'">
+                <element-ignore in="e:entries" if="not(contains($profilesListFormatted,concat(',',e:entries[@key='profiles']/e:entry/text(),',')))"/>
+            </element>
+
+
+        </processors>
+
+    </view>
+
     <view name="DASHBOARD_ALARMS-L"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
 
         <argument name="ListID">024341cb-33e9-11e8-b58b-1418776844f0,031d8565-33e9-11e8-b58b-1418776844f0</argument>
-        <variable name="ListIDFormatted" eval="concat(',',$ListID,',')"></variable>
+        <variable name="ListIDFormatted" eval="concat(',',$ListID,',')"/>
+
+
+
         <connector type="XMLConnector">
 
             <parameter name="content" eval="view('DASHBOARD_alarms')"/>
@@ -353,8 +396,8 @@
         <argument name="statusList">0,1,2,3</argument>
         <argument name="profilesList">ARGO_MON_OPERATORS,MW_MONITOR,OPS_MONITOR</argument>
         <argument name="summary">_summary_</argument>
-        <argument name="FilterAssigned">_filter_</argument>
 
+        <argument name="FilterAssigned">_filter_</argument>
 
         <variable name="SitesListFormatted" eval="concat(',',$SitesList,',')"/>
         <variable name="statusListFormatted" eval="concat(',',$statusList,',')"/>
@@ -384,27 +427,30 @@
             </elements>
 
             <elements path="e:entries">
-                <set variable="alarms">view('DASHBOARD_alarms')/e:entries</set>
+                <set variable="alarms">view('DASHBOARD_alarms_filter',entry('FilterAssigned',$FilterAssigned)|entry('SitesListFormatted',$SitesListFormatted)|entry('statusListFormatted',$statusListFormatted)|entry('profilesListFormatted',$profilesListFormatted))/e:entries</set>
                 <set variable="avRe">view('DASHBOARD_AV_RE',entry('summary',$summary))/e:entries</set>
                 <set variable="downtimes">view('OPSCORE_downtime_ongoing')/e:entries</set>
                 <set variable="tickets">view('DASHBOARD_TICKETS')/e:entries</set>
                 <set variable="notepads">view('DASHBOARD_notepads')/e:entries</set>
 
                 <element in="e:entries">
-                    <!--<element in="e:entries" if="@key='alarms' and $FilterAssigned='_filter_'">-->
+
+
+                    <element in="e:entries" if="@key='alarms'">
+                        <element-create>$alarms/e:entries[e:entry[@key='site']/text()=current()/../../@key]/*</element-create>
+                    </element>
+
+
+
+
+                    <!--<element in="e:entries" if="@key='alarms'">-->
+                        <!--<element-create>$alarms/e:entries[e:entry[@key='site']/text()=current()/../../@key]</element-create>-->
+                    <!--</element>-->
+
+                    <!--<element in="e:entries" if="@key='alarms' and $FilterAssigned!='_filter_'">-->
                         <!--<element-create>$alarms/e:entries[e:entry[@key='site']/text()=current()/../../@key][contains($statusListFormatted,concat(',',e:entry[@key='status']/text(),','))][e:entry[@key='ops_flags']/text()!=2][contains($profilesListFormatted,concat(',',e:entries[@key='profiles']/e:entry/text(),','))]</element-create>-->
                     <!--</element>-->
 
-                    <!--<element in="e:entries" if="@key='alarms' and not($FilterAssigned)">-->
-                        <!--<element-create>$alarms/e:entries[e:entry[@key='site']/text()=current()/../../@key][contains($statusListFormatted,concat(',',e:entry[@key='status']/text(),','))][contains($profilesListFormatted,concat(',',e:entries[@key='profiles']/e:entry/text(),','))]</element-create>-->
-                    <!--</element>-->
-
-
-                    <!-- @TODO : the filters neeed to be refined and this line should be removed and the previous lines uncommented -->
-                    <element in="e:entries" if="@key='alarms'">
-                        <element-create>$alarms/e:entries[e:entry[@key='site']/text()=current()/../../@key]</element-create>
-                    </element>
-                    <!-- @TODO -->
 
                     <element in="e:entries" if="@key='avre'">
                         <element-create>$avRe/e:entries[@key=current()/../../@key]/*</element-create>
