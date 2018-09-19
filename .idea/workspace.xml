@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="remplacement pixtol">
+    <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="ajout super user">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/etc/app/views/DASHBOARD/commons.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/DASHBOARD/commons.xml" afterDir="false" />
     </list>
@@ -23,15 +23,15 @@
     <session id="-55599360">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="9" />
+          <entry key="project.closed" value="10" />
           <entry key="project.open.time.10" value="1" />
-          <entry key="project.open.time.16" value="1" />
+          <entry key="project.open.time.16" value="2" />
           <entry key="project.open.time.19" value="1" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.3" value="5" />
           <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.5" value="1" />
-          <entry key="project.opened" value="11" />
+          <entry key="project.opened" value="12" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -49,14 +49,14 @@
         <counts>
           <entry key="properties" value="1" />
           <entry key="txt" value="123" />
-          <entry key="xml" value="1344" />
+          <entry key="xml" value="1387" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="123" />
           <entry key="Properties" value="1" />
-          <entry key="XML" value="1344" />
+          <entry key="XML" value="1387" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -67,8 +67,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/etc/app/views/DASHBOARD/commons.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="218" column="48" selection-start-line="218" selection-start-column="48" selection-end-line="218" selection-end-column="48" />
+            <state relative-caret-position="393">
+              <caret line="151" column="157" selection-start-line="151" selection-start-column="118" selection-end-line="151" selection-end-column="157" />
             </state>
           </provider>
         </entry>
@@ -76,7 +76,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/metrics.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
+            <state relative-caret-position="2715">
               <caret line="181" column="18" selection-start-line="181" selection-start-column="18" selection-end-line="181" selection-end-column="18" />
             </state>
           </provider>
@@ -352,7 +352,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537361012850" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537362002697" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../argo-eosc" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
@@ -1161,8 +1161,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/etc/app/views/DASHBOARD/commons.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="218" column="48" selection-start-line="218" selection-start-column="48" selection-end-line="218" selection-end-column="48" />
+        <state relative-caret-position="540">
+          <caret line="216" column="36" lean-forward="true" selection-start-line="216" selection-start-column="36" selection-end-line="216" selection-end-column="36" />
         </state>
       </provider>
     </entry>

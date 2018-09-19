@@ -138,7 +138,7 @@
 
             <!--<set variable="listProbes">view('DASHBOARD_probes_list')/e:entries</set>-->
                 <element in="e:entries">
-                        <set variable="endpoint">find($endpoints,e:entry[@key='endpoint']/text())</set>
+                    <set variable="endpoint">find($endpoints,e:entry[@key='endpoint']/text())</set>
                     <set variable="probeList">view('DASHBOARD_probes_list')/e:entries</set>
                         <element-create>
                             entry('in_production',
@@ -149,7 +149,7 @@
                         choose($endpoint/e:entry[@key='monitored']/text(),$endpoint/e:entry[@key='monitored']/text(),-1))
                     </element-create>
                     <element-create>$probeList/e:entry[@name=current()/../e:entry[@key='test_name']/text()]</element-create>
-                    <element-create if="contains(e:entry[@key='summary']/text(),'egi.eu.lowAvailability-')">$probeList/e:entry[@name='egi.eu.lowAvailability']</element-create>
+                    <element-create if="contains(../e:entry[@key='summary']/text(),'egi.eu.lowAvailability')">$probeList/e:entry[@name='egi.eu.lowAvailability']</element-create>
                 </element>
         </element>
 
@@ -185,7 +185,7 @@
 
     <view name="DASHBOARD_alarms_filter"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
 
-        <argument name="FilterAssigned">_filter_</argument>
+        <argument name="FilterAssigned">'false'</argument>
         <argument name="SitesListFormatted">_1_</argument>
         <argument name="statusListFormatted">_2_</argument>
         <argument name="profilesListFormatted">_3_</argument>
@@ -197,7 +197,7 @@
 
         <processors>
 
-            <element in="e:entries" if="$FilterAssigned!='_filter_'">
+            <element in="e:entries" if="$FilterAssigned!='false'">
                 <element-ignore in="e:entries" if="e:entry[@key='ops_flag']=2"/>
             </element>
 
@@ -409,7 +409,7 @@
         <argument name="profilesList">ARGO_MON_OPERATORS,MW_MONITOR,OPS_MONITOR</argument>
         <argument name="summary">_summary_</argument>
 
-        <argument name="FilterAssigned">_filter_</argument>
+        <argument name="FilterAssigned">false</argument>
 
         <variable name="SitesListFormatted" eval="concat(',',$SitesList,',')"/>
         <variable name="statusListFormatted" eval="concat(',',$statusList,',')"/>
