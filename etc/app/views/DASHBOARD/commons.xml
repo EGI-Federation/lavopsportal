@@ -363,6 +363,10 @@
 
                 </element>
             </element>
+
+            <elements path="e:entries/e:entries/e:entries">
+                <attribute-create out="key">'GHD_Soap_Client_Data'</attribute-create>
+            </elements>
         </processors>
     </view>
 
