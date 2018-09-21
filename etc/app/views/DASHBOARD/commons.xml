@@ -356,6 +356,11 @@
             <element in="e:entries">
                 <element-ignore in="e:entries" if="e:entry[@key='GHD_Problem_Type']/text()!='Operations'"/>
                 <element-ignore in="e:entries" if="e:entry[@key='GHD_Status']/text()='verified'"/>
+                <element in="e:entries">
+                    <element in="e:entry" if="@key='GHD_Soap_Client_Data'" out="e:entries">
+                        <text>xml(.)</text>
+                    </element>
+                </element>
             </element>
         </processors>
     </view>
