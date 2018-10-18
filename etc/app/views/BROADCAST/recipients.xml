@@ -420,7 +420,7 @@
         <processors>
 
             <element in="NGIs" out="Recipients">
-                <element-ignore in="NGI" if="@name!='EGI.eu'">
+                <element in="NGI" if="@name='EGI.eu'">
                     <element-ignore in="Sites">
                         <element in="Site" out="Recipient">
                             <attribute-ignore/>
@@ -429,7 +429,8 @@
                             <element-create>new_element('email', string(../@contact_email))</element-create>
                         </element>
                     </element-ignore>
-                </element-ignore>
+                </element>
+                <element-ignore/>
 
             </element>
 
