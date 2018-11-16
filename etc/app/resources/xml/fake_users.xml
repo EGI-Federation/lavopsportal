@@ -130,7 +130,7 @@
 
     </e:entries>
 
-    <e:entries key="/C=FR/O=CNRS/OU=USR6402/CN=Francois Letellier/Email=francois.letellier@cc.in2p3.fr">
+    <e:entries key="/C=FR/O=CNRS/OU=USR6402/CN=Francois Letellier/emailAddress=francois.letellier@cc.in2p3.fr">
         <e:entry key="ROLES">GRID BODY::project::EGI</e:entry>
         <e:entry key="ROLES">Ngi Operations Manager::ngi::NGI_IT</e:entry>
         <e:entry key="NAME">François Letellier</e:entry>
