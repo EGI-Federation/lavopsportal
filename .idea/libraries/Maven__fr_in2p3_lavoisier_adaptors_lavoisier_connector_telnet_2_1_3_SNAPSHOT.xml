@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Maven: fr.in2p3.lavoisier.adaptors:lavoisier-connector-telnet:2.1.3-SNAPSHOT">
     <CLASSES>
-      <root url="jar://$MAVEN_REPOSITORY$/fr/in2p3/lavoisier/adaptors/lavoisier-connector-telnet/2.1.3-SNAPSHOT/lavoisier-connector-telnet-2.1.3-20180912.161726-118.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/fr/in2p3/lavoisier/adaptors/lavoisier-connector-telnet/2.1.3-SNAPSHOT/lavoisier-connector-telnet-2.1.3-20180920.124507-120.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$MAVEN_REPOSITORY$/fr/in2p3/lavoisier/adaptors/lavoisier-connector-telnet/2.1.3-SNAPSHOT/lavoisier-connector-telnet-2.1.3-20180912.161726-118-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/fr/in2p3/lavoisier/adaptors/lavoisier-connector-telnet/2.1.3-SNAPSHOT/lavoisier-connector-telnet-2.1.3-20180920.124507-120-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://$MAVEN_REPOSITORY$/fr/in2p3/lavoisier/adaptors/lavoisier-connector-telnet/2.1.3-SNAPSHOT/lavoisier-connector-telnet-2.1.3-20180912.161726-118-sources.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/fr/in2p3/lavoisier/adaptors/lavoisier-connector-telnet/2.1.3-SNAPSHOT/lavoisier-connector-telnet-2.1.3-20180920.124507-120-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

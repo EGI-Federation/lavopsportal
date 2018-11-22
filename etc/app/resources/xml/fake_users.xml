@@ -148,5 +148,14 @@
 
     </e:entries>
 
+    <e:entries key="/DC=org/DC=terena/DC=tcs/C=IT/O=Istituto Nazionale di Fisica Nucleare/CN=Vincenzo Spinoso spinoso@infn.it">
+        <e:entry key="ROLES">GRID BODY::project::EGI</e:entry>
+        <e:entry key="NAME">Vincenzo Spinozo</e:entry>
+        <e:entry key="EMAIL">spinoso@infn.it</e:entry>
+        <e:entry key="CERTDN">/DC=org/DC=terena/DC=tcs/C=IT/O=Istituto Nazionale di Fisica Nucleare/CN=Vincenzo Spinoso spinoso@infn.it</e:entry>
+    </e:entries>
+
+    C=IT/O=INFN/OU=Personal Certificate/L=Bari/CN=Vincenzo Spinoso
+
 
 </e:entries>
