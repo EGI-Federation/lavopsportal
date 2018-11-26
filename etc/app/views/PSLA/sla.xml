@@ -222,11 +222,8 @@
 
             <element in="e:entries">
 
-
-
-
                 <element-ignore in="e:entries">
-                    <element-ignore in="e:entries">
+                    <element in="e:entries">
 
                         <element in="e:entry" if="@key='self'">
                             <attribute in="key">'link'</attribute>
@@ -275,7 +272,7 @@
 
                         <element-ignore/>
 
-                    </element-ignore>
+                    </element>
                 </element-ignore>
 
             </element>
