@@ -89,7 +89,7 @@
                 <attribute-create out="key">'comments'</attribute-create>
 
                 <element-ignore in="comments" >
-
+                    <element-create>entry('NbComments',count(../object))</element-create>
                     <element in="object" out="e:entries">
                         <attribute-create out="key">concat('comment#',count(../preceding-sibling::object))</attribute-create>
                         <element-ignore in="author">
@@ -147,7 +147,7 @@
                     <element in="object" out="e:entries">
 
                         <attribute-create out="key">../key</attribute-create>
-                        <element-create>view('JiraComment',entry('ticketId',../key))</element-create>
+
                         <element-ignore if="not(*/*)">
                             <element-create if="../text()">entry(local-name(..),../text())</element-create>
                         </element-ignore>
@@ -155,6 +155,7 @@
                         <element in="fields" out="e:entries">
 
                             <attribute-create out="key">local-name(..)</attribute-create>
+                            <element-create>entry('NbComments',choose(view('JiraComment',entry('ticketId',../../key))/e:entries/e:entry[@key='NbComments'],view('JiraComment',entry('ticketId',../../key))/e:entries/e:entry[@key='NbComments'],0))</element-create>
 
                             <element-ignore if="not(*/*)">
                                 <element-create if="../text()">entry(local-name(..),../text())</element-create>
@@ -268,7 +269,7 @@
                                 <attribute in="key">'Last Update'</attribute>
                             </element>
 
-                            <element in="e:entry" if="@key='summary'"/>
+                            <element in="e:entry" if="@key='summary' or @key='NbComments'"/>
                         </element-ignore>
 
                         <element-ignore/>
@@ -280,7 +281,6 @@
 
 
                 <element in="e:entries">
-
                     <element-ignore/>
                     <element-create>sort_by_string(../e:entries,'e:entry[@key="status"]/text()')</element-create>
                 </element>
