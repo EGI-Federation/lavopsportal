@@ -220,6 +220,65 @@
 
             </element>
 
+            <element in="e:entries">
+
+
+
+
+                <element-ignore in="e:entries">
+                    <element-ignore in="e:entries">
+
+                        <element in="e:entry" if="@key='self'">
+                            <attribute in="key">'link'</attribute>
+                        </element>
+
+                        <element in="e:entry" if="@key='key'">
+                            <attribute in="key">'id'</attribute>
+                        </element>
+
+                        <element-ignore in="e:entries" if="@key='fields'">
+                            <element-ignore in="e:entries" if="@key='status'">
+                                <element in="e:entry" if="@key='name'">
+                                    <attribute in="key">'status'</attribute>
+                                </element>
+                            </element-ignore>
+
+                            <element in="e:entry" if="@key='customfield_10228'">
+                                <attribute in="key">'author'</attribute>
+                            </element>
+                            <element in="e:entry" if="@key='customfield_10400'">
+                                <attribute in="key">'SO-1'</attribute>
+                            </element>
+                            <element in="e:entry" if="@key='customfield_10401'">
+                                <attribute in="key">'SO-2'</attribute>
+                            </element>
+                            <element in="e:entry" if="@key='customfield_10403'">
+                                <attribute in="key">'SO-3'</attribute>
+                            </element>
+                            <element in="e:entry" if="@key='customfield_10404'">
+                                <attribute in="key">'SO-4'</attribute>
+                            </element>
+                            <element in="e:entry" if="@key='customfield_10405'">
+                                <attribute in="key">'SO-5'</attribute>
+                            </element>
+
+                            <element in="e:entry" if="@key='created'">
+                                <attribute in="key">'Creation Date'</attribute>
+                            </element>
+
+                            <element in="e:entry" if="@key='updated'">
+                                <attribute in="key">'Last Update'</attribute>
+                            </element>
+
+                            <element in="e:entry" if="@key='summary'"/>
+                        </element-ignore>
+
+                        <element-ignore/>
+
+                    </element-ignore>
+                </element-ignore>
+
+            </element>
 
 
 
