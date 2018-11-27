@@ -302,7 +302,7 @@
         <cache type="FileCache">
             <trigger type="ViewNotifiedTrigger"/>
             <trigger type="DeltaTimeTrigger">
-                <parameter name="minutes">8</parameter>
+                <parameter name="minutes">4</parameter>
             </trigger>
         </cache>
 
