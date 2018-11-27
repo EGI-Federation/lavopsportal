@@ -155,7 +155,7 @@
                         <element in="fields" out="e:entries">
 
                             <attribute-create out="key">local-name(..)</attribute-create>
-                            <element-create>entry('NbComments',choose(view('JiraComment',entry('ticketId',../../key))/e:entries/e:entry[@key='NbComments'],view('JiraComment',entry('ticketId',../../key))/e:entries/e:entry[@key='NbComments'],0))</element-create>
+                            <!--<element-create>entry('NbComments',choose(view('JiraComment',entry('ticketId',../../key))/e:entries/e:entry[@key='NbComments'],view('JiraComment',entry('ticketId',../../key))/e:entries/e:entry[@key='NbComments'],0))</element-create>-->
 
                             <element-ignore if="not(*/*)">
                                 <element-create if="../text()">entry(local-name(..),../text())</element-create>
