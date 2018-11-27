@@ -227,13 +227,13 @@
 
                     <element in="e:entries">
 
-                        <element in="e:entry" if="@key='self'">
-                            <attribute in="key">'link'</attribute>
-                        </element>
+
 
                         <element in="e:entry" if="@key='key'">
                             <attribute in="key">'id'</attribute>
                         </element>
+
+                        <element-create>entry('link',concat('https://jira.eosc-hub.eu/browse/',../e:entry[@key='key']/text()))</element-create>
 
                         <element-ignore in="e:entries" if="@key='fields'">
                             <element-ignore in="e:entries" if="@key='status'">
