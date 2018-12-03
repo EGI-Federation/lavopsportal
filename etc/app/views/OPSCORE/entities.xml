@@ -24,6 +24,29 @@
 
     </view>
 
+    <view name="OPSCORE_get_site_Fedcloud">
+
+        <connector type="HTTPConnector">
+            <parameter name="url" eval="concat(property('OPSCORE.gocdb.get_sites'),'&amp;scope=FedCloud')"/>
+            <parameter name="certificate" eval="property('certificate.path')"/>
+            <parameter name="passphrase" eval="property('certificate.password')"/>
+        </connector>
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="hours">1</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger ignore-during="PT1H" type="ViewCreatedTrigger"/>
+        </cache>
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+
+    </view>
+
+
     <view name="OPSCORE_SITE" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
 
         <connector type="XMLConnector">
@@ -55,8 +78,42 @@
             </renderer>
         </renderers>
 
+    </view>
+
+    <view name="OPSCORE_SITE_FedCloud" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
+
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('OPSCORE_get_site_FedCloud')"/>
+        </connector>
+
+        <processors>
+            <element in="results" out="e:entries">
+                <element in="SITE" out="e:entries">
+                    <attribute-create out="key">../@NAME</attribute-create>
+                    <attribute-ignore/>
+
+                    <element-create>entry('PRIMARY_KEY',../PRIMARY_KEY/text())</element-create>
+                    <element-create>entry('NAME',../SHORT_NAME/text())</element-create>
+                    <element-create>entry('NGI',../ROC/text())</element-create>
+                    <element-create>entry('COUNTRY',../COUNTRY_CODE/text())</element-create>
+                    <element-create>entry('PRODUCTION_INFRASTRUCTURE',../PRODUCTION_INFRASTRUCTURE/text())</element-create>
+                    <element-create>entry('CERTIFICATION_STATUS',../CERTIFICATION_STATUS/text())</element-create>
+                    <element-create>entry('CONTACT_EMAIL',choose(../CONTACT_EMAIL/text(),../CONTACT_EMAIL/text(),'NA'))</element-create>
+                    <element-ignore/>
+                </element>
+
+            </element>
+        </processors>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
 
     </view>
+
+
 
     <view name="OPSCORE_SITE_CANDIDATE" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
 
