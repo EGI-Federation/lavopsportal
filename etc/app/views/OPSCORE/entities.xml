@@ -42,7 +42,7 @@
                     <element-create>entry('COUNTRY',../COUNTRY_CODE/text())</element-create>
                     <element-create>entry('PRODUCTION_INFRASTRUCTURE',../PRODUCTION_INFRASTRUCTURE/text())</element-create>
                     <element-create>entry('CERTIFICATION_STATUS',../CERTIFICATION_STATUS/text())</element-create>
-                    <element-create>entry('CONTACT_EMAIL',../CONTACT_EMAIL/text())</element-create>
+                    <element-create>entry('CONTACT_EMAIL',choose(../CONTACT_EMAIL/text(),../CONTACT_EMAIL/text(),'NA'))</element-create>
                     <element-ignore/>
                 </element>
 
