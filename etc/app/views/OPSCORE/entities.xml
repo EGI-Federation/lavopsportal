@@ -25,7 +25,6 @@
     </view>
 
     <view name="OPSCORE_get_site_Fedcloud">
-
         <connector type="HTTPConnector">
             <parameter name="url" eval="concat(property('OPSCORE.gocdb.get_sites'),'&amp;scope=FedCloud')"/>
             <parameter name="certificate" eval="property('certificate.path')"/>
