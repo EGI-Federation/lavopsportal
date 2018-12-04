@@ -30,6 +30,7 @@
             <parameter name="read-timeout">35</parameter>
 
             <parameter name="header">
+                <entry key="Content-type">text/xml</entry>
                 <entry key="X-VOMS-CSRF-GUARD">;</entry>
             </parameter>
 
