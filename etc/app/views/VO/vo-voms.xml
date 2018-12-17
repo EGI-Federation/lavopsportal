@@ -655,6 +655,7 @@
                     <element-create>view('voms-members',entry('vo',../name/text()))</element-create>
                     <element-ignore/>
                 </element>
+                <element-create>view('perun-members-voms')/root/*</element-create>
             </element>
 
         </processors>
@@ -709,7 +710,7 @@
         
 
         <connector type="FileConnector">
-           <parameter name="path" eval="concat(property('cache.baseDirectory'),'/perunfile')"/>
+           <parameter name="path" eval="concat(property('lavoisier.cache.directory'),'/perunfile')"/>
 
             <fallback>
                 <exception type="java.lang.Exception"/>
@@ -735,23 +736,64 @@
         </connector>
 
         <processors>
-            <element in="t:tables" out="VomsListMembers">
-                <attribute-create out="url">'perun'</attribute-create>
-                <attribute-create out="http_code">'200'</attribute-create>
-                    <element in="t:table" out="soapenv:Envelope">
-                        <element-create-as-parent out="soapenv:Body">
+
+            <element in="t:tables" out="root">
+                    <element-ignore>
                             <element in="t:row" out="multiRef">
-                                <element in="t:column" if="@label='3'" out="DN"/>
-                                <element in="t:column" if="@label='5'" out="mail"/>
-                                <element-create>new_element('CA')</element-create>
-                                <element-create>new_element('CN',new_text(concat(../t:column[@label='1']/text(),' ',../t:column[@label='2']/text())))</element-create>
+                                <element in="t:column" if="count(preceding-sibling::t:column)=0" out="firstName"/>
+                                <element in="t:column" if="count(preceding-sibling::t:column)=1" out="lastName"/>
+                                <element in="t:column" if="count(preceding-sibling::t:column)=2" out="DN"/>
+                                <element in="t:column" if="count(preceding-sibling::t:column)=3" out="vo"/>
+                                <element in="t:column" if="count(preceding-sibling::t:column)=4" out="mail"/>
+                                <element-create>new_element('CA','perun')</element-create>
                                 <element-ignore/>
                             </element>
-                        </element-create-as-parent>
-                    </element>
+                    </element-ignore>
             </element>
 
+            <element in="root">
+                <element in="multiRef">
+                    <element-create>new_element('CN',concat(../firstName/text(),' ',../lastName/text()))</element-create>
+                    <element if="name()='DN' or name()='vo' or name()='CA' or name()='mail' "><attribute-ignore/></element>
+                    <element-ignore/>
+                </element>
+            </element>
+            
+            <element in="root">
+                <element-ignore/>                
+                <element-create>sort_by_string(../multiRef,'vo/text()')</element-create>                
+            </element>
+            
+            <element in="root">
+                <element-create-as-parent out="VoListMembers" group-by="vo" attributes="new_attribute('VoName',vo/text())">
+                    <element in="multiRef"/>
+                </element-create-as-parent>
+            </element>
+
+            <element in="root">
+                <element-create-as-parent out="Vo">
+                    <element in="VoListMembers">
+                            <element-create-as-parent out="soapenv:Body">
+                                <element in="multiRef"/>
+                            </element-create-as-parent>
+                    </element>
+                </element-create-as-parent>
+            </element>
+
+            <elements path="root/Vo/VoListMembers">
+                <element-create-as-parent out="soapenv:Envelope">
+                        <element in="soapenv:Body"/>
+                </element-create-as-parent>
+            </elements>
+
+            <elements path="root/Vo/VoListMembers">
+                    <element-create-as-parent out="VomsListMembers">
+                        <element in="soapenv:Envelope"/>
+                    </element-create-as-parent>
+            </elements>
         </processors>
+
+
 
         <renderers>
             <renderer type="DefaultRenderer">
@@ -774,6 +816,7 @@
                     <element-create>view('insert-voms-members-vo',entry('vo',../name/text()))</element-create>
                     <element-ignore/>
                 </element>
+
             </element>
 
         </processors>
