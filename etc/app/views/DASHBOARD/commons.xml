@@ -108,7 +108,83 @@
         </renderers>
     </view>
 
-<view name="DASHBOARD_alarms"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
+
+    <view name="DASHBOARD_alarms_sec"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
+
+
+        <connector type="SQLConnector">
+            <parameter name="driver">com.mysql.jdbc.Driver</parameter>
+            <parameter name="url" eval="property('ROD.db.url')"/>
+            <parameter name="username" eval="property('ROD.db.username')"/>
+            <parameter name="password" eval="property('ROD.db.password')"/>
+            <parameter name="query">
+                SELECT * from csi_nagios_problem
+            </parameter>
+        </connector>
+
+        <processors>
+
+            <element in="result" out="e:entries">
+                <element in="row" out="e:entries">
+                    <element-ignore>
+                        <element-create if="../text()">entry(local-name(..),../text())</element-create>
+                    </element-ignore>
+                    <element-create>entry('endpoint',concat(../host_name/text(),'__',../service/text()))</element-create>
+                </element>
+            </element>
+
+            <element in="e:entries">
+
+                <set variable="endpoints" index="e:entry[@key='endpoint']/text()">uniq(view('DASHBOARD_endpoints')/e:entries/e:entries,"e:entry[@key='endpoint']/text()")</set>
+
+                <!--<set variable="listProbes">view('DASHBOARD_probes_list')/e:entries</set>-->
+                <element in="e:entries">
+                    <set variable="endpoint">find($endpoints,e:entry[@key='endpoint']/text())</set>
+                    <set variable="probeList">view('DASHBOARD_probes_list')/e:entries</set>
+                    <element-create>
+                        entry('in_production',
+                        choose($endpoint/e:entry[@key='in_production']/text(),$endpoint/e:entry[@key='in_production']/text(),-1))
+                    </element-create>
+                    <element-create>
+                        entry('monitored',
+                        choose($endpoint/e:entry[@key='monitored']/text(),$endpoint/e:entry[@key='monitored']/text(),-1))
+                    </element-create>
+                    <element-create>$probeList/e:entry[@name=current()/../e:entry[@key='test_name']/text()]</element-create>
+                    <element-create if="contains(../e:entry[@key='summary']/text(),'egi.eu.lowAvailability')">$probeList/e:entry[@name='egi.eu.lowAvailability']</element-create>
+                </element>
+            </element>
+
+            <element in="e:entries">
+                <element in="e:entries">
+                    <element-create-as-parent out="e:entries" attributes="new_attribute('key','profiles')">
+                        <element in="e:entry" if="@profile">
+                            <attribute-ignore/>
+                            <text-create>../@profile</text-create>
+                        </element>
+                    </element-create-as-parent>
+
+                </element>
+            </element>
+
+
+        </processors>
+
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="minutes">6</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="ViewCreatedTrigger"/>
+        </cache>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+    </view>
+
+    <view name="DASHBOARD_alarms"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
 
 
     <connector type="SQLConnector">
@@ -193,6 +269,47 @@
 
         <connector type="XMLConnector">
             <parameter name="content" eval="view('DASHBOARD_alarms')"/>
+        </connector>
+
+        <processors>
+
+            <element in="e:entries" if="$FilterAssigned!='false'">
+                <element-ignore in="e:entries" if="e:entry[@key='ops_flag']=2"/>
+            </element>
+
+            <element in="e:entries" if="$SitesListFormatted!='_1_'">
+                <element-ignore in="e:entries" if="not(contains($SitesListFormatted,concat(',',e:entry[@key='site']/text(),',')))"/>
+            </element>
+
+
+            <element in="e:entries" if="$statusListFormatted!='_2_'">
+                <element-ignore in="e:entries" if="not(contains($statusListFormatted,concat(',',e:entry[@key='status']/text(),',')))"/>
+            </element>
+
+            <element in="e:entries" if="$profilesListFormatted!='_2_'">
+                <element-ignore in="e:entries" if="not(contains($profilesListFormatted,concat(',',e:entries[@key='profiles']/e:entry/text(),',')))"/>
+            </element>
+
+            <element in="e:entries">
+                <element in="e:entries">
+                    <attribute-create out="key">../e:entry[@key='id']/text()</attribute-create>
+                </element>
+
+            </element>
+        </processors>
+
+    </view>
+
+    <view name="DASHBOARD_alarms_sec_filter"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+
+        <argument name="FilterAssigned">'false'</argument>
+        <argument name="SitesListFormatted">_1_</argument>
+        <argument name="statusListFormatted">_2_</argument>
+        <argument name="profilesListFormatted">_3_</argument>
+
+
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('DASHBOARD_alarms_sec')"/>
         </connector>
 
         <processors>
@@ -455,6 +572,7 @@
             <elements path="e:entries">
                 <element in="e:entries" if="contains($SitesListFormatted,concat(',',@key,','))">
                     <element-create>new_element('e:entries',new_attribute('key','alarms'))</element-create>
+                    <element-create>new_element('e:entries',new_attribute('key','alarms_sec'))</element-create>
                     <element-create>new_element('e:entries',new_attribute('key','tickets'))</element-create>
                     <element-create>new_element('e:entries',new_attribute('key','notepads'))</element-create>
                     <element-create>new_element('e:entries',new_attribute('key','avre'))</element-create>
@@ -465,6 +583,7 @@
 
             <elements path="e:entries">
                 <set variable="alarms">view('DASHBOARD_alarms_filter',entry('FilterAssigned',$FilterAssigned)|entry('SitesListFormatted',$SitesListFormatted)|entry('statusListFormatted',$statusListFormatted)|entry('profilesListFormatted',$profilesListFormatted))/e:entries</set>
+                <set variable="alarms_sec">view('DASHBOARD_alarms_sec_filter',entry('FilterAssigned',$FilterAssigned)|entry('SitesListFormatted',$SitesListFormatted)|entry('statusListFormatted',$statusListFormatted)|entry('profilesListFormatted',$profilesListFormatted))/e:entries</set>
                 <set variable="avRe">view('DASHBOARD_AV_RE',entry('summary',$summary))/e:entries</set>
                 <set variable="downtimes">view('OPSCORE_downtime_ongoing')/e:entries</set>
                 <set variable="tickets">view('DASHBOARD_TICKETS')/e:entries</set>
@@ -478,6 +597,10 @@
                     </element>
 
 
+
+                    <element in="e:entries" if="@key='alarms_sec'">
+                        <element-create>$alarms_sec/e:entries[e:entry[@key='site']/text()=current()/../../@key]</element-create>
+                    </element>
 
                     <element in="e:entries" if="@key='avre'">
                         <element-create>$avRe/e:entries[@key=current()/../../@key]/*</element-create>
@@ -504,6 +627,13 @@
 
                 <element in="e:entries">
                     <element in="e:entries" if="@key='alarms'">
+                        <element-create>entry('nb_alarms_ok',count(../e:entries[e:entry[@key='status']/text()=0]))</element-create>
+                        <element-create>entry('nb_alarms_warning',count(../e:entries[e:entry[@key='status']/text()=1]))</element-create>
+                        <element-create>entry('nb_alarms_critical',count(../e:entries[e:entry[@key='status']/text()=2]))</element-create>
+                        <element-create>entry('nb_alarms_unknown',count(../e:entries[e:entry[@key='status']/text()=3]))</element-create>
+                        <element-ignore/>
+                    </element>
+                    <element in="e:entries" if="@key='alarms_sec'">
                         <element-create>entry('nb_alarms_ok',count(../e:entries[e:entry[@key='status']/text()=0]))</element-create>
                         <element-create>entry('nb_alarms_warning',count(../e:entries[e:entry[@key='status']/text()=1]))</element-create>
                         <element-create>entry('nb_alarms_critical',count(../e:entries[e:entry[@key='status']/text()=2]))</element-create>
