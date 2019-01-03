@@ -314,9 +314,6 @@
 
         <processors>
 
-            <element in="e:entries" if="$FilterAssigned!='false'">
-                <element-ignore in="e:entries" if="e:entry[@key='ops_flag']=2"/>
-            </element>
 
             <element in="e:entries" if="$SitesListFormatted!='_1_'">
                 <element-ignore in="e:entries" if="not(contains($SitesListFormatted,concat(',',e:entry[@key='site']/text(),',')))"/>
@@ -327,9 +324,7 @@
                 <element-ignore in="e:entries" if="not(contains($statusListFormatted,concat(',',e:entry[@key='status']/text(),',')))"/>
             </element>
 
-            <element in="e:entries" if="$profilesListFormatted!='_2_'">
-                <element-ignore in="e:entries" if="not(contains($profilesListFormatted,concat(',',e:entries[@key='profiles']/e:entry/text(),',')))"/>
-            </element>
+
 
             <element in="e:entries">
                 <element in="e:entries">
