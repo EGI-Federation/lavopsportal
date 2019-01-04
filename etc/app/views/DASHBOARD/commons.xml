@@ -548,7 +548,7 @@
 
         <argument name="FilterAssigned">false</argument>
 
-        <variable name="SitesListFormatted" eval="concat(',',$SitesList,',')"/>
+        <variable name="SitesListFormatted" eval="choose($SitesList!='egi',concat(',',$SitesList,','),'_1_')"/>
         <variable name="statusListFormatted" eval="concat(',',$statusList,',')"/>
         <variable name="profilesListFormatted" eval="concat(',',$profilesList,',')"/>
 
@@ -565,7 +565,7 @@
             </elements>
 
             <elements path="e:entries">
-                <element in="e:entries" if="contains($SitesListFormatted,concat(',',@key,','))">
+                <element in="e:entries" if="contains($SitesListFormatted,concat(',',@key,',')) or $SitesList='egi'">
                     <element-create>new_element('e:entries',new_attribute('key','alarms'))</element-create>
                     <element-create>new_element('e:entries',new_attribute('key','alarms_sec'))</element-create>
                     <element-create>new_element('e:entries',new_attribute('key','tickets'))</element-create>
