@@ -109,7 +109,7 @@
     </view>
 
 
-    <view name="DASHBOARD_alarms_sec"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
+    <view name="DASHBOARD_alarms_sec"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd"  authenticators="local">
 
 
         <connector type="SQLConnector">
@@ -300,10 +300,10 @@
 
     </view>
 
-    <view name="DASHBOARD_alarms_sec_filter"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+    <view name="DASHBOARD_alarms_sec_filter"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" authenticators="local">
 
         <argument name="FilterAssigned">'false'</argument>
-        <argument name="SitesListFormatted">_1_</argument>
+        <argument name="SitesSecListFormatted">_1_</argument>
         <argument name="statusListFormatted">_2_</argument>
         <argument name="profilesListFormatted">_3_</argument>
 
@@ -315,8 +315,8 @@
         <processors>
 
 
-            <element in="e:entries" if="$SitesListFormatted!='_1_'">
-                <element-ignore in="e:entries" if="not(contains($SitesListFormatted,concat(',',e:entry[@key='site']/text(),',')))"/>
+            <element in="e:entries" if="$SitesSecListFormatted!='_1_'">
+                <element-ignore in="e:entries" if="not(contains($SitesSecListFormatted,concat(',',e:entry[@key='site']/text(),',')))"/>
             </element>
 
 
@@ -539,9 +539,10 @@
     </view>
 
 
-    <view name="DASHBOARD_VIEW"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
+    <view name="DASHBOARD_VIEW"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" authenticators="local">
 
         <argument name="SitesList"></argument>
+        <argument name="SitesSecList"></argument>
         <argument name="statusList">0,1</argument>
         <argument name="profilesList">ARGO_MON_OPERATORS,MW_MONITOR,OPS_MONITOR</argument>
         <argument name="summary">_summary_</argument>
@@ -549,6 +550,7 @@
         <argument name="FilterAssigned">false</argument>
 
         <variable name="SitesListFormatted" eval="choose($SitesList!='egi',concat(',',$SitesList,','),'_1_')"/>
+        <variable name="SitesSecListFormatted" eval="choose($SitesSecList!='egi',concat(',',$SitesList,','),'_1_')"/>
         <variable name="statusListFormatted" eval="concat(',',$statusList,',')"/>
         <variable name="profilesListFormatted" eval="concat(',',$profilesList,',')"/>
 
@@ -578,7 +580,7 @@
 
             <elements path="e:entries">
                 <set variable="alarms">view('DASHBOARD_alarms_filter',entry('FilterAssigned',$FilterAssigned)|entry('SitesListFormatted',$SitesListFormatted)|entry('statusListFormatted',$statusListFormatted)|entry('profilesListFormatted',$profilesListFormatted))/e:entries</set>
-                <set variable="alarms_sec">view('DASHBOARD_alarms_sec_filter',entry('FilterAssigned',$FilterAssigned)|entry('SitesListFormatted',$SitesListFormatted)|entry('statusListFormatted',$statusListFormatted)|entry('profilesListFormatted',$profilesListFormatted))/e:entries</set>
+                <set variable="alarms_sec">view('DASHBOARD_alarms_sec_filter',entry('FilterAssigned',$FilterAssigned)|entry('SitesSecListFormatted',$SitesListFormatted)|entry('statusListFormatted',$statusListFormatted)|entry('profilesListFormatted',$profilesListFormatted))/e:entries</set>
                 <set variable="avRe">view('DASHBOARD_AV_RE',entry('summary',$summary))/e:entries</set>
                 <set variable="downtimes">view('OPSCORE_downtime_ongoing')/e:entries</set>
                 <set variable="tickets">view('DASHBOARD_TICKETS')/e:entries</set>
