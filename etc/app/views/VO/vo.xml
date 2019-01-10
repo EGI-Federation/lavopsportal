@@ -2300,8 +2300,7 @@
                     <attribute-create out="key">../@name</attribute-create>
                     <element-create>entry('status',../@status)</element-create>
                     <element-create>entry('scope',../@scope)</element-create>
-                    <element-create>entry('CPU
-                        Consumption',choose($VO_CPU/e:entries/e:entries/e:entry[@key=current()/../@name]/text(),$VO_CPU/e:entries/e:entries/e:entry[@key=current()/../@name]/text(),'NA'))
+                    <element-create>entry('CPU_Consumption',choose($VO_CPU/e:entries/e:entries/e:entry[@key=current()/../@name]/text(),$VO_CPU/e:entries/e:entries/e:entry[@key=current()/../@name]/text(),'NA'))
                     </element-create>
                     <element-create>
                         choose($VO_Members/e:entries/e:entries[@key=current()/../@name]/*,$VO_Members/e:entries/e:entries[@key=current()/../@name]/*,entry('numberStart','NA')|entry('numberEnd','NA')|entry('nbRemoved','NA')|entry('nbAdded','NA'))
