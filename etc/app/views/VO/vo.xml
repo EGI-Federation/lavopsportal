@@ -2324,7 +2324,7 @@
 
         <connector type="HTTPConnector">
             <parameter name="url"
-                       eval="concat('https://appdb.egi.eu/rest/1.0/stats/vos/appstats/',$dateStart,'-01/',$dateEnd,'-01?listmode=listing')"/>
+                       eval="concat('https://appdb.egi.eu/rest/1.0/stats/vos/appstats/',$dateStart,'/',$dateEnd,'?listmode=listing')"/>
         </connector>
 
         <processors>
