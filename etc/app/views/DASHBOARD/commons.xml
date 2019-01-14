@@ -550,7 +550,7 @@
         <argument name="FilterAssigned">false</argument>
 
         <variable name="SitesListFormatted" eval="choose($SitesList!='egi',concat(',',$SitesList,','),'_1_')"/>
-        <variable name="SitesSecListFormatted" eval="choose($SitesSecList!='egi',concat(',',$SitesList,','),'_1_')"/>
+        <variable name="SitesSecListFormatted" eval="choose($SitesSecList!='egi',concat(',',$SitesSecList,','),'_1_')"/>
         <variable name="statusListFormatted" eval="concat(',',$statusList,',')"/>
         <variable name="profilesListFormatted" eval="concat(',',$profilesList,',')"/>
 
