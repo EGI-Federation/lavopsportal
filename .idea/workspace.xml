@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="ajout super user">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/app/views/DASHBOARD/commons.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/DASHBOARD/commons.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/service/jsw.properties" beforeDir="false" afterPath="$PROJECT_DIR$/etc/service/jsw.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/engine/engine.properties" beforeDir="false" afterPath="$PROJECT_DIR$/etc/engine/engine.properties" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -70,20 +69,22 @@
     <session id="-1744214573">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="19" />
+          <entry key="project.closed" value="26" />
           <entry key="project.open.time.10" value="1" />
-          <entry key="project.open.time.11" value="2" />
-          <entry key="project.open.time.12" value="3" />
+          <entry key="project.open.time.11" value="3" />
+          <entry key="project.open.time.12" value="5" />
           <entry key="project.open.time.13" value="2" />
-          <entry key="project.open.time.14" value="1" />
+          <entry key="project.open.time.14" value="2" />
+          <entry key="project.open.time.17" value="1" />
           <entry key="project.open.time.18" value="1" />
           <entry key="project.open.time.2" value="3" />
           <entry key="project.open.time.21" value="1" />
           <entry key="project.open.time.3" value="6" />
-          <entry key="project.open.time.4" value="1" />
+          <entry key="project.open.time.4" value="4" />
           <entry key="project.open.time.5" value="1" />
+          <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="23" />
+          <entry key="project.opened" value="32" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -91,7 +92,7 @@
           <entry key="html" value="2" />
           <entry key="js" value="2" />
           <entry key="properties" value="5" />
-          <entry key="xml" value="15" />
+          <entry key="xml" value="17" />
           <entry key="xsl" value="1" />
         </counts>
       </usages-collector>
@@ -100,25 +101,25 @@
           <entry key="HTML" value="2" />
           <entry key="JavaScript" value="2" />
           <entry key="Properties" value="5" />
-          <entry key="XML" value="16" />
+          <entry key="XML" value="18" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="html" value="1169" />
           <entry key="js" value="586" />
-          <entry key="properties" value="75" />
-          <entry key="txt" value="333" />
-          <entry key="xml" value="2298" />
+          <entry key="properties" value="76" />
+          <entry key="txt" value="401" />
+          <entry key="xml" value="2403" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="1168" />
           <entry key="JavaScript" value="586" />
-          <entry key="PLAIN_TEXT" value="333" />
-          <entry key="Properties" value="75" />
-          <entry key="XML" value="2298" />
+          <entry key="PLAIN_TEXT" value="401" />
+          <entry key="Properties" value="76" />
+          <entry key="XML" value="2403" />
           <entry key="XPath" value="1" />
         </counts>
       </usages-collector>
@@ -127,19 +128,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/date_functions.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="600">
-              <caret line="40" column="7" selection-start-line="40" selection-start-column="7" selection-end-line="40" selection-end-column="69" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/voms.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" selection-start-line="20" selection-end-line="20" />
+            <state relative-caret-position="209">
+              <caret line="36" column="32" selection-start-line="36" selection-start-column="32" selection-end-line="36" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -156,17 +148,26 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/etc/app/views/DASHBOARD/commons.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="145" column="125" selection-start-line="145" selection-start-column="125" selection-end-line="145" selection-end-column="125" />
+            <state relative-caret-position="404">
+              <caret line="690" column="107" selection-start-line="690" selection-start-column="107" selection-end-line="690" selection-end-column="107" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/etc/app/views/CSI/csi.xml">
+        <entry file="file://$PROJECT_DIR$/etc/app/resources/xml/fake_users.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="179" column="62" selection-start-line="179" selection-start-column="62" selection-end-line="179" selection-end-column="62" />
+            <state relative-caret-position="2370">
+              <caret line="165" column="10" selection-start-line="164" selection-end-line="169" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/etc/app/views/VO/vo.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="194">
+              <caret line="2376" column="24" lean-forward="true" selection-start-line="2376" selection-start-column="24" selection-end-line="2376" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -175,7 +176,7 @@
         <entry file="file://$PROJECT_DIR$/etc/service/authenticators.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="90">
-              <caret line="6" column="46" lean-forward="true" selection-start-line="6" selection-start-column="46" selection-end-line="6" selection-end-column="46" />
+              <caret line="6" column="46" selection-start-line="6" selection-start-column="46" selection-end-line="6" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -197,8 +198,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/etc/engine/engine.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" selection-start-line="6" selection-end-line="6" />
+            <state relative-caret-position="60">
+              <caret line="4" selection-start-line="4" selection-end-line="4" />
             </state>
           </provider>
         </entry>
@@ -223,12 +224,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>OPSCORE_get_site_Fedcloud</find>
-      <find>csrf</find>
-      <find>cache.b</find>
-      <find>now</find>
-      <find>notifiable</find>
-      <find>badge badge-info&quot;</find>
       <find>voms_vo</find>
       <find>vo-voms_INDEX</find>
       <find>per</find>
@@ -248,11 +243,17 @@
       <find>ASHBOARD_alarms_sec&quot;</find>
       <find>ASHBOARD_alarms_sec</find>
       <find>ASHBOARD_VIE</find>
-      <find>_sec</find>
       <find>ASHBOARD_alarms_filter</find>
       <find>sec</find>
       <find>admin</find>
       <find>-1</find>
+      <find>APP</find>
+      <find>VoAPP</find>
+      <find>SitesSecList</find>
+      <find>&quot;VO&quot;</find>
+      <find>DASHBOARD_alarms_sec</find>
+      <find>VOList</find>
+      <find>_sec</find>
     </findStrings>
     <replaceStrings>
       <replace>xmlns=&quot;http://software.in2p3.fr/lavoisier/application.xsd&quot;</replace>
@@ -300,7 +301,6 @@
         <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/downtimes.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/users.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/endpoints.xml" />
-        <option value="$PROJECT_DIR$/etc/app/views/VO/vo.xml" />
         <option value="$PROJECT_DIR$/etc/app/resources/xml/convert_toEntries.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/GGUS/primary.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/COD/crons.xml" />
@@ -314,7 +314,6 @@
         <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/metrics.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/BROADCAST/recipients.xml" />
         <option value="$PROJECT_DIR$/etc/app/resources/xsl/test.wsdl" />
-        <option value="$PROJECT_DIR$/etc/app/resources/xml/fake_users.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/PSLA/sla.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/entities.xml" />
         <option value="$PROJECT_DIR$/etc/app/app-hidden.properties" />
@@ -327,8 +326,10 @@
         <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/voms.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/VO/vo-voms.xml" />
         <option value="$PROJECT_DIR$/etc/app/html/viewsNG.html" />
-        <option value="$PROJECT_DIR$/etc/engine/engine.properties" />
         <option value="$PROJECT_DIR$/etc/service/authenticators.xml" />
+        <option value="$PROJECT_DIR$/etc/engine/engine.properties" />
+        <option value="$PROJECT_DIR$/etc/app/views/VO/vo.xml" />
+        <option value="$PROJECT_DIR$/etc/app/resources/xml/fake_users.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/DASHBOARD/commons.xml" />
       </list>
     </option>
@@ -341,10 +342,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="67" />
-    <option name="y" value="27" />
-    <option name="width" value="1853" />
-    <option name="height" value="1173" />
+    <option name="x" value="-338" />
+    <option name="y" value="175" />
+    <option name="width" value="1843" />
+    <option name="height" value="810" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -354,8 +355,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -401,7 +402,7 @@
               <item name="etc" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="CSI" type="462c0819:PsiDirectoryNode" />
+              <item name="DASHBOARD" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="lavopsportal" type="b2602c69:ProjectViewProjectNode" />
@@ -409,7 +410,7 @@
               <item name="etc" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="DASHBOARD" type="462c0819:PsiDirectoryNode" />
+              <item name="VO" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="lavopsportal" type="b2602c69:ProjectViewProjectNode" />
@@ -432,7 +433,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542023584356" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../lavoisier-tuto-JI" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
@@ -460,7 +461,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Run">
+  <component name="RunManager" selected="Application.Start Lavoisier server">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
@@ -538,62 +539,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1526559679554</updated>
-    </task>
-    <task id="LOCAL-00058" summary="ajout vue Addcomment">
-      <created>1533050957435</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1533050957436</updated>
-    </task>
-    <task id="LOCAL-00059" summary="jira comments">
-      <created>1533110949298</created>
-      <option name="number" value="00059" />
-      <option name="presentableId" value="LOCAL-00059" />
-      <option name="project" value="LOCAL" />
-      <updated>1533110949298</updated>
-    </task>
-    <task id="LOCAL-00060" summary="jira comments">
-      <created>1533111130175</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1533111130175</updated>
-    </task>
-    <task id="LOCAL-00061" summary="jira comments">
-      <created>1533111870642</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL-00061" />
-      <option name="project" value="LOCAL" />
-      <updated>1533111870642</updated>
-    </task>
-    <task id="LOCAL-00062" summary="probleme naùespace">
-      <created>1533112051117</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1533112051117</updated>
-    </task>
-    <task id="LOCAL-00063" summary="remplacement pixtol">
-      <created>1533112213699</created>
-      <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL-00063" />
-      <option name="project" value="LOCAL" />
-      <updated>1533112213699</updated>
-    </task>
-    <task id="LOCAL-00064" summary="jira comments">
-      <created>1533112405066</created>
-      <option name="number" value="00064" />
-      <option name="presentableId" value="LOCAL-00064" />
-      <option name="project" value="LOCAL" />
-      <updated>1533112405066</updated>
-    </task>
-    <task id="LOCAL-00065" summary="jira comments">
-      <created>1533113734897</created>
-      <option name="number" value="00065" />
-      <option name="presentableId" value="LOCAL-00065" />
-      <option name="project" value="LOCAL" />
-      <updated>1533113734897</updated>
     </task>
     <task id="LOCAL-00066" summary="jira comments">
       <created>1533114562759</created>
@@ -882,14 +827,69 @@
       <option name="project" value="LOCAL" />
       <updated>1546608083592</updated>
     </task>
-    <option name="localTasksCounter" value="107" />
+    <task id="LOCAL-00107" summary="modif date accès rest api appdb">
+      <created>1547107182616</created>
+      <option name="number" value="00107" />
+      <option name="presentableId" value="LOCAL-00107" />
+      <option name="project" value="LOCAL" />
+      <updated>1547107182616</updated>
+    </task>
+    <task id="LOCAL-00108" summary="modif date accès rest api appdb">
+      <created>1547107625304</created>
+      <option name="number" value="00108" />
+      <option name="presentableId" value="LOCAL-00108" />
+      <option name="project" value="LOCAL" />
+      <updated>1547107625304</updated>
+    </task>
+    <task id="LOCAL-00109" summary="modif key">
+      <created>1547108106817</created>
+      <option name="number" value="00109" />
+      <option name="presentableId" value="LOCAL-00109" />
+      <option name="project" value="LOCAL" />
+      <updated>1547108106818</updated>
+    </task>
+    <task id="LOCAL-00110" summary="ajout super user">
+      <created>1547453581209</created>
+      <option name="number" value="00110" />
+      <option name="presentableId" value="LOCAL-00110" />
+      <option name="project" value="LOCAL" />
+      <updated>1547453581209</updated>
+    </task>
+    <task id="LOCAL-00111" summary="ajout super user">
+      <created>1547454701565</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1547454701565</updated>
+    </task>
+    <task id="LOCAL-00112" summary="ajout super user">
+      <created>1548230860373</created>
+      <option name="number" value="00112" />
+      <option name="presentableId" value="LOCAL-00112" />
+      <option name="project" value="LOCAL" />
+      <updated>1548230860374</updated>
+    </task>
+    <task id="LOCAL-00113" summary="modif partie security">
+      <created>1548256102139</created>
+      <option name="number" value="00113" />
+      <option name="presentableId" value="LOCAL-00113" />
+      <option name="project" value="LOCAL" />
+      <updated>1548256102140</updated>
+    </task>
+    <task id="LOCAL-00114" summary="ajout super user">
+      <created>1548257773501</created>
+      <option name="number" value="00114" />
+      <option name="presentableId" value="LOCAL-00114" />
+      <option name="project" value="LOCAL" />
+      <updated>1548257773501</updated>
+    </task>
+    <option name="localTasksCounter" value="115" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="27" width="1853" height="1173" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22357498" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22357498" />
       <window_info id="Structure" order="1" weight="0.24958587" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -907,7 +907,7 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.3294347" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.30019492" />
       <window_info anchor="bottom" id="CheckStyle" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.32940018" />
@@ -930,9 +930,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="remplacement pixtol" />
-    <MESSAGE value="ajout certificat securité" />
-    <MESSAGE value="changement url" />
     <MESSAGE value="remplacement date !='0000-00-00 00:00:00'" />
     <MESSAGE value="remplacement v3 par v4 dans api gitlab" />
     <MESSAGE value="filtre tickets" />
@@ -951,11 +948,14 @@
     <MESSAGE value="ajout mail sites" />
     <MESSAGE value="ajout sites fedcloud" />
     <MESSAGE value="ajout header content type" />
-    <MESSAGE value="ajout super user" />
     <MESSAGE value="ajout alarms securité" />
     <MESSAGE value="ajout alarms sec" />
     <MESSAGE value="ajout cas lister tous les sites" />
-    <option name="LAST_COMMIT_MESSAGE" value="ajout cas lister tous les sites" />
+    <MESSAGE value="modif date accès rest api appdb" />
+    <MESSAGE value="modif key" />
+    <MESSAGE value="modif partie security" />
+    <MESSAGE value="ajout super user" />
+    <option name="LAST_COMMIT_MESSAGE" value="ajout super user" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/pom.xml">
@@ -1112,20 +1112,6 @@
     <entry file="file://$PROJECT_DIR$/etc/app/resources/xml/GHD_Soap_Client.xml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/resources/xml/fake_users.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2325">
-          <caret line="155" column="16" selection-start-line="155" selection-start-column="16" selection-end-line="155" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/views/VO/vo.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="26610">
-          <caret line="1774" column="38" selection-start-line="1774" selection-start-column="38" selection-end-line="1774" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/etc/app/views/PSLA/sla.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4470">
@@ -1186,10 +1172,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/voms.xml">
+    <entry file="file://$PROJECT_DIR$/etc/app/views/CSI/csi.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
+        <state relative-caret-position="2685">
+          <caret line="179" column="62" selection-start-line="179" selection-start-column="62" selection-end-line="179" selection-end-column="62" />
         </state>
       </provider>
     </entry>
@@ -1197,6 +1183,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="9645">
           <caret line="643" column="18" selection-start-line="643" selection-start-column="16" selection-end-line="643" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/etc/app/resources/xml/fake_users.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2370">
+          <caret line="165" column="10" selection-start-line="164" selection-end-line="169" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/etc/service/authenticators.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="46" selection-start-line="6" selection-start-column="46" selection-end-line="6" selection-end-column="46" />
         </state>
       </provider>
     </entry>
@@ -1212,8 +1212,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/etc/engine/engine.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        <state relative-caret-position="60">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
         </state>
       </provider>
     </entry>
@@ -1224,24 +1224,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/views/CSI/csi.xml">
+    <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/voms.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="179" column="62" selection-start-line="179" selection-start-column="62" selection-end-line="179" selection-end-column="62" />
+        <state relative-caret-position="209">
+          <caret line="36" column="32" selection-start-line="36" selection-start-column="32" selection-end-line="36" selection-end-column="32" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/etc/service/authenticators.xml">
+    <entry file="file://$PROJECT_DIR$/etc/app/views/VO/vo.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="46" lean-forward="true" selection-start-line="6" selection-start-column="46" selection-end-line="6" selection-end-column="46" />
+        <state relative-caret-position="194">
+          <caret line="2376" column="24" lean-forward="true" selection-start-line="2376" selection-start-column="24" selection-end-line="2376" selection-end-column="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/etc/app/views/DASHBOARD/commons.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="145" column="125" selection-start-line="145" selection-start-column="125" selection-end-line="145" selection-end-column="125" />
+        <state relative-caret-position="404">
+          <caret line="690" column="107" selection-start-line="690" selection-start-column="107" selection-end-line="690" selection-end-column="107" />
         </state>
       </provider>
     </entry>

@@ -316,7 +316,7 @@
 
 
             <element in="e:entries" if="$SitesListFormatted!='_1_'">
-                <element-ignore in="e:entries" if="not(contains($SitesSecListFormatted,concat(',',e:entry[@key='site']/text(),',')))"/>
+                <element-ignore in="e:entries" if="not(contains($SitesListFormatted,concat(',',e:entry[@key='site']/text(),',')))"/>
             </element>
 
 
