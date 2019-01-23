@@ -315,7 +315,7 @@
         <processors>
 
 
-            <element in="e:entries" if="$SitesSecListFormatted!='_1_'">
+            <element in="e:entries" if="$SitesListFormatted!='_1_'">
                 <element-ignore in="e:entries" if="not(contains($SitesSecListFormatted,concat(',',e:entry[@key='site']/text(),',')))"/>
             </element>
 
@@ -628,13 +628,7 @@
                         <element-create>entry('nb_alarms_unknown',count(../e:entries[e:entry[@key='status']/text()=3]))</element-create>
                         <element-ignore/>
                     </element>
-                    <element in="e:entries" if="@key='alarms_sec'">
-                        <element-create>entry('nb_alarms_ok',count(../e:entries[e:entry[@key='status']/text()=0]))</element-create>
-                        <element-create>entry('nb_alarms_warning',count(../e:entries[e:entry[@key='status']/text()=1]))</element-create>
-                        <element-create>entry('nb_alarms_critical',count(../e:entries[e:entry[@key='status']/text()=2]))</element-create>
-                        <element-create>entry('nb_alarms_unknown',count(../e:entries[e:entry[@key='status']/text()=3]))</element-create>
-                        <element-ignore/>
-                    </element>
+
 
                     <element in="e:entries" if="@key='tickets'">
                         <element-create>entry('nb_tickets',count(../e:entries))</element-create>
@@ -695,7 +689,6 @@
             <elements path="e:entries">
                 <element in="e:entries" if="contains($SitesListFormatted,concat(',',@key,',')) or $SitesList='egi'">
                     <element-create>new_element('e:entries',new_attribute('key','alarms'))</element-create>
-                    <element-create>new_element('e:entries',new_attribute('key','alarms_sec'))</element-create>
                     <element-create>new_element('e:entries',new_attribute('key','tickets'))</element-create>
                     <element-create>new_element('e:entries',new_attribute('key','notepads'))</element-create>
                     <element-create>new_element('e:entries',new_attribute('key','avre'))</element-create>
