@@ -303,7 +303,7 @@
     <view name="DASHBOARD_alarms_sec_filter"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" authenticators="local">
 
         <argument name="FilterAssigned">'false'</argument>
-        <argument name="SitesSecListFormatted">_1_</argument>
+        <argument name="SitesListFormatted">_1_</argument>
         <argument name="statusListFormatted">_2_</argument>
         <argument name="profilesListFormatted">_3_</argument>
 
@@ -550,7 +550,7 @@
         <argument name="FilterAssigned">false</argument>
 
         <variable name="SitesListFormatted" eval="choose($SitesList!='egi',concat(',',$SitesList,','),'_1_')"/>
-        <variable name="SitesSecListFormatted" eval="choose($SitesSecList!='egi',concat(',',$SitesSecList,','),'_1_')"/>
+
         <variable name="statusListFormatted" eval="concat(',',$statusList,',')"/>
         <variable name="profilesListFormatted" eval="concat(',',$profilesList,',')"/>
 
@@ -569,7 +569,7 @@
             <elements path="e:entries">
                 <element in="e:entries" if="contains($SitesListFormatted,concat(',',@key,',')) or $SitesList='egi'">
                     <element-create>new_element('e:entries',new_attribute('key','alarms'))</element-create>
-                    <element-create>new_element('e:entries',new_attribute('key','alarms_sec'))</element-create>
+
                     <element-create>new_element('e:entries',new_attribute('key','tickets'))</element-create>
                     <element-create>new_element('e:entries',new_attribute('key','notepads'))</element-create>
                     <element-create>new_element('e:entries',new_attribute('key','avre'))</element-create>
@@ -580,7 +580,7 @@
 
             <elements path="e:entries">
                 <set variable="alarms">view('DASHBOARD_alarms_filter',entry('FilterAssigned',$FilterAssigned)|entry('SitesListFormatted',$SitesListFormatted)|entry('statusListFormatted',$statusListFormatted)|entry('profilesListFormatted',$profilesListFormatted))/e:entries</set>
-                <set variable="alarms_sec">view('DASHBOARD_alarms_sec_filter',entry('FilterAssigned',$FilterAssigned)|entry('SitesSecListFormatted',$SitesListFormatted)|entry('statusListFormatted',$statusListFormatted)|entry('profilesListFormatted',$profilesListFormatted))/e:entries</set>
+
                 <set variable="avRe">view('DASHBOARD_AV_RE',entry('summary',$summary))/e:entries</set>
                 <set variable="downtimes">view('OPSCORE_downtime_ongoing')/e:entries</set>
                 <set variable="tickets">view('DASHBOARD_TICKETS')/e:entries</set>
@@ -595,9 +595,7 @@
 
 
 
-                    <element in="e:entries" if="@key='alarms_sec'">
-                        <element-create>$alarms_sec/e:entries[e:entry[@key='site']/text()=current()/../../@key]</element-create>
-                    </element>
+
 
                     <element in="e:entries" if="@key='avre'">
                         <element-create>$avRe/e:entries[@key=current()/../../@key]/*</element-create>
@@ -666,4 +664,120 @@
             </renderer>
         </renderers>
     </view>
+
+    <view name="DASHBOARD_VIEW_SEC"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" authenticators="local">
+
+        <argument name="SitesList"></argument>
+
+        <argument name="statusList">0,1</argument>
+        <argument name="profilesList">ARGO_MON_OPERATORS,MW_MONITOR,OPS_MONITOR</argument>
+        <argument name="summary">_summary_</argument>
+
+        <argument name="FilterAssigned">false</argument>
+
+        <variable name="SitesListFormatted" eval="choose($SitesList!='egi',concat(',',$SitesList,','),'_1_')"/>
+
+        <variable name="statusListFormatted" eval="concat(',',$statusList,',')"/>
+        <variable name="profilesListFormatted" eval="concat(',',$profilesList,',')"/>
+
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('DASHBOARD_sites')"/>
+        </connector>
+
+        <processors>
+
+            <elements path="e:entries/e:entries">
+                <element-create-as-parent out="e:entries" attributes="new_attribute('key','site')">
+                    <element in="e:entry"/>
+                </element-create-as-parent>
+            </elements>
+
+            <elements path="e:entries">
+                <element in="e:entries" if="contains($SitesListFormatted,concat(',',@key,',')) or $SitesList='egi'">
+                    <element-create>new_element('e:entries',new_attribute('key','alarms'))</element-create>
+                    <element-create>new_element('e:entries',new_attribute('key','alarms_sec'))</element-create>
+                    <element-create>new_element('e:entries',new_attribute('key','tickets'))</element-create>
+                    <element-create>new_element('e:entries',new_attribute('key','notepads'))</element-create>
+                    <element-create>new_element('e:entries',new_attribute('key','avre'))</element-create>
+                    <element-create>new_element('e:entries',new_attribute('key','downtimes'))</element-create>
+                </element>
+                <element-ignore/>
+            </elements>
+
+            <elements path="e:entries">
+                <set variable="alarms">view('DASHBOARD_alarms_sec_filter',entry('FilterAssigned',$FilterAssigned)|entry('SitesListFormatted',$SitesListFormatted)|entry('statusListFormatted',$statusListFormatted)|entry('profilesListFormatted',$profilesListFormatted))/e:entries</set>
+                <set variable="avRe">view('DASHBOARD_AV_RE',entry('summary',$summary))/e:entries</set>
+                <set variable="downtimes">view('OPSCORE_downtime_ongoing')/e:entries</set>
+                <set variable="tickets">view('DASHBOARD_TICKETS')/e:entries</set>
+                <set variable="notepads">view('DASHBOARD_notepads')/e:entries</set>
+
+                <element in="e:entries">
+
+
+                    <element in="e:entries" if="@key='alarms'">
+                        <element-create>$alarms/e:entries[e:entry[@key='site']/text()=current()/../../@key]</element-create>
+                    </element>
+
+
+                    <element in="e:entries" if="@key='avre'">
+                        <element-create>$avRe/e:entries[@key=current()/../../@key]/*</element-create>
+                    </element>
+
+                    <element in="e:entries" if="@key='downtimes'">
+                        <element-create>$downtimes/e:entry[e:entry[@key='HOSTED_BY']/text()=current()/../../@key]</element-create>
+                    </element>
+
+                    <element in="e:entries" if="@key='tickets'">
+                        <element-create>$tickets/e:entries[e:entry[@key='GHD_Affected_Site']/text()=current()/../../@key]</element-create>
+                    </element>
+
+                    <element in="e:entries" if="@key='notepads'">
+                        <element-create>$notepads/e:entries[e:entry[@key='site']/text()=current()/../../@key]</element-create>
+                    </element>
+
+                </element>
+            </elements>
+
+
+
+            <element in="e:entries" if="$summary='_summary_'">
+
+                <element in="e:entries">
+                    <element in="e:entries" if="@key='alarms'">
+                        <element-create>entry('nb_alarms_ok',count(../e:entries[e:entry[@key='status']/text()=0]))</element-create>
+                        <element-create>entry('nb_alarms_warning',count(../e:entries[e:entry[@key='status']/text()=1]))</element-create>
+                        <element-create>entry('nb_alarms_critical',count(../e:entries[e:entry[@key='status']/text()=2]))</element-create>
+                        <element-create>entry('nb_alarms_unknown',count(../e:entries[e:entry[@key='status']/text()=3]))</element-create>
+                        <element-ignore/>
+                    </element>
+
+                    <element in="e:entries" if="@key='tickets'">
+                        <element-create>entry('nb_tickets',count(../e:entries))</element-create>
+                        <element-ignore/>
+                    </element>
+
+                    <element in="e:entries" if="@key='notepads'">
+                        <element-create>entry('nb_notepads',count(../e:entries))</element-create>
+                        <element-ignore/>
+                    </element>
+
+                    <element in="e:entries" if="@key='downtimes'">
+                        <element-create>entry('nb_downtimes',count(../e:entry))</element-create>
+                        <element-ignore/>
+                    </element>
+
+                </element>
+
+
+            </element>
+
+        </processors>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+    </view>
+
 </views>
