@@ -155,5 +155,12 @@
         <e:entry key="CERTDN">/DC=org/DC=terena/DC=tcs/C=IT/O=Istituto Nazionale di Fisica Nucleare/CN=Vincenzo Spinoso spinoso@infn.it</e:entry>
     </e:entries>
 
+    <e:entries key="/DC=org/DC=terena/DC=tcs/C=NL/O=Stichting EGI/OU=Directors/CN=Tiziana Ferrari">
+        <e:entry key="ROLES">GRID BODY::project::EGI</e:entry>
+        <e:entry key="NAME">Tiziana Ferrari</e:entry>
+        <e:entry key="EMAIL">tiziana.ferrari@egi.eu</e:entry>
+        <e:entry key="CERTDN">/DC=org/DC=terena/DC=tcs/C=NL/O=Stichting EGI/OU=Directors/CN=Tiziana Ferrari</e:entry>
+    </e:entries>
+
 
 </e:entries>
