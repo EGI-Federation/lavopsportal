@@ -542,7 +542,6 @@
     <view name="DASHBOARD_VIEW"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" authenticators="local">
 
         <argument name="SitesList"></argument>
-        <argument name="SitesSecList">_test_</argument>
         <argument name="statusList">0,1</argument>
         <argument name="profilesList">ARGO_MON_OPERATORS,MW_MONITOR,OPS_MONITOR</argument>
         <argument name="summary">_summary_</argument>
