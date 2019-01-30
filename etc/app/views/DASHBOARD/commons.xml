@@ -43,9 +43,13 @@
         <parameter name="username" eval="property('ROD.db.username')"/>
         <parameter name="password" eval="property('ROD.db.password')"/>
         <parameter name="query">
-            <entry>SELECT * from rod_nagios_history where monitor_id =</entry>
+            <entry>(SELECT * from rod_nagios_history where monitor_id =</entry>
             <entry eval="quot($id)"/>
-            <entry> order by created_at asc</entry>
+            <entry> order by created_at asc)</entry>
+            <entry>UNION</entry>
+            <entry>(SELECT * from csi_nagios_history where monitor_id =</entry>
+            <entry eval="quot($id)"/>
+            <entry> order by created_at asc)</entry>
         </parameter>
     </connector>
 
