@@ -565,7 +565,7 @@
 
         <variable name="yesterday" eval="substring(date:add(date:date(),'-P1D'),0,11)"/>
         <connector type="HTTPConnector">
-            <parameter name="url" eval="property('rt.listtickets.closed.withdate')"/>
+            <parameter name="url" eval="concat(property('rt.listtickets.closed.withdate'),quot($yesterday))"/>
 
         </connector>
 
