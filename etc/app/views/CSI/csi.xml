@@ -561,76 +561,76 @@
 
     </view>
 
-    <view xmlns:date="http://exslt.org/dates-and-times"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd"  authenticators="local" name="Csi_RT_ClosedTicket_List_24h">
+    <!--<view xmlns:date="http://exslt.org/dates-and-times"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd"  authenticators="local" name="Csi_RT_ClosedTicket_List_24h">-->
 
-        <variable name="yesterday" eval="substring(date:add(date:date(),'-P1D'),0,11)"/>
-        <connector type="HTTPConnector">
-            <parameter name="url" eval="concat(property('rt.listtickets.closed.withdate'),quot($yesterday))"/>
+        <!--<variable name="yesterday" eval="substring(date:add(date:date(),'-P1D'),0,11)"/>-->
+        <!--<connector type="HTTPConnector">-->
+            <!--<parameter name="url" eval="concat(property('rt.listtickets.closed.withdate'),quot($yesterday))"/>-->
 
-        </connector>
+        <!--</connector>-->
 
-        <serializer type="DeprecatedTextSerializer">
-            <parameter name="patterns">
-                <entry>(\d+).*</entry>
-                <entry>(.*)</entry>
-            </parameter>
-        </serializer>
+        <!--<serializer type="DeprecatedTextSerializer">-->
+            <!--<parameter name="patterns">-->
+                <!--<entry>(\d+).*</entry>-->
+                <!--<entry>(.*)</entry>-->
+            <!--</parameter>-->
+        <!--</serializer>-->
 
-        <processors>
+        <!--<processors>-->
 
-            <element in="lines" out="e:entries">
-                <element in="line" out="e:entries" if="@pattern=1">
-                    <attribute-ignore/>
-                    <element-create>view('Csi_RT_Ticket_Details',entry('ticketId',../group/text()))</element-create>
-                </element>
-                <element-ignore/>
-            </element>
+            <!--<element in="lines" out="e:entries">-->
+                <!--<element in="line" out="e:entries" if="@pattern=1">-->
+                    <!--<attribute-ignore/>-->
+                    <!--<element-create>view('Csi_RT_Ticket_Details',entry('ticketId',../group/text()))</element-create>-->
+                <!--</element>-->
+                <!--<element-ignore/>-->
+            <!--</element>-->
 
-            <element in="e:entries">
-                <element in="e:entries">
-                    <element-ignore in="lines">
-                        <element-ignore in="line">
-                            <element-create if="../group[@id=1] and ../group[@id=2]">entry(../group[@id=1],../group[@id=2])</element-create>
-                        </element-ignore>
-                    </element-ignore>
-                </element>
-            </element>
+            <!--<element in="e:entries">-->
+                <!--<element in="e:entries">-->
+                    <!--<element-ignore in="lines">-->
+                        <!--<element-ignore in="line">-->
+                            <!--<element-create if="../group[@id=1] and ../group[@id=2]">entry(../group[@id=1],../group[@id=2])</element-create>-->
+                        <!--</element-ignore>-->
+                    <!--</element-ignore>-->
+                <!--</element>-->
+            <!--</element>-->
 
-            <elements path="e:entries/e:entries">
-                <element in="group" out="e:entry">
-                    <set variable="listSites">view('OPSCORE_prod_entities')</set>
-                    <attribute-create out="key">'id'</attribute-create>
-                    <attribute-ignore/>
-                </element>
+            <!--<elements path="e:entries/e:entries">-->
+                <!--<element in="group" out="e:entry">-->
+                    <!--<set variable="listSites">view('OPSCORE_prod_entities')</set>-->
+                    <!--<attribute-create out="key">'id'</attribute-create>-->
+                    <!--<attribute-ignore/>-->
+                <!--</element>-->
 
-                <element-create>
-                    entry('ngi',choose($listSites/NGIs/NGI/Sites/Site[@name=current()/../e:entry[@key='CF.{TargetSite}']/text()]/@ngi,
-                    $listSites/NGIs/NGI/Sites/Site[@name=current()/../e:entry[@key='CF.{TargetSite}']/text()]/@ngi,
-                    'N.A'))
-                </element-create>
-                <element-create>
-                    entry('site',choose(../e:entry[@key='CF.{TargetSite}']/text()!='',../e:entry[@key='CF.{TargetSite}']/text(),'N.A'))
-                </element-create>
+                <!--<element-create>-->
+                    <!--entry('ngi',choose($listSites/NGIs/NGI/Sites/Site[@name=current()/../e:entry[@key='CF.{TargetSite}']/text()]/@ngi,-->
+                    <!--$listSites/NGIs/NGI/Sites/Site[@name=current()/../e:entry[@key='CF.{TargetSite}']/text()]/@ngi,-->
+                    <!--'N.A'))-->
+                <!--</element-create>-->
+                <!--<element-create>-->
+                    <!--entry('site',choose(../e:entry[@key='CF.{TargetSite}']/text()!='',../e:entry[@key='CF.{TargetSite}']/text(),'N.A'))-->
+                <!--</element-create>-->
 
 
 
-                <element-ignore in="e:entry" if="@key='id'"/>
-            </elements>
-        </processors>
+                <!--<element-ignore in="e:entry" if="@key='id'"/>-->
+            <!--</elements>-->
+        <!--</processors>-->
 
-        <cache type="FileCache">
-            <trigger type="ViewNotifiedTrigger"/>
-            <trigger type="DeltaTimeTrigger">
-                <parameter name="minutes">10</parameter>
-            </trigger>
-        </cache>
+        <!--<cache type="FileCache">-->
+            <!--<trigger type="ViewNotifiedTrigger"/>-->
+            <!--<trigger type="DeltaTimeTrigger">-->
+                <!--<parameter name="minutes">10</parameter>-->
+            <!--</trigger>-->
+        <!--</cache>-->
 
-        <renderers>
-            <renderer type="DefaultRenderer">
-                <parameter name="contentType">xml</parameter>
-            </renderer>
-        </renderers>
-    </view>
+        <!--<renderers>-->
+            <!--<renderer type="DefaultRenderer">-->
+                <!--<parameter name="contentType">xml</parameter>-->
+            <!--</renderer>-->
+        <!--</renderers>-->
+    <!--</view>-->
 
 
     <view xmlns:date="http://exslt.org/dates-and-times"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd"  authenticators="local" name="Csi_RT_OpenedTicket_List_24h">
