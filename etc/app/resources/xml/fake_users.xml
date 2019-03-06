@@ -95,7 +95,7 @@
 
     </e:entries>
 
-    <e:entries key="/DC=org/DC=terena/DC=tcs/C=NL/O=EGI/OU=Operations/CN=Baptiste Grenier">
+    <e:entries key="/DC=org/DC=terena/DC=tcs/C=NL/O=Stichting EGI/OU=Operations/CN=Baptiste Grenier">
 
         <e:entry key="ROLES">GRID BODY::project::EGI</e:entry>
 
