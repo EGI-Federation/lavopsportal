@@ -277,6 +277,10 @@
                                 <attribute in="key">'SO-5'</attribute>
                             </element>
 
+                            <element in="e:entry" if="@key='customfield_10711'">
+                                <attribute in="key">'SO-6'</attribute>
+                            </element>
+
                             <element in="e:entry" if="@key='created'">
                                 <attribute in="key">'Creation Date'</attribute>
                             </element>
