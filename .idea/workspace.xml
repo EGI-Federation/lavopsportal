@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="ajout super user">
-      <change afterPath="$PROJECT_DIR$/etc/app/views/DASHBOARD/admin.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/app/views/DASHBOARD/admin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/DASHBOARD/admin.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -115,7 +114,7 @@
           <entry key="js" value="586" />
           <entry key="properties" value="102" />
           <entry key="txt" value="451" />
-          <entry key="xml" value="3973" />
+          <entry key="xml" value="3988" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -124,7 +123,7 @@
           <entry key="JavaScript" value="586" />
           <entry key="PLAIN_TEXT" value="451" />
           <entry key="Properties" value="102" />
-          <entry key="XML" value="3973" />
+          <entry key="XML" value="3988" />
           <entry key="XPath" value="1" />
         </counts>
       </usages-collector>
@@ -171,8 +170,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/etc/app/views/DASHBOARD/admin.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="291">
-              <caret line="117" column="22" lean-forward="true" selection-start-line="117" selection-start-column="22" selection-end-line="117" selection-end-column="22" />
+            <state relative-caret-position="430">
+              <caret line="33" column="27" selection-start-line="33" selection-start-column="27" selection-end-line="33" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -905,12 +904,12 @@
       <window_info id="App Structure" order="10" weight="0.32965213" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3294347" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.33918127" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.33918127" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.291423" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.291423" />
       <window_info anchor="bottom" id="CheckStyle" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.32940018" />
@@ -1247,8 +1246,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/etc/app/views/DASHBOARD/admin.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="117" column="22" lean-forward="true" selection-start-line="117" selection-start-column="22" selection-end-line="117" selection-end-column="22" />
+        <state relative-caret-position="430">
+          <caret line="33" column="27" selection-start-line="33" selection-start-column="27" selection-end-line="33" selection-end-column="27" />
         </state>
       </provider>
     </entry>

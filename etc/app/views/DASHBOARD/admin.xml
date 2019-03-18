@@ -31,6 +31,30 @@
         </renderers>
     </view>
 
+    <view name="rod_notepads_alarms">
+        <connector type="SQLConnector">
+            <parameter name="driver">com.mysql.jdbc.Driver</parameter>
+            <parameter name="url" eval="property('ROD.db.url')"/>
+            <parameter name="username" eval="property('ROD.db.username')"/>
+            <parameter name="password" eval="property('ROD.db.password')"/>
+            <parameter name="query">SELECT id as group_id, id_notepad as id_notepad, id_alarm  FROM notepads_alarm</parameter>
+        </connector>
+
+        <cache type="FileCache">
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="minutes">6</parameter>
+                <parameter name="seconds">40</parameter>
+            </trigger>
+        </cache>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+    </view>
+
     <view name="rod_alarms">
         <connector type="SQLConnector">
             <parameter name="driver">com.mysql.jdbc.Driver</parameter>
@@ -104,8 +128,9 @@
                 </element>
                 <element in="table2">
                     <set variable="rod_tickets_alarms">view('rod_tickets_alarms')</set>
+                    <set variable="rod_notepads_alarms">view('rod_notepads_alarms')</set>
                     <element in="result">
-                        <element in="row" if="not(alarm_id/text()=$rod_tickets_alarms/result/row/alarm_id/text())">
+                        <element in="row" if="not(alarm_id/text()=$rod_tickets_alarms/result/row/alarm_id/text()) and not(alarm_id/text()=$rod_notepads_alarms/result/row/alarm_id/text())">
                             <element-create>new_element('ticket_id','unknown')</element-create>
                             <element-create>new_element('group_id','unknown')</element-create>
                             <element-create>new_element('problem','missing alarm from r_o_d_ticket_alarm. Alarm should be closed')</element-create>
