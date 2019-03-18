@@ -1,0 +1,148 @@
+<views xmlns="http://software.in2p3.fr/lavoisier/application.xsd"
+        xmlns:t="http://software.in2p3.fr/lavoisier/tables.xsd">
+    <!-- 
+        Project : lavopsportal 
+        File    : admin.xml
+        Created by cyril on 2019/03/18 
+    -->
+
+    
+    <view name="rod_tickets_alarms">
+        <connector type="SQLConnector">
+            <parameter name="driver">com.mysql.jdbc.Driver</parameter>
+            <parameter name="url" eval="property('ROD.db.url')"/>
+            <parameter name="username" eval="property('ROD.db.username')"/>
+            <parameter name="password" eval="property('ROD.db.password')"/>
+            <parameter name="query">SELECT id as group_id, idTicket as ticket_id, idAlarm as alarm_id FROM r_o_d_ticket_alarm</parameter>
+        </connector>
+
+        <cache type="FileCache">
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="minutes">6</parameter>
+                <parameter name="seconds">40</parameter>
+            </trigger>
+        </cache>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+    </view>
+
+    <view name="rod_alarms">
+        <connector type="SQLConnector">
+            <parameter name="driver">com.mysql.jdbc.Driver</parameter>
+            <parameter name="url" eval="property('ROD.db.url')"/>
+            <parameter name="username" eval="property('ROD.db.username')"/>
+            <parameter name="password" eval="property('ROD.db.password')"/>
+            <parameter name="query">SELECT id as alarm_id FROM rod_nagios_problem where ops_flag=2</parameter>
+        </connector>
+
+        <cache type="FileCache">
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="minutes">7</parameter>
+                <parameter name="seconds">20</parameter>
+            </trigger>
+        </cache>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+    </view>
+    
+    <view name="rod_tickets">
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('GGUS_ROD')"/>
+        </connector>
+        <cache type="FileCache">
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="minutes">6</parameter>
+                <parameter name="seconds">10</parameter>
+            </trigger>
+        </cache>
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+
+    </view>
+
+    <view name="rod_admin"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <connector type="XMLConnector">
+            <parameter name="content" eval="new_element('root')"/>
+        </connector>
+
+        <processors>
+            <element in="root">
+                <element-create>new_element('table1',view('rod_tickets_alarms'))</element-create>
+                <element-create>new_element('table2',view('rod_alarms'))</element-create>
+
+            </element>
+
+            <element in="root">
+
+                <element in="table1">
+                    <set variable="rod_alarms">view('rod_alarms')</set>
+                    <set variable="rod_tickets">view('rod_tickets')</set>
+                    <element in="result">
+                        <element in="row" if="not(alarm_id/text()=$rod_alarms/result/row/alarm_id/text())">
+                            <element-create>new_element('problem','missing alarm from rod_nagios_problem. Ticket could be closed and group deleted')</element-create>
+                        </element>
+                        <element in="row" if="not(ticket_id/text()=$rod_tickets/e:entries/e:entries/e:entry[@key='GHD_Request_ID']/text())">
+                            <element-create>new_element('problem','missing ticket. Ticket and alarm should be closed')</element-create>
+
+                        </element>
+                        <element-ignore/>
+                    </element>
+                </element>
+                <element in="table2">
+                    <set variable="rod_tickets_alarms">view('rod_tickets_alarms')</set>
+                    <element in="result">
+                        <element in="row" if="not(alarm_id/text()=$rod_tickets_alarms/result/row/alarm_id/text())">
+                            <element-create>new_element('ticket_id','unknown')</element-create>
+                            <element-create>new_element('group_id','unknown')</element-create>
+                            <element-create>new_element('problem','missing alarm from r_o_d_ticket_alarm. Alarm should be closed')</element-create>
+                        </element>
+                        <element-ignore/>
+
+                    </element>
+                </element>
+
+            </element>
+
+            <element in="root" out="e:entries">
+                <element-ignore>
+                    <element in="result" out="e:entries">
+                        <element in="row" out="e:entries">
+                            <element-ignore>
+
+                                <element-create>entry(name(..),../text())</element-create>
+                            </element-ignore>
+
+                        </element>
+                    </element>
+                </element-ignore>
+            </element>
+
+
+
+        </processors>
+
+            <!--<pre-renderers>-->
+                <!--<row foreach="/root/result/row">-->
+                    <!--<column label="ticketId">ticket_id/text()</column>-->
+                    <!--<column label="AlarmId">alarm_id/text()</column>-->
+                    <!--<column label="GroupId">group_id/text()</column>-->
+                    <!--<column label="Problem">problem/text()</column>-->
+                <!--</row>-->
+            <!--</pre-renderers>-->
+    </view>
+
+</views>
