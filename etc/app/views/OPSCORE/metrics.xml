@@ -70,7 +70,7 @@
             <element in="e:entries">
                 <set variable="GGUS_ROD_Opened_24H">view('GGUS_ROD_Opened_24H')</set>
                 <set variable="GGUS_ROD_Closed_24H">view('GGUS_ROD_Closed_24H')</set>
-                <set variable="Csi_RT_ClosedTicket_List_24h">view('Csi_Metrics_Count',entry('viewRT','Csi_RT_ClosedTicket_List_24h'))</set>
+
                 <set variable="Csi_RT_OpenedTicket_List_24h">view('Csi_Metrics_Count', entry('viewRT','Csi_RT_OpenedTicket_List_24h'))</set>
                 <element in="e:entries">
 

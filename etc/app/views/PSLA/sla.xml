@@ -317,6 +317,16 @@
                 </element>
             </element>
 
+            <element in="e:entries">
+                <element in="e:entries">
+                    <element in="e:entries">
+                        <element in="e:entry" if="@key='SO-1' and text()='null'">
+                            <text>../../e:entry[@key='SO-6']/text()</text>
+                        </element>
+                    </element>
+                </element>
+            </element>
+
         </processors>
 
         <cache type="FileCache">
