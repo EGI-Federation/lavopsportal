@@ -976,5 +976,31 @@
             </renderer>
         </renderers>
     </view>
+    
+    
+    <view name="vomses-vo">
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('voms_vo')"/>
+        </connector>
+
+        <processors>
+            <element in="data" out="VOS">
+
+                <element in="Vo" out="VO">
+                    <attribute-create out="key">../name/text()</attribute-create>
+                    <element-ignore in="VoVomsServer">
+                        <element in="VoVomsServer">
+                            <attribute-create out="memberslisturl">../memberslisturl/text()</attribute-create>
+                            <attribute-create out="hostname">../hostname/text()</attribute-create>
+                            <element-ignore/>
+                        </element>
+                    </element-ignore>
+
+
+                </element>
+            </element>
+
+        </processors>
+    </view>
 
 </views>
