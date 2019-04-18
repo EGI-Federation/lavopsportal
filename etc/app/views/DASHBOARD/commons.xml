@@ -215,11 +215,11 @@
         <element in="e:entries">
 
             <set variable="endpoints" index="e:entry[@key='endpoint']/text()">uniq(view('DASHBOARD_endpoints')/e:entries/e:entries,"e:entry[@key='endpoint']/text()")</set>
+            <set variable="probeList">view('DASHBOARD_probes_list')/e:entries</set>
 
-            <!--<set variable="listProbes">view('DASHBOARD_probes_list')/e:entries</set>-->
                 <element in="e:entries">
                     <set variable="endpoint">find($endpoints,e:entry[@key='endpoint']/text())</set>
-                    <set variable="probeList">view('DASHBOARD_probes_list')/e:entries</set>
+
                         <element-create>
                             entry('in_production',
                                 choose($endpoint/e:entry[@key='in_production']/text(),$endpoint/e:entry[@key='in_production']/text(),-1))

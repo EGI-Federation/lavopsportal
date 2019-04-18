@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="ajout super user">
-      <change beforePath="$PROJECT_DIR$/etc/app/views/VO/vo-voms.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/VO/vo-voms.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -68,16 +68,16 @@
     <session id="-1744214573">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="44" />
+          <entry key="project.closed" value="47" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.11" value="3" />
           <entry key="project.open.time.12" value="8" />
           <entry key="project.open.time.13" value="3" />
-          <entry key="project.open.time.14" value="3" />
+          <entry key="project.open.time.14" value="4" />
           <entry key="project.open.time.17" value="1" />
           <entry key="project.open.time.18" value="1" />
-          <entry key="project.open.time.2" value="8" />
+          <entry key="project.open.time.2" value="9" />
           <entry key="project.open.time.21" value="1" />
           <entry key="project.open.time.3" value="9" />
           <entry key="project.open.time.30" value="1" />
@@ -87,7 +87,7 @@
           <entry key="project.open.time.7" value="1" />
           <entry key="project.open.time.8" value="2" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="53" />
+          <entry key="project.opened" value="55" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -115,7 +115,7 @@
           <entry key="js" value="586" />
           <entry key="properties" value="102" />
           <entry key="txt" value="451" />
-          <entry key="xml" value="4336" />
+          <entry key="xml" value="4351" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -124,7 +124,7 @@
           <entry key="JavaScript" value="586" />
           <entry key="PLAIN_TEXT" value="451" />
           <entry key="Properties" value="102" />
-          <entry key="XML" value="4336" />
+          <entry key="XML" value="4351" />
           <entry key="XPath" value="1" />
         </counts>
       </usages-collector>
@@ -141,11 +141,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/etc/app/views/DASHBOARD/commons.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7800">
-              <caret line="520" column="56" selection-start-line="520" selection-start-column="46" selection-end-line="520" selection-end-column="56" />
+            <state relative-caret-position="287">
+              <caret line="556" column="27" lean-forward="true" selection-start-line="556" selection-start-column="27" selection-end-line="556" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -171,7 +171,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/metrics.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="415">
+            <state relative-caret-position="1080">
               <caret line="72" selection-start-line="72" selection-end-line="72" />
             </state>
           </provider>
@@ -207,17 +207,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/etc/app/views/PSLA/sla.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="444">
-              <caret line="322" column="79" lean-forward="true" selection-start-line="322" selection-start-column="79" selection-end-line="322" selection-end-column="79" />
+            <state relative-caret-position="4830">
+              <caret line="322" column="79" selection-start-line="322" selection-start-column="79" selection-end-line="322" selection-end-column="79" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/etc/app/views/VO/vo-voms.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="365">
-              <caret line="989" column="48" selection-start-line="989" selection-start-column="48" selection-end-line="989" selection-end-column="48" />
+            <state relative-caret-position="14850">
+              <caret line="990" column="54" selection-start-line="990" selection-start-column="54" selection-end-line="990" selection-end-column="54" />
             </state>
           </provider>
         </entry>
@@ -366,7 +366,6 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -405,6 +404,14 @@
               <item name="etc" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="DASHBOARD" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lavopsportal" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lavopsportal" type="462c0819:PsiDirectoryNode" />
+              <item name="etc" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="PSLA" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -431,6 +438,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="AndroidView" />
     </panes>
   </component>
@@ -906,12 +914,12 @@
       <window_info id="App Structure" order="10" weight="0.32965213" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3294347" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.33918127" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.33918127" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.291423" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.291423" />
       <window_info anchor="bottom" id="CheckStyle" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.32940018" />
@@ -1190,13 +1198,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/views/DASHBOARD/commons.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7800">
-          <caret line="520" column="56" selection-start-line="520" selection-start-column="46" selection-end-line="520" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/etc/app/views/DASHBOARD/admin.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="690">
@@ -1208,6 +1209,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="8445">
           <caret line="563" column="149" selection-start-line="563" selection-start-column="149" selection-end-line="563" selection-end-column="149" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/metrics.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1080">
+          <caret line="72" selection-start-line="72" selection-end-line="72" />
         </state>
       </provider>
     </entry>
@@ -1232,24 +1240,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/metrics.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="415">
-          <caret line="72" selection-start-line="72" selection-end-line="72" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/etc/app/views/PSLA/sla.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="444">
-          <caret line="322" column="79" lean-forward="true" selection-start-line="322" selection-start-column="79" selection-end-line="322" selection-end-column="79" />
+        <state relative-caret-position="4830">
+          <caret line="322" column="79" selection-start-line="322" selection-start-column="79" selection-end-line="322" selection-end-column="79" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/etc/app/views/VO/vo-voms.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="365">
-          <caret line="989" column="48" selection-start-line="989" selection-start-column="48" selection-end-line="989" selection-end-column="48" />
+        <state relative-caret-position="14850">
+          <caret line="990" column="54" selection-start-line="990" selection-start-column="54" selection-end-line="990" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/etc/app/views/DASHBOARD/commons.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="287">
+          <caret line="556" column="27" lean-forward="true" selection-start-line="556" selection-start-column="27" selection-end-line="556" selection-end-column="27" />
         </state>
       </provider>
     </entry>
