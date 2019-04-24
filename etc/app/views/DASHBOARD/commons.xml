@@ -1,5 +1,5 @@
 
-<views xmlns="http://software.in2p3.fr/lavoisier/application.xsd">
+<views xmlns="http://software.in2p3.fr/lavoisier/application.xsd"  xmlns:date="http://exslt.org/dates-and-times" >
 
     <view name="DASHBOARD_probes_list"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
         <connector type="HTTPConnector">
@@ -137,23 +137,19 @@
                 </element>
             </element>
 
+
             <element in="e:entries">
 
-                <set variable="endpoints">view('DASHBOARD_endpoints')/services/service</set>
-                <set variable="probeList">view('DASHBOARD_probes_list')/e:entries</set>
-
                 <element in="e:entries">
-
-
                     <element-create>
                         entry('in_production',
-                        choose($endpoints[@endpoint=current()/../e:entry[@key='endpoint']/text()]/@in_production,
-                        $endpoints[@endpoint=current()/../e:entry[@key='endpoint']/text()]/@in_production,-1))
+                        choose(
+                        ../e:entry[@key='flags']/text()=0,1,-1))
                     </element-create>
                     <element-create>
                         entry('monitored',
-                        choose($endpoints[@endpoint=current()/../e:entry[@key='endpoint']/text()]/@monitored,
-                        $endpoints[@endpoint=current()/../e:entry[@key='endpoint']/text()]/@monitored,-1))
+                        choose(
+                        ../e:entry[@key='flags']/text()=0,1,-1))
                     </element-create>
                     <element-create>$probeList/e:entry[@name=current()/../e:entry[@key='test_name']/text()]</element-create>
                     <element-create if="contains(../e:entry[@key='summary']/text(),'egi.eu.lowAvailability')">$probeList/e:entry[@name='egi.eu.lowAvailability']</element-create>
@@ -214,23 +210,20 @@
             </element>
         </element>
 
-        <element in="e:entries">
 
-            <set variable="endpoints">view('DASHBOARD_endpoints')/services/service</set>
-            <set variable="probeList">view('DASHBOARD_probes_list')/e:entries</set>
+
+        <element in="e:entries">
 
                 <element in="e:entries">
                         <element-create>
                             entry('in_production',
                                 choose(
-                                $endpoints[@endpoint=current()/../e:entry[@key='endpoint']/text()]/@in_production,
-                                $endpoints[@endpoint=current()/../e:entry[@key='endpoint']/text()]/@in_production,-1))
+                                ../e:entry[@key='flags']/text()=0,1,-1))
                         </element-create>
                     <element-create>
                         entry('monitored',
                         choose(
-                        $endpoints[@endpoint=current()/../e:entry[@key='endpoint']/text()]/@monitored,
-                        $endpoints[@endpoint=current()/../e:entry[@key='endpoint']/text()]/@monitored,-1))
+                        ../e:entry[@key='flags']/text()=0,1,-1))
                     </element-create>
                     <element-create>$probeList/e:entry[@name=current()/../e:entry[@key='test_name']/text()]</element-create>
                     <element-create if="contains(../e:entry[@key='summary']/text(),'egi.eu.lowAvailability')">$probeList/e:entry[@name='egi.eu.lowAvailability']</element-create>
@@ -266,6 +259,10 @@
         </renderer>
     </renderers>
 </view>
+
+
+
+
 
     <view name="DASHBOARD_alarms_filter"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
 
@@ -478,7 +475,7 @@
                 <element-ignore in="e:entries" if="e:entry[@key='GHD_Status']/text()='verified'"/>
                 <element in="e:entries">
                     <element-ignore in="e:entry" if="@key='GHD_Soap_Client_Data'">
-                        <element-create attributes="@key">xml(../text())</element-create>
+                        <element-create>xml(../text())</element-create>
                     </element-ignore>
 
                 </element>
@@ -774,6 +771,59 @@
                 <parameter name="contentType">text/xml</parameter>
             </renderer>
         </renderers>
+    </view>
+
+
+    <view name="profiling">
+        <argument name="view" path-format="value"/>
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('configuration')"/>
+        </connector>
+        <processors xmlns:app="http://software.in2p3.fr/lavoisier/application.xsd" xmlns:plan="http://software.in2p3.fr/lavoisier/plan.xsd">
+            <element-ignore in="app:views">
+                <element in="app:view" if="@name=$view">
+                    <element in="app:connector">
+                        <element-ignore/>
+                    </element>
+                    <element in="app:serializer">
+                        <element-ignore/>
+                    </element>
+                    <element in="app:validator">
+                        <element-ignore/>
+                    </element>
+                    <element-ignore in="app:processors">
+                        <element in="app:processor">
+                            <element-ignore/>
+                        </element>
+                        <element in="plan:e">
+                            <element-ignore/>
+                        </element>
+                        <element in="plan:create-parent">
+                            <element-ignore/>
+                        </element>
+                        <element-ignore/>
+                    </element-ignore>
+                    <element-ignore/>
+                </element>
+                <element-ignore/>
+            </element-ignore>
+            <element in="app:view">
+                <element>
+                    <attribute-create out="nbsteps">count(../preceding-sibling::*) + 1</attribute-create>
+                </element>
+            </element>
+            <element in="app:view">
+                <element>
+                    <text-create>view($view, arguments()|entry('nbsteps',../@nbsteps)|entry('_time_','true'))</text-create>
+                </element>
+            </element>
+            <element in="app:view">
+                <element in="app:connector"/>
+                <element>
+                    <text>number(.) - number(../preceding-sibling::*[1]/text())</text>
+                </element>
+            </element>
+        </processors>
     </view>
 
 </views>
