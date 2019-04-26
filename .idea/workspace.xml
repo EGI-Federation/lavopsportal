@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="mo">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/app/views/OPSCORE/endpoints.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/OPSCORE/endpoints.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/engine/post-processors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/engine/post-processors.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lavopsportal.iml" beforeDir="false" afterPath="$PROJECT_DIR$/lavopsportal.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-    </list>
+    <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="mo" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -106,7 +99,7 @@
           <entry key="js" value="2" />
           <entry key="properties" value="7" />
           <entry key="test" value="1" />
-          <entry key="xml" value="39" />
+          <entry key="xml" value="40" />
           <entry key="xsl" value="1" />
         </counts>
       </usages-collector>
@@ -116,7 +109,7 @@
           <entry key="JavaScript" value="2" />
           <entry key="PLAIN_TEXT" value="2" />
           <entry key="Properties" value="7" />
-          <entry key="XML" value="40" />
+          <entry key="XML" value="41" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -145,6 +138,15 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/etc/app/views/DASHBOARD/commons.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="260">
+              <caret line="142" selection-start-line="142" selection-end-line="142" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/etc/app/html/test.sql">
           <provider selected="true" editor-type-id="text-editor">
@@ -154,23 +156,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/endpoints.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="341">
-              <caret line="75" lean-forward="true" selection-start-line="75" selection-end-line="75" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/etc/engine/post-processors.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2535">
-              <caret line="169" selection-start-line="169" selection-end-line="169" />
-              <folding>
-                <element signature="e#6467#6471#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="221">
+              <caret line="67" column="80" selection-start-line="67" selection-start-column="80" selection-end-line="67" selection-end-column="80" />
             </state>
           </provider>
         </entry>
@@ -250,8 +240,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>OPSCORE.gocdb.get_sites</find>
-      <find>ANDResolved</find>
       <find>production</find>
       <find>rt.listtickets.closed.withdate</find>
       <find>rt.listtickets</find>
@@ -274,12 +262,14 @@
       <find>SQL</find>
       <find>dashboard_endpoints&quot;</find>
       <find>DASHBOARD_endpoints</find>
-      <find>_alarms</find>
       <find>OPSCORE_H</find>
       <find>_alarms&quot;</find>
       <find>attributes=&quot;@key&quot;</find>
       <find>alarms&quot;</find>
+      <find>_alarms</find>
       <find>OPSCORE_host_service</find>
+      <find>probe</find>
+      <find>_sec</find>
     </findStrings>
     <replaceStrings>
       <replace>xmlns=&quot;http://software.in2p3.fr/lavoisier/application.xsd&quot;</replace>
@@ -354,10 +344,10 @@
         <option value="$PROJECT_DIR$/etc/app/html/test.html" />
         <option value="$PROJECT_DIR$/etc/engine/post-processors.xml" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/etc/app/views/DASHBOARD/commons.xml" />
         <option value="$PROJECT_DIR$/etc/app/html/test" />
         <option value="$PROJECT_DIR$/etc/app/html/test.sql" />
         <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/endpoints.xml" />
+        <option value="$PROJECT_DIR$/etc/app/views/DASHBOARD/commons.xml" />
       </list>
     </option>
   </component>
@@ -885,7 +875,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="70" y="27" width="1850" height="1053" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.10254989" />
       <window_info id="Structure" order="1" weight="0.24958587" />
@@ -1172,13 +1161,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/views/DASHBOARD/commons.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1290">
-          <caret line="86" column="16" selection-start-line="86" selection-start-column="16" selection-end-line="86" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/etc/engine/post-processors.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2535">
@@ -1247,8 +1229,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/endpoints.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="75" lean-forward="true" selection-start-line="75" selection-end-line="75" />
+        <state relative-caret-position="221">
+          <caret line="67" column="80" selection-start-line="67" selection-start-column="80" selection-end-line="67" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/etc/app/views/DASHBOARD/commons.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="142" selection-start-line="142" selection-end-line="142" />
         </state>
       </provider>
     </entry>
