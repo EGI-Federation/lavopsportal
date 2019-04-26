@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="ajout super user">
-      <change beforePath="$PROJECT_DIR$/etc/app/views/DASHBOARD/commons.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/DASHBOARD/commons.xml" afterDir="false" />
+    <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="mo">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/app/views/OPSCORE/endpoints.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/OPSCORE/endpoints.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/engine/post-processors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/engine/post-processors.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavopsportal.iml" beforeDir="false" afterPath="$PROJECT_DIR$/lavopsportal.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,6 +22,10 @@
         <entry key="last-active-plugin-version" value="5.18.4" />
       </map>
     </option>
+  </component>
+  <component name="ErrorTreeViewConfiguration">
+    <option name="hideWarnings" value="true" />
+    <option name="HIDE_WARNINGS" value="true" />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="-55599360">
@@ -68,13 +77,13 @@
     <session id="-1744214573">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="47" />
+          <entry key="project.closed" value="51" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.11" value="3" />
-          <entry key="project.open.time.12" value="8" />
+          <entry key="project.open.time.12" value="9" />
           <entry key="project.open.time.13" value="3" />
-          <entry key="project.open.time.14" value="4" />
+          <entry key="project.open.time.14" value="8" />
           <entry key="project.open.time.17" value="1" />
           <entry key="project.open.time.18" value="1" />
           <entry key="project.open.time.2" value="9" />
@@ -87,26 +96,27 @@
           <entry key="project.open.time.7" value="1" />
           <entry key="project.open.time.8" value="2" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="56" />
+          <entry key="project.opened" value="61" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="1" value="1" />
-          <entry key="html" value="2" />
+          <entry key="html" value="3" />
           <entry key="js" value="2" />
           <entry key="properties" value="7" />
-          <entry key="xml" value="33" />
+          <entry key="test" value="1" />
+          <entry key="xml" value="39" />
           <entry key="xsl" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="HTML" value="2" />
+          <entry key="HTML" value="3" />
           <entry key="JavaScript" value="2" />
-          <entry key="PLAIN_TEXT" value="1" />
+          <entry key="PLAIN_TEXT" value="2" />
           <entry key="Properties" value="7" />
-          <entry key="XML" value="34" />
+          <entry key="XML" value="40" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -114,18 +124,21 @@
           <entry key="html" value="1169" />
           <entry key="js" value="586" />
           <entry key="properties" value="102" />
-          <entry key="txt" value="451" />
-          <entry key="xml" value="4748" />
+          <entry key="sql" value="372" />
+          <entry key="test" value="349" />
+          <entry key="txt" value="475" />
+          <entry key="xml" value="4962" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="1168" />
           <entry key="JavaScript" value="586" />
-          <entry key="PLAIN_TEXT" value="451" />
+          <entry key="PLAIN_TEXT" value="824" />
           <entry key="Properties" value="102" />
-          <entry key="XML" value="4742" />
-          <entry key="XPath" value="7" />
+          <entry key="SQL" value="372" />
+          <entry key="XML" value="4953" />
+          <entry key="XPath" value="10" />
         </counts>
       </usages-collector>
     </session>
@@ -133,37 +146,40 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/downtimes.xml">
+        <entry file="file://$PROJECT_DIR$/etc/app/html/test.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2190">
-              <caret line="146" column="39" selection-start-line="146" selection-start-column="39" selection-end-line="146" selection-end-column="39" />
+            <state relative-caret-position="152">
+              <caret line="62" column="43" lean-forward="true" selection-start-line="62" selection-start-column="43" selection-end-line="62" selection-end-column="43" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/etc/app/views/DASHBOARD/commons.xml">
+        <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/endpoints.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="181">
-              <caret line="155" column="55" selection-start-line="155" selection-start-column="55" selection-end-line="155" selection-end-column="55" />
+            <state relative-caret-position="341">
+              <caret line="75" lean-forward="true" selection-start-line="75" selection-end-line="75" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/etc/app/views/DASHBOARD/admin.xml">
+        <entry file="file://$PROJECT_DIR$/etc/engine/post-processors.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="690">
-              <caret line="46" column="56" selection-start-line="46" selection-start-column="56" selection-end-line="46" selection-end-column="56" />
+            <state relative-caret-position="2535">
+              <caret line="169" selection-start-line="169" selection-end-line="169" />
+              <folding>
+                <element signature="e#6467#6471#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/etc/app/views/CSI/csi.xml">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="8445">
-              <caret line="563" column="149" selection-start-line="563" selection-start-column="149" selection-end-line="563" selection-end-column="149" />
+            <state relative-caret-position="495">
+              <caret line="33" column="21" selection-start-line="33" selection-start-column="21" selection-end-line="33" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -228,18 +244,12 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Lavoisier File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>_hist</find>
-      <find>sql</find>
-      <find>authenticators</find>
-      <find>search/ticket?query=Que</find>
-      <find>gocdb.get_sites</find>
-      <find>DASHBOARD_sites</find>
-      <find>OPSCORE_get_site</find>
       <find>OPSCORE.gocdb.get_sites</find>
       <find>ANDResolved</find>
       <find>production</find>
@@ -251,7 +261,6 @@
       <find>OPSCORE_get_downtime_to_broadcast</find>
       <find>get_downtime_to_broadcast</find>
       <find>DNS</find>
-      <find>SQL</find>
       <find>e:entr</find>
       <find>COD</find>
       <find>entry(name(</find>
@@ -259,10 +268,18 @@
       <find>Csi_Metrics_Count</find>
       <find>si_RT_ClosedTicket_List_24h</find>
       <find>voms_vo</find>
-      <find>_alarms&quot;</find>
-      <find>DASHBOARD_endpoints</find>
-      <find>dashboard_endpoints&quot;</find>
+      <find>sqlco</find>
       <find>dashboard_endpoints</find>
+      <find>&lt;entry&gt;</find>
+      <find>SQL</find>
+      <find>dashboard_endpoints&quot;</find>
+      <find>DASHBOARD_endpoints</find>
+      <find>_alarms</find>
+      <find>OPSCORE_H</find>
+      <find>_alarms&quot;</find>
+      <find>attributes=&quot;@key&quot;</find>
+      <find>alarms&quot;</find>
+      <find>OPSCORE_host_service</find>
     </findStrings>
     <replaceStrings>
       <replace>xmlns=&quot;http://software.in2p3.fr/lavoisier/application.xsd&quot;</replace>
@@ -290,11 +307,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/views/downtimes.xml" />
-        <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/views/endpoints.xml" />
-        <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/views/entities.xml" />
-        <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/views/global_functions.xml" />
-        <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/views/metrics.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/views/voms.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/skeletons/OPSCORE_users.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/argo.xml" />
@@ -308,7 +320,6 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/bdii.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/users.xml" />
-        <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/endpoints.xml" />
         <option value="$PROJECT_DIR$/etc/app/resources/xml/convert_toEntries.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/GGUS/primary.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/COD/crons.xml" />
@@ -340,7 +351,13 @@
         <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/metrics.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/PSLA/sla.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/VO/vo-voms.xml" />
+        <option value="$PROJECT_DIR$/etc/app/html/test.html" />
+        <option value="$PROJECT_DIR$/etc/engine/post-processors.xml" />
+        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/DASHBOARD/commons.xml" />
+        <option value="$PROJECT_DIR$/etc/app/html/test" />
+        <option value="$PROJECT_DIR$/etc/app/html/test.sql" />
+        <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/endpoints.xml" />
       </list>
     </option>
   </component>
@@ -390,44 +407,7 @@
               <item name="lavopsportal" type="462c0819:PsiDirectoryNode" />
               <item name="etc" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lavopsportal" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lavopsportal" type="462c0819:PsiDirectoryNode" />
-              <item name="etc" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lavopsportal" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lavopsportal" type="462c0819:PsiDirectoryNode" />
-              <item name="etc" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="DASHBOARD" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lavopsportal" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lavopsportal" type="462c0819:PsiDirectoryNode" />
-              <item name="etc" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="PSLA" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lavopsportal" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lavopsportal" type="462c0819:PsiDirectoryNode" />
-              <item name="etc" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="VO" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lavopsportal" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lavopsportal" type="462c0819:PsiDirectoryNode" />
-              <item name="etc" type="462c0819:PsiDirectoryNode" />
-              <item name="engine" type="462c0819:PsiDirectoryNode" />
+              <item name="html" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="lavopsportal" type="b2602c69:ProjectViewProjectNode" />
@@ -443,9 +423,13 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542023584356" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../ArgoConsumer" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -482,7 +466,7 @@
     <configuration name="Run with arguments" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="fr.in2p3.lavoisier.command.StandaloneExec" />
       <module name="lavopsportal" />
-      <option name="PROGRAM_PARAMETERS" value="JiraComment?nbsteps=999&amp;ticketId=EOSCSO-154&amp;accept=xml" />
+      <option name="PROGRAM_PARAMETERS" value="profiling?nbsteps=999&amp;view=DASHBOARD_alarms&amp;accept=xml" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -498,6 +482,8 @@
       </method>
     </configuration>
     <configuration name="Start Lavoisier server" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="/usr/lib/jvm/java-1.11.0-openjdk-amd64" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="fr.in2p3.lavoisier.command.StartServer" />
       <module name="lavopsportal" />
       <option name="VM_PARAMETERS" value="-Dhttps.protocols=TLSv1,TLSv1.1,TLSv1.2" />
@@ -550,27 +536,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1526559679554</updated>
-    </task>
-    <task id="LOCAL-00070" summary="changement url">
-      <created>1535616696564</created>
-      <option name="number" value="00070" />
-      <option name="presentableId" value="LOCAL-00070" />
-      <option name="project" value="LOCAL" />
-      <updated>1535616696565</updated>
-    </task>
-    <task id="LOCAL-00071" summary="ajout super user">
-      <created>1535635222267</created>
-      <option name="number" value="00071" />
-      <option name="presentableId" value="LOCAL-00071" />
-      <option name="project" value="LOCAL" />
-      <updated>1535635222267</updated>
-    </task>
-    <task id="LOCAL-00072" summary="remplacement date !='0000-00-00 00:00:00'">
-      <created>1536233553632</created>
-      <option name="number" value="00072" />
-      <option name="presentableId" value="LOCAL-00072" />
-      <option name="project" value="LOCAL" />
-      <updated>1536233553633</updated>
     </task>
     <task id="LOCAL-00073" summary="remplacement v3 par v4 dans api gitlab">
       <created>1536324566587</created>
@@ -894,13 +859,35 @@
       <option name="project" value="LOCAL" />
       <updated>1549376026492</updated>
     </task>
-    <option name="localTasksCounter" value="119" />
+    <task id="LOCAL-00119" summary="mo">
+      <created>1556119520058</created>
+      <option name="number" value="00119" />
+      <option name="presentableId" value="LOCAL-00119" />
+      <option name="project" value="LOCAL" />
+      <updated>1556119520064</updated>
+    </task>
+    <task id="LOCAL-00120" summary="status endpoint change">
+      <created>1556279775171</created>
+      <option name="number" value="00120" />
+      <option name="presentableId" value="LOCAL-00120" />
+      <option name="project" value="LOCAL" />
+      <updated>1556279775172</updated>
+    </task>
+    <task id="LOCAL-00121" summary="mo">
+      <created>1556280380500</created>
+      <option name="number" value="00121" />
+      <option name="presentableId" value="LOCAL-00121" />
+      <option name="project" value="LOCAL" />
+      <updated>1556280380500</updated>
+    </task>
+    <option name="localTasksCounter" value="122" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="67" y="27" width="1853" height="1173" extended-state="6" />
+    <frame x="70" y="27" width="1850" height="1053" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23076923" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.10254989" />
       <window_info id="Structure" order="1" weight="0.24958587" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -913,15 +900,15 @@
       <window_info id="App Structure" order="10" weight="0.32965213" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3294347" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.33918127" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3294347" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.291423" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.31677705" />
       <window_info anchor="bottom" id="CheckStyle" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.32940018" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32846004" />
       <window_info anchor="bottom" id="Console" order="11" />
       <window_info anchor="bottom" id="Version Control" order="12" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -941,8 +928,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add fake user" />
-    <MESSAGE value="suppression filtre alarms" />
     <MESSAGE value="changement ticket" />
     <MESSAGE value="ajout cache tickets" />
     <MESSAGE value="modification sites gridops" />
@@ -966,36 +951,11 @@
     <MESSAGE value="ajout historique csi" />
     <MESSAGE value="ajout super user" />
     <MESSAGE value="ajout date requete RT" />
-    <option name="LAST_COMMIT_MESSAGE" value="ajout date requete RT" />
+    <MESSAGE value="status endpoint change" />
+    <MESSAGE value="mo" />
+    <option name="LAST_COMMIT_MESSAGE" value="mo" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/argo.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="7" selection-start-column="7" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/etc/engine/post-processors.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="16" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/endpoints.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1305">
-          <caret line="87" column="71" selection-start-line="87" selection-start-column="71" selection-end-line="87" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/resources/xml/cic_voidcards_dump.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/resources/xml/metrics_columns.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/fr/in2p3/lavoisier/lavoisier-chaining/2.1.3-SNAPSHOT/lavoisier-chaining-2.1.3-20180627.130914-90.jar!/fr/in2p3/lavoisier/chaining/link/connector/SAXConnectorLink.class" />
     <entry file="file://$PROJECT_DIR$/etc/app/resources/skeletons/OPSCORE_downtime_ongoing.xml">
       <provider selected="true" editor-type-id="text-editor">
@@ -1190,13 +1150,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/downtimes.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2190">
-          <caret line="146" column="39" selection-start-line="146" selection-start-column="39" selection-end-line="146" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/etc/app/views/DASHBOARD/admin.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="690">
@@ -1204,10 +1157,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/etc/app/html/test.html" />
+    <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/downtimes.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="377">
+          <caret line="679" column="19" lean-forward="true" selection-start-line="679" selection-start-column="19" selection-end-line="679" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/etc/app/views/CSI/csi.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="8445">
           <caret line="563" column="149" selection-start-line="563" selection-start-column="149" selection-end-line="563" selection-end-column="149" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/etc/app/views/DASHBOARD/commons.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1290">
+          <caret line="86" column="16" selection-start-line="86" selection-start-column="16" selection-end-line="86" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/etc/engine/post-processors.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2535">
+          <caret line="169" selection-start-line="169" selection-end-line="169" />
+          <folding>
+            <element signature="e#6467#6471#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="33" column="21" selection-start-line="33" selection-start-column="21" selection-end-line="33" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -1253,12 +1238,95 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/views/DASHBOARD/commons.xml">
+    <entry file="file://$PROJECT_DIR$/etc/app/html/test.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="155" column="55" selection-start-line="155" selection-start-column="55" selection-end-line="155" selection-end-column="55" />
+        <state relative-caret-position="152">
+          <caret line="62" column="43" lean-forward="true" selection-start-line="62" selection-start-column="43" selection-end-line="62" selection-end-column="43" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/endpoints.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="75" lean-forward="true" selection-start-line="75" selection-end-line="75" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>11</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>lavopsportal</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>etc</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>

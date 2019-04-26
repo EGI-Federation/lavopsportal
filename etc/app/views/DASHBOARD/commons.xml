@@ -139,6 +139,7 @@
 
 
             <element in="e:entries">
+                <set variable="probeList">view('DASHBOARD_probes_list')/e:entries</set>
 
                 <element in="e:entries">
                     <element-create>
@@ -213,6 +214,7 @@
 
 
         <element in="e:entries">
+            <set variable="probeList">view('DASHBOARD_probes_list')/e:entries</set>
 
                 <element in="e:entries">
                         <element-create>

@@ -1,4 +1,5 @@
 <processors-list xmlns="http://software.in2p3.fr/lavoisier/application.xsd">
+
     <processors>
         <processor type="SelectWindowProcessor" match="/*/*" disabled="not(arguments()[@key='_window_']/text())">
             <parameter name="offset" eval="substring-before(arguments()[@key='_window_']/text(), '-')"/>
@@ -9,6 +10,11 @@
         </processor>
         <processor type="ExtractProcessor" match="/*" disabled="not(arguments()[@key='_extract_'])"/>
         <processor type="SkeletonProcessor" match="/*" disabled="not(arguments()[@key='_skeleton_'])"/>
+        <e if="arguments()[@key='_time_']" xmlns="http://software.in2p3.fr/lavoisier/plan.xsd">
+            <var name="start">date:seconds()</var>
+            <a ignore="true"/><e ignore="true"/><t ignore="true"/>
+            <create-last-child>date:seconds() - $start</create-last-child>
+        </e>
     </processors>
 
     <processors xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" xmlns:date="http://exslt.org/dates-and-times" xmlns:str="http://exslt.org/strings" name="downtime">
