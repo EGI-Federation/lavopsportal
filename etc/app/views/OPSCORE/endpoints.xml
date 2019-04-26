@@ -79,7 +79,7 @@
                     <element-create>entry('id',../@PRIMARY_KEY)</element-create>
                     <element-create>entry('hostname',../HOSTNAME/text())</element-create>
                     <element-create>entry('service',../SERVICE_TYPE/text())</element-create>
-                    <element-create>entry('status',concat(choose(../IS_CERTIFIED/text()='Y','1','0'),choose(../IN_PRODUCTION/text()='Y','1','0')))</element-create>
+                    <element-create>entry('status',concat(choose(../NODE_MONITORED/text()='Y','1','0'),choose(../IN_PRODUCTION/text()='Y','1','0')))</element-create>
                     <element-create>entry('site',../SITENAME/text())</element-create>
                     <element-create>entry('ngi',../ROC_NAME/text())</element-create>
 
