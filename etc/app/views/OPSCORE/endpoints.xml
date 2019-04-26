@@ -125,7 +125,7 @@
                     <element-create>entry('id',concat(../@PRIMARY_KEY,'_av'))</element-create>
                     <element-create>entry('hostname',concat(../SHORT_NAME/text(),'_Availability'))</element-create>
                     <element-create>entry('service',concat(../SHORT_NAME/text(),'_Availability'))</element-create>
-                    <element-create>entry('status','1')</element-create>
+                    <element-create>entry('status','11')</element-create>
                     <element-create>entry('site',../SHORT_NAME/text())</element-create>
                     <element-create>entry('ngi',../ROC/text())</element-create>
                     <element-ignore/>
