@@ -332,7 +332,7 @@
         <cache type="FileCache">
             <trigger type="ViewNotifiedTrigger"/>
             <trigger type="DeltaTimeTrigger">
-                <parameter name="minutes"  eval="choose($env='test',7,12)"/>
+                <parameter name="minutes"  eval="choose(property('env')='test',12,7)"/>
             </trigger>
         </cache>
 

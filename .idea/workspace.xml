@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="mo">
-      <change beforePath="$PROJECT_DIR$/etc/app/views/OPSCORE/downtimes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/OPSCORE/downtimes.xml" afterDir="false" />
-    </list>
+    <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="mo" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -101,7 +99,7 @@
           <entry key="js" value="2" />
           <entry key="properties" value="7" />
           <entry key="test" value="1" />
-          <entry key="xml" value="43" />
+          <entry key="xml" value="46" />
           <entry key="xsl" value="1" />
         </counts>
       </usages-collector>
@@ -111,7 +109,7 @@
           <entry key="JavaScript" value="2" />
           <entry key="PLAIN_TEXT" value="2" />
           <entry key="Properties" value="7" />
-          <entry key="XML" value="44" />
+          <entry key="XML" value="47" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -122,7 +120,7 @@
           <entry key="sql" value="372" />
           <entry key="test" value="349" />
           <entry key="txt" value="475" />
-          <entry key="xml" value="4970" />
+          <entry key="xml" value="5032" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -132,7 +130,7 @@
           <entry key="PLAIN_TEXT" value="824" />
           <entry key="Properties" value="102" />
           <entry key="SQL" value="372" />
-          <entry key="XML" value="4960" />
+          <entry key="XML" value="5022" />
           <entry key="XPath" value="11" />
         </counts>
       </usages-collector>
@@ -141,22 +139,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/etc/app/html/test.sql">
+        <entry file="file://$PROJECT_DIR$/etc/app/views/DASHBOARD/commons.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="930">
-              <caret line="62" column="43" selection-start-line="62" selection-start-column="43" selection-end-line="62" selection-end-column="43" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/etc/engine/post-processors.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2535">
-              <caret line="169" selection-start-line="169" selection-end-line="169" />
-              <folding>
-                <element signature="e#6467#6471#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="479">
+              <caret line="492" column="71" selection-start-line="492" selection-start-column="71" selection-end-line="492" selection-end-column="71" />
             </state>
           </provider>
         </entry>
@@ -173,8 +159,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/endpoints.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
+            <state relative-caret-position="1890">
               <caret line="126" column="85" selection-start-line="126" selection-start-column="85" selection-end-line="126" selection-end-column="85" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/global_functions.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="870">
+              <caret line="331" lean-forward="true" selection-start-line="331" selection-end-line="331" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/etc/app/views/ROD/rod.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="192">
+              <caret line="47" column="32" lean-forward="true" selection-start-line="47" selection-start-column="32" selection-end-line="47" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -182,17 +186,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/downtimes.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="43" selection-start-line="18" selection-start-column="43" selection-end-line="18" selection-end-column="43" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/etc/app/views/GGUS/ggus.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="24" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
+            <state relative-caret-position="-1221">
+              <caret line="462" column="66" lean-forward="true" selection-start-line="462" selection-start-column="66" selection-end-line="462" selection-end-column="66" />
             </state>
           </provider>
         </entry>
@@ -218,8 +213,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/etc/app/views/PSLA/sla.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4830">
-              <caret line="322" column="79" selection-start-line="322" selection-start-column="79" selection-end-line="322" selection-end-column="79" />
+            <state relative-caret-position="284">
+              <caret line="324" column="34" lean-forward="true" selection-start-line="324" selection-start-column="34" selection-end-line="324" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -245,10 +240,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>bap</find>
-      <find>sla</find>
-      <find>OPSCORE_get_downtimes_forDNS</find>
-      <find>OPSCORE_get_downtime_to_broadcast</find>
       <find>get_downtime_to_broadcast</find>
       <find>DNS</find>
       <find>e:entr</find>
@@ -273,8 +264,12 @@
       <find>probe</find>
       <find>_sec</find>
       <find>downtimes</find>
-      <find>OPSCORE_fake_availability_services</find>
       <find>notify.downtimes</find>
+      <find>OPSCORE_fake_availability_services</find>
+      <find>choose($en</find>
+      <find>minutes&quot;&gt;</find>
+      <find>$env=</find>
+      <find>$env</find>
     </findStrings>
     <replaceStrings>
       <replace>xmlns=&quot;http://software.in2p3.fr/lavoisier/application.xsd&quot;</replace>
@@ -311,7 +306,6 @@
         <option value="$PROJECT_DIR$/etc/engine/views-libraries.properties" />
         <option value="$PROJECT_DIR$/etc/app/views/GGUS/soap.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/BROADCAST/jstree_branches.xml" />
-        <option value="$PROJECT_DIR$/etc/app/views/ROD/rod.xml" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/bdii.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/users.xml" />
@@ -323,7 +317,6 @@
         <option value="$PROJECT_DIR$/etc/app/resources/xml/test.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/GGUS/ggus.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/Tutorial/tutorial.xml" />
-        <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/global_functions.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/BROADCAST/recipients.xml" />
         <option value="$PROJECT_DIR$/etc/app/resources/xsl/test.wsdl" />
         <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/entities.xml" />
@@ -343,16 +336,18 @@
         <option value="$PROJECT_DIR$/etc/app/resources/xml/fake_users.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/DASHBOARD/admin.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/metrics.xml" />
-        <option value="$PROJECT_DIR$/etc/app/views/PSLA/sla.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/VO/vo-voms.xml" />
         <option value="$PROJECT_DIR$/etc/app/html/test.html" />
         <option value="$PROJECT_DIR$/etc/engine/post-processors.xml" />
         <option value="$PROJECT_DIR$/etc/app/html/test" />
         <option value="$PROJECT_DIR$/etc/app/html/test.sql" />
-        <option value="$PROJECT_DIR$/etc/app/views/DASHBOARD/commons.xml" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/endpoints.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/downtimes.xml" />
+        <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/global_functions.xml" />
+        <option value="$PROJECT_DIR$/etc/app/views/DASHBOARD/commons.xml" />
+        <option value="$PROJECT_DIR$/etc/app/views/PSLA/sla.xml" />
+        <option value="$PROJECT_DIR$/etc/app/views/ROD/rod.xml" />
       </list>
     </option>
   </component>
@@ -395,7 +390,7 @@
               <item name="lavopsportal" type="b2602c69:ProjectViewProjectNode" />
               <item name="lavopsportal" type="462c0819:PsiDirectoryNode" />
               <item name="etc" type="462c0819:PsiDirectoryNode" />
-              <item name="engine" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="lavopsportal" type="b2602c69:ProjectViewProjectNode" />
@@ -873,7 +868,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="70" y="27" width="1850" height="1173" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.10254989" />
       <window_info id="Structure" order="1" weight="0.24958587" />
@@ -998,13 +992,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/global_functions.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-386">
-          <caret line="229" column="64" selection-start-line="229" selection-start-column="64" selection-end-line="229" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/etc/app/resources/xsl/metricsrowcol.xsl">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1025,13 +1012,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/etc/app/resources/xml/GHD_Soap_Client.xml">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/views/ROD/rod.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="42" column="81" selection-start-line="42" selection-start-column="79" selection-end-line="42" selection-end-column="81" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/etc/app/views/COD/crons.xml">
       <provider selected="true" editor-type-id="text-editor">
@@ -1160,13 +1140,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/views/DASHBOARD/commons.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2130">
-          <caret line="142" selection-start-line="142" selection-end-line="142" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/etc/app/html/test.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="930">
@@ -1191,24 +1164,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/app.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1545">
-          <caret line="103" column="48" selection-start-line="103" selection-start-column="42" selection-end-line="103" selection-end-column="109" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/etc/engine/engine.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/views/PSLA/sla.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4830">
-          <caret line="322" column="79" selection-start-line="322" selection-start-column="79" selection-end-line="322" selection-end-column="79" />
         </state>
       </provider>
     </entry>
@@ -1226,17 +1185,52 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/etc/app/app.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1545">
+          <caret line="103" column="48" selection-start-line="103" selection-start-column="42" selection-end-line="103" selection-end-column="109" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/endpoints.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
+        <state relative-caret-position="1890">
           <caret line="126" column="85" selection-start-line="126" selection-start-column="85" selection-end-line="126" selection-end-column="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/etc/app/views/DASHBOARD/commons.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="479">
+          <caret line="492" column="71" selection-start-line="492" selection-start-column="71" selection-end-line="492" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/etc/app/views/PSLA/sla.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="324" column="34" lean-forward="true" selection-start-line="324" selection-start-column="34" selection-end-line="324" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/etc/app/views/ROD/rod.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="47" column="32" lean-forward="true" selection-start-line="47" selection-start-column="32" selection-end-line="47" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/global_functions.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="870">
+          <caret line="331" lean-forward="true" selection-start-line="331" selection-end-line="331" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/downtimes.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="43" selection-start-line="18" selection-start-column="43" selection-end-line="18" selection-end-column="43" />
+        <state relative-caret-position="-1221">
+          <caret line="462" column="66" lean-forward="true" selection-start-line="462" selection-start-column="66" selection-end-line="462" selection-end-column="66" />
         </state>
       </provider>
     </entry>
