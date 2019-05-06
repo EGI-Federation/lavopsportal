@@ -186,38 +186,37 @@
         <parameter name="header" eval="concat('PRIVATE-TOKEN: ',property('gitlab.token'))"/>
     </connector>
 
+        <serializer type="JSONStreamSerializer"/>
         <processors>
 
-            <element in="object" out="e:entries">
+            <element in="object" out="tables">
 
-                <element-ignore in="array">
+                <element in="array" out="table">
                     <element-ignore in="item">
-                        <element in="object" out="e:entries">
-                            <attribute-create out="key">concat('issue_',../@id)</attribute-create>
+                        <element in="object" out="row">
+
                             <attribute-ignore/>
 
-                            <element-create>entry('id',../@id)</element-create>
-                            <element-create>entry('link',../@web_url)</element-create>
-                            <element-create>entry('title',../@title)</element-create>
-                            <element-create>entry('description',../@description)</element-create>
-                            <element-create>entry('author',../author/object/@name)</element-create>
-                            <element-create>entry('state',../@state)</element-create>
-                            <element-create if="milestone/object/@title">entry('release',../milestone/object/@title)</element-create>
+
+                            <element-create>new_element('column',new_attribute('label','1')|../@web_url)</element-create>
+                            <element-create>new_element('column',new_attribute('label','2')|../@title)</element-create>
+                            <!--<element-create>entry('description',../@description)</element-create>-->
+                            <!--<element-create>entry('author',../author/object/@name)</element-create>-->
+                            <element-create>new_element('column',new_attribute('label','5')|../@state)</element-create>
+                            <element-create if="milestone/object/@title">new_element('column',new_attribute('label','6')|../milestone/object/@title)</element-create>
 
 
 
+                            <element-ignore in="labels">
 
-                            <element in="labels" out="e:entries">
-                                <attribute-create out="key">'labels'</attribute-create>
-
-                                <element in="item" out="e:entry">
-                                    <attribute-create out="key">../text()</attribute-create>
-                                </element>
-                            </element>
+                                <element-ignore in="item">
+                                    <element-create> new_element('column',new_attribute('label','4')| ../text())</element-create>
+                                </element-ignore>
+                            </element-ignore>
                             <element-ignore/>
                         </element>
                     </element-ignore>
-                </element-ignore>
+                </element>
             </element>
         </processors>
     </view>
