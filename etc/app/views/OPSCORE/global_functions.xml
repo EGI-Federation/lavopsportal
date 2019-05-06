@@ -360,7 +360,7 @@
 
 
             <element in="e:entries">
-                <element-create>xml(view('hookReleases'))</element-create>
+                <element-create>view('hookReleases')</element-create>
             </element>
        </processors>
 
