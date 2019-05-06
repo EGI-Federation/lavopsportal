@@ -203,15 +203,13 @@
                             <!--<element-create>entry('description',../@description)</element-create>-->
                             <!--<element-create>entry('author',../author/object/@name)</element-create>-->
                             <element-create>new_element('column',new_attribute('label','5')|../state/text())</element-create>
-                            <element-create if="milestone/object/@title">new_element('column',new_attribute('label','6')|../milestone/object/title/text())</element-create>
+                            <element-create>new_element('column',new_attribute('label','3')|'100')</element-create>
+                            <element-create if="milestone/object/title/text()">new_element('column',new_attribute('label','6')|../milestone/object/title/text())</element-create>
 
 
 
                             <element-ignore in="labels">
-
-                                <element-ignore in="item">
-                                    <element-create> new_element('column',new_attribute('label','4')| ../text())</element-create>
-                                </element-ignore>
+                                <element-create> new_element('column',new_attribute('label','4')| join(../item/text(),','))</element-create>
                             </element-ignore>
                             <element-ignore/>
                         </element>
