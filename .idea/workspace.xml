@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="mo">
-      <change beforePath="$PROJECT_DIR$/etc/app/views/OPSCORE/global_functions.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/OPSCORE/global_functions.xml" afterDir="false" />
-    </list>
+    <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="mo" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -123,7 +121,7 @@
           <entry key="sql" value="372" />
           <entry key="test" value="349" />
           <entry key="txt" value="475" />
-          <entry key="xml" value="5742" />
+          <entry key="xml" value="5777" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -133,7 +131,7 @@
           <entry key="PLAIN_TEXT" value="824" />
           <entry key="Properties" value="102" />
           <entry key="SQL" value="372" />
-          <entry key="XML" value="5724" />
+          <entry key="XML" value="5759" />
           <entry key="XPath" value="19" />
         </counts>
       </usages-collector>
@@ -162,8 +160,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/global_functions.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="344">
-              <caret line="208" lean-forward="true" selection-start-line="208" selection-end-line="208" />
+            <state relative-caret-position="179">
+              <caret line="260" column="22" lean-forward="true" selection-start-line="260" selection-start-column="22" selection-end-line="260" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -234,7 +232,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Csi_RT_ClosedTicket_List_24h</find>
       <find>Csi_Metrics_Count</find>
       <find>si_RT_ClosedTicket_List_24h</find>
       <find>voms_vo</find>
@@ -264,6 +261,7 @@
       <find>certi</find>
       <find>CDATA</find>
       <find>CDATA[</find>
+      <find>Resolved</find>
     </findStrings>
     <replaceStrings>
       <replace>xmlns=&quot;http://software.in2p3.fr/lavoisier/application.xsd&quot;</replace>
@@ -1234,8 +1232,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/global_functions.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="344">
-          <caret line="208" lean-forward="true" selection-start-line="208" selection-end-line="208" />
+        <state relative-caret-position="179">
+          <caret line="260" column="22" lean-forward="true" selection-start-line="260" selection-start-column="22" selection-end-line="260" selection-end-column="22" />
         </state>
       </provider>
     </entry>
