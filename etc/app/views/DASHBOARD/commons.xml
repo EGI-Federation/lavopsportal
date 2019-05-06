@@ -144,11 +144,11 @@
                 <element in="e:entries">
                     <element-create>
                         entry('in_production',
-                        choose(substring(../e:entry[@key='flags']/text(),3,1)!='',substring(../e:entry[@key='flags']/text(),3,1),-1))
+                        choose(substring(../e:entry[@key='flags']/text(),4,1)!='',substring(../e:entry[@key='flags']/text(),4,1),-1))
                     </element-create>
                     <element-create>
                         entry('monitored',
-                        choose(substring(../e:entry[@key='flags']/text(),4,1)!='',substring(../e:entry[@key='flags']/text(),4,1),-1))
+                        choose(substring(../e:entry[@key='flags']/text(),3,1)!='',substring(../e:entry[@key='flags']/text(),3,1),-1))
                     </element-create>
                     <element-create>$probeList/e:entry[@name=current()/../e:entry[@key='test_name']/text()]</element-create>
                     <element-create if="contains(../e:entry[@key='summary']/text(),'egi.eu.lowAvailability')">$probeList/e:entry[@name='egi.eu.lowAvailability']</element-create>
@@ -217,11 +217,11 @@
                 <element in="e:entries">
                     <element-create>
                         entry('in_production',
-                        choose(substring(../e:entry[@key='flags']/text(),3,1)!='',substring(../e:entry[@key='flags']/text(),3,1),-1))
+                        choose(substring(../e:entry[@key='flags']/text(),4,1)!='',substring(../e:entry[@key='flags']/text(),4,1),-1))
                     </element-create>
                     <element-create>
                         entry('monitored',
-                        choose(substring(../e:entry[@key='flags']/text(),4,1)!='',substring(../e:entry[@key='flags']/text(),4,1),-1))
+                        choose(substring(../e:entry[@key='flags']/text(),3,1)!='',substring(../e:entry[@key='flags']/text(),3,1),-1))
                     </element-create>
                     <element-create>$probeList/e:entry[@name=current()/../e:entry[@key='test_name']/text()]</element-create>
                     <element-create if="contains(../e:entry[@key='summary']/text(),'egi.eu.lowAvailability')">$probeList/e:entry[@name='egi.eu.lowAvailability']</element-create>
