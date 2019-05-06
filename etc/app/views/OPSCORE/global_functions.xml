@@ -198,18 +198,18 @@
                             <attribute-ignore/>
 
 
-                            <element-create>new_element('column',new_attribute('label','1')|../web_url/text())</element-create>
-                            <element-create>new_element('column',new_attribute('label','2')|../title/text())</element-create>
+                            <element-create>new_element('column',new_attribute('label','1')|new_text(../web_url/text()))</element-create>
+                            <element-create>new_element('column',new_attribute('label','2')|new_text(../title/text()))</element-create>
                             <!--<element-create>entry('description',../@description)</element-create>-->
                             <!--<element-create>entry('author',../author/object/@name)</element-create>-->
-                            <element-create>new_element('column',new_attribute('label','5')|../state/text())</element-create>
-                            <element-create>new_element('column',new_attribute('label','3')|'100')</element-create>
-                            <element-create if="milestone/object/title/text()">new_element('column',new_attribute('label','6')|../milestone/object/title/text())</element-create>
+                            <element-create>new_element('column',new_attribute('label','5')|new_text(../state/text()))</element-create>
+                            <element-create>new_element('column',new_attribute('label','3')|new_text('100'))</element-create>
+                            <element-create if="milestone/object/title/text()">new_element('column',new_attribute('label','6')|new_text(../milestone/object/title/text()))</element-create>
 
 
 
                             <element-ignore in="labels">
-                                <element-create> new_element('column',new_attribute('label','4')| ../item/text())</element-create>
+                                <element-create> new_element('column',new_attribute('label','4')| new_text(../item/text()))</element-create>
                             </element-ignore>
                             <element-ignore/>
                         </element>
