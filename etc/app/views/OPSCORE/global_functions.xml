@@ -209,7 +209,7 @@
 
 
                             <element-ignore in="labels">
-                                <element-create> new_element('column',new_attribute('label','4')| join(../item,','))</element-create>
+                                <element-create> new_element('column',new_attribute('label','4')| new_text(join(../item,',')))</element-create>
                             </element-ignore>
                             <element-ignore/>
                         </element>
