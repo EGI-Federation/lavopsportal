@@ -361,12 +361,12 @@
 
             <element in="e:entries">
 
-                <element-create>new_element(entries(new_attribute('id','release_5.0'))|new_element(entries(new_attribute('key','number'),new_text('5.0')))
-                    |new_element(entries(new_attribute('key','id'),new_text('5.0')))
-                    |new_element(entries(new_attribute('key','start_date'),new_text('2018-02-01')))
-                    |new_element(entries(new_attribute('key','end_date'),new_text('2019-05-21')))
-
-                    )</element-create>
+                <element-create>new_element(entries()
+                    |new_element(entry(new_attribute('key','number'),new_text('5.0')))
+                    |new_element(entry(new_attribute('key','id'),new_text('5.0')))
+                    |new_element(entry(new_attribute('key','start_date'),new_text('2018-02-01')))
+                    |new_element(entry(new_attribute('key','end_date'),new_text('2019-05-21'))) )
+                </element-create>
 
             </element>
        </processors>
