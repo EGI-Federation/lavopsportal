@@ -216,6 +216,12 @@
 
 
             </element>
+
+            <element in="tables">
+                <element-create-as-parent out="table">
+                    <element in="row"/>
+                </element-create-as-parent>
+            </element>
         </processors>
     </view>
 
