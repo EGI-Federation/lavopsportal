@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="mo" />
+    <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="mo">
+      <change beforePath="$PROJECT_DIR$/etc/app/views/OPSCORE/global_functions.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/OPSCORE/global_functions.xml" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -121,7 +123,7 @@
           <entry key="sql" value="372" />
           <entry key="test" value="349" />
           <entry key="txt" value="475" />
-          <entry key="xml" value="5083" />
+          <entry key="xml" value="5122" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -131,7 +133,7 @@
           <entry key="PLAIN_TEXT" value="824" />
           <entry key="Properties" value="102" />
           <entry key="SQL" value="372" />
-          <entry key="XML" value="5073" />
+          <entry key="XML" value="5112" />
           <entry key="XPath" value="11" />
         </counts>
       </usages-collector>
@@ -139,11 +141,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/etc/app/views/DASHBOARD/commons.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1365">
-              <caret line="224" column="37" selection-start-line="224" selection-start-column="37" selection-end-line="224" selection-end-column="37" />
+            <state relative-caret-position="735">
+              <caret line="223" column="125" selection-start-line="223" selection-start-column="125" selection-end-line="223" selection-end-column="125" />
             </state>
           </provider>
         </entry>
@@ -166,11 +168,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/global_functions.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4965">
-              <caret line="331" selection-start-line="331" selection-end-line="331" />
+            <state relative-caret-position="224">
+              <caret line="320" column="116" lean-forward="true" selection-start-line="320" selection-start-column="116" selection-end-line="320" selection-end-column="136" />
             </state>
           </provider>
         </entry>
@@ -241,8 +243,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>DNS</find>
-      <find>e:entr</find>
       <find>COD</find>
       <find>entry(name(</find>
       <find>Csi_RT_ClosedTicket_List_24h</find>
@@ -271,6 +271,8 @@
       <find>$env=</find>
       <find>$env</find>
       <find>property('env')</find>
+      <find>PSCORE_listReleases</find>
+      <find>certi</find>
     </findStrings>
     <replaceStrings>
       <replace>xmlns=&quot;http://software.in2p3.fr/lavoisier/application.xsd&quot;</replace>
@@ -346,11 +348,11 @@
         <option value="$PROJECT_DIR$/etc/app/html/test.sql" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/endpoints.xml" />
-        <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/global_functions.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/ROD/rod.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/downtimes.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/PSLA/sla.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/DASHBOARD/commons.xml" />
+        <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/global_functions.xml" />
       </list>
     </option>
   </component>
@@ -871,6 +873,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="70" y="27" width="1850" height="1173" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.10254989" />
       <window_info id="Structure" order="1" weight="0.24958587" />
@@ -1166,8 +1169,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/etc/app/views/DASHBOARD/commons.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1365">
-          <caret line="224" column="37" selection-start-line="224" selection-start-column="37" selection-end-line="224" selection-end-column="37" />
+        <state relative-caret-position="735">
+          <caret line="223" column="125" selection-start-line="223" selection-start-column="125" selection-end-line="223" selection-end-column="125" />
         </state>
       </provider>
     </entry>
@@ -1182,13 +1185,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1890">
           <caret line="126" column="85" selection-start-line="126" selection-start-column="85" selection-end-line="126" selection-end-column="85" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/global_functions.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4965">
-          <caret line="331" selection-start-line="331" selection-end-line="331" />
         </state>
       </provider>
     </entry>
@@ -1231,6 +1227,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="14850">
           <caret line="990" column="54" selection-start-line="990" selection-start-column="54" selection-end-line="990" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/global_functions.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="320" column="116" lean-forward="true" selection-start-line="320" selection-start-column="116" selection-end-line="320" selection-end-column="136" />
         </state>
       </provider>
     </entry>

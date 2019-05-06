@@ -176,6 +176,52 @@
 
     </view>
 
+    <view name="OPSCORE_OspPortal_Releases" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
+
+
+
+    <connector type="HTTPConnector">
+        <parameter name="url">https://gitlab.in2p3.fr/api/v4/issues?label_name[]=v5.0</parameter>
+        <parameter name="method">GET</parameter>
+        <parameter name="header" eval="concat('PRIVATE-TOKEN: ',property('gitlab.token'))"/>
+    </connector>
+
+        <processors>
+
+            <element in="object" out="e:entries">
+
+                <element-ignore in="array">
+                    <element-ignore in="item">
+                        <element in="object" out="e:entries">
+                            <attribute-create out="key">concat('issue_',../@id)</attribute-create>
+                            <attribute-ignore/>
+
+                            <element-create>entry('id',../@id)</element-create>
+                            <element-create>entry('link',../@web_url)</element-create>
+                            <element-create>entry('title',../@title)</element-create>
+                            <element-create>entry('description',../@description)</element-create>
+                            <element-create>entry('author',../author/object/@name)</element-create>
+                            <element-create>entry('state',../@state)</element-create>
+                            <element-create if="milestone/object/@title">entry('release',../milestone/object/@title)</element-create>
+
+
+
+
+                            <element in="labels" out="e:entries">
+                                <attribute-create out="key">'labels'</attribute-create>
+
+                                <element in="item" out="e:entry">
+                                    <attribute-create out="key">../text()</attribute-create>
+                                </element>
+                            </element>
+                            <element-ignore/>
+                        </element>
+                    </element-ignore>
+                </element-ignore>
+            </element>
+        </processors>
+    </view>
+
     <view name="OPSCORE_VaporReleaseList" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
 
 
@@ -312,6 +358,17 @@
                 </element>
 
 
+
+            <element in="e:entries">
+
+                <element-create>new_element(entries(new_attribute('id','release_5.0'))|new_element(entries(new_attribute('key','number'),new_text('5.0')))
+                    |new_element(entries(new_attribute('key','id'),new_text('5.0')))
+                    |new_element(entries(new_attribute('key','start_date'),new_text('2018-02-01')))
+                    |new_element(entries(new_attribute('key','end_date'),new_text('2019-05-21')))
+
+                    )</element-create>
+
+            </element>
        </processors>
 
 
