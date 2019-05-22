@@ -297,6 +297,7 @@
                     </element>
                 </element-ignore>
 
+
             </element>
 
 
@@ -304,6 +305,11 @@
                     <element-ignore/>
                     <element-create>sort_by_string(../e:entries,'e:entry[@key="status"]/text()')</element-create>
                 </element>
+
+            <element in="e:entries">
+                <element-ignore in="e:entries" if="not(starts-with(@key,'EOSCSO-'))"/>
+
+            </element>
 
             <element in="e:entries">
                     <element-create-as-parent out="e:entries" attributes="new_attribute('key',e:entry[@key='status']/text())" group-by="e:entry[@key='status']/text()">

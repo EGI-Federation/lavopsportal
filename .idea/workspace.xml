@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="mo" />
+    <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="mo">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,123 +21,6 @@
   <component name="ErrorTreeViewConfiguration">
     <option name="hideWarnings" value="true" />
     <option name="HIDE_WARNINGS" value="true" />
-  </component>
-  <component name="FUSProjectUsageTrigger">
-    <session id="-55599360">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="18" />
-          <entry key="project.open.time.10" value="1" />
-          <entry key="project.open.time.16" value="2" />
-          <entry key="project.open.time.17" value="1" />
-          <entry key="project.open.time.18" value="1" />
-          <entry key="project.open.time.19" value="1" />
-          <entry key="project.open.time.2" value="1" />
-          <entry key="project.open.time.3" value="5" />
-          <entry key="project.open.time.4" value="3" />
-          <entry key="project.open.time.5" value="3" />
-          <entry key="project.open.time.6" value="1" />
-          <entry key="project.opened" value="20" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="wsdl" value="2" />
-          <entry key="xml" value="13" />
-          <entry key="xsl" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="XML" value="16" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="properties" value="1" />
-          <entry key="txt" value="186" />
-          <entry key="wsdl" value="16" />
-          <entry key="xml" value="1535" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="PLAIN_TEXT" value="186" />
-          <entry key="Properties" value="1" />
-          <entry key="XML" value="1551" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.vcs.git.usages" />
-    </session>
-    <session id="-1744214573">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="51" />
-          <entry key="project.open.time.1" value="1" />
-          <entry key="project.open.time.10" value="1" />
-          <entry key="project.open.time.11" value="3" />
-          <entry key="project.open.time.12" value="9" />
-          <entry key="project.open.time.13" value="3" />
-          <entry key="project.open.time.14" value="10" />
-          <entry key="project.open.time.15" value="1" />
-          <entry key="project.open.time.17" value="1" />
-          <entry key="project.open.time.18" value="1" />
-          <entry key="project.open.time.2" value="9" />
-          <entry key="project.open.time.21" value="1" />
-          <entry key="project.open.time.3" value="10" />
-          <entry key="project.open.time.30" value="1" />
-          <entry key="project.open.time.4" value="7" />
-          <entry key="project.open.time.5" value="1" />
-          <entry key="project.open.time.6" value="1" />
-          <entry key="project.open.time.7" value="1" />
-          <entry key="project.open.time.8" value="2" />
-          <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="64" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="1" value="1" />
-          <entry key="html" value="3" />
-          <entry key="js" value="2" />
-          <entry key="properties" value="7" />
-          <entry key="test" value="1" />
-          <entry key="xml" value="47" />
-          <entry key="xsl" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="HTML" value="3" />
-          <entry key="JavaScript" value="2" />
-          <entry key="PLAIN_TEXT" value="2" />
-          <entry key="Properties" value="7" />
-          <entry key="XML" value="48" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="html" value="1169" />
-          <entry key="js" value="586" />
-          <entry key="properties" value="102" />
-          <entry key="sql" value="372" />
-          <entry key="test" value="349" />
-          <entry key="txt" value="475" />
-          <entry key="xml" value="5777" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="HTML" value="1168" />
-          <entry key="JavaScript" value="586" />
-          <entry key="PLAIN_TEXT" value="824" />
-          <entry key="Properties" value="102" />
-          <entry key="SQL" value="372" />
-          <entry key="XML" value="5759" />
-          <entry key="XPath" value="19" />
-        </counts>
-      </usages-collector>
-    </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
@@ -157,11 +42,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/global_functions.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="179">
-              <caret line="260" column="22" lean-forward="true" selection-start-line="260" selection-start-column="22" selection-end-line="260" selection-end-column="22" />
+            <state relative-caret-position="479">
+              <caret line="214" column="34" selection-start-line="214" selection-start-column="34" selection-end-line="214" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -184,11 +69,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/etc/app/app.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1545">
-              <caret line="103" column="48" selection-start-line="103" selection-start-column="42" selection-end-line="103" selection-end-column="109" />
+            <state relative-caret-position="519">
+              <caret line="119" lean-forward="true" selection-start-line="119" selection-end-line="119" />
             </state>
           </provider>
         </entry>
@@ -354,10 +239,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="67" />
-    <option name="y" value="27" />
-    <option name="width" value="1853" />
-    <option name="height" value="1173" />
+    <option name="x" value="1920" />
+    <option name="width" value="1920" />
+    <option name="height" value="1080" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -367,7 +251,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -396,14 +280,17 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542023584356" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/etc/app/views/OPSCORE" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -435,7 +322,7 @@
     </option>
   </component>
   <component name="RunManager" selected="Application.Start Lavoisier server">
-    <configuration default="true" type="Applet" factoryName="Applet">
+    <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -476,12 +363,14 @@
       </method>
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="TestNG" factoryName="TestNG">
+    <configuration default="true" type="TestNG">
+      <option name="TEST_OBJECT" value="CLASS" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
       <properties />
       <listeners />
@@ -489,11 +378,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
       <option name="PROGRAM_PARAMETERS" />
-      <predefined_log_file id="idea.log" enabled="true" />
+      <predefined_log_file enabled="true" id="idea.log" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -862,10 +751,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="70" y="27" width="1850" height="1173" extended-state="6" />
+    <frame x="70" y="27" width="1850" height="1053" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.10254989" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.10254989" />
       <window_info id="Structure" order="1" weight="0.24958587" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -883,7 +772,7 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.31676415" />
+      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.35871965" />
       <window_info anchor="bottom" id="CheckStyle" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.32846004" />
@@ -1163,6 +1052,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/etc/app/resources/xml/cic_voidcards_dump.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="41925">
+          <caret line="2795" column="1543" selection-start-line="2795" selection-start-column="1543" selection-end-line="2795" selection-end-column="1543" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -1191,13 +1087,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/app.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1545">
-          <caret line="103" column="48" selection-start-line="103" selection-start-column="42" selection-end-line="103" selection-end-column="109" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/etc/engine/engine.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -1219,21 +1108,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/resources/xml/cic_voidcards_dump.xml">
+    <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/global_functions.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="41925">
-          <caret line="2795" column="1543" selection-start-line="2795" selection-start-column="1543" selection-end-line="2795" selection-end-column="1543" />
-          <folding>
-            <element signature="e#405089#405094#0" expanded="true" />
-            <element signature="e#405104#405109#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="479">
+          <caret line="214" column="34" selection-start-line="214" selection-start-column="34" selection-end-line="214" selection-end-column="34" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/global_functions.xml">
+    <entry file="file://$PROJECT_DIR$/etc/app/app.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="260" column="22" lean-forward="true" selection-start-line="260" selection-start-column="22" selection-end-line="260" selection-end-column="22" />
+        <state relative-caret-position="519">
+          <caret line="119" lean-forward="true" selection-start-line="119" selection-end-line="119" />
         </state>
       </provider>
     </entry>
