@@ -51,6 +51,10 @@
       </map>
     </option>
   </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="testRunner" value="GRADLE" />
+    <option name="delegatedBuild" value="true" />
+  </component>
   <component name="ErrorTreeViewConfiguration">
     <option name="hideWarnings" value="true" />
     <option name="HIDE_WARNINGS" value="true" />
@@ -123,8 +127,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/etc/app/views/PSLA/sla.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="385">
-              <caret line="312" lean-forward="true" selection-start-line="312" selection-end-line="312" />
+            <state relative-caret-position="250">
+              <caret line="309" column="167" selection-start-line="309" selection-start-column="167" selection-end-line="309" selection-end-column="167" />
             </state>
           </provider>
         </entry>
@@ -435,7 +439,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1526559679554</updated>
-      <workItem from="1558539801395" duration="265000" />
+      <workItem from="1558539801395" duration="515000" />
     </task>
     <task id="LOCAL-00073" summary="remplacement v3 par v4 dans api gitlab">
       <created>1536324566587</created>
@@ -784,7 +788,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="265000" />
+    <option name="totallyTimeSpent" value="515000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1920" y="0" width="1920" height="1080" extended-state="6" />
@@ -1156,8 +1160,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/etc/app/views/PSLA/sla.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="385">
-          <caret line="312" lean-forward="true" selection-start-line="312" selection-end-line="312" />
+        <state relative-caret-position="250">
+          <caret line="309" column="167" selection-start-line="309" selection-start-column="167" selection-end-line="309" selection-end-column="167" />
         </state>
       </provider>
     </entry>
