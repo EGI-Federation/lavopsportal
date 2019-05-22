@@ -133,7 +133,7 @@
     </view>
 
 
-    <view name="JiraTicketList" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
+    <view name="JiraTicketList" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" xmlns:date="http://exslt.org/dates-and-times">
 
         <connector type="HTTPConnector">
             <parameter name="url"
@@ -307,8 +307,7 @@
                 </element>
 
             <element in="e:entries">
-                <element-ignore in="e:entries" if="not(starts-with(@key,'EOSCSO-'))"/>
-
+                <element-ignore in="e:entries" if="not(starts-with(@key,'EOSCSO-')) and date:difference(e:entry[@key='Creation Date'],'2019-03-06T08:38:31Z') &gt; 0"/>
             </element>
 
             <element in="e:entries">
