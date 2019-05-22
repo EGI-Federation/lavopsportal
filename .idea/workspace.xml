@@ -3,38 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="mo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/app/resources/shell/download-cert.sh" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/resources/shell/download-cert.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/app/resources/skeletons/OPSCORE_downtime_ongoing.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/resources/skeletons/OPSCORE_downtime_ongoing.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/app/resources/skeletons/OPSCORE_endpoints.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/resources/skeletons/OPSCORE_endpoints.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/app/resources/skeletons/OPSCORE_get_roc_contacts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/resources/skeletons/OPSCORE_get_roc_contacts.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/app/resources/skeletons/OPSCORE_get_site.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/resources/skeletons/OPSCORE_get_site.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/app/resources/skeletons/OPSCORE_prod_entities.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/resources/skeletons/OPSCORE_prod_entities.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/app/resources/skeletons/OPSCORE_users.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/resources/skeletons/OPSCORE_users.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/app/resources/template/OpsImportCron.xsl" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/resources/template/OpsImportCron.xsl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/app/resources/xml/GHD_Soap_Client.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/resources/xml/GHD_Soap_Client.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/app/resources/xml/StepMapping.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/resources/xml/StepMapping.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/app/resources/xml/cic_voidcards_dump.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/resources/xml/cic_voidcards_dump.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/app/resources/xml/convert_GGUS_Soap_Client_Data.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/resources/xml/convert_GGUS_Soap_Client_Data.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/app/resources/xml/convert_toEntries.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/resources/xml/convert_toEntries.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/app/resources/xml/entity_group.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/resources/xml/entity_group.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/app/resources/xml/header.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/resources/xml/header.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/app/resources/xml/list_rendering.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/resources/xml/list_rendering.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/app/resources/xml/metrics_columns.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/resources/xml/metrics_columns.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/app/resources/xml/ngi_infos.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/resources/xml/ngi_infos.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/app/resources/xml/vomsfnalhook.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/resources/xml/vomsfnalhook.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/app/resources/xsl/JSTreeView.xsl" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/resources/xsl/JSTreeView.xsl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/app/resources/xsl/egi_users.xsl" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/resources/xsl/egi_users.xsl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/app/resources/xsl/metricsrowcol.xsl" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/resources/xsl/metricsrowcol.xsl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/app/resources/xsl/saJSTreeBranch.xsl" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/resources/xsl/saJSTreeBranch.xsl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/app/resources/xsl/vo-idcard.xsl" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/resources/xsl/vo-idcard.xsl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/app/resources/xsl/voTree.xsl" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/resources/xsl/voTree.xsl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/app/views/BROADCAST/jstree_branches.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/BROADCAST/jstree_branches.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/app/views/BROADCAST/recipients.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/BROADCAST/recipients.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/app/views/COD/crons.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/COD/crons.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/app/views/COD/functions.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/COD/functions.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/app/views/GGUS/ggus.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/GGUS/ggus.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/app/views/GGUS/primary.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/GGUS/primary.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/app/views/GGUS/readme.txt" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/GGUS/readme.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/etc/app/views/PSLA/sla.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/PSLA/sla.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -128,7 +96,7 @@
         <entry file="file://$PROJECT_DIR$/etc/app/views/PSLA/sla.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="250">
-              <caret line="309" column="167" selection-start-line="309" selection-start-column="167" selection-end-line="309" selection-end-column="167" />
+              <caret line="309" column="155" selection-start-line="309" selection-start-column="155" selection-end-line="309" selection-end-column="155" />
             </state>
           </provider>
         </entry>
@@ -439,7 +407,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1526559679554</updated>
-      <workItem from="1558539801395" duration="515000" />
+      <workItem from="1558539801395" duration="772000" />
     </task>
     <task id="LOCAL-00073" summary="remplacement v3 par v4 dans api gitlab">
       <created>1536324566587</created>
@@ -788,7 +756,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="515000" />
+    <option name="totallyTimeSpent" value="772000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1920" y="0" width="1920" height="1080" extended-state="6" />
@@ -1161,7 +1129,7 @@
     <entry file="file://$PROJECT_DIR$/etc/app/views/PSLA/sla.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
-          <caret line="309" column="167" selection-start-line="309" selection-start-column="167" selection-end-line="309" selection-end-column="167" />
+          <caret line="309" column="155" selection-start-line="309" selection-start-column="155" selection-end-line="309" selection-end-column="155" />
         </state>
       </provider>
     </entry>

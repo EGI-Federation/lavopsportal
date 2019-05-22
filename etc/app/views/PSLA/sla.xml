@@ -301,14 +301,20 @@
             </element>
 
 
-                <element in="e:entries">
-                    <element-ignore/>
-                    <element-create>sort_by_string(../e:entries,'e:entry[@key="status"]/text()')</element-create>
-                </element>
+            <element in="e:entries">
+                <element-ignore/>
+                <element-create>sort_by_string(../e:entries,'e:entry[@key="status"]/text()')</element-create>
+            </element>
+
 
             <element in="e:entries">
-                <element-ignore in="e:entries" if="not(starts-with(@key,'EOSCSO-')) and date:difference(substring-before(e:entry[@key='Creation Date'],'.'),'2019-03-06T08:38:31') &gt; 0"/>
+                <element-ignore in="e:entries" if="not(starts-with(@key,'EOSCSO-'))"/>
             </element>
+            <element in="e:entries">
+                <element-ignore in="e:entries" if="date:difference(substring-before(e:entry[@key='Creation Date'],'.'),'2019-03-06T08:38:31') &gt; 0"/>
+            </element>
+
+
 
             <element in="e:entries">
                     <element-create-as-parent out="e:entries" attributes="new_attribute('key',e:entry[@key='status']/text())" group-by="e:entry[@key='status']/text()">
