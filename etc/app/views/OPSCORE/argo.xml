@@ -9,13 +9,12 @@
 
 
         <connector type="HTTPConnector">
-            <parameter name="url" eval="concat(property('argo.sites.ar'),'&amp;start_time=',$start_time,'&amp;end_time=',$end_time)">
-            </parameter>
+            <parameter name="url">http://argo.egi.eu/lavoisier/reportOpsPortal?accept=xml</parameter>
         </connector>
 
         <processors>
             <element in="root">
-                <attribute-create out="base_url">'http://argo.egi.eu/lavoisier/site_ar?granularity=daily&amp;report=Critical&amp;site='</attribute-create>
+                <attribute-create out="base_url">'http://argo.egi.eu/egi/report-ar-dates-1/Critical/SITES/'</attribute-create>
 
                 <element-ignore in="group">
                     <element in="group" out="Site">
