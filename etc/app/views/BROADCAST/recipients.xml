@@ -349,6 +349,11 @@
         </connector>
         <processors>
 
+            <elements path="NGIs/NGI/Sites">
+                <element-ignore in="Site"/>
+                <element-create>sort_by_string(../Site,'@name')</element-create>
+            </elements>
+
             <element in="NGIs" out="Recipients">
                 <element-ignore in="NGI">
                     <element-ignore in="Sites">
@@ -382,7 +387,10 @@
         </connector>
         <processors>
 
-
+            <elements path="NGIs/NGI/Sites">
+                <element-ignore in="Site"/>
+                <element-create>sort_by_string(../Site,'@name')</element-create>
+            </elements>
 
             <element in="NGIs" out="Recipients">
             <element-ignore in="NGI">
