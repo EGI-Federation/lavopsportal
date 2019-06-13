@@ -391,6 +391,11 @@
                     <entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry>
                 </namespaces>
             </processor>
+
+            <elements path="NGIs/NGI/Sites">
+                <element-ignore in="Site"/>
+                <element-create>sort_by_string(../Site,'@name')</element-create>
+            </elements>
         </processors>
 
         <cache type="FileCache">

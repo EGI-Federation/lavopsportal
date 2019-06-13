@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="mo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/app/views/DASHBOARD/admin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/DASHBOARD/admin.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -65,19 +64,17 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/etc/app/views/BROADCAST/recipients.xml">
+        <entry file="file://$PROJECT_DIR$/etc/app/resources/xsl/saJSTreeBranch.xsl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="344" column="16" lean-forward="true" selection-start-line="344" selection-start-column="16" selection-end-line="344" selection-end-column="32" />
-            </state>
+            <state relative-caret-position="-585" />
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/etc/app/views/PSLA/sla.xml">
+        <entry file="file://$PROJECT_DIR$/etc/app/views/BROADCAST/recipients.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2025">
-              <caret line="135" column="16" selection-start-line="135" selection-start-column="16" selection-end-line="135" selection-end-column="16" />
+            <state relative-caret-position="399">
+              <caret line="354" column="23" lean-forward="true" selection-start-line="354" selection-start-column="23" selection-end-line="354" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -130,7 +127,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>alarms&quot;</find>
       <find>_alarms</find>
       <find>OPSCORE_host_service</find>
       <find>probe</find>
@@ -159,6 +155,7 @@
       <find>argo.sites.ar</find>
       <find>rod_alarm</find>
       <find>rod_alarms</find>
+      <find>saRec</find>
       <find>sa</find>
     </findStrings>
     <replaceStrings>
@@ -209,7 +206,6 @@
         <option value="$PROJECT_DIR$/etc/app/resources/xml/test.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/GGUS/ggus.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/Tutorial/tutorial.xml" />
-        <option value="$PROJECT_DIR$/etc/app/views/BROADCAST/recipients.xml" />
         <option value="$PROJECT_DIR$/etc/app/resources/xsl/test.wsdl" />
         <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/entities.xml" />
         <option value="$PROJECT_DIR$/etc/app/app-hidden.properties" />
@@ -241,6 +237,7 @@
         <option value="$PROJECT_DIR$/etc/app/views/PSLA/sla.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/argo.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/DASHBOARD/admin.xml" />
+        <option value="$PROJECT_DIR$/etc/app/views/BROADCAST/recipients.xml" />
       </list>
     </option>
   </component>
@@ -282,6 +279,37 @@
               <item name="lavopsportal" type="462c0819:PsiDirectoryNode" />
               <item name="etc" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lavopsportal" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lavopsportal" type="462c0819:PsiDirectoryNode" />
+              <item name="etc" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lavopsportal" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lavopsportal" type="462c0819:PsiDirectoryNode" />
+              <item name="etc" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="shell" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lavopsportal" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lavopsportal" type="462c0819:PsiDirectoryNode" />
+              <item name="etc" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="template" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lavopsportal" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lavopsportal" type="462c0819:PsiDirectoryNode" />
+              <item name="etc" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="xsl" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="lavopsportal" type="b2602c69:ProjectViewProjectNode" />
@@ -447,7 +475,7 @@
       <workItem from="1558682071319" duration="1402000" />
       <workItem from="1558699884455" duration="1251000" />
       <workItem from="1559915380389" duration="1695000" />
-      <workItem from="1560329195896" duration="5789000" />
+      <workItem from="1560329195896" duration="7092000" />
     </task>
     <task id="LOCAL-00074" summary="remplacement v3 par v4 dans api gitlab">
       <created>1536324955388</created>
@@ -796,11 +824,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11816000" />
+    <option name="totallyTimeSpent" value="13119000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="62" y="27" width="1858" height="1173" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.10209713" />
       <window_info id="Structure" order="1" weight="0.24958587" />
@@ -875,13 +902,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="mo" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/etc/app/resources/xml/convert_toEntries.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="9" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/etc/app/resources/xml/convert_GGUS_Soap_Client_Data.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -1160,6 +1180,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/etc/app/views/BROADCAST/recipients.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="354" column="23" lean-forward="true" selection-start-line="354" selection-start-column="23" selection-end-line="354" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/etc/app/views/BROADCAST/jstree_branches.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -1167,11 +1194,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/views/BROADCAST/recipients.xml">
+    <entry file="file://$PROJECT_DIR$/etc/app/resources/xsl/saJSTreeBranch.xsl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="344" column="16" lean-forward="true" selection-start-line="344" selection-start-column="16" selection-end-line="344" selection-end-column="32" />
-        </state>
+        <state relative-caret-position="-585" />
       </provider>
     </entry>
   </component>
