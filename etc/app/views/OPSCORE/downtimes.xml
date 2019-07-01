@@ -49,7 +49,6 @@
                 <element-ignore in="DOWNTIME"/>
                 <element-create>uniq(../DOWNTIME,'@UniqueId')</element-create>
             </element>
-
         </processors>
 
         <cache type="FileCache">

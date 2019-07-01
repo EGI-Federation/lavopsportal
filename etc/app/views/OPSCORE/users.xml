@@ -255,6 +255,32 @@
 
     </view>
 
+    <view name="OPSCORE_ldap_users_csi">
+
+        <connector type="LDAPConnector">
+            <parameter name="url">ldaps://aldor.ics.muni.cz:636</parameter>
+            <parameter name="path"> cn=csirt,ou=groups,dc=egi,dc=eu</parameter>
+            <parameter name="filter">(member=*)</parameter>
+            <parameter name="password">S9apHuw8</parameter>
+            <parameter name="dn">cn=operations-portal,dc=egi,dc=eu</parameter>
+        </connector>
+
+
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="hours">3</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger ignore-during="PT3H" type="ViewCreatedTrigger"/>
+        </cache>
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+    </view>
+
+
 
     <view name="OPSCORE_users_csi">
 
