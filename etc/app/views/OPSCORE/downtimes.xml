@@ -37,6 +37,21 @@
             <parameter name="certificate" eval="property('certificate.path')"/>
             <parameter name="passphrase" eval="property('certificate.password')"/>
         </connector>
+
+        <processors>
+            <element in="results">
+                <element in="DOWNTIME">
+                    <attribute-create out="UniqueId">concat(../@PRIMARY_KEY,../HOSTNAME/text(),../SERVICE_TYPE/text())</attribute-create>
+                </element>
+            </element>
+
+            <element in="results">
+                <element-ignore in="DOWNTIME"/>
+                <element-create>uniq(../DOWNTIME,'@UniqueId')</element-create>
+            </element>
+
+        </processors>
+
         <cache type="FileCache">
             <trigger type="DeltaTimeTrigger">
                 <parameter name="minutes">5</parameter>
