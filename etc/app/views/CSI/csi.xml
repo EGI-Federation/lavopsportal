@@ -220,135 +220,6 @@
     </view>
 
 
-
-    <view authenticators="local" name="CSI_XML">
-
-
-        <connector type="HTTPConnector">
-            <parameter name="url" eval="property('CSI.portal.metrics')"/>
-            <parameter name="certificate" eval="property('certificate.path')"/>
-            <parameter name="passphrase" eval="property('certificate.password')"/>
-            <parameter name="force-redirect">true</parameter>
-
-        </connector>
-        <serializer type="HTMLSerializer"/>
-        <processors>
-            <processor match="//*" type="ChangeNamespaceProcessor"/>
-        </processors>
-        <cache type="FileCache">
-            <trigger type="ViewAccessedTrigger" ignore-during="PT5M"/>
-            <trigger type="ViewNotifiedTrigger"/>
-            <trigger type="DeltaTimeTrigger">
-                <parameter name="hours">1</parameter>
-            </trigger>
-        </cache>
-    </view>
-
-    <view xmlns:html="http://www.w3.org/1999/xhtml" authenticators="local" name="CSI_Issues_XML">
-
-
-        <connector type="HTTPConnector">
-            <parameter name="url" eval="property('CSI.portal.issues')"/>
-            <parameter name="certificate" eval="property('certificate.path')"/>
-            <parameter name="passphrase" eval="property('certificate.password')"/>
-            <parameter name="force-redirect">true</parameter>
-        </connector>
-
-        <serializer type="HTMLSerializer"/>
-
-        <processors>
-            <processor match="//*" type="ChangeNamespaceProcessor"/>
-       
-            <element in="html" out="html">
-
-                <elements-ignore path="body/div/div">
-                    <element-ignore in="div">
-                        <element-ignore in="section">
-                            <element in="table" out="table"/>
-                        </element-ignore>
-                    </element-ignore>
-                    <element-ignore/>
-                </elements-ignore>
-
-                <element-ignore/>
-            </element>
-
-            <element in="html" out="Issues">
-                <attribute-ignore/>
-                <element-ignore in="table">
-                   <element-ignore in="thead"/>
-                    <element-ignore in="tbody">
-                        <element in="tr" out="Issue">
-                            <element in="td" out="entry">
-                                <attribute-ignore/>
-                              <attribute-create out="key">../@rel</attribute-create>
-                                <element-ignore in="a">
-                                    <text-ignore/>
-                                    <text-create>normalize-space(../text())</text-create>
-                                    <element-ignore in="span">
-                                        <text-ignore/>
-                                        <text-create>normalize-space(../text())</text-create>
-                                    </element-ignore>
-                                </element-ignore>
-                                <element-ignore in="span">
-                                    <text-ignore/>
-                                    <text-create>normalize-space(../text())</text-create>
-                                </element-ignore>
-                                <text-ignore/>
-                                <text-create>normalize-space(../text())</text-create>
-                            </element>
-                            <element-ignore/>
-                        </element>
-                        <element-ignore/>
-                    </element-ignore>
-                </element-ignore>
-
-            </element>
-
-        </processors>
-        <cache type="FileCache">
-            <trigger type="ViewAccessedTrigger" ignore-during="PT5M"/>
-            <trigger type="ViewNotifiedTrigger"/>
-            <trigger type="DeltaTimeTrigger">
-                <parameter name="hours">1</parameter>
-            </trigger>
-        </cache>
-        <pre-renderers><namespace prefix="html" uri="http://www.w3.org/1999/xhtml"/>
-            <row foreach="/Issues/Issue">
-                <column label="Problem">entry[@key='id']/text()</column>
-                <column label="entity">entry[@key='entity']/text()</column>
-                <column label="ngi">entry[@key='ngi']/text()</column>
-                <column label="status">entry[@key='status']/text()</column>
-                <column label="age">entry[@key='age']/text()</column>
-
-            </row>
-        </pre-renderers>
-        <renderers>
-            <renderer type="DefaultRenderer">
-                <parameter name="contentType">text/xml</parameter>
-            </renderer>
-        </renderers>
-
-
-    </view>
-
-<!--    <view authenticators="local" name="Csi_Metrics_Generation">-->
-
-<!--        <connector type="HTTPConnector">-->
-<!--            <parameter name="url" eval="property('CSI.portal.metrics.generation')"/>-->
-<!--            <parameter name="certificate" eval="property('certificate.path')"/>-->
-<!--            <parameter name="passphrase" eval="property('certificate.password')"/>-->
-<!--            <parameter name="force-redirect">true</parameter>-->
-<!--        </connector>-->
-<!--        <cache type="FileCache">-->
-<!--            <trigger type="ViewNotifiedTrigger"/>-->
-<!--            <trigger type="DeltaTimeTrigger">-->
-<!--                <parameter name="hours">1</parameter>-->
-<!--            </trigger>-->
-<!--        </cache>-->
-
-<!--    </view>-->
-
 <!--    <view authenticators="local" name="Csi_RT_Ticket_List"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >-->
 
 
@@ -790,6 +661,58 @@
         </renderers>
     </view>
 
+    <view xmlns:date="http://exslt.org/dates-and-times" authenticators="local"  xmlns:str="http://exslt.org/strings"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd"  name="reportcsiIssues">
+
+        <argument name="status">critical</argument>
+        <variable name="statusCode" eval="choose($status='critical',2,1)"/>
+
+        <connector type="SQLConnector">
+        <parameter name="driver">com.mysql.jdbc.Driver</parameter>
+        <parameter name="url" eval="property('CSI.db.url')"/>
+        <parameter name="username" eval="property('CSI.db.username')"/>
+        <parameter name="password" eval="property('CSI.db.password')"/>
+        <parameter name="query">
+            <entry>SELECT * from csi_nagios_problem</entry>
+            <entry> where status=</entry>
+            <entry eval="$statusCode"/>
+        </parameter>
+        </connector>
+
+        <processors>
+            <element in="result" out="e:entries">
+                <attribute-create out="count">count(../row)</attribute-create>
+                <attribute-create out="status">$status</attribute-create>
+                <element in="row" out="e:entries">
+                    <attribute-create out="key">'csi_alarms'</attribute-create>
+
+                    <element in="test_name" out="e:entry">
+                        <attribute-create out="key">'test_name'</attribute-create>
+                    </element>
+                    <element in="host_name" out="e:entry">
+                        <attribute-create out="key">'host_name'</attribute-create>
+                    </element>
+                    <element in="created_at" out="e:entry">
+                        <attribute-create out="key">'created_at'</attribute-create>
+                    </element>
+                    <element in="site" out="e:entry">
+                        <attribute-create out="key">'site'</attribute-create>
+                    </element>
+                    <element in="ngi" out="e:entry">
+                        <attribute-create out="key">'ngi'</attribute-create>
+                    </element>
+                    <element-ignore/>
+                </element>
+
+            </element>
+        </processors>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">xml</parameter>
+            </renderer>
+        </renderers>
+
+    </view>
 
 
     <view xmlns:date="http://exslt.org/dates-and-times" xmlns:str="http://exslt.org/strings"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd"  authenticators="local" name="Csi_Issues_Complete">
