@@ -1,359 +1,359 @@
-<views xmlns="http://software.in2p3.fr/lavoisier/application.xsd">
-    <!-- 
-        Project : lavopsportal 
-        File    : cod.xml.xml
-        Created by cyril on 2018/06/18 
-    -->
+<!--<views xmlns="http://software.in2p3.fr/lavoisier/application.xsd">-->
+<!--    &lt;!&ndash; -->
+<!--        Project : lavopsportal -->
+<!--        File    : cod.xml.xml-->
+<!--        Created by cyril on 2018/06/18 -->
+<!--    &ndash;&gt;-->
 
-    <view xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" name="COD_ticket_alerts">
+<!--    <view xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" name="COD_ticket_alerts">-->
 
-        <argument name="view">GGUS_ROD</argument>
+<!--        <argument name="view">GGUS_ROD</argument>-->
 
-        <connector type="XMLConnector">
-            <parameter name="content" eval="view($view)"/>
-        </connector>
+<!--        <connector type="XMLConnector">-->
+<!--            <parameter name="content" eval="view($view)"/>-->
+<!--        </connector>-->
 
-        <processors>
+<!--        <processors>-->
 
 
-            <element in="e:entries" out="Data">
+<!--            <element in="e:entries" out="Data">-->
 
-                <element in="e:entries" out="Issue">
+<!--                <element in="e:entries" out="Issue">-->
 
-                    <element-ignore in="e:entries">
-                        <element-ignore>
-                            <element-create if="../text()">new_element(../@key,../text())</element-create>
-                            <element-create if="not(../text())">new_element(../@key)</element-create>
-                        </element-ignore>
-                    </element-ignore>
+<!--                    <element-ignore in="e:entries">-->
+<!--                        <element-ignore>-->
+<!--                            <element-create if="../text()">new_element(../@key,../text())</element-create>-->
+<!--                            <element-create if="not(../text())">new_element(../@key)</element-create>-->
+<!--                        </element-ignore>-->
+<!--                    </element-ignore>-->
 
-                    <element-ignore>
-                        <element-create if="../text()">new_element(../@key,../text())</element-create>
-                        <element-create if="not(../text())">new_element(../@key)</element-create>
-                    </element-ignore>
+<!--                    <element-ignore>-->
+<!--                        <element-create if="../text()">new_element(../@key,../text())</element-create>-->
+<!--                        <element-create if="not(../text())">new_element(../@key)</element-create>-->
+<!--                    </element-ignore>-->
 
 
-                </element>
+<!--                </element>-->
 
 
-            </element>
+<!--            </element>-->
 
-            <elements path="Data/Issue">
-                <attribute-create out="pk1">../GHD_Request_ID/text()</attribute-create>
-                <attribute-create out="pk2">'ggus_helpdesk_ops'</attribute-create>
-                <element in="GHD_Affected_Site" out="Site"/>
-                <element-create>new_element('GenerationDate', view('UTC-now')/*/*/text())</element-create>
+<!--            <elements path="Data/Issue">-->
+<!--                <attribute-create out="pk1">../GHD_Request_ID/text()</attribute-create>-->
+<!--                <attribute-create out="pk2">'ggus_helpdesk_ops'</attribute-create>-->
+<!--                <element in="GHD_Affected_Site" out="Site"/>-->
+<!--                <element-create>new_element('GenerationDate', view('UTC-now')/*/*/text())</element-create>-->
 
-            </elements>
+<!--            </elements>-->
 
-            <element in="Data">
-                <attribute-create out="history_table_name">choose($view='GGUS_MW','CodTicketMWHistory', 'CodTicketHistory')</attribute-create>
-                <attribute-create out="problem_table_name">choose($view='GGUS_MW','CodTicketMWProblem', 'CodTicketProblem')</attribute-create>
-                <attribute-create out="global_date">view('UTC-now')/*</attribute-create>
-                <element-create-as-parent out="Issues">
-                    <element in="Issue"/>
-                </element-create-as-parent>
-            </element>
+<!--            <element in="Data">-->
+<!--                <attribute-create out="history_table_name">choose($view='GGUS_MW','CodTicketMWHistory', 'CodTicketHistory')</attribute-create>-->
+<!--                <attribute-create out="problem_table_name">choose($view='GGUS_MW','CodTicketMWProblem', 'CodTicketProblem')</attribute-create>-->
+<!--                <attribute-create out="global_date">view('UTC-now')/*</attribute-create>-->
+<!--                <element-create-as-parent out="Issues">-->
+<!--                    <element in="Issue"/>-->
+<!--                </element-create-as-parent>-->
+<!--            </element>-->
 
 
-            <elements path="Data/Issues/Issue">
-                <element in="GHD_Create_Date" out="Create_Date"/>
-                <element-ignore in="GHD_Soap_Client_Data">
-                    <element/>
-                </element-ignore>
-            </elements>
+<!--            <elements path="Data/Issues/Issue">-->
+<!--                <element in="GHD_Create_Date" out="Create_Date"/>-->
+<!--                <element-ignore in="GHD_Soap_Client_Data">-->
+<!--                    <element/>-->
+<!--                </element-ignore>-->
+<!--            </elements>-->
 
-            <elements path="Data/Issues/Issue">
-                <element-ignore if="name()='GHD_Modified_Date' or name()='GHD_Status' or name()='GHD_Priority' or name()='GHD_Last_Modifier' or name()='GHD_Problem_Type' or name()='GHD_Problem_Type'"/>
-            </elements>
+<!--            <elements path="Data/Issues/Issue">-->
+<!--                <element-ignore if="name()='GHD_Modified_Date' or name()='GHD_Status' or name()='GHD_Priority' or name()='GHD_Last_Modifier' or name()='GHD_Problem_Type' or name()='GHD_Problem_Type'"/>-->
+<!--            </elements>-->
 
 
 
-            <elements path="Data/Issues/Issue">
-                    <element-create if="../Create_Date/text()">new_element('CreateDateStatus',view('COD-alert-TicketOneMonth', entry('date',../Create_Date/text()))/e:entries/e:entry/text())</element-create>
-            </elements>
+<!--            <elements path="Data/Issues/Issue">-->
+<!--                    <element-create if="../Create_Date/text()">new_element('CreateDateStatus',view('COD-alert-TicketOneMonth', entry('date',../Create_Date/text()))/e:entries/e:entry/text())</element-create>-->
+<!--            </elements>-->
 
-            <elements path="Data/Issues/Issue">
-                <element-create if="../EndDate/text()">new_element('EndDateStatus',view('COD-alert-TicketExpired', entry('date',../EndDate/text()))/e:entries/e:entry/text())</element-create>
-                <element-create> new_element('UrlToHistory',concat(
-                    property('portal.base_url'),
-                    '/rodDashboard/ticket/',../@pk1,
-                    '/site/', ../Ngi/text(),
-                    '/tab/details/tsid/',concat(../Helpdesk/text(), '-', ../Workflow/text()),
-                    '?page=details'))
-                </element-create>
-            </elements>
+<!--            <elements path="Data/Issues/Issue">-->
+<!--                <element-create if="../EndDate/text()">new_element('EndDateStatus',view('COD-alert-TicketExpired', entry('date',../EndDate/text()))/e:entries/e:entry/text())</element-create>-->
+<!--                <element-create> new_element('UrlToHistory',concat(-->
+<!--                    property('portal.base_url'),-->
+<!--                    '/rodDashboard/ticket/',../@pk1,-->
+<!--                    '/site/', ../Ngi/text(),-->
+<!--                    '/tab/details/tsid/',concat(../Helpdesk/text(), '-', ../Workflow/text()),-->
+<!--                    '?page=details'))-->
+<!--                </element-create>-->
+<!--            </elements>-->
 
 
-            <elements path="Data/Issues">
-                <element-ignore in="Issue" if="CreateDateStatus/text()='0.0' and EndDateStatus/text()='0.0' "/>
-            </elements>
+<!--            <elements path="Data/Issues">-->
+<!--                <element-ignore in="Issue" if="CreateDateStatus/text()='0.0' and EndDateStatus/text()='0.0' "/>-->
+<!--            </elements>-->
 
 
-        </processors>
+<!--        </processors>-->
 
-        <renderers>
-            <renderer type="DefaultRenderer">
-                <parameter name="contentType">application/xml</parameter>
-            </renderer>
-        </renderers>
+<!--        <renderers>-->
+<!--            <renderer type="DefaultRenderer">-->
+<!--                <parameter name="contentType">application/xml</parameter>-->
+<!--            </renderer>-->
+<!--        </renderers>-->
 
-    </view>
+<!--    </view>-->
 
-    <view name="COD_MW_ticket_alerts">
-        <connector type="XMLConnector">
-            <parameter name="content" eval="view('COD_ticket_alerts',entry('view','GGUS_MW'))"/>
-        </connector>
+<!--    <view name="COD_MW_ticket_alerts">-->
+<!--        <connector type="XMLConnector">-->
+<!--            <parameter name="content" eval="view('COD_ticket_alerts',entry('view','GGUS_MW'))"/>-->
+<!--        </connector>-->
 
-        <processors>
-            <element in="Data">
-                <element-create if="not(Issues)">new_element('Issues')</element-create>
-            </element>
-        </processors>
-    </view>
-
-
-    <!-- Notification older than 72h -->
-    <view xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" name="COD_nagios_problem">
+<!--        <processors>-->
+<!--            <element in="Data">-->
+<!--                <element-create if="not(Issues)">new_element('Issues')</element-create>-->
+<!--            </element>-->
+<!--        </processors>-->
+<!--    </view>-->
+
+
+<!--    &lt;!&ndash; Notification older than 72h &ndash;&gt;-->
+<!--    <view xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" name="COD_nagios_problem">-->
 
-        <connector type="SQLConnector">
-            <parameter name="driver">com.mysql.jdbc.Driver</parameter>
-            <parameter name="url" eval="property('COD.db.url')"/>
-            <parameter name="username" eval="property('COD.db.username')"/>
-            <parameter name="password" eval="property('COD.db.password')"/>
-            <parameter name="query">SELECT id as pk1, site as Site , ngi as Ngi, start_date as StartDate,ops_flags as
-                Flags from
-                rod_nagios_problem where status!='0' and ops_flags &amp; 2 != 2
-            </parameter>
-        </connector>
-        <processors>
+<!--        <connector type="SQLConnector">-->
+<!--            <parameter name="driver">com.mysql.jdbc.Driver</parameter>-->
+<!--            <parameter name="url" eval="property('COD.db.url')"/>-->
+<!--            <parameter name="username" eval="property('COD.db.username')"/>-->
+<!--            <parameter name="password" eval="property('COD.db.password')"/>-->
+<!--            <parameter name="query">SELECT id as pk1, site as Site , ngi as Ngi, start_date as StartDate,ops_flags as-->
+<!--                Flags from-->
+<!--                rod_nagios_problem where status!='0' and ops_flags &amp; 2 != 2-->
+<!--            </parameter>-->
+<!--        </connector>-->
+<!--        <processors>-->
 
 
-            <element in="result" out="Data">
-                <attribute-create out="problem_table_name">'CodNagiosProblem'</attribute-create>
-                <attribute-create out="history_table_name">'CodNagiosHistory'</attribute-create>
-                <attribute-create out="global_date">view('UTC-now')/*</attribute-create>
+<!--            <element in="result" out="Data">-->
+<!--                <attribute-create out="problem_table_name">'CodNagiosProblem'</attribute-create>-->
+<!--                <attribute-create out="history_table_name">'CodNagiosHistory'</attribute-create>-->
+<!--                <attribute-create out="global_date">view('UTC-now')/*</attribute-create>-->
 
-                <element-create-as-parent out="Issues">
-                    <element in="row" out="Issue"/>
-                </element-create-as-parent>
-            </element>
+<!--                <element-create-as-parent out="Issues">-->
+<!--                    <element in="row" out="Issue"/>-->
+<!--                </element-create-as-parent>-->
+<!--            </element>-->
 
 
-            <elements path="Data/Issues">
-                <element in="Issue">
+<!--            <elements path="Data/Issues">-->
+<!--                <element in="Issue">-->
 
-                    <attribute-create out="pk1">../pk1/text()</attribute-create>
-                    <attribute-create out="pk2">'alarm_72'</attribute-create>
-                    <element-create>new_element('GenerationDate', ../StartDate/text())</element-create>
-                    <element-create>new_element('DetectionDate', view('UTC-now')/e:entries/e:entry/text())</element-create>
-                    <element-create if="../StartDate/text()">new_element('Status', view('COD-alert-NagiosExpired',entry('date',../StartDate/text()))/e:entries/e:entry/text())</element-create>
-                    <element-create>new_element('UrlToHistory',concat( property('portal.base_url'),  '/rodDashboard/issue/',../pk1/text(),  '/related_site/', ../Site/text(),  '/tab/overview/page/issues'))</element-create>
-                    <element-ignore in="pk1"/>
+<!--                    <attribute-create out="pk1">../pk1/text()</attribute-create>-->
+<!--                    <attribute-create out="pk2">'alarm_72'</attribute-create>-->
+<!--                    <element-create>new_element('GenerationDate', ../StartDate/text())</element-create>-->
+<!--                    <element-create>new_element('DetectionDate', view('UTC-now')/e:entries/e:entry/text())</element-create>-->
+<!--                    <element-create if="../StartDate/text()">new_element('Status', view('COD-alert-NagiosExpired',entry('date',../StartDate/text()))/e:entries/e:entry/text())</element-create>-->
+<!--                    <element-create>new_element('UrlToHistory',concat( property('portal.base_url'),  '/rodDashboard/issue/',../pk1/text(),  '/related_site/', ../Site/text(),  '/tab/overview/page/issues'))</element-create>-->
+<!--                    <element-ignore in="pk1"/>-->
 
-                </element>
-            </elements>
+<!--                </element>-->
+<!--            </elements>-->
 
 
-            <element in="Data">
-                <element in="Issues">
-                    <element-ignore in="Issue" if="Status/text()='0.0'"/>
-                </element>
-            </element>
-
-
-
-
-
-        </processors>
-
-        <cache type="FileCache">
-            <trigger type="DeltaTimeTrigger">
-                <parameter name="minutes">3</parameter>
-            </trigger>
-            <trigger type="ViewNotifiedTrigger"/>
-            <trigger type="ViewCreatedTrigger"/>
-        </cache>
-        <renderers>
-            <renderer type="DefaultRenderer">
-                <parameter name="contentType">application/xml</parameter>
-            </renderer>
-        </renderers>
-    </view>
-
-    <view xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" name="COD_Downtime">
-
-        <connector type="HTTPConnector">
-            <parameter name="url" eval="property('GOC.get_downtime.url')"/>
-            <parameter name="certificate" eval="property('certificate.path')"/>
-            <parameter name="passphrase" eval="property('certificate.password')"/>
-            <parameter name="force-redirect">true</parameter>
-        </connector>
-
-        <processors>
-
-
-
-            <element in="results" out="Data">
-                <attribute-create out="problem_table_name">'CodDowntimeProblem'</attribute-create>
-                <attribute-create out="history_table_name">'CodDowntimeHistory'</attribute-create>
-                <element-create-as-parent out="Issues">
-                    <element in="DOWNTIME" out="Issue"/>
-                </element-create-as-parent>
-            </element>
-
-            <element in="Data">
-                <attribute-create out="global_date">view('UTC-now')/*</attribute-create>
-                <element in="Issues">
-                    <element in="Issue">
-                        <attribute in="ID" out="pk1"/>
-                        <attribute in="PRIMARY_KEY" out="pk2"/>
-                        <attribute-ignore/>
-                    </element>
-
-                </element>
-            </element>
+<!--            <element in="Data">-->
+<!--                <element in="Issues">-->
+<!--                    <element-ignore in="Issue" if="Status/text()='0.0'"/>-->
+<!--                </element>-->
+<!--            </element>-->
+
+
+
+
+
+<!--        </processors>-->
+
+<!--        <cache type="FileCache">-->
+<!--            <trigger type="DeltaTimeTrigger">-->
+<!--                <parameter name="minutes">3</parameter>-->
+<!--            </trigger>-->
+<!--            <trigger type="ViewNotifiedTrigger"/>-->
+<!--            <trigger type="ViewCreatedTrigger"/>-->
+<!--        </cache>-->
+<!--        <renderers>-->
+<!--            <renderer type="DefaultRenderer">-->
+<!--                <parameter name="contentType">application/xml</parameter>-->
+<!--            </renderer>-->
+<!--        </renderers>-->
+<!--    </view>-->
+
+<!--    <view xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" name="COD_Downtime">-->
+
+<!--        <connector type="HTTPConnector">-->
+<!--            <parameter name="url" eval="property('GOC.get_downtime.url')"/>-->
+<!--            <parameter name="certificate" eval="property('certificate.path')"/>-->
+<!--            <parameter name="passphrase" eval="property('certificate.password')"/>-->
+<!--            <parameter name="force-redirect">true</parameter>-->
+<!--        </connector>-->
+
+<!--        <processors>-->
+
+
+
+<!--            <element in="results" out="Data">-->
+<!--                <attribute-create out="problem_table_name">'CodDowntimeProblem'</attribute-create>-->
+<!--                <attribute-create out="history_table_name">'CodDowntimeHistory'</attribute-create>-->
+<!--                <element-create-as-parent out="Issues">-->
+<!--                    <element in="DOWNTIME" out="Issue"/>-->
+<!--                </element-create-as-parent>-->
+<!--            </element>-->
+
+<!--            <element in="Data">-->
+<!--                <attribute-create out="global_date">view('UTC-now')/*</attribute-create>-->
+<!--                <element in="Issues">-->
+<!--                    <element in="Issue">-->
+<!--                        <attribute in="ID" out="pk1"/>-->
+<!--                        <attribute in="PRIMARY_KEY" out="pk2"/>-->
+<!--                        <attribute-ignore/>-->
+<!--                    </element>-->
+
+<!--                </element>-->
+<!--            </element>-->
 
 
 
-            <elements path="/Data/Issues">
-                <element in="Issue">
-                    <element-create if="../START_DATE/text() and ../END_DATE/text()">new_element('Duration',round(number(../END_DATE/text() - ../START_DATE/text()) div 86400))</element-create>
-                </element>
-            </elements>
+<!--            <elements path="/Data/Issues">-->
+<!--                <element in="Issue">-->
+<!--                    <element-create if="../START_DATE/text() and ../END_DATE/text()">new_element('Duration',round(number(../END_DATE/text() - ../START_DATE/text()) div 86400))</element-create>-->
+<!--                </element>-->
+<!--            </elements>-->
 
 
-            <elements path="/Data/Issues">
-                    <element-ignore in="Issue" if="Duration/text() &lt; 30 "/>
-            </elements>
+<!--            <elements path="/Data/Issues">-->
+<!--                    <element-ignore in="Issue" if="Duration/text() &lt; 30 "/>-->
+<!--            </elements>-->
 
 
-            <elements path="/Data/Issues">
-                <set variable="OPSCORE_endpoints">view('OPSCORE_endpoints')</set>
-                <set variable="COD_siteList">view('COD_siteList')</set>
-                <element in="Issue">
-                    <element-create>new_element('UrlToHistory',concat(  property('portal.base_url'), '/rodDashboard/ngi/', ../ROC/text(), '/tab/downtimes/filter/operators/page/downtimes'))</element-create>
-                    <element-create>new_element('PRODUCTION',$OPSCORE_endpoints/results/e:entries[@key=../ENDPOINT/text()]/e:entry[@key='IN_PRODUCTION']/text())</element-create>
-                    <element-create>new_element('ROC',$COD_siteList/results/SITE[SHORT_NAME/text()=../HOSTED_BY/text()]/ROC/text())</element-create>
-                    <element-create>new_element('GenerationDate', view('UTC-now')/*/*/text())</element-create>
-                </element>
-            </elements>
+<!--            <elements path="/Data/Issues">-->
+<!--                <set variable="OPSCORE_endpoints">view('OPSCORE_endpoints')</set>-->
+<!--                <set variable="COD_siteList">view('COD_siteList')</set>-->
+<!--                <element in="Issue">-->
+<!--                    <element-create>new_element('UrlToHistory',concat(  property('portal.base_url'), '/rodDashboard/ngi/', ../ROC/text(), '/tab/downtimes/filter/operators/page/downtimes'))</element-create>-->
+<!--                    <element-create>new_element('PRODUCTION',$OPSCORE_endpoints/results/e:entries[@key=../ENDPOINT/text()]/e:entry[@key='IN_PRODUCTION']/text())</element-create>-->
+<!--                    <element-create>new_element('ROC',$COD_siteList/results/SITE[SHORT_NAME/text()=../HOSTED_BY/text()]/ROC/text())</element-create>-->
+<!--                    <element-create>new_element('GenerationDate', view('UTC-now')/*/*/text())</element-create>-->
+<!--                </element>-->
+<!--            </elements>-->
 
-            <elements path="/Data/Issues">
-                <element-ignore in="Issue" if="PRODUCTION/text()='N' or PRODUCTION/text()=''"/>
-                <element-ignore in="Issue" if="@pk2=following-sibling::Issue/@pk2"/>
-            </elements>
+<!--            <elements path="/Data/Issues">-->
+<!--                <element-ignore in="Issue" if="PRODUCTION/text()='N' or PRODUCTION/text()=''"/>-->
+<!--                <element-ignore in="Issue" if="@pk2=following-sibling::Issue/@pk2"/>-->
+<!--            </elements>-->
 
 
-        </processors>
+<!--        </processors>-->
 
-          <cache type="FileCache">
-              <trigger type="DeltaTimeTrigger">
-                  <parameter name="minutes">18</parameter>
-              </trigger>
-              <trigger type="ViewNotifiedTrigger"/>
-              <trigger type="DependencyRefreshedTrigger">
-                  <parameter name="views">
-                      <entry>OPSCORE_endpoints</entry>
-                  </parameter>
-              </trigger>
-          </cache>
-        <renderers>
-            <renderer type="DefaultRenderer">
-                <parameter name="contentType">application/xml</parameter>
-            </renderer>
-        </renderers>
-    </view>
+<!--          <cache type="FileCache">-->
+<!--              <trigger type="DeltaTimeTrigger">-->
+<!--                  <parameter name="minutes">18</parameter>-->
+<!--              </trigger>-->
+<!--              <trigger type="ViewNotifiedTrigger"/>-->
+<!--              <trigger type="DependencyRefreshedTrigger">-->
+<!--                  <parameter name="views">-->
+<!--                      <entry>OPSCORE_endpoints</entry>-->
+<!--                  </parameter>-->
+<!--              </trigger>-->
+<!--          </cache>-->
+<!--        <renderers>-->
+<!--            <renderer type="DefaultRenderer">-->
+<!--                <parameter name="contentType">application/xml</parameter>-->
+<!--            </renderer>-->
+<!--        </renderers>-->
+<!--    </view>-->
 
-    <view name="COD_siteList">
+<!--    <view name="COD_siteList">-->
 
-        <connector type="HTTPConnector">
-            <parameter name="url" eval="property('GOG.get_site.url')"/>
-            <parameter name="certificate" eval="property('certificate.path')"/>
-            <parameter name="passphrase" eval="property('certificate.password')"/>
-            <parameter name="force-redirect">true</parameter>
-        </connector>
-        <cache type="FileCache">
+<!--        <connector type="HTTPConnector">-->
+<!--            <parameter name="url" eval="property('GOG.get_site.url')"/>-->
+<!--            <parameter name="certificate" eval="property('certificate.path')"/>-->
+<!--            <parameter name="passphrase" eval="property('certificate.password')"/>-->
+<!--            <parameter name="force-redirect">true</parameter>-->
+<!--        </connector>-->
+<!--        <cache type="FileCache">-->
 
-            <trigger type="DeltaTimeTrigger">
-                <parameter name="hours">1</parameter>
-            </trigger>
-            <trigger type="ViewNotifiedTrigger"/>
-            <trigger type="ViewCreatedTrigger"/>
-        </cache>
-    </view>
+<!--            <trigger type="DeltaTimeTrigger">-->
+<!--                <parameter name="hours">1</parameter>-->
+<!--            </trigger>-->
+<!--            <trigger type="ViewNotifiedTrigger"/>-->
+<!--            <trigger type="ViewCreatedTrigger"/>-->
+<!--        </cache>-->
+<!--    </view>-->
 
 
-    <view name="COD_XML">
+<!--    <view name="COD_XML">-->
 
 
 
-        <connector type="HTTPConnector">
-            <parameter name="url" eval="property('COD.portal.metrics')"/>
-            <parameter name="certificate" eval="property('certificate.path')"/>
-            <parameter name="passphrase" eval="property('certificate.password')"/>
-            <parameter name="force-redirect">true</parameter>
-        </connector>
+<!--        <connector type="HTTPConnector">-->
+<!--            <parameter name="url" eval="property('COD.portal.metrics')"/>-->
+<!--            <parameter name="certificate" eval="property('certificate.path')"/>-->
+<!--            <parameter name="passphrase" eval="property('certificate.password')"/>-->
+<!--            <parameter name="force-redirect">true</parameter>-->
+<!--        </connector>-->
 
 
-        <serializer type="HTMLSerializer"/>
+<!--        <serializer type="HTMLSerializer"/>-->
 
-        <processors>
-            <processor match="//*" type="ChangeNamespaceProcessor"/>
-        </processors>
+<!--        <processors>-->
+<!--            <processor match="//*" type="ChangeNamespaceProcessor"/>-->
+<!--        </processors>-->
 
-        <cache type="FileCache">
-            <trigger ignore-during="PT5M" type="ViewAccessedTrigger"/>
-            <trigger type="ViewNotifiedTrigger"/>
-            <trigger type="DeltaTimeTrigger">
-                <parameter name="hours">1</parameter>
-            </trigger>
-        </cache>
+<!--        <cache type="FileCache">-->
+<!--            <trigger ignore-during="PT5M" type="ViewAccessedTrigger"/>-->
+<!--            <trigger type="ViewNotifiedTrigger"/>-->
+<!--            <trigger type="DeltaTimeTrigger">-->
+<!--                <parameter name="hours">1</parameter>-->
+<!--            </trigger>-->
+<!--        </cache>-->
 
 
 
-    </view>
+<!--    </view>-->
 
 
 
-    <view name="Cod_Metrics_Generation">
+<!--    <view name="Cod_Metrics_Generation">-->
 
 
 
-        <connector type="HTTPConnector">
-            <parameter name="url" eval="property('COD.portal.metrics.generation')"/>
-            <parameter name="certificate" eval="property('certificate.path')"/>
-            <parameter name="passphrase" eval="property('certificate.password')"/>
-            <parameter name="force-redirect">true</parameter>
-        </connector>
+<!--        <connector type="HTTPConnector">-->
+<!--            <parameter name="url" eval="property('COD.portal.metrics.generation')"/>-->
+<!--            <parameter name="certificate" eval="property('certificate.path')"/>-->
+<!--            <parameter name="passphrase" eval="property('certificate.password')"/>-->
+<!--            <parameter name="force-redirect">true</parameter>-->
+<!--        </connector>-->
 
-        <cache type="FileCache">
+<!--        <cache type="FileCache">-->
 
-            <trigger type="ViewNotifiedTrigger"/>
-            <trigger type="DeltaTimeTrigger">
-                <parameter name="hours">1</parameter>
-            </trigger>
-        </cache>
+<!--            <trigger type="ViewNotifiedTrigger"/>-->
+<!--            <trigger type="DeltaTimeTrigger">-->
+<!--                <parameter name="hours">1</parameter>-->
+<!--            </trigger>-->
+<!--        </cache>-->
 
-    </view>
+<!--    </view>-->
 
-    <view name="COD_CleanUP">
+<!--    <view name="COD_CleanUP">-->
 
-        <connector type="HTTPConnector">
-            <parameter name="url" eval="property('COD.portal.clean.url')"/>
-            <parameter name="certificate" eval="property('certificate.path')"/>
-            <parameter name="passphrase" eval="property('certificate.password')"/>
-            <parameter name="force-redirect">true</parameter>
-        </connector>
+<!--        <connector type="HTTPConnector">-->
+<!--            <parameter name="url" eval="property('COD.portal.clean.url')"/>-->
+<!--            <parameter name="certificate" eval="property('certificate.path')"/>-->
+<!--            <parameter name="passphrase" eval="property('certificate.password')"/>-->
+<!--            <parameter name="force-redirect">true</parameter>-->
+<!--        </connector>-->
 
-        <cache type="FileCache">
-            <trigger type="DeltaTimeTrigger">
-                <parameter name="minutes">20</parameter>
-            </trigger>
-            <trigger type="ViewNotifiedTrigger"/>
+<!--        <cache type="FileCache">-->
+<!--            <trigger type="DeltaTimeTrigger">-->
+<!--                <parameter name="minutes">20</parameter>-->
+<!--            </trigger>-->
+<!--            <trigger type="ViewNotifiedTrigger"/>-->
 
-        </cache>
-    </view>
+<!--        </cache>-->
+<!--    </view>-->
 
 
-</views>
+<!--</views>-->

@@ -332,234 +332,234 @@
 
     </view>
 
-    <view authenticators="local" name="Csi_Metrics_Generation">
+<!--    <view authenticators="local" name="Csi_Metrics_Generation">-->
 
-        <connector type="HTTPConnector">
-            <parameter name="url" eval="property('CSI.portal.metrics.generation')"/>
-            <parameter name="certificate" eval="property('certificate.path')"/>
-            <parameter name="passphrase" eval="property('certificate.password')"/>
-            <parameter name="force-redirect">true</parameter>
-        </connector>
-        <cache type="FileCache">
-            <trigger type="ViewNotifiedTrigger"/>
-            <trigger type="DeltaTimeTrigger">
-                <parameter name="hours">1</parameter>
-            </trigger>
-        </cache>
+<!--        <connector type="HTTPConnector">-->
+<!--            <parameter name="url" eval="property('CSI.portal.metrics.generation')"/>-->
+<!--            <parameter name="certificate" eval="property('certificate.path')"/>-->
+<!--            <parameter name="passphrase" eval="property('certificate.password')"/>-->
+<!--            <parameter name="force-redirect">true</parameter>-->
+<!--        </connector>-->
+<!--        <cache type="FileCache">-->
+<!--            <trigger type="ViewNotifiedTrigger"/>-->
+<!--            <trigger type="DeltaTimeTrigger">-->
+<!--                <parameter name="hours">1</parameter>-->
+<!--            </trigger>-->
+<!--        </cache>-->
 
-    </view>
+<!--    </view>-->
 
-    <view authenticators="local" name="Csi_RT_Ticket_List"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
-
-
-        <connector type="HTTPConnector">
-            <parameter name="url" eval="property('rt.listtickets')"/>
-            <parameter name="method">POST</parameter>
-        </connector>
-        <serializer type="DeprecatedTextSerializer">
-            <parameter name="patterns">
-                    <entry>(\d+).*</entry>
-                    <entry>(.*)</entry>
-                </parameter>
-
-        </serializer>
-
-        <processors>
-
-            <element in="lines" out="e:entries">
-                <element in="line" out="e:entries" if="@pattern=1">
-                    <attribute-ignore/>
-                    <element-create>view('Csi_RT_Ticket_Details',entry('ticketId',../group/text()))</element-create>
-                </element>
-                <element-ignore/>
-            </element>
-
-            <element in="e:entries">
-                <element in="e:entries">
-                    <element-ignore in="lines">
-                        <element-ignore in="line">
-                            <element-create if="../group[@id=1] and ../group[@id=2]">entry(../group[@id=1],../group[@id=2])</element-create>
-                        </element-ignore>
-                    </element-ignore>
-                </element>
-            </element>
-
-            <elements path="e:entries/e:entries">
-                <element in="group" out="e:entry">
-                    <set variable="listSites">view('OPSCORE_prod_entities')</set>
-                    <attribute-create out="key">'id'</attribute-create>
-                    <attribute-ignore/>
-                </element>
-
-                <element-create>entry('Community','CSI')</element-create>
-
-                <element-create>
-                    entry('CF.{TargetSite}',choose(../e:entry[@key='CF.{TargetSite}']/text()!='',../e:entry[@key='CF.{TargetSite}']/text(),'N.A'))
-                </element-create>
-                <element-create>
-                    entry('ngi',choose($listSites/NGIs/NGI/Sites/Site[@name=current()/../e:entry[@key='CF.{TargetSite}']/text()]/@ngi,
-                    $listSites/NGIs/NGI/Sites/Site[@name=current()/../e:entry[@key='CF.{TargetSite}']/text()]/@ngi,
-                    'N.A'))
-                </element-create>
-                <element-create>
-                    entry('site',choose(../e:entry[@key='CF.{TargetSite}']/text()!='',../e:entry[@key='CF.{TargetSite}']/text(),'N.A'))
-                </element-create>
-                <element-create if="not(../entry[@key='CF.{Helpdesk}'])">
-                    entry('CF.{Helpdesk}','rt_helpdesk_ops')
-                </element-create>
-                <element-create if="not(../entry[@key='CF.{Workflow}'])">
-                    entry('CF.{Workflow}','workflow_csi')
-                </element-create>
-                <element-create if="not(../entry[@key='CF.{Step}'])">
-                    entry('CF.{Step}',../e:entry[@key='Status']/text())
-                </element-create>
-                <element-create if="not(../entry[@key='CF.{StepLabel}'])">
-                    entry('CF.{StepLabel}',../e:entry[@key='Status']/text())
-                </element-create>
-                <element-create>
-                    entry('GroupId',../e:entry[@key='CF.{GroupOfIssuesId}']/text())
-                </element-create>
+<!--    <view authenticators="local" name="Csi_RT_Ticket_List"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >-->
 
 
-                <element-ignore in="e:entry" if="@key='id'"/>
-            </elements>
-        </processors>
+<!--        <connector type="HTTPConnector">-->
+<!--            <parameter name="url" eval="property('rt.listtickets')"/>-->
+<!--            <parameter name="method">POST</parameter>-->
+<!--        </connector>-->
+<!--        <serializer type="DeprecatedTextSerializer">-->
+<!--            <parameter name="patterns">-->
+<!--                    <entry>(\d+).*</entry>-->
+<!--                    <entry>(.*)</entry>-->
+<!--                </parameter>-->
+
+<!--        </serializer>-->
+
+<!--        <processors>-->
+
+<!--            <element in="lines" out="e:entries">-->
+<!--                <element in="line" out="e:entries" if="@pattern=1">-->
+<!--                    <attribute-ignore/>-->
+<!--                    <element-create>view('Csi_RT_Ticket_Details',entry('ticketId',../group/text()))</element-create>-->
+<!--                </element>-->
+<!--                <element-ignore/>-->
+<!--            </element>-->
+
+<!--            <element in="e:entries">-->
+<!--                <element in="e:entries">-->
+<!--                    <element-ignore in="lines">-->
+<!--                        <element-ignore in="line">-->
+<!--                            <element-create if="../group[@id=1] and ../group[@id=2]">entry(../group[@id=1],../group[@id=2])</element-create>-->
+<!--                        </element-ignore>-->
+<!--                    </element-ignore>-->
+<!--                </element>-->
+<!--            </element>-->
+
+<!--            <elements path="e:entries/e:entries">-->
+<!--                <element in="group" out="e:entry">-->
+<!--                    <set variable="listSites">view('OPSCORE_prod_entities')</set>-->
+<!--                    <attribute-create out="key">'id'</attribute-create>-->
+<!--                    <attribute-ignore/>-->
+<!--                </element>-->
+
+<!--                <element-create>entry('Community','CSI')</element-create>-->
+
+<!--                <element-create>-->
+<!--                    entry('CF.{TargetSite}',choose(../e:entry[@key='CF.{TargetSite}']/text()!='',../e:entry[@key='CF.{TargetSite}']/text(),'N.A'))-->
+<!--                </element-create>-->
+<!--                <element-create>-->
+<!--                    entry('ngi',choose($listSites/NGIs/NGI/Sites/Site[@name=current()/../e:entry[@key='CF.{TargetSite}']/text()]/@ngi,-->
+<!--                    $listSites/NGIs/NGI/Sites/Site[@name=current()/../e:entry[@key='CF.{TargetSite}']/text()]/@ngi,-->
+<!--                    'N.A'))-->
+<!--                </element-create>-->
+<!--                <element-create>-->
+<!--                    entry('site',choose(../e:entry[@key='CF.{TargetSite}']/text()!='',../e:entry[@key='CF.{TargetSite}']/text(),'N.A'))-->
+<!--                </element-create>-->
+<!--                <element-create if="not(../entry[@key='CF.{Helpdesk}'])">-->
+<!--                    entry('CF.{Helpdesk}','rt_helpdesk_ops')-->
+<!--                </element-create>-->
+<!--                <element-create if="not(../entry[@key='CF.{Workflow}'])">-->
+<!--                    entry('CF.{Workflow}','workflow_csi')-->
+<!--                </element-create>-->
+<!--                <element-create if="not(../entry[@key='CF.{Step}'])">-->
+<!--                    entry('CF.{Step}',../e:entry[@key='Status']/text())-->
+<!--                </element-create>-->
+<!--                <element-create if="not(../entry[@key='CF.{StepLabel}'])">-->
+<!--                    entry('CF.{StepLabel}',../e:entry[@key='Status']/text())-->
+<!--                </element-create>-->
+<!--                <element-create>-->
+<!--                    entry('GroupId',../e:entry[@key='CF.{GroupOfIssuesId}']/text())-->
+<!--                </element-create>-->
 
 
-
-
-        <cache type="FileCache">
-            <trigger type="ViewNotifiedTrigger"/>
-            <trigger type="DeltaTimeTrigger">
-                <parameter name="minutes">10</parameter>
-            </trigger>
-        </cache>
-
-        <renderers>
-            <renderer type="DefaultRenderer">
-                <parameter name="contentType">xml</parameter>
-            </renderer>
-        </renderers>
-    </view>
-
-    <view authenticators="local" name="Csi_RT_Ticket_full_byID"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
-
-
-        <argument name="id"/>
-
-        <connector type="HTTPConnector">
-            <parameter name="url" eval="concat(property('rt.listtickets.full'),'ANDId=',quot($id))"/>
-            <parameter name="method">POST</parameter>
-        </connector>
-        <serializer type="DeprecatedTextSerializer">
-            <parameter name="patterns">
-                <entry>(\d+).*</entry>
-                <entry>(.*)</entry>
-            </parameter>
-
-        </serializer>
-
-        <processors>
-
-            <element in="lines" out="e:entries">
-                <element in="line" out="e:entries" if="@pattern=1">
-                    <attribute-ignore/>
-                    <element-create>view('Csi_RT_Ticket_Details',entry('ticketId',../group/text()))</element-create>
-                </element>
-                <element-ignore/>
-            </element>
-
-            <element in="e:entries">
-                <element in="e:entries">
-                    <element-ignore in="lines">
-                        <element-ignore in="line">
-                            <element-create if="../group[@id=1] and ../group[@id=2]">entry(../group[@id=1],../group[@id=2])</element-create>
-                        </element-ignore>
-                    </element-ignore>
-                </element>
-            </element>
-
-            <elements path="e:entries/e:entries">
-                <element in="group" out="e:entry">
-                    <set variable="listSites">view('OPSCORE_prod_entities')</set>
-                    <attribute-create out="key">'id'</attribute-create>
-                    <attribute-ignore/>
-                </element>
-
-                <element-create>entry('Community','CSI')</element-create>
-
-                <element-create>
-                    entry('CF.{TargetSite}',choose(../e:entry[@key='CF.{TargetSite}']/text()!='',../e:entry[@key='CF.{TargetSite}']/text(),'N.A'))
-                </element-create>
-                <element-create>
-                    entry('ngi',choose($listSites/NGIs/NGI/Sites/Site[@name=current()/../e:entry[@key='CF.{TargetSite}']/text()]/@ngi,
-                    $listSites/NGIs/NGI/Sites/Site[@name=current()/../e:entry[@key='CF.{TargetSite}']/text()]/@ngi,
-                    'N.A'))
-                </element-create>
-                <element-create>
-                    entry('site',choose(../e:entry[@key='CF.{TargetSite}']/text()!='',../e:entry[@key='CF.{TargetSite}']/text(),'N.A'))
-                </element-create>
-                <element-create if="not(../entry[@key='CF.{Helpdesk}'])">
-                    entry('CF.{Helpdesk}','rt_helpdesk_ops')
-                </element-create>
-                <element-create if="not(../entry[@key='CF.{Workflow}'])">
-                    entry('CF.{Workflow}','workflow_csi')
-                </element-create>
-                <element-create if="not(../entry[@key='CF.{Step}'])">
-                    entry('CF.{Step}',../e:entry[@key='Status']/text())
-                </element-create>
-                <element-create if="not(../entry[@key='CF.{StepLabel}'])">
-                    entry('CF.{StepLabel}',../e:entry[@key='Status']/text())
-                </element-create>
-                <element-create>
-                    entry('GroupId',../e:entry[@key='CF.{GroupOfIssuesId}']/text())
-                </element-create>
-
-
-                <element-ignore in="e:entry" if="@key='id'"/>
-            </elements>
-        </processors>
+<!--                <element-ignore in="e:entry" if="@key='id'"/>-->
+<!--            </elements>-->
+<!--        </processors>-->
 
 
 
 
-        <renderers>
-            <renderer type="DefaultRenderer">
-                <parameter name="contentType">xml</parameter>
-            </renderer>
-        </renderers>
-    </view>
+<!--        <cache type="FileCache">-->
+<!--            <trigger type="ViewNotifiedTrigger"/>-->
+<!--            <trigger type="DeltaTimeTrigger">-->
+<!--                <parameter name="minutes">10</parameter>-->
+<!--            </trigger>-->
+<!--        </cache>-->
+
+<!--        <renderers>-->
+<!--            <renderer type="DefaultRenderer">-->
+<!--                <parameter name="contentType">xml</parameter>-->
+<!--            </renderer>-->
+<!--        </renderers>-->
+<!--    </view>-->
+
+<!--    <view authenticators="local" name="Csi_RT_Ticket_full_byID"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >-->
 
 
-    <view authenticators="local" name="Csi_RT_Ticket_List_byEntity"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
+<!--        <argument name="id"/>-->
+
+<!--        <connector type="HTTPConnector">-->
+<!--            <parameter name="url" eval="concat(property('rt.listtickets.full'),'ANDId=',quot($id))"/>-->
+<!--            <parameter name="method">POST</parameter>-->
+<!--        </connector>-->
+<!--        <serializer type="DeprecatedTextSerializer">-->
+<!--            <parameter name="patterns">-->
+<!--                <entry>(\d+).*</entry>-->
+<!--                <entry>(.*)</entry>-->
+<!--            </parameter>-->
+
+<!--        </serializer>-->
+
+<!--        <processors>-->
+
+<!--            <element in="lines" out="e:entries">-->
+<!--                <element in="line" out="e:entries" if="@pattern=1">-->
+<!--                    <attribute-ignore/>-->
+<!--                    <element-create>view('Csi_RT_Ticket_Details',entry('ticketId',../group/text()))</element-create>-->
+<!--                </element>-->
+<!--                <element-ignore/>-->
+<!--            </element>-->
+
+<!--            <element in="e:entries">-->
+<!--                <element in="e:entries">-->
+<!--                    <element-ignore in="lines">-->
+<!--                        <element-ignore in="line">-->
+<!--                            <element-create if="../group[@id=1] and ../group[@id=2]">entry(../group[@id=1],../group[@id=2])</element-create>-->
+<!--                        </element-ignore>-->
+<!--                    </element-ignore>-->
+<!--                </element>-->
+<!--            </element>-->
+
+<!--            <elements path="e:entries/e:entries">-->
+<!--                <element in="group" out="e:entry">-->
+<!--                    <set variable="listSites">view('OPSCORE_prod_entities')</set>-->
+<!--                    <attribute-create out="key">'id'</attribute-create>-->
+<!--                    <attribute-ignore/>-->
+<!--                </element>-->
+
+<!--                <element-create>entry('Community','CSI')</element-create>-->
+
+<!--                <element-create>-->
+<!--                    entry('CF.{TargetSite}',choose(../e:entry[@key='CF.{TargetSite}']/text()!='',../e:entry[@key='CF.{TargetSite}']/text(),'N.A'))-->
+<!--                </element-create>-->
+<!--                <element-create>-->
+<!--                    entry('ngi',choose($listSites/NGIs/NGI/Sites/Site[@name=current()/../e:entry[@key='CF.{TargetSite}']/text()]/@ngi,-->
+<!--                    $listSites/NGIs/NGI/Sites/Site[@name=current()/../e:entry[@key='CF.{TargetSite}']/text()]/@ngi,-->
+<!--                    'N.A'))-->
+<!--                </element-create>-->
+<!--                <element-create>-->
+<!--                    entry('site',choose(../e:entry[@key='CF.{TargetSite}']/text()!='',../e:entry[@key='CF.{TargetSite}']/text(),'N.A'))-->
+<!--                </element-create>-->
+<!--                <element-create if="not(../entry[@key='CF.{Helpdesk}'])">-->
+<!--                    entry('CF.{Helpdesk}','rt_helpdesk_ops')-->
+<!--                </element-create>-->
+<!--                <element-create if="not(../entry[@key='CF.{Workflow}'])">-->
+<!--                    entry('CF.{Workflow}','workflow_csi')-->
+<!--                </element-create>-->
+<!--                <element-create if="not(../entry[@key='CF.{Step}'])">-->
+<!--                    entry('CF.{Step}',../e:entry[@key='Status']/text())-->
+<!--                </element-create>-->
+<!--                <element-create if="not(../entry[@key='CF.{StepLabel}'])">-->
+<!--                    entry('CF.{StepLabel}',../e:entry[@key='Status']/text())-->
+<!--                </element-create>-->
+<!--                <element-create>-->
+<!--                    entry('GroupId',../e:entry[@key='CF.{GroupOfIssuesId}']/text())-->
+<!--                </element-create>-->
 
 
-        <argument name="site">false</argument>
-        <argument name="ngi">false</argument>
-        <argument name="ticketId">false</argument>
-
-        <connector type="XMLConnector">
-            <parameter name="content" eval="view('Csi_RT_Ticket_List')"/>
-        </connector>
-
-        <processors>
-            <element in="e:entries">
-                <element-ignore in="e:entries" if="$site!='false' and e:entry[@key='site']!=$site"/>
-            </element>
-
-            <element in="e:entries">
-                <element-ignore in="e:entries" if="$ngi!='false' and e:entry[@key='ngi']!=$ngi"/>
-            </element>
+<!--                <element-ignore in="e:entry" if="@key='id'"/>-->
+<!--            </elements>-->
+<!--        </processors>-->
 
 
-            <element in="e:entries">
-                <element-ignore in="e:entries" if="$ticketId!='false' and e:entry[@key='id']!=$ticketId"/>
-            </element>
-
-        </processors>
 
 
-    </view>
+<!--        <renderers>-->
+<!--            <renderer type="DefaultRenderer">-->
+<!--                <parameter name="contentType">xml</parameter>-->
+<!--            </renderer>-->
+<!--        </renderers>-->
+<!--    </view>-->
+
+
+<!--    <view authenticators="local" name="Csi_RT_Ticket_List_byEntity"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >-->
+
+
+<!--        <argument name="site">false</argument>-->
+<!--        <argument name="ngi">false</argument>-->
+<!--        <argument name="ticketId">false</argument>-->
+
+<!--        <connector type="XMLConnector">-->
+<!--            <parameter name="content" eval="view('Csi_RT_Ticket_List')"/>-->
+<!--        </connector>-->
+
+<!--        <processors>-->
+<!--            <element in="e:entries">-->
+<!--                <element-ignore in="e:entries" if="$site!='false' and e:entry[@key='site']!=$site"/>-->
+<!--            </element>-->
+
+<!--            <element in="e:entries">-->
+<!--                <element-ignore in="e:entries" if="$ngi!='false' and e:entry[@key='ngi']!=$ngi"/>-->
+<!--            </element>-->
+
+
+<!--            <element in="e:entries">-->
+<!--                <element-ignore in="e:entries" if="$ticketId!='false' and e:entry[@key='id']!=$ticketId"/>-->
+<!--            </element>-->
+
+<!--        </processors>-->
+
+
+<!--    </view>-->
 
     <!--<view xmlns:date="http://exslt.org/dates-and-times"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd"  authenticators="local" name="Csi_RT_ClosedTicket_List_24h">-->
 
@@ -633,154 +633,154 @@
     <!--</view>-->
 
 
-    <view xmlns:date="http://exslt.org/dates-and-times"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd"  authenticators="local" name="Csi_RT_OpenedTicket_List_24h">
+<!--    <view xmlns:date="http://exslt.org/dates-and-times"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd"  authenticators="local" name="Csi_RT_OpenedTicket_List_24h">-->
 
-        <variable name="yesterday" eval="substring(date:add(date:date(),'-P1D'),0,11)"/>
-        <connector type="HTTPConnector">
-            <parameter name="url" eval="concat(property('rt.listtickets.opened.withdate'),quot($yesterday))"/>
+<!--        <variable name="yesterday" eval="substring(date:add(date:date(),'-P1D'),0,11)"/>-->
+<!--        <connector type="HTTPConnector">-->
+<!--            <parameter name="url" eval="concat(property('rt.listtickets.opened.withdate'),quot($yesterday))"/>-->
 
-        </connector>
+<!--        </connector>-->
 
-        <serializer type="DeprecatedTextSerializer">
-            <parameter name="patterns">
-                <entry>(\d+).*</entry>
-                <entry>(.*)</entry>
-            </parameter>
-        </serializer>
+<!--        <serializer type="DeprecatedTextSerializer">-->
+<!--            <parameter name="patterns">-->
+<!--                <entry>(\d+).*</entry>-->
+<!--                <entry>(.*)</entry>-->
+<!--            </parameter>-->
+<!--        </serializer>-->
 
-        <processors>
+<!--        <processors>-->
 
-            <element in="lines" out="e:entries">
-                <element in="line" out="e:entries" if="@pattern=1">
-                    <attribute-ignore/>
-                    <element-create>view('Csi_RT_Ticket_Details',entry('ticketId',../group/text()))</element-create>
-                </element>
-                <element-ignore/>
-            </element>
+<!--            <element in="lines" out="e:entries">-->
+<!--                <element in="line" out="e:entries" if="@pattern=1">-->
+<!--                    <attribute-ignore/>-->
+<!--                    <element-create>view('Csi_RT_Ticket_Details',entry('ticketId',../group/text()))</element-create>-->
+<!--                </element>-->
+<!--                <element-ignore/>-->
+<!--            </element>-->
 
-            <element in="e:entries">
-                <element in="e:entries">
-                    <element-ignore in="lines">
-                        <element-ignore in="line">
-                            <element-create if="../group[@id=1] and ../group[@id=2]">entry(../group[@id=1],../group[@id=2])</element-create>
-                        </element-ignore>
-                    </element-ignore>
-                </element>
-            </element>
+<!--            <element in="e:entries">-->
+<!--                <element in="e:entries">-->
+<!--                    <element-ignore in="lines">-->
+<!--                        <element-ignore in="line">-->
+<!--                            <element-create if="../group[@id=1] and ../group[@id=2]">entry(../group[@id=1],../group[@id=2])</element-create>-->
+<!--                        </element-ignore>-->
+<!--                    </element-ignore>-->
+<!--                </element>-->
+<!--            </element>-->
 
-            <elements path="e:entries/e:entries">
-                <element in="group" out="e:entry">
-                    <set variable="listSites">view('OPSCORE_prod_entities')</set>
-                    <attribute-create out="key">'id'</attribute-create>
-                    <attribute-ignore/>
-                </element>
-                <element-create>
-                    entry('ngi',choose($listSites/NGIs/NGI/Sites/Site[@name=current()/../e:entry[@key='CF.{TargetSite}']/text()]/@ngi,
-                    $listSites/NGIs/NGI/Sites/Site[@name=current()/../e:entry[@key='CF.{TargetSite}']/text()]/@ngi,
-                    'N.A'))
-                </element-create>
-                <element-create>
-                    entry('site',choose(../e:entry[@key='CF.{TargetSite}']/text()!='',../e:entry[@key='CF.{TargetSite}']/text(),'N.A'))
-                </element-create>
-                <element-ignore in="e:entry" if="@key='id'"/>
-            </elements>
-        </processors>
+<!--            <elements path="e:entries/e:entries">-->
+<!--                <element in="group" out="e:entry">-->
+<!--                    <set variable="listSites">view('OPSCORE_prod_entities')</set>-->
+<!--                    <attribute-create out="key">'id'</attribute-create>-->
+<!--                    <attribute-ignore/>-->
+<!--                </element>-->
+<!--                <element-create>-->
+<!--                    entry('ngi',choose($listSites/NGIs/NGI/Sites/Site[@name=current()/../e:entry[@key='CF.{TargetSite}']/text()]/@ngi,-->
+<!--                    $listSites/NGIs/NGI/Sites/Site[@name=current()/../e:entry[@key='CF.{TargetSite}']/text()]/@ngi,-->
+<!--                    'N.A'))-->
+<!--                </element-create>-->
+<!--                <element-create>-->
+<!--                    entry('site',choose(../e:entry[@key='CF.{TargetSite}']/text()!='',../e:entry[@key='CF.{TargetSite}']/text(),'N.A'))-->
+<!--                </element-create>-->
+<!--                <element-ignore in="e:entry" if="@key='id'"/>-->
+<!--            </elements>-->
+<!--        </processors>-->
 
-        <cache type="FileCache">
-            <trigger type="ViewNotifiedTrigger"/>
-            <trigger type="DeltaTimeTrigger">
-                <parameter name="minutes">10</parameter>
-            </trigger>
-        </cache>
+<!--        <cache type="FileCache">-->
+<!--            <trigger type="ViewNotifiedTrigger"/>-->
+<!--            <trigger type="DeltaTimeTrigger">-->
+<!--                <parameter name="minutes">10</parameter>-->
+<!--            </trigger>-->
+<!--        </cache>-->
 
-        <renderers>
-            <renderer type="DefaultRenderer">
-                <parameter name="contentType">xml</parameter>
-            </renderer>
-        </renderers>
-    </view>
-
-
-
-    <view authenticators="local"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd"  name="Csi_Metrics_Count">
-
-
-        <argument name="viewRT" path-format="none">Csi_RT_ClosedTicket_List_24h</argument>
-
-        <argument name="entity_type" pattern="ngi|site">site</argument>
-        <argument name="pre_path">/*/*</argument>
-
-        <connector type="XMLConnector">
-            <parameter name="content" eval="view_path($viewRT, $pre_path)"/>
-        </connector>
+<!--        <renderers>-->
+<!--            <renderer type="DefaultRenderer">-->
+<!--                <parameter name="contentType">xml</parameter>-->
+<!--            </renderer>-->
+<!--        </renderers>-->
+<!--    </view>-->
 
 
 
-
-        <processors>
-
-            <element in="e:entries">
-                <element-ignore in="e:entries">
-                    <element in="e:entry" if="choose($entity_type='site',@key='site',@key='ngi')"/>
-                    <element-ignore/>
-                </element-ignore>
-            </element>
-
-            <element in="e:entries">
-
-                <element-create>sort_by_string(../e:entry,'text()')</element-create>
-                <element-ignore in="e:entry"/>
-            </element>
-            <element in="e:entries">
-                    <element-create-as-parent out="e:entry" group-by="../e:entry/text()">
-                        <element in="e:entry"/>
-                    </element-create-as-parent>
-            </element>
-            <element in="e:entries">
-                <element in="e:entry">
-                    <attribute-create out="key">../e:entry[1]/text()</attribute-create>
-                    <attribute-create out="nbTickets">count(../e:entry)</attribute-create>
-                    <element-create>entry('nbTickets',count(../e:entry))</element-create>
-                    <element-ignore/>
-                </element>
-            </element>
-
-        </processors>
+<!--    <view authenticators="local"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd"  name="Csi_Metrics_Count">-->
 
 
-        <renderers>
-            <renderer type="DefaultRenderer">
-                <parameter name="contentType">xml</parameter>
-            </renderer>
-        </renderers>
+<!--        <argument name="viewRT" path-format="none">Csi_RT_ClosedTicket_List_24h</argument>-->
+
+<!--        <argument name="entity_type" pattern="ngi|site">site</argument>-->
+<!--        <argument name="pre_path">/*/*</argument>-->
+
+<!--        <connector type="XMLConnector">-->
+<!--            <parameter name="content" eval="view_path($viewRT, $pre_path)"/>-->
+<!--        </connector>-->
 
 
 
-    </view>
 
-    <view authenticators="local" name="Csi_RT_Ticket_Details"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
+<!--        <processors>-->
+
+<!--            <element in="e:entries">-->
+<!--                <element-ignore in="e:entries">-->
+<!--                    <element in="e:entry" if="choose($entity_type='site',@key='site',@key='ngi')"/>-->
+<!--                    <element-ignore/>-->
+<!--                </element-ignore>-->
+<!--            </element>-->
+
+<!--            <element in="e:entries">-->
+
+<!--                <element-create>sort_by_string(../e:entry,'text()')</element-create>-->
+<!--                <element-ignore in="e:entry"/>-->
+<!--            </element>-->
+<!--            <element in="e:entries">-->
+<!--                    <element-create-as-parent out="e:entry" group-by="../e:entry/text()">-->
+<!--                        <element in="e:entry"/>-->
+<!--                    </element-create-as-parent>-->
+<!--            </element>-->
+<!--            <element in="e:entries">-->
+<!--                <element in="e:entry">-->
+<!--                    <attribute-create out="key">../e:entry[1]/text()</attribute-create>-->
+<!--                    <attribute-create out="nbTickets">count(../e:entry)</attribute-create>-->
+<!--                    <element-create>entry('nbTickets',count(../e:entry))</element-create>-->
+<!--                    <element-ignore/>-->
+<!--                </element>-->
+<!--            </element>-->
+
+<!--        </processors>-->
 
 
-        <argument name="ticketId"/>
-        <connector type="HTTPConnector">
-            <parameter name="url" eval="concat(property('rt.ticketdetails'),$ticketId)"/>
-        </connector>
+<!--        <renderers>-->
+<!--            <renderer type="DefaultRenderer">-->
+<!--                <parameter name="contentType">xml</parameter>-->
+<!--            </renderer>-->
+<!--        </renderers>-->
 
-        <serializer type="DeprecatedTextSerializer">
-            <parameter name="patterns">
-                <entry>(\w*): (.*)</entry>
-                <entry>(CF.*): (.*)</entry>
-                <entry>(.*)</entry>
-            </parameter>
 
-        </serializer>
-        <renderers>
-            <renderer type="DefaultRenderer">
-                <parameter name="contentType">xml</parameter>
-            </renderer>
-        </renderers>
 
-    </view>
+<!--    </view>-->
+
+<!--    <view authenticators="local" name="Csi_RT_Ticket_Details"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >-->
+
+
+<!--        <argument name="ticketId"/>-->
+<!--        <connector type="HTTPConnector">-->
+<!--            <parameter name="url" eval="concat(property('rt.ticketdetails'),$ticketId)"/>-->
+<!--        </connector>-->
+
+<!--        <serializer type="DeprecatedTextSerializer">-->
+<!--            <parameter name="patterns">-->
+<!--                <entry>(\w*): (.*)</entry>-->
+<!--                <entry>(CF.*): (.*)</entry>-->
+<!--                <entry>(.*)</entry>-->
+<!--            </parameter>-->
+
+<!--        </serializer>-->
+<!--        <renderers>-->
+<!--            <renderer type="DefaultRenderer">-->
+<!--                <parameter name="contentType">xml</parameter>-->
+<!--            </renderer>-->
+<!--        </renderers>-->
+
+<!--    </view>-->
 
 
     <view authenticators="local" name="Csi_VoContacts_List"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >

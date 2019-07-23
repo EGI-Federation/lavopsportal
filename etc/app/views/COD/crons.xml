@@ -1,128 +1,128 @@
-<views xmlns="http://software.in2p3.fr/lavoisier/application.xsd">
+<!--<views xmlns="http://software.in2p3.fr/lavoisier/application.xsd">-->
 
 
-    <view name="templateCrons">
+<!--    <view name="templateCrons">-->
 
-        <argument name="collection"/>
-        <argument name="base_url"/>
-
-
+<!--        <argument name="collection"/>-->
+<!--        <argument name="base_url"/>-->
 
 
-        <connector type="HTTPConnector">
-            <parameter name="certificate" eval="property('certificate.path')"/>
-            <parameter name="passphrase" eval="property('certificate.password')"/>
-            <parameter name="url" eval="concat($base_url,'/importXMLIssues?cid=',$collection)"/>
-            <parameter name="force-redirect">true</parameter>
-        </connector>
-
-      <processors>
-          <element in="XIImport">
-              <attribute-create out="url">concat($base_url,'/importXMLIssues?cid=',$collection)</attribute-create>
-          </element>
-      </processors>
-
-        <pre-renderers>
-            <title>concat('XII import of ', /XIImport/@cid)</title>
-            <field label="module">/XIImport/@module</field>
-            <field label="data view">/XIImport/@view</field>
-            <field label="generation date ">/XIImport/@gdate</field>
-            <field label="logs">/XIImport/@logs</field>
-            <field label="url">/XIImport/@url</field>
-
-            <row foreach="/XIImport/Counters">
-                <column label="RaisedBrowsed">concat(RaisedBrowsed, ' ( ',Timers/@raised, ' s )')</column>
-                <column>DateUpdated</column>
-                <column>NewInserted</column>
-                <column>ChangedInserted</column>
-                <column label="Recoveries">concat(Recoveries, ' ( ',Timers/@recovery, ' s )')</column>
-                <column label="Missing">concat(Missing, ' (',Timers/@missing, ' s)')</column>
-            </row>
-        </pre-renderers>
 
 
-    </view>
+<!--        <connector type="HTTPConnector">-->
+<!--            <parameter name="certificate" eval="property('certificate.path')"/>-->
+<!--            <parameter name="passphrase" eval="property('certificate.password')"/>-->
+<!--            <parameter name="url" eval="concat($base_url,'/importXMLIssues?cid=',$collection)"/>-->
+<!--            <parameter name="force-redirect">true</parameter>-->
+<!--        </connector>-->
 
-    <view name="COD_xii_RTicket">
+<!--      <processors>-->
+<!--          <element in="XIImport">-->
+<!--              <attribute-create out="url">concat($base_url,'/importXMLIssues?cid=',$collection)</attribute-create>-->
+<!--          </element>-->
+<!--      </processors>-->
 
-        <variable name="base_url" eval="property('COD.dashboard.base.url')"/>
-        <variable name="collection">COD_ticket_alerts</variable>
+<!--        <pre-renderers>-->
+<!--            <title>concat('XII import of ', /XIImport/@cid)</title>-->
+<!--            <field label="module">/XIImport/@module</field>-->
+<!--            <field label="data view">/XIImport/@view</field>-->
+<!--            <field label="generation date ">/XIImport/@gdate</field>-->
+<!--            <field label="logs">/XIImport/@logs</field>-->
+<!--            <field label="url">/XIImport/@url</field>-->
 
-
-        <connector type="XMLConnector">
-            <parameter name="content"
-                       eval="view('templateCrons',entry('base_url',$base_url)|entry('collection',$collection))"/>
-        </connector>
-
-        <cache type="FileCache">
-            <trigger type="ViewNotifiedTrigger"/>
-            <trigger type="DeltaTimeTrigger">
-                <parameter name="minutes">10</parameter>
-            </trigger>
-        </cache>
-
-    </view>
-
-
-    <view name="COD_xii_MWTicket">
-
-        <variable name="base_url" eval="property('COD.dashboard.base.url')"/>
-        <variable name="collection">COD_MW_ticket_alerts</variable>
-
-
-        <connector type="XMLConnector">
-            <parameter name="content"
-                       eval="view('templateCrons',entry('base_url',$base_url)|entry('collection',$collection))"/>
-        </connector>
-
-        <cache type="FileCache">
-            <trigger type="ViewNotifiedTrigger"/>
-            <trigger type="DeltaTimeTrigger">
-                <parameter name="minutes">8</parameter>
-            </trigger>
-        </cache>
-
-    </view>
-
-    <view name="COD_xii_RNagios">
-
-        <variable name="base_url" eval="property('COD.dashboard.base.url')"/>
-        <variable name="collection">COD_nagios_problem</variable>
+<!--            <row foreach="/XIImport/Counters">-->
+<!--                <column label="RaisedBrowsed">concat(RaisedBrowsed, ' ( ',Timers/@raised, ' s )')</column>-->
+<!--                <column>DateUpdated</column>-->
+<!--                <column>NewInserted</column>-->
+<!--                <column>ChangedInserted</column>-->
+<!--                <column label="Recoveries">concat(Recoveries, ' ( ',Timers/@recovery, ' s )')</column>-->
+<!--                <column label="Missing">concat(Missing, ' (',Timers/@missing, ' s)')</column>-->
+<!--            </row>-->
+<!--        </pre-renderers>-->
 
 
-        <connector type="XMLConnector">
-            <parameter name="content"
-                       eval="view('templateCrons',entry('base_url',$base_url)|entry('collection',$collection))"/>
-        </connector>
+<!--    </view>-->
 
-        <cache type="FileCache">
-            <trigger type="ViewNotifiedTrigger"/>
-            <trigger type="DeltaTimeTrigger">
-                <parameter name="minutes">6</parameter>
-            </trigger>
-        </cache>
+<!--    <view name="COD_xii_RTicket">-->
 
-    </view>
-
-    <view name="COD_xii_RDowntime">
-
-        <variable name="base_url" eval="property('COD.dashboard.base.url')"/>
-        <variable name="collection">COD_Downtime</variable>
+<!--        <variable name="base_url" eval="property('COD.dashboard.base.url')"/>-->
+<!--        <variable name="collection">COD_ticket_alerts</variable>-->
 
 
-        <connector type="XMLConnector">
-            <parameter name="content"
-                       eval="view('templateCrons',entry('base_url',$base_url)|entry('collection',$collection))"/>
-        </connector>
+<!--        <connector type="XMLConnector">-->
+<!--            <parameter name="content"-->
+<!--                       eval="view('templateCrons',entry('base_url',$base_url)|entry('collection',$collection))"/>-->
+<!--        </connector>-->
 
-        <cache type="FileCache">
-            <trigger type="ViewNotifiedTrigger"/>
-            <trigger type="DeltaTimeTrigger">
-                <parameter name="minutes">9</parameter>
-            </trigger>
-        </cache>
+<!--        <cache type="FileCache">-->
+<!--            <trigger type="ViewNotifiedTrigger"/>-->
+<!--            <trigger type="DeltaTimeTrigger">-->
+<!--                <parameter name="minutes">10</parameter>-->
+<!--            </trigger>-->
+<!--        </cache>-->
 
-    </view>
+<!--    </view>-->
 
 
-</views>
+<!--    <view name="COD_xii_MWTicket">-->
+
+<!--        <variable name="base_url" eval="property('COD.dashboard.base.url')"/>-->
+<!--        <variable name="collection">COD_MW_ticket_alerts</variable>-->
+
+
+<!--        <connector type="XMLConnector">-->
+<!--            <parameter name="content"-->
+<!--                       eval="view('templateCrons',entry('base_url',$base_url)|entry('collection',$collection))"/>-->
+<!--        </connector>-->
+
+<!--        <cache type="FileCache">-->
+<!--            <trigger type="ViewNotifiedTrigger"/>-->
+<!--            <trigger type="DeltaTimeTrigger">-->
+<!--                <parameter name="minutes">8</parameter>-->
+<!--            </trigger>-->
+<!--        </cache>-->
+
+<!--    </view>-->
+
+<!--    <view name="COD_xii_RNagios">-->
+
+<!--        <variable name="base_url" eval="property('COD.dashboard.base.url')"/>-->
+<!--        <variable name="collection">COD_nagios_problem</variable>-->
+
+
+<!--        <connector type="XMLConnector">-->
+<!--            <parameter name="content"-->
+<!--                       eval="view('templateCrons',entry('base_url',$base_url)|entry('collection',$collection))"/>-->
+<!--        </connector>-->
+
+<!--        <cache type="FileCache">-->
+<!--            <trigger type="ViewNotifiedTrigger"/>-->
+<!--            <trigger type="DeltaTimeTrigger">-->
+<!--                <parameter name="minutes">6</parameter>-->
+<!--            </trigger>-->
+<!--        </cache>-->
+
+<!--    </view>-->
+
+<!--    <view name="COD_xii_RDowntime">-->
+
+<!--        <variable name="base_url" eval="property('COD.dashboard.base.url')"/>-->
+<!--        <variable name="collection">COD_Downtime</variable>-->
+
+
+<!--        <connector type="XMLConnector">-->
+<!--            <parameter name="content"-->
+<!--                       eval="view('templateCrons',entry('base_url',$base_url)|entry('collection',$collection))"/>-->
+<!--        </connector>-->
+
+<!--        <cache type="FileCache">-->
+<!--            <trigger type="ViewNotifiedTrigger"/>-->
+<!--            <trigger type="DeltaTimeTrigger">-->
+<!--                <parameter name="minutes">9</parameter>-->
+<!--            </trigger>-->
+<!--        </cache>-->
+
+<!--    </view>-->
+
+
+<!--</views>-->

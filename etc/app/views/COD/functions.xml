@@ -1,64 +1,64 @@
-<views xmlns="http://software.in2p3.fr/lavoisier/application.xsd">
+<!--<views xmlns="http://software.in2p3.fr/lavoisier/application.xsd">-->
 
 
-    <view xmlns:date="http://exslt.org/dates-and-times" name="COD-alert-DowntimeOneMonth">
+<!--    <view xmlns:date="http://exslt.org/dates-and-times" name="COD-alert-DowntimeOneMonth">-->
 
-        <argument name="date_end"/>
-        <argument name="date_start"/>
-        <connector type="StringConnector">
-            <parameter name="content"
-                       eval="choose(view('P-extract',entry('P-duration', date:difference( date:format-date($date_start,property('date_format')),                                                             date:format-date($date_end,property('date_format'))))                        | entry('P-separator','month')) &gt; 1, 1, 0) "/>
+<!--        <argument name="date_end"/>-->
+<!--        <argument name="date_start"/>-->
+<!--        <connector type="StringConnector">-->
+<!--            <parameter name="content"-->
+<!--                       eval="choose(view('P-extract',entry('P-duration', date:difference( date:format-date($date_start,property('date_format')),                                                             date:format-date($date_end,property('date_format'))))                        | entry('P-separator','month')) &gt; 1, 1, 0) "/>-->
 
-        </connector>
-        <serializer type="EncapsulateSerializer"/>
+<!--        </connector>-->
+<!--        <serializer type="EncapsulateSerializer"/>-->
 
-    </view>
-
-
-    <view xmlns:date="http://exslt.org/dates-and-times" name="DowntimeDuration">
-
-        <argument name="date_end"/>
-        <argument name="date_start"/>
-        <connector type="StringConnector">
-            <parameter name="content"
-                       eval="date:difference(date:format-date($date_start,property('date_format')), date:format-date($date_end,property('date_format'))) "/>
-        </connector>
-        <serializer type="EncapsulateSerializer"/>
-
-    </view>
+<!--    </view>-->
 
 
-    <view xmlns:date="http://exslt.org/dates-and-times" name="COD-alert-TicketExpired">
+<!--    <view xmlns:date="http://exslt.org/dates-and-times" name="DowntimeDuration">-->
 
-        <argument name="date"/>
-        <connector type="StringConnector">
-            <parameter name="content"
-                       eval="choose(                        view('diffWWE',                         entry('date_start',date:format-date($date,property('date_format')))                         |  entry('date_end', view('UTC-now', entry('format',property('date_format')))/*/*/text())                         | entry('granularity','day')) &gt; 3, 1, 0)"/>
-        </connector>
-        <serializer type="EncapsulateSerializer"/>
+<!--        <argument name="date_end"/>-->
+<!--        <argument name="date_start"/>-->
+<!--        <connector type="StringConnector">-->
+<!--            <parameter name="content"-->
+<!--                       eval="date:difference(date:format-date($date_start,property('date_format')), date:format-date($date_end,property('date_format'))) "/>-->
+<!--        </connector>-->
+<!--        <serializer type="EncapsulateSerializer"/>-->
 
-    </view>
+<!--    </view>-->
 
-    <view xmlns:date="http://exslt.org/dates-and-times" name="COD-alert-TicketOneMonth">
 
-        <argument name="date"/>
-        <connector type="StringConnector">
-            <parameter name="content"
-                       eval="choose(                         view('P-extract',                            entry('P-duration',                                 date:difference(                                         view('UTC-now', entry('format',property('date_format')))/*/*/text(),                                         date:format-date($date,property('date_format')))                                    )                             | entry('P-separator','month')) &gt; 1, 2, 0)"/>
-        </connector>
-        <serializer type="EncapsulateSerializer"/>
+<!--    <view xmlns:date="http://exslt.org/dates-and-times" name="COD-alert-TicketExpired">-->
 
-    </view>
+<!--        <argument name="date"/>-->
+<!--        <connector type="StringConnector">-->
+<!--            <parameter name="content"-->
+<!--                       eval="choose(                        view('diffWWE',                         entry('date_start',date:format-date($date,property('date_format')))                         |  entry('date_end', view('UTC-now', entry('format',property('date_format')))/*/*/text())                         | entry('granularity','day')) &gt; 3, 1, 0)"/>-->
+<!--        </connector>-->
+<!--        <serializer type="EncapsulateSerializer"/>-->
 
-    <view xmlns:date="http://exslt.org/dates-and-times" name="COD-alert-NagiosExpired">
+<!--    </view>-->
 
-        <argument name="date"/>
-        <connector type="StringConnector">
-            <parameter name="content"
-                       eval="choose(                        view('diffWWE',                         entry('date_start',date:format-date($date,property('date_format')))                         | entry('date_end', view('UTC-now', entry('format',property('date_format')))/*/*/text())                         | entry('granularity','hour')) &gt; 74, 1, 0)"/>
-        </connector>
-        <serializer type="EncapsulateSerializer"/>
+<!--    <view xmlns:date="http://exslt.org/dates-and-times" name="COD-alert-TicketOneMonth">-->
 
-    </view>
+<!--        <argument name="date"/>-->
+<!--        <connector type="StringConnector">-->
+<!--            <parameter name="content"-->
+<!--                       eval="choose(                         view('P-extract',                            entry('P-duration',                                 date:difference(                                         view('UTC-now', entry('format',property('date_format')))/*/*/text(),                                         date:format-date($date,property('date_format')))                                    )                             | entry('P-separator','month')) &gt; 1, 2, 0)"/>-->
+<!--        </connector>-->
+<!--        <serializer type="EncapsulateSerializer"/>-->
 
-</views>
+<!--    </view>-->
+
+<!--    <view xmlns:date="http://exslt.org/dates-and-times" name="COD-alert-NagiosExpired">-->
+
+<!--        <argument name="date"/>-->
+<!--        <connector type="StringConnector">-->
+<!--            <parameter name="content"-->
+<!--                       eval="choose(                        view('diffWWE',                         entry('date_start',date:format-date($date,property('date_format')))                         | entry('date_end', view('UTC-now', entry('format',property('date_format')))/*/*/text())                         | entry('granularity','hour')) &gt; 74, 1, 0)"/>-->
+<!--        </connector>-->
+<!--        <serializer type="EncapsulateSerializer"/>-->
+
+<!--    </view>-->
+
+<!--</views>-->
