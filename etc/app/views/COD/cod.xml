@@ -1,9 +1,9 @@
-<!--<views xmlns="http://software.in2p3.fr/lavoisier/application.xsd">-->
-<!--    &lt;!&ndash; -->
-<!--        Project : lavopsportal -->
-<!--        File    : cod.xml.xml-->
-<!--        Created by cyril on 2018/06/18 -->
-<!--    &ndash;&gt;-->
+<views xmlns="http://software.in2p3.fr/lavoisier/application.xsd">
+    <!--
+        Project : lavopsportal
+        File    : cod.xml.xml
+        Created by cyril on 2018/06/18
+    -->
 
 <!--    <view xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" name="COD_ticket_alerts">-->
 
@@ -356,4 +356,4 @@
 <!--    </view>-->
 
 
-<!--</views>-->
+</views>
