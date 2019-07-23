@@ -684,7 +684,9 @@
                 <attribute-create out="status">$status</attribute-create>
                 <element in="row" out="e:entries">
                     <attribute-create out="key">'csi_alarms'</attribute-create>
-
+                    <element in="id" out="e:entry">
+                        <attribute-create out="key">'id'</attribute-create>
+                    </element>
                     <element in="test_name" out="e:entry">
                         <attribute-create out="key">'test_name'</attribute-create>
                     </element>
@@ -699,6 +701,9 @@
                     </element>
                     <element in="ngi" out="e:entry">
                         <attribute-create out="key">'ngi'</attribute-create>
+                    </element>
+                    <element in="id" out="e:entry">
+                        <attribute-create out="key">'id'</attribute-create>
                     </element>
                     <element-ignore/>
                 </element>
