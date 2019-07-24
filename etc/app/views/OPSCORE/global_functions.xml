@@ -209,7 +209,7 @@
                             <!--<element-create>entry('author',../author/object/@name)</element-create>-->
                             <element-create>new_element('column',new_attribute('label','5')|new_text(../state/text()))</element-create>
                             <element-create>new_element('column',new_attribute('label','3')|new_text('100'))</element-create>
-                            <element-create>new_element('column',new_attribute('label','6')|new_text(../milestone/title/text()))</element-create>
+
 
 
 
