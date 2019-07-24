@@ -25,11 +25,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/etc/app/views/CSI/csi.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="392">
-              <caret line="694" column="30" lean-forward="true" selection-start-line="694" selection-start-column="30" selection-end-line="694" selection-end-column="30" />
+              <caret line="694" column="30" selection-start-line="694" selection-start-column="30" selection-end-line="694" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -43,11 +43,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/global_functions.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2760">
-              <caret line="184" column="79" selection-start-line="184" selection-start-column="79" selection-end-line="184" selection-end-column="79" />
+            <state relative-caret-position="162">
+              <caret line="386" column="17" selection-start-line="386" selection-start-column="16" selection-end-line="386" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -127,8 +127,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>rod_alarm</find>
-      <find>rod_alarms</find>
       <find>$rawViewName</find>
       <find>OPSCORE_prod_entities_certified</find>
       <find>sa</find>
@@ -157,6 +155,8 @@
       <find>vo-idcard-full</find>
       <find>CSI.portal.notifications.critical</find>
       <find>templateC</find>
+      <find>release</find>
+      <find>gitla</find>
     </findStrings>
     <replaceStrings>
       <replace>xmlns=&quot;http://software.in2p3.fr/lavoisier/application.xsd&quot;</replace>
@@ -233,11 +233,11 @@
         <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/users.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/downtimes.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/PSLA/sla.xml" />
-        <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/global_functions.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/COD/cod.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/COD/functions.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/COD/crons.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/CSI/csi.xml" />
+        <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/global_functions.xml" />
       </list>
     </option>
   </component>
@@ -321,8 +321,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -808,6 +808,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="62" y="27" width="1858" height="1173" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15066226" />
       <window_info id="Structure" order="1" weight="0.24958587" />
@@ -1111,6 +1112,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/etc/app/views/CSI/csi.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="392">
+          <caret line="694" column="30" selection-start-line="694" selection-start-column="30" selection-end-line="694" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/etc/app/resources/xml/fake_users.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1305">
@@ -1118,17 +1126,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/global_functions.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2760">
-          <caret line="184" column="79" selection-start-line="184" selection-start-column="79" selection-end-line="184" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/etc/app/views/COD/cod.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="19" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/etc/app/views/COD/crons.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="16" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -1167,17 +1175,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/views/COD/crons.xml">
+    <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/global_functions.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="16" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/views/CSI/csi.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="694" column="30" lean-forward="true" selection-start-line="694" selection-start-column="30" selection-end-line="694" selection-end-column="30" />
+        <state relative-caret-position="162">
+          <caret line="386" column="17" selection-start-line="386" selection-start-column="16" selection-end-line="386" selection-end-column="41" />
         </state>
       </provider>
     </entry>

@@ -396,6 +396,12 @@
         </connector>
 
         <serializer type="CSVSerializer"/>
+
+        <processors>
+            <elements path="tables/table/row">
+                <element-ignore in="column" if="@label='6'"/>
+            </elements>
+        </processors>
     </view>
 
 
