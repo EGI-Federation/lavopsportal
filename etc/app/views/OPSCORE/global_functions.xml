@@ -531,12 +531,12 @@
             <element in="jmx" out="check-status">
                 <element in="domain" out="views">
 
-                    <element-create>new_element('nb_views',../count(group/mbean))</element-create>
-                    <element-create>new_element('nb_views_critical',../count(group/mbean[@status='FAILED']))</element-create>
+                    <element-create>new_element('nb_views',count(../group/mbean))</element-create>
+                    <element-create>new_element('nb_views_critical',count(../group/mbean[@status='FAILED']))</element-create>
                     <element-create>new_element('global_status',
-                        choose(../count(group/mbean[@status='FAILED'] &gt;= $threshold_critical ,
+                        choose(count(../group/mbean[@status='FAILED']) &gt;= $threshold_critical ,
                         'critical',
-                        choose(../count(group/mbean[@status='FAILED'] &lt;= $threshold_warning ),'ok','warning'))</element-create>
+                        choose(count(../group/mbean[@status='FAILED']) &lt;= $threshold_warning ,'ok','warning')))</element-create>
                     <element-ignore/>
                 </element>
                 
