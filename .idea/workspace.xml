@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="mo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/app/views/OPSCORE/global_functions.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/OPSCORE/global_functions.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/app/views/PSLA/sla.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/PSLA/sla.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -95,8 +93,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/etc/app/views/PSLA/sla.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="875">
-              <caret line="325" column="22" lean-forward="true" selection-start-line="325" selection-start-column="22" selection-end-line="325" selection-end-column="22" />
+            <state relative-caret-position="1430">
+              <caret line="542" column="33" lean-forward="true" selection-start-line="542" selection-start-column="33" selection-end-line="542" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -819,12 +817,12 @@
       <window_info id="App Structure" order="10" weight="0.32965213" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3294347" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.11764706" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.11764706" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.31918997" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.31918997" />
       <window_info anchor="bottom" id="CheckStyle" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.32846004" />
@@ -1177,8 +1175,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/etc/app/views/PSLA/sla.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="875">
-          <caret line="325" column="22" lean-forward="true" selection-start-line="325" selection-start-column="22" selection-end-line="325" selection-end-column="22" />
+        <state relative-caret-position="1430">
+          <caret line="542" column="33" lean-forward="true" selection-start-line="542" selection-start-column="33" selection-end-line="542" selection-end-column="33" />
         </state>
       </provider>
     </entry>

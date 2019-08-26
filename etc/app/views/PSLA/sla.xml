@@ -583,6 +583,22 @@
                 </element>
             </element>
 
+            <element in="e:entries">
+                <element in="e:entries">
+                    <element-ignore in="e:entries"/>
+                    <element-create>sort_by_string(../e:entries,'e:entry[@key="Project Name"]/text()')</element-create>
+                </element>
+            </element>
+
+            <element in="e:entries">
+                <element in="e:entries">
+                    <element-create-as-parent out="e:entries" attributes="new_attribute('key',e:entry[@key='Project Name']/text())" group-by="e:entry[@key='Project Name']/text()">
+                        <element in="e:entries"/>
+                    </element-create-as-parent>
+                </element>
+            </element>
+
+
         </processors>
 
         <cache type="FileCache">
