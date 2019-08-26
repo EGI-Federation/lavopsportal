@@ -94,8 +94,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/etc/app/views/PSLA/sla.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3621">
-              <caret line="599" lean-forward="true" selection-start-line="599" selection-end-line="599" />
+            <state relative-caret-position="456">
+              <caret line="373" column="205" selection-start-line="373" selection-start-column="205" selection-end-line="373" selection-end-column="205" />
             </state>
           </provider>
         </entry>
@@ -1175,8 +1175,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/etc/app/views/PSLA/sla.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3621">
-          <caret line="599" lean-forward="true" selection-start-line="599" selection-end-line="599" />
+        <state relative-caret-position="456">
+          <caret line="373" column="205" selection-start-line="373" selection-start-column="205" selection-end-line="373" selection-end-column="205" />
         </state>
       </provider>
     </entry>
