@@ -371,7 +371,7 @@
 
         <connector type="HTTPConnector">
             <parameter name="url"
-                       eval="concat('https://',property('userJira'),':',property('pwdJira'),'@jira.eosc-hub.eu/rest/api/2/search?fields=summary,jql=issuetype=',quot('Service%20order'),'&amp;maxResults=1000')"/>
+                       eval="concat('https://',property('userJira'),':',property('pwdJira'),'@jira.eosc-hub.eu/rest/api/2/search?fields=summary,jql=issuetype=',quot('epic'),'&amp;maxResults=1000')"/>
 
         </connector>
 
