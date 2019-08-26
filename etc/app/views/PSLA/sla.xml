@@ -227,6 +227,13 @@
                                 </element-ignore>
                             </element>
 
+                            <element in="customfield_10100" out="e:entries">
+                                <attribute-create out="key">local-name(..)</attribute-create>
+                                <element-ignore if="not(*/*)">
+                                    <element-create if="../text()">entry(local-name(..),../text())</element-create>
+                                </element-ignore>
+                            </element>
+
                             <element-ignore in="customfield_10000"/>
 
 
@@ -257,6 +264,11 @@
                                     <attribute in="key">'status'</attribute>
                                 </element>
                             </element-ignore>
+
+                            <element in="e:entry" if="@key='customfield_10100'">
+                                <attribute in="key">'Project Name'</attribute>
+                            </element>
+
 
                             <element in="e:entry" if="@key='customfield_10228'">
                                 <attribute in="key">'author'</attribute>
@@ -308,11 +320,10 @@
 
 
             <element in="e:entries">
+
                 <element-ignore in="e:entries" if="not(starts-with(@key,'EOSCSO-'))"/>
             </element>
-            <element in="e:entries">
-                <element-ignore in="e:entries" if="date:difference(substring-before(e:entry[@key='Creation Date'],'.'),'2019-03-06T08:38:31') &gt; 0"/>
-            </element>
+
 
 
 
@@ -450,6 +461,13 @@
                                 </element-ignore>
                             </element>
 
+                            <element in="customfield_10100" out="e:entries">
+                                <attribute-create out="key">local-name(..)</attribute-create>
+                                <element-ignore if="not(*/*)">
+                                    <element-create if="../text()">entry(local-name(..),../text())</element-create>
+                                </element-ignore>
+                            </element>
+
                             <element-ignore in="customfield_10000"/>
 
 
@@ -480,6 +498,10 @@
                                     <attribute in="key">'status'</attribute>
                                 </element>
                             </element-ignore>
+
+                            <element in="e:entry" if="@key='customfield_10100'">
+                                <attribute in="key">'Project Name'</attribute>
+                            </element>
 
                             <element in="e:entry" if="@key='customfield_10228'">
                                 <attribute in="key">'author'</attribute>

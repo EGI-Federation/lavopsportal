@@ -530,7 +530,7 @@
 
             <element in="jmx" out="check-status">
                 <element in="domain" out="views">
-
+                    <attribute-ignore/>
                     <element-create>new_element('nb_views',count(../group/mbean))</element-create>
                     <element-create>new_element('nb_views_critical',count(../group/mbean[@status='FAILED']))</element-create>
                     <element-create>new_element('global_status',
