@@ -93,8 +93,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/etc/app/views/PSLA/sla.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="531">
-              <caret line="378" lean-forward="true" selection-start-line="378" selection-end-line="378" />
+            <state relative-caret-position="179">
+              <caret line="373" column="158" selection-start-line="373" selection-start-column="158" selection-end-line="373" selection-end-column="158" />
             </state>
           </provider>
         </entry>
@@ -251,10 +251,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="67" />
-    <option name="y" value="27" />
+    <option name="x" value="1837" />
+    <option name="y" value="54" />
     <option name="width" value="1853" />
-    <option name="height" value="1173" />
+    <option name="height" value="879" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -801,7 +801,8 @@
     <option name="totallyTimeSpent" value="15425000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="62" y="27" width="1858" height="1173" extended-state="6" />
+    <frame x="1982" y="0" width="1858" height="1080" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15066226" />
       <window_info id="Structure" order="1" weight="0.24958587" />
@@ -821,7 +822,7 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.31918997" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.3506356" />
       <window_info anchor="bottom" id="CheckStyle" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.32846004" />
@@ -1174,8 +1175,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/etc/app/views/PSLA/sla.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="531">
-          <caret line="378" lean-forward="true" selection-start-line="378" selection-end-line="378" />
+        <state relative-caret-position="179">
+          <caret line="373" column="158" selection-start-line="373" selection-start-column="158" selection-end-line="373" selection-end-column="158" />
         </state>
       </provider>
     </entry>
