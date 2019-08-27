@@ -683,7 +683,7 @@
                 <attribute-create out="count">count(../row)</attribute-create>
                 <attribute-create out="status">$status</attribute-create>
                 <element in="row" out="e:entries">
-                    <attribute-create out="key">'csi_alarms'</attribute-create>
+                    <attribute-create out="key">../id/text()</attribute-create>
                     <element in="id" out="e:entry">
                         <attribute-create out="key">'id'</attribute-create>
                     </element>
