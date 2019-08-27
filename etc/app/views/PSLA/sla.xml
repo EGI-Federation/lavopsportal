@@ -434,8 +434,25 @@
                 <element in="e:entries">
                     <element-create>find($JiraEpicList,../e:entry[@key='Epic Link']/text())/*</element-create>
                 </element>
-
             </element>
+
+            <element in="e:entries">
+                <element-ignore/>
+                <element-create>sort_by_string(../e:entries,'e:entry[@key="status"]/text()')</element-create>
+            </element>
+
+            <element in="e:entries">
+                <element-create-as-parent out="e:entries" attributes="new_attribute('key',e:entry[@key='status']/text())" group-by="e:entry[@key='status']/text()">
+                    <element in="e:entries"/>
+                </element-create-as-parent>
+            </element>
+
+            <element in="e:entries">
+                <element in="e:entries">
+                    <attribute-create out="count">count(../e:entries)</attribute-create>
+                </element>
+            </element>
+
 
         </processors>
 

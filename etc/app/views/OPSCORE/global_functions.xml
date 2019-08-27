@@ -520,7 +520,7 @@
         </renderers>
     </view>
 
-
+-->
     <view name="check-status">
         <argument name="threshold_warning">4</argument>
         <argument name="threshold_critical">8</argument>
@@ -548,6 +548,6 @@
         </processors>
 
     </view>
-    -->
+
 
 </views>

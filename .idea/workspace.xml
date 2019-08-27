@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="mo">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/app/views/PSLA/sla.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/PSLA/sla.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,15 +27,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/global_functions.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="214">
-              <caret line="407" column="24" selection-start-line="407" selection-start-column="24" selection-end-line="407" selection-end-column="24" />
-              <folding>
-                <element signature="e#23668#23672#0" expanded="true" />
-                <element signature="e#23803#23807#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="200">
+              <caret line="402" column="23" lean-forward="true" selection-start-line="402" selection-start-column="23" selection-end-line="402" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -85,11 +81,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/etc/app/views/PSLA/sla.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1965">
-              <caret line="131" lean-forward="true" selection-start-line="131" selection-end-line="131" />
+            <state relative-caret-position="230">
+              <caret line="368" column="7" selection-start-line="368" selection-start-column="7" selection-end-line="368" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -835,7 +831,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="62" y="27" width="1858" height="1173" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.06291391" />
       <window_info id="Structure" order="1" weight="0.24958587" />
@@ -1195,21 +1190,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/views/PSLA/sla.xml">
+    <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/global_functions.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1965">
-          <caret line="131" lean-forward="true" selection-start-line="131" selection-end-line="131" />
+        <state relative-caret-position="200">
+          <caret line="402" column="23" lean-forward="true" selection-start-line="402" selection-start-column="23" selection-end-line="402" selection-end-column="23" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/global_functions.xml">
+    <entry file="file://$PROJECT_DIR$/etc/app/views/PSLA/sla.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="407" column="24" selection-start-line="407" selection-start-column="24" selection-end-line="407" selection-end-column="24" />
-          <folding>
-            <element signature="e#23668#23672#0" expanded="true" />
-            <element signature="e#23803#23807#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="230">
+          <caret line="368" column="7" selection-start-line="368" selection-start-column="7" selection-end-line="368" selection-end-column="7" />
         </state>
       </provider>
     </entry>
