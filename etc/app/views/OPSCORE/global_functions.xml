@@ -405,6 +405,9 @@
     </view>
 
 
+
+    <!-- VIEWS used to generate accouting reports : it seems not used anymore -->
+    <!--
     <view name="OPSCORE_ACCPORTAL_VOS" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
         <connector type="XMLConnector">
             <parameter name="content" eval="view('VoEntries')"/>
@@ -545,5 +548,6 @@
         </processors>
 
     </view>
+    -->
 
 </views>
