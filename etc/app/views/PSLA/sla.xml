@@ -497,12 +497,8 @@
             </element>
 
             <element in="e:entries">
-                <element in="e:entries">
-                    <element-ignore/>
-                    <element-create>
-                        sort_by_string(../e:entries,'e:entry[@key="created"]/text()')
-                    </element-create>
-                </element>
+                <element-ignore in="e:entries" if="@key='New'"/>
+                <element-create as="first-child">../e:entries[@key='New']</element-create>
             </element>
 
 
