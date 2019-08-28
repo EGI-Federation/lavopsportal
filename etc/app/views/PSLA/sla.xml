@@ -15,6 +15,42 @@
 
     </view>
 
+    <view name="dpmt.providers" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <connector type="HTTPConnector">
+            <parameter name="url">http://dp-api.eudat.eu/providers</parameter>
+            <parameter name="header">
+                <entry key="Content-Type">application/json</entry>
+                <entry key="Accept">application/json</entry>
+                <entry key="Authorization" eval="property('authentication.dpmt')"/>
+            </parameter>
+        </connector>
+        <serializer type="JSONStreamSerializer"/>
+
+        <processors>
+
+            <element in="object" out="e:entries">
+
+                <element-ignore in="items">
+                    <element in="object" out="e:entries">
+                        <attribute-create out="key">../title/text()</attribute-create>
+                        <element in="description" out="e:entry">
+                            <attribute-create out="key">'description'</attribute-create>
+                        </element>
+                        <element in="title" out="e:entry">
+                            <attribute-create out="key">'name'</attribute-create>
+                        </element>
+                        <element in="review_state" out="e:entry">
+                            <attribute-create out="key">'status'</attribute-create>
+                        </element>
+                        <element-ignore/>
+                    </element>
+                    <element-ignore/>
+                </element-ignore>
+                <element-ignore/>
+            </element>
+        </processors>
+    </view>
+
 
     <view name="JiraUpdateTicket" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
 
@@ -133,238 +169,238 @@
     </view>
 
 
-<!--    <view name="JiraTicketList" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" xmlns:date="http://exslt.org/dates-and-times">-->
+    <view name="JiraTicketList" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" xmlns:date="http://exslt.org/dates-and-times">
 
-<!--        <connector type="HTTPConnector">-->
-<!--            <parameter name="url"-->
-<!--                       eval="concat('https://',property('userJira'),':',property('pwdJira'),'@jira.eosc-hub.eu/rest/api/2/search?jql=issuetype=',quot('Service%20order'),'&amp;maxResults=1000')"/>-->
+        <connector type="HTTPConnector">
+            <parameter name="url"
+                       eval="concat('https://',property('userJira'),':',property('pwdJira'),'@jira.eosc-hub.eu/rest/api/2/search?jql=issuetype=',quot('Service%20order'),'&amp;maxResults=1000')"/>
 
-<!--        </connector>-->
+        </connector>
 
-<!--        <serializer type="JSONStreamSerializer"/>-->
+        <serializer type="JSONStreamSerializer"/>
 
-<!--        <processors>-->
+        <processors>
 
-<!--            <element in="object" out="e:entries">-->
+            <element in="object" out="e:entries">
 
-<!--                <attribute-create out="key">local-name(..)</attribute-create>-->
+                <attribute-create out="key">local-name(..)</attribute-create>
 
-<!--                <element-ignore if="not(*/*)">-->
-<!--                    <element-create if="../text()">entry(local-name(..),../text())</element-create>-->
-<!--                </element-ignore>-->
+                <element-ignore if="not(*/*)">
+                    <element-create if="../text()">entry(local-name(..),../text())</element-create>
+                </element-ignore>
 
-<!--                <element in="issues" out="e:entries">-->
+                <element in="issues" out="e:entries">
 
-<!--                    <attribute-create out="key">local-name(..)</attribute-create>-->
-<!--                    <element-ignore if="not(*/*)">-->
-<!--                        <element-create if="../text()">entry(local-name(..),../text())</element-create>-->
-<!--                    </element-ignore>-->
+                    <attribute-create out="key">local-name(..)</attribute-create>
+                    <element-ignore if="not(*/*)">
+                        <element-create if="../text()">entry(local-name(..),../text())</element-create>
+                    </element-ignore>
 
-<!--                    <element in="object" out="e:entries">-->
+                    <element in="object" out="e:entries">
 
-<!--                        <attribute-create out="key">../key</attribute-create>-->
+                        <attribute-create out="key">../key</attribute-create>
 
-<!--                        <element-ignore if="not(*/*)">-->
-<!--                            <element-create if="../text()">entry(local-name(..),../text())</element-create>-->
-<!--                        </element-ignore>-->
+                        <element-ignore if="not(*/*)">
+                            <element-create if="../text()">entry(local-name(..),../text())</element-create>
+                        </element-ignore>
 
-<!--                        <element in="fields" out="e:entries">-->
+                        <element in="fields" out="e:entries">
 
-<!--                            <attribute-create out="key">local-name(..)</attribute-create>-->
-<!--                            &lt;!&ndash;<element-create>entry('NbComments',choose(view('JiraComment',entry('ticketId',../../key))/e:entries/e:entry[@key='NbComments'],view('JiraComment',entry('ticketId',../../key))/e:entries/e:entry[@key='NbComments'],0))</element-create>&ndash;&gt;-->
+                            <attribute-create out="key">local-name(..)</attribute-create>
+                            <!--<element-create>entry('NbComments',choose(view('JiraComment',entry('ticketId',../../key))/e:entries/e:entry[@key='NbComments'],view('JiraComment',entry('ticketId',../../key))/e:entries/e:entry[@key='NbComments'],0))</element-create>-->
 
-<!--                            <element-ignore if="not(*/*)">-->
-<!--                                <element-create if="../text()">entry(local-name(..),../text())</element-create>-->
-<!--                            </element-ignore>-->
+                            <element-ignore if="not(*/*)">
+                                <element-create if="../text()">entry(local-name(..),../text())</element-create>
+                            </element-ignore>
 
-<!--                            <element in="issuetype" out="e:entries">-->
-<!--                                <attribute-create out="key">local-name(..)</attribute-create>-->
-<!--                                <element-ignore if="not(*/*)">-->
-<!--                                    <element-create if="../text()">entry(local-name(..),../text())</element-create>-->
-<!--                                </element-ignore>-->
-<!--                            </element>-->
-<!--                            <element in="project" out="e:entries">-->
-<!--                                <attribute-create out="key">local-name(..)</attribute-create>-->
-<!--                                <element-ignore if="not(*/*)">-->
-<!--                                    <element-create if="../text()">entry(local-name(..),../text())</element-create>-->
-<!--                                </element-ignore>-->
-<!--                            </element>-->
-<!--                            <element in="priority" out="e:entries">-->
-<!--                                <attribute-create out="key">local-name(..)</attribute-create>-->
-<!--                                <element-ignore if="not(*/*)">-->
-<!--                                    <element-create if="../text()">entry(local-name(..),../text())</element-create>-->
-<!--                                </element-ignore>-->
-<!--                            </element>-->
-<!--                            <element in="labels" out="e:entries">-->
-<!--                                <attribute-create out="key">local-name(..)</attribute-create>-->
-<!--                                <element-ignore if="not(*/*)">-->
-<!--                                    <element-create if="../text()">entry(local-name(..),../text())</element-create>-->
-<!--                                </element-ignore>-->
-<!--                            </element>-->
-<!--                            <element in="assignee" out="e:entries">-->
-<!--                                <attribute-create out="key">local-name(..)</attribute-create>-->
-<!--                                <element-ignore if="not(*/*)">-->
-<!--                                    <element-create if="../text()">entry(local-name(..),../text())</element-create>-->
-<!--                                </element-ignore>-->
-<!--                            </element>-->
-<!--                            <element in="status" out="e:entries">-->
-<!--                                <attribute-create out="key">local-name(..)</attribute-create>-->
-<!--                                <element-ignore if="not(*/*)">-->
-<!--                                    <element-create if="../text()">entry(local-name(..),../text())</element-create>-->
-<!--                                </element-ignore>-->
-<!--                            </element>-->
-<!--                            <element in="customfield_10250" out="e:entries">-->
-<!--                                <attribute-create out="key">local-name(..)</attribute-create>-->
-<!--                                <element-ignore if="not(*/*)">-->
-<!--                                    <element-create if="../text()">entry(local-name(..),../text())</element-create>-->
-<!--                                </element-ignore>-->
-<!--                            </element>-->
+                            <element in="issuetype" out="e:entries">
+                                <attribute-create out="key">local-name(..)</attribute-create>
+                                <element-ignore if="not(*/*)">
+                                    <element-create if="../text()">entry(local-name(..),../text())</element-create>
+                                </element-ignore>
+                            </element>
+                            <element in="project" out="e:entries">
+                                <attribute-create out="key">local-name(..)</attribute-create>
+                                <element-ignore if="not(*/*)">
+                                    <element-create if="../text()">entry(local-name(..),../text())</element-create>
+                                </element-ignore>
+                            </element>
+                            <element in="priority" out="e:entries">
+                                <attribute-create out="key">local-name(..)</attribute-create>
+                                <element-ignore if="not(*/*)">
+                                    <element-create if="../text()">entry(local-name(..),../text())</element-create>
+                                </element-ignore>
+                            </element>
+                            <element in="labels" out="e:entries">
+                                <attribute-create out="key">local-name(..)</attribute-create>
+                                <element-ignore if="not(*/*)">
+                                    <element-create if="../text()">entry(local-name(..),../text())</element-create>
+                                </element-ignore>
+                            </element>
+                            <element in="assignee" out="e:entries">
+                                <attribute-create out="key">local-name(..)</attribute-create>
+                                <element-ignore if="not(*/*)">
+                                    <element-create if="../text()">entry(local-name(..),../text())</element-create>
+                                </element-ignore>
+                            </element>
+                            <element in="status" out="e:entries">
+                                <attribute-create out="key">local-name(..)</attribute-create>
+                                <element-ignore if="not(*/*)">
+                                    <element-create if="../text()">entry(local-name(..),../text())</element-create>
+                                </element-ignore>
+                            </element>
+                            <element in="customfield_10250" out="e:entries">
+                                <attribute-create out="key">local-name(..)</attribute-create>
+                                <element-ignore if="not(*/*)">
+                                    <element-create if="../text()">entry(local-name(..),../text())</element-create>
+                                </element-ignore>
+                            </element>
 
-<!--                            <element in="customfield_10201" out="e:entries">-->
-<!--                                <attribute-create out="key">local-name(..)</attribute-create>-->
-<!--                                <element-ignore if="not(*/*)">-->
-<!--                                    <element-create if="../text()">entry(local-name(..),../text())</element-create>-->
-<!--                                </element-ignore>-->
-<!--                            </element>-->
+                            <element in="customfield_10201" out="e:entries">
+                                <attribute-create out="key">local-name(..)</attribute-create>
+                                <element-ignore if="not(*/*)">
+                                    <element-create if="../text()">entry(local-name(..),../text())</element-create>
+                                </element-ignore>
+                            </element>
 
-<!--                            <element in="customfield_10100" out="e:entries">-->
-<!--                                <attribute-create out="key">local-name(..)</attribute-create>-->
-<!--                                <element-ignore if="not(*/*)">-->
-<!--                                    <element-create if="../text()">entry(local-name(..),../text())</element-create>-->
-<!--                                </element-ignore>-->
-<!--                            </element>-->
+                            <element in="customfield_10100" out="e:entries">
+                                <attribute-create out="key">local-name(..)</attribute-create>
+                                <element-ignore if="not(*/*)">
+                                    <element-create if="../text()">entry(local-name(..),../text())</element-create>
+                                </element-ignore>
+                            </element>
 
-<!--                            <element-ignore in="customfield_10000"/>-->
-
-
-<!--                            <element-ignore/>-->
-<!--                        </element>-->
-<!--                    </element>-->
-<!--                </element>-->
-
-<!--            </element>-->
-
-<!--            <element in="e:entries">-->
-
-<!--                <element-ignore in="e:entries">-->
-
-<!--                    <element in="e:entries">-->
+                            <element-ignore in="customfield_10000"/>
 
 
+                            <element-ignore/>
+                        </element>
+                    </element>
+                </element>
 
-<!--                        <element in="e:entry" if="@key='key'">-->
-<!--                            <attribute in="key">'id'</attribute>-->
-<!--                        </element>-->
+            </element>
 
-<!--                        <element-create>entry('link',concat('https://jira.eosc-hub.eu/browse/',../e:entry[@key='key']/text()))</element-create>-->
+            <element in="e:entries">
 
-<!--                        <element-ignore in="e:entries" if="@key='fields'">-->
-<!--                            <element-ignore in="e:entries" if="@key='status'">-->
-<!--                                <element in="e:entry" if="@key='name'">-->
-<!--                                    <attribute in="key">'status'</attribute>-->
-<!--                                </element>-->
-<!--                            </element-ignore>-->
+                <element-ignore in="e:entries">
 
-<!--                            <element in="e:entry" if="@key='customfield_10100'">-->
-<!--                                <attribute in="key">'Project Name'</attribute>-->
-<!--                            </element>-->
-
-
-<!--                            <element in="e:entry" if="@key='customfield_10228'">-->
-<!--                                <attribute in="key">'author'</attribute>-->
-<!--                            </element>-->
-<!--                            <element in="e:entry" if="@key='customfield_10400'">-->
-<!--                                <attribute in="key">'SO-1'</attribute>-->
-<!--                            </element>-->
-<!--                            <element in="e:entry" if="@key='customfield_10401'">-->
-<!--                                <attribute in="key">'SO-2'</attribute>-->
-<!--                            </element>-->
-<!--                            <element in="e:entry" if="@key='customfield_10403'">-->
-<!--                                <attribute in="key">'SO-3'</attribute>-->
-<!--                            </element>-->
-<!--                            <element in="e:entry" if="@key='customfield_10404'">-->
-<!--                                <attribute in="key">'SO-4'</attribute>-->
-<!--                            </element>-->
-<!--                            <element in="e:entry" if="@key='customfield_10405'">-->
-<!--                                <attribute in="key">'SO-5'</attribute>-->
-<!--                            </element>-->
-
-<!--                            <element in="e:entry" if="@key='customfield_10711'">-->
-<!--                                <attribute in="key">'SO-6'</attribute>-->
-<!--                            </element>-->
-
-<!--                            <element in="e:entry" if="@key='created'">-->
-<!--                                <attribute in="key">'Creation Date'</attribute>-->
-<!--                            </element>-->
-
-<!--                            <element in="e:entry" if="@key='updated'">-->
-<!--                                <attribute in="key">'Last Update'</attribute>-->
-<!--                            </element>-->
-
-<!--                            <element in="e:entry" if="@key='summary' or @key='NbComments'"/>-->
-<!--                        </element-ignore>-->
-
-<!--                        <element-ignore/>-->
-
-<!--                    </element>-->
-<!--                </element-ignore>-->
-
-
-<!--            </element>-->
-
-
-<!--            <element in="e:entries">-->
-<!--                <element-ignore/>-->
-<!--                <element-create>sort_by_string(../e:entries,'e:entry[@key="status"]/text()')</element-create>-->
-<!--            </element>-->
-
-
-<!--            <element in="e:entries">-->
-
-<!--                <element-ignore in="e:entries" if="not(starts-with(@key,'EOSCSO-'))"/>-->
-<!--            </element>-->
+                    <element in="e:entries">
 
 
 
+                        <element in="e:entry" if="@key='key'">
+                            <attribute in="key">'id'</attribute>
+                        </element>
 
-<!--            <element in="e:entries">-->
-<!--                    <element-create-as-parent out="e:entries" attributes="new_attribute('key',e:entry[@key='status']/text())" group-by="e:entry[@key='status']/text()">-->
-<!--                        <element in="e:entries"/>-->
-<!--                    </element-create-as-parent>-->
-<!--            </element>-->
+                        <element-create>entry('link',concat('https://jira.eosc-hub.eu/browse/',../e:entry[@key='key']/text()))</element-create>
 
-<!--            <element in="e:entries">-->
-<!--                <element in="e:entries">-->
-<!--                    <attribute-create out="count">count(../e:entries)</attribute-create>-->
-<!--                </element>-->
-<!--            </element>-->
+                        <element-ignore in="e:entries" if="@key='fields'">
+                            <element-ignore in="e:entries" if="@key='status'">
+                                <element in="e:entry" if="@key='name'">
+                                    <attribute in="key">'status'</attribute>
+                                </element>
+                            </element-ignore>
 
-<!--            <element in="e:entries">-->
-<!--                <element in="e:entries">-->
-<!--                    <element in="e:entries">-->
-<!--                        <element in="e:entry" if="@key='SO-1' and text()='null'">-->
-<!--                            <text>../../e:entry[@key='SO-6']/text()</text>-->
-<!--                        </element>-->
-<!--                    </element>-->
-<!--                </element>-->
-<!--            </element>-->
+                            <element in="e:entry" if="@key='customfield_10100'">
+                                <attribute in="key">'Project Name'</attribute>
+                            </element>
 
-<!--        </processors>-->
 
-<!--        <cache type="FileCache">-->
-<!--            <trigger type="ViewNotifiedTrigger"/>-->
-<!--            <trigger type="DeltaTimeTrigger">-->
-<!--                <parameter name="minutes"  eval="choose(property('env')='test',12,7)"/>-->
-<!--            </trigger>-->
-<!--        </cache>-->
+                            <element in="e:entry" if="@key='customfield_10228'">
+                                <attribute in="key">'author'</attribute>
+                            </element>
+                            <element in="e:entry" if="@key='customfield_10400'">
+                                <attribute in="key">'SO-1'</attribute>
+                            </element>
+                            <element in="e:entry" if="@key='customfield_10401'">
+                                <attribute in="key">'SO-2'</attribute>
+                            </element>
+                            <element in="e:entry" if="@key='customfield_10403'">
+                                <attribute in="key">'SO-3'</attribute>
+                            </element>
+                            <element in="e:entry" if="@key='customfield_10404'">
+                                <attribute in="key">'SO-4'</attribute>
+                            </element>
+                            <element in="e:entry" if="@key='customfield_10405'">
+                                <attribute in="key">'SO-5'</attribute>
+                            </element>
 
-<!--    <renderers>-->
-<!--        <renderer type="DefaultRenderer">-->
-<!--            <parameter name="contentType">text/xml</parameter>-->
-<!--        </renderer>-->
-<!--    </renderers>-->
+                            <element in="e:entry" if="@key='customfield_10711'">
+                                <attribute in="key">'SO-6'</attribute>
+                            </element>
 
-<!--</view>-->
+                            <element in="e:entry" if="@key='created'">
+                                <attribute in="key">'Creation Date'</attribute>
+                            </element>
+
+                            <element in="e:entry" if="@key='updated'">
+                                <attribute in="key">'Last Update'</attribute>
+                            </element>
+
+                            <element in="e:entry" if="@key='summary' or @key='NbComments'"/>
+                        </element-ignore>
+
+                        <element-ignore/>
+
+                    </element>
+                </element-ignore>
+
+
+            </element>
+
+
+            <element in="e:entries">
+                <element-ignore/>
+                <element-create>sort_by_string(../e:entries,'e:entry[@key="status"]/text()')</element-create>
+            </element>
+
+
+            <element in="e:entries">
+
+                <element-ignore in="e:entries" if="not(starts-with(@key,'EOSCSO-'))"/>
+            </element>
+
+
+
+
+            <element in="e:entries">
+                    <element-create-as-parent out="e:entries" attributes="new_attribute('key',e:entry[@key='status']/text())" group-by="e:entry[@key='status']/text()">
+                        <element in="e:entries"/>
+                    </element-create-as-parent>
+            </element>
+
+            <element in="e:entries">
+                <element in="e:entries">
+                    <attribute-create out="count">count(../e:entries)</attribute-create>
+                </element>
+            </element>
+
+            <element in="e:entries">
+                <element in="e:entries">
+                    <element in="e:entries">
+                        <element in="e:entry" if="@key='SO-1' and text()='null'">
+                            <text>../../e:entry[@key='SO-6']/text()</text>
+                        </element>
+                    </element>
+                </element>
+            </element>
+
+        </processors>
+
+        <cache type="FileCache">
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="minutes"  eval="choose(property('env')='test',12,7)"/>
+            </trigger>
+        </cache>
+
+    <renderers>
+        <renderer type="DefaultRenderer">
+            <parameter name="contentType">text/xml</parameter>
+        </renderer>
+    </renderers>
+
+</view>
 
     <view name="JiraSOList" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
         <connector type="HTTPConnector">
