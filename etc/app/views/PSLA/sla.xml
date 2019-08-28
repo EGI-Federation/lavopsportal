@@ -424,10 +424,12 @@
 
                             <element in="created" out="e:entry">
                                 <attribute-create out="key">'created'</attribute-create>
+                                <text>substring(.,0,18)</text>
                             </element>
 
                             <element in="updated" out="e:entry">
                                 <attribute-create out="key">'updated'</attribute-create>
+                                <text>substring(.,0,18)</text>
                             </element>
 
                             <element in="customfield_10711" out="e:entry">
@@ -491,6 +493,15 @@
                     <element in="e:entries">
                         <element-create>entry('id',../@key)</element-create>
                     </element>
+                </element>
+            </element>
+
+            <element in="e:entries">
+                <element in="e:entries">
+                    <element-ignore/>
+                    <element-create>
+                        sort_by_string(../e:entries,'e:entry[@key="created"]/text()')
+                    </element-create>
                 </element>
             </element>
 
