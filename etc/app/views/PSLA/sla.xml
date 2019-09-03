@@ -424,12 +424,12 @@
 
                             <element in="created" out="e:entry">
                                 <attribute-create out="key">'created'</attribute-create>
-                                <text>substring(.,0,18)</text>
+                                <text>substring(.,0,17)</text>
                             </element>
 
                             <element in="updated" out="e:entry">
                                 <attribute-create out="key">'updated'</attribute-create>
-                                <text>substring(.,0,18)</text>
+                                <text>substring(.,0,17)</text>
                             </element>
 
                             <element in="customfield_10711" out="e:entry">

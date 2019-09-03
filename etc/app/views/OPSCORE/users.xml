@@ -385,6 +385,7 @@
                 AND v.serial = cp.serial
                 AND cp.contact_id = c.id
                 AND cp.user_profile_id = p.id
+                AND h.status_id IN (1,2,8)
             </parameter>
         </connector>
 
