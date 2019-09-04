@@ -441,7 +441,7 @@
                             </element>
 
                             <element in="customfield_10100" out="e:entry">
-                                <attribute-create out="key">'Epic Link'</attribute-create>
+                                <attribute-create out="key">'EpicLink'</attribute-create>
                             </element>
 
                             <element in="customfield_10254" out="e:entry">
@@ -472,7 +472,7 @@
             <element in="e:entries">
                 <set variable="JiraEpicList" index="@key">view('JiraEpicList')/e:entries/e:entries</set>
                 <element in="e:entries">
-                    <element-create>find($JiraEpicList,../e:entry[@key='Epic Link']/text())/*</element-create>
+                    <element-create>find($JiraEpicList,../e:entry[@key='EpicLink']/text())/*</element-create>
                 </element>
             </element>
 
