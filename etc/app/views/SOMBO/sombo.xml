@@ -405,7 +405,7 @@
     <view name="JiraSOList" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
         <connector type="HTTPConnector">
             <parameter name="url"
-                       eval="concat('https://',property('userJira'),':',property('pwdJira'),'@jira.eosc-hub.eu/rest/api/2/search?fields=status,created,updated,customfield_10711,customfield_10223,customfield_10100,customfield_10254,customfield_10900&amp;jql=project=',quot('EOSCSO'),' AND issuetype=',quot('Service Order'),'&amp;maxResults=1000')"/>
+                       eval="concat('https://',property('userJira'),':',property('pwdJira'),'@jira.eosc-hub.eu/rest/api/2/search?fields=status,created,updated,customfield_10711,customfield_10223,customfield_10100,customfield_10254,customfield_10900&amp;jql=project=',quot('EOSCSOSTAGING'),' AND issuetype=',quot('Service Order'),'&amp;maxResults=1000')"/>
 
         </connector>
         <serializer type="JSONStreamSerializer"/>
