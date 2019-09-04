@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="mo">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/etc/app/views/SOMBO/sombo.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/SOMBO/sombo.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -66,8 +67,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/etc/app/views/SOMBO/sombo.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-389">
-              <caret line="522" column="24" selection-start-line="522" selection-start-column="20" selection-end-line="522" selection-end-column="24" />
+            <state relative-caret-position="256">
+              <caret line="529" lean-forward="true" selection-start-line="529" selection-end-line="529" />
             </state>
           </provider>
         </entry>
@@ -129,7 +130,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>concat(@PRIMARY_KEY,HOSTNAME/text(),SERVICE_TYPE/text())</find>
       <find>raw</find>
       <find>OPSCORE_listReleases</find>
       <find>vapor</find>
@@ -159,6 +159,7 @@
       <find>created</find>
       <find>JiraT</find>
       <find>users_ci</find>
+      <find>Epic</find>
     </findStrings>
     <replaceStrings>
       <replace>xmlns=&quot;http://software.in2p3.fr/lavoisier/application.xsd&quot;</replace>
@@ -1179,8 +1180,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/etc/app/views/SOMBO/sombo.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-389">
-          <caret line="522" column="24" selection-start-line="522" selection-start-column="20" selection-end-line="522" selection-end-column="24" />
+        <state relative-caret-position="256">
+          <caret line="529" lean-forward="true" selection-start-line="529" selection-end-line="529" />
         </state>
       </provider>
     </entry>
