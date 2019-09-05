@@ -50,6 +50,20 @@
                 <element-ignore/>
             </element>
         </processors>
+
+        <cache type="FileCache">
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="minutes"  eval="choose(property('env')='test',22,14)"/>
+            </trigger>
+        </cache>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+
     </view>
 
 
