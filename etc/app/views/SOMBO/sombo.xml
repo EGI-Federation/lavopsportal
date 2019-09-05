@@ -42,7 +42,7 @@
                         <element in="review_state" out="e:entry">
                             <attribute-create out="key">'status'</attribute-create>
                         </element>
-                        <element-create>entry('CONTACT_EMAIl','eudat@eudat.org')</element-create>
+                        <element-create>entry('CONTACT_EMAIL','eudat@eudat.org')</element-create>
                         <element-ignore/>
                     </element>
                     <element-ignore/>
