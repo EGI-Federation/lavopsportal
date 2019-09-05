@@ -49,6 +49,11 @@
                 </element-ignore>
                 <element-ignore/>
             </element>
+
+            <element in="e:entries">
+                <element-ignore in="e:entries"/>
+                <element-create>sort_by_string(../e:entries,"e:entry[@key='NAME']")</element-create>
+            </element>
         </processors>
 
         <cache type="FileCache">
