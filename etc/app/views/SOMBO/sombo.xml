@@ -122,7 +122,7 @@
 
     <view name="JiraUsers" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
         <connector type="HTTPConnector">
-            <parameter name="url"               eval="concat('https://',property('userJira'),':',property('pwdJira'),'@jira.eosc-hub.eu/rest/api/2/user/assignable/search?project=EOSCSOPR')" />
+            <parameter name="url"               eval="concat('https://',property('userJira'),':',property('pwdJira'),'@jira.eosc-hub.eu/rest/api/2/user/assignable/search?project=',property('jira.project'))" />
         </connector>
         <serializer type="JSONStreamSerializer"/>
 
@@ -150,10 +150,12 @@
             </renderer>
         </renderers>
     </view>
+    
+
 
     <view name="JiraSOList" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
         <connector type="HTTPConnector">
-            <parameter name="url"      eval="concat('https://',property('userJira'),':',property('pwdJira'),'@jira.eosc-hub.eu/rest/api/2/search?fields=status,created,updated,customfield_10711,customfield_10223,customfield_10100,customfield_10254,customfield_10900&amp;jql=project=',quot('EOSCSOPR'),' AND issuetype=',quot('Service Order'),'&amp;maxResults=1000')"/>
+            <parameter name="url"      eval="concat('https://',property('userJira'),':',property('pwdJira'),'@jira.eosc-hub.eu/rest/api/2/search?fields=status,created,updated,customfield_10711,customfield_10223,customfield_10100,customfield_10254,customfield_10900&amp;jql=project=',quot(property('jira.project')),' AND issuetype=',quot('Service Order'),'&amp;maxResults=1000')"/>
         </connector>
         <serializer type="JSONStreamSerializer"/>
 
@@ -266,11 +268,31 @@
 
     </view>
 
+    <view name="JiraEpicNotReferenced" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('JiraEpicList')"/>
+        </connector>
+
+        <processors>
+            <element in="e:entries">
+                <set variable="JiraSOList">view('JiraSOList')</set>
+                <attribute-create out="nbEntries">count(../e:entries)</attribute-create>
+                <element in="e:entries" if="not(@key=$JiraSOList/e:entries/e:entries/e:entries/e:entry[@key='EpicLink']/text())"/>
+                <element-ignore/>
+            </element>
+
+            <element in="e:entries">
+                <attribute-create out="nbEntriesOrphan">count(../e:entries)</attribute-create>
+            </element>
+
+
+        </processors>
+    </view>
 
     <view name="JiraEpicList" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
         <connector type="HTTPConnector">
             <parameter name="url"
-                       eval="concat('https://',property('userJira'),':',property('pwdJira'),'@jira.eosc-hub.eu/rest/api/2/search?fields=customfield_10228,summary,status,customfield_10228,customfield_1010&amp;jql=project=',quot('EOSCSOPR'),' AND issuetype=',quot('epic'),'&amp;maxResults=1000')"/>
+                       eval="concat('https://',property('userJira'),':',property('pwdJira'),'@jira.eosc-hub.eu/rest/api/2/search?fields=customfield_10228,summary,status,customfield_10228,customfield_1010&amp;jql=project=',quot(property('jira.project')),' AND issuetype=',quot('epic'),'&amp;maxResults=1000')"/>
 
         </connector>
         <serializer type="JSONStreamSerializer"/>
