@@ -292,7 +292,7 @@
     <view name="JiraEpicList" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
         <connector type="HTTPConnector">
             <parameter name="url"
-                       eval="concat('https://',property('userJira'),':',property('pwdJira'),'@jira.eosc-hub.eu/rest/api/2/search?fields=customfield_10228,summary,status,customfield_10228,customfield_1010&amp;jql=project=',quot(property('jira.project')),' AND issuetype=',quot('epic'),'&amp;maxResults=1000')"/>
+                       eval="concat('https://',property('userJira'),':',property('pwdJira'),'@jira.eosc-hub.eu/rest/api/2/search?fields=created,updated,customfield_10228,summary,status,customfield_10228,customfield_1010&amp;jql=project=',quot(property('jira.project')),' AND issuetype=',quot('epic'),'&amp;maxResults=1000')"/>
 
         </connector>
         <serializer type="JSONStreamSerializer"/>
@@ -310,6 +310,16 @@
                             </element>
 
 
+
+                            <element in="created" out="e:entry">
+                                <attribute-create out="key">'created'</attribute-create>
+                                <text>substring(.,0,17)</text>
+                            </element>
+
+                            <element in="updated" out="e:entry">
+                                <attribute-create out="key">'updated'</attribute-create>
+                                <text>substring(.,0,17)</text>
+                            </element>
 
                             <element in="customfield_10228" out="e:entry">
                                 <attribute-create out="key">'CI-DisplayName'</attribute-create>
