@@ -130,7 +130,7 @@
             <element in="item" out="e:entries">
                 <element-ignore>
                     <element in="displayName" out="e:entry">
-                        <attribute-create out="key">'displayName'</attribute-create>
+                        <attribute-create out="key">../text()</attribute-create>
                     </element>
 
                 </element-ignore>
