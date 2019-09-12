@@ -181,11 +181,12 @@
                                 <text>substring(.,0,17)</text>
                             </element>
 
+
                             <element in="assignee" out="e:entry">
                                 <attribute-create out="key">'assignee'</attribute-create>
                                 <element-ignore in="displayName"><text/></element-ignore>
                                 <element-ignore/>
-
+                                <text if=".='null'">'Unassigned'</text>
                             </element>
 
                             <element in="customfield_10711" out="e:entry">
