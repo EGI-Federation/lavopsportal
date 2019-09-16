@@ -113,22 +113,22 @@
         </cache>
     </view>
 
-    <view name="Rod_Metrics_Generation">
+<!--    <view name="Rod_Metrics_Generation">-->
 
-        <connector type="HTTPConnector">
-            <parameter name="url" eval="property('ROD.portal.metrics.generation')"/>
-            <parameter name="certificate" eval="property('certificate.path')"/>
-            <parameter name="passphrase" eval="property('certificate.password')"/>
-            <parameter name="force-redirect">true</parameter>
-        </connector>
-        <cache type="FileCache">
-            <trigger type="ViewNotifiedTrigger"/>
-            <trigger type="DeltaTimeTrigger">
-                <parameter name="hours">1</parameter>
-            </trigger>
-        </cache>
+<!--        <connector type="HTTPConnector">-->
+<!--            <parameter name="url" eval="property('ROD.portal.metrics.generation')"/>-->
+<!--            <parameter name="certificate" eval="property('certificate.path')"/>-->
+<!--            <parameter name="passphrase" eval="property('certificate.password')"/>-->
+<!--            <parameter name="force-redirect">true</parameter>-->
+<!--        </connector>-->
+<!--        <cache type="FileCache">-->
+<!--            <trigger type="ViewNotifiedTrigger"/>-->
+<!--            <trigger type="DeltaTimeTrigger">-->
+<!--                <parameter name="hours">1</parameter>-->
+<!--            </trigger>-->
+<!--        </cache>-->
 
-    </view>
+<!--    </view>-->
 
     <view name="Nagios_Roles_Bonus">
 
