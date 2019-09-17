@@ -413,9 +413,10 @@
             <parameter name="content" eval="view('VoDisciplinesTree_Raw')"/>
         </connector>
         <processors>
+
             <element in="disciplines" out="e:entries">
                 <element-ignore in="discipline">
-                    <element in="disciplines" out="e:entries">
+                    <element in="discipline" out="e:entries">
                         <text-create>../@value</text-create>
                         <element-ignore/>
 
@@ -426,6 +427,11 @@
 
         </processors>
 
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
     </view>
 
         </views>

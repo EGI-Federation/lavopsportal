@@ -112,8 +112,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/etc/app/views/SOMBO/sombo.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="417" column="58" selection-start-line="417" selection-start-column="58" selection-end-line="417" selection-end-column="58" />
+            <state relative-caret-position="486">
+              <caret line="406" lean-forward="true" selection-start-line="406" selection-end-line="406" />
             </state>
           </provider>
         </entry>
@@ -358,7 +358,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Run">
+  <component name="RunManager" selected="Application.Start Lavoisier server">
     <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
@@ -815,7 +815,7 @@
       <window_info id="App Structure" order="10" weight="0.32965213" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3294347" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.33654773" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.33646616" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1173,8 +1173,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/etc/app/views/SOMBO/sombo.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="417" column="58" selection-start-line="417" selection-start-column="58" selection-end-line="417" selection-end-column="58" />
+        <state relative-caret-position="486">
+          <caret line="406" lean-forward="true" selection-start-line="406" selection-end-line="406" />
         </state>
       </provider>
     </entry>
