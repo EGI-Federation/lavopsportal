@@ -408,7 +408,7 @@
     </view>
 
 
-    <view name="jiraDisciplines">
+    <view name="jiraDisciplines" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
         <connector type="XMLConnector">
             <parameter name="content" eval="view('VoDisciplinesTree_Raw')"/>
         </connector>
@@ -416,10 +416,9 @@
             <element in="disciplines" out="e:entries">
                 <element-ignore in="discipline">
                     <element in="disciplines" out="e:entries">
-
-                        <attribute-ignore/>
-                        <element-ignore/>
                         <text-create>../@value</text-create>
+                        <element-ignore/>
+
                     </element>
                 </element-ignore>
 
