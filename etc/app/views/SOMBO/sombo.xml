@@ -417,6 +417,8 @@
             <element in="disciplines" out="e:entries">
                 <element-ignore in="discipline">
                     <element in="discipline" out="e:entries">
+                        <attribute in="id" out="key"/>
+                        <attribute-ignore/>
                         <text-create>../@value</text-create>
                         <element-ignore/>
 
