@@ -109,8 +109,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/etc/app/views/SOMBO/sombo.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="156">
-              <caret line="410" column="5" selection-start-line="410" selection-start-column="5" selection-end-line="410" selection-end-column="5" />
+            <state relative-caret-position="261">
+              <caret line="417" column="48" lean-forward="true" selection-start-line="417" selection-start-column="48" selection-end-line="417" selection-end-column="48" />
             </state>
           </provider>
         </entry>
@@ -1170,8 +1170,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/etc/app/views/SOMBO/sombo.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="410" column="5" selection-start-line="410" selection-start-column="5" selection-end-line="410" selection-end-column="5" />
+        <state relative-caret-position="261">
+          <caret line="417" column="48" lean-forward="true" selection-start-line="417" selection-start-column="48" selection-end-line="417" selection-end-column="48" />
         </state>
       </provider>
     </entry>
