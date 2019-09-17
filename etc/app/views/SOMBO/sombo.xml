@@ -408,15 +408,26 @@
     </view>
 
 
+    <view name="jiraDisciplines">
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('VoDisciplinesTree_Raw')"/>
+        </connector>
+        <processors>
+            <element in="disciplines" out="e:entries">
+                <element-ignore in="discipline">
+                    <element in="disciplines" out="e:entries">
 
-    <view name="translationJira">
+                        <attribute-ignore/>
+                        <element-ignore/>
+                        <text-create>../@value</text-create>
+                    </element>
+                </element-ignore>
 
-<connector type="FileConnector">
-    <parameter name="path">app/resources/xml/jiraEntries.xml</parameter>
-</connector>
+            </element>
 
-</view>
+        </processors>
 
+    </view>
 
         </views>
 
