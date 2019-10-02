@@ -54,21 +54,33 @@
 
         <processors>
             <element in="results" out="e:entries">
-                <element in="SITE" out="e:entries">
+                <set variable="ngi">view('OPSCORE_NGI')/*</set>
+                <element in="SITE" out="e:entries" if="CERTIFICATION_STATUS/text()!='Closed'">
+                    <attribute-create out="ngi">../ROC/text()</attribute-create>
                     <attribute-create out="key">../@NAME</attribute-create>
                     <attribute-ignore/>
 
                     <element-create>entry('PRIMARY_KEY',../PRIMARY_KEY/text())</element-create>
                     <element-create>entry('NAME',../SHORT_NAME/text())</element-create>
                     <element-create>entry('NGI',../ROC/text())</element-create>
+
                     <element-create>entry('COUNTRY',../COUNTRY_CODE/text())</element-create>
                     <element-create>entry('PRODUCTION_INFRASTRUCTURE',../PRODUCTION_INFRASTRUCTURE/text())</element-create>
                     <element-create>entry('CERTIFICATION_STATUS',../CERTIFICATION_STATUS/text())</element-create>
                     <element-create>entry('CONTACT_EMAIL',choose(../CONTACT_EMAIL/text(),../CONTACT_EMAIL/text(),'NA'))</element-create>
+
+                    <element-create>entry('NGI_EMAIL',choose($ngi/e:entries[@key=current()/../ROC/text()]/e:entry[@key='EMAIL']/text(),$ngi/e:entries[@key=current()/../ROC/text()]/e:entry[@key='EMAIL']/text(),'na'))</element-create>
+                    <element-create>entry('ROD_EMAIL',choose($ngi/e:entries[@key=current()/../ROC/text()]/e:entry[@key='ROD_EMAIL']/text(),$ngi/e:entries[@key=current()/../ROC/text()]/e:entry[@key='ROD_EMAIL']/text(),'na'))</element-create>
+                    <element-create>entry('NGI_SEC_EMAIL',choose($ngi/e:entries[@key=current()/../ROC/text()]/e:entry[@key='SECURITY_EMAIL']/text(),$ngi/e:entries[@key=current()/../ROC/text()]/e:entry[@key='SECURITY_EMAIL']/text(),'na'))</element-create>
+
+
+
                     <element-ignore/>
                 </element>
-
+                <element-ignore/>
             </element>
+            
+
         </processors>
 
         <renderers>
