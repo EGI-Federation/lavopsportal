@@ -449,7 +449,7 @@
     <view name="hookReleases">
         <connector type="XMLConnector">
             <parameter name="content">
-                <![CDATA[<e:entries><e:entries id="release_5.0" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd"><e:entry key="number">5.0</e:entry><e:entry key="start_date">2018-02-21</e:entry><e:entry key="end_date">2019-07-22</e:entry><e:entry key="id">5.0</e:entry></e:entries><e:entries id="release_5.1" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd"><e:entry key="number">5.1</e:entry><e:entry key="start_date">2019-08-01</e:entry><e:entry key="end_date">2019-10-03</e:entry><e:entry key="id">5.1</e:entry></e:entries></e:entries>]]>
+                <![CDATA[<e:entries xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd"><e:entries id="release_5.0" ><e:entry key="number">5.0</e:entry><e:entry key="start_date">2018-02-21</e:entry><e:entry key="end_date">2019-07-22</e:entry><e:entry key="id">5.0</e:entry></e:entries><e:entries id="release_5.1" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd"><e:entry key="number">5.1</e:entry><e:entry key="start_date">2019-08-01</e:entry><e:entry key="end_date">2019-10-03</e:entry><e:entry key="id">5.1</e:entry></e:entries></e:entries>]]>
             </parameter>
         </connector>
     </view>

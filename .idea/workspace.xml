@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="mo">
-      <change beforePath="$PROJECT_DIR$/etc/app/views/OPSCORE/global_functions.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/OPSCORE/global_functions.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -39,8 +39,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/global_functions.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="369">
-              <caret line="445" lean-forward="true" selection-start-line="445" selection-end-line="445" />
+            <state relative-caret-position="279">
+              <caret line="439" column="64" selection-start-line="439" selection-start-column="64" selection-end-line="439" selection-end-column="64" />
             </state>
           </provider>
         </entry>
@@ -385,7 +385,7 @@
     <configuration name="Run" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="fr.in2p3.lavoisier.command.StandaloneExec" />
       <module name="lavopsportal" />
-      <option name="PROGRAM_PARAMETERS" value="OPSCORE_PORTAL_Releases?nbsteps=999&amp;accept=xml" />
+      <option name="PROGRAM_PARAMETERS" value="hookReleases?nbsteps=999&amp;accept=xml" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -1177,8 +1177,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/global_functions.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
-          <caret line="445" lean-forward="true" selection-start-line="445" selection-end-line="445" />
+        <state relative-caret-position="279">
+          <caret line="439" column="64" selection-start-line="439" selection-start-column="64" selection-end-line="439" selection-end-column="64" />
         </state>
       </provider>
     </entry>
