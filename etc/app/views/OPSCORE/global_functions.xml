@@ -143,7 +143,7 @@
 
 
 
-    <view name="OPSCORE_DB_comparison_OpsPortal" authenticators="admin">
+    <view name="OPSCORE_DB_comparison_OpsPortal">
         <argument name="schema1" eval="property('schema.prod.db')"/>
         <argument name="schema2" eval="property('schema.test.db')"/>
         <argument name="url1" eval="property('url.prod.db')"/>
