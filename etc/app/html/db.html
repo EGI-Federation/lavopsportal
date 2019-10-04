@@ -1,0 +1,106 @@
+<html xmlns:tpl="http://software.in2p3.fr/lavoisier/template.xsd"
+      xmlns:cfg="http://software.in2p3.fr/lavoisier/application.xsd"
+      xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd"
+      tpl:extends="/resource/html/base.html">
+
+<head lang="en">
+    <meta charset="UTF-8"/>
+</head>
+<body>
+
+
+<div class="wrapper" id="wrapper">
+    <div class="content-wrapper" tpl:foreach="root">
+        <h2 class="page-h4">Table comparators</h2>
+
+
+        <hr/>
+
+        <div class="row">
+            <div class="col-md-5">
+                <br/><h3>Tables visible only for {{missingTables[1]/@schema}}</h3><br/>
+                <table class="table dataTable">
+                    <thead>
+                    <tr><th>Table</th></tr>
+                    </thead>
+
+                    <tbody>
+                    <tr tpl:foreach="missingTables[1]/row/TABLE_NAME/text()">
+                        <td>{{.}}</td>
+                    </tr>
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <div class="col-md-5">
+                <br/><h3>Tables visible only for {{missingTables[2]/@schema}}</h3><br/>
+                <table class="table dataTable">
+                    <thead>
+                    <tr><th>Table</th></tr>
+                    </thead>
+
+                    <tbody>
+                    <tr tpl:foreach="missingTables[2]/row/TABLE_NAME/text()">
+                        <td>{{.}}</td>
+                    </tr>
+                    </tbody>
+
+                </table>
+
+            </div>
+        </div>
+
+
+
+    <div class="row" tpl:foreach="table">
+        <hr/>
+        <h3>{{@id}}</h3>
+        <div class="col-md-4 mr-md-1" tpl:foreach="result/field">
+        <table class="table dataTable">
+            <thead>
+            <tr>
+                <th colspan="2">{{@id}}</th>
+            </tr>
+            <tr>
+                <th></th>
+                <th>{{row[1]/@schema}}</th>
+                <th>{{row[2]/@schema}}</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Field</td>
+                    <td>{{row[1]/Field}}</td>
+                    <td>{{row[2]/Field}}</td>
+                </tr>
+                <tr>
+                    <td>Type</td>
+                    <td>{{row[1]/Type}}</td>
+                    <td>{{row[2]/Type}}</td>
+                </tr>
+                <tr>
+                    <td>Nullable</td>
+                    <td>{{row[1]/Nullable}}</td>
+                    <td>{{row[2]/Nullable}}</td>
+                </tr>
+                <tr>
+                    <td>Key</td>
+                    <td>{{row[1]/Key}}</td>
+                    <td>{{row[2]/Key}}</td>
+                </tr>
+
+            </tbody>
+
+
+        </table>
+        </div>
+    </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

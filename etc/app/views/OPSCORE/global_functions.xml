@@ -18,6 +18,211 @@
     </view>
 
 
+
+    <view name="OPSCORE_prod_tables">
+        <argument name="schema">operportal_prod</argument>
+
+        <connector type="SQLConnector">
+            <parameter name="driver">com.mysql.jdbc.Driver</parameter>
+            <parameter name="url" eval="property('db.prod.url')"/>
+            <parameter name="username" eval="property('db.prod.username')"/>
+            <parameter name="password" eval="property('OPSCORE.db.password')"/>
+
+            <parameter name="query">SELECT TABLE_NAME
+                FROM information_schema.TABLES
+                WHERE TABLE_SCHEMA = <entry eval="quot($schema)"/></parameter>
+        </connector>
+    </view>
+    <view name="OPSCORE_test_tables">
+        <argument name="schema">cicinfos_test</argument>
+
+        <connector type="SQLConnector">
+            <parameter name="driver">com.mysql.jdbc.Driver</parameter>
+            <parameter name="url" eval="property('db.test.url')"/>
+            <parameter name="username" eval="property('db.test.username')"/>
+            <parameter name="password" eval="property('OPSCORE.db.password')"/>
+
+            <parameter name="query">SELECT TABLE_NAME
+                FROM information_schema.TABLES
+                WHERE TABLE_SCHEMA = <entry eval="quot($schema)"/> </parameter>
+        </connector>
+    </view>
+
+
+    <view name="OPSCORE_prod_desc_tables">
+
+        <argument name="table"/>
+        <argument name="schema">operportal_prod</argument>
+        <connector type="SQLConnector">
+            <parameter name="driver">com.mysql.jdbc.Driver</parameter>
+            <parameter name="url" eval="property('db.prod.url')"/>
+            <parameter name="username" eval="property('db.prod.username')"/>
+            <parameter name="password" eval="property('OPSCORE.db.password')"/>
+
+            <parameter name="query">SELECT COLUMN_NAME AS `Field`, COLUMN_TYPE AS `Type`, IS_NULLABLE AS `Nullable`,
+                COLUMN_KEY AS `Key`
+                FROM information_schema.COLUMNS
+                WHERE TABLE_SCHEMA = <entry eval="quot($schema)"/><entry> AND TABLE_NAME = </entry><entry eval="quot($table)"/></parameter>
+        </connector>
+
+
+
+        <processors>
+            <element in="result">
+                <element in="row">
+                    <attribute-create out="schema">$schema</attribute-create>
+                    <attribute-create out="id">../Field/text()</attribute-create>
+                    <attribute-create out="compar">join(../*/text(),'-')</attribute-create>
+                </element>
+            </element>
+        </processors>
+    </view>
+
+    <view name="OPSCORE_test_desc_tables">
+
+        <argument name="table"/>
+        <argument name="schema">cicinfos_test</argument>
+        <connector type="SQLConnector">
+            <parameter name="driver">com.mysql.jdbc.Driver</parameter>
+            <parameter name="url" eval="property('db.test.url')"/>
+            <parameter name="username" eval="property('db.test.username')"/>
+            <parameter name="password" eval="property('OPSCORE.db.password')"/>
+
+            <parameter name="query">SELECT COLUMN_NAME AS `Field`, COLUMN_TYPE AS `Type`, IS_NULLABLE AS `Nullable`,
+                COLUMN_KEY AS `Key`
+                FROM information_schema.COLUMNS
+                WHERE TABLE_SCHEMA = <entry eval="quot($schema)"/><entry> AND TABLE_NAME = </entry><entry eval="quot($table)"/></parameter>
+        </connector>
+
+        <processors>
+            <element in="result">
+                <element in="row">
+                    <attribute-create out="schema">$schema</attribute-create>
+                    <attribute-create out="id">../Field/text()</attribute-create>
+                    <attribute-create out="compar">join(../*/text(),'-')</attribute-create>
+                </element>
+            </element>
+        </processors>
+
+    </view>
+
+    <view name="OPSCORE_desc_tables_comparison">
+
+        <argument name="table"/>
+
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('OPSCORE_prod_desc_tables',entry('table',$table))"/>
+        </connector>
+
+        <processors>
+            <element in="result">
+                    <element-create>view('OPSCORE_test_desc_tables',entry('table',$table))/result/*</element-create>
+            </element>
+
+
+
+            <element in="result">
+                <element-ignore/>
+                <element-create>sort_by_string(../row,'@id')</element-create>
+            </element>
+            <element in="result">
+                <element-create-as-parent out="field" group-by="@id" attributes="@id">
+                    <element in="row"/>
+                </element-create-as-parent>
+            </element>
+
+            <element in="result">
+                <element-ignore in="field" if="row[1]/@compar=row[2]/@compar"/>
+            </element>
+        </processors>
+    </view>
+
+
+
+    <view name="missingTables1">
+
+        <argument name="schema">operportal_prod</argument>
+
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('OPSCORE_prod_tables')"/>
+        </connector>
+
+        <processors>
+
+            <element in="result" out="missingTables">
+                <set variable="listtest">view('OPSCORE_test_tables')</set>
+                <attribute-create out="schema">$schema</attribute-create>
+                <element-ignore in="row" if="TABLE_NAME/text()=$listtest/result/row/TABLE_NAME/text()"/>
+            </element>
+        </processors>
+    </view>
+
+    <view name="missingTables2">
+
+        <argument name="schema">cicinfos_test</argument>
+
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('OPSCORE_test_tables')"/>
+        </connector>
+
+        <processors>
+
+            <element in="result" out="missingTables">
+
+                <set variable="listprod">view('OPSCORE_prod_tables')</set>
+                <attribute-create out="schema">$schema</attribute-create>
+                <element-ignore in="row" if="TABLE_NAME/text()=$listprod/result/row/TABLE_NAME/text()"/>
+            </element>
+        </processors>
+    </view>
+
+    <view name="OPSCORE_DB_comparison">
+        <connector type="XMLConnector">
+            <parameter name="content" eval="new_element('root')"/>
+        </connector>
+        <processors>
+            <element in="root">
+
+                <element-create>view('missingTables1')</element-create>
+                <element-create>view('missingTables2')</element-create>
+                <element-create>view('OPSCORE_prod_tables')</element-create>
+            </element>
+
+
+            <element in="root">
+                <elements-ignore path="result/row">
+                    <element in="TABLE_NAME" out="table">
+                        <attribute-create out="id">../text()</attribute-create>
+                        <element-create>view('OPSCORE_desc_tables_comparison',entry('table',../text()))</element-create>
+                        <text-ignore/>
+                    </element>
+
+                </elements-ignore>
+
+            </element>
+
+            <element in="root">
+                <element-ignore in="table" if="count(result/*)=0"/>
+            </element>
+        </processors>
+
+
+
+        <cache type="FileCache">
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="minutes">48</parameter>
+            </trigger>
+        </cache>
+
+        <renderers>
+            <renderer type="HTMLRenderer">
+                <parameter name="template" >app/html/db.html</parameter>
+            </renderer>
+        </renderers>
+
+    </view>
+
     <view name="OPSCORE_portal_cron">
 
         <argument name="url"/>
