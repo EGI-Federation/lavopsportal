@@ -172,7 +172,7 @@
 
         <cache type="FileCache">
             <trigger type="DeltaTimeTrigger">
-                <parameter name="minutes">6</parameter>
+                <parameter name="minutes">2</parameter>
             </trigger>
             <trigger type="ViewNotifiedTrigger"/>
             <trigger type="ViewCreatedTrigger"/>
@@ -245,7 +245,7 @@
 
     <cache type="FileCache">
         <trigger type="DeltaTimeTrigger">
-            <parameter name="minutes">6</parameter>
+            <parameter name="minutes">1</parameter>
         </trigger>
         <trigger type="ViewNotifiedTrigger"/>
         <trigger type="ViewCreatedTrigger"/>
