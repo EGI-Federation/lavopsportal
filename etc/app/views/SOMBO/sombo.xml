@@ -436,5 +436,46 @@
         </renderers>
     </view>
 
+
+
+    <view name="dpmt_push"  xmlns:java="http://software.in2p3.fr/lavoisier/java">
+        <argument name="so"/>
+        <argument name="key"/>
+        <variable name="message" eval="java:encodeToString(java:java.util.Base64.getEncoder(), java:getBytes($so))"/>
+
+
+        <connector type="HTTPConnector">
+
+            <parameter name="url"
+                       eval="concat('https://messaging-devel.argo.grnet.gr/v1/projects/ARGOTEST/topics/dpmt_test:publish?key=',property('ams.key'))"/>
+            <parameter name="force-redirect">true</parameter>
+            <parameter name="method">POST</parameter>
+            <parameter name="header">
+                <entry key="Content-Type">application/json</entry>
+            </parameter>
+
+            <parameter name="post" eval="concat('{', quot('messages'), ': [ {',quot('attributes'),': {',quot('key'),' : ',quot($key) , '},', quot('data'), ' : ',quot($message),'}]}')"/>
+
+        </connector>
+    <serializer type="JSONStreamSerializer"/>
+</view>
+
+
+<view name="dpmt_pull">
+<connector type="HTTPConnector">
+    <parameter name="url"
+               eval="concat('https://messaging-devel.argo.grnet.gr/v1/projects/ARGOTEST/subscriptions/dpmt_test_sub:pull?key=',property('ams.key'))"/>
+    <parameter name="force-redirect">true</parameter>
+    <parameter name="method">POST</parameter>
+    <parameter name="header">
+        <entry key="Content-Type">application/json</entry>
+    </parameter>
+    <parameter name="post">{ "maxMessages": "10" }</parameter>
+
+</connector>
+<serializer type="JSONStreamSerializer"></serializer>
+</view>
+
+
         </views>
 
