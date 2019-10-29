@@ -438,7 +438,7 @@
 
 
 
-    <view name="dpmt_push"  xmlns:java="http://software.in2p3.fr/lavoisier/java">
+    <view name="dpmt_push"  xmlns:java="http://software.in2p3.fr/lavoisier/java" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
         <argument name="so"/>
         <argument name="key"/>
         <variable name="message" eval="java:encodeToString(java:java.util.Base64.getEncoder(), java:getBytes($so))"/>
@@ -458,6 +458,16 @@
 
         </connector>
     <serializer type="JSONStreamSerializer"/>
+
+        <processors>
+            <element in="object" out="e:entries">
+                <element in="messageIds" out="e:entry">
+                    <attribute-create out="key">'message'</attribute-create>
+                    <text-create>concat('Notification Item#', ../item/text(), ' successfully created')</text-create>
+                    <element-ignore/>
+                </element>
+            </element>
+        </processors>
 </view>
 
 
