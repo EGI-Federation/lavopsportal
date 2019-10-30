@@ -386,7 +386,8 @@
         <processors>
             <element in="item" out="e:entries">
                 <element in="object" out="e:entries">
-                    <attribute-create out="milestone">../milestone/id/text()</attribute-create>
+                    <attribute-create out="milestone" if="not(../milestone/id/text())">0</attribute-create>
+                    <attribute-create out="milestone" if="../milestone/id/text()">number(../milestone/id/text())</attribute-create>
                     <element in="id"/>
                     <element in="title"/>
                     <element in="description"/>
@@ -394,12 +395,13 @@
                     <element in="closed_at"/>
                     <element in="milestone"/>
                     <element in="web_url"/>
-
-                    <element-ignore></element-ignore>
+                    <element-ignore/>
 
                 </element>
 
             </element>
+
+
 
             <element in="e:entries">
                 <element-ignore in="e:entries"/>
@@ -407,7 +409,7 @@
             </element>
 
             <element in="e:entries">
-                <element-create-as-parent out="e:entries" attributes="@milestone" group-by="e:entries">
+                <element-create-as-parent out="e:entries" attributes="@milestone" group-by="@milestone">
                     <element in="e:entries"/>
                 </element-create-as-parent>
             </element>
@@ -476,9 +478,6 @@
                             <!--<element-create>entry('author',../author/object/@name)</element-create>-->
                             <element-create>new_element('column',new_attribute('label','5')|new_text(../state/text()))</element-create>
                             <element-create>new_element('column',new_attribute('label','3')|new_text('100'))</element-create>
-
-
-
 
                             <element-ignore in="labels">
                                 <element-create> new_element('column',new_attribute('label','4')| new_text(join(../item,' ')))</element-create>
