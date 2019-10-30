@@ -450,7 +450,7 @@
         <argument name="label">_label_</argument>
 
         <connector type="HTTPConnector">
-            <parameter name="url">https://gitlab.in2p3.fr/api/v4/projects/1357/issues?scope=all</parameter>
+            <parameter name="url" eval="choose($label='_label_','https://gitlab.in2p3.fr/api/v4/projects/1357/issues?scope=all',concat('https://gitlab.in2p3.fr/api/v4/projects/1357/issues?scope=all&amp;milestone=',$label))"></parameter>
             <parameter name="method">GET</parameter>
             <parameter name="header" eval="concat('PRIVATE-TOKEN: ',property('gitlab.token'))"/>
         </connector>
@@ -458,9 +458,7 @@
         <serializer type="JSONStreamSerializer"/>
         <processors>
 
-            <element in="item" if="$label!='_label_'">
-               <element-ignore in="object" if="milestone/title/text()!=$label"/>
-            </element>
+
 
             <element in="item" out="tables">
 
