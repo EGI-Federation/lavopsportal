@@ -377,7 +377,7 @@
     <view name="OPSCORE_PORTAL_Releases"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
 
         <connector type="HTTPConnector">
-            <parameter name="url">https://gitlab.in2p3.fr/api/v4/issues</parameter>
+            <parameter name="url">https://gitlab.in2p3.fr/api/v4/projects/1357/issues?scope=all</parameter>
             <parameter name="method">GET</parameter>
             <parameter name="header" eval="concat('PRIVATE-TOKEN: ',property('gitlab.token'))"/>
         </connector>
@@ -449,18 +449,17 @@
 
         <argument name="label">_label_</argument>
 
-
-    <connector type="HTTPConnector">
-        <parameter name="url">https://gitlab.in2p3.fr/api/v4/issues</parameter>
-        <parameter name="method">GET</parameter>
-        <parameter name="header" eval="concat('PRIVATE-TOKEN: ',property('gitlab.token'))"/>
-    </connector>
+        <connector type="HTTPConnector">
+            <parameter name="url">https://gitlab.in2p3.fr/api/v4/projects/1357/issues?scope=all</parameter>
+            <parameter name="method">GET</parameter>
+            <parameter name="header" eval="concat('PRIVATE-TOKEN: ',property('gitlab.token'))"/>
+        </connector>
 
         <serializer type="JSONStreamSerializer"/>
         <processors>
 
-            <element in="item">
-               <element-ignore in="object" if="$label!='_label_' and milestone/title/text()!=$label"/>
+            <element in="item" if="$label!='_label_'">
+               <element-ignore in="object" if="milestone/title/text()!=$label"/>
             </element>
 
             <element in="item" out="tables">
@@ -504,7 +503,7 @@
 
 
         <connector type="HTTPConnector">
-            <parameter name="url">https://gitlab.in2p3.fr/api/v4/projects/1274/milestones</parameter>
+            <parameter name="url">https://gitlab.in2p3.fr/api/v4/projects/1274/milestones?scope=all</parameter>
             <parameter name="method">GET</parameter>
             <parameter name="header" eval="concat('PRIVATE-TOKEN: ',property('gitlab.token'))"/>
         </connector>
@@ -547,7 +546,7 @@
         <argument name="name">_RNAME_</argument>
 
         <connector type="HTTPConnector">
-            <parameter name="url">https://gitlab.in2p3.fr/api/v4/projects/1274/issues</parameter>
+            <parameter name="url">https://gitlab.in2p3.fr/api/v4/projects/1274/issues?scope=all</parameter>
             <parameter name="method">GET</parameter>
             <parameter name="header" eval="concat('PRIVATE-TOKEN: ',property('gitlab.token'))"/>
         </connector>
