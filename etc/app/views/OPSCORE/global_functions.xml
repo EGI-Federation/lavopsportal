@@ -618,6 +618,9 @@
             <processor match="/e:entries/e:entries[not(e:entry[@key='end_date'])]" type="RemoveProcessor"><namespaces><entry key="html">http://www.w3.org/1999/xhtml</entry></namespaces></processor>
             <processor match="/e:entries/e:entries[contains(e:entry[@key='number'],'Next') or contains(e:entry[@key='number'],'next')]" type="RemoveProcessor"><namespaces><entry key="html">http://www.w3.org/1999/xhtml</entry></namespaces></processor>
 
+            <element in="e:entries">
+                <element-create>view('hookReleases')/e:entries/*</element-create>
+            </element>
 
                 <element in="e:entries" if="$vapor='true'">
                     <element in="e:entries" if="contains(e:entry[@key='number'],'vapor')"/>
@@ -630,9 +633,7 @@
 
 
 
-            <element in="e:entries">
-                <element-create>view('hookReleases')/e:entries/*</element-create>
-            </element>
+
        </processors>
 
 
