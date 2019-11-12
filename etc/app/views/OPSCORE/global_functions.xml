@@ -591,7 +591,7 @@
 
     <view xmlns:html="http://www.w3.org/1999/xhtml" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd"  name="OPSCORE_listReleases">
 
-        <argument name="vapor">false</argument>
+        <argument name="vapor">_vapor_</argument>
         <connector type="HTTPConnector">
             <parameter name="url">https://forge.in2p3.fr/rb/releases/opsportaluser</parameter>
         </connector>
@@ -622,13 +622,13 @@
                 <element-create>view('hookReleases')/e:entries/*</element-create>
             </element>
 
-                <element in="e:entries" if="$vapor='true'">
-                    <element in="e:entries" if="contains(e:entry[@key='number'],'vapor')"/>
+                <element in="e:entries" if="$vapor!='_vapor_'">
+                    <element in="e:entries" if="contains(lower-case(e:entry[@key='number']),'vapor')"/>
                     <element-ignore/>
                 </element>
 
-                <element in="e:entries" if="$vapor='false'">
-                    <element-ignore in="e:entries" if="contains(e:entry[@key='number'],'vapor')"/>
+                <element in="e:entries" if="$vapor='_vapor_'">
+                    <element-ignore in="e:entries" if="contains(lower-case(e:entry[@key='number']),'vapor')"/>
                 </element>
 
 
