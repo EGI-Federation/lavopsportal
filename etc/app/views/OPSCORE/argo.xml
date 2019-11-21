@@ -9,7 +9,10 @@
 
 
         <connector type="HTTPConnector">
+            <parameter name="certificate" eval="property('certificate.path')"/>
+            <parameter name="passphrase" eval="property('certificate.password')"/>
             <parameter name="url">https://argo.egi.eu/lavoisier/reportOpsPortal?accept=xml</parameter>
+            <parameter name="force-redirect">true</parameter>
         </connector>
 
         <processors>
