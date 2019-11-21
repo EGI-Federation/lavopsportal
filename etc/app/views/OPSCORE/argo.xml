@@ -9,12 +9,12 @@
 
 
         <connector type="HTTPConnector">
-            <parameter name="url">http://argo.egi.eu/lavoisier/reportOpsPortal?accept=xml</parameter>
+            <parameter name="url">https://argo.egi.eu/lavoisier/reportOpsPortal?accept=xml</parameter>
         </connector>
 
         <processors>
             <element in="root">
-                <attribute-create out="base_url">'http://argo.egi.eu/egi/report-ar-group-details/Critical/SITES/'</attribute-create>
+                <attribute-create out="base_url">'https://argo.egi.eu/egi/report-ar-group-details/Critical/SITES/'</attribute-create>
 
 
                 <element-ignore in="group">
