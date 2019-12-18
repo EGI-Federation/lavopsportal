@@ -619,7 +619,7 @@
             <processor match="/e:entries/e:entries[contains(e:entry[@key='number'],'Next') or contains(e:entry[@key='number'],'next')]" type="RemoveProcessor"><namespaces><entry key="html">http://www.w3.org/1999/xhtml</entry></namespaces></processor>
 
             <element in="e:entries">
-                <element-create>view('hookReleases')/e:entries/*</element-create>
+                <element-create>view('OpsPortal_Milestones')/e:entries/*</element-create>
             </element>
 
                 <element in="e:entries" if="$vapor!='_vapor_'">
@@ -631,9 +631,6 @@
                     <element-ignore in="e:entries" if="contains(lower-case(e:entry[@key='number']),'vapor')"/>
                 </element>
 
-
-
-
        </processors>
 
 
@@ -641,12 +638,37 @@
 
     </view>
 
-    <view name="hookReleases">
-        <connector type="XMLConnector">
-            <parameter name="content">
-                <![CDATA[<e:entries xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd"><e:entries id="release_5.0" ><e:entry key="number">v5.0</e:entry><e:entry key="start_date">2018-02-21</e:entry><e:entry key="end_date">2019-07-22</e:entry><e:entry key="id">v5.0</e:entry></e:entries><e:entries id="release_5.1" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd"><e:entry key="number">v5.1</e:entry><e:entry key="start_date">2019-08-01</e:entry><e:entry key="end_date">2019-10-03</e:entry><e:entry key="id">v5.1</e:entry></e:entries><e:entries id="release_5.2" ><e:entry key="number">v5.2</e:entry><e:entry key="start_date">2019-10-04</e:entry><e:entry key="end_date">2019-11-12</e:entry><e:entry key="id">v5.2</e:entry></e:entries></e:entries>]]>
-            </parameter>
+
+
+    <view name="OpsPortal_Milestones" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+
+        <connector type="HTTPConnector">
+            <parameter name="url">https://gitlab.in2p3.fr/api/v4/projects/1357/milestones?scope=all</parameter>
+            <parameter name="method">GET</parameter>
+            <parameter name="header" eval="concat('PRIVATE-TOKEN: ',property('gitlab.token'))"/>
         </connector>
+
+        <serializer type="JSONSerializer"/>
+
+        <processors>
+            <element in="object" out="e:entries">
+                <elements-ignore path="array/item">
+                    <element in="object" if="@state='active'" out="e:entries">
+                        <attribute in="id" out="key"/>
+                        <attribute-ignore/>
+
+                        <element-create>entry('id',../@id)</element-create>
+                        <element-create>entry('number',../@title)</element-create>
+                        <element-create>entry('start_date',../@start_date)</element-create>
+                        <element-create>entry('end_date',../@due_date)</element-create>
+
+                    </element>
+                </elements-ignore>
+
+            </element>
+
+        </processors>
+
     </view>
 
 
