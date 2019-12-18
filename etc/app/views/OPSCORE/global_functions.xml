@@ -653,11 +653,21 @@
         <processors>
             <element in="object" out="e:entries">
                 <elements-ignore path="array/item">
-                    <element in="object" if="@state='active'" out="e:entries">
+                    <element in="object" if="(property('env')='prod 'and @state='active') and @due_date!='null' " out="e:entries">
                         <attribute in="id" out="key"/>
                         <attribute-ignore/>
 
-                        <element-create>entry('id',../@id)</element-create>
+                        <element-create>entry('id',../@title)</element-create>
+                        <element-create>entry('number',../@title)</element-create>
+                        <element-create>entry('start_date',../@start_date)</element-create>
+                        <element-create>entry('end_date',../@due_date)</element-create>
+
+                    </element>
+                    <element in="object" if="property('env')!='prod 'and @state='active'" out="e:entries">
+                        <attribute in="id" out="key"/>
+                        <attribute-ignore/>
+
+                        <element-create>entry('id',../@title)</element-create>
                         <element-create>entry('number',../@title)</element-create>
                         <element-create>entry('start_date',../@start_date)</element-create>
                         <element-create>entry('end_date',../@due_date)</element-create>
