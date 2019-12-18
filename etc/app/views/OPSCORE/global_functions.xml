@@ -474,7 +474,9 @@
                             <!--<element-create>entry('description',../@description)</element-create>-->
                             <!--<element-create>entry('author',../author/object/@name)</element-create>-->
                             <element-create>new_element('column',new_attribute('label','5')|new_text(../state/text()))</element-create>
-                            <element-create>new_element('column',new_attribute('label','3')|new_text('100'))</element-create>
+                            <element-create if="../task_completion_status/count!=0">new_element('column',new_attribute('label','3')|new_text(floor(../task_completion_status/completed_count div ../task_completion_status/count *100)))</element-create>
+                            <element-create if="../task_completion_status/count=0 and ../state/text()!='closed'">new_element('column',new_attribute('label','3')|new_text(10))</element-create>
+                            <element-create if="../task_completion_status/count=0 and ../state/text()='closed'">new_element('column',new_attribute('label','3')|new_text(100))</element-create>
 
                             <element-ignore in="labels">
                                 <element-create> new_element('column',new_attribute('label','4')| new_text(join(../item,' ')))</element-create>
@@ -653,17 +655,8 @@
         <processors>
             <element in="object" out="e:entries">
                 <elements-ignore path="array/item">
-                    <element in="object" if="(property('env')='prod 'and @state='active') and @due_date!='null' " out="e:entries">
-                        <attribute in="id" out="key"/>
-                        <attribute-ignore/>
 
-                        <element-create>entry('id',../@title)</element-create>
-                        <element-create>entry('number',../@title)</element-create>
-                        <element-create>entry('start_date',../@start_date)</element-create>
-                        <element-create>entry('end_date',../@due_date)</element-create>
-
-                    </element>
-                    <element in="object" if="property('env')!='prod 'and @state='active'" out="e:entries">
+                    <element in="object" if="@state='active'" out="e:entries">
                         <attribute in="id" out="key"/>
                         <attribute-ignore/>
 
