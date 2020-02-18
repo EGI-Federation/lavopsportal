@@ -15,6 +15,25 @@
 
     </view>
 
+    <view name="marketplace.providers">
+        <connector type="HTTPConnector">
+            <parameter name="url" eval="property('marketplace.api')"/>
+            <parameter name="certificate" eval="property('certificate.path')"/>
+            <parameter name="passphrase" eval="property('certificate.password')"/>
+            <parameter name="force-redirect">true</parameter>
+            <fallback eval="view('marketplace.providers.file')">
+                <exception type="java.io.IOException"/>
+            </fallback>
+        </connector>
+        <serializer type="JSONStreamSerializer"/>
+    </view>
+    <view name="marketplace.providers.file">
+        <connector type="FileConnector">
+            <parameter name="path">app/resources/json/services.json</parameter>
+        </connector>
+        <serializer type="JSONStreamSerializer"/>
+    </view>
+
     <view name="dpmt.providers" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
         <connector type="HTTPConnector">
             <parameter name="url">http://dp-api.eudat.eu/providers</parameter>
