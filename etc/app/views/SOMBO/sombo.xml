@@ -15,7 +15,7 @@
 
     </view>
 
-    <view name="marketplace.providers">
+    <view name="marketplace.providers" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
         <connector type="HTTPConnector">
             <parameter name="url" eval="property('marketplace.api')"/>
             <parameter name="certificate" eval="property('certificate.path')"/>
@@ -26,12 +26,43 @@
             </fallback>
         </connector>
         <serializer type="JSONStreamSerializer"/>
+
+        <processors>
+        <element in="item" out="e:entries">
+            <element in="object" out="e:entries">
+                <attribute-create out="key">../SITENAME-SERVICEGROUP/text()</attribute-create>
+                <element in="URL" out="e:entry"><attribute-create out="key">'url'</attribute-create></element>
+                <element in="CONTACT_EMAIL" out="e:entry">
+                    <attribute-create out="key">'email'</attribute-create>
+                    <text-create>join(../item/text(),',')</text-create>
+                    <element-ignore/>
+                </element>
+                <element-ignore/>
+            </element>
+
+        </element>
+    </processors>
     </view>
-    <view name="marketplace.providers.file">
+    <view name="marketplace.providers.file" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
         <connector type="FileConnector">
             <parameter name="path">app/resources/json/services.json</parameter>
         </connector>
         <serializer type="JSONStreamSerializer"/>
+        <processors>
+            <element in="item" out="e:entries">
+                <element in="object" out="e:entries">
+                    <attribute-create out="key">../SITENAME-SERVICEGROUP/text()</attribute-create>
+                    <element in="URL" out="e:entry"><attribute-create out="key">'url'</attribute-create></element>
+                    <element in="CONTACT_EMAIL" out="e:entry">
+                        <attribute-create out="key">'email'</attribute-create>
+                        <text-create>join(../item/text(),',')</text-create>
+                       <element-ignore/>
+                    </element>
+                    <element-ignore/>
+                </element>
+
+            </element>
+        </processors>
     </view>
 
     <view name="dpmt.providers" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
