@@ -21,6 +21,7 @@
             <parameter name="certificate" eval="property('certificate.path')"/>
             <parameter name="passphrase" eval="property('certificate.password')"/>
             <parameter name="force-redirect">true</parameter>
+
             <fallback eval="view('marketplace.providers.file')">
                 <exception type="java.io.IOException"/>
             </fallback>
