@@ -171,6 +171,73 @@
 
     </view>
 
+    <view name="JiraServiceProviders" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <connector type="HTTPConnector">
+            <parameter name="url"     eval="concat('https://',property('userJira'),':',property('pwdJira'),'@jira.eosc-hub.eu/rest/api/2/search?fields=assignee,status,created,updated,customfield_10507,customfield_11600,customfield_10509&amp;jql=project=',quot(property('jira.sp')),'&amp;maxResults=1000')"/>
+        </connector>
+        <serializer type="JSONStreamSerializer"/>
+
+
+        <processors>
+            <element in="object" out="e:entries">
+
+                <element-ignore in="issues">
+                    <element in="object" out="e:entries">
+                        <attribute-create out="key">../key/text()</attribute-create>
+
+                        <element-ignore in="fields">
+
+                            <element in="created" out="e:entry">
+                                <attribute-create out="key">'created'</attribute-create>
+                                <text>substring(.,0,17)</text>
+                            </element>
+
+                            <element in="updated" out="e:entry">
+                                <attribute-create out="key">'updated'</attribute-create>
+                                <text>substring(.,0,17)</text>
+                            </element>
+
+
+                            <element in="assignee" out="e:entry">
+                                <attribute-create out="key">'assignee'</attribute-create>
+                                <element-ignore in="displayName"><text/></element-ignore>
+                                <element-ignore/>
+                                <text if=".='null'">'Unassigned'</text>
+                            </element>
+
+
+
+                        <element in="customfield_10507" out="e:entry">
+                            <attribute-create out="key">'organisation'</attribute-create>
+                        </element>
+
+                        <element in="customfield_11600" out="e:entry">
+                            <attribute-create out="key">'marketplace_url'</attribute-create>
+                        </element>
+
+                            <element in="customfield_10509" out="e:entry">
+                                <attribute-create out="key">'service_name'</attribute-create>
+                            </element>
+
+
+
+                        <element-ignore in="status">
+                            <element in="name" out="e:entry">
+                                <attribute-create out="key">'status'</attribute-create>
+                            </element>
+
+                        </element-ignore>
+
+                            <element-ignore/>
+                        </element-ignore>
+                        <element-ignore/>
+                </element>
+                </element-ignore>
+            </element>
+
+        </processors>
+    </view>
+
     <view name="JiraUsers" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
         <connector type="HTTPConnector">
             <parameter name="url"               eval="concat('https://',property('userJira'),':',property('pwdJira'),'@jira.eosc-hub.eu/rest/api/2/user/assignable/search?project=',property('jira.project'))" />
