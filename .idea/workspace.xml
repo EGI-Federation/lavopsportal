@@ -69,8 +69,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/etc/app/views/SOMBO/sombo.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="18">
-              <caret line="173" column="6" lean-forward="true" selection-start-line="173" selection-start-column="6" selection-end-line="173" selection-end-column="6" />
+            <state relative-caret-position="243">
+              <caret line="219" column="38" lean-forward="true" selection-start-line="219" selection-start-column="38" selection-end-line="219" selection-end-column="38" />
               <folding>
                 <element signature="n#element#0;n#element-ignore#0;n#element#0;n#element-ignore#0;n#element#0;n#processors#0;n#view#5;n#views#0;n#!!top" />
                 <element signature="n#element#1;n#element-ignore#0;n#element#0;n#element-ignore#0;n#element#0;n#processors#0;n#view#5;n#views#0;n#!!top" />
@@ -130,7 +130,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>OPSCORE_desc_table</find>
       <find>OPSCORE_desc_tables</find>
       <find>schema1</find>
       <find>schema.test.db</find>
@@ -160,6 +159,7 @@
       <find>OPSCORE_users_csi</find>
       <find>&amp;nbsp</find>
       <find>vo-id</find>
+      <find>130</find>
     </findStrings>
     <replaceStrings>
       <replace>xmlns=&quot;http://software.in2p3.fr/lavoisier/application.xsd&quot;</replace>
@@ -817,12 +817,12 @@
       <window_info id="App Structure" order="10" weight="0.32965213" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32894737" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.43780136" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.43780136" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.09739634" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.09739634" />
       <window_info anchor="bottom" id="CheckStyle" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.32846004" />
@@ -1181,8 +1181,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/etc/app/views/SOMBO/sombo.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="173" column="6" lean-forward="true" selection-start-line="173" selection-start-column="6" selection-end-line="173" selection-end-column="6" />
+        <state relative-caret-position="243">
+          <caret line="219" column="38" lean-forward="true" selection-start-line="219" selection-start-column="38" selection-end-line="219" selection-end-column="38" />
           <folding>
             <element signature="n#element#0;n#element-ignore#0;n#element#0;n#element-ignore#0;n#element#0;n#processors#0;n#view#5;n#views#0;n#!!top" />
             <element signature="n#element#1;n#element-ignore#0;n#element#0;n#element-ignore#0;n#element#0;n#processors#0;n#view#5;n#views#0;n#!!top" />

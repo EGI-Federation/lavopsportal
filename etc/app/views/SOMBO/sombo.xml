@@ -236,6 +236,20 @@
             </element>
 
         </processors>
+
+        <cache type="FileCache">
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="minutes"  eval="choose(property('env')='test',12,3)"/>
+            </trigger>
+        </cache>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+
     </view>
 
     <view name="JiraUsers" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
