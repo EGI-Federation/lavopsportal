@@ -317,6 +317,11 @@
                                 <text>substring(.,0,17)</text>
                             </element>
 
+                            <element in="resolved" out="e:entry">
+                                <attribute-create out="key">'resolved'</attribute-create>
+                                <text>substring(.,0,17)</text>
+                            </element>
+
 
                             <element in="assignee" out="e:entry">
                                 <attribute-create out="key">'assignee'</attribute-create>
