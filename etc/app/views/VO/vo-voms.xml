@@ -578,6 +578,11 @@
                 <parameter name="hours">6</parameter>
             </trigger>
             <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="DependencyRefreshedTrigger">
+                <parameter name="views">
+                    <entry>VO_full</entry>
+                </parameter>
+            </trigger>
         </cache>
 
         <renderers>
@@ -609,6 +614,11 @@
                 <parameter name="hours">10</parameter>
             </trigger>
             <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="DependencyRefreshedTrigger">
+                <parameter name="views">
+                    <entry>VO_full_full</entry>
+                </parameter>
+            </trigger>
         </cache>
 
         <renderers>

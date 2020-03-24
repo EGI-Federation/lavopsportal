@@ -185,7 +185,11 @@
                 <parameter name="minutes">48</parameter>
             </trigger>
             <trigger type="ViewNotifiedTrigger"/>
-
+            <trigger type="DependencyRefreshedTrigger">
+                <parameter name="views">
+                    <entry>VoListUrl</entry>
+                </parameter>
+            </trigger>
         </cache>
     </view>
 
