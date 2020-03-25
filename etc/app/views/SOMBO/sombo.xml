@@ -177,7 +177,7 @@
 
     <view name="JiraServiceProviders" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
         <connector type="HTTPConnector">
-            <parameter name="url"     eval="concat('https://',property('userJira'),':',property('pwdJira'),'@jira.eosc-hub.eu/rest/api/2/search?fields=assignee,status,created,updated,customfield_10507,customfield_11600,customfield_10509&amp;jql=project=',quot(property('jira.sp')),'&amp;maxResults=1000')"/>
+            <parameter name="url"     eval="concat('https://',property('userJira'),':',property('pwdJira'),'@jira.eosc-hub.eu/rest/api/2/search?fields=assignee,status,created,updated,resolutiondate,customfield_10507,customfield_11600,customfield_10509&amp;jql=project=',quot(property('jira.sp')),'&amp;maxResults=1000')"/>
         </connector>
         <serializer type="JSONStreamSerializer"/>
 
@@ -198,6 +198,11 @@
 
                             <element in="updated" out="e:entry">
                                 <attribute-create out="key">'updated'</attribute-create>
+                                <text>substring(.,0,17)</text>
+                            </element>
+
+                            <element in="resolutiondate" out="e:entry">
+                                <attribute-create out="key">'resolved'</attribute-create>
                                 <text>substring(.,0,17)</text>
                             </element>
 
@@ -291,7 +296,7 @@
 
     <view name="JiraSOList" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
         <connector type="HTTPConnector">
-            <parameter name="url"      eval="concat('https://',property('userJira'),':',property('pwdJira'),'@jira.eosc-hub.eu/rest/api/2/search?fields=assignee,status,created,updated,resolved,customfield_10711,customfield_10223,customfield_10100,customfield_10254,customfield_10900&amp;jql=project=',quot(property('jira.project')),' AND issuetype=',quot('Service Order'),'&amp;maxResults=1000')"/>
+            <parameter name="url"      eval="concat('https://',property('userJira'),':',property('pwdJira'),'@jira.eosc-hub.eu/rest/api/2/search?fields=assignee,status,created,updated,resolutiondate,customfield_10711,customfield_10223,customfield_10100,customfield_10254,customfield_10900&amp;jql=project=',quot(property('jira.project')),' AND issuetype=',quot('Service Order'),'&amp;maxResults=1000')"/>
         </connector>
         <serializer type="JSONStreamSerializer"/>
 
@@ -317,7 +322,7 @@
                                 <text>substring(.,0,17)</text>
                             </element>
 
-                            <element in="resolved" out="e:entry">
+                            <element in="resolutiondate" out="e:entry">
                                 <attribute-create out="key">'resolved'</attribute-create>
                                 <text>substring(.,0,17)</text>
                             </element>
