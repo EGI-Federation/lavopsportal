@@ -87,6 +87,7 @@
             <Description>
 				<xsl:value-of  select="Vo/VoHeader/description"/>
             </Description>
+             <!--
             <Middlewares>
                 <xsl:attribute name="ARC">
                     <xsl:value-of select="Vo/VoHeader/@arc_supported"/>
@@ -106,7 +107,7 @@
                 <xsl:attribute name="CLOUD_COMPUTING">
                     <xsl:value-of select="Vo/VoHeader/@cloud_computing_supported"/>
                 </xsl:attribute>
-           </Middlewares>
+           </Middlewares>-->
             <gLiteConf>
 		<FQANs>
                    <xsl:apply-templates select="DoctrineCollection/VoVomsGroup"/>
@@ -120,8 +121,7 @@
                     <xsl:apply-templates select="DoctrineCollection/VoVomsServer"/>
                 </VOMSServers>
             </gLiteConf>
-            <ARCConf></ARCConf>
-            <UNICOREConf></UNICOREConf>
+
             <Contacts>
                 <MailingList>
                     <xsl:apply-templates select="DoctrineCollection/VoMailingList"/>
@@ -209,21 +209,51 @@
      ******************************************************************************************************************************************** -->
     <xsl:template match ="data/DoctrineCollection/VoRessources">
         <Ressources>
-            <RAM_per_i386_Core>
-                <xsl:value-of select="@ram386"/>
-            </RAM_per_i386_Core>
-            <RAM_per_x86_64_Core>
-                <xsl:value-of select="@ram64"/>
-            </RAM_per_x86_64_Core>
-            <JobScratchSpace>
-                <xsl:value-of select="@job_scratch_space"/>
-            </JobScratchSpace>
-            <JobMaxCPUTime>
-                <xsl:value-of select="@job_max_cpu"/>
-            </JobMaxCPUTime>
-            <JobMaxWallClockTime>
-                <xsl:value-of select="@job_max_wall"/>
-            </JobMaxWallClockTime>
+            <QueueConfiguration>
+                <JobMaxCPUTime>
+                    <xsl:value-of select="@job_max_cpu"/>
+                </JobMaxCPUTime>
+                <JobMaxWallClockTime>
+                    <xsl:value-of select="@job_max_wall"/>
+                </JobMaxWallClockTime>
+
+            </QueueConfiguration>
+           <SingleCoreJobs>
+               <RAM_per_i386_Core>
+                   <xsl:value-of select="@ram386"/>
+               </RAM_per_i386_Core>
+               <RAM_per_x86_64_Core>
+                   <xsl:value-of select="@ram64"/>
+               </RAM_per_x86_64_Core>
+               <JobScratchSpace>
+                   <xsl:value-of select="@job_scratch_space"/>
+               </JobScratchSpace>
+           </SingleCoreJobs>
+            <MultiCoreJobs>
+                <RamValuesPerJob>
+                    <min><xsl:value-of select="@minimum_ram"/></min>
+                    <prefered><xsl:value-of select="@pref_ram"/></prefered>
+                    <max><xsl:value-of select="@maxi_ram"/></max>
+                </RamValuesPerJob>
+                <ScratchValuesPerJob>
+                    <min><xsl:value-of select="@min_scratch_space_values"/></min>
+                    <prefered><xsl:value-of select="@pref_scratch_space_values"/></prefered>
+                    <max><xsl:value-of select="@max_scratch_space_values"/></max>
+                </ScratchValuesPerJob>
+                <CoresValuesPerJob>
+                    <min><xsl:value-of select="@min_number_cores"/></min>
+                    <prefered><xsl:value-of select="@pref_number_cores"/></prefered>
+                    <max><xsl:value-of select="@max_number_cores"/></max>
+                </CoresValuesPerJob>
+            </MultiCoreJobs>
+            <CloudCompute>
+                <CloudCPUCore><xsl:value-of select="@cloud_cpu_core"/></CloudCPUCore>
+                <CloudStorageSize><xsl:value-of select="@cloud_storage_size"/></CloudStorageSize>
+                <CloudVmRam><xsl:value-of select="@cloud_vm_ram"/></CloudVmRam>
+            </CloudCompute>
+            <CernCVMFS>
+                <endpoints><xsl:value-of select="@cvmfs"/></endpoints>
+            </CernCVMFS>
             <OtherRequirements>
 				<xsl:value-of select="otherrequirements"/>
             </OtherRequirements>
@@ -235,30 +265,55 @@
             @todo :
      ******************************************************************************************************************************************** -->
     <xsl:template match ="data/DoctrineCollection/VoVomsServer">
-        <VOMS_Server>
-            <xsl:attribute name="HttpsPort">
-                <xsl:value-of select="@https_port"/>
-            </xsl:attribute>
-            <xsl:attribute name="VomsesPort">
-                <xsl:value-of select="@vomses_port"/>
-            </xsl:attribute>
+        <xsl:choose>
+            <xsl:when test="contains(hostname,'perun')">
+                <Perun>
+                    <xsl:attribute name="MembersListUrl">
+                        <xsl:value-of select="memberslisturl"/>
+                    </xsl:attribute>
 
-			<xsl:attribute name="IsVomsAdminServer">
-                <xsl:value-of select="@is_vomsadmin_server"/>
-            </xsl:attribute>
+                </Perun>
+            </xsl:when>
+            <xsl:when test="contains(hostname,'checkin')">
+                <Comanage>
+                    <xsl:attribute name="MembersListUrl">
+                        <xsl:value-of select="concat(memberslisturl,id_comanage)"/>
+                    </xsl:attribute>
 
-		<xsl:attribute name="MembersListUrl">
-   	             <xsl:value-of select="memberslisturl"/>
-               </xsl:attribute>
-	
-            <xsl:param name="hostname" select="hostname"/>
-            <hostname>
-                <xsl:value-of select="$hostname"/>
-            </hostname>
-         
-             <xsl:apply-templates select="$voms-certificates/*/X509Cert[@host=$hostname][1]" />
-             
-        </VOMS_Server>
+                </Comanage>
+            </xsl:when>
+            <xsl:otherwise>
+                <VOMS_Server>
+                    <xsl:attribute name="HttpsPort">
+                        <xsl:value-of select="@https_port"/>
+                    </xsl:attribute>
+                    <xsl:attribute name="VomsesPort">
+                        <xsl:value-of select="@vomses_port"/>
+                    </xsl:attribute>
+
+                    <xsl:attribute name="IsVomsAdminServer">
+                        <xsl:value-of select="@is_vomsadmin_server"/>
+                    </xsl:attribute>
+
+                    <xsl:attribute name="MembersListUrl">
+                        <xsl:value-of select="memberslisturl"/>
+                    </xsl:attribute>
+
+                    <xsl:param name="hostname" select="hostname"/>
+                    <hostname>
+                        <xsl:value-of select="$hostname"/>
+                    </hostname>
+
+                    <xsl:apply-templates select="$voms-certificates/*/X509Cert[@host=$hostname][1]" />
+
+                </VOMS_Server>
+
+            </xsl:otherwise>
+        </xsl:choose>
+
+
+
+
     </xsl:template>
    
      <!-- ***************************************************************************************************************************************************

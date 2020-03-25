@@ -87,6 +87,7 @@
                 <element in="Vo" attributes="@*[local-name()='serial']">                    
                     <attribute-create out="status">../data/Vo/VoHeader/VoStatus/status/text()</attribute-create>
                     <attribute-create out="name">../name/text()</attribute-create>
+                  <!--
                     <attribute-create out="middleware">concat(
                         choose(../data/Vo/VoHeader/@arc_supported='1',',Arc'),
                         choose(../data/Vo/VoHeader/@glite_supported='1',',gLite'),
@@ -95,7 +96,7 @@
                         choose(../data/Vo/VoHeader/@cloud_computing_supported='1',',Cloud Computing Resources'),
                         choose(../data/Vo/VoHeader/@cloud_storage_supported='1',',Cloud Storage Resources')
                         )</attribute-create>
-
+-->
                     <attribute-create out="scope">../data/Vo/VoHeader/VoScope/scope/text()</attribute-create>
                     <attribute-create out="homeUrl">../data/Vo/VoHeader/homepageurl/text()</attribute-create>
                     <attribute-create out="members">$vo_disciplines/disciplines/discipline//row[@name=current()/../name/text()]/@NbUsers</attribute-create>
