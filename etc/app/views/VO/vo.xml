@@ -2111,7 +2111,7 @@
                     <element-create>entry("creation_date",../creation_date/text())</element-create>
                     <element-create>entry("validation_date",../validation_date/text())</element-create>
                     <element-create>entry("last_change",../last_change/text())</element-create>
-                    <element-create>entry("registry",join($VomsVO/data/Vo[name=current()/../name/text()]/VoVomsServer/@registry,','))</element-create>
+                    <element-create>entry("registry",$VomsVO/data/Vo[name=current()/../name/text()]/VoVomsServer)</element-create>
 
                     <!--
                     <element-create as="last-child">entry("middlewares",concat(
