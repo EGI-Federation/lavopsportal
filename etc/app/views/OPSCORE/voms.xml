@@ -7,7 +7,22 @@
             <processor match="/data/Vo/VoVomsServer/VoVomsServer/memberslisturl/text()" type="ReplaceProcessor"><namespaces><entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry><entry key="str">http://exslt.org/strings</entry></namespaces><parameter name="nodes" eval="str:replace(.,'/services/VOMSAdmin?method=listMembers','/apiv2/user-stats.action')"/></processor>
             <processor match="/data/Vo/@*" type="RemoveProcessor"><namespaces><entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry><entry key="str">http://exslt.org/strings</entry></namespaces></processor>
             <processor match="/data/Vo/*[local-name()!='VoVomsServer' and local-name()!='name']" type="RemoveProcessor"><namespaces><entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry><entry key="str">http://exslt.org/strings</entry></namespaces></processor>
+
+
+
+                 <element in="data">
+                     <element in="Vo">
+                         <element in="VoVomsServer">
+                             <attribute-create out="registry" if="contains(VoVomsServer/hostname,'perun')">'perun'</attribute-create>
+                             <attribute-create out="registry" if="contains(VoVomsServer/hostname,'checkin')">'CoManage'</attribute-create>
+                             <attribute-create out="registry" if="not(contains(VoVomsServer/hostname,'perun')) and not(contains(VoVomsServer/hostname,'checkin'))">'VOMS'</attribute-create>
+
+                         </element>
+                     </element>
+                 </element>
         </processors>
+
+
 
         <cache type="FileCache">
             <trigger type="ViewNotifiedTrigger"/>
