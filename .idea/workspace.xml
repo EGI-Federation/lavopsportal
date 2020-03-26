@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="mo">
-      <change beforePath="$PROJECT_DIR$/etc/app/views/OPSCORE/voms.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/OPSCORE/voms.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/app/views/VO/vo.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/VO/vo.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -54,20 +54,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/etc/app/views/VO/vo.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="411">
-              <caret line="2113" column="130" selection-start-line="2113" selection-start-column="130" selection-end-line="2113" selection-end-column="130" />
+            <state relative-caret-position="516">
+              <caret line="2117" column="67" lean-forward="true" selection-start-line="2117" selection-start-column="67" selection-end-line="2117" selection-end-column="67" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/voms.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="134" selection-start-line="17" selection-start-column="134" selection-end-line="17" selection-end-column="134" />
+            <state relative-caret-position="375">
+              <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
             </state>
           </provider>
         </entry>
@@ -242,8 +242,8 @@
         <option value="$PROJECT_DIR$/etc/app/views/SOMBO/sombo.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/VO/vo-voms.xml" />
         <option value="$PROJECT_DIR$/etc/app/resources/xsl/vo-idcard.xsl" />
-        <option value="$PROJECT_DIR$/etc/app/views/VO/vo.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/voms.xml" />
+        <option value="$PROJECT_DIR$/etc/app/views/VO/vo.xml" />
       </list>
     </option>
   </component>
@@ -789,7 +789,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1982" y="0" width="1858" height="1080" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1777042" />
       <window_info id="Structure" order="1" weight="0.24958587" />
@@ -1159,17 +1158,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/views/VO/vo.xml">
+    <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/voms.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="411">
-          <caret line="2113" column="130" selection-start-line="2113" selection-start-column="130" selection-end-line="2113" selection-end-column="130" />
+        <state relative-caret-position="375">
+          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/voms.xml">
+    <entry file="file://$PROJECT_DIR$/etc/app/views/VO/vo.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="134" selection-start-line="17" selection-start-column="134" selection-end-line="17" selection-end-column="134" />
+        <state relative-caret-position="516">
+          <caret line="2117" column="67" lean-forward="true" selection-start-line="2117" selection-start-column="67" selection-end-line="2117" selection-end-column="67" />
         </state>
       </provider>
     </entry>
