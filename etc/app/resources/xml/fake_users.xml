@@ -130,23 +130,15 @@
 
     </e:entries>
 
-    <e:entries key="/C=FR/O=CNRS/OU=USR6402/CN=Francois Letellier/emailAddress=francois.letellier@cc.in2p3.fr">
+    <e:entries key="/DC=org/DC=terena/DC=tcs/C=NL/O=Stichting EGI/CN=Alessandro Paolini">
         <e:entry key="ROLES">GRID BODY::project::EGI</e:entry>
-        <e:entry key="ROLES">Ngi Operations Manager::ngi::NGI_IT</e:entry>
-        <e:entry key="NAME">François Letellier</e:entry>
-        <e:entry key="EMAIL">francois.letellier@cc.in2p3.fr</e:entry>
-        <e:entry key="CERTDN">/C=FR/O=CNRS/OU=USR6402/CN=Francois Letellier/emailAddress=francois.letellier@cc.in2p3.fr</e:entry>
+        <e:entry key="NAME">Alessandro Paolini</e:entry>
+        <e:entry key="EMAIL">alessandro.paolini@egi.eu</e:entry>
+        <e:entry key="CERTDN">/DC=org/DC=terena/DC=tcs/C=NL/O=Stichting EGI/CN=Alessandro Paolini</e:entry>
 
     </e:entries>
 
-    <e:entries key="/C=FR/O=CNRS/OU=USR6402/CN=Francois Letellier/Email=francois.letellier@cc.in2p3.fr">
-        <e:entry key="ROLES">GRID BODY::project::EGI</e:entry>
-        <e:entry key="ROLES">Ngi Operations Manager::ngi::NGI_IT</e:entry>
-        <e:entry key="NAME">François Letellier</e:entry>
-        <e:entry key="EMAIL">francois.letellier@cc.in2p3.fr</e:entry>
-        <e:entry key="CERTDN">/C=FR/O=CNRS/OU=USR6402/CN=Francois Letellier/Email=francois.letellier@cc.in2p3.fr</e:entry>
 
-    </e:entries>
 
     <e:entries key="/DC=org/DC=terena/DC=tcs/C=IT/O=Istituto Nazionale di Fisica Nucleare/CN=Vincenzo Spinoso spinoso@infn.it">
         <e:entry key="ROLES">GRID BODY::project::EGI</e:entry>
@@ -169,5 +161,10 @@
         <e:entry key="CERTDN">/DC=org/DC=terena/DC=tcs/C=NL/O=Stichting EGI/OU=Directors/CN=Tiziana Ferrari</e:entry>
     </e:entries>
 
-
+    <e:entries key="/DC=org/DC=terena/DC=tcs/C=NL/O=Stichting EGI/CN=Valeria Ardizzone">
+        <e:entry key="ROLES">GRID BODY::project::EGI</e:entry>
+        <e:entry key="NAME">Valeria Ardizzone</e:entry>
+        <e:entry key="EMAIL">valeria.ardizzone@egi.eu</e:entry>
+        <e:entry key="CERTDN">/DC=org/DC=terena/DC=tcs/C=NL/O=Stichting EGI/CN=Valeria Ardizzone</e:entry>
+    </e:entries>
 </e:entries>
