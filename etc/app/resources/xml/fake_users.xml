@@ -130,13 +130,6 @@
 
     </e:entries>
 
-    <e:entries key="/DC=org/DC=terena/DC=tcs/C=NL/O=Stichting EGI/CN=Alessandro Paolini">
-        <e:entry key="ROLES">GRID BODY::project::EGI</e:entry>
-        <e:entry key="NAME">Alessandro Paolini</e:entry>
-        <e:entry key="EMAIL">alessandro.paolini@egi.eu</e:entry>
-        <e:entry key="CERTDN">/DC=org/DC=terena/DC=tcs/C=NL/O=Stichting EGI/CN=Alessandro Paolini</e:entry>
-
-    </e:entries>
 
 
 
@@ -167,4 +160,23 @@
         <e:entry key="EMAIL">valeria.ardizzone@egi.eu</e:entry>
         <e:entry key="CERTDN">/DC=org/DC=terena/DC=tcs/C=NL/O=Stichting EGI/CN=Valeria Ardizzone</e:entry>
     </e:entries>
+
+    <e:entries key="/DC=org/DC=terena/DC=tcs/C=NL/O=Stichting EGI/CN=Alessandro Paolini">
+        <e:entry key="ROLES">GRID BODY::project::EGI</e:entry>
+        <e:entry key="NAME">Alessandro Paolini</e:entry>
+        <e:entry key="EMAIL">alessandro.paolini@egi.eu</e:entry>
+        <e:entry key="CERTDN">/DC=org/DC=terena/DC=tcs/C=NL/O=Stichting EGI/CN=Alessandro Paolini</e:entry>
+
+    </e:entries>
+
+    <e:entries key="/O=dutchgrid/O=users/O=egi/CN=Alessandro Paolini">
+        <e:entry key="ROLES">Site Operations Manager::site::GRIDOPS-OPSPORTAL</e:entry>
+        <e:entry key="NAME">Alessandro Paolini</e:entry>
+        <e:entry key="EMAIL">alessandro.paolini@egi.eu</e:entry>
+        <e:entry key="CERTDN">/O=dutchgrid/O=users/O=egi/CN=Alessandro Paolini</e:entry>
+
+    </e:entries>
+
+
+
 </e:entries>
