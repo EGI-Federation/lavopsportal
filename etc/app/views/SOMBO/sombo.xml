@@ -484,6 +484,7 @@
                       <attribute-ignore in="id"/>
                       <attribute-create out="key">substring-after(current()/../@id,'___')</attribute-create>
                       <element-create>entry('count',count(../e:entries))</element-create>
+                      <element-create>entry('list',join(../e:entries/@key,','))</element-create>
                       <element-ignore/>
                   </element>
 
