@@ -487,11 +487,24 @@
                       <element-create>entry('list',join(../e:entries/@key,','))</element-create>
                       <element-ignore/>
                   </element>
-
               </element>
-
           </element>
 
+          <element in="e:entries">
+              <element in="e:entries">
+                      <element-create as="last-child">
+                          entries(entry('count',sum(../e:entries/e:entry[@key='count']))|entry('list',join(../e:entries/e:entry[@key='list'],',')))
+                      </element-create>
+              </element>
+          </element>
+
+          <element in="e:entries">
+              <element in="e:entries">
+                  <element in="e:entries" if="not(@key) and not(following-sibling::e:entries)">
+                      <attribute-create out="key">'sum'</attribute-create>
+                  </element>
+              </element>
+          </element>
       </processors>
 
       <cache type="FileCache">
