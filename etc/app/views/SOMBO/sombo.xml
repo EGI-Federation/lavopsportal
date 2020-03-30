@@ -422,6 +422,94 @@
 
     </view>
 
+
+  <view name="JiraSOStats1" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd"  >
+      <connector type="XMLConnector">
+          <parameter name="content" eval="view('JiraSOList')"/>
+      </connector>
+
+      <processors>
+          <element in="e:entries">
+              <element-ignore in="e:entries">
+
+                  <element in="e:entries">
+                      <element in="e:entry" if="@key='created' or @key='SO-1'"/>
+                      <element-ignore></element-ignore>
+                  </element>
+              </element-ignore>
+
+          </element>
+
+          <element in="e:entries">
+              <element in="e:entries">
+                  <element-ignore in="e:entry" if="@key='created'">
+                      <element-create>entry('year',substring-before(current()/../text(),'-'))</element-create>
+                      <element-create>entry('month',substring-before(substring-after(current()/../text(),'-'),'-'))</element-create>
+                  </element-ignore>
+                  <element-ignore in="e:entry" if="@key='SO-1'">
+                      <text-ignore/>
+
+                      <element-create>entry('service',substring-before(substring-after(current()/../text(),'"service":"'),'","'))</element-create>
+                  </element-ignore>
+              </element>
+          </element>
+
+          <element in="e:entries">
+              <element in="e:entries">
+                  <attribute-create out="id">concat(../e:entry[@key='service'],'___',../e:entry[@key='year'],'-',../e:entry[@key='month'])</attribute-create>
+              </element>
+          </element>
+
+          <element in="e:entries">
+              <element-ignore in="e:entries"/>
+              <element-create>sort_by_string(../e:entries,'@id')</element-create>
+          </element>
+
+          <element in="e:entries">
+              <element-create-as-parent out="e:entries" group-by="@id" attributes="@id">
+                  <element in="e:entries"></element>
+              </element-create-as-parent>
+          </element>
+
+          <element in="e:entries">
+              <element-create-as-parent out="e:entries" group-by="e:entries/e:entry[@key='service']/text()" >
+                  <element in="e:entries"></element>
+              </element-create-as-parent>
+          </element>
+
+          <element in="e:entries">
+              <element in="e:entries">
+                  <attribute-create out="key">../e:entries/e:entries/e:entry[@key='service']/text()</attribute-create>
+                  <element in="e:entries">
+                      <attribute-ignore in="id"/>
+                      <attribute-create out="key">substring-after(current()/../@id,'___')</attribute-create>
+                      <element-create>entry('count',count(../e:entries))</element-create>
+                      <element-ignore/>
+                  </element>
+
+              </element>
+
+          </element>
+
+      </processors>
+
+      <cache type="FileCache">
+          <trigger type="DependencyRefreshedTrigger">
+              <parameter name="views">
+                  <entry>JiraSOList</entry>
+              </parameter>
+          </trigger>
+          <trigger type="ViewNotifiedTrigger"/>
+
+      </cache>
+      <renderers>
+          <renderer type="DefaultRenderer">
+              <parameter name="contentType">text/xml</parameter>
+          </renderer>
+      </renderers>
+  </view>
+
+
     <view name="JiraEpicNotReferenced" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
         <connector type="XMLConnector">
             <parameter name="content" eval="view('JiraEpicList')"/>
@@ -466,7 +554,7 @@
 
 
                             <element in="created" out="e:entry">
-                                <attribute-create out="key">'created'</attribute-create>
+                                <attribute-create out="key">'created Epic'</attribute-create>
                                 <text>substring(.,0,17)</text>
                             </element>
 
