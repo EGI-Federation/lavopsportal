@@ -181,8 +181,8 @@
 
         <cache type="FileCache">
             <trigger type="DeltaTimeTrigger">
-                <parameter name="hours">3</parameter>
-                <parameter name="minutes">48</parameter>
+                <parameter name="hours">1</parameter>
+                <parameter name="minutes">8</parameter>
             </trigger>
             <trigger type="ViewNotifiedTrigger"/>
             <trigger type="DependencyRefreshedTrigger">
@@ -262,7 +262,7 @@
 
         <cache type="FileCache">
             <trigger type="DeltaTimeTrigger">
-                <parameter name="hours">4</parameter>
+                <parameter name="hours">1</parameter>
                 <parameter name="minutes">12</parameter>
             </trigger>
             <trigger type="ViewNotifiedTrigger"/>
@@ -394,7 +394,8 @@
 
         <cache type="FileCache">
             <trigger type="DeltaTimeTrigger">
-                <parameter name="hours">4</parameter>
+                <parameter name="hours">1</parameter>
+                <parameter name="minutes">18</parameter>
             </trigger>
             <trigger type="ViewNotifiedTrigger"/>
             <trigger type="ViewCreatedTrigger"/>
@@ -2577,7 +2578,7 @@
         </processors>
         <cache type="FileCache">
             <trigger type="DeltaTimeTrigger">
-                <parameter name="minutes">23</parameter>
+                <parameter name="minutes">13</parameter>
             </trigger>
             <trigger type="ViewNotifiedTrigger"/>
             <trigger type="ViewCreatedTrigger"/>
