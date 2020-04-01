@@ -457,7 +457,8 @@
                   <element-ignore in="e:entry" if="@key='SO-1'">
                       <text-ignore/>
                       <element-create if="starts-with(current()/../text(),'{')">entry('service',substring-before(substring-after(current()/../text(),'"service":"'),'","'))</element-create>
-                      <element-create if="not(starts-with(current()/../text(),'{'))">entry('service',substring-before(substring-after(current()/../text(),'/'),'/'))</element-create>
+                      <element-create if="not(starts-with(current()/../text(),'{')) and count(current()/../text())=1">entry('service',substring-before(substring-after(current()/../text(),'/'),'/'))</element-create>
+                      <element-create if="not(starts-with(current()/../text(),'{')) and count(current()/../text())&gt;1">entry('service',substring-before(substring-after(str:concat(current()/../text()),'/'),'/'))</element-create>
 
                   </element-ignore>
 
@@ -600,12 +601,12 @@
 
 
                             <element in="created" out="e:entry">
-                                <attribute-create out="key">'created Epic'</attribute-create>
+                                <attribute-create out="key">'createdEpic'</attribute-create>
                                 <text>substring(.,0,17)</text>
                             </element>
 
                             <element in="updated" out="e:entry">
-                                <attribute-create out="key">'updated'</attribute-create>
+                                <attribute-create out="key">'updatedEpic'</attribute-create>
                                 <text>substring(.,0,17)</text>
                             </element>
 
