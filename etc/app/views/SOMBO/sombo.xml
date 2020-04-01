@@ -456,7 +456,9 @@
 
                   <element-ignore in="e:entry" if="@key='SO-1'">
                       <text-ignore/>
-                      <element-create>entry('service',substring-before(substring-after(current()/../text(),'"service":"'),'","'))</element-create>
+                      <element-create if="starts-with(current()/../text(),'{')">entry('service',substring-before(substring-after(current()/../text(),'"service":"'),'","'))</element-create>
+                      <element-create if="not(starts-with(current()/../text(),'{'))">entry('service',substring-before(substring-after(current()/../text(),'/'),'/'))</element-create>
+
                   </element-ignore>
 
                   <element-ignore in="e:entry" if="@key='SO-1-legacy'">
