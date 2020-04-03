@@ -646,8 +646,8 @@
                     <!--<element-create>entry('vo_security_emails',view('VoContacts',entry('serial',current()/../../@serial))/result/@vo_security_emails)</element-create>
                     <element-create>entry('vo_manager_emails',view('VoSecurityContacts',entry('serial',current()/../../@serial))/result/@vo_managers_emails)</element-create>
 -->
-                    <element-create>entry('vo_security_emails',new_text(view('VoContacts',entry('serial',current()/../@serial))/result/@vo_security_emails))</element-create>
-                    <element-create>entry('vo_manager_emails',new_text(view('VoSecurityContacts',entry('serial',current()/../@serial))/result/@vo_managers_emails))</element-create>
+                    <element-create>entry('vo_security_emails',new_text(view('VoSecurityContacts',entry('serial',current()/../@serial))/result/@vo_security_emails))</element-create>
+                    <element-create>entry('vo_manager_emails',new_text(view('VoContacts',entry('serial',current()/../@serial))/result/@vo_managers_emails))</element-create>
 
                 </element>
                 <element-ignore/>
