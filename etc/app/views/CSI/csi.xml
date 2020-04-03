@@ -586,23 +586,73 @@
 
 <!--    </view>-->
 
-
-    <view authenticators="local" name="Csi_VoContacts_List"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
-
-
-
+    <view  authenticators="local" name="VoSecurityContacts">
+        <argument name="serial">83</argument>
         <connector type="SQLConnector">
             <parameter name="driver">com.mysql.jdbc.Driver</parameter>
-            <parameter name="url" eval="property('CSI.db.url')"/>
-            <parameter name="username" eval="property('CSI.db.username')"/>
-            <parameter name="password" eval="property('CSI.db.password')"/>
-            <parameter name="query">(SELECT name , security_contact_mailing_list, id, serial FROM Vo LEFT JOIN vo_mailing_list on vo_mailing_list.serial=vo.serial)
-                UNION (SELECT serial,  email FROM vo_contact_has_profile chp, vo_contacts vc, vo_user_profile vup
-                WHERE vup.profile = 'VO MANAGER'
-                AND LEFT JOIN vo_contacts ON vo_contacts.id = vo_user_profile.user_id
-                AND LEFT JOIN vo_user_profile ON vo_contacts.id = vo_contact_has_profile.id )
+            <parameter name="url" eval="property('VO.db.url')"/>
+            <parameter name="username" eval="property('VO.db.username')"/>
+            <parameter name="password" eval="property('VO.db.password')"/>
+            <parameter name="query">
+                <entry>SELECT security_contact_mailing_list, id, serial , insert_date FROM vo_mailing_list where validated=1 and serial=</entry>
+                <entry eval="$serial"/>
+                <entry> order by insert_date desc</entry>
+                <entry> limit 1;</entry>
             </parameter>
         </connector>
+        <processors>
+            <element in="result">
+                <attribute-create out="vo_security_emails">../row/security_contact_mailing_list/text()</attribute-create>
+                <element-ignore/>
+            </element>
+        </processors>
+    </view>
+    <view  authenticators="local" name="VoContacts">
+        <argument name="serial">4</argument>
+        <connector type="SQLConnector">
+            <parameter name="driver">com.mysql.jdbc.Driver</parameter>
+            <parameter name="url" eval="property('VO.db.url')"/>
+            <parameter name="username" eval="property('VO.db.username')"/>
+            <parameter name="password" eval="property('VO.db.password')"/>
+            <parameter name="query">
+                <entry>SELECT vc.email  FROM vo_contact_has_profile as vch , vo_contacts as vc where vch.user_profile_id=1 and vch.vo_contact_id=vc.id and vch.serial=</entry>
+                <entry eval="$serial"/>
+            </parameter>
+
+        </connector>
+
+        <processors>
+            <element in="result">
+                <attribute-create out="vo_managers_emails">join(../row/email/text(),',')</attribute-create>
+                <element-ignore/>
+            </element>
+        </processors>
+    </view>
+
+
+    <view  authenticators="local" name="CSI_VOContacts_List"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
+       <connector type="XMLConnector">
+           <parameter name="content" eval="view('VoList')">
+           </parameter>
+       </connector>
+
+        <processors>
+
+            <element in="data" out="e:entries">
+
+                <element in="Vo" out="e:entries" if="status='Production'">
+                    <attribute in="name" out="key"/>
+                    <attribute-ignore/>
+                    <element-create>entry('vo_security_emails',view('VoContacts',entry('serial',../@serial))/result/@vo_security_emails)</element-create>
+                    <element-create>entry('vo_manager_emails',view('VoSecurityContacts',entry('serial',../@serial))/result/@vo_managers_emails)</element-create>
+
+                </element>
+
+            </element>
+
+        </processors>
+
+
 
 
         <renderers>
