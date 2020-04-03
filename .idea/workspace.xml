@@ -4,8 +4,6 @@
     <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="mo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/etc/app/views/CSI/csi.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/CSI/csi.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/app/views/SOMBO/sombo.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/SOMBO/sombo.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/service/authenticators.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/service/authenticators.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -42,8 +40,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/etc/app/views/CSI/csi.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="633" column="38" lean-forward="true" selection-start-line="633" selection-start-column="38" selection-end-line="633" selection-end-column="38" />
+            <state relative-caret-position="441">
+              <caret line="648" column="26" lean-forward="true" selection-start-line="648" selection-start-column="26" selection-end-line="648" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -1184,8 +1182,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/etc/app/views/CSI/csi.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="633" column="38" lean-forward="true" selection-start-line="633" selection-start-column="38" selection-end-line="633" selection-end-column="38" />
+        <state relative-caret-position="441">
+          <caret line="648" column="26" lean-forward="true" selection-start-line="648" selection-start-column="26" selection-end-line="648" selection-end-column="26" />
         </state>
       </provider>
     </entry>
