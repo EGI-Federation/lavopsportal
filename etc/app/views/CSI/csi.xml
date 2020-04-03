@@ -640,13 +640,14 @@
 
             <element in="data" out="e:entries">
 
-                <element in="Vo" out="e:entries" if="status='Production'">
+                <element in="Vo" out="e:entries" if="@status='Production'">
                     <attribute in="name" out="key"/>
                     <attribute-ignore/>
                     <element-create>entry('vo_security_emails',view('VoContacts',entry('serial',../@serial))/result/@vo_security_emails)</element-create>
                     <element-create>entry('vo_manager_emails',view('VoSecurityContacts',entry('serial',../@serial))/result/@vo_managers_emails)</element-create>
 
                 </element>
+                <element-ignore/>
 
             </element>
 
