@@ -111,6 +111,62 @@
     </view>
 
 
+    <view name="VO_full_new">
+
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('VoListUrl')"/>
+        </connector>
+
+        <processors>
+            <elements path="data/Vo">
+                <element in="VoVomsServer" out="Registries">
+                    <element in="VoVomsServer" if="contains(memberslisturl/text(),'https://aai.egi.eu/registry')" out="CoManage">
+                        <attribute-ignore/>
+                        <element-ignore in="hostname"/>
+                    </element>
+                    <element in="VoVomsServer" if="contains(memberslisturl/text(),'https://perun.metacentrum.cz')" out="Perun">
+                        <attribute-ignore/>
+                        <element-ignore in="hostname"/>
+                    </element>
+
+                </element>
+
+            </elements>
+
+            <element in="data">
+                <set variable="VoDetails">view('VoDetails')/result</set>
+                <element in="Vo">
+                    <element-create>$VoDetails/row[name/text()=current()/../name()/text()]</element-create>
+
+                </element>
+            </element>
+        </processors>
+
+
+    </view>
+
+    <view name="VoDetails">
+
+        <connector type="SQLConnector">
+            <parameter name="driver">com.mysql.jdbc.Driver</parameter>
+            <parameter name="url" eval="property('VO.db.url')"/>
+            <parameter name="username" eval="property('VO.db.username')"/>
+            <parameter name="password" eval="property('VO.db.password')"/>
+            <parameter name="query">
+                SELECT  vo.name ,vo_scope as scope , vh.enrollment_url, vh.homepage_url, vh.aup, vh.aup_type, vh.description ,
+                vo_status.status FROM vo , vo_header vh , vo_scope , vo_status where vh.status_id=vo_status.id and
+                vh.scope_id=vo_scope.id and vh.id=vo.header_id and ( vh.status_id=8 or vh.status_id=1) limit 3
+            </parameter>
+        </connector>
+
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="hours">1</parameter>
+                <parameter name="minutes">8</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+        </cache>
+    </view>
 
 
     <view name="VO_full_0">

@@ -2,9 +2,18 @@
 <views xmlns="http://software.in2p3.fr/lavoisier/application.xsd"  xmlns:date="http://exslt.org/dates-and-times" >
 
     <view name="DASHBOARD_probes_list"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
+
+
         <connector type="HTTPConnector">
-            <parameter name="url" >https://poem.egi.eu/poem/api/0.2/json/metrics_in_profiles?vo_name=ops</parameter>
+            <parameter name="url" eval="property('poem-url')"/>
+            <parameter name="force-redirect">true</parameter>
+            <parameter name="header">
+                <entry key="x-api-key" eval="property('poem-api-key')"/>
+                <entry key="Accept">application/json</entry>
+            </parameter>
+
         </connector>
+
 
         <serializer type="JSONSerializer"/>
 

@@ -3,11 +3,8 @@
 
     <view name="JSTreeConf_Cached">
 
-        <connector type="HTTPConnector">
-            <parameter name="url" eval="property('BROADCAST.jstree_conf.url')"/>
-            <parameter name="certificate" eval="property('certificate.path')"/>
-            <parameter name="passphrase" eval="property('certificate.password')"/>
-            <parameter name="force-redirect">true</parameter>
+        <connector type="FileConnector">
+            <parameter name="path">app/resources/xml/jstreeconf.xml</parameter>
         </connector>
         <cache type="FileCache">
             <trigger type="DeltaTimeTrigger">
