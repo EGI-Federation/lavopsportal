@@ -111,7 +111,7 @@
     </view>
 
 
-    <view name="VO_full_new">
+    <view name="VO_full_new" authenticators="local">
 
         <connector type="XMLConnector">
             <parameter name="content" eval="view('VoListUrl')"/>
@@ -119,6 +119,9 @@
 
         <processors>
             <elements path="data/Vo">
+
+                <attribute-ignore/>
+                <attribute-create out="key">../name/text()</attribute-create>
                 <element in="VoVomsServer" out="Registries">
                     <element in="VoVomsServer" if="contains(memberslisturl/text(),'https://aai.egi.eu/registry')" out="CoManage">
                         <attribute-ignore/>
@@ -128,18 +131,66 @@
                         <attribute-ignore/>
                         <element-ignore in="hostname"/>
                     </element>
+                </element>
+                <element-create>new_element('VoHeader')</element-create>
+                <element-create>new_element('VoContacts')</element-create>
+                <element-create>new_element('VoMailingLists')</element-create>
+                <element-create>new_element('VoResources')</element-create>
+                <element-create>new_element('VoVomsGroups')</element-create>
+                <element-create>new_element('VoDisciplines')</element-create>
+            </elements>
 
+
+            <element in="data">
+                <set variable="voms-certificates" index="@host">view('voms-certificates')/results/X509Cert</set>
+                <set variable="VoDetails" index="@name">view('VoDetails')/result/row</set>
+                <set variable="VoContactsAll">view('VoContactsAll')</set>
+                <set variable="VoMailingLists" index="name/text()">view('VoMailingLists')/result/row</set>
+                <set variable="VoResources" index="name/text()">view('VoResources')/result/row</set>
+                <set variable="VoVomsGroups">view('VoVomsGroups')</set>
+                <set variable="VoDisciplines" index="@name">view('VoDisciplinesList')/rootD/vo_Disciplines</set>
+
+                <element in="Vo">
+
+                    <elements path="Registries/VoVomsServer">
+                        <element-create>find($voms-certificates,../hostname/text())</element-create>
+                    </elements>
+                    <element in="VoHeader">
+                        <element-create>find($VoDetails,current()/../../@key)</element-create>
+                    </element>
+                    <element in="VoContacts">
+                        <element-create>$VoContactsAll/result/row[name/text()=current()/../../@key]</element-create>
+                    </element>
+                    <element in="VoMailingLists">
+                        <element-create>find($VoMailingLists,current()/../../@key)</element-create>
+                    </element>
+                    <element in="VoResources">
+                        <element-create>find($VoResources,current()/../../@key)</element-create>
+                    </element>
+                    <element in="VoVomsGroups">
+                        <element-create>$VoVomsGroups/result/row[name/text()=current()/../../@key]</element-create>
+                    </element>
+                    <element in="VoDisciplines">
+                        <element-create>find($VoDisciplines,current()/../../@key)</element-create>
+                    </element>
+                </element>
+            </element>
+
+            <elements path="data/Vo">
+
+                <element>
+                    <element-ignore in="row" if="name(..)!='VoContacts' and name(..)!='VoVomsGroups'">
+                        <element if="name()!='name'"/>
+                    </element-ignore>
+                    <element in="row" if="name(..)='VoContacts'" out="VoContact"/>
+                    <element in="row" if="name(..)='VoVomsGroups'" out="VoVomsGroup"/>
+                    <elements-ignore path="vo_Disciplines/vo_Disciplines"><element/></elements-ignore>
                 </element>
 
             </elements>
 
-            <element in="data">
-                <set variable="VoDetails">view('VoDetails')/result</set>
-                <element in="Vo">
-                    <element-create>$VoDetails/result/row[name/text()=current()/../name/text()]/*</element-create>
 
-                </element>
-            </element>
+
         </processors>
 
         <cache type="FileCache">
@@ -159,7 +210,7 @@
 
     </view>
 
-    <view name="VoDetails">
+    <view name="VoDetails" authenticators="local">
 
         <connector type="SQLConnector">
             <parameter name="driver">com.mysql.jdbc.Driver</parameter>
@@ -169,9 +220,17 @@
             <parameter name="query">
                 SELECT  vo.name , vs.scope as scope , vh.enrollment_url, vh.homepage_url, vh.aup, vh.aup_type, vh.description ,
                 vo_status.status FROM vo , vo_header vh , vo_scope vs, vo_status where vh.status_id=vo_status.id and
-                vh.scope_id=vs.id and vh.id=vo.header_id and ( vh.status_id=8 or vh.status_id=1)
+                vh.scope_id=vs.id and vh.id=vo.header_id and vh.status_id=2
             </parameter>
         </connector>
+
+        <processors>
+            <element in="result">
+                <element in="row">
+                    <attribute-create out="name">../name/text()</attribute-create>
+                </element>
+            </element>
+        </processors>
 
         <cache type="FileCache">
             <trigger type="DeltaTimeTrigger">
@@ -189,6 +248,137 @@
 
     </view>
 
+    <view name="VoContactsAll" authenticators="local">
+
+        <connector type="SQLConnector">
+            <parameter name="driver">com.mysql.jdbc.Driver</parameter>
+            <parameter name="url" eval="property('VO.db.url')"/>
+            <parameter name="username" eval="property('VO.db.username')"/>
+            <parameter name="password" eval="property('VO.db.password')"/>
+            <parameter name="query">
+                SELECT vc.email , vc.first_name , vc.last_name , vc.dn , vo.name , vu .profile FROM vo_contact_has_profile as vch , vo_contacts as vc, vo , vo_user_profile vu where vch.user_profile_id=1 and vch.vo_contact_id=vc.id and vch.serial=vo.serial and vu.id=vch.user_profile_id
+            </parameter>
+        </connector>
+
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="minutes">23</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+        </cache>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+
+    </view>
+
+    <view name="VoResources" authenticators="local">
+
+        <connector type="SQLConnector">
+            <parameter name="driver">com.mysql.jdbc.Driver</parameter>
+            <parameter name="url" eval="property('VO.db.url')"/>
+            <parameter name="username" eval="property('VO.db.username')"/>
+            <parameter name="password" eval="property('VO.db.password')"/>
+            <parameter name="query">
+                SELECT   vo.name , vr.* from vo_ressources vr , vo where vo.serial=vr.serial and vr.validated='1' AND vr.id = (SELECT MAX(id) from vo_ressources vr2 where vr2.serial=vr.serial)
+            </parameter>
+        </connector>
+
+
+        <processors>
+            <element in="result">
+                <element in="row">
+                    <element-ignore if="name()='id' or name()='serial' or name()='insert_date' or name()='user' or name()='validated' or name()='reject_reason'"/>
+                </element>
+
+            </element>
+            <element in="result">
+                <element in="row">
+                    <element-create>new_element('QueueConfiguration',new_element('JobMaxCPUTime',new_text(../job_max_cpu/text()))|new_element('JobMaxWallClockTime',new_text(../job_max_wall/text())))</element-create>
+                    <element-create>new_element('SingleCoreJobs',new_element('RAM_per_i386_Core',new_text(../ram386/text()))|new_element('RAM_per_x86_64_Core',new_text(../ram64/text())))</element-create>
+                    <element-create>new_element('MultiCoreJobs',
+                        new_element('RamValuesPerJob',new_element('min',new_text(../minimum_ram/text()))|new_element('prefered',new_text(../pref_ram/text()))|new_element('max',new_text(../maxi_ram//text())))
+                        |new_element('ScratchValuesPerJob',new_element('min',new_text(../min_scratch_space_values/text()))|new_element('prefered',new_text(../pref_scratch_space_values/text()))|new_element('max',new_text(../max_scratch_space_values//text())))
+                        |new_element('CoresValuesPerJob',new_element('min',new_text(../min_number_cores/text()))|new_element('prefered',new_text(../pref_number_cores/text()))|new_element('max',new_text(../max_number_cores/text()))))
+                    </element-create>
+                    <element-create>new_element('CloudCompute',new_element('CloudCPUCore',new_text(../cpu_core/text()))|new_element('CloudStorageSize',new_text(../storage_size/text()))|new_element('CloudVmRam',new_text(../vm_ram/text())))</element-create>
+                    <element-create>new_element('OtherRequirements',new_text(../other_requirements/text()))</element-create>
+                    <element-ignore if="name()!='name'"/>
+                </element>
+            </element>
+
+
+        </processors>
+
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="minutes">33</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+        </cache>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+
+    </view>
+
+    <view name="VoVomsGroups">
+        <connector type="SQLConnector">
+            <parameter name="driver">com.mysql.jdbc.Driver</parameter>
+            <parameter name="url" eval="property('VO.db.url')"/>
+            <parameter name="username" eval="property('VO.db.username')"/>
+            <parameter name="password" eval="property('VO.db.password')"/>
+            <parameter name="query">
+                SELECT   vo.name , vvg.group_role , vvg.description, vvg.is_group_used, vvg.group_type, vvg.allocated_ressources from vo_voms_group vvg , vo where vo.serial=vvg.serial
+            </parameter>
+        </connector>
+
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="minutes">34</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+        </cache>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+
+    </view>
+
+    <view name="VoMailingLists" authenticators="local">
+        <connector type="SQLConnector">
+            <parameter name="driver">com.mysql.jdbc.Driver</parameter>
+            <parameter name="url" eval="property('VO.db.url')"/>
+            <parameter name="username" eval="property('VO.db.username')"/>
+            <parameter name="password" eval="property('VO.db.password')"/>
+            <parameter name="query">
+                SELECT  v.name as name, m.admins_mailing_list as adminsmailinglist, users_mailing_list as usersmailinglist,user_support_mailing_list as usersupportmailinglist, security_contact_mailing_list as securitycontactmailinglist  FROM vo v, vo_header h, vo_mailing_list m WHERE v.header_id = h.id AND v.serial = m.serial AND h.status_id = 2 AND m.admins_mailing_list IS NOT NULL AND NOT m.admins_mailing_list = '' AND m.id = (SELECT MAX(id) from vo_mailing_list m2 where m2.serial=m.serial)
+            </parameter>
+        </connector>
+
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="minutes">23</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+        </cache>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+
+    </view>
 
     <view name="VO_full_0">
 
@@ -246,13 +436,10 @@
                                 <element in="description" out="description"/>
                             </element>
                         </element>
-
-
                     </element>
-
                 </element>
-
             </elements>
+
 
         </processors>
 
@@ -271,80 +458,11 @@
     </view>
 
 
-    <view name="VO_full_full_0">
-
-        <argument xmlns:html="http://www.w3.org/1999/xhtml" name="vo">all</argument>
-        <connector xmlns:html="http://www.w3.org/1999/xhtml" type="HTTPConnector">
-            <parameter name="url"
-                       eval="concat(property('portal.base_url'),'/cron/voDatabaseDump/voname/',parent_match()/name/text())"/>
-            <parameter name="certificate" eval="property('certificate.path')"/>
-            <parameter name="passphrase" eval="property('certificate.password')"/>
-            <parameter name="force-redirect">true</parameter>
-            <fallback eval="new_element('ERROR', arguments())">
-                <exception type="java.io"/>
-                <exception type="org.xml.sax"/>
-                <exception type="java.net.SocketTimeoutException"/>
-                <exception type="java.net.ConnectException" predicate-on-message="contains(.,'Connection refused')"/>
-                <exception type="org.xml.sax.SAXParseException"/>
-                <exception type="java.io.FileNotFoundException"/>
-            </fallback>
-        </connector>
-        <serializer xmlns:html="http://www.w3.org/1999/xhtml" type="HTMLSerializer"/>
-        <processors xmlns:html="http://www.w3.org/1999/xhtml">
-            <processor match="//*" type="ChangeNamespaceProcessor"/>
-        </processors>
-    </view>
     <view xmlns:html="http://www.w3.org/1999/xhtml" name="VO_full_full">
         
-        <argument name="vo">all</argument>
-        <connector type="XMLConnector">
-            <parameter name="content" eval="view('VoListUrl')"/>
-        </connector>
-        <processors>
-
-            <processor match="/data/Vo[*]" type="InsertProcessor">
-                <parameter name="nodes"
-                           eval="view_path_post('VO_full_full_0', choose(path(false()), path(false()), ''), match(), arguments())"/>
-            </processor>
-
-
-            <elements path="/data/Vo">
-                <element in="html:data" out="data">
-                    <element in="html:Vo" out="Vo">
-                        <element in="html:name" out="name"/>
-                        <element in="html:validationdate" out="validationdate"/>
-                        <element in="html:creationdate" out="creationdate"/>
-                        <element in="html:VoHeader" out="VoHeader">
-                            <element in="html:name" out="name"/>
-                            <element in="html:enrollmenturl" out="enrollmenturl"/>
-
-                            <element in="html:VoScope" out="VoScope">
-                                <element in="html:scope" out="scope"/>
-                                <element in="html:roc" out="roc"/>
-                            </element>
-                            <element in="html:VoStatus" out="VoStatus">
-                                <element in="html:status" out="status"/>
-                                <element in="html:description" out="description"/>
-                            </element>
-                        </element>
-
-
-                    </element>
-
-                </element>
-
-            </elements>
-
-        </processors>
-
-        <cache type="FileCache">
-            <trigger type="DeltaTimeTrigger">
-                <parameter name="hours">1</parameter>
-                <parameter name="minutes">12</parameter>
-            </trigger>
-            <trigger type="ViewNotifiedTrigger"/>
-
-        </cache>
+       <connector type="XMLConnector">
+           <parameter name="content" eval="view('VO_full')"></parameter>
+       </connector>
     </view>
 
     <view name="VO">
@@ -1625,29 +1743,7 @@
 
             </element>
 
-            <!--<element in="result">-->
-            <!--<element in="row" if="@timestamp &lt;= ancestor::result/@timestamp_end and @timestamp &gt;= ancestor::result/@timestamp_start "></element>-->
-            <!--<element-ignore></element-ignore>-->
-            <!--</element>-->
 
-            <!--<element in="result">-->
-            <!--<element-create as="first-child">str:split($calist,',')</element-create>-->
-
-            <!--<element in="row">-->
-            <!--<attribute-ignore in="timestamp"></attribute-ignore>-->
-            <!--<element in="day_date" out="yearMonth">-->
-            <!--<text>substring(.,0,8)</text>-->
-            <!--</element>-->
-
-            <!--</element>-->
-            <!--</element>-->
-
-            <!--<element in="result">-->
-            <!--<attribute-ignore in="day"></attribute-ignore>-->
-            <!--<element-ignore in="row" if="not(current()/ca/text()=/result/token/text())"></element-ignore>-->
-            <!--<element-ignore in="token"></element-ignore>-->
-
-            <!--</element>-->
 
         </processors>
 

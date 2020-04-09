@@ -55,7 +55,7 @@
     <view name="vo-voms_INDEX">
 
         <connector type="XMLConnector">
-            <parameter name="content" eval="view('VoListUrl')"/>
+            <parameter name="content" eval="view('VoList')"/>
         </connector>
 
         <cache type="FileCache">
@@ -555,6 +555,26 @@
                 <parameter name="contentType">text/xml</parameter>
             </renderer>
         </renderers>
+
+    </view>
+
+    <view name="vo-id-card-ng">
+        <connector type="XMLConnector">
+            <parameter name="content">view('VO_full_new')</parameter>
+        </connector>
+
+        <processors>
+            <element in="data" out="root">
+                <attribute-create out="current">'v3'</attribute-create>
+                <element in="Vo" out="IDCard">
+
+
+                </element>
+
+            </element>
+
+
+        </processors>
 
     </view>
 
