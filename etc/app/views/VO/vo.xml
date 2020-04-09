@@ -141,6 +141,7 @@
                 </element>
             </element>
         </processors>
+
         <cache type="FileCache">
             <trigger type="DeltaTimeTrigger">
 
@@ -492,8 +493,12 @@
 
             </row>
         </pre-renderers>
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
 
-        VO_full_new
     </view>
 
     <view name="VoDisciplines">
@@ -523,7 +528,11 @@
                 <column label="discipline_label">@value</column>
             </row>
         </pre-renderers>
-
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
 
     </view>
 
