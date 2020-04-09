@@ -134,9 +134,9 @@
             </elements>
 
             <element in="data">
-                <set variable="VoDetails">view('VoDetails')/result</set>
+                <set variable="VoDetails">view('VoDetails')</set>
                 <element in="Vo">
-                    <element-create>$VoDetails/row[name/text()=current()/../name/text()]/*</element-create>
+                    <element-create>$VoDetails/result/row[name/text()=current()/../name/text()]/*</element-create>
 
                 </element>
             </element>
@@ -148,6 +148,13 @@
             </trigger>
             <trigger type="ViewNotifiedTrigger"/>
         </cache>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+
 
     </view>
 
@@ -172,6 +179,13 @@
             </trigger>
             <trigger type="ViewNotifiedTrigger"/>
         </cache>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+
     </view>
 
 
@@ -479,11 +493,7 @@
             </row>
         </pre-renderers>
 
-        <renderers>
-            <renderer type="DefaultRenderer">
-                <parameter name="contentType">text/xml</parameter>
-            </renderer>
-        </renderers>
+        VO_full_new
     </view>
 
     <view name="VoDisciplines">
