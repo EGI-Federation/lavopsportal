@@ -114,7 +114,7 @@
     <view name="VO_full_new">
 
         <connector type="XMLConnector">
-            <parameter name="content" eval="view('VoListUrl')/result"/>
+            <parameter name="content" eval="view('VoListUrl')"/>
         </connector>
 
         <processors>
@@ -134,7 +134,7 @@
             </elements>
 
             <element in="data">
-                <set variable="VoDetails">view('VoDetails')</set>
+                <set variable="VoDetails">view('VoDetails')/result</set>
                 <element in="Vo">
                     <element-create>$VoDetails/result/row[name/text()=current()/../name/text()]/*</element-create>
 
