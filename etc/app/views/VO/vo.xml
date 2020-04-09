@@ -136,7 +136,7 @@
             <element in="data">
                 <set variable="VoDetails">view('VoDetails')/result</set>
                 <element in="Vo">
-                    <element-create>$VoDetails/row[name/text()=current()/../name()/text()]</element-create>
+                    <element-create>$VoDetails/row[name/text()=current()/../name()/text()]/*</element-create>
 
                 </element>
             </element>
