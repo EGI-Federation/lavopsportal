@@ -141,7 +141,13 @@
                 </element>
             </element>
         </processors>
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
 
+                <parameter name="minutes">38</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+        </cache>
 
     </view>
 
@@ -161,8 +167,8 @@
 
         <cache type="FileCache">
             <trigger type="DeltaTimeTrigger">
-                <parameter name="hours">1</parameter>
-                <parameter name="minutes">8</parameter>
+
+                <parameter name="minutes">28</parameter>
             </trigger>
             <trigger type="ViewNotifiedTrigger"/>
         </cache>
