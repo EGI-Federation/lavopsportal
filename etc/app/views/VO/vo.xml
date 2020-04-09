@@ -114,7 +114,7 @@
     <view name="VO_full_new">
 
         <connector type="XMLConnector">
-            <parameter name="content" eval="view('VoListUrl')"/>
+            <parameter name="content" eval="view('VoListUrl')/result"/>
         </connector>
 
         <processors>
