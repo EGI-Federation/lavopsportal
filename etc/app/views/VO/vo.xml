@@ -159,9 +159,9 @@
             <parameter name="username" eval="property('VO.db.username')"/>
             <parameter name="password" eval="property('VO.db.password')"/>
             <parameter name="query">
-                SELECT  vo.name ,vo_scope as scope , vh.enrollment_url, vh.homepage_url, vh.aup, vh.aup_type, vh.description ,
-                vo_status.status FROM vo , vo_header vh , vo_scope , vo_status where vh.status_id=vo_status.id and
-                vh.scope_id=vo_scope.id and vh.id=vo.header_id and ( vh.status_id=8 or vh.status_id=1) limit 3
+                SELECT  vo.name , vs.scope as scope , vh.enrollment_url, vh.homepage_url, vh.aup, vh.aup_type, vh.description ,
+                vo_status.status FROM vo , vo_header vh , vo_scope vs, vo_status where vh.status_id=vo_status.id and
+                vh.scope_id=vs.id and vh.id=vo.header_id and ( vh.status_id=8 or vh.status_id=1)
             </parameter>
         </connector>
 
