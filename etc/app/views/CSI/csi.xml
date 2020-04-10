@@ -95,11 +95,11 @@
                         <attribute-ignore/>
                         <attribute-create out="key">concat(../@pk1,'___',../@pk2)</attribute-create>
                         <element-ignore>
-                            <element-create if="name(..)!='long_plugin_output'">entry(name(..),../text())</element-create>
-                            <element-create if="name(..)='long_plugin_output'">
+                            <element-create if="name(..)!='long_plugin_output' and ../text()!=''">entry(name(..),../text())</element-create>
+                            <element-create if="name(..)='long_plugin_output' and ../text()!=''">
                                entry('long_plugin_output',concat('<![CDATA[',../text(),']]>'))
                             </element-create>
-
+                            <element-create if="../text()!=''">entry(name(..),' ')</element-create>
                         </element-ignore>
 
 
