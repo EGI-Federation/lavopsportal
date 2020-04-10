@@ -2,8 +2,60 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="mo">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_4_1_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_mail_javax_mail_1_5_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_mail_logging_mailhandler_1_5_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_authenticator_base_2_1_3_SNAPSHOT.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_cache_base_2_1_3_SNAPSHOT.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_cache_basex_2_1_3_SNAPSHOT.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_connector_base_2_1_3_SNAPSHOT.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_connector_config_2_1_3_SNAPSHOT.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_connector_diff_2_1_3_SNAPSHOT.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_connector_grid_2_1_3_SNAPSHOT.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_connector_remctl_2_1_3_SNAPSHOT.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_connector_scala_2_1_3_SNAPSHOT.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_connector_sql_2_1_3_SNAPSHOT.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_connector_ssh_2_1_3_SNAPSHOT.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_connector_telnet_2_1_3_SNAPSHOT.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_processor_base_2_1_3_SNAPSHOT.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_renderer_base_2_1_3_SNAPSHOT.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_renderer_chart_2_1_3_SNAPSHOT.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_renderer_json_2_1_3_SNAPSHOT.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_renderer_pdf_2_1_3_SNAPSHOT.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_serializer_base_2_1_3_SNAPSHOT.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_serializer_html_2_1_3_SNAPSHOT.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_serializer_ini_2_1_3_SNAPSHOT.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_serializer_json_2_1_3_SNAPSHOT.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_serializer_yaml_2_1_3_SNAPSHOT.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_trigger_base_2_1_3_SNAPSHOT.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_validator_base_2_1_3_SNAPSHOT.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_html_template_engine_2_1_3_SNAPSHOT.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_lavoisier_chaining_2_1_3_SNAPSHOT.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_lavoisier_configuration_2_1_3_SNAPSHOT.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_lavoisier_engine_2_1_3_SNAPSHOT.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_lavoisier_gui_admin_2_1_3_SNAPSHOT.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_lavoisier_gui_dashboard_2_1_3_SNAPSHOT.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_lavoisier_interfaces_2_1_3_SNAPSHOT.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_lavoisier_package_2_1_3_SNAPSHOT.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_lavoisier_service_2_1_3_SNAPSHOT.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_lavoisier_views_library_2_1_3_SNAPSHOT.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_xml_interfaces_2_1_3_SNAPSHOT.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_xml_template_engine_2_1_3_SNAPSHOT.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_xpath_absolute_2_1_3_SNAPSHOT.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_xpath_functions_2_1_3_SNAPSHOT.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_xpath_parser_2_1_3_SNAPSHOT.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_mail_javax_mail_api_1_5_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_oltu_oauth2_org_apache_oltu_oauth2_client_1_0_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_oltu_oauth2_org_apache_oltu_oauth2_common_1_0_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_json_json_20131018.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_6_1.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/service/authenticators.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/service/authenticators.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/app/app.properties" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/app.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/app/views/BROADCAST/recipients.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/BROADCAST/recipients.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/app/views/OPSCORE/vapor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/OPSCORE/vapor.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/app/views/VO/vo.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/VO/vo.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavopsportal.iml" beforeDir="false" afterPath="$PROJECT_DIR$/lavopsportal.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,11 +80,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/etc/app/app.properties">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/etc/app/views/BROADCAST/recipients.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="438">
-              <caret line="128" column="45" selection-start-line="128" selection-start-column="45" selection-end-line="128" selection-end-column="73" />
+            <state relative-caret-position="202">
+              <caret line="507" column="48" lean-forward="true" selection-start-line="507" selection-start-column="48" selection-end-line="507" selection-end-column="48" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/vapor.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="442">
+              <caret line="46" column="85" selection-start-line="46" selection-start-column="85" selection-end-line="46" selection-end-column="85" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/entities.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="6225">
+              <caret line="415" column="40" selection-start-line="415" selection-start-column="40" selection-end-line="415" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -40,8 +110,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/etc/engine/post-processors.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="97">
-              <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
+            <state relative-caret-position="225">
+              <caret line="15" column="74" selection-start-line="15" selection-start-column="74" selection-end-line="15" selection-end-column="74" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
             </state>
           </provider>
         </entry>
@@ -49,17 +128,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/etc/engine/logger.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="682">
+            <state relative-caret-position="960">
               <caret line="64" selection-start-line="64" selection-end-line="64" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/etc/service/authenticators.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="53" selection-start-line="18" selection-start-column="53" selection-end-line="18" selection-end-column="53" />
+            <state relative-caret-position="285">
+              <caret line="19" column="38" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -67,8 +146,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/etc/app/views/VO/vo.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="232">
-              <caret line="2689" column="22" selection-start-line="2689" selection-start-column="22" selection-end-line="2689" selection-end-column="22" />
+            <state relative-caret-position="457">
+              <caret line="2712" column="4" selection-start-line="2712" selection-start-column="4" selection-end-line="2716" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -76,44 +155,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/etc/app/views/VO/vo-voms.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="232">
-              <caret line="584" column="52" selection-start-line="584" selection-start-column="52" selection-end-line="584" selection-end-column="52" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/etc/app/resources/xsl/vo-idcard.xsl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3780">
-              <caret line="252" column="27" selection-start-line="211" selection-start-column="11" selection-end-line="258" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/users.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5865">
-              <caret line="391" column="40" selection-start-line="391" selection-start-column="40" selection-end-line="391" selection-end-column="40" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/etc/app/views/SOMBO/sombo.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5715">
-              <caret line="381" column="45" selection-start-line="381" selection-start-column="45" selection-end-line="381" selection-end-column="45" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/global_functions.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="697">
-              <caret line="465" selection-start-line="465" selection-end-line="465" />
+            <state relative-caret-position="9195">
+              <caret line="613" selection-start-line="613" selection-end-line="613" />
             </state>
           </provider>
         </entry>
@@ -130,18 +173,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>index=</find>
-      <find>Vo_full&quot;</find>
-      <find>VoCOnt</find>
-      <find />
-      <find>vo_contact</find>
-      <find>contact</find>
-      <find>VoContact</find>
-      <find>mailing</find>
-      <find>name=&quot;VO&quot;</find>
-      <find>vo-id</find>
-      <find>vo-i</find>
-      <find>VoMailingLists</find>
       <find>VoListUrl</find>
       <find>VoLis</find>
       <find>name=&quot;VoList&quot;</find>
@@ -157,9 +188,21 @@
       <find>@hos</find>
       <find>oRoles</find>
       <find>VoLi</find>
-      <find>VoList&quot;</find>
+      <find>VO&quot;</find>
+      <find>VO_export</find>
       <find>VO_full</find>
+      <find>VO_full_full</find>
       <find>VO_full_new</find>
+      <find>/xml/</find>
+      <find>BROADCAST.jstree_conf.url</find>
+      <find>BROADCAST.portal.voSitesEmails</find>
+      <find>OPSCORE_resource_browser</find>
+      <find>OPSCORE_s</find>
+      <find>VoList&quot;</find>
+      <find>VAPOR_Endpoints_Policy.url</find>
+      <find>vapor</find>
+      <find>eval=&quot;substring-before(arguments()[@key='_window_']/text(), '-')&quot; name=&quot;offset&quot;/&gt;</find>
+      <find>vsRec</find>
     </findStrings>
     <replaceStrings>
       <replace>xmlns=&quot;http://software.in2p3.fr/lavoisier/application.xsd&quot;</replace>
@@ -194,7 +237,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/bdii.xml" />
         <option value="$PROJECT_DIR$/etc/app/resources/xml/convert_toEntries.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/GGUS/primary.xml" />
@@ -213,10 +255,8 @@
         <option value="$PROJECT_DIR$/etc/app/html/test.html" />
         <option value="$PROJECT_DIR$/etc/app/html/test" />
         <option value="$PROJECT_DIR$/etc/app/html/test.sql" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/endpoints.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/DASHBOARD/admin.xml" />
-        <option value="$PROJECT_DIR$/etc/app/views/BROADCAST/recipients.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/downtimes.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/COD/cod.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/COD/functions.xml" />
@@ -229,7 +269,6 @@
         <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/argo.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/global_functions.xml" />
         <option value="$PROJECT_DIR$/etc/app/resources/json/services.json" />
-        <option value="$PROJECT_DIR$/etc/app/app.properties" />
         <option value="$PROJECT_DIR$/etc/app/resources/xsl/vo-idcard.xsl" />
         <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/voms.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/users.xml" />
@@ -242,9 +281,13 @@
         <option value="$PROJECT_DIR$/etc/app/views/CSI/csi.xml" />
         <option value="$PROJECT_DIR$/etc/engine/post-processors.xml" />
         <option value="$PROJECT_DIR$/etc/engine/logger.xml" />
-        <option value="$PROJECT_DIR$/etc/app/views/VO/vo.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/VO/vo-voms.xml" />
         <option value="$PROJECT_DIR$/etc/service/authenticators.xml" />
+        <option value="$PROJECT_DIR$/etc/app/views/VO/vo.xml" />
+        <option value="$PROJECT_DIR$/etc/app/app.properties" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/vapor.xml" />
+        <option value="$PROJECT_DIR$/etc/app/views/BROADCAST/recipients.xml" />
       </list>
     </option>
   </component>
@@ -268,6 +311,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -289,12 +333,6 @@
               <item name="lavopsportal" type="b2602c69:ProjectViewProjectNode" />
               <item name="lavopsportal" type="462c0819:PsiDirectoryNode" />
               <item name="etc" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lavopsportal" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lavopsportal" type="462c0819:PsiDirectoryNode" />
-              <item name="etc" type="462c0819:PsiDirectoryNode" />
               <item name="engine" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -308,7 +346,6 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -370,7 +407,7 @@
     <configuration name="Run" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="fr.in2p3.lavoisier.command.StandaloneExec" />
       <module name="lavopsportal" />
-      <option name="PROGRAM_PARAMETERS" value="VoResources?nbsteps=999&amp;accept=xml" />
+      <option name="PROGRAM_PARAMETERS" value="VAPOR_VoSites?nbsteps=999&amp;accept=xml" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -794,9 +831,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1982" y="0" width="1858" height="1080" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.10485651" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.10485651" />
       <window_info id="Structure" order="1" weight="0.24958587" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -809,12 +845,12 @@
       <window_info id="App Structure" order="10" weight="0.32965213" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32838982" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.29872882" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.29872882" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.17161018" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.17161018" />
       <window_info anchor="bottom" id="CheckStyle" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.32846004" />
@@ -869,13 +905,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="remove duplicate entries" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/etc/service/jsw.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/etc/app/html/test.xsl" />
     <entry file="file://$PROJECT_DIR$/etc/app/views/gui.xml">
       <provider selected="true" editor-type-id="text-editor">
@@ -951,13 +980,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
           <caret line="35" column="42" selection-start-line="35" selection-start-column="42" selection-end-line="35" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/views/BROADCAST/recipients.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5265">
-          <caret line="351" column="19" selection-start-line="351" selection-start-column="11" selection-end-line="354" selection-end-column="23" />
         </state>
       </provider>
     </entry>
@@ -1038,24 +1060,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/bdii.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="187" column="68" selection-start-line="187" selection-start-column="68" selection-end-line="187" selection-end-column="103" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/etc/app/resources/xml/superUser.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="15" selection-start-line="2" selection-start-column="15" selection-end-line="2" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
         </state>
       </provider>
     </entry>
@@ -1087,13 +1095,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/views/BROADCAST/jstree_branches.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2291">
-          <caret line="9" column="45" lean-forward="true" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/etc/app/resources/xml/jstreeconf.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="615">
@@ -1112,13 +1113,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="17" column="14" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/entities.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6930">
-          <caret line="462" selection-start-line="462" selection-end-line="462" />
         </state>
       </provider>
     </entry>
@@ -1143,20 +1137,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/app.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="438">
-          <caret line="128" column="45" selection-start-line="128" selection-start-column="45" selection-end-line="128" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/etc/engine/post-processors.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="97">
-          <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/global_functions.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="697">
@@ -1164,31 +1144,87 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/views/VO/vo.xml">
+    <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/bdii.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="2689" column="22" selection-start-line="2689" selection-start-column="22" selection-end-line="2689" selection-end-column="22" />
+        <state relative-caret-position="242">
+          <caret line="330" column="50" lean-forward="true" selection-start-line="330" selection-start-column="50" selection-end-line="330" selection-end-column="72" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/views/VO/vo-voms.xml">
+    <entry file="file://$PROJECT_DIR$/etc/app/app.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="584" column="52" selection-start-line="584" selection-start-column="52" selection-end-line="584" selection-end-column="52" />
+        <state relative-caret-position="375">
+          <caret line="25" column="57" selection-start-line="25" selection-start-column="57" selection-end-line="25" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/entities.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6225">
+          <caret line="415" column="40" selection-start-line="415" selection-start-column="40" selection-end-line="415" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/etc/engine/post-processors.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="74" selection-start-line="15" selection-start-column="74" selection-end-line="15" selection-end-column="74" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/etc/engine/logger.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="682">
+        <state relative-caret-position="960">
           <caret line="64" selection-start-line="64" selection-end-line="64" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/etc/service/authenticators.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="53" selection-start-line="18" selection-start-column="53" selection-end-line="18" selection-end-column="53" />
+        <state relative-caret-position="285">
+          <caret line="19" column="38" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/etc/app/views/VO/vo-voms.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9195">
+          <caret line="613" selection-start-line="613" selection-end-line="613" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/etc/app/views/VO/vo.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="457">
+          <caret line="2712" column="4" selection-start-line="2712" selection-start-column="4" selection-end-line="2716" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/etc/app/views/BROADCAST/jstree_branches.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="142" column="49" selection-start-line="142" selection-start-column="49" selection-end-line="142" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/vapor.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="46" column="85" selection-start-line="46" selection-start-column="85" selection-end-line="46" selection-end-column="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/etc/app/views/BROADCAST/recipients.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="507" column="48" lean-forward="true" selection-start-line="507" selection-start-column="48" selection-end-line="507" selection-end-column="48" />
         </state>
       </provider>
     </entry>

@@ -8,33 +8,58 @@
 
     <view name="VAPOR_Endpoints_Policy">
         <connector type="HTTPConnector">
-            <parameter name="url" eval="property('VAPOR_Endpoints_Policy.url')"></parameter>
+            <parameter name="url" eval="property('VAPOR_Endpoints_Policy.url')"/>
         </connector>
 
         <cache type="FileCache">
             <trigger type="DeltaTimeTrigger">
                 <parameter name="minutes">43</parameter>
             </trigger>
-            <trigger type="ViewNotifiedTrigger"></trigger>
+            <trigger type="ViewNotifiedTrigger"/>
         </cache>
     </view>
 
 
     <view name="VAPOR_VO">
         <connector type="HTTPConnector">
-            <parameter name="url" eval="property('VAPOR_VO.url')"></parameter>
+            <parameter name="url" eval="property('VAPOR_VO.url')"/>
         </connector>
 
         <cache type="FileCache">
             <trigger type="DeltaTimeTrigger">
                 <parameter name="minutes">43</parameter>
             </trigger>
-            <trigger type="ViewNotifiedTrigger"></trigger>
+            <trigger type="ViewNotifiedTrigger"/>
         </cache>
     </view>
 
 
+    <view name="VAPOR_VoSites" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <connector type="HTTPConnector">
+            <parameter name="url" eval="property('vapor.vo.sites')"/>
+        </connector>
 
+        <processors>
+            <element in="e:entries">
+                <set variable="sites" index="@name">view('OPSCORE_prod_entities_certified')/NGIs/NGI/Sites/Site</set>
+
+                <element in="e:entries">
+                    <attribute-create out="email">find($sites,../@key)/@contact_email</attribute-create>
+                </element>
+            </element>
+        </processors>
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="minutes">33</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+        </cache>
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+    </view>
 
 
 </views>

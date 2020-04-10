@@ -498,7 +498,36 @@
 
 
 
+    <view name="vsRecipientsView2"  xmlns:str="http://exslt.org/strings" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
 
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('VoList')"></parameter>
+        </connector>
+        <processors>
+
+            <element in="data" out="Recipients">
+                <set variable="VAPOR_VoSites">view('VAPOR_VoSites')</set>
+                <element in="Vo" out="Recipient">
+                    <attribute-ignore/>
+                    <element-create>new_element('label',../@name)</element-create>
+                    <element-create>join($VAPOR_VoSites/e:entries/e:entries[e:entry/text()=current()/../@name]/@email,',')</element-create>
+                </element>
+
+
+            </element>
+
+
+
+
+        </processors>
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="hours">1</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="ViewCreatedTrigger"/>
+        </cache>
+    </view>
 
     <!--LEGACY VIEW FROM LAVOISIER 1-->
     <!--RECIPIENTS - SOURCE FOR JSTREE VIEW - VO Supporting Sites BRANCH-->

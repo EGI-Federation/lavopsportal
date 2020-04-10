@@ -470,60 +470,19 @@
         <argument name="vo">all</argument>
 
         <connector type="XMLConnector">
-            <parameter name="content" eval="view('VO_full')"/>
+            <parameter name="content" eval="view('VO_full_new')"/>
         </connector>
-        <processors>
-            <processor match="/data/Vo[name/text()!=$vo]" type="RemoveProcessor" disabled="$vo='all'"/>
-            <processor match="/data/Vo/data" type="RemoveProcessor">
-                <namespaces>
-                    <entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry>
-                </namespaces>
-                <parameter name="depth">1</parameter>
-            </processor>
-            <processor match="/data/Vo/Vo" type="RemoveProcessor">
-                <namespaces>
-                    <entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry>
-                </namespaces>
-                <parameter name="depth">1</parameter>
-            </processor>
-            <processor match="/data/Vo/DoctrineCollection" type="MoveProcessor">
-                <namespaces>
-                    <entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry>
-                </namespaces>
-                <parameter name="destination_axis">ancestor</parameter>
-                <parameter name="destination_name">data</parameter>
-            </processor>
 
-            <processor match="/data/Vo/name[position()=2]" type="RemoveProcessor">
-                <namespaces>
-                    <entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry>
-                </namespaces>
-            </processor>
-            <processor match="/data/Vo/validationdate[position()=2]" type="RemoveProcessor">
-                <namespaces>
-                    <entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry>
-                </namespaces>
-            </processor>
-            <processor match="/data/Vo/creationdate[position()=2]" type="RemoveProcessor">
-                <namespaces>
-                    <entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry>
-                </namespaces>
-            </processor>
-            <processor match="/data/Vo/lastchange[position()=2]" type="RemoveProcessor">
-                <namespaces>
-                    <entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry>
-                </namespaces>
-            </processor>
 
-        </processors>
+
 
 
     </view>
 
-    <view xmlns:str="http://exslt.org/strings" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd"  name="VO_export">
+   <!-- <view xmlns:str="http://exslt.org/strings" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd"  name="VO_export">
 
         <connector type="XMLConnector">
-            <parameter name="content" eval="view('VO_full')"/>
+            <parameter name="content" eval="view('VO_full_new')"/>
         </connector>
 
         <processors>
@@ -533,22 +492,12 @@
                     <element-create>entry('validationDate',../validationdate/text())</element-create>
                     <element-create>entry('name',../name/text())</element-create>
                     <element-create>
-                        entry('scope',choose(../data/Vo/VoHeader/VoScope/scope/text(),../data/Vo/VoHeader/VoScope/scope/text(),'NA'))
+                        entry('scope',choose(../VoHeader/scope/text(),../VoHeader/scope/text(),'NA'))
                     </element-create>
                     <element-create>
-                        entry('status',choose(../data/Vo/VoHeader/VoStatus/status/text(),../data/Vo/VoHeader/VoStatus/status/text(),'NA'))
+                        entry('status',choose(../VoHeader/status/text(),../VoHeader/status/text(),'NA'))
                     </element-create>
-                  <!--
-                    <element-create>entry('Middlewares',concat(
-                        choose(../data/Vo/VoHeader/@arc_supported='1','Arc - '),
-                        choose(../data/Vo/VoHeader/@glite_supported='1','gLite - '),
-                        choose(../data/Vo/VoHeader/@unicore_supported='1','Unicore - '),
-                        choose(../data/Vo/VoHeader/@globus_supported='1','Globus - '),
-                        choose(../data/Vo/VoHeader/@cloud_computing_supported='1','Cloud Computing Resources - '),
-                        choose(../data/Vo/VoHeader/@cloud_storage_supported='1','Cloud Storage Resources')
-                        ))
-                    </element-create>
-                    -->
+
                     <element-create>entry('Number of
                         Members',choose($vo_disciplines/disciplines/discipline//row[@name=current()/../name/text()]/@NbUsers,$vo_disciplines/disciplines/discipline//row[@name=current()/../name/text()]/@NbUsers,'NA'))
                     </element-create>
@@ -617,7 +566,7 @@
             </renderer>
         </renderers>
 
-    </view>
+    </view>-->
 
     <view name="VoDisciplines">
 
@@ -2768,4 +2717,6 @@
         </renderers>
 
     </view>
+
+
 </views>
