@@ -99,7 +99,7 @@
                             <element-create if="name(..)='long_plugin_output' and ../text()!=''">
                                entry('long_plugin_output',concat('<![CDATA[',../text(),']]>'))
                             </element-create>
-                            <element-create if="../text()!=''">entry(name(..),' ')</element-create>
+                            <element-create if="../text()=''">entry(name(..),' ')</element-create>
                         </element-ignore>
 
 
