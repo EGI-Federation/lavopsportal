@@ -514,6 +514,10 @@
                 <element-ignore in="e:entries"/>
             </element>
 
+            <element in="results">
+                <element-ignore in="X509Cert" if="@host=preceding-sibling::X509Cert/@host"/>
+            </element>
+
         </processors>
 
         <cache type="FileCache">
