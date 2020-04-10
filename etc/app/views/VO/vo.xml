@@ -120,7 +120,7 @@
         <processors>
             <elements path="data/Vo">
 
-                <attribute-ignore/>
+                <attribute-ignore if="name()!='serial'"/>
                 <attribute-create out="key">../name/text()</attribute-create>
                 <element in="VoVomsServer" out="Registries">
                     <element in="VoVomsServer" if="contains(memberslisturl/text(),'https://aai.egi.eu/registry')" out="CoManage">

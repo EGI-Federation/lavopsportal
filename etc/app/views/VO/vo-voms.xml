@@ -76,7 +76,7 @@
     <view name="VoList">
         
         <connector type="XMLConnector">
-            <parameter name="content" eval="view('VO_full')"/>
+            <parameter name="content" eval="view('VO_full_new')"/>
         </connector>
 
         <processors>
@@ -85,20 +85,10 @@
 
              
                 <element in="Vo" attributes="@*[local-name()='serial']">                    
-                    <attribute-create out="status">../data/Vo/VoHeader/VoStatus/status/text()</attribute-create>
+                    <attribute-create out="status">../data/Vo/VoHeader/status/text()</attribute-create>
                     <attribute-create out="name">../name/text()</attribute-create>
-                  <!--
-                    <attribute-create out="middleware">concat(
-                        choose(../data/Vo/VoHeader/@arc_supported='1',',Arc'),
-                        choose(../data/Vo/VoHeader/@glite_supported='1',',gLite'),
-                        choose(../data/Vo/VoHeader/@unicore_supported='1',',Unicore'),
-                        choose(../data/Vo/VoHeader/@globus_supported='1',',Globus'),
-                        choose(../data/Vo/VoHeader/@cloud_computing_supported='1',',Cloud Computing Resources'),
-                        choose(../data/Vo/VoHeader/@cloud_storage_supported='1',',Cloud Storage Resources')
-                        )</attribute-create>
--->
-                    <attribute-create out="scope">../data/Vo/VoHeader/VoScope/scope/text()</attribute-create>
-                    <attribute-create out="homeUrl">../data/Vo/VoHeader/homepageurl/text()</attribute-create>
+                   <attribute-create out="scope">../data/Vo/VoHeader/scope/text()</attribute-create>
+                    <attribute-create out="homeUrl">../data/Vo/VoHeader/homepage_url/text()</attribute-create>
                     <attribute-create out="members">$vo_disciplines/disciplines/discipline//row[@name=current()/../name/text()]/@NbUsers</attribute-create>
 
                     <element-ignore/>
