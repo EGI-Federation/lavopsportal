@@ -14,7 +14,10 @@
             <parameter name="addresses">
                 <entry>134.158.230.0/23</entry>
                 <entry>134.158.64.0/21</entry>
+                <entry>134.158.239.141</entry>
                 <entry>0:0:0:0:0:0:0:1</entry>
+                <entry>2001:660:5009:84:134:158:239:6</entry>
+                <entry>134.158.239.239</entry>
             </parameter>
         </authenticator>
     </authenticators>
