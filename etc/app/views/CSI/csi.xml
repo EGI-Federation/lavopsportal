@@ -95,8 +95,9 @@
                         <attribute-ignore/>
                         <attribute-create out="key">concat(../@pk1,'___',../@pk2)</attribute-create>
                         <element-ignore>
-                            <element-create>entry(name(..),../text())</element-create>
+                            <element-create>entry(name(..),xml(../text()))</element-create>
                         </element-ignore>
+
 
                     </element>
 
