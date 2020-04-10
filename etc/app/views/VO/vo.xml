@@ -142,7 +142,7 @@
 
 
             <element in="data">
-                <set variable="voms-certificates">view('voms-certificates')/results/X509Cert</set>
+                <set variable="voms-certificates" index="@host">view('voms-certificates')/results/X509Cert</set>
                 <set variable="VoDetails" index="@name">view('VoDetails')/result/row</set>
                 <set variable="VoContactsAll">view('VoContactsAll')</set>
                 <set variable="VoMailingLists" index="name/text()">view('VoMailingLists')/result/row</set>
