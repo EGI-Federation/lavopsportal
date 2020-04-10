@@ -509,8 +509,9 @@
                 <set variable="VAPOR_VoSites">view('VAPOR_VoSites')</set>
                 <element in="Vo" out="Recipient">
                     <attribute-ignore/>
-                    <element-create>new_element('label',../@name)</element-create>
-                    <element-create>join($VAPOR_VoSites/e:entries/e:entries[e:entry/text()=current()/../@name]/@email,',')</element-create>
+                    <element-create>new_element('label',new_text(../@name))</element-create>
+                    <element-create>new_element('id',new_text(../@name))</element-create>
+                    <element-create>new_element('email',join($VAPOR_VoSites/e:entries/e:entries[e:entry/text()=current()/../@name]/@email,','))</element-create>
                 </element>
 
 
