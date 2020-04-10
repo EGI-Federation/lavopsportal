@@ -85,10 +85,10 @@
 
              
                 <element in="Vo" attributes="@*[local-name()='serial']">                    
-                    <attribute-create out="status">../data/Vo/VoHeader/status/text()</attribute-create>
+                    <attribute-create out="status">../VoHeader/status/text()</attribute-create>
                     <attribute-create out="name">../name/text()</attribute-create>
-                   <attribute-create out="scope">../data/Vo/VoHeader/scope/text()</attribute-create>
-                    <attribute-create out="homeUrl">../data/Vo/VoHeader/homepage_url/text()</attribute-create>
+                   <attribute-create out="scope">../VoHeader/scope/text()</attribute-create>
+                    <attribute-create out="homeUrl">../VoHeader/homepage_url/text()</attribute-create>
                     <attribute-create out="members">$vo_disciplines/disciplines/discipline//row[@name=current()/../name/text()]/@NbUsers</attribute-create>
 
                     <element-ignore/>
