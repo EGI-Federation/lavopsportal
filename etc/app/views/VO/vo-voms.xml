@@ -505,6 +505,10 @@
 
         <processors>
             <element in="results">
+                <element-ignore in="SERVICE_ENDPOINT" if="HOSTNAME/text()=preceding-sibling::SERVICE_ENDPOINT/HOSTNAME/text()"/>
+            </element>
+
+            <element in="results">
                 <element-ignore in="SERVICE_ENDPOINT">
                     <element-create>view('vomscert',entry('key',../HOSTNAME/text()))</element-create>
                 </element-ignore>
