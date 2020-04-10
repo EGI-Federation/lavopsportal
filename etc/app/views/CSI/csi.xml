@@ -89,8 +89,11 @@
 
         <processors>
             <element in="Data" out="e:entries">
+                <attribute-ignore/>
                 <element-ignore>
                     <element out="e:entries">
+                        <attribute-ignore/>
+                        <attribute-create out="key">concat(../@pk1,'___',../@pk2)</attribute-create>
                         <element-ignore>
                             <element-create>entry(name(..),../text())</element-create>
                         </element-ignore>
@@ -101,7 +104,11 @@
             </element>
         </processors>
 
-
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">xml</parameter>
+            </renderer>
+        </renderers>
     </view>
 
     <view authenticators="local" name="CsiNagiosRecords"  xmlns:str="http://exslt.org/strings"  xmlns:date="http://exslt.org/dates-and-times" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
