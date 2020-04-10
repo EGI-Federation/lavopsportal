@@ -81,6 +81,34 @@
 
     </view>
 
+    <view name="CsiAlarmsImport">
+
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('CsiNagiosRecords')"/>
+        </connector>
+
+        <processors>
+            <element in="Data" out="e:entries">
+                <element-ignore>
+                    <element out="e:entries">
+                        <element-ignore>
+                            <element-create>entry(name(..),../text())</element-create>
+                        </element-ignore>
+
+                    </element>
+
+                </element-ignore>
+            </element>
+        </processors>
+
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="minutes">5</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+        </cache>
+    </view>
+
     <view authenticators="local" name="CsiNagiosRecords"  xmlns:str="http://exslt.org/strings"  xmlns:date="http://exslt.org/dates-and-times" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
 
         <connector type="XMLConnector">

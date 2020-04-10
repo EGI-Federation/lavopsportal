@@ -498,10 +498,10 @@
 
 
 
-    <view name="vsRecipientsView2"  xmlns:str="http://exslt.org/strings" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+    <view name="vsRecipientsView"  xmlns:str="http://exslt.org/strings" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
 
         <connector type="XMLConnector">
-            <parameter name="content" eval="view('VoList')"></parameter>
+            <parameter name="content" eval="view('VoList')"/>
         </connector>
         <processors>
 
@@ -530,39 +530,5 @@
         </cache>
     </view>
 
-    <!--LEGACY VIEW FROM LAVOISIER 1-->
-    <!--RECIPIENTS - SOURCE FOR JSTREE VIEW - VO Supporting Sites BRANCH-->
-    <view name="vsRecipientsView"  xmlns:str="http://exslt.org/strings">
 
-        <connector type="HTTPConnector">
-            <parameter name="url" eval="property('BROADCAST.portal.voSitesEmails')"/>
-            <parameter name="certificate" eval="property('certificate.path')"/>
-            <parameter name="passphrase" eval="property('certificate.password')"/>
-            <parameter name="force-redirect">true</parameter>
-        </connector>
-        <processors>
-
-            <element in="VOS" out="Recipients">
-                <element in="VO" out="Recipient">
-                    <attribute-ignore/>
-                    <element-create>new_element('id', str:replace(string(../@id),'.','_'))</element-create>
-                    <element-create>new_element('label', string(../@id))</element-create>
-                    <element in="EMAILS" out="email"/>
-                </element>
-
-
-            </element>
-
-
-
-
-        </processors>
-        <cache type="FileCache">
-            <trigger type="DeltaTimeTrigger">
-                <parameter name="hours">1</parameter>
-            </trigger>
-            <trigger type="ViewNotifiedTrigger"/>
-            <trigger type="ViewCreatedTrigger"/>
-        </cache>
-    </view>
 </views>
