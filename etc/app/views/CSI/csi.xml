@@ -1,6 +1,6 @@
 <views xmlns="http://software.in2p3.fr/lavoisier/application.xsd"  >
 
-
+<!--
     <view name="CSI_xii_Nagios">
        
 
@@ -8,7 +8,6 @@
         <variable name="collection">CsiNagiosRecords</variable>
 
 
-        <!-- view templateCrons dans COD/crons.xml-->
         <connector type="XMLConnector">
             <parameter name="content"
                        eval="view('templateCrons',entry('base_url',$base_url)|entry('collection',$collection))"/>
@@ -22,7 +21,7 @@
         </cache>
 
     </view>
-
+-->
 
     <view name="CSITriggerCriticalIssues">
 
@@ -88,6 +87,20 @@
         </connector>
 
         <processors>
+            <element in="Data">
+                <element>
+                    <element-ignore if="name()='wn' or name()='cod' or name()='last_hard_state'"/>
+
+                    <element in="service_description" out="service"/>
+                    <element in="plugin_output" out="summary"/>
+                    <element in="GenerationDate" out="start_date"/>
+                    <element in="urltohelp" out="url_to_history"/>
+                    <element in="last_check" out="monitor_id"><text>concat(../service_description/text(),.)</text></element>
+                    <element-create>new_element('test_name',../service_description/text())</element-create>
+
+                </element>
+            </element>
+
             <element in="Data" out="e:entries">
                 <attribute-ignore/>
                 <element-ignore>
@@ -97,7 +110,7 @@
                         <element-ignore>
                             <element-create if="name(..)!='long_plugin_output' and ../text()!=''">entry(name(..),../text())</element-create>
                             <element-create if="name(..)='long_plugin_output' and ../text()!=''">
-                               entry('long_plugin_output',concat('<![CDATA[',../text(),']]>'))
+                               entry('details',concat('<![CDATA[',../text(),']]>'))
                             </element-create>
                             <element-create if="../text()=''">entry(name(..),' ')</element-create>
                         </element-ignore>
