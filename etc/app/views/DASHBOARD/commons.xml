@@ -626,10 +626,10 @@
 
                 <element in="e:entries">
                     <element in="e:entries" if="@key='alarms'">
-                        <element-create>entry('nb_alarms_ok',count(../e:entries[e:entry[@key='status'][e:entry[@key='ops_flags']/text()!=2]/text()=0]))</element-create>
-                        <element-create>entry('nb_alarms_warning',count(../e:entries[e:entry[@key='status'][e:entry[@key='ops_flags']/text()!=2]/text()=1]))</element-create>
-                        <element-create>entry('nb_alarms_critical',count(../e:entries[e:entry[@key='status'][e:entry[@key='ops_flags']/text()!=2]/text()=2]))</element-create>
-                        <element-create>entry('nb_alarms_unknown',count(../e:entries[e:entry[@key='status'][e:entry[@key='ops_flags']/text()!=2]/text()=3]))</element-create>
+                        <element-create>entry('nb_alarms_ok',count(../e:entries[e:entry[@key='status']/text()=0][e:entry[@key='ops_flags']/text()!=2]))</element-create>
+                        <element-create>entry('nb_alarms_warning',count(../e:entries[e:entry[@key='status']/text()=1][e:entry[@key='ops_flags']/text()!=2]))</element-create>
+                        <element-create>entry('nb_alarms_critical',count(../e:entries[e:entry[@key='status']/text()=2][e:entry[@key='ops_flags']/text()!=2]))</element-create>
+                        <element-create>entry('nb_alarms_unknown',count(../e:entries[e:entry[@key='status']/text()=3][e:entry[@key='ops_flags']/text()!=2]))</element-create>
                         <element-create>entry('nb_alarms_assigned',count(../e:entries[e:entry[@key='ops_flags']/text()=2]))</element-create>
                         <element-ignore/>
                     </element>
