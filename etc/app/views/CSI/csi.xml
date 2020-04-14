@@ -98,7 +98,6 @@
                         <element in="last_hard_state" out="status"/>
                         <element in="GenerationDate" out="start_date"/>
                         <element in="urltohelp" out="url_to_history"/>
-                        <element in="last_check" out="monitor_id"><text>concat(../../service_description/text(),.)</text></element>
                         <element-create>new_element('test_name',../service_description/text())</element-create>
 
                     </element>
