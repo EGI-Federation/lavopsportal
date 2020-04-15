@@ -1,24 +1,7 @@
 <views xmlns="http://software.in2p3.fr/lavoisier/application.xsd" >
 
 
-    <view name="ROC_CleanUP">
-
-        <connector type="HTTPConnector">
-            <parameter name="url" eval="property('ROD.portal.clean.url')"/>
-            <parameter name="certificate" eval="property('certificate.path')"/>
-            <parameter name="passphrase" eval="property('certificate.password')"/>
-            <parameter name="force-redirect">true</parameter>
-        </connector>
-
-        <cache type="FileCache">
-            <trigger type="DeltaTimeTrigger">
-                <parameter name="hours">4</parameter>
-            </trigger>
-            <trigger type="ViewNotifiedTrigger"/>
-
-        </cache>
-    </view>
-
+   
 
 
 
