@@ -670,7 +670,7 @@
 
     </view>
 
-    <view name="vo-voms_listMembers">
+    <view name="vo-voms_listMembers" authenticators="local">
 
         
 

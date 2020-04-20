@@ -1,6 +1,6 @@
 <views xmlns="http://software.in2p3.fr/lavoisier/application.xsd"  >
 
-<!--
+
     <view name="CSI_xii_Nagios">
        
 
@@ -21,9 +21,9 @@
         </cache>
 
     </view>
--->
 
-    <view name="CSITriggerCriticalIssues">
+
+    <view authenticators="local" name="CSITriggerCriticalIssues">
 
         <connector type="HTTPConnector">
             <parameter name="url" eval="property('CSI.portal.notifications.critical')"/>
@@ -41,7 +41,7 @@
 
     </view>
 
-    <view name="CSITriggerWarningIssues">
+    <view authenticators="local" name="CSITriggerWarningIssues">
 
         <connector type="HTTPConnector">
             <parameter name="url" eval="property('CSI.portal.notifications.warning')"/>
