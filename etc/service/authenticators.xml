@@ -12,12 +12,20 @@
     <authenticators name="local">
         <authenticator type="IPAddressAuthenticator">
             <parameter name="addresses">
+                <!--localhost-->
+                <entry>127.0.0.1</entry>
+                <entry>0:0:0:0:0:0:0:1</entry>
+                <!--sous réseaux ccin2p3-->
                 <entry>134.158.230.0/23</entry>
                 <entry>134.158.64.0/21</entry>
+                <!-- runners gitlab -->
                 <entry>134.158.239.141</entry>
-                <entry>0:0:0:0:0:0:0:1</entry>
                 <entry>134.158.239.6</entry>
                 <entry>134.158.239.239</entry>
+                <!--cclavoisier01-->
+                <entry>134.158.239.88</entry>
+                <!--cclavoisierfr-->
+                <entry>134.158.239.26</entry>
             </parameter>
         </authenticator>
     </authenticators>
