@@ -295,8 +295,9 @@
 
         <argument name="SitesListFormatted">_1_</argument>
         <argument name="statusListFormatted">_2_</argument>
+        <!--
         <argument name="profilesListFormatted">_3_</argument>
-
+-->
 
         <connector type="XMLConnector">
             <parameter name="content" eval="view('DASHBOARD_alarms')"/>
@@ -313,11 +314,11 @@
             <element in="e:entries" if="$statusListFormatted!='_2_'">
                 <element-ignore in="e:entries" if="not(contains($statusListFormatted,concat(',',e:entry[@key='status']/text(),',')))"/>
             </element>
-
+<!--
             <element in="e:entries" if="$profilesListFormatted!='_2_'">
                 <element-ignore in="e:entries" if="not(contains($profilesListFormatted,concat(',',e:entries[@key='profiles']/e:entry/text(),',')))"/>
             </element>
-
+-->
             <element in="e:entries">
                 <element in="e:entries">
                     <attribute-create out="key">../e:entry[@key='id']/text()</attribute-create>
@@ -333,7 +334,7 @@
 
         <argument name="SitesListFormatted">_1_</argument>
         <argument name="statusListFormatted">_2_</argument>
-        <argument name="profilesListFormatted">_3_</argument>
+
 
 
         <connector type="XMLConnector">
@@ -567,7 +568,7 @@
 
         <argument name="SitesList"></argument>
         <argument name="statusList">0,1</argument>
-        <argument name="profilesList">ARGO_MON_OPERATORS,MW_MONITOR,OPS_MONITOR</argument>
+<!--        <argument name="profilesList">ARGO_MON_OPERATORS,MW_MONITOR,OPS_MONITOR</argument>-->
         <argument name="summary">_summary_</argument>
 
 
@@ -575,7 +576,7 @@
         <variable name="SitesListFormatted" eval="choose($SitesList!='egi',concat(',',$SitesList,','),'_1_')"/>
 
         <variable name="statusListFormatted" eval="concat(',',$statusList,',')"/>
-        <variable name="profilesListFormatted" eval="concat(',',$profilesList,',')"/>
+<!--        <variable name="profilesListFormatted" eval="concat(',',$profilesList,',')"/>-->
 
         <connector type="XMLConnector">
             <parameter name="content" eval="view('DASHBOARD_sites')"/>
@@ -602,7 +603,8 @@
             </elements>
 
             <elements path="e:entries">
-                <set variable="alarms">view('DASHBOARD_alarms_filter',entry('SitesListFormatted',$SitesListFormatted)|entry('statusListFormatted',$statusListFormatted)|entry('profilesListFormatted',$profilesListFormatted))/e:entries</set>
+<!--                <set variable="alarms">view('DASHBOARD_alarms_filter',entry('SitesListFormatted',$SitesListFormatted)|entry('statusListFormatted',$statusListFormatted)|entry('profilesListFormatted',$profilesListFormatted))/e:entries</set>-->
+                <set variable="alarms">view('DASHBOARD_alarms_filter',entry('SitesListFormatted',$SitesListFormatted)|entry('statusListFormatted',$statusListFormatted))/e:entries</set>
 
                 <set variable="avRe">view('DASHBOARD_AV_RE',entry('summary',$summary))/e:entries</set>
                 <set variable="downtimes">view('OPSCORE_downtime_ongoing')/e:entries</set>
@@ -722,7 +724,7 @@
             </elements>
 
             <elements path="e:entries">
-                <set variable="alarms">view('DASHBOARD_alarms_sec_filter',entry('FilterAssigned',$FilterAssigned)|entry('SitesListFormatted',$SitesListFormatted)|entry('statusListFormatted',$statusListFormatted)|entry('profilesListFormatted',$profilesListFormatted))/e:entries</set>
+                <set variable="alarms">view('DASHBOARD_alarms_sec_filter',entry('FilterAssigned',$FilterAssigned)|entry('SitesListFormatted',$SitesListFormatted)|entry('statusListFormatted',$statusListFormatted))/e:entries</set>
                 <set variable="avRe">view('DASHBOARD_AV_RE',entry('summary',$summary))/e:entries</set>
                 <set variable="downtimes">view('OPSCORE_downtime_ongoing')/e:entries</set>
                 <set variable="tickets">view('DASHBOARD_TICKETS')/e:entries</set>
