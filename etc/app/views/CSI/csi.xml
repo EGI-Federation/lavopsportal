@@ -1,7 +1,7 @@
 <views xmlns="http://software.in2p3.fr/lavoisier/application.xsd"  >
 
 
-    <view name="CSI_xii_Nagios">
+<!--    <view name="CSI_xii_Nagios">
        
 
         <variable name="base_url" eval="property('CSI.portal.url')"/>
@@ -9,8 +9,7 @@
 
 
         <connector type="XMLConnector">
-            <parameter name="content"
-                       eval="view('templateCrons',entry('base_url',$base_url)|entry('collection',$collection))"/>
+            <parameter name="content"   eval="view('templateCrons',entry('base_url',$base_url)|entry('collection',$collection))"/>
         </connector>
 
         <cache type="FileCache">
@@ -20,9 +19,9 @@
             </trigger>
         </cache>
 
-    </view>
+    </view>-->
 
-    <view name="CSI_Imports_Nagios">
+    <view authenticators="local"  name="CSI_Imports_Nagios">
         <connector type="HTTPConnector">
             <parameter name="url" eval="property('CSI.nagios.import')"/>
             <parameter name="certificate" eval="property('certificate.path')"/>

@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="mo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/app/app.properties" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/app.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/app/views/CSI/csi.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/CSI/csi.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/etc/app/views/DASHBOARD/commons.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/DASHBOARD/commons.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -28,11 +30,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/etc/app/app.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="278">
-              <caret line="127" column="65" lean-forward="true" selection-start-line="127" selection-start-column="65" selection-end-line="127" selection-end-column="65" />
+            <state relative-caret-position="458">
+              <caret line="79" column="46" lean-forward="true" selection-start-line="79" selection-start-column="46" selection-end-line="79" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -49,8 +51,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/etc/app/views/CSI/csi.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="53" column="56" selection-start-line="53" selection-start-column="56" selection-end-line="53" selection-end-column="56" />
+            <state relative-caret-position="330">
+              <caret line="31" selection-start-line="31" selection-end-line="31" />
             </state>
           </provider>
         </entry>
@@ -91,11 +93,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/etc/app/views/DASHBOARD/commons.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-45">
-              <caret line="570" column="40" selection-start-line="570" selection-start-column="28" selection-end-line="570" selection-end-column="40" />
+            <state relative-caret-position="270">
+              <caret line="579" lean-forward="true" selection-start-line="579" selection-end-line="579" />
             </state>
           </provider>
         </entry>
@@ -130,7 +132,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>VoList&quot;</find>
       <find>VAPOR_Endpoints_Policy.url</find>
       <find>vapor</find>
       <find>eval=&quot;substring-before(arguments()[@key='_window_']/text(), '-')&quot; name=&quot;offset&quot;/&gt;</find>
@@ -159,6 +160,7 @@
       <find>OPSCORE.users.voms</find>
       <find>poem-url</find>
       <find>DASHBOARD_V</find>
+      <find>importCS</find>
       <find>profilesList</find>
     </findStrings>
     <replaceStrings>
@@ -240,11 +242,11 @@
         <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/vapor.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/BROADCAST/recipients.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/ROD/rod.xml" />
-        <option value="$PROJECT_DIR$/etc/app/views/CSI/csi.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/VO/vo-voms.xml" />
         <option value="$PROJECT_DIR$/etc/service/authenticators.xml" />
-        <option value="$PROJECT_DIR$/etc/app/app.properties" />
         <option value="$PROJECT_DIR$/etc/app/views/DASHBOARD/commons.xml" />
+        <option value="$PROJECT_DIR$/etc/app/views/CSI/csi.xml" />
+        <option value="$PROJECT_DIR$/etc/app/app.properties" />
       </list>
     </option>
   </component>
@@ -804,7 +806,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1982" y="27" width="1858" height="1053" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.10485651" />
       <window_info id="Structure" order="1" weight="0.24958587" />
@@ -1167,24 +1168,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/views/CSI/csi.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="53" column="56" selection-start-line="53" selection-start-column="56" selection-end-line="53" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/etc/service/authenticators.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
           <caret line="32" column="22" lean-forward="true" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/app.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="127" column="65" lean-forward="true" selection-start-line="127" selection-start-column="65" selection-end-line="127" selection-end-column="65" />
         </state>
       </provider>
     </entry>
@@ -1197,8 +1184,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/etc/app/views/DASHBOARD/commons.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-45">
-          <caret line="570" column="40" selection-start-line="570" selection-start-column="28" selection-end-line="570" selection-end-column="40" />
+        <state relative-caret-position="270">
+          <caret line="579" lean-forward="true" selection-start-line="579" selection-end-line="579" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/etc/app/views/CSI/csi.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="31" selection-start-line="31" selection-end-line="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/etc/app/app.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="458">
+          <caret line="79" column="46" lean-forward="true" selection-start-line="79" selection-start-column="46" selection-end-line="79" selection-end-column="46" />
         </state>
       </provider>
     </entry>
