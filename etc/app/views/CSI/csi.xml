@@ -28,7 +28,7 @@
             <parameter name="passphrase" eval="property('certificate.password')"/>
         </connector>
 
-
+<serializer type="HTMLSerializer"/>
 
         <cache type="FileCache">
             <trigger type="ViewNotifiedTrigger"/>

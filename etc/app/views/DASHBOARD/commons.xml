@@ -10,6 +10,7 @@
             <parameter name="force-redirect">true</parameter>
         </connector>
 
+        <serializer type="HTMLSerializer"/>
         <cache type="FileCache">
             <trigger type="DeltaTimeTrigger">
                 <parameter name="hours">4</parameter>
