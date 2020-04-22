@@ -2,14 +2,14 @@
 
 
 
-<view name="OPSCORE_superUser">
+<view name="OPSCORE_superUser" authenticators="local">
     <connector type="FileConnector">
         <parameter name="path">/app/resources/xml/superUser.xml</parameter>
     </connector>
 
 </view>
 
-    <view name="OPSCORE_users">
+    <view name="OPSCORE_users" authenticators="local">
 
         <connector type="XSLTConnector">
             <!-- required: The XSLT stylesheet (Xml) -->
@@ -48,7 +48,7 @@
 
     </view>
 
-    <view name="OPSCORE_users_agg" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
+    <view name="OPSCORE_users_agg" authenticators="local" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
 
 
 
@@ -91,8 +91,9 @@
 
                 <element in="CSIRTTeam" out="e:entries">
                     <element-ignore in="Users">
-                        <element in="EGEE_USER" out="e:entries">
-                            <attribute-ignore/>
+
+                        <element-ignore>
+
                             <element-create>entry('PRIMARY_KEY',new_text(../@PRIMARY_KEY))</element-create>
                             <element-create>entry('NAME',new_text(concat(../FORENAME/text(),../SURNAME/text())))</element-create>
                             <element-create>entry('EMAIL',new_text(../EMAIL/text()))</element-create>
@@ -101,7 +102,8 @@
                             <element-ignore in="USER_ROLE">
                                 <element-create>entry('ROLES',concat(../USER_ROLE/text(),'::',../ENTITY_TYPE/text(),'::',../ON_ENTITY/text()))</element-create>
                             </element-ignore>
-                        </element>
+                        </element-ignore>
+
                     </element-ignore>
                     <element-ignore/>
                 </element>
@@ -207,7 +209,7 @@
 
     </view>
 
-    <view name="OPSCORE_fake_users" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
+    <view name="OPSCORE_fake_users"  authenticators="local" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
 
 
         <argument name="envnt" eval="property('env')"/>
@@ -229,7 +231,7 @@
     </view>
 
 
-    <view name="OPSCORE_user" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
+    <view name="OPSCORE_user" authenticators="local" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
 
 
         <argument name="DN"/>
@@ -255,7 +257,7 @@
 
     </view>
 
-    <view name="OPSCORE_ldap_users_csi">
+    <view name="OPSCORE_ldap_users_csi" authenticators="local">
 
         <connector type="LDAPConnector">
             <parameter name="url">ldaps://aldor.ics.muni.cz:636</parameter>
@@ -291,7 +293,7 @@
 
     </view>
 
-    <view name="OPSCORE_users_csi">
+    <view name="OPSCORE_users_csi" authenticators="local">
 
         <connector type="HTTPConnector">
             <parameter name="url" eval="property('OPSCORE.users.csi')"/>
@@ -318,7 +320,7 @@
     </view>
 
 
-    <view name="OPSCORE_users_voms">
+    <view name="OPSCORE_users_voms" authenticators="local">
 
         <connector type="HTTPConnector">
             <parameter name="url" eval="property('OPSCORE.users.voms')"/>
@@ -378,7 +380,7 @@
 
 
 
-    <view name="OPSCORE_users_cic">
+    <view name="OPSCORE_users_cic" authenticators="local">
 
 
         <connector type="SQLConnector">
@@ -425,7 +427,7 @@
     </view>
 
 
-    <view name="OPSCORE_users_grid_body">
+    <view name="OPSCORE_users_grid_body" authenticators="local">
 
 
         <connector type="SQLConnector">
@@ -464,7 +466,7 @@
 
     </view>
 
-    <view name="OPSCORE_vo_users_raw">
+    <view name="OPSCORE_vo_users_raw" authenticators="local">
 
         <connector type="SQLConnector">
             <parameter name="driver">com.mysql.jdbc.Driver</parameter>
@@ -495,7 +497,7 @@
         </renderers>
     </view>
 
-    <view name="OPSCORE_vo_users_history">
+    <view name="OPSCORE_vo_users_history" authenticators="local">
 
 
         <connector type="SQLConnector">
@@ -528,7 +530,7 @@
 
     </view>
 
-    <view name="OPSCORE_vo_users_robots">
+    <view name="OPSCORE_vo_users_robots" authenticators="local">
 
         <connector type="XMLConnector">
             <parameter name="content" eval="view('OPSCORE_vo_users_raw')"/>
@@ -553,7 +555,7 @@
     </view>
 
 
-    <view xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" name="OPSCORE_users_roles">
+    <view xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" name="OPSCORE_users_roles" authenticators="local">
 
         <connector type="XMLConnector">
             <parameter name="content" eval="view('OPSCORE_users')"/>
@@ -617,7 +619,7 @@
         </renderers>
     </view>
 
-    <view name="OPSCORE_get_roc_contacts">
+    <view name="OPSCORE_get_roc_contacts" authenticators="local">
 
         <connector type="HTTPConnector">
             <parameter name="url" eval="property('OPSCORE.gocdb.get_roc_contacts')"/>
