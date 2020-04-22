@@ -90,7 +90,7 @@
                 </element-ignore>
 
                 <element in="CSIRTTeam" out="e:entries">
-                    <element-ignore/>
+
                     <element-ignore in="Users">
                         <element in="EGEE_USER" out="e:entries">
                             <element-create>entry('NAME',new_text(concat(../FORENAME/text(),../SURNAME/text())))</element-create>
@@ -103,8 +103,8 @@
                             </element-ignore>
                         </element>
                     </element-ignore>
+                    <element-ignore/>
                 </element>
-
 
             </element>
 
