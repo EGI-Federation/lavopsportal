@@ -99,7 +99,7 @@
                             <element-create>entry('CERTDN',new_text(../CERTDN/text()))</element-create>
                             <element-ignore if="name()!='USER_ROLE'"/>
                             <element-ignore in="USER_ROLE">
-                                <element-create>entry('ROLES',concat(../USER_ROLE/text(),'::',../ENTITY_TYPE/text(),'::',../ON_ENTITY/text()))</element-create>
+                                <element-create>entry('ROLES',concat('EGI CSIRT Officer::',../ENTITY_TYPE/text(),'::',../ON_ENTITY/text()))</element-create>
                             </element-ignore>
                         </element>
 
