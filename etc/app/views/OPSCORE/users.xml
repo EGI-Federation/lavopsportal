@@ -88,9 +88,8 @@
                         </element>
                     </element>
                 </element-ignore>
-                /results/CSIRTTeam/Users/EGEE_USER
-                <element in="CSIRTTeam" out="e:entries">
 
+                <element in="CSIRTTeam" out="e:entries">
                     <element-ignore in="Users">
                         <element in="EGEE_USER" out="e:entries">
                             <attribute-ignore/>
@@ -99,7 +98,6 @@
                             <element-create>entry('EMAIL',new_text(../EMAIL/text()))</element-create>
                             <element-create>entry('CERTDN',new_text(../CERTDN/text()))</element-create>
                             <element-ignore if="name()!='USER_ROLE'"/>
-
                             <element-ignore in="USER_ROLE">
                                 <element-create>entry('ROLES',concat(../USER_ROLE/text(),'::',../ENTITY_TYPE/text(),'::',../ON_ENTITY/text()))</element-create>
                             </element-ignore>
