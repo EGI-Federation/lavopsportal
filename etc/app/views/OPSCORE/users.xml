@@ -88,11 +88,13 @@
                         </element>
                     </element>
                 </element-ignore>
-
+                /results/CSIRTTeam/Users/EGEE_USER
                 <element in="CSIRTTeam" out="e:entries">
 
                     <element-ignore in="Users">
                         <element in="EGEE_USER" out="e:entries">
+                            <attribute-ignore/>
+                            <element-create>entry('PRIMARY_KEY',new_text(../@PRIMARY_KEY))</element-create>
                             <element-create>entry('NAME',new_text(concat(../FORENAME/text(),../SURNAME/text())))</element-create>
                             <element-create>entry('EMAIL',new_text(../EMAIL/text()))</element-create>
                             <element-create>entry('CERTDN',new_text(../CERTDN/text()))</element-create>
