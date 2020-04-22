@@ -89,10 +89,9 @@
                     </element>
                 </element-ignore>
 
-                <element in="CSIRTTeam" out="e:entries">
+                <element-ignore in="CSIRTTeam" >
                     <element-ignore in="Users">
-
-                        <element-ignore>
+                        <element in="EGEE_USER" out="e:entries">
 
                             <element-create>entry('PRIMARY_KEY',new_text(../@PRIMARY_KEY))</element-create>
                             <element-create>entry('NAME',new_text(concat(../FORENAME/text(),../SURNAME/text())))</element-create>
@@ -102,11 +101,12 @@
                             <element-ignore in="USER_ROLE">
                                 <element-create>entry('ROLES',concat(../USER_ROLE/text(),'::',../ENTITY_TYPE/text(),'::',../ON_ENTITY/text()))</element-create>
                             </element-ignore>
-                        </element-ignore>
+                        </element>
+
 
                     </element-ignore>
                     <element-ignore/>
-                </element>
+                </element-ignore>
 
             </element>
 
