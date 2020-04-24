@@ -20,7 +20,24 @@
         </cache>
     </view>
 
+    <view name="DASHBOARD_probes_list"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
 
+
+    <connector type="HTTPConnector">
+        <parameter name="url" eval="property('poem-url')"/>
+        <parameter name="force-redirect">true</parameter>
+
+    </connector>
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="minutes">52</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="ViewCreatedTrigger"/>
+        </cache>
+    </view>
+
+<!--
     <view name="DASHBOARD_probes_list"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
 
 
@@ -62,7 +79,7 @@
             <trigger type="ViewNotifiedTrigger"/>
         </cache>
 
-    </view>
+    </view>-->
 
 <view name="DASHBOARD_alarm_history"  authenticators="local" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
     <argument name="id"/>
@@ -303,6 +320,10 @@
         </connector>
 
         <processors>
+            <element in="e:entries">
+                <attribute-create out="sites">$SitesListFormatted</attribute-create>
+                <attribute-create out="status">$statusListFormatted</attribute-create>
+            </element>
 
             <element in="e:entries" if="$SitesListFormatted!='_1_'">
                 <element-ignore in="e:entries" if="not(contains($SitesListFormatted,concat(',',e:entry[@key='site']/text(),',')))"/>

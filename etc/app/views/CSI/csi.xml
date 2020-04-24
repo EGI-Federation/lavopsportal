@@ -131,6 +131,8 @@
                             <element-create if="name(..)='long_plugin_output' and ../text()!=''">
                                entry('details',concat('<![CDATA[',../text(),']]>'))
                             </element-create>
+                            <element-create if="name(..)='long_plugin_output' and ../text()=''">
+                                entry('details','no Details'))</element-create>
                             <element-create if="../text()=''">entry(name(..),' ')</element-create>
                         </element-ignore>
                     </element>
