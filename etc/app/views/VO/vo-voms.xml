@@ -55,7 +55,7 @@
     <view name="vo-voms_INDEX">
 
         <connector type="XMLConnector">
-            <parameter name="content" eval="view('VoList')"/>
+            <parameter name="content" eval="view('VoListUrl')"/>
         </connector>
 
         <cache type="FileCache">
