@@ -418,7 +418,7 @@
         <view name="cert_fallback" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
             <argument name="url"/>
             <connector type="ShellConnector">
-                <parameter name="executable">/bin/sh</parameter>
+                <parameter name="executable">/usr/bin/sh</parameter>
                 <parameter name="arguments">
                     <entry>/app/resources/shell/download-cert.sh</entry>
                     <entry eval="substring-after($url,'https://')"/>
@@ -456,7 +456,7 @@
         <view name="cert_x509" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
             <argument name="url"/>
             <connector type="ShellConnector">
-                <parameter name="executable">/bin/sh</parameter>
+                <parameter name="executable">/usr/bin/sh</parameter>
                 <parameter name="arguments">
                     <entry>/app/resources/shell/download-cert.sh</entry>
                     <entry eval="substring-after($url,'https://')"/>
