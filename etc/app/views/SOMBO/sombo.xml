@@ -264,7 +264,7 @@
 
     <view name="JiraUsers" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
         <connector type="HTTPConnector">
-            <parameter name="url"               eval="concat('https://',property('userJira'),':',property('pwdJira'),'@jira.eosc-hub.eu/rest/api/2/user/assignable/search?project=',property('jira.project'))" />
+            <parameter name="url"               eval="concat('https://',property('userJira'),':',property('pwdJira'),'@jira.eosc-hub.eu/rest/api/2/user/assignable/search?project=',property(concat('jira.project.',property('env'))))" />
         </connector>
         <serializer type="JSONStreamSerializer"/>
 
@@ -589,7 +589,7 @@
     <view name="JiraEpicList" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
         <connector type="HTTPConnector">
             <parameter name="url"
-                       eval="concat('https://',property('userJira'),':',property('pwdJira'),'@jira.eosc-hub.eu/rest/api/2/search?fields=created,updated,summary,status,customfield_10228,customfield_1010,customfield_11204,customfield_10706,customfield_11310&amp;jql=project=',quot(property('jira.project')),' AND issuetype=',quot('epic'),'&amp;maxResults=1000')"/>
+                       eval="concat('https://',property('userJira'),':',property('pwdJira'),'@jira.eosc-hub.eu/rest/api/2/search?fields=created,updated,summary,status,customfield_10228,customfield_1010,customfield_11204,customfield_10706,customfield_11310&amp;jql=project=',quot(property(concat('jira.project.',property('env')))),' AND issuetype=',quot('epic'),'&amp;maxResults=1000')"/>
 
         </connector>
         <serializer type="JSONStreamSerializer"/>
