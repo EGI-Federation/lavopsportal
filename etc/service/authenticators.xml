@@ -9,6 +9,7 @@
         </authenticator>
     </authenticators>
 
+
     <authenticators name="local">
         <authenticator type="IPAddressAuthenticator">
             <parameter name="addresses">
