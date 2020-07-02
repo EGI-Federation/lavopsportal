@@ -68,7 +68,7 @@
 
                 <element in="EGEE_USER" out="e:entries">
 
-                    <element-create>entry('NAME',new_text(concat(../FORENAME/text(),../SURNAME/text())))</element-create>
+                    <element-create>entry('NAME',new_text(concat(../FORENAME/text(),' ',../SURNAME/text())))</element-create>
                     <element-create>entry('EMAIL',new_text(../EMAIL/text()))</element-create>
                     <element-create>entry('CERTDN',new_text(../CERTDN/text()))</element-create>
                     <element-ignore if="name()!='USER_ROLE'"/>
