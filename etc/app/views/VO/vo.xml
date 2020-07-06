@@ -2717,4 +2717,52 @@
     </view>
 
 
+    <view name="VoUrls" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('VoDetails')"></parameter>
+        </connector>
+        <processors>
+            <element in="result" out="e:entries">
+                <element in="row" out="e:entries">
+                    <attribute in="name" out="key"/>
+                    <element-ignore>
+                        <element-create if="name(..)!='scope' and name(..)!='aup' and name(..)!='aup_type' and name(..)!='description' and name(..)!='status' and name(..)!='' and ../text()!=''">entry(name(..),../text())</element-create>
+                    </element-ignore>
+                    <element-create>entries()</element-create>
+                </element>
+            </element>
+            <element in="e:entries">
+                <set variable="vomses">view('vomses-vo')</set>
+            <element in="e:entries">
+                <element in="e:entries">
+                    <attribute-create out="key">'vomses'</attribute-create>
+                    <element-create>$vomses/VOS/VO[@key=current()/../../@key]/VoVomsServer</element-create>
+                </element>
+            </element>
+            </element>
+
+            <element in="e:entries">
+                <element in="e:entries">
+                    <element in="e:entries">
+                        <element in="VoVomsServer" out="e:entries">
+                            <attribute-ignore/>
+                            <attribute-create out="key">../@hostname</attribute-create>
+                            <element-create>entry('memberslisturl',../@memberslisturl)</element-create>
+                            <element-create>entry('hostname',../@hostname)</element-create>
+
+                        </element>
+                    </element>
+                </element>
+            </element>
+        </processors>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+
+    </view>
+
 </views>
