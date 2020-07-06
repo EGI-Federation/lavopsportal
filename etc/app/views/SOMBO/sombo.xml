@@ -23,9 +23,6 @@
             <parameter name="passphrase" eval="property('certificate.password')"/>
             <parameter name="force-redirect">true</parameter>
 
-            <fallback eval="view('marketplace.providers.file')">
-                <exception type="java.io.IOException"/>
-            </fallback>
         </connector>
         <serializer type="JSONStreamSerializer"/>
 
