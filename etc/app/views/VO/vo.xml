@@ -390,7 +390,6 @@
             <parameter name="passphrase" eval="property('certificate.password')"/>
             <parameter name="force-redirect">true</parameter>
             <fallback eval="new_element('ERROR', arguments())">
-                <exception type="java.io"/>
                 <exception type="org.xml.sax"/>
                 <exception type="java.net.SocketTimeoutException"/>
                 <exception type="java.net.ConnectException" predicate-on-message="contains(.,'Connection refused')"/>
