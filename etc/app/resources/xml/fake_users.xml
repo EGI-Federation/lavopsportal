@@ -176,6 +176,13 @@
         <e:entry key="CERTDN">/O=dutchgrid/O=users/O=egi/CN=Alessandro Paolini</e:entry>
 
     </e:entries>
+    <e:entries key="/O=AAI/CN=Debora Testi/Id=0e2ac9a8d2e323f687db72592e953405cf1a987b0e94d8a89960ed9c692fc0fa@egi.eu">
+        <e:entry key="ROLES">Site Operations Manager::site::GRIDOPS-OPSPORTAL</e:entry>
+        <e:entry key="NAME">Debora Testi</e:entry>
+        <e:entry key="EMAIL">d.testi@cineca.it</e:entry>
+        <e:entry key="CERTDN">/O=AAI/CN=Debora Testi/Id=0e2ac9a8d2e323f687db72592e953405cf1a987b0e94d8a89960ed9c692fc0fa@egi.eu</e:entry>
+
+    </e:entries>
 
 
 
