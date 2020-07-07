@@ -1550,7 +1550,6 @@
     </view>
 
     <view name="generateMetricsCron">
-
         <connector type="HTTPConnector">
             <parameter name="url" eval="property('OPSCORE.users.metrics')"/>
             <parameter name="certificate" eval="property('certificate.path')"/>
