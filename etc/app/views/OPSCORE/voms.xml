@@ -8,7 +8,9 @@
                 <element in="Vo">
                     <attribute-ignore/>
                         <element in="VoVomsServer">
-                            <element-create>new_element('memberslisturl_v2', new_text(str:replace(current()/../memberslisturl/text(),'/services/VOMSAdmin?method=listMembers','/apiv2/user-stats.action')))</element-create>
+                            <element in="VoVomsServer">
+                                <element-create>new_element('memberslisturl_v2', new_text(str:replace(current()/../memberslisturl/text(),'/services/VOMSAdmin?method=listMembers','/apiv2/user-stats.action')))</element-create>
+                            </element>
                         </element>
                         <element in="name"/>
                         <element-ignore/>
