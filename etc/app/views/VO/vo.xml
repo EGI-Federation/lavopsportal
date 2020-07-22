@@ -4,32 +4,32 @@
 
     <view name="CoManageVOs">
 
-<connector type="StringConnector">
-    <parameter name="content" eval="concat('https://',property('comanage-user'),':',property('comanage-pwd'),'@aai.egi.eu/registry/cous.json?coid=2')"/>
-</connector>
-        <serializer type="EncapsulateSerializer"></serializer>
-<!--        <connector type="HTTPConnector">-->
-<!--            <parameter name="url" eval="concat('https://',property('comanage-user'),':',property('comanage-pwd'),'@aai.egi.eu/registry/cous.json?coid=2')"/>-->
-<!--        </connector>-->
-<!--        <serializer type="JSONStreamSerializer"/>-->
+        <connector type="HTTPConnector">
+            <parameter name="url" eval="concat('https://',property('comanage-user'),':',property('comanage-pwd'),'@aai.egi.eu/registry/cous.json?coid=2')"/>
+            <parameter name="default">{"root":"empty"}</parameter>
+        </connector>
 
-<!--        <processors>-->
-<!--            <element in="object" out="vos">-->
-<!--                <element-ignore in="Cous">-->
-<!--                <element in="object" out="vo">-->
-<!--                    <attribute-create out="id">../Id/text()</attribute-create>-->
-<!--                    <attribute-create out="coid">../CoId/text()</attribute-create>-->
+        <serializer type="JSONStreamSerializer"/>
 
-<!--                    <attribute-create out="name">../Name/text()</attribute-create>-->
-<!--                    <attribute-create out="description">../Description/text()</attribute-create>-->
-<!--                    <element-create>view('CoManageGroups',entry('id',../Id/text()))/groups/group/*</element-create>-->
-<!--                    <element-ignore/>-->
-<!--                </element>-->
-<!--                <element-ignore/>-->
-<!--                </element-ignore>-->
-<!--            </element>-->
 
-<!--        </processors>-->
+
+        <processors>
+            <element in="object" out="vos">
+                <element-ignore in="Cous">
+                <element in="object" out="vo">
+                    <attribute-create out="id">../Id/text()</attribute-create>
+                    <attribute-create out="coid">../CoId/text()</attribute-create>
+
+                    <attribute-create out="name">../Name/text()</attribute-create>
+                    <attribute-create out="description">../Description/text()</attribute-create>
+                    <element-create>view('CoManageGroups',entry('id',../Id/text()))/groups/group/*</element-create>
+                    <element-ignore/>
+                </element>
+                <element-ignore/>
+                </element-ignore>
+            </element>
+
+        </processors>
     </view>
 
     <view name="CoManageGroups">
@@ -37,6 +37,10 @@
 
         <connector type="HTTPConnector">
             <parameter name="url" eval="concat('https://',property('comanage-user'),':',property('comanage-pwd'),'@aai.egi.eu/registry/co_groups.json?coid=2&amp;couid=',$id)"/>
+            <parameter name="default">{"root":"empty"}</parameter>
+            <fallback eval="new_element('exception')">
+                <exception type="java.io.IOException"/>
+            </fallback>
         </connector>
         <serializer type="JSONStreamSerializer"/>
 
@@ -67,6 +71,8 @@
 
         <connector type="HTTPConnector">
             <parameter name="url" eval="concat('https://',property('comanage-user'),':',property('comanage-pwd'),'@aai.egi.eu/registry/co_group_members.json?cogroupid=',$cogroupid)"/>
+            <parameter name="default">{"root":"empty"}</parameter>
+
         </connector>
         <serializer type="JSONStreamSerializer"/>
 
@@ -97,6 +103,8 @@
 
         <connector type="HTTPConnector">
             <parameter name="url" eval="concat('https://',property('comanage-user'),':',property('comanage-pwd'),'@aai.egi.eu/registry/names.json?copersonid=',$copersonid)"/>
+            <parameter name="default">{"root":"empty"}</parameter>
+
         </connector>
         <serializer type="JSONStreamSerializer"/>
 

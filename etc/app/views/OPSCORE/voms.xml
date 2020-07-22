@@ -4,11 +4,16 @@
 
         <connector type="XMLConnector"><parameter name="content" eval="view('vo-voms_INDEX')"/></connector>
         <processors>
-            <processor match="/data/Vo/VoVomsServer/VoVomsServer/memberslisturl/text()" type="ReplaceProcessor"><namespaces><entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry><entry key="str">http://exslt.org/strings</entry></namespaces><parameter name="nodes" eval="str:replace(.,'/services/VOMSAdmin?method=listMembers','/apiv2/user-stats.action')"/></processor>
-            <processor match="/data/Vo/@*" type="RemoveProcessor"><namespaces><entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry><entry key="str">http://exslt.org/strings</entry></namespaces></processor>
-            <processor match="/data/Vo/*[local-name()!='VoVomsServer' and local-name()!='name']" type="RemoveProcessor"><namespaces><entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry><entry key="str">http://exslt.org/strings</entry></namespaces></processor>
-
-
+            <element in="data">
+                <element in="Vo">
+                    <attribute-ignore/>
+                        <element in="VoVomsServer">
+                            <element-create>new_element('memberslisturl_v2', new_text(str:replace(../memberslisturl/text(),'/services/VOMSAdmin?method=listMembers','/apiv2/user-stats.action')))</element-create>
+                        </element>
+                        <element in="name"/>
+                        <element-ignore/>
+                </element>
+            </element>
 
                  <element in="data">
                      <element in="Vo">
