@@ -8,7 +8,7 @@
                 <element in="Vo">
                     <attribute-ignore/>
                         <element in="VoVomsServer">
-                            <element-create if="../memberslisturl">new_element('memberslisturl_v2', new_text(str:replace(../memberslisturl/text(),'/services/VOMSAdmin?method=listMembers','/apiv2/user-stats.action')))</element-create>
+                            <element-create>new_element('memberslisturl_v2', new_text(str:replace(current()/../memberslisturl/text(),'/services/VOMSAdmin?method=listMembers','/apiv2/user-stats.action')))</element-create>
                         </element>
                         <element in="name"/>
                         <element-ignore/>
@@ -86,7 +86,7 @@
         </connector>
 
         <processors>
-            <processor match="/data/Vo[VoVomsServer/VoVomsServer/memberslisturl and VoVomsServer/VoVomsServer/memberslisturl/text()!='']" type="InsertProcessor"><parameter name="nodes" eval="view('Voms_Users_Connector',entry('voms_url',match()/VoVomsServer/VoVomsServer/memberslisturl/text())|entry('vo',match()/name/text()))"/></processor>
+            <processor match="/data/Vo[VoVomsServer/VoVomsServer/memberslisturl_v2 and VoVomsServer/VoVomsServer/memberslisturl_v2/text()!='']" type="InsertProcessor"><parameter name="nodes" eval="view('Voms_Users_Connector',entry('voms_url',match()/VoVomsServer/VoVomsServer/memberslisturl_v2/text())|entry('vo',match()/name/text()))"/></processor>
         </processors>
 
         <cache type="IndexedFileCache">
