@@ -8,9 +8,6 @@
     <xsl:variable name="csi_csirt-team"  select="document('csi_csirt-team')" />
 
 
-    <xsl:variable name="voms-team-users" select="document('voms-team-users')"/>
-
-
 
 
 
@@ -22,8 +19,7 @@
     <xsl:apply-templates select="$get_user/results"/>
     <!-- copy all CSIRT members only in csi_csirt-team view -->
     <xsl:apply-templates select="$csi_csirt-team/CSIRTTeam/Users/EGEE_USER[not(CERTDN=$get_user/results/EGEE_USER/CERTDN)]" mode="add"/>
-    <!-- Add voms team group members -->
-    <xsl:apply-templates select="$voms-team-users/VOMSTEAMUSERS/USERS" mode="add"/>
+
     </root>
         </xsl:template>
 

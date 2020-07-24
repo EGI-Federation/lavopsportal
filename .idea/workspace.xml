@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="mo">
-      <change beforePath="$PROJECT_DIR$/etc/app/app.properties" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/app.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/app/views/OPSCORE/users.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/OPSCORE/users.xml" afterDir="false" />
-    </list>
+    <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="mo" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,15 +25,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/etc/app/views/VO/vo-voms.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15165">
-              <caret line="1011" column="50" selection-start-line="1011" selection-start-column="50" selection-end-line="1011" selection-end-column="57" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/voms.xml">
           <provider selected="true" editor-type-id="text-editor">
@@ -100,11 +88,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/users.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="15" column="94" selection-start-line="15" selection-start-column="94" selection-end-line="15" selection-end-column="94" />
+            <state relative-caret-position="250">
+              <caret line="26" column="78" lean-forward="true" selection-start-line="26" selection-start-column="78" selection-end-line="26" selection-end-column="78" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/etc/app/resources/xsl/egi_users.xsl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="10" column="24" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -130,7 +127,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>OPSCORE.sendMail.url</find>
       <find>CaUser</find>
       <find>OPSCORE.users.metrics</find>
       <find>CoMana</find>
@@ -160,6 +156,7 @@
       <find>cron</find>
       <find>OPSCORE.users.voms</find>
       <find>OPSCORE_users_voms</find>
+      <find>voms-team-users</find>
     </findStrings>
     <replaceStrings>
       <replace>xmlns=&quot;http://software.in2p3.fr/lavoisier/application.xsd&quot;</replace>
@@ -880,7 +877,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="remove duplicate entries" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/etc/app/html/views.js" />
     <entry file="file://$PROJECT_DIR$/etc/app/html/baseNG.html" />
     <entry file="file://$PROJECT_DIR$/etc/app/html/viewsNG.html" />
     <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/date_functions.xml">
@@ -1204,8 +1200,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/users.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="15" column="94" selection-start-line="15" selection-start-column="94" selection-end-line="15" selection-end-column="94" />
+        <state relative-caret-position="250">
+          <caret line="26" column="78" lean-forward="true" selection-start-line="26" selection-start-column="78" selection-end-line="26" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/etc/app/resources/xsl/egi_users.xsl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="24" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
         </state>
       </provider>
     </entry>
