@@ -15,11 +15,8 @@
             <!-- required: The XSLT stylesheet (Xml) -->
             <parameter name="stylesheet" eval="document('/app/resources/xsl/egi_users.xsl')"/>
 
-
-
             <parameter name="documents">
                 <entry key="get_user" eval="view('OPSCORE_users_goc')"/>
-                <entry key="voms-team-users" eval="view('OPSCORE_users_voms')"/>
                 <entry key="csi_csirt-team" eval="view('OPSCORE_users_csi')"/>
             </parameter>
         </connector>
@@ -312,31 +309,6 @@
     </view>
 
 
-    <view name="OPSCORE_users_voms" authenticators="local">
-
-        <connector type="HTTPConnector">
-            <parameter name="url" eval="property('OPSCORE.users.voms')"/>
-            <parameter name="certificate" eval="property('certificate.path')"/>
-            <parameter name="passphrase" eval="property('certificate.password')"/>
-            <parameter name="force-redirect">true</parameter>
-            <parameter name="connect-timeout">100</parameter>
-            <parameter name="read-timeout">100</parameter>
-        </connector>
-
-        <cache type="FileCache">
-            <trigger type="DeltaTimeTrigger">
-                <parameter name="hours">3</parameter>
-            </trigger>
-            <trigger type="ViewNotifiedTrigger"/>
-            <trigger ignore-during="PT3H" type="ViewCreatedTrigger"/>
-        </cache>
-
-        <renderers>
-            <renderer type="DefaultRenderer">
-                <parameter name="contentType">text/xml</parameter>
-            </renderer>
-        </renderers>
-    </view>
 
     <view name="OPSCORE_users_goc">
 
