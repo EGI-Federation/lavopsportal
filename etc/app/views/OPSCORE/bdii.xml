@@ -47,60 +47,6 @@
     </view>
 
 
-    <!--<view xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" name="OPSCORE_bdii">-->
-        <!--<info>-->
-            <!--<category>BDII</category>-->
-            <!--<description>List of service published into Glue2 Top Bdii</description>-->
-        <!--</info>-->
-        <!--<connector type="LDAPConnector">-->
-            <!--<parameter name="url">ldap://cclcgtopbdii01.in2p3.fr:2170</parameter>-->
-            <!--<parameter name="path">GLUE2GroupID=grid,o=glue</parameter>-->
-            <!--<parameter name="filter">objectclass=*</parameter>-->
-        <!--</connector>-->
-
-        <!--<processors>-->
-            <!--<element in="o" out="root">-->
-                <!--<element-ignore in="GLUE2GroupID">-->
-                    <!--<element in="GLUE2DomainID" out="site"></element>-->
-                <!--</element-ignore>-->
-                <!--<element-ignore></element-ignore>-->
-            <!--</element>-->
-        <!--</processors>-->
-
-        <!--<cache type="IndexedFileCache">-->
-            <!--<parameter name="index_depth">2</parameter>-->
-            <!--<trigger type="ViewCreatedTrigger"></trigger>-->
-        <!--</cache>-->
-
-        <!--<renderers>-->
-            <!--<renderer type="DefaultRenderer">-->
-                <!--<parameter name="contentType">text/xml</parameter>-->
-            <!--</renderer>-->
-        <!--</renderers>-->
-    <!--</view>-->
-
-    <!--<view name="bdii_site">-->
-        <!--<info>-->
-            <!--<category>BDII</category>-->
-            <!--<description>List of service published into Glue2 Top Bdii</description>-->
-        <!--</info>-->
-        <!--<argument name="site"></argument>-->
-        <!--<connector type="XMLConnector">-->
-            <!--<parameter name="content" eval="view_path('OPSCORE_bdii',concat('/root/site[@id=',quot($site),']/*'))"></parameter>-->
-        <!--</connector>-->
-    <!--</view>-->
-
-    <!--<view name="bdii_service">-->
-        <!--<info>-->
-            <!--<category>BDII</category>-->
-            <!--<description>List of service published into Glue2 Top Bdii</description>-->
-        <!--</info>-->
-        <!--<argument name="service"></argument>-->
-        <!--<connector type="XMLConnector">-->
-            <!--<parameter name="content" eval="view_path('OPSCORE_bdii',concat('/root/site/GLUE2GroupID/GLUE2ServiceID[@id=',quot($service),']/*'))"></parameter>-->
-        <!--</connector>-->
-    <!--</view>-->
-
 
     <view xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" xmlns:str="http://exslt.org/strings" name="OPSCORE_bdii_sites_vo">
 
@@ -154,9 +100,7 @@
 
             <processor type="InsertProcessor" match="/bdii/e:entry[*]"><namespaces><entry key="str">http://exslt.org/strings</entry><entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry></namespaces>
                 
-                
 
-                
                 <parameter name="nodes" eval="new_attribute('vos', str:concat(GLUE2ServiceID/@vos))"/>
             </processor>
 
@@ -246,113 +190,8 @@
 
     </view>
 
-    <view name="bdii_urls" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
 
 
-        <connector type="HTTPConnector">
-            <parameter name="url" eval="property('OPSCORE.bdiilist')"/>
-            <parameter name="certificate" eval="property('certificate.path')"/>
-            <parameter name="passphrase" eval="property('certificate.password')"/>
-        </connector>
-        <serializer type="HTMLSerializer"/>
 
-        <processors>
-
-                <processor match="//*" type="ChangeNamespaceProcessor"/>
-
-            <processor match="/html/body/div/div/table[position()=3]" type="SelectProcessor"/>
-            <processor match="/e:entries" type="RemoveProcessor"><parameter name="depth">1</parameter></processor>
-
-            <processor match="/table/tr/td[position()=3]" type="RemoveProcessor"/>
-            <processor match="/table/tr/td[position()=1]" type="RenameProcessor"><parameter name="node_name">Ngi</parameter></processor>
-            <processor match="/table/tr/td[position()=1]" type="RenameProcessor"><parameter name="node_name">Bdiis</parameter></processor>
-            <processor match="/table/tr/Bdiis/text()" type="InsertParentProcessor"><parameter name="node_name">hostname</parameter></processor>
-            <processor match="/table/tr" type="RenameProcessor"><parameter name="node_name">Record</parameter></processor>
-            <processor match="/table/Record[not(Ngi)]" type="RemoveProcessor"/>
-            <processor match="/table/Record[not(Bdiis/hostname)]" type="RemoveProcessor"/>
-            <processor match="/table" type="RenameProcessor"><parameter name="node_name">BdiiList</parameter></processor>
-
-            <element in="BdiiList">
-                <attribute-ignore/>
-                <element in="Record">
-                    <element in="Ngi">
-                        <attribute-ignore/>
-                        <text-ignore/>
-                        <text-create>normalize-space(../text())</text-create>
-                    </element>
-                    <element in="Bdiis">
-                        <attribute-ignore/>
-
-                        <element in="hostname">
-                            <text-ignore/>
-                            <text-create>normalize-space(../text())</text-create>
-                        </element>
-                    </element>
-
-                </element>
-
-            </element>
-
-           
-        </processors>
-        <cache type="FileCache">
-            <trigger type="DeltaTimeTrigger">
-                <parameter name="minutes">150</parameter>
-            </trigger>
-            <trigger type="ViewNotifiedTrigger"/>
-        </cache>
-
-    </view>
-
-    <view name="InsertBdii">
-
-        <argument name="ngi"/>
-        <argument name="site"/>
-
-        <connector type="HTTPConnector">
-            <parameter name="url" eval="concat(property('OPSCORE.insertbdii'),'?ngi=',$ngi,'&amp;site=',$site)"/>
-            <parameter name="certificate" eval="property('certificate.path')"/>
-            <parameter name="passphrase" eval="property('certificate.password')"/>
-            <parameter name="force-redirect">true</parameter>
-        </connector>
-
-
-        <renderers>
-            <renderer type="DefaultRenderer">
-                <parameter name="contentType">text/xml</parameter>
-            </renderer>
-        </renderers>
-    </view>
-
-    <view xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" name="triggerInsertBdii">
-
-
-        <connector type="XMLConnector">
-            <parameter name="content" eval="view('OPSCORE_site_list_prod')"/>
-        </connector>
-
-        <processors>
-            <element in="e:entries" out="results">
-                <element in="e:entries">
-                    <attribute-create out="ngi">../e:entry[@key='ngi']/text()</attribute-create>
-                    <attribute-create out="site">../e:entry[@key='site']/text()</attribute-create>
-                    <element-create>view('InsertBdii',entry('ngi',../e:entry[@key='ngi']/text())|entry('site',../e:entry[@key='site']/text()))</element-create>
-                    <element-ignore/>
-                </element>
-            </element>
-        </processors>
-        <cache type="FileCache">
-            <trigger type="FixedTimeTrigger">
-                <parameter name="hour">3</parameter>
-                <parameter name="minute">25</parameter>
-            </trigger>
-
-        </cache>
-        <renderers>
-            <renderer type="DefaultRenderer">
-                <parameter name="contentType">text/xml</parameter>
-            </renderer>
-        </renderers>
-    </view>
 
 </views>

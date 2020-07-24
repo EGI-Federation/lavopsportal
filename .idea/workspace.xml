@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="mo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/app/app.properties" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/app.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/app/views/OPSCORE/bdii.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/OPSCORE/bdii.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,28 +30,19 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/etc/app/views/VO/vo.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="383">
-              <caret line="2744" column="36" lean-forward="true" selection-start-line="2745" selection-start-column="45" selection-end-line="2745" selection-end-column="54" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/etc/app/views/VO/vo-voms.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="63">
+            <state relative-caret-position="15165">
               <caret line="1011" column="50" selection-start-line="1011" selection-start-column="50" selection-end-line="1011" selection-end-column="57" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/voms.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="41" lean-forward="true" selection-start-line="13" selection-start-column="41" selection-end-line="13" selection-end-column="41" />
+            <state relative-caret-position="630">
+              <caret line="42" selection-start-line="42" selection-end-line="42" />
             </state>
           </provider>
         </entry>
@@ -57,8 +50,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/etc/app/app.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="73">
-              <caret line="34" column="10" lean-forward="true" selection-start-line="34" selection-start-column="10" selection-end-line="34" selection-end-column="10" />
+            <state relative-caret-position="174">
+              <caret line="137" column="1" selection-start-line="137" selection-start-column="1" selection-end-line="137" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/bdii.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="362">
+              <caret line="248" column="3" selection-start-line="248" selection-start-column="3" selection-end-line="248" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -129,10 +131,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>VO_full</find>
-      <find>vs.scop</find>
-      <find>VO_f</find>
-      <find>cron</find>
       <find>VoDeta</find>
       <find>OPSCORE.get_topbdii_av_re</find>
       <find>OPSCORE.sendMail.url</find>
@@ -155,10 +153,14 @@
       <find>clean</find>
       <find>BROADCAST.portal.voSitesEmails</find>
       <find>voUrl</find>
-      <find>dump</find>
       <find>vomses-vo</find>
       <find>voms_vo</find>
       <find>memberslisturl</find>
+      <find>OPSCORE.insertbdii</find>
+      <find>dump</find>
+      <find>OPSCORE.bdiilist</find>
+      <find>opBdiiAvailabilities</find>
+      <find>OPSCORE.get_topbdii_av_r</find>
     </findStrings>
     <replaceStrings>
       <replace>xmlns=&quot;http://software.in2p3.fr/lavoisier/application.xsd&quot;</replace>
@@ -194,7 +196,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/bdii.xml" />
         <option value="$PROJECT_DIR$/etc/app/resources/xml/convert_toEntries.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/GGUS/primary.xml" />
         <option value="$PROJECT_DIR$/etc/app/resources/xml/jiraEntries.xml" />
@@ -243,8 +244,9 @@
         <option value="$PROJECT_DIR$/etc/app/app-hidden.properties" />
         <option value="$PROJECT_DIR$/etc/app/views/VO/vo.xml" />
         <option value="$PROJECT_DIR$/etc/service/authenticators.xml" />
-        <option value="$PROJECT_DIR$/etc/app/app.properties" />
         <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/voms.xml" />
+        <option value="$PROJECT_DIR$/etc/app/app.properties" />
+        <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/bdii.xml" />
       </list>
     </option>
   </component>
@@ -256,10 +258,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-253" />
-    <option name="y" value="97" />
-    <option name="width" value="1660" />
-    <option name="height" value="941" />
+    <option name="x" value="1984" />
+    <option name="width" value="1856" />
+    <option name="height" value="1080" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -794,7 +795,7 @@
     <option name="totallyTimeSpent" value="15425000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="64" y="27" width="1856" height="1173" extended-state="6" />
+    <frame x="1984" y="0" width="1856" height="1080" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.10441989" />
@@ -819,7 +820,7 @@
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="9" weight="0.32846004" />
       <window_info anchor="bottom" id="Console" order="10" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.38379943" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.3845339" />
       <window_info anchor="bottom" id="Version Control" order="12" weight="0.32786885" />
       <window_info anchor="bottom" id="Docker" order="13" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="14" />
@@ -1048,13 +1049,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/bdii.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="330" column="50" lean-forward="true" selection-start-line="330" selection-start-column="50" selection-end-line="330" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/etc/engine/logger.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="960">
@@ -1139,6 +1133,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/etc/app/views/VO/vo.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="41160">
+          <caret line="2744" column="36" selection-start-line="2745" selection-start-column="45" selection-end-line="2745" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/etc/app/views/VO/vo-voms.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15165">
+          <caret line="1011" column="50" selection-start-line="1011" selection-start-column="50" selection-end-line="1011" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/voms.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="42" selection-start-line="42" selection-end-line="42" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/etc/app/app-hidden.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1125">
@@ -1183,29 +1198,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/etc/app/app.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="73">
-          <caret line="34" column="10" lean-forward="true" selection-start-line="34" selection-start-column="10" selection-end-line="34" selection-end-column="10" />
+        <state relative-caret-position="174">
+          <caret line="137" column="1" selection-start-line="137" selection-start-column="1" selection-end-line="137" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/views/VO/vo.xml">
+    <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/bdii.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="383">
-          <caret line="2744" column="36" lean-forward="true" selection-start-line="2745" selection-start-column="45" selection-end-line="2745" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/views/VO/vo-voms.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="1011" column="50" selection-start-line="1011" selection-start-column="50" selection-end-line="1011" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/voms.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="41" lean-forward="true" selection-start-line="13" selection-start-column="41" selection-end-line="13" selection-end-column="41" />
+        <state relative-caret-position="362">
+          <caret line="248" column="3" selection-start-line="248" selection-start-column="3" selection-end-line="248" selection-end-column="3" />
         </state>
       </provider>
     </entry>
