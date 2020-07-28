@@ -155,6 +155,14 @@
             </element>
 
             <element in="e:entries">
+                <element out="e:entries">
+                      <element in="summary" if="text()=''">
+                          new_text(../description/text())
+                      </element>
+                </element>
+            </element>
+
+            <element in="e:entries">
                 <set variable="nagiosDB" index="id/text()">view('CsiNagiosDB')/result/row</set>
                 <element out="e:entries">
                     <element-create if="not(find($nagiosDB,../@key)/id/text())">entry('type','insert')</element-create>
