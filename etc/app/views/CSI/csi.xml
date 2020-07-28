@@ -156,7 +156,7 @@
 
             <element in="e:entries">
                 <element out="e:entries">
-                      <element in="summary" if="text()=''"><text>../../description/text()</text></element>
+                    <element-create  if="not(e:entry[@key='summary'])">entry('summary',../description/text())</element-create>
                 </element>
             </element>
 
