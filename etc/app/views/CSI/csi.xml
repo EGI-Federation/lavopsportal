@@ -156,9 +156,7 @@
 
             <element in="e:entries">
                 <element out="e:entries">
-                      <element in="summary" if="text()=''">
-                          new_text(../description/text())
-                      </element>
+                      <element in="summary" if="text()=''"><text>../../description/text()</text></element>
                 </element>
             </element>
 
