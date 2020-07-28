@@ -77,7 +77,25 @@
     </view>
 
 
+    <view name="CsiNagiosDB" authenticators="local">
+        <connector type="SQLConnector">
+            <parameter name="driver">com.mysql.jdbc.Driver</parameter>
+            <parameter name="url" eval="property('CSI.db.url')"/>
+            <parameter name="username" eval="property('CSI.db.username')"/>
+            <parameter name="password" eval="property('CSI.db.password')"/>
+            <parameter name="query">
+                <entry>SELECT * from csi_nagios_problem</entry>
+            </parameter>
+        </connector>
 
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="minutes">3</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+        </cache>
+
+    </view>
 
 
     <view authenticators="local" name="CsiNagios">
@@ -92,7 +110,6 @@
                 <parameter name="minutes">15</parameter>
             </trigger>
             <trigger type="ViewNotifiedTrigger"/>
-
         </cache>
 
     </view>
@@ -122,7 +139,6 @@
             </element>
 
             <element in="Data" out="e:entries">
-
                     <element out="e:entries">
                         <attribute-ignore/>
                         <attribute-create out="key">concat(../@pk1,'___',../@pk2)</attribute-create>
@@ -137,7 +153,23 @@
                         </element-ignore>
                     </element>
             </element>
+
+            <element in="e:entries">
+                <set variable="nagiosDB" index="id/text()">view('CsiNagiosDB')/result/row</set>
+                <element out="e:entries">
+                    <element-create if="not(find($nagiosDB,../@key)/id/text())">entry('type','insert')</element-create>
+                    <element-create if="find($nagiosDB,../@key)/id/text() and find($nagiosDB,../@key)/details/text()!=current()/../e:entry[@key='details']/text()">entry('type','update record')</element-create>
+                    <element-create if="find($nagiosDB,../@key)/id/text() and find($nagiosDB,../@key)/details/text()=current()/../e:entry[@key='details']/text()">entry('type','update date')</element-create>
+                </element>
+            </element>
         </processors>
+
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="minutes">4</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+        </cache>
 
         <renderers>
             <renderer type="DefaultRenderer">
