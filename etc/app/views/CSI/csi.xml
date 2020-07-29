@@ -148,9 +148,7 @@
                     </element>
             </element>
 
-            <element in="e:entries">
-                <element-ignore in="e:entries" if="$ngi!='_ngi_' and e:entry[@key='ngi']/text()!=$ngi"/>
-            </element>
+
 
             <element in="e:entries">
                 <element out="e:entries">
