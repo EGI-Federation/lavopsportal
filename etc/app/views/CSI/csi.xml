@@ -1,42 +1,36 @@
 <views xmlns="http://software.in2p3.fr/lavoisier/application.xsd"  >
 
-<!--
-    <view name="CSI_xii_Nagios">
-       
-
-        <variable name="base_url" eval="property('CSI.portal.url')"/>
-        <variable name="collection">CsiNagiosRecords</variable>
 
 
+    <view name="CSI_Imports_Nagios">
         <connector type="XMLConnector">
-            <parameter name="content"   eval="view('templateCrons',entry('base_url',$base_url)|entry('collection',$collection))"/>
+            <parameter name="content" eval="view(' OPSCORE_NGIs')"/>
         </connector>
 
+        <processors>
+            <element in="NGIs">
+                <element in="NGI">
+                    <attribute-ignore if="name()!='Name'"/>
+                    <element-create>view('CSI_Import_Nagios',entry('ngi',../@Name))</element-create>
+                </element>
+            </element>
+        </processors>
+
         <cache type="FileCache">
-            <trigger type="ViewNotifiedTrigger"/>
             <trigger type="DeltaTimeTrigger">
-                <parameter name="minutes">5</parameter>
+                <parameter name="minutes">11</parameter>
             </trigger>
         </cache>
-
     </view>
--->
 
-    <view authenticators="local"  name="CSI_Imports_Nagios">
+    <view authenticators="local"  name="CSI_Import_Nagios">
+        <argument name="ngi"/>
         <connector type="HTTPConnector">
-            <parameter name="url" eval="property('CSI.nagios.import')"/>
+            <parameter name="url" eval="concat(property('CSI.nagios.import'),'/',$ngi)"/>
             <parameter name="certificate" eval="property('certificate.path')"/>
             <parameter name="passphrase" eval="property('certificate.password')"/>
         </connector>
 
-<serializer type="HTMLSerializer"/>
-
-        <cache type="FileCache">
-            <trigger type="ViewNotifiedTrigger"/>
-            <trigger type="DeltaTimeTrigger">
-                <parameter name="minutes">5</parameter>
-            </trigger>
-        </cache>
     </view>
 
 
@@ -160,17 +154,18 @@
 
             <element in="e:entries">
                 <element out="e:entries">
-                    <element-create  if="not(e:entry[@key='summary'])">entry('summary',../e:entry[@key='description']/text())</element-create>
+                    <element-create  if="not(../e:entry[@key='summary'])">entry('summary',../e:entry[@key='description']/text())</element-create>
                 </element>
             </element>
 
             <element in="e:entries">
                 <set variable="nagiosDB" index="id/text()">view('CsiNagiosDB')/result/row</set>
                 <element out="e:entries">
-                    <set variable="record">find($nagiosDB,../@key)</set>
+                    <set variable="record">find($nagiosDB,@key)</set>
                     <element-create if="not($record/id/text())">entry('type','insert')</element-create>
-                    <element-create if="$record/summary/text()!=current()/../e:entry[@key='summary']/text()">entry('type','update record')</element-create>
+                    <element-create if="not($record/summary/text()=current()/../e:entry[@key='summary']/text())">entry('type','update record')</element-create>
                     <element-create if="$record/summary/text()=current()/../e:entry[@key='summary']/text()">entry('type','update date')</element-create>
+
                 </element>
             </element>
 
