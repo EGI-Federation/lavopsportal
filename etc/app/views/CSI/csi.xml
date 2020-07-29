@@ -4,7 +4,7 @@
 
     <view name="CSI_Imports_Nagios">
         <connector type="XMLConnector">
-            <parameter name="content" eval="view(' OPSCORE_NGIs')"/>
+            <parameter name="content" eval="view('OPSCORE_NGIs')"/>
         </connector>
 
         <processors>
