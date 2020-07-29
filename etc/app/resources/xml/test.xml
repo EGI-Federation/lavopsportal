@@ -1,49 +1,316 @@
-<object>
-    <expand>operations,versionedRepresentations,editmeta,changelog,renderedFields</expand>
-    <id>10284</id>
-    <self>https://jira.eosc-hub.eu/rest/api/2/issue/10284</self>
-    <key>EOSCSO-2</key>
-    <fields>
-        <issuetype>
-            <self>https://jira.eosc-hub.eu/rest/api/2/issuetype/10204</self>
-            <id>10204</id>
-            <description></description>
-            <iconUrl>
-                https://jira.eosc-hub.eu/secure/viewavatar?size=xsmall&amp;avatarId=10314&amp;avatarType=issuetype
-            </iconUrl>
-            <name>Service order</name>
-            <subtask>false</subtask>
-            <avatarId>10314</avatarId>
-        </avatarUrls>
-        <projectCategory>
-            <self>https://jira.eosc-hub.eu/rest/api/2/projectCategory/10000</self>
-            <id>10000</id>
-            <description>Projects related to EOSC-hub project</description>
-            <name>EOSC-hub</name>
-        </project>
-        <fixVersions></customfield_10108>
-        <customfield_10229>d171b8d979551ebb37fb25259dfc885a2d608d5d1ec44e6d8925a51941505057@eosc.eu</customfield_10229>
-        <customfield_10109>null</customfield_10109>
-        <resolutiondate>null</resolutiondate>
-        <workratio>-1</workratio>
-        <lastViewed>2018-07-04T13:44:52.073+0200</lastViewed>
-        <watches>
-            <self>https://jira.eosc-hub.eu/rest/api/2/issue/EOSCSO-2/watchers</self>
-            <watchCount>1</watchCount>
-            <isWatching>true</isWatching>
-        </priority>
-        <customfield_10100>null</customfield_10100>
-        <customfield_10221>null</customfield_10221>
-        <labels></versions>
-        <issuelinks></statusCategory>
-    </components>
-    <timeoriginalestimate>null</timeoriginalestimate>
-    <customfield_10250>
-        <self>https://jira.eosc-hub.eu/rest/api/2/customFieldOption/10188</self>
-        <value>representing a research community/project</value>
-        <id>10188</id>
-    </avatarUrls>
-    <displayName>Cyril Lorphelin</displayName>
-    <active>true</active>
-    <timeZone>Europe/Prague</timeZone>
-</subtasks>
+
+<e:entries xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+    <e:entry service_flavour="ARC-CE" name="org.nordugrid.ARC-CE-ARIS" fqan="" profile="ARGO_MON_CRITICAL"/>
+    <e:entry service_flavour="ARC-CE" name="org.nordugrid.ARC-CE-IGTF" fqan="" profile="ARGO_MON_CRITICAL"/>
+    <e:entry service_flavour="ARC-CE" name="org.nordugrid.ARC-CE-result" fqan="" profile="ARGO_MON_CRITICAL"/>
+    <e:entry service_flavour="ARC-CE" name="org.nordugrid.ARC-CE-srm" fqan="" profile="ARGO_MON_CRITICAL"/>
+    <e:entry service_flavour="CREAM-CE" name="emi.cream.CREAMCE-AllowedSubmission" fqan="" profile="ARGO_MON_CRITICAL"/>
+    <e:entry service_flavour="CREAM-CE" name="emi.cream.CREAMCE-ServiceInfo" fqan="" profile="ARGO_MON_CRITICAL"/>
+    <e:entry service_flavour="CREAM-CE" name="eu.egi.CREAMCE-CertValidity" fqan="" profile="ARGO_MON_CRITICAL"/>
+    <e:entry service_flavour="CREAM-CE" name="eu.egi.CREAM-IGTF" fqan="" profile="ARGO_MON_CRITICAL"/>
+    <e:entry service_flavour="eu.egi.cloud.vm-management.occi" name="eu.egi.cloud.OCCI-Context" fqan="" profile="ARGO_MON_CRITICAL"/>
+    <e:entry service_flavour="eu.egi.cloud.vm-management.occi" name="eu.egi.cloud.OCCI-VM" fqan="" profile="ARGO_MON_CRITICAL"/>
+    <e:entry service_flavour="eu.egi.cloud.vm-management.occi" name="eu.egi.OCCI-IGTF" fqan="" profile="ARGO_MON_CRITICAL"/>
+    <e:entry service_flavour="eu.egi.cloud.vm-management.occi" name="org.nagios.OCCI-TCP" fqan="" profile="ARGO_MON_CRITICAL"/>
+    <e:entry service_flavour="GRAM5" name="eu.egi.GRAM-CertValidity" fqan="" profile="ARGO_MON_CRITICAL"/>
+    <e:entry service_flavour="GRAM5" name="hr.srce.GRAM-Auth" fqan="" profile="ARGO_MON_CRITICAL"/>
+    <e:entry service_flavour="GRAM5" name="hr.srce.GRAM-Command" fqan="" profile="ARGO_MON_CRITICAL"/>
+    <e:entry service_flavour="org.openstack.nova" name="eu.egi.cloud.OpenStack-VM" fqan="" profile="ARGO_MON_CRITICAL"/>
+    <e:entry service_flavour="org.openstack.nova" name="org.nagios.Keystone-TCP" fqan="" profile="ARGO_MON_CRITICAL"/>
+    <e:entry service_flavour="QCG.Computing" name="eu.egi.QCG-Computing-CertValidity" fqan="" profile="ARGO_MON_CRITICAL"/>
+    <e:entry service_flavour="QCG.Computing" name="pl.plgrid.QCG-Computing" fqan="" profile="ARGO_MON_CRITICAL"/>
+    <e:entry service_flavour="Site-BDII" name="org.bdii.Entries" fqan="" profile="ARGO_MON_CRITICAL"/>
+    <e:entry service_flavour="Site-BDII" name="org.bdii.Freshness" fqan="" profile="ARGO_MON_CRITICAL"/>
+    <e:entry service_flavour="SRM" name="eu.egi.SRM-CertValidity" fqan="" profile="ARGO_MON_CRITICAL"/>
+    <e:entry service_flavour="SRM" name="org.sam.SRM-Del" fqan="" profile="ARGO_MON_CRITICAL"/>
+    <e:entry service_flavour="SRM" name="org.sam.SRM-Get" fqan="" profile="ARGO_MON_CRITICAL"/>
+    <e:entry service_flavour="SRM" name="org.sam.SRM-GetSURLs" fqan="" profile="ARGO_MON_CRITICAL"/>
+    <e:entry service_flavour="SRM" name="org.sam.SRM-GetTURLs" fqan="" profile="ARGO_MON_CRITICAL"/>
+    <e:entry service_flavour="SRM" name="org.sam.SRM-Ls" fqan="" profile="ARGO_MON_CRITICAL"/>
+    <e:entry service_flavour="SRM" name="org.sam.SRM-LsDir" fqan="" profile="ARGO_MON_CRITICAL"/>
+    <e:entry service_flavour="SRM" name="org.sam.SRM-Put" fqan="" profile="ARGO_MON_CRITICAL"/>
+    <e:entry service_flavour="unicore6.TargetSystemFactory" name="emi.unicore.TargetSystemFactory" fqan="" profile="ARGO_MON_CRITICAL"/>
+    <e:entry service_flavour="unicore6.TargetSystemFactory" name="emi.unicore.UNICORE-Job" fqan="" profile="ARGO_MON_CRITICAL"/>
+    <e:entry service_flavour="webdav" name="ch.cern.WebDAV" fqan="" profile="ARGO_MON_CRITICAL"/>
+    <e:entry fqan="" name="egi.eu.lowAvailability" service_flavour="argo.avre" profile="ARGO_MON_CRITICAL"/>
+    <e:entry service_flavour="APEL" name="org.apel.APEL-Pub" fqan="" profile="ARGO_MON_OPERATORS"/>
+    <e:entry service_flavour="ARC-CE" name="org.nordugrid.ARC-CE-ARIS" fqan="" profile="ARGO_MON_OPERATORS"/>
+    <e:entry service_flavour="ARC-CE" name="org.nordugrid.ARC-CE-IGTF" fqan="" profile="ARGO_MON_OPERATORS"/>
+    <e:entry service_flavour="ARC-CE" name="org.nordugrid.ARC-CE-result" fqan="" profile="ARGO_MON_OPERATORS"/>
+    <e:entry service_flavour="ARC-CE" name="org.nordugrid.ARC-CE-srm" fqan="" profile="ARGO_MON_OPERATORS"/>
+    <e:entry service_flavour="ARC-CE" name="org.nordugrid.ARC-CE-SRM-result" fqan="" profile="ARGO_MON_OPERATORS"/>
+    <e:entry service_flavour="ARC-CE" name="org.nordugrid.ARC-CE-SRM-submit" fqan="" profile="ARGO_MON_OPERATORS"/>
+    <e:entry service_flavour="ARC-CE" name="org.nordugrid.ARC-CE-submit" fqan="" profile="ARGO_MON_OPERATORS"/>
+    <e:entry service_flavour="ARC-CE" name="org.nordugrid.ARC-CE-sw-gcc" fqan="" profile="ARGO_MON_OPERATORS"/>
+    <e:entry service_flavour="ARC-CE" name="org.nordugrid.ARC-CE-sw-perl" fqan="" profile="ARGO_MON_OPERATORS"/>
+    <e:entry service_flavour="ARC-CE" name="org.nordugrid.ARC-CE-sw-python" fqan="" profile="ARGO_MON_OPERATORS"/>
+    <e:entry service_flavour="Central-LFC" name="ch.cern.LFC-Ping" fqan="" profile="ARGO_MON_OPERATORS"/>
+    <e:entry service_flavour="Central-LFC" name="ch.cern.LFC-Read" fqan="" profile="ARGO_MON_OPERATORS"/>
+    <e:entry service_flavour="Central-LFC" name="ch.cern.LFC-Write" fqan="" profile="ARGO_MON_OPERATORS"/>
+    <e:entry service_flavour="CREAM-CE" name="emi.cream.CREAMCE-AllowedSubmission" fqan="" profile="ARGO_MON_OPERATORS"/>
+    <e:entry service_flavour="CREAM-CE" name="emi.cream.CREAMCE-ServiceInfo" fqan="" profile="ARGO_MON_OPERATORS"/>
+    <e:entry service_flavour="CREAM-CE" name="eu.egi.CREAMCE-CertValidity" fqan="" profile="ARGO_MON_OPERATORS"/>
+    <e:entry service_flavour="CREAM-CE" name="eu.egi.CREAM-IGTF" fqan="" profile="ARGO_MON_OPERATORS"/>
+    <e:entry service_flavour="globus-GRIDFTP" name="hr.srce.GridFTP-Transfer" fqan="" profile="ARGO_MON_OPERATORS"/>
+    <e:entry service_flavour="globus-GRIDFTP" name="org.nagios.GridFTP-Check" fqan="" profile="ARGO_MON_OPERATORS"/>
+    <e:entry service_flavour="globus-GSISSHD" name="org.nagios.gsissh-Check" fqan="" profile="ARGO_MON_OPERATORS"/>
+    <e:entry service_flavour="GRAM5" name="eu.egi.GRAM-CertValidity" fqan="" profile="ARGO_MON_OPERATORS"/>
+    <e:entry service_flavour="GRAM5" name="hr.srce.GRAM-Auth" fqan="" profile="ARGO_MON_OPERATORS"/>
+    <e:entry service_flavour="GRAM5" name="hr.srce.GRAM-Command" fqan="" profile="ARGO_MON_OPERATORS"/>
+    <e:entry service_flavour="LB" name="eu.egi.LB-CertValidity" fqan="" profile="ARGO_MON_OPERATORS"/>
+    <e:entry service_flavour="Local-LFC" name="ch.cern.LFC-Ping" fqan="" profile="ARGO_MON_OPERATORS"/>
+    <e:entry service_flavour="Local-LFC" name="ch.cern.LFC-Read" fqan="" profile="ARGO_MON_OPERATORS"/>
+    <e:entry service_flavour="MyProxy" name="eu.egi.MyProxy-CertValidity" fqan="" profile="ARGO_MON_OPERATORS"/>
+    <e:entry service_flavour="MyProxy" name="hr.srce.MyProxy-Store" fqan="" profile="ARGO_MON_OPERATORS"/>
+    <e:entry service_flavour="QCG.Broker" name="eu.egi.QCG-Broker-CertValidity" fqan="" profile="ARGO_MON_OPERATORS"/>
+    <e:entry service_flavour="QCG.Broker" name="pl.plgrid.QCG-Broker" fqan="" profile="ARGO_MON_OPERATORS"/>
+    <e:entry service_flavour="QCG.Computing" name="eu.egi.QCG-Computing-CertValidity" fqan="" profile="ARGO_MON_OPERATORS"/>
+    <e:entry service_flavour="QCG.Computing" name="pl.plgrid.QCG-Computing" fqan="" profile="ARGO_MON_OPERATORS"/>
+    <e:entry service_flavour="QCG.Notification" name="pl.plgrid.QCG-Notification" fqan="" profile="ARGO_MON_OPERATORS"/>
+    <e:entry service_flavour="Site-BDII" name="org.bdii.Entries" fqan="" profile="ARGO_MON_OPERATORS"/>
+    <e:entry service_flavour="Site-BDII" name="org.bdii.Freshness" fqan="" profile="ARGO_MON_OPERATORS"/>
+    <e:entry service_flavour="Site-BDII" name="org.nagios.BDII-Check" fqan="" profile="ARGO_MON_OPERATORS"/>
+    <e:entry service_flavour="SRM" name="eu.egi.SRM-CertValidity" fqan="" profile="ARGO_MON_OPERATORS"/>
+    <e:entry service_flavour="SRM" name="org.sam.SRM-Del" fqan="" profile="ARGO_MON_OPERATORS"/>
+    <e:entry service_flavour="SRM" name="org.sam.SRM-Get" fqan="" profile="ARGO_MON_OPERATORS"/>
+    <e:entry service_flavour="SRM" name="org.sam.SRM-GetSURLs" fqan="" profile="ARGO_MON_OPERATORS"/>
+    <e:entry service_flavour="SRM" name="org.sam.SRM-GetTURLs" fqan="" profile="ARGO_MON_OPERATORS"/>
+    <e:entry service_flavour="SRM" name="org.sam.SRM-Ls" fqan="" profile="ARGO_MON_OPERATORS"/>
+    <e:entry service_flavour="SRM" name="org.sam.SRM-LsDir" fqan="" profile="ARGO_MON_OPERATORS"/>
+    <e:entry service_flavour="SRM" name="org.sam.SRM-Put" fqan="" profile="ARGO_MON_OPERATORS"/>
+    <e:entry service_flavour="Top-BDII" name="org.bdii.Entries" fqan="" profile="ARGO_MON_OPERATORS"/>
+    <e:entry service_flavour="Top-BDII" name="org.bdii.Freshness" fqan="" profile="ARGO_MON_OPERATORS"/>
+    <e:entry service_flavour="Top-BDII" name="org.nagios.BDII-Check" fqan="" profile="ARGO_MON_OPERATORS"/>
+    <e:entry service_flavour="unicore6.Gateway" name="emi.unicore.Gateway" fqan="" profile="ARGO_MON_OPERATORS"/>
+    <e:entry service_flavour="unicore6.Registry" name="emi.unicore.Registry" fqan="" profile="ARGO_MON_OPERATORS"/>
+    <e:entry service_flavour="unicore6.ServiceOrchestrator" name="emi.unicore.ServiceOrchestrator" fqan="" profile="ARGO_MON_OPERATORS"/>
+    <e:entry service_flavour="unicore6.StorageManagement" name="emi.unicore.GlobalStorage" fqan="" profile="ARGO_MON_OPERATORS"/>
+    <e:entry service_flavour="unicore6.StorageManagement" name="emi.unicore.GlobalStorage-FreeSpace" fqan="" profile="ARGO_MON_OPERATORS"/>
+    <e:entry service_flavour="unicore6.TargetSystemFactory" name="emi.unicore.TargetSystemFactory" fqan="" profile="ARGO_MON_OPERATORS"/>
+    <e:entry service_flavour="unicore6.TargetSystemFactory" name="emi.unicore.UNICORE-Job" fqan="" profile="ARGO_MON_OPERATORS"/>
+    <e:entry service_flavour="unicore6.UVOSAssertionQueryService" name="emi.unicore.UVOS" fqan="" profile="ARGO_MON_OPERATORS"/>
+    <e:entry service_flavour="unicore6.WorkflowFactory" name="emi.unicore.WorkflowService" fqan="" profile="ARGO_MON_OPERATORS"/>
+    <e:entry service_flavour="VOMS" name="eu.egi.VOMS-CertValidity" fqan="" profile="ARGO_MON_OPERATORS"/>
+    <e:entry service_flavour="webdav" name="ch.cern.WebDAV" fqan="" profile="ARGO_MON_OPERATORS"/>
+    <e:entry service_flavour="argo.mon" name="eu.egi.CertValidity" fqan="" profile="OPS_MONITOR"/>
+    <e:entry service_flavour="argo.mon" name="org.nagios.NagiosWebInterface" fqan="" profile="OPS_MONITOR"/>
+    <e:entry service_flavour="argo.webui" name="org.nagios.ARGOWeb-AR" fqan="" profile="OPS_MONITOR"/>
+    <e:entry service_flavour="argo.webui" name="org.nagios.ARGOWeb-Status" fqan="" profile="OPS_MONITOR"/>
+    <e:entry service_flavour="ch.cern.cvmfs.stratum.0" name="org.nagiosexchange.CVMFS-WebCheck" fqan="" profile="OPS_MONITOR"/>
+    <e:entry service_flavour="egi.aai.oidc" name="eu.egi.CertValidity" fqan="" profile="OPS_MONITOR"/>
+    <e:entry service_flavour="egi.AccountingPortal" name="eu.egi.CertValidity" fqan="" profile="OPS_MONITOR"/>
+    <e:entry service_flavour="egi.AccountingPortal" name="org.nagiosexchange.AccountingPortal-WebCheck" fqan="" profile="OPS_MONITOR"/>
+    <e:entry service_flavour="egi.APELRepository" name="org.activemq.OpenWireSSL" fqan="" profile="OPS_MONITOR"/>
+    <e:entry service_flavour="egi.AppDB" name="eu.egi.CertValidity" fqan="" profile="OPS_MONITOR"/>
+    <e:entry service_flavour="egi.AppDB" name="org.nagiosexchange.AppDB-WebCheck" fqan="" profile="OPS_MONITOR"/>
+    <e:entry service_flavour="egi.GGUS" name="eu.egi.CertValidity" fqan="" profile="OPS_MONITOR"/>
+    <e:entry service_flavour="egi.GGUS" name="org.nagiosexchange.GGUS-WebCheck" fqan="" profile="OPS_MONITOR"/>
+    <e:entry service_flavour="egi.GOCDB" name="eu.egi.CertValidity" fqan="" profile="OPS_MONITOR"/>
+    <e:entry service_flavour="egi.GOCDB" name="org.nagiosexchange.GOCDB-PI" fqan="" profile="OPS_MONITOR"/>
+    <e:entry service_flavour="egi.GOCDB" name="org.nagiosexchange.GOCDB-WebCheck" fqan="" profile="OPS_MONITOR"/>
+    <e:entry service_flavour="egi.GOCDB" name="org.nagios.GOCDB-PortCheck" fqan="" profile="OPS_MONITOR"/>
+    <e:entry service_flavour="egi.MetricsPortal" name="org.nagiosexchange.MetricsPortal-WebCheck" fqan="" profile="OPS_MONITOR"/>
+    <e:entry service_flavour="egi.MSGBroker" name="eu.egi.CertValidity" fqan="" profile="OPS_MONITOR"/>
+    <e:entry service_flavour="egi.MSGBroker" name="org.activemq.Network-Topic" fqan="" profile="OPS_MONITOR"/>
+    <e:entry service_flavour="egi.MSGBroker" name="org.activemq.Network-VirtualDestination" fqan="" profile="OPS_MONITOR"/>
+    <e:entry service_flavour="egi.MSGBroker" name="org.activemq.OpenWire" fqan="" profile="OPS_MONITOR"/>
+    <e:entry service_flavour="egi.MSGBroker" name="org.activemq.OpenWireSSL" fqan="" profile="OPS_MONITOR"/>
+    <e:entry service_flavour="egi.MSGBroker" name="org.activemq.STOMP" fqan="" profile="OPS_MONITOR"/>
+    <e:entry service_flavour="egi.MSGBroker" name="org.activemq.STOMPSSL" fqan="" profile="OPS_MONITOR"/>
+    <e:entry service_flavour="egi.MSGBroker" name="org.nagiosexchange.Broker-BDII" fqan="" profile="OPS_MONITOR"/>
+    <e:entry service_flavour="egi.OpsPortal" name="eu.egi.CertValidity" fqan="" profile="OPS_MONITOR"/>
+    <e:entry service_flavour="egi.OpsPortal" name="org.nagiosexchange.OpsPortal-WebCheck" fqan="" profile="OPS_MONITOR"/>
+    <e:entry service_flavour="egi.Perun" name="eu.egi.CertValidity" fqan="" profile="OPS_MONITOR"/>
+    <e:entry service_flavour="egi.Perun" name="eu.egi.cloud.Perun-Check" fqan="" profile="OPS_MONITOR"/>
+    <e:entry service_flavour="egi.Portal" name="eu.egi.CertValidity" fqan="" profile="OPS_MONITOR"/>
+    <e:entry service_flavour="egi.Portal" name="org.nagiosexchange.Portal-WebCheck" fqan="" profile="OPS_MONITOR"/>
+    <e:entry service_flavour="egi.TMP" name="org.nagiosexchange.TMP-WebCheck" fqan="" profile="OPS_MONITOR"/>
+    <e:entry service_flavour="eu.egi.cloud.broker.vmdirac" name="eu.egi.CertValidity" fqan="" profile="OPS_MONITOR"/>
+    <e:entry service_flavour="eu.egi.notebooks.jupyterhub" name="eu.egi.Notebooks-Status" fqan="" profile="OPS_MONITOR"/>
+    <e:entry service_flavour="eu.egi.rt" name="eu.egi.CertValidity" fqan="" profile="OPS_MONITOR"/>
+    <e:entry service_flavour="eu.egi.rt" name="org.nagiosexchange.RT-WebCheck" fqan="" profile="OPS_MONITOR"/>
+    <e:entry service_flavour="eu.eudat.itsm.spmt" name="eudat.itsm.spmt-healthcheck" fqan="" profile="OPS_MONITOR"/>
+    <e:entry service_flavour="ngi.OpsPortal" name="eu.egi.CertValidity" fqan="" profile="OPS_MONITOR"/>
+    <e:entry service_flavour="ngi.OpsPortal" name="org.nagiosexchange.OpsPortal-WebCheck" fqan="" profile="OPS_MONITOR"/>
+    <e:entry service_flavour="org.onedata.oneprovider" name="eu.egi.CertValidity" fqan="" profile="OPS_MONITOR"/>
+    <e:entry service_flavour="org.onedata.onezone" name="eu.egi.CertValidity" fqan="" profile="OPS_MONITOR"/>
+    <e:entry service_flavour="VOMS" name="eu.egi.VOMS-CertValidity" fqan="" profile="OPS_MONITOR"/>
+    <e:entry service_flavour="eu.egi.cloud.vm-management.occi" name="eu.egi.cloud.OCCI-Categories" fqan="" profile="FEDCLOUD"/>
+    <e:entry service_flavour="eu.egi.cloud.vm-management.occi" name="eu.egi.cloud.OCCI-Context" fqan="" profile="FEDCLOUD"/>
+    <e:entry service_flavour="eu.egi.cloud.vm-management.occi" name="eu.egi.cloud.OCCI-VM-OIDC" fqan="" profile="FEDCLOUD"/>
+    <e:entry service_flavour="APEL" name="org.apel.APEL-Pub" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="APEL" name="org.apel.APEL-Sync" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="ARC-CE" name="org.nordugrid.ARC-CE-ARIS" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="ARC-CE" name="org.nordugrid.ARC-CE-IGTF" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="ARC-CE" name="org.nordugrid.ARC-CE-result" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="ARC-CE" name="org.nordugrid.ARC-CE-srm" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="ARC-CE" name="org.nordugrid.ARC-CE-SRM-result" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="ARC-CE" name="org.nordugrid.ARC-CE-SRM-submit" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="ARC-CE" name="org.nordugrid.ARC-CE-submit" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="ARC-CE" name="org.nordugrid.ARC-CE-sw-csh" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="ARC-CE" name="org.nordugrid.ARC-CE-sw-gcc" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="ARC-CE" name="org.nordugrid.ARC-CE-sw-perl" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="ARC-CE" name="org.nordugrid.ARC-CE-sw-python" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="Central-LFC" name="ch.cern.LFC-Ping" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="Central-LFC" name="ch.cern.LFC-Read" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="Central-LFC" name="ch.cern.LFC-Write" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="CREAM-CE" name="emi.cream.CREAMCE-AllowedSubmission" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="CREAM-CE" name="emi.cream.CREAMCE-ServiceInfo" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="CREAM-CE" name="eu.egi.CREAMCE-CertValidity" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="CREAM-CE" name="eu.egi.CREAM-IGTF" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="egi.aai.oidc" name="org.nagios.OIDC-AuthZ" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="egi.aai.oidc" name="org.nagios.OIDC-Provider-Config" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="egi.aai.saml" name="org.nagios.IdP-DiscoveryService" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="egi.aai.saml" name="org.nagios.SAML-IdP" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="egi.aai.saml" name="org.nagios.SAML-SP" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="egi.aai.tts" name="org.nagios.TTS-MasterPortal-Config" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="egi.aai.tts" name="org.nagios.TTS-MasterPortal-Register" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="eu.egi.cloud.accounting" name="eu.egi.cloud.APEL-Pub" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="eu.egi.cloud.broker.compss" name="org.nagios.Broker-TCP" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="eu.egi.cloud.broker.proprietary.slipstream" name="org.nagios.Broker-TCP" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="eu.egi.cloud.broker.vmdirac" name="org.nagios.Broker-TCP" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="eu.egi.cloud.vm-management.occi" name="eu.egi.cloud.OCCI-AppDB-Sync" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="eu.egi.cloud.vm-management.occi" name="eu.egi.cloud.OCCI-VM" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="eu.egi.cloud.vm-management.occi" name="eu.egi.OCCI-IGTF" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="eu.egi.cloud.vm-management.occi" name="org.nagios.OCCI-TCP" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="eu.egi.datatransfer.fts" name="ch.cern.FTS3-Service" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="eu.egi.datatransfer.fts" name="ch.cern.FTS3-StalledTransfers" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="eu.egi.datatransfer.fts" name="eu.egi.FTS3-CertValidity" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="eu.egi.datatransfer.fts" name="eu.egi.FTS3-IGTF" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="eu.egi.datatransfer.webfts" name="eu.egi.CertValidity" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="eu.egi.datatransfer.webfts" name="eu.egi.HTTPS-IGTF" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="eu.egi.notebooks.jupyterhub" name="eu.egi.Notebooks-Status" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="globus-GRIDFTP" name="hr.srce.GridFTP-Transfer" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="globus-GRIDFTP" name="org.nagios.GridFTP-Check" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="globus-GSISSHD" name="org.nagios.gsissh-Check" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="GRAM5" name="eu.egi.GRAM-CertValidity" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="GRAM5" name="hr.srce.GRAM-Auth" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="GRAM5" name="hr.srce.GRAM-Command" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="LB" name="eu.egi.LB-CertValidity" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="Local-LFC" name="ch.cern.LFC-Ping" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="Local-LFC" name="ch.cern.LFC-Read" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="MyProxy" name="eu.egi.MyProxy-CertValidity" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="MyProxy" name="hr.srce.MyProxy-Store" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="ngi.ARGUS" name="eu.egi.Argus-DNs" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="org.onedata.oneprovider" name="org.onedata.Oneprovider-Health" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="org.onedata.onezone" name="org.onedata.Onezone-Health" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="org.openstack.nova" name="eu.egi.cloud.OpenStack-VM" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="org.openstack.nova" name="org.nagios.Keystone-TCP" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="QCG.Broker" name="eu.egi.QCG-Broker-CertValidity" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="QCG.Broker" name="pl.plgrid.QCG-Broker" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="QCG.Computing" name="eu.egi.QCG-Computing-CertValidity" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="QCG.Computing" name="pl.plgrid.QCG-Computing" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="QCG.Notification" name="pl.plgrid.QCG-Notification" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="Site-BDII" name="org.bdii.Entries" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="Site-BDII" name="org.bdii.Freshness" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="Site-BDII" name="org.nagios.BDII-Check" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="Site-BDII" name="org.nagios.GLUE2-Check" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="SRM" name="eu.egi.SRM-CertValidity" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="SRM" name="org.sam.SRM-All" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="SRM" name="org.sam.SRM-Del" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="SRM" name="org.sam.SRM-Get" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="SRM" name="org.sam.SRM-GetSURLs" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="SRM" name="org.sam.SRM-GetTURLs" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="SRM" name="org.sam.SRM-Ls" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="SRM" name="org.sam.SRM-LsDir" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="SRM" name="org.sam.SRM-Put" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="Top-BDII" name="org.bdii.Entries" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="Top-BDII" name="org.bdii.Freshness" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="Top-BDII" name="org.nagios.BDII-Check" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="unicore6.Gateway" name="emi.unicore.Gateway" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="unicore6.Registry" name="emi.unicore.Registry" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="unicore6.ServiceOrchestrator" name="emi.unicore.ServiceOrchestrator" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="unicore6.StorageManagement" name="emi.unicore.GlobalStorage" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="unicore6.StorageManagement" name="emi.unicore.GlobalStorage-FreeSpace" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="unicore6.TargetSystemFactory" name="emi.unicore.TargetSystemFactory" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="unicore6.TargetSystemFactory" name="emi.unicore.UNICORE-Job" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="unicore6.UVOSAssertionQueryService" name="emi.unicore.UVOS" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="unicore6.WorkflowFactory" name="emi.unicore.WorkflowService" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="VOMS" name="eu.egi.VOMS-CertValidity" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="webdav" name="ch.cern.WebDAV" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="WMS" name="eu.egi.WMProxy-CertValidity" fqan="" profile="ARGO_MON"/>
+    <e:entry service_flavour="ARC-CE" name="eu.egi.sec.ARCCE-Pakiti-Check" fqan="" profile="SEC_MONITOR"/>
+    <e:entry service_flavour="ARC-CE" name="eu.egi.sec.ARC-CE-result" fqan="" profile="SEC_MONITOR"/>
+    <e:entry service_flavour="ARC-CE" name="eu.egi.sec.WN-check_CVE-2013-2094" fqan="" profile="SEC_MONITOR"/>
+    <e:entry service_flavour="ARC-CE" name="eu.egi.sec.WN-check_CVE-2015-3245" fqan="" profile="SEC_MONITOR"/>
+    <e:entry service_flavour="ARC-CE" name="eu.egi.sec.WN-check_CVE-2016-5195" fqan="" profile="SEC_MONITOR"/>
+    <e:entry service_flavour="ARC-CE" name="eu.egi.sec.WN-check_CVE-2018-1111" fqan="" profile="SEC_MONITOR"/>
+    <e:entry service_flavour="ARC-CE" name="eu.egi.sec.WN-check_CVE-2018-12021" fqan="" profile="SEC_MONITOR"/>
+    <e:entry service_flavour="ARC-CE" name="eu.egi.sec.WN-check_CVE-2018-14634" fqan="" profile="SEC_MONITOR"/>
+    <e:entry service_flavour="ARC-CE" name="eu.egi.sec.WN-check_EGI-SVG-2016-5195" fqan="" profile="SEC_MONITOR"/>
+    <e:entry service_flavour="ARC-CE" name="eu.egi.sec.WN-check_EGI-SVG-2018-14213" fqan="" profile="SEC_MONITOR"/>
+    <e:entry service_flavour="ARC-CE" name="eu.egi.sec.WN-CRL" fqan="" profile="SEC_MONITOR"/>
+    <e:entry service_flavour="ARC-CE" name="eu.egi.sec.WN-dcache-perms" fqan="" profile="SEC_MONITOR"/>
+    <e:entry service_flavour="ARC-CE" name="eu.egi.sec.WN-FilePermVulns" fqan="" profile="SEC_MONITOR"/>
+    <e:entry service_flavour="ARC-CE" name="eu.egi.sec.WN-Pakiti" fqan="" profile="SEC_MONITOR"/>
+    <e:entry service_flavour="ARC-CE" name="eu.egi.sec.WN-Permissions" fqan="" profile="SEC_MONITOR"/>
+    <e:entry service_flavour="ARC-CE" name="eu.egi.sec.WN-RDSModuleCheck" fqan="" profile="SEC_MONITOR"/>
+    <e:entry service_flavour="ARC-CE" name="eu.egi.sec.WN-Torque" fqan="" profile="SEC_MONITOR"/>
+    <e:entry service_flavour="CREAM-CE" name="eu.egi.sec.CREAMCE-JobSubmit" fqan="" profile="SEC_MONITOR"/>
+    <e:entry service_flavour="CREAM-CE" name="eu.egi.sec.CREAMCE-Pakiti-Check" fqan="" profile="SEC_MONITOR"/>
+    <e:entry service_flavour="CREAM-CE" name="eu.egi.sec.WN-check_CVE-2013-2094" fqan="" profile="SEC_MONITOR"/>
+    <e:entry service_flavour="CREAM-CE" name="eu.egi.sec.WN-check_CVE-2015-3245" fqan="" profile="SEC_MONITOR"/>
+    <e:entry service_flavour="CREAM-CE" name="eu.egi.sec.WN-check_CVE-2016-5195" fqan="" profile="SEC_MONITOR"/>
+    <e:entry service_flavour="CREAM-CE" name="eu.egi.sec.WN-check_CVE-2018-1111" fqan="" profile="SEC_MONITOR"/>
+    <e:entry service_flavour="CREAM-CE" name="eu.egi.sec.WN-check_CVE-2018-12021" fqan="" profile="SEC_MONITOR"/>
+    <e:entry service_flavour="CREAM-CE" name="eu.egi.sec.WN-check_CVE-2018-14634" fqan="" profile="SEC_MONITOR"/>
+    <e:entry service_flavour="CREAM-CE" name="eu.egi.sec.WN-check_EGI-SVG-2016-5195" fqan="" profile="SEC_MONITOR"/>
+    <e:entry service_flavour="CREAM-CE" name="eu.egi.sec.WN-check_EGI-SVG-2018-14213" fqan="" profile="SEC_MONITOR"/>
+    <e:entry service_flavour="CREAM-CE" name="eu.egi.sec.WN-CRL" fqan="" profile="SEC_MONITOR"/>
+    <e:entry service_flavour="CREAM-CE" name="eu.egi.sec.WN-dcache-perms" fqan="" profile="SEC_MONITOR"/>
+    <e:entry service_flavour="CREAM-CE" name="eu.egi.sec.WN-FilePermVulns" fqan="" profile="SEC_MONITOR"/>
+    <e:entry service_flavour="CREAM-CE" name="eu.egi.sec.WN-libkeyutils" fqan="" profile="SEC_MONITOR"/>
+    <e:entry service_flavour="CREAM-CE" name="eu.egi.sec.WN-Pakiti" fqan="" profile="SEC_MONITOR"/>
+    <e:entry service_flavour="CREAM-CE" name="eu.egi.sec.WN-Permissions" fqan="" profile="SEC_MONITOR"/>
+    <e:entry service_flavour="CREAM-CE" name="eu.egi.sec.WN-RDSModuleCheck" fqan="" profile="SEC_MONITOR"/>
+    <e:entry service_flavour="CREAM-CE" name="eu.egi.sec.WN-Torque" fqan="" profile="SEC_MONITOR"/>
+    <e:entry service_flavour="ngi.ARGUS" name="eu.egi.sec.ARGUS" fqan="" profile="SEC_MONITOR"/>
+    <e:entry service_flavour="argo.mon" name="eu.egi.CertValidity" fqan="" profile="OPS_MONITOR_CRITICAL"/>
+    <e:entry service_flavour="argo.mon" name="org.nagios.NagiosWebInterface" fqan="" profile="OPS_MONITOR_CRITICAL"/>
+    <e:entry service_flavour="argo.webui" name="org.nagios.ARGOWeb-AR" fqan="" profile="OPS_MONITOR_CRITICAL"/>
+    <e:entry service_flavour="argo.webui" name="org.nagios.ARGOWeb-Status" fqan="" profile="OPS_MONITOR_CRITICAL"/>
+    <e:entry service_flavour="ch.cern.cvmfs.stratum.0" name="org.nagiosexchange.CVMFS-WebCheck" fqan="" profile="OPS_MONITOR_CRITICAL"/>
+    <e:entry service_flavour="egi.aai.oidc" name="eu.egi.CertValidity" fqan="" profile="OPS_MONITOR_CRITICAL"/>
+    <e:entry service_flavour="egi.aai.oidc" name="org.nagios.OIDC-AuthZ" fqan="" profile="OPS_MONITOR_CRITICAL"/>
+    <e:entry service_flavour="egi.aai.oidc" name="org.nagios.OIDC-Provider-Config" fqan="" profile="OPS_MONITOR_CRITICAL"/>
+    <e:entry service_flavour="egi.aai.saml" name="org.nagios.IdP-DiscoveryService" fqan="" profile="OPS_MONITOR_CRITICAL"/>
+    <e:entry service_flavour="egi.aai.saml" name="org.nagios.SAML-IdP" fqan="" profile="OPS_MONITOR_CRITICAL"/>
+    <e:entry service_flavour="egi.aai.saml" name="org.nagios.SAML-SP" fqan="" profile="OPS_MONITOR_CRITICAL"/>
+    <e:entry service_flavour="egi.aai.tts" name="org.nagios.TTS-MasterPortal-Config" fqan="" profile="OPS_MONITOR_CRITICAL"/>
+    <e:entry service_flavour="egi.aai.tts" name="org.nagios.TTS-MasterPortal-Register" fqan="" profile="OPS_MONITOR_CRITICAL"/>
+    <e:entry service_flavour="egi.AccountingPortal" name="eu.egi.CertValidity" fqan="" profile="OPS_MONITOR_CRITICAL"/>
+    <e:entry service_flavour="egi.AccountingPortal" name="org.nagiosexchange.AccountingPortal-WebCheck" fqan="" profile="OPS_MONITOR_CRITICAL"/>
+    <e:entry service_flavour="egi.APELRepository" name="org.activemq.OpenWireSSL" fqan="" profile="OPS_MONITOR_CRITICAL"/>
+    <e:entry service_flavour="egi.AppDB" name="eu.egi.CertValidity" fqan="" profile="OPS_MONITOR_CRITICAL"/>
+    <e:entry service_flavour="egi.AppDB" name="org.nagiosexchange.AppDB-WebCheck" fqan="" profile="OPS_MONITOR_CRITICAL"/>
+    <e:entry service_flavour="egi.GGUS" name="eu.egi.CertValidity" fqan="" profile="OPS_MONITOR_CRITICAL"/>
+    <e:entry service_flavour="egi.GGUS" name="org.nagiosexchange.GGUS-WebCheck" fqan="" profile="OPS_MONITOR_CRITICAL"/>
+    <e:entry service_flavour="egi.GOCDB" name="eu.egi.CertValidity" fqan="" profile="OPS_MONITOR_CRITICAL"/>
+    <e:entry service_flavour="egi.GOCDB" name="org.nagiosexchange.GOCDB-PI" fqan="" profile="OPS_MONITOR_CRITICAL"/>
+    <e:entry service_flavour="egi.GOCDB" name="org.nagiosexchange.GOCDB-WebCheck" fqan="" profile="OPS_MONITOR_CRITICAL"/>
+    <e:entry service_flavour="egi.GOCDB" name="org.nagios.GOCDB-PortCheck" fqan="" profile="OPS_MONITOR_CRITICAL"/>
+    <e:entry service_flavour="egi.MetricsPortal" name="org.nagiosexchange.MetricsPortal-WebCheck" fqan="" profile="OPS_MONITOR_CRITICAL"/>
+    <e:entry service_flavour="egi.MSGBroker" name="eu.egi.CertValidity" fqan="" profile="OPS_MONITOR_CRITICAL"/>
+    <e:entry service_flavour="egi.MSGBroker" name="org.activemq.Network-Topic" fqan="" profile="OPS_MONITOR_CRITICAL"/>
+    <e:entry service_flavour="egi.MSGBroker" name="org.activemq.Network-VirtualDestination" fqan="" profile="OPS_MONITOR_CRITICAL"/>
+    <e:entry service_flavour="egi.MSGBroker" name="org.activemq.OpenWire" fqan="" profile="OPS_MONITOR_CRITICAL"/>
+    <e:entry service_flavour="egi.MSGBroker" name="org.activemq.OpenWireSSL" fqan="" profile="OPS_MONITOR_CRITICAL"/>
+    <e:entry service_flavour="egi.MSGBroker" name="org.activemq.STOMP" fqan="" profile="OPS_MONITOR_CRITICAL"/>
+    <e:entry service_flavour="egi.MSGBroker" name="org.activemq.STOMPSSL" fqan="" profile="OPS_MONITOR_CRITICAL"/>
+    <e:entry service_flavour="egi.OpsPortal" name="eu.egi.CertValidity" fqan="" profile="OPS_MONITOR_CRITICAL"/>
+    <e:entry service_flavour="egi.OpsPortal" name="org.nagiosexchange.OpsPortal-WebCheck" fqan="" profile="OPS_MONITOR_CRITICAL"/>
+    <e:entry service_flavour="egi.Perun" name="eu.egi.CertValidity" fqan="" profile="OPS_MONITOR_CRITICAL"/>
+    <e:entry service_flavour="egi.Perun" name="eu.egi.cloud.Perun-Check" fqan="" profile="OPS_MONITOR_CRITICAL"/>
+    <e:entry service_flavour="egi.Portal" name="eu.egi.CertValidity" fqan="" profile="OPS_MONITOR_CRITICAL"/>
+    <e:entry service_flavour="egi.Portal" name="org.nagiosexchange.Portal-WebCheck" fqan="" profile="OPS_MONITOR_CRITICAL"/>
+    <e:entry service_flavour="egi.TMP" name="org.nagiosexchange.TMP-WebCheck" fqan="" profile="OPS_MONITOR_CRITICAL"/>
+    <e:entry service_flavour="eu.egi.cloud.broker.vmdirac" name="eu.egi.CertValidity" fqan="" profile="OPS_MONITOR_CRITICAL"/>
+    <e:entry service_flavour="eu.egi.notebooks.jupyterhub" name="eu.egi.Notebooks-Status" fqan="" profile="OPS_MONITOR_CRITICAL"/>
+    <e:entry service_flavour="eu.egi.rt" name="eu.egi.CertValidity" fqan="" profile="OPS_MONITOR_CRITICAL"/>
+    <e:entry service_flavour="eu.egi.rt" name="org.nagiosexchange.RT-WebCheck" fqan="" profile="OPS_MONITOR_CRITICAL"/>
+    <e:entry service_flavour="ngi.OpsPortal" name="eu.egi.CertValidity" fqan="" profile="OPS_MONITOR_CRITICAL"/>
+    <e:entry service_flavour="ngi.OpsPortal" name="org.nagiosexchange.OpsPortal-WebCheck" fqan="" profile="OPS_MONITOR_CRITICAL"/>
+    <e:entry service_flavour="org.onedata.oneprovider" name="eu.egi.CertValidity" fqan="" profile="OPS_MONITOR_CRITICAL"/>
+    <e:entry service_flavour="org.onedata.onezone" name="eu.egi.CertValidity" fqan="" profile="OPS_MONITOR_CRITICAL"/>
+    <e:entry service_flavour="VOMS" name="eu.egi.VOMS-CertValidity" fqan="" profile="OPS_MONITOR_CRITICAL"/>
+</e:entries>

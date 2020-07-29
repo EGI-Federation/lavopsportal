@@ -116,6 +116,7 @@
 
     <view name="CsiAlarmsImport" authenticators="local" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
 
+        <argument name="ngi">_ngi_</argument>
         <connector type="XMLConnector">
             <parameter name="content" eval="view('CsiNagiosRecords')"/>
         </connector>
@@ -126,17 +127,16 @@
                 <element-ignore>
                     <element>
                         <element-ignore if="name()='wn' or name()='cod' or name()='current_state'"/>
-
                         <element in="service_description" out="service"/>
                         <element in="plugin_output" out="summary"/>
                         <element in="last_hard_state" out="status"/>
                         <element in="GenerationDate" out="start_date"/>
                         <element in="urltohelp" out="url_to_history"/>
                         <element-create>new_element('test_name',../service_description/text())</element-create>
-
                     </element>
                 </element-ignore>
             </element>
+
 
             <element in="Data" out="e:entries">
                     <element out="e:entries">
@@ -155,6 +155,10 @@
             </element>
 
             <element in="e:entries">
+                <element-ignore in="e:entries" if="$ngi!='_ngi_' and e:entry[@key='ngi']/text()!=$ngi"/>
+            </element>
+
+            <element in="e:entries">
                 <element out="e:entries">
                     <element-create  if="not(e:entry[@key='summary'])">entry('summary',../e:entry[@key='description']/text())</element-create>
                 </element>
@@ -163,19 +167,15 @@
             <element in="e:entries">
                 <set variable="nagiosDB" index="id/text()">view('CsiNagiosDB')/result/row</set>
                 <element out="e:entries">
-                    <element-create if="not(find($nagiosDB,../@key)/id/text())">entry('type','insert')</element-create>
-                    <element-create if="find($nagiosDB,../@key)/id/text() and find($nagiosDB,../@key)/summary/text()!=current()/../e:entry[@key='summary']/text()">entry('type','update record')</element-create>
-                    <element-create if="find($nagiosDB,../@key)/id/text() and find($nagiosDB,../@key)/summary/text()=current()/../e:entry[@key='summary']/text()">entry('type','update date')</element-create>
+                    <set variable="record">find($nagiosDB,../@key)</set>
+                    <element-create if="not($record/id/text())">entry('type','insert')</element-create>
+                    <element-create if="$record/summary/text()!=current()/../e:entry[@key='summary']/text()">entry('type','update record')</element-create>
+                    <element-create if="$record/summary/text()=current()/../e:entry[@key='summary']/text()">entry('type','update date')</element-create>
                 </element>
             </element>
+
         </processors>
 
-        <cache type="FileCache">
-            <trigger type="DeltaTimeTrigger">
-                <parameter name="minutes">4</parameter>
-            </trigger>
-            <trigger type="ViewNotifiedTrigger"/>
-        </cache>
 
         <renderers>
             <renderer type="DefaultRenderer">
