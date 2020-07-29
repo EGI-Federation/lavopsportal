@@ -110,7 +110,7 @@
 
     <view name="CsiAlarmsImport" authenticators="local" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
 
-        <argument name="ngi">_ngi_</argument>
+
         <connector type="XMLConnector">
             <parameter name="content" eval="view('CsiNagiosRecords')"/>
         </connector>
@@ -170,6 +170,13 @@
             </element>
 
         </processors>
+
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="minutes">6</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+        </cache>
 
 
         <renderers>

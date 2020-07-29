@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="mo" />
+    <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="mo">
+      <change beforePath="$PROJECT_DIR$/etc/app/views/CSI/csi.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/CSI/csi.xml" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,15 +28,6 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/etc/app/app-hidden.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="16" selection-start-line="16" selection-end-line="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.idea/vcs.xml">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
@@ -42,7 +35,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/etc/app/resources/xml/test.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1605">
+            <state relative-caret-position="105">
               <caret line="7" column="114" selection-start-line="7" selection-start-column="114" selection-end-line="7" selection-end-column="114" />
             </state>
           </provider>
@@ -84,20 +77,29 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/etc/app/views/CSI/csi.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="91" column="11" selection-start-line="91" selection-start-column="11" selection-end-line="91" selection-end-column="11" />
+            <state relative-caret-position="300">
+              <caret line="176" column="22" lean-forward="true" selection-start-line="176" selection-start-column="22" selection-end-line="176" selection-end-column="22" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/etc/app/views/VO/vo-voms.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="3" selection-end-column="6" />
+            <state relative-caret-position="439">
+              <caret line="590" column="24" lean-forward="true" selection-start-line="590" selection-start-column="24" selection-end-line="590" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/entities.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="202">
+              <caret line="553" column="16" selection-start-line="553" selection-start-column="16" selection-end-line="553" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -123,9 +125,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>BROADCAST.portal.voSitesEmails</find>
-      <find>voUrl</find>
-      <find>vomses-vo</find>
       <find>voms_vo</find>
       <find>memberslisturl</find>
       <find>OPSCORE.insertbdii</find>
@@ -153,6 +152,9 @@
       <find>urls_checker</find>
       <find>vo-id</find>
       <find>VO_full</find>
+      <find>cic_dump</find>
+      <find>vo-idc</find>
+      <find>OPSCORE_NGIs</find>
     </findStrings>
     <replaceStrings>
       <replace>xmlns=&quot;http://software.in2p3.fr/lavoisier/application.xsd&quot;</replace>
@@ -263,6 +265,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -318,7 +321,6 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1096,13 +1098,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/entities.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="48" column="16" selection-start-line="48" selection-start-column="16" selection-end-line="48" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/fr/in2p3/lavoisier/adaptors/lavoisier-serializer-json/2.2.2-SNAPSHOT/lavoisier-serializer-json-2.2.2-20200708.160056-16.jar!/fr/in2p3/lavoisier/adaptor/JSONStreamSerializer.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -1166,6 +1161,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/etc/app/app-hidden.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/vcs.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/etc/app/resources/xml/test.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="114" selection-start-line="7" selection-start-column="114" selection-end-line="7" selection-end-column="114" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/users.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
@@ -1201,34 +1213,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/app-hidden.properties">
+    <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/entities.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/vcs.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/resources/xml/test.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1605">
-          <caret line="7" column="114" selection-start-line="7" selection-start-column="114" selection-end-line="7" selection-end-column="114" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/views/CSI/csi.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="91" column="11" selection-start-line="91" selection-start-column="11" selection-end-line="91" selection-end-column="11" />
+        <state relative-caret-position="202">
+          <caret line="553" column="16" selection-start-line="553" selection-start-column="16" selection-end-line="553" selection-end-column="28" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/etc/app/views/VO/vo-voms.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="3" selection-end-column="6" />
+        <state relative-caret-position="439">
+          <caret line="590" column="24" lean-forward="true" selection-start-line="590" selection-start-column="24" selection-end-line="590" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/etc/app/views/CSI/csi.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="176" column="22" lean-forward="true" selection-start-line="176" selection-start-column="22" selection-end-line="176" selection-end-column="22" />
         </state>
       </provider>
     </entry>
