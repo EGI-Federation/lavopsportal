@@ -261,6 +261,7 @@
 
 
         </connector>
+        <serializer type="EncapsulateSerializer"/>
 
         <cache type="FileCache">
             <trigger type="DeltaTimeTrigger">
