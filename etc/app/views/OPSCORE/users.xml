@@ -58,7 +58,9 @@
 
             <element in="results">
                 <element-create as="last-child">view('OPSCORE_users_cic')</element-create>
+                <element-create as="last-child">view('OPSCORE_users_cic_serial')</element-create>
                 <element-create as="last-child">view('OPSCORE_users_csi')</element-create>
+
             </element>
 
             <element in="results" out="e:entries">
@@ -342,10 +344,48 @@
         </renderers>
     </view>
 
+    <view name="OPSCORE_users_cic_serial" authenticators="local">
+
+
+        <connector type="SQLConnector">
+            <parameter name="driver">com.mysql.jdbc.Driver</parameter>
+            <parameter name="url" eval="property('OPSCORE.db.url')"/>
+            <parameter name="username" eval="property('OPSCORE.db.username')"/>
+            <parameter name="password" eval="property('OPSCORE.db.password')"/>
+            <parameter name="query">
+                SELECT v.serial as ON_ENTITY, password( concat(c.first_name,' ' ,c.last_name) ) as PRIMARY_KEY,
+                concat(c.first_name,' ' ,c.last_name) as CN , c.email as EMAIL , c.DN as CERTDN , p.profile as USER_ROLE
+                FROM vo v, vo_header h, vo_contacts c, vo_contact_has_profile cp, vo_user_profile p
+                WHERE v.header_id = h.id
+                AND v.serial = cp.serial
+                AND cp.contact_id = c.id
+                AND cp.user_profile_id = p.id
+                AND h.status_id IN (1,2,8)
+            </parameter>
+        </connector>
+
+        <processors>
+            <processor match="/result/row/*[text()]" type="ReplaceProcessor"><parameter name="nodes" eval="entry(local-name(),text())"/></processor>
+            <processor match="/result/row" type="InsertProcessor"><parameter name="nodes" eval="entry('ENTITY_TYPE','voSerial')"/></processor>
+        </processors>
+
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="hours">1</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+        </cache>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+
+    </view>
 
 
     <view name="OPSCORE_users_cic" authenticators="local">
-
 
         <connector type="SQLConnector">
             <parameter name="driver">com.mysql.jdbc.Driver</parameter>
