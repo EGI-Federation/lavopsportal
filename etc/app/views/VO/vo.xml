@@ -144,13 +144,16 @@
                     </element>
                 </element>
 
-
-                <element-create as="first-child">new_element('VoVomsGroups')</element-create>
-                <element-create as="first-child">new_element('VoDisciplines')</element-create>
-                <element-create as="first-child">new_element('VoMailingLists')</element-create>
-                <element-create as="first-child">new_element('VoResources')</element-create>
-                <element-create as="first-child">new_element('VoContacts')</element-create>
                 <element-create as="first-child">new_element('VoHeader')</element-create>
+                <element-create as="first-child">new_element('VoContacts')</element-create>
+                <element-create as="first-child">new_element('VoResources')</element-create>
+                <element-create as="first-child">new_element('VoMailingLists')</element-create>
+                <element-create as="first-child">new_element('VoDisciplines')</element-create>
+                <element-create as="first-child">new_element('VoVomsGroups')</element-create>
+
+
+
+
             </elements>
 
 

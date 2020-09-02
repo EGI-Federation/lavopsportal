@@ -558,7 +558,7 @@
 
     <view name="vo-idcard">
         <connector type="XMLConnector">
-            <parameter name="content">view('VO_full')</parameter>
+            <parameter name="content" eval="view('VO_full')"/>
         </connector>
 
         <processors>
@@ -575,7 +575,7 @@
         <view name="vo-idcard-vo">
             <argument name="vo">_VO_</argument>
             <connector type="XMLConnector">
-                <parameter name="content">view('VO_full')</parameter>
+                <parameter name="content" eval="view('VO_full')"/>
             </connector>
 
             <processors>
