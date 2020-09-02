@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="mo">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/etc/app/views/VO/vo-voms.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/VO/vo-voms.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/app/views/VO/vo.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/VO/vo.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -86,8 +84,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/etc/app/views/VO/vo-voms.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="568" column="22" selection-start-line="568" selection-start-column="22" selection-end-line="568" selection-end-column="22" />
+            <state relative-caret-position="300">
+              <caret line="570" column="21" lean-forward="true" selection-start-line="570" selection-start-column="21" selection-end-line="570" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -781,7 +779,7 @@
     <frame x="1984" y="0" width="2496" height="1440" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.07714286" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.07714286" />
       <window_info id="Structure" order="1" weight="0.24958587" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -793,7 +791,7 @@
       <window_info id="Job Explorer" order="9" weight="0.32965213" />
       <window_info id="App Structure" order="10" weight="0.32965213" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.327454" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.327454" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.39151397" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -803,7 +801,7 @@
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="9" weight="0.32846004" />
       <window_info anchor="bottom" id="Console" order="10" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.26993865" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.26993865" />
       <window_info anchor="bottom" id="Version Control" order="12" weight="0.32786885" />
       <window_info anchor="bottom" id="Docker" order="13" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="14" />
@@ -1202,8 +1200,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/etc/app/views/VO/vo-voms.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="568" column="22" selection-start-line="568" selection-start-column="22" selection-end-line="568" selection-end-column="22" />
+        <state relative-caret-position="300">
+          <caret line="570" column="21" lean-forward="true" selection-start-line="570" selection-start-column="21" selection-end-line="570" selection-end-column="21" />
         </state>
       </provider>
     </entry>

@@ -122,7 +122,7 @@
     </view>
 
 
-    <view name="VO_full_new" authenticators="local">
+    <view name="VO_full" authenticators="local">
 
         <connector type="XMLConnector">
             <parameter name="content" eval="view('VoListUrl')"/>

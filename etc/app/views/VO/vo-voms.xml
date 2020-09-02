@@ -556,7 +556,7 @@
 
     </view>
 
-    <view name="vo-id-card">
+    <view name="vo-idcard">
         <connector type="XMLConnector">
             <parameter name="content">view('VO_full')</parameter>
         </connector>
