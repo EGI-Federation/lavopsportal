@@ -26,10 +26,13 @@
                 <entry>134.158.239.141</entry>
                 <entry>134.158.239.6</entry>
                 <entry>134.158.239.239</entry>
+                <entry>134.158.239.143</entry>
                 <!--cclavoisier01-->
                 <entry>134.158.239.88</entry>
                 <!--cclavoisierfr-->
                 <entry>134.158.239.26</entry>
+                <!-- Checkin team -->
+
             </parameter>
         </authenticator>
     </authenticators>
