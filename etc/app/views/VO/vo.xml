@@ -88,7 +88,7 @@
 
         <processors>
             <element in="result">
-                <set variable="voIdcard" index="root/IDCard/@key">view('vo-idcard')</set>
+                <set variable="voIdcard" index="/root/IDCard/@key">view('vo-idcard')</set>
                 <attribute-create out="reason">'xml feed missing'</attribute-create>
                 <element in="row" if="not(find($voIdcard,name/text()))"/>
             </element>
