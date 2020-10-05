@@ -1,5 +1,107 @@
 <views xmlns="http://software.in2p3.fr/lavoisier/application.xsd" >
 
+    <view name="ProblematicVOs">
+        <connector type="XMLConnector">
+            <parameter name="content" eval="new_element('root')"></parameter>
+        </connector>
+        <processors>
+            <element in="root">
+                <element-create>view('ProblematicVO-serial')</element-create>
+                <element-create>view('ProblematicVO-registry')</element-create>
+                <element-create>view('ProblematicVO-xml')</element-create>
+            </element>
+        </processors>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+    </view>
+
+    <view name="ProblematicVO-serial">
+        <connector type="SQLConnector">
+            <parameter name="driver">com.mysql.jdbc.Driver</parameter>
+            <parameter name="url" eval="property('VO.db.url')"/>
+            <parameter name="username" eval="property('VO.db.username')"/>
+            <parameter name="password" eval="property('VO.db.password')"/>
+            <parameter name="query">
+                SELECT  vo.name  FROM vo , vo_header vh , vo_status vs where  vh.serial='0' and vo.header_id=vh.id and vh.status_id=vs.id and vh.status_id=2
+            </parameter>
+        </connector>
+        <processors>
+            <element in="result">
+                <attribute-create out="reason">'serial equal to 0'</attribute-create>
+            </element>
+        </processors>
+
+        <cache type="FileCache">
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="minutes">25</parameter>
+            </trigger>
+        </cache>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+    </view>
+
+    <view name="ProblematicVO-registry">
+        <connector type="SQLConnector">
+            <parameter name="driver">com.mysql.jdbc.Driver</parameter>
+            <parameter name="url" eval="property('VO.db.url')"/>
+            <parameter name="username" eval="property('VO.db.username')"/>
+            <parameter name="password" eval="property('VO.db.password')"/>
+            <parameter name="query">
+                SELECT  vo.name  FROM vo , vo_header vh , vo_status vs where vh.id=vo.header_id and vh.status_id=vs.id and vh.status_id=2 and  vo.serial not in (select serial from vo_voms_server)
+            </parameter>
+        </connector>
+
+            <processors>
+                <element in="result">
+                    <attribute-create out="reason">'registry server missing'</attribute-create>
+                </element>
+            </processors>
+
+
+        <cache type="FileCache">
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="minutes">28</parameter>
+            </trigger>
+        </cache>
+    </view>
+
+    <view name="ProblematicVO-xml">
+        <connector type="SQLConnector">
+            <parameter name="driver">com.mysql.jdbc.Driver</parameter>
+            <parameter name="url" eval="property('VO.db.url')"/>
+            <parameter name="username" eval="property('VO.db.username')"/>
+            <parameter name="password" eval="property('VO.db.password')"/>
+            <parameter name="query">
+                SELECT  vo.name  FROM vo , vo_header vh , vo_status vs where vh.id=vo.header_id and vh.status_id=vs.id and vh.status_id=2
+            </parameter>
+        </connector>
+
+        <processors>
+            <element in="result">
+                <set variable="voIdcard" index="root/IDCard/@key">view('vo-idcard')</set>
+                <attribute-create out="reason">'xml feed missing'</attribute-create>
+                <element in="row" if="not(find($voIdcard,../name/text()))"/>
+            </element>
+        </processors>
+
+
+        <cache type="FileCache">
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="minutes">48</parameter>
+            </trigger>
+        </cache>
+    </view>
 
 
     <view name="CoManageVOs">
