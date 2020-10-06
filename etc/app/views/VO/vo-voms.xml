@@ -557,6 +557,8 @@
     </view>
 
     <view name="voIdcard">
+
+        <argument name="vo">_VO_</argument>
         <connector type="XMLConnector">
             <parameter name="content" eval="view('VO_full')"/>
         </connector>
@@ -565,28 +567,12 @@
             <element in="data" out="root">
                 <attribute-create out="current">'v3'</attribute-create>
                 <element in="Vo" out="IDCard">
-                </element>
-            </element>
-
-        </processors>
-
-    </view>
-
-        <view name="voIdcard-vo">
-            <argument name="vo">_VO_</argument>
-            <connector type="XMLConnector">
-                <parameter name="content" eval="view('VO_full')"/>
-            </connector>
-
-            <processors>
-                <element in="data" out="root">
-                <attribute-create out="current">'v3'</attribute-create>
-                <element in="Vo" out="IDCard">
                     <element-ignore in="Vo" if="$vo!='_VO_' and @key!=$vo"/>
                 </element>
-                </element>
-            </processors>
-        </view>
+            </element>
+        </processors>
+    </view>
+
 
 
 
