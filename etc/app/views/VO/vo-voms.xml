@@ -566,9 +566,10 @@
         <processors>
             <element in="data" out="root">
                 <attribute-create out="current">'v3'</attribute-create>
-                <element in="Vo" out="IDCard">
-                    <element-ignore in="Vo" if="$vo!='_VO_' and @key!=$vo"/>
-                </element>
+                <element in="Vo" out="IDCard"/>
+            </element>
+            <element in="root" if="$vo!='_VO_'">
+                <element-ignore in="Vo" if="@key!=$vo"/>
             </element>
         </processors>
 
