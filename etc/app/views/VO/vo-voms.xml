@@ -556,7 +556,7 @@
 
     </view>
 
-    <view name="vo-idcard">
+    <view name="voIdcard">
         <connector type="XMLConnector">
             <parameter name="content" eval="view('VO_full')"/>
         </connector>
@@ -572,7 +572,7 @@
 
     </view>
 
-        <view name="vo-idcard-vo">
+        <view name="voIdcard-vo">
             <argument name="vo">_VO_</argument>
             <connector type="XMLConnector">
                 <parameter name="content" eval="view('VO_full')"/>
@@ -590,98 +590,98 @@
 
 
 
-<!--    <view name="vo-idcard">-->
-<!--        -->
-
-<!--            <connector type="XSLTConnector">-->
-<!--                <parameter name="stylesheet" eval="document('/app/resources/xsl/vo-idcard.xsl')"/>-->
-<!--                <parameter name="input" eval="view('VO_full')"/>-->
-<!--                <parameter name="documents">-->
-<!--                    <entry key="voms-certificates" eval="view('voms-certificates')"/>-->
-<!--                    <entry key="cic_dump" eval="view('cic_dump')"/>-->
-<!--                    <entry key="VoDisciplinesList" eval="view('VoDisciplinesList')"/>-->
-<!--                </parameter>-->
-<!--            </connector>-->
+    <view name="vo-idcard">
 
 
-
-<!--        <cache type="FileCache">-->
-<!--            <trigger type="DeltaTimeTrigger">-->
-<!--                <parameter name="hours">6</parameter>-->
-<!--            </trigger>-->
-<!--            <trigger type="ViewNotifiedTrigger"/>-->
-<!--            <trigger type="DependencyRefreshedTrigger">-->
-<!--                <parameter name="views">-->
-<!--                    <entry>VO_full</entry>-->
-<!--                </parameter>-->
-<!--            </trigger>-->
-<!--        </cache>-->
-
-<!--        <renderers>-->
-<!--            <renderer type="DefaultRenderer">-->
-<!--                <parameter name="contentType">text/xml</parameter>-->
-<!--            </renderer>-->
-<!--        </renderers>-->
-
-<!--    </view>-->
+            <connector type="XSLTConnector">
+                <parameter name="stylesheet" eval="document('/app/resources/xsl/vo-idcard.xsl')"/>
+                <parameter name="input" eval="view('VO_full')"/>
+                <parameter name="documents">
+                    <entry key="voms-certificates" eval="view('voms-certificates')"/>
+                    <entry key="cic_dump" eval="view('cic_dump')"/>
+                    <entry key="VoDisciplinesList" eval="view('VoDisciplinesList')"/>
+                </parameter>
+            </connector>
 
 
 
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="hours">6</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="DependencyRefreshedTrigger">
+                <parameter name="views">
+                    <entry>VO_full</entry>
+                </parameter>
+            </trigger>
+        </cache>
 
-<!--    <view name="vo-idcard-full">-->
-<!--        -->
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
 
-<!--        <connector type="XSLTConnector">-->
-<!--            <parameter name="stylesheet" eval="document('/app/resources/xsl/vo-idcard.xsl')"/>-->
-<!--            <parameter name="input" eval="view('VO_full_full')"/>-->
-<!--            <parameter name="documents">-->
-<!--                <entry key="voms-certificates" eval="view('voms-certificates')"/>-->
-<!--                <entry key="cic_dump" eval="view('cic_dump')"/>-->
-<!--                <entry key="VoDisciplinesList" eval="view('VoDisciplinesList')"/>-->
-<!--            </parameter>-->
-<!--        </connector>-->
+    </view>
 
-<!--        <cache type="FileCache">-->
-<!--            <trigger type="DeltaTimeTrigger">-->
-<!--                <parameter name="hours">10</parameter>-->
-<!--            </trigger>-->
-<!--            <trigger type="ViewNotifiedTrigger"/>-->
-<!--            <trigger type="DependencyRefreshedTrigger">-->
-<!--                <parameter name="views">-->
-<!--                    <entry>VO_full_full</entry>-->
-<!--                </parameter>-->
-<!--            </trigger>-->
-<!--        </cache>-->
 
-<!--        <renderers>-->
-<!--            <renderer type="DefaultRenderer">-->
-<!--                <parameter name="contentType">text/xml</parameter>-->
-<!--            </renderer>-->
-<!--        </renderers>-->
 
-<!--    </view>-->
 
-<!--    <view name="vo-idcard-vo">-->
-<!--        -->
-<!--        <argument name="vo">_VO_</argument>-->
-<!--        <connector type="XMLConnector">-->
-<!--            <parameter name="content" eval="view('vo-idcard-full')"/>-->
-<!--        </connector>-->
+    <view name="vo-idcard-full">
 
-<!--        <processors>-->
-<!--            <element in="root">-->
-<!--                <element in="IDCard" if="@Name=$vo or $vo='_VO_'"/>-->
-<!--                <element-ignore/>-->
-<!--            </element>-->
-<!--        </processors>-->
 
-<!--        <renderers>-->
-<!--            <renderer type="DefaultRenderer">-->
-<!--                <parameter name="contentType">text/xml</parameter>-->
-<!--            </renderer>-->
-<!--        </renderers>-->
+        <connector type="XSLTConnector">
+            <parameter name="stylesheet" eval="document('/app/resources/xsl/vo-idcard.xsl')"/>
+            <parameter name="input" eval="view('VO_full_full')"/>
+            <parameter name="documents">
+                <entry key="voms-certificates" eval="view('voms-certificates')"/>
+                <entry key="cic_dump" eval="view('cic_dump')"/>
+                <entry key="VoDisciplinesList" eval="view('VoDisciplinesList')"/>
+            </parameter>
+        </connector>
 
-<!--    </view>-->
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="hours">10</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="DependencyRefreshedTrigger">
+                <parameter name="views">
+                    <entry>VO_full_full</entry>
+                </parameter>
+            </trigger>
+        </cache>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+
+    </view>
+
+    <view name="vo-idcard-vo">
+
+        <argument name="vo">_VO_</argument>
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('vo-idcard-full')"/>
+        </connector>
+
+        <processors>
+            <element in="root">
+                <element in="IDCard" if="@Name=$vo or $vo='_VO_'"/>
+                <element-ignore/>
+            </element>
+        </processors>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+
+    </view>
 
     <view name="vo-voms_listMembers" authenticators="local">
 
