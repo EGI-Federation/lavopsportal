@@ -560,7 +560,7 @@
 
         <argument name="vo">_VO_</argument>
         <connector type="XMLConnector">
-            <parameter name="content" eval="view('VO_full')"/>
+            <parameter name="content" eval="view('VO_full_new')"/>
         </connector>
 
         <processors>
@@ -571,6 +571,13 @@
                 </element>
             </element>
         </processors>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+
     </view>
 
 

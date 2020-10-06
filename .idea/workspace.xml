@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="mo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/app/views/VO/vo-voms.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/VO/vo-voms.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/app/views/VO/vo.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/VO/vo.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -54,20 +56,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/etc/app/views/VO/vo-voms.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="558" column="16" selection-start-line="558" selection-start-column="16" selection-end-line="558" selection-end-column="16" />
+            <state relative-caret-position="224">
+              <caret line="628" column="55" selection-start-line="628" selection-start-column="50" selection-end-line="628" selection-end-column="55" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/etc/app/views/VO/vo.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6435">
-              <caret line="429" lean-forward="true" selection-start-line="429" selection-end-line="429" />
+            <state relative-caret-position="89">
+              <caret line="226" column="7" lean-forward="true" selection-start-line="226" selection-start-column="7" selection-end-line="226" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -129,9 +131,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>vo-idca</find>
-      <find>VO_full</find>
-      <find>VO_full&quot;</find>
       <find>voDum</find>
       <find>marketpla</find>
       <find>generateMe</find>
@@ -159,6 +158,9 @@
       <find>idcard</find>
       <find>VO_full_new</find>
       <find>vo-idc</find>
+      <find>VO_full</find>
+      <find>_full</find>
+      <find>Vo_full&quot;</find>
     </findStrings>
     <replaceStrings>
       <replace>xmlns=&quot;http://software.in2p3.fr/lavoisier/application.xsd&quot;</replace>
@@ -241,9 +243,9 @@
         <option value="$PROJECT_DIR$/etc/app/app.properties" />
         <option value="$PROJECT_DIR$/etc/app/app-hidden.properties" />
         <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/users.xml" />
-        <option value="$PROJECT_DIR$/etc/app/views/VO/vo-voms.xml" />
         <option value="$PROJECT_DIR$/etc/service/authenticators.xml" />
         <option value="$PROJECT_DIR$/etc/app/resources/xml/fake_users.xml" />
+        <option value="$PROJECT_DIR$/etc/app/views/VO/vo-voms.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/VO/vo.xml" />
       </list>
     </option>
@@ -821,7 +823,7 @@
     <frame x="64" y="27" width="1856" height="1173" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19392265" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19392265" />
       <window_info id="Structure" order="1" weight="0.24958587" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -843,7 +845,7 @@
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="9" weight="0.32846004" />
       <window_info anchor="bottom" id="Console" order="10" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.26904532" />
+      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.26904532" />
       <window_info anchor="bottom" id="Version Control" order="12" weight="0.32786885" />
       <window_info anchor="bottom" id="Docker" order="13" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="14" />
@@ -1233,17 +1235,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/views/VO/vo.xml">
+    <entry file="file://$PROJECT_DIR$/etc/app/views/VO/vo-voms.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6435">
-          <caret line="429" lean-forward="true" selection-start-line="429" selection-end-line="429" />
+        <state relative-caret-position="224">
+          <caret line="628" column="55" selection-start-line="628" selection-start-column="50" selection-end-line="628" selection-end-column="55" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/views/VO/vo-voms.xml">
+    <entry file="file://$PROJECT_DIR$/etc/app/views/VO/vo.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="558" column="16" selection-start-line="558" selection-start-column="16" selection-end-line="558" selection-end-column="16" />
+        <state relative-caret-position="89">
+          <caret line="226" column="7" lean-forward="true" selection-start-line="226" selection-start-column="7" selection-end-line="226" selection-end-column="7" />
         </state>
       </provider>
     </entry>
