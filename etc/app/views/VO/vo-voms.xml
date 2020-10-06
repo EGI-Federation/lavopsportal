@@ -568,8 +568,9 @@
                 <attribute-create out="current">'v3'</attribute-create>
                 <element in="Vo" out="IDCard"/>
             </element>
+
             <element in="root" if="$vo!='_VO_'">
-                <element-ignore in="Vo" if="@key!=$vo"/>
+                <element-ignore in="IDCard" if="@key!=$vo"/>
             </element>
         </processors>
 
