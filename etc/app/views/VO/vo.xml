@@ -2873,4 +2873,40 @@
 
     </view>
 
+    <view name="VoDescription" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+    <connector type="SQLConnector">
+        <parameter name="driver">com.mysql.jdbc.Driver</parameter>
+        <parameter name="url" eval="property('VO.db.url')"/>
+        <parameter name="username" eval="property('VO.db.username')"/>
+        <parameter name="password" eval="property('VO.db.password')"/>
+        <parameter name="query">
+            (SELECT v.name, vh.description FROM vo v, vo_header vh WHERE v.last_change!='0000-00-00
+            00:00:00' and v.validation_date!='0000-00-00 00:00:00' and v.header_id=vh.id and vh.status_id=2)
+        </parameter>
+    </connector>
+
+        <processors>
+            <element in="result" out="e:entries">
+                <element in="row" out="e:entries">
+                    <element-ignore>
+                        <element-create>entry(name(..),choose(../text(),../text(),'NA'))</element-create>
+                    </element-ignore>
+                </element>
+            </element>
+        </processors>
+
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="minutes">11</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+        </cache>
+
+    <renderers>
+        <renderer type="DefaultRenderer">
+            <parameter name="contentType">text/xml</parameter>
+        </renderer>
+    </renderers>
+    </view>
+
 </views>
