@@ -578,7 +578,7 @@
 
             <element in="e:entries">
                 <set variable="services">view('ServicesAuthorized',entry('dn',$dn))</set>
-                <element in="e:entries">
+                <element in="e:entries" if="not($services/result/row/service/text()='ALL')" >
                     <element-ignore in="e:entries" if="not($services/result/row/service/text()=e:entry[@key='service']/text())"/>
                 </element>
             </element>

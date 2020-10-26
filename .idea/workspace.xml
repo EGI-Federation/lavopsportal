@@ -67,8 +67,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/etc/app/views/SOMBO/sombo.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="407">
-              <caret line="582" column="26" lean-forward="true" selection-start-line="582" selection-start-column="26" selection-end-line="582" selection-end-column="26" />
+            <state relative-caret-position="467">
+              <caret line="588" column="26" selection-start-line="588" selection-start-column="26" selection-end-line="588" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -130,7 +130,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>generateMetricsCron</find>
       <find>Probe</find>
       <find>Milestones</find>
       <find>gitlab.token</find>
@@ -160,6 +159,7 @@
       <find>VoEntries</find>
       <find>SQLConnector</find>
       <find>entry(</find>
+      <find>count</find>
     </findStrings>
     <replaceStrings>
       <replace>xmlns=&quot;http://software.in2p3.fr/lavoisier/application.xsd&quot;</replace>
@@ -828,7 +828,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="27" width="1856" height="1173" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19392265" />
       <window_info id="Structure" order="1" weight="0.24958587" />
@@ -843,7 +842,7 @@
       <window_info id="App Structure" order="10" weight="0.32965213" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32690454" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.39054966" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.39054966" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -852,7 +851,7 @@
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="9" weight="0.32846004" />
       <window_info anchor="bottom" id="Console" order="10" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.30472517" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.30472517" />
       <window_info anchor="bottom" id="Version Control" order="12" weight="0.32786885" />
       <window_info anchor="bottom" id="Docker" order="13" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="14" />
@@ -1251,8 +1250,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/etc/app/views/SOMBO/sombo.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
-          <caret line="582" column="26" lean-forward="true" selection-start-line="582" selection-start-column="26" selection-end-line="582" selection-end-column="26" />
+        <state relative-caret-position="467">
+          <caret line="588" column="26" selection-start-line="588" selection-start-column="26" selection-end-line="588" selection-end-column="26" />
         </state>
       </provider>
     </entry>
