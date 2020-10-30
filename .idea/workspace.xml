@@ -58,7 +58,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/etc/app/views/VO/vo.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="127">
+            <state relative-caret-position="43230">
               <caret line="2882" column="28" selection-start-line="2882" selection-start-column="28" selection-end-line="2882" selection-end-column="28" />
             </state>
           </provider>
@@ -67,8 +67,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/etc/app/views/SOMBO/sombo.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="467">
-              <caret line="588" column="26" selection-start-line="588" selection-start-column="26" selection-end-line="588" selection-end-column="26" />
+            <state relative-caret-position="554">
+              <caret line="595" selection-start-line="595" selection-end-line="595" />
             </state>
           </provider>
         </entry>
@@ -257,10 +257,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="64" />
-    <option name="y" value="27" />
-    <option name="width" value="1856" />
-    <option name="height" value="1173" />
+    <option name="x" value="1984" />
+    <option name="width" value="2496" />
+    <option name="height" value="1440" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -270,8 +269,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -343,6 +340,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -827,7 +826,7 @@
     <option name="totallyTimeSpent" value="15425000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="64" y="27" width="1856" height="1173" extended-state="6" />
+    <frame x="64" y="27" width="1856" height="1053" extended-state="6" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19392265" />
       <window_info id="Structure" order="1" weight="0.24958587" />
@@ -851,7 +850,7 @@
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="9" weight="0.32846004" />
       <window_info anchor="bottom" id="Console" order="10" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.30472517" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.3053435" />
       <window_info anchor="bottom" id="Version Control" order="12" weight="0.32786885" />
       <window_info anchor="bottom" id="Docker" order="13" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="14" />
@@ -1206,6 +1205,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/etc/app/views/VO/vo.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="43230">
+          <caret line="2882" column="28" selection-start-line="2882" selection-start-column="28" selection-end-line="2882" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/entities.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="7800">
@@ -1241,17 +1247,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/views/VO/vo.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="2882" column="28" selection-start-line="2882" selection-start-column="28" selection-end-line="2882" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/etc/app/views/SOMBO/sombo.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="467">
-          <caret line="588" column="26" selection-start-line="588" selection-start-column="26" selection-end-line="588" selection-end-column="26" />
+        <state relative-caret-position="554">
+          <caret line="595" selection-start-line="595" selection-end-line="595" />
         </state>
       </provider>
     </entry>

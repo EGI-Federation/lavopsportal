@@ -558,9 +558,9 @@
   </view>
 
     <view name="JiraSOFilteredbyDN" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
-       <argument name="dn"></argument>
+       <argument name="dn"/>
         <connector type="XMLConnector">
-            <parameter name="content" eval="view('JiraSOList')"></parameter>
+            <parameter name="content" eval="view('JiraSOList')"/>
         </connector>
 
         <processors>
@@ -596,7 +596,7 @@
 
 
     <view name="ServicesAuthorized">
-        <argument name="dn"></argument>
+        <argument name="dn"/>
         <connector type="SQLConnector">
             <parameter name="driver">com.mysql.jdbc.Driver</parameter>
             <parameter name="url" eval="property('ROD.db.url')"/>
