@@ -73,7 +73,7 @@
     </view>
 
 
-    <view name="VoList">
+    <view name="VoList" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
         
         <connector type="XMLConnector">
             <parameter name="content" eval="view('VoEntries')"/>
