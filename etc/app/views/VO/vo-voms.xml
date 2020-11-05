@@ -80,8 +80,8 @@
         </connector>
 
         <processors>
-            <element in="e:entries" out="data" namespace-ignore="true">
-                <element in="e:entries" out="Vo" if="e:entry[@key='status']='Production'" namespace-ignore="true" recursive="true">
+            <element in="e:entries" out="data">
+                <element in="e:entries" out="Vo" if="e:entry[@key='status']='Production'">
                     <attribute in="key" out="serial"/>
                     <attribute-create out="status">../e:entry[@key='status']/text()</attribute-create>
                     <attribute-create out="name">../e:entry[@key='name']/text()</attribute-create>
