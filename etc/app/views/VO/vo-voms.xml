@@ -76,20 +76,18 @@
     <view name="VoList">
         
         <connector type="XMLConnector">
-            <parameter name="content" eval="view('VO_full')"/>
+            <parameter name="content" eval="view('VoEntries')"/>
         </connector>
 
         <processors>
-            <element in="data">
-                <set variable="vo_disciplines">view('VoDisciplinesTree_Metrics')</set>
-
-             
-                <element in="Vo" attributes="@*[local-name()='serial']">                    
-                    <attribute-create out="status">../VoHeader/status/text()</attribute-create>
-                    <attribute-create out="name">../name/text()</attribute-create>
-                   <attribute-create out="scope">../VoHeader/scope/text()</attribute-create>
-                    <attribute-create out="homeUrl">../VoHeader/homepage_url/text()</attribute-create>
-                    <attribute-create out="members">$vo_disciplines/disciplines/discipline//row[@name=current()/../name/text()]/@NbUsers</attribute-create>
+            <element in="e:entries" out="data">
+                <element in="e:entries" out="Vo" if="e:entry[@key='status']='Production'">
+                    <attribute in="key" out="serial"/>
+                    <attribute-create out="status">../e:entry[@key='status']/text()</attribute-create>
+                    <attribute-create out="name">../e:entry[@key='name']/text()</attribute-create>
+                   <attribute-create out="scope">../e:entry[@key='scope']/text()</attribute-create>
+                    <attribute-create out="homeUrl">../e:entry[@key='homeUrl']/text()</attribute-create>
+                    <attribute-create out="members">../e:entry[@key='members']/text()</attribute-create>
 
                     <element-ignore/>
                 </element>
