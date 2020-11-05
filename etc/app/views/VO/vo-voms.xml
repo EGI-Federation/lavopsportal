@@ -93,6 +93,7 @@
                 </element>
                 <element-ignore/>
             </element>
+            <element in="data" namespace-ignore="true" recursive="true"></element>
 
 
         </processors>
