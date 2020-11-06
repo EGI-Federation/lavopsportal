@@ -320,8 +320,19 @@
                 <parameter name="contentType">text/xml</parameter>
             </renderer>
         </renderers>
+    </view>
 
+    <view name="VO_full_vo">
+        <argument name="vo"></argument>
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('VO_full_new')"/>
+        </connector>
 
+        <processors>
+            <element in="data">
+                <element-ignore in="Vo" if="@key!=$vo"/>
+            </element>
+        </processors>
     </view>
 
     <view name="VoDetails" authenticators="local">
@@ -2262,7 +2273,7 @@
         <cache type="FileCache">
 
             <trigger type="DeltaTimeTrigger">
-                <parameter name="hours">1</parameter>
+                <parameter name="minutes">15</parameter>
             </trigger>
             <trigger type="ViewNotifiedTrigger"/>
         </cache>
@@ -2743,25 +2754,25 @@
 
 
     <view name="VoListUrl">
+
         <connector type="SQLConnector">
             <parameter name="driver">com.mysql.jdbc.Driver</parameter>
             <parameter name="url" eval="property('VO.db.url')"/>
             <parameter name="username" eval="property('VO.db.username')"/>
             <parameter name="password" eval="property('VO.db.password')"/>
             <parameter name="query">
-                (SELECT v.* , vs.* FROM vo v, vo_header vh , vo_voms_server vs WHERE v.last_change!='0000-00-00
+                <entry>(SELECT v.* , vs.* FROM vo v, vo_header vh , vo_voms_server vs WHERE v.last_change!='0000-00-00
                 00:00:00' and v.validation_date!='0000-00-00 00:00:00' and v.header_id=vh.id and vh.status_id=2 and
-                v.serial=vs.serial)
-
+                    v.serial=vs.serial)
+                </entry>
             </parameter>
         </connector>
 
 
         <processors>
-            <element in="result" out="data">
+            <element in="result">
                 <element-ignore in="row"/>
                 <element-create>sort_by_number(../row,'serial/text()')</element-create>
-
             </element>
 
             <element in="data">

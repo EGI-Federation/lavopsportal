@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="mo">
-      <change beforePath="$PROJECT_DIR$/etc/app/views/VO/vo-voms.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/VO/vo-voms.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/app/views/VO/vo.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/VO/vo.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -48,8 +48,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/etc/app/views/VO/vo-voms.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="95" column="72" selection-start-line="95" selection-start-column="72" selection-end-line="95" selection-end-column="72" />
+            <state relative-caret-position="613">
+              <caret line="204" lean-forward="true" selection-start-line="204" selection-end-line="204" />
             </state>
           </provider>
         </entry>
@@ -57,8 +57,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/etc/app/views/VO/vo.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1091">
-              <caret line="2314" column="111" selection-start-line="2314" selection-start-column="111" selection-end-line="2314" selection-end-column="111" />
+            <state relative-caret-position="392">
+              <caret line="2758" lean-forward="true" selection-start-line="2758" selection-end-line="2758" />
             </state>
           </provider>
         </entry>
@@ -102,7 +102,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/etc/app/resources/xml/fake_users.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="686">
+            <state relative-caret-position="1695">
               <caret line="113" column="16" selection-start-line="113" selection-start-column="16" selection-end-line="113" selection-end-column="16" />
             </state>
           </provider>
@@ -129,11 +129,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>OPSCORE_users_ci</find>
-      <find>OPSCORE_users_cic</find>
-      <find>agg_</find>
-      <find>OPSCORE_users_cic_serial</find>
-      <find>_new</find>
       <find>Vo_full</find>
       <find>cron</find>
       <find>Vo_full_new</find>
@@ -159,6 +154,11 @@
       <find>VoEntries</find>
       <find>VolIst</find>
       <find>VoList</find>
+      <find>urls_checker</find>
+      <find>url_checker</find>
+      <find>VoStatusS</find>
+      <find>full_ne</find>
+      <find>VoListUrl</find>
     </findStrings>
     <replaceStrings>
       <replace>xmlns=&quot;http://software.in2p3.fr/lavoisier/application.xsd&quot;</replace>
@@ -241,10 +241,10 @@
         <option value="$PROJECT_DIR$/etc/app/app-hidden.properties" />
         <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/users.xml" />
         <option value="$PROJECT_DIR$/etc/service/authenticators.xml" />
-        <option value="$PROJECT_DIR$/etc/app/views/VO/vo.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/SOMBO/sombo.xml" />
         <option value="$PROJECT_DIR$/etc/app/resources/xml/fake_users.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/VO/vo-voms.xml" />
+        <option value="$PROJECT_DIR$/etc/app/views/VO/vo.xml" />
       </list>
     </option>
   </component>
@@ -268,7 +268,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -349,6 +348,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -391,7 +391,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Start Lavoisier server">
+  <component name="RunManager" selected="Application.Run">
     <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
@@ -410,7 +410,7 @@
     <configuration name="Run" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="fr.in2p3.lavoisier.command.StandaloneExec" />
       <module name="lavopsportal" />
-      <option name="PROGRAM_PARAMETERS" value="JiraSOFilteredbyDN?nbsteps=999&amp;accept=xml" />
+      <option name="PROGRAM_PARAMETERS" value="VoListUrl?nbsteps=999&amp;accept=xml" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -834,7 +834,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1984" y="0" width="2496" height="1440" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19387755" />
       <window_info id="Structure" order="1" weight="0.24958587" />
@@ -1234,6 +1233,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/etc/app/resources/xml/fake_users.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1695">
+          <caret line="113" column="16" selection-start-line="113" selection-start-column="16" selection-end-line="113" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/etc/app/resources/xml/superUser.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -1241,24 +1247,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/resources/xml/fake_users.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="686">
-          <caret line="113" column="16" selection-start-line="113" selection-start-column="16" selection-end-line="113" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/etc/app/views/VO/vo.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1091">
-          <caret line="2314" column="111" selection-start-line="2314" selection-start-column="111" selection-end-line="2314" selection-end-column="111" />
+        <state relative-caret-position="392">
+          <caret line="2758" lean-forward="true" selection-start-line="2758" selection-end-line="2758" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/etc/app/views/VO/vo-voms.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="95" column="72" selection-start-line="95" selection-start-column="72" selection-end-line="95" selection-end-column="72" />
+        <state relative-caret-position="613">
+          <caret line="204" lean-forward="true" selection-start-line="204" selection-end-line="204" />
         </state>
       </provider>
     </entry>
