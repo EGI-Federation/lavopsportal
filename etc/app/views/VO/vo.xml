@@ -2770,7 +2770,7 @@
 
 
         <processors>
-            <element in="result">
+            <element in="result" out="data">
                 <element-ignore in="row"/>
                 <element-create>sort_by_number(../row,'serial/text()')</element-create>
             </element>

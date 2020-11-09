@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="mo">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/etc/app/views/VO/vo.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/VO/vo.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -28,37 +29,37 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/endpoints.xml">
+        <entry file="file://$PROJECT_DIR$/etc/app/views/VO/vo-voms.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1920">
-              <caret line="128" column="87" selection-start-line="128" selection-start-column="87" selection-end-line="128" selection-end-column="87" />
+            <state relative-caret-position="204">
+              <caret line="50" lean-forward="true" selection-start-line="50" selection-end-line="50" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/etc/app/views/CSI/csi.xml">
+        <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/voms.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2610">
-              <caret line="174" column="22" selection-start-line="174" selection-start-column="22" selection-end-line="174" selection-end-column="22" />
+            <state relative-caret-position="60">
+              <caret line="4" column="77" selection-start-line="4" selection-start-column="77" selection-end-line="4" selection-end-column="77" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/downtimes.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1084">
+              <caret line="527" column="174" selection-start-line="527" selection-start-column="156" selection-end-line="527" selection-end-column="174" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/etc/app/views/VO/vo-voms.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="613">
-              <caret line="204" lean-forward="true" selection-start-line="204" selection-end-line="204" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/etc/app/views/VO/vo.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="392">
-              <caret line="2758" lean-forward="true" selection-start-line="2758" selection-end-line="2758" />
+            <state relative-caret-position="343">
+              <caret line="2774" column="62" lean-forward="true" selection-start-line="2774" selection-start-column="62" selection-end-line="2774" selection-end-column="62" />
             </state>
           </provider>
         </entry>
@@ -129,18 +130,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Vo_full</find>
-      <find>cron</find>
-      <find>Vo_full_new</find>
-      <find>vo-id</find>
-      <find>CoManageVOs</find>
-      <find>Vo_full_ne</find>
-      <find>index=</find>
-      <find>_ng&quot;</find>
-      <find>full_n</find>
-      <find>idcard</find>
-      <find>VO_full_new</find>
-      <find>vo-idc</find>
       <find>VO_full</find>
       <find>Vo_full&quot;</find>
       <find>_full&quot;</find>
@@ -158,7 +147,19 @@
       <find>url_checker</find>
       <find>VoStatusS</find>
       <find>full_ne</find>
+      <find>vo-id</find>
+      <find>OPSCORE_DOWNTIME_FILTER</find>
+      <find>VO_full&quot;</find>
+      <find>OPSCORE_DOWNTIME_1_cache</find>
+      <find>urls_che</find>
+      <find>OPSCORE_DOWNTIME_1</find>
+      <find>lavoisier/checkUrlsVo/checkUrlsVo</find>
+      <find>VoUrls</find>
+      <find>vomses-vo</find>
+      <find>voms_vo</find>
+      <find>vo-voms_INDEX</find>
       <find>VoListUrl</find>
+      <find>checkUrlsVo</find>
     </findStrings>
     <replaceStrings>
       <replace>xmlns=&quot;http://software.in2p3.fr/lavoisier/application.xsd&quot;</replace>
@@ -269,6 +270,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -348,7 +350,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -834,6 +835,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1984" y="0" width="2496" height="1440" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19387755" />
       <window_info id="Structure" order="1" weight="0.24958587" />
@@ -857,7 +859,7 @@
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="9" weight="0.32846004" />
       <window_info anchor="bottom" id="Console" order="10" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.30521473" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.30521473" />
       <window_info anchor="bottom" id="Version Control" order="12" weight="0.32786885" />
       <window_info anchor="bottom" id="Docker" order="13" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="14" />
@@ -968,13 +970,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
           <caret line="35" column="42" selection-start-line="35" selection-start-column="42" selection-end-line="35" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/downtimes.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="51" selection-start-line="51" selection-end-line="51" />
         </state>
       </provider>
     </entry>
@@ -1142,13 +1137,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/voms.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="22" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/etc/app/resources/xsl/egi_users.xsl">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -1247,17 +1235,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/views/VO/vo.xml">
+    <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/downtimes.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="2758" lean-forward="true" selection-start-line="2758" selection-end-line="2758" />
+        <state relative-caret-position="1084">
+          <caret line="527" column="174" selection-start-line="527" selection-start-column="156" selection-end-line="527" selection-end-column="174" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/voms.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="77" selection-start-line="4" selection-start-column="77" selection-end-line="4" selection-end-column="77" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/etc/app/views/VO/vo-voms.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="613">
-          <caret line="204" lean-forward="true" selection-start-line="204" selection-end-line="204" />
+        <state relative-caret-position="204">
+          <caret line="50" lean-forward="true" selection-start-line="50" selection-end-line="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/etc/app/views/VO/vo.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="343">
+          <caret line="2774" column="62" lean-forward="true" selection-start-line="2774" selection-start-column="62" selection-end-line="2774" selection-end-column="62" />
         </state>
       </provider>
     </entry>
