@@ -677,13 +677,15 @@
             </element>
 
             <element in="e:entries" out="downtimes" if="$api!='_api_' and $format!='csv'">
-                <element-ignore in="e:entry">
-                    <element-create if="../@key!='Endpoints'">new_element(../@key,../text())</element-create>
-                </element-ignore>
-                <element in="e:entries" out="endpoints" if="@key='entities'">
-                    <element in="e:entry" out="endpoint"/>
+                <element in="e:entries" out="downtime">
+                    <element-ignore in="e:entry">
+                        <element-create if="../@key!='Endpoints'">new_element(../@key,../text())</element-create>
+                    </element-ignore>
+                    <element in="e:entries" out="endpoints" if="@key='entities'">
+                        <element in="e:entry" out="endpoint"/>
+                    </element>
+                    <element-ignore/>
                 </element>
-                <element-ignore/>
             </element>
 
 
