@@ -653,7 +653,7 @@
 
 
 
-    <view xmlns:str="http://exslt.org/strings" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" name="OPSCORE_DOWNTIME_FILTER" xmlns:str="http://exslt.org/strings">
+    <view xmlns:str="http://exslt.org/strings" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" name="OPSCORE_DOWNTIME_FILTER" >
 
         <argument name="ngi">_NGI_</argument>
         <argument name="site">_SITE_</argument>
