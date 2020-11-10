@@ -659,6 +659,8 @@
         <argument name="site">_SITE_</argument>
         <argument name="tier">_TIER_</argument>
         <argument name="vo">_VO_</argument>
+        <argument name="api">_api_</argument>
+        <argument name="format">_format_</argument>
         <argument name="period">1</argument>
 
         <connector type="XMLConnector">
@@ -674,6 +676,15 @@
                 <element-ignore in="e:entries" if="$vo!='_VO_' and not(e:entries[@key='vos']/e:entry/text()=$vo)"/>
             </element>
 
+            <element in="e:entries" out="downtimes" if="$api!='_api_' and $format!='csv'">
+                <element-ignore in="e:entry">
+                    <element-create if="../@key!='Endpoints'">new_element(../@key,../text())</element-create>
+                </element-ignore>
+                <element in="e:entries" out="endpoints" if="@key='entities'">
+                    <element in="e:entry" out="endpoint"/>
+                </element>
+                <element-ignore/>
+            </element>
 
 
         </processors>

@@ -18,7 +18,7 @@
 
         <cache type="FileCache">
             <trigger type="DeltaTimeTrigger">
-                <parameter name="minutes">11</parameter>
+                <parameter name="minutes">16</parameter>
             </trigger>
         </cache>
     </view>
