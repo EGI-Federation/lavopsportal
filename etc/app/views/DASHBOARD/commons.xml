@@ -632,10 +632,6 @@
                         <element-create>$alarms/e:entries[e:entry[@key='site']/text()=current()/../../@key]</element-create>
                     </element>
 
-
-
-
-
                     <element in="e:entries" if="@key='avre'">
                         <element-create>$avRe/e:entries[@key=current()/../../@key]/*</element-create>
                     </element>
