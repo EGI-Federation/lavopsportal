@@ -8,6 +8,8 @@
             <parameter name="certificate" eval="property('certificate.path')"/>
             <parameter name="passphrase" eval="property('certificate.password')"/>
             <parameter name="force-redirect">true</parameter>
+            <parameter name="connect-timeout">400</parameter>
+            <parameter name="read-timeout">500</parameter>
         </connector>
 
         <serializer type="HTMLSerializer"/>

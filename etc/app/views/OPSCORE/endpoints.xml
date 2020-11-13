@@ -147,15 +147,15 @@
             <parameter name="url" eval="property('OPSCORE.update.servicesDB')"/>
             <parameter name="certificate" eval="property('certificate.path')"/>
             <parameter name="passphrase" eval="property('certificate.password')"/>
-            <parameter name="connect-timeout">120</parameter>
-            <parameter name="read-timeout">120</parameter>
+            <parameter name="connect-timeout">400</parameter>
+            <parameter name="read-timeout">500</parameter>
         </connector>
 
 
 
         <cache type="FileCache">
             <trigger type="DeltaTimeTrigger">
-                <parameter name="hours">2</parameter>
+                <parameter name="hours">3</parameter>
             </trigger>
             <trigger type="ViewNotifiedTrigger"/>
         </cache>
