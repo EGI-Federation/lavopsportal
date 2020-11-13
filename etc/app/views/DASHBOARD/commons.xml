@@ -22,6 +22,63 @@
         </cache>
     </view>
 
+    <view  authenticators="local" name="RodDelete1" xmlns:date="http://exslt.org/dates-and-times">
+        <variable name="last_update" eval="substring(date:add(date:date(),'-P90D'),0,11)"/>
+
+        <connector type="SQLConnector">
+            <parameter name="driver">com.mysql.jdbc.Driver</parameter>
+            <parameter name="url" eval="property('CSI.db.url')"/>
+            <parameter name="username" eval="property('ROD.db.username')"/>
+            <parameter name="password" eval="property('ROD.db.password')"/>
+            <parameter name="query">
+                <entry>DELETE from rod_nagios_history where updated_at &lt; </entry>
+                <entry eval="quot($last_update)"/>
+            </parameter>
+        </connector>
+
+        <cache type="FileCache">
+            <trigger type="ViewNotifiedTrigger"></trigger>
+        </cache>
+    </view>
+
+    <view  authenticators="local" name="RodDelete2" xmlns:date="http://exslt.org/dates-and-times">
+        <variable name="last_update" eval="substring(date:add(date:date(),'-P10D'),0,11)"/>
+
+        <connector type="SQLConnector">
+            <parameter name="driver">com.mysql.jdbc.Driver</parameter>
+            <parameter name="url" eval="property('CSI.db.url')"/>
+            <parameter name="username" eval="property('ROD.db.username')"/>
+            <parameter name="password" eval="property('ROD.db.password')"/>
+            <parameter name="query">
+                <entry>DELETE from rod_nagios_problem where ops_flags=0 and updated_at &lt; </entry>
+                <entry eval="quot($last_update)"/>
+            </parameter>
+        </connector>
+
+        <cache type="FileCache">
+            <trigger type="ViewNotifiedTrigger"></trigger>
+        </cache>
+    </view>
+
+    <view  authenticators="local" name="RodDelete3" xmlns:date="http://exslt.org/dates-and-times">
+        <variable name="last_update" eval="substring(date:add(date:date(),'-P3D'),0,11)"/>
+
+        <connector type="SQLConnector">
+            <parameter name="driver">com.mysql.jdbc.Driver</parameter>
+            <parameter name="url" eval="property('CSI.db.url')"/>
+            <parameter name="username" eval="property('ROD.db.username')"/>
+            <parameter name="password" eval="property('ROD.db.password')"/>
+            <parameter name="query">
+                <entry>DELETE from rod_nagios_problem where ops_flags=0 and status=0 and updated_at &lt; </entry>
+                <entry eval="quot($last_update)"/>
+            </parameter>
+        </connector>
+
+        <cache type="FileCache">
+            <trigger type="ViewNotifiedTrigger"></trigger>
+        </cache>
+    </view>
+
     <view name="DASHBOARD_probes_list"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
 
 

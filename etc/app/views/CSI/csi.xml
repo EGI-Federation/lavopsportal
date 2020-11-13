@@ -324,6 +324,66 @@
         </cache>
     </view>
 
+    <view  authenticators="local" name="CsiDelete1" xmlns:date="http://exslt.org/dates-and-times">
+        <variable name="last_update" eval="substring(date:add(date:date(),'-P15D'),0,11)"/>
+
+        <connector type="SQLConnector">
+            <parameter name="driver">com.mysql.jdbc.Driver</parameter>
+            <parameter name="url" eval="property('CSI.db.url')"/>
+            <parameter name="username" eval="property('CSI.db.username')"/>
+            <parameter name="password" eval="property('CSI.db.password')"/>
+            <parameter name="query">
+                <entry>DELETE from csi_nagios_history where updated_at &lt; </entry>
+                <entry eval="quot($last_update)"/>
+            </parameter>
+        </connector>
+
+        <cache type="FileCache">
+            <trigger type="ViewNotifiedTrigger"></trigger>
+        </cache>
+    </view>
+
+    <view  authenticators="local" name="CsiDelete2" xmlns:date="http://exslt.org/dates-and-times">
+        <variable name="last_update" eval="substring(date:add(date:date(),'-P3D'),0,11)"/>
+
+        <connector type="SQLConnector">
+            <parameter name="driver">com.mysql.jdbc.Driver</parameter>
+            <parameter name="url" eval="property('CSI.db.url')"/>
+            <parameter name="username" eval="property('CSI.db.username')"/>
+            <parameter name="password" eval="property('CSI.db.password')"/>
+            <parameter name="query">
+                <entry>DELETE from csi_nagios_problem where status='0' and updated_at &lt; </entry>
+                <entry eval="quot($last_update)"/>
+            </parameter>
+        </connector>
+
+
+        <cache type="FileCache">
+            <trigger type="ViewNotifiedTrigger"></trigger>
+        </cache>
+    </view>
+    <view  authenticators="local" name="CsiDelete3" xmlns:date="http://exslt.org/dates-and-times">
+        <variable name="last_update" eval="substring(date:add(date:date(),'-P15D'),0,11)"/>
+
+        <connector type="SQLConnector">
+            <parameter name="driver">com.mysql.jdbc.Driver</parameter>
+            <parameter name="url" eval="property('CSI.db.url')"/>
+            <parameter name="username" eval="property('CSI.db.username')"/>
+            <parameter name="password" eval="property('CSI.db.password')"/>
+            <parameter name="query">
+                <entry>DELETE from csi_nagios_problem where  updated_at &lt; </entry>
+                <entry eval="quot($last_update)"/>
+            </parameter>
+        </connector>
+
+
+        <cache type="FileCache">
+            <trigger type="ViewNotifiedTrigger"></trigger>
+        </cache>
+
+    </view>
+
+
 
     <view  authenticators="local" name="VoSecurityContacts">
         <argument name="serial">83</argument>
