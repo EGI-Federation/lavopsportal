@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="mo">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/etc/app/views/CSI/csi.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/CSI/csi.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/app/views/DASHBOARD/commons.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/DASHBOARD/commons.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,11 +28,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/etc/app/views/CSI/csi.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="416">
-              <caret line="331" column="24" lean-forward="true" selection-start-line="326" selection-end-line="343" selection-end-column="11" />
+            <state relative-caret-position="326">
+              <caret line="373" column="6" lean-forward="true" selection-start-line="373" selection-start-column="6" selection-end-line="373" selection-end-column="6" />
               <folding>
                 <element signature="e#16226#16230#0" expanded="true" />
                 <element signature="e#17006#17010#0" expanded="true" />
@@ -69,11 +69,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/etc/app/views/DASHBOARD/commons.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="533">
-              <caret line="62" column="8" lean-forward="true" selection-start-line="62" selection-start-column="8" selection-end-line="62" selection-end-column="8" />
+            <state relative-caret-position="833">
+              <caret line="61" lean-forward="true" selection-start-line="61" selection-end-line="61" />
               <folding>
                 <element signature="e#1551#1555#0" expanded="true" />
                 <element signature="e#2414#2418#0" expanded="true" />
@@ -163,13 +163,13 @@
       <find>importHo</find>
       <find>OPSCORE.update.servicesDB</find>
       <find>cleanU</find>
-      <find>csi_cl</find>
       <find>dpmt</find>
       <find>authentication.dpmt</find>
       <find>date:date</find>
       <find>UNION</find>
       <find>ROD_Cle</find>
       <find>CSI.db.url</find>
+      <find>csi_cl</find>
     </findStrings>
     <replaceStrings>
       <replace>xmlns=&quot;http://software.in2p3.fr/lavoisier/application.xsd&quot;</replace>
@@ -254,8 +254,8 @@
         <option value="$PROJECT_DIR$/etc/app/views/VO/vo-voms.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/endpoints.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/SOMBO/sombo.xml" />
-        <option value="$PROJECT_DIR$/etc/app/views/CSI/csi.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/DASHBOARD/commons.xml" />
+        <option value="$PROJECT_DIR$/etc/app/views/CSI/csi.xml" />
       </list>
     </option>
   </component>
@@ -422,7 +422,7 @@
     <configuration name="Run" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="fr.in2p3.lavoisier.command.StandaloneExec" />
       <module name="lavopsportal" />
-      <option name="PROGRAM_PARAMETERS" value="RodDelete2?nbsteps=999&amp;accept=xml" />
+      <option name="PROGRAM_PARAMETERS" value="CsiDelete2?nbsteps=999&amp;accept=xml" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -869,7 +869,7 @@
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="9" weight="0.32846004" />
       <window_info anchor="bottom" id="Console" order="10" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.434024" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.4332822" />
       <window_info anchor="bottom" id="Version Control" order="12" weight="0.32786885" />
       <window_info anchor="bottom" id="Docker" order="13" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="14" />
@@ -1259,26 +1259,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/views/CSI/csi.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="331" column="24" lean-forward="true" selection-start-line="326" selection-end-line="343" selection-end-column="11" />
-          <folding>
-            <element signature="e#16226#16230#0" expanded="true" />
-            <element signature="e#17006#17010#0" expanded="true" />
-            <element signature="e#17761#17765#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/etc/app/views/DASHBOARD/commons.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="533">
-          <caret line="62" column="8" lean-forward="true" selection-start-line="62" selection-start-column="8" selection-end-line="62" selection-end-column="8" />
+        <state relative-caret-position="833">
+          <caret line="61" lean-forward="true" selection-start-line="61" selection-end-line="61" />
           <folding>
             <element signature="e#1551#1555#0" expanded="true" />
             <element signature="e#2414#2418#0" expanded="true" />
             <element signature="e#3307#3311#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/etc/app/views/CSI/csi.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="326">
+          <caret line="373" column="6" lean-forward="true" selection-start-line="373" selection-start-column="6" selection-end-line="373" selection-end-column="6" />
+          <folding>
+            <element signature="e#16226#16230#0" expanded="true" />
+            <element signature="e#17006#17010#0" expanded="true" />
+            <element signature="e#17761#17765#0" expanded="true" />
           </folding>
         </state>
       </provider>
