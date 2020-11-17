@@ -1131,7 +1131,9 @@
                 <element in="row" out="e:entries">
 
                     <element-ignore>
-                        <element-create>entry(name(..),../text())</element-create>
+                        <element-create if="../text()">entry(name(..),../text())</element-create>
+                        <element-create if="not(../text())">entry(name(..),0)</element-create>
+
                     </element-ignore>
                 </element>
             </element>

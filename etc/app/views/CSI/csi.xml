@@ -323,6 +323,7 @@
             <parameter name="connect-timeout">400</parameter>
             <parameter name="read-timeout">500</parameter>
         </connector>
+        <serializer type="EncapsulateSerializer"></serializer>
 
         <cache type="FileCache">
             <trigger type="DeltaTimeTrigger">
