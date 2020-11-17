@@ -13,7 +13,6 @@
         </connector>
         <serializer type="EncapsulateSerializer"></serializer>
 
-        <serializer type="HTMLSerializer"/>
         <cache type="FileCache">
             <trigger type="DeltaTimeTrigger">
                 <parameter name="hours">4</parameter>
