@@ -175,8 +175,8 @@
                 <element out="e:entries">
                     <set variable="record">find($nagiosDB,@key)</set>
                     <element-create if="not($record/id/text())">entry('type','insert')</element-create>
-                    <element-create if="not($record/summary/text()=current()/../e:entry[@key='summary']/text())">entry('type','update record')</element-create>
-                    <element-create if="$record/summary/text()=current()/../e:entry[@key='summary']/text()">entry('type','update date')</element-create>
+                    <element-create if="$record/id/text() and (not($record/summary/text()=current()/../e:entry[@key='summary']/text()))">entry('type','update record')</element-create>
+                    <element-create if="$record/id/text() and ($record/summary/text()=current()/../e:entry[@key='summary']/text())">entry('type','update date')</element-create>
 
                 </element>
             </element>

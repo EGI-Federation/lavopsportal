@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="mo">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/app/app.properties" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/app.properties" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -57,8 +57,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/etc/app/views/CSI/csi.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="23" column="49" selection-start-line="23" selection-start-column="49" selection-end-line="23" selection-end-column="49" />
+            <state relative-caret-position="338">
+              <caret line="173" column="65" selection-start-line="173" selection-start-column="65" selection-end-line="173" selection-end-column="76" />
             </state>
           </provider>
         </entry>
@@ -75,8 +75,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/etc/app/app.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2910">
-              <caret line="194" column="62" selection-start-line="194" selection-start-column="62" selection-end-line="194" selection-end-column="62" />
+            <state relative-caret-position="466">
+              <caret line="79" column="51" selection-start-line="79" selection-start-column="51" selection-end-line="79" selection-end-column="51" />
             </state>
           </provider>
         </entry>
@@ -129,7 +129,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>voms_vo</find>
       <find>vo-voms_INDEX</find>
       <find>VoListUrl</find>
       <find>checkUrlsVo</find>
@@ -159,6 +158,7 @@
       <find>CSI_cl</find>
       <find>ROD_clea</find>
       <find>&lt;fal</find>
+      <find>csi</find>
     </findStrings>
     <replaceStrings>
       <replace>xmlns=&quot;http://software.in2p3.fr/lavoisier/application.xsd&quot;</replace>
@@ -242,8 +242,8 @@
         <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/endpoints.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/SOMBO/sombo.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/VO/vo.xml" />
-        <option value="$PROJECT_DIR$/etc/app/app.properties" />
         <option value="$PROJECT_DIR$/etc/app/views/DASHBOARD/commons.xml" />
+        <option value="$PROJECT_DIR$/etc/app/app.properties" />
         <option value="$PROJECT_DIR$/etc/app/views/CSI/csi.xml" />
       </list>
     </option>
@@ -835,6 +835,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1984" y="0" width="2496" height="1440" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19387755" />
       <window_info id="Structure" order="1" weight="0.24958587" />
@@ -1220,13 +1221,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/app.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2910">
-          <caret line="194" column="62" selection-start-line="194" selection-start-column="62" selection-end-line="194" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/etc/app/app-hidden.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="615">
@@ -1255,10 +1249,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/etc/app/app.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="466">
+          <caret line="79" column="51" selection-start-line="79" selection-start-column="51" selection-end-line="79" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/etc/app/views/CSI/csi.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="23" column="49" selection-start-line="23" selection-start-column="49" selection-end-line="23" selection-end-column="49" />
+        <state relative-caret-position="338">
+          <caret line="173" column="65" selection-start-line="173" selection-start-column="65" selection-end-line="173" selection-end-column="76" />
         </state>
       </provider>
     </entry>
