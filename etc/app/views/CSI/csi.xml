@@ -6,7 +6,7 @@
         <connector type="XMLConnector">
             <parameter name="content" eval="view('OPSCORE_NGIs')"/>
         </connector>
-
+        <serializer type="EncapsulateSerializer"/>
         <processors>
             <element in="NGIs">
                 <element in="NGI">
@@ -15,7 +15,7 @@
                 </element>
             </element>
         </processors>
-        <serializer type="EncapsulateSerializer"/>
+
 
         <cache type="FileCache">
             <trigger type="DeltaTimeTrigger">
