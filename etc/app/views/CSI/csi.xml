@@ -21,6 +21,7 @@
             <trigger type="DeltaTimeTrigger">
                 <parameter name="minutes">16</parameter>
             </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
         </cache>
     </view>
 
