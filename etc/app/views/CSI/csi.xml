@@ -26,11 +26,25 @@
 
     <view authenticators="local"  name="CSI_Import_Nagios">
         <argument name="ngi"/>
+        <variable name="url" eval="concat(property('CSI.nagios.import'),'/',$ngi)"/>
         <connector type="HTTPConnector">
-            <parameter name="url" eval="concat(property('CSI.nagios.import'),'/',$ngi)"/>
+            <parameter name="url" eval="$url"/>
             <parameter name="certificate" eval="property('certificate.path')"/>
             <parameter name="passphrase" eval="property('certificate.password')"/>
+            <fallback eval="new_element('exception',new_text(concat('exception for url ',$url)))">
+                <exception type="java.io.IOException"/>
+                <exception type="java.net.NoRouteToHostException"/>
+                <exception type="java.io.FileNotFoundException"/>
+                <exception type="java.lang.Exception"/>
+                <exception type="java.net.SocketTimeoutException"/>
+                <exception type="java.net.UnknownHostException"/>
+                <exception type="java.net.SocketException"/>
+                <exception type="java.lang.NullPointerException"/>
+            </fallback>
         </connector>
+
+
+
 
     </view>
 
