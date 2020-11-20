@@ -6,7 +6,6 @@
         <connector type="XMLConnector">
             <parameter name="content" eval="view('OPSCORE_NGIs')"/>
         </connector>
-        <serializer type="EncapsulateSerializer"/>
         <processors>
             <element in="NGIs">
                 <element in="NGI">
@@ -42,8 +41,9 @@
                 <exception type="java.lang.NullPointerException"/>
             </fallback>
         </connector>
-        
-        
+        <serializer type="EncapsulateSerializer"/>
+
+
 
     </view>
 
