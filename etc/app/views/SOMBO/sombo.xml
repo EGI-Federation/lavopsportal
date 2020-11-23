@@ -22,7 +22,9 @@
             <parameter name="certificate" eval="property('certificate.path')"/>
             <parameter name="passphrase" eval="property('certificate.password')"/>
             <parameter name="force-redirect">true</parameter>
-
+            <fallback eval="view('marketplace.providers.file')">
+                <exception type="java.io.IOException"/>
+            </fallback>
         </connector>
         <serializer type="JSONStreamSerializer"/>
 
@@ -41,7 +43,22 @@
 
         </element>
     </processors>
+
+        <cache type="FileCache">
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="minutes"  eval="choose(property('env')='test',32,10)"/>
+            </trigger>
+        </cache>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+        
     </view>
+    
     <view name="marketplace.providers.file" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
         <connector type="FileConnector">
             <parameter name="path">app/resources/json/services.json</parameter>
@@ -49,6 +66,7 @@
         <serializer type="JSONStreamSerializer"/>
         <processors>
             <element in="item" out="e:entries">
+                <attribute-create out="fallback">true()</attribute-create>
                 <element in="object" out="e:entries">
                     <attribute-create out="key">../SITENAME-SERVICEGROUP/text()</attribute-create>
                     <element in="URL" out="e:entry"><attribute-create out="key">'url'</attribute-create></element>
