@@ -487,6 +487,7 @@
         </connector>
 
         <cache type="FileCache">
+            <trigger type="ViewNotifiedTrigger"/>
          <trigger type="DeltaTimeTrigger">
              <parameter name="hours">3</parameter>
              <parameter name="minutes">6</parameter>
