@@ -1,0 +1,35 @@
+tages:
+  - tests
+  - deploy
+
+job_tests:
+  image: openjdk:8-alpine
+  stage: tests
+  script:
+    - cd /opt
+    - apk update && apk upgrade && apk add --no-cache bash git
+    - cd /opt
+    - mkdir  lavopsportal
+    - cd lavopsportal
+    - mkdir etc
+    - cp -R /builds/lavopsportal/* etc
+    - MAVEN_VERSION=3.5.4
+    - MAVEN_HOME=/usr/lib/mvn
+    - PATH=$MAVEN_HOME/bin:$PATH
+    - wget http://archive.apache.org/dist/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz &&  tar -zxvf apache-maven-$MAVEN_VERSION-bin.tar.gz &&  rm apache-maven-$MAVEN_VERSION-bin.tar.gz &&   mv apache-maven-$MAVEN_VERSION /usr/lib/mvn
+    - echo "${app_wok}" > /opt/lavopsportal/lavoisier-hidden.properties
+    - cd /opt/lavopsportal
+    - echo "${pom_test}"
+    - echo "${pom_test}" > pom.xml
+    - mvn exec:java
+
+job_deploy:
+  image: docker:latest
+  stage: deploy
+  services:
+    - docker:dind
+  before_script:
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+  script:
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG" .
+    - docker push "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG"
