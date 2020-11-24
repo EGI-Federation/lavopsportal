@@ -12,6 +12,7 @@ job_tests:
     - mkdir  lavopsportal
     - cd lavopsportal
     - mkdir etc
+    - ls -alh /builds
     - cp -R /builds/lavopsportal/* etc
     - MAVEN_VERSION=3.5.4
     - MAVEN_HOME=/usr/lib/mvn
