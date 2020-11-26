@@ -110,7 +110,7 @@
     <view authenticators="local" name="CsiNagios">
 
         <connector type="HTTPConnector">
-            <parameter name="url" eval="choose(property('env')!='prod',property('CSI.nagiosBoxUrlLavoisier'),property('CSI.nagiosBoxUrl'))"/>
+            <parameter name="url" eval="property('CSI.nagiosBoxUrlLavoisier')"/>
             <parameter name="certificate" eval="property('certificate.sec.path')"/>
             <parameter name="passphrase" eval="property('certificate.sec.password')"/>
         </connector>
