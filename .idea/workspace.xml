@@ -38,29 +38,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/etc/service/service.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
-              <caret line="38" selection-start-line="38" selection-end-line="38" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/etc/engine/logger.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="960">
-              <caret line="64" selection-start-line="64" selection-end-line="64" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/etc/app/views/VO/vo.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="7905">
@@ -78,20 +55,47 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/etc/app/app.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="261">
-              <caret line="89" column="25" selection-start-line="89" selection-end-line="89" selection-end-column="25" />
+            <state relative-caret-position="245">
+              <caret line="146" lean-forward="true" selection-start-line="146" selection-end-line="146" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/entities.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="7785">
+              <caret line="519" column="50" selection-start-line="519" selection-start-column="50" selection-end-line="519" selection-end-column="73" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/etc/app/resources/xsl/egi_users.xsl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" column="59" selection-start-line="7" selection-start-column="59" selection-end-line="7" selection-end-column="73" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/users.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="287" column="50" lean-forward="true" selection-start-line="287" selection-start-column="50" selection-end-line="287" selection-end-column="67" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/etc/app/views/CSI/csi.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="281">
-              <caret line="112" column="81" selection-start-line="112" selection-start-column="81" selection-end-line="112" selection-end-column="81" />
+            <state relative-caret-position="277">
+              <caret line="112" column="80" selection-start-line="112" selection-start-column="80" selection-end-line="112" selection-end-column="80" />
             </state>
           </provider>
         </entry>
@@ -126,8 +130,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>cleanU</find>
-      <find>dpmt</find>
       <find>authentication.dpmt</find>
       <find>date:date</find>
       <find>UNION</find>
@@ -156,6 +158,8 @@
       <find>cron</find>
       <find>csi</find>
       <find>CSI.nagiosBoxUrlLavoisier</find>
+      <find>OPSCORE_users_csi</find>
+      <find>OPSCORE.users.csi</find>
     </findStrings>
     <replaceStrings>
       <replace>xmlns=&quot;http://software.in2p3.fr/lavoisier/application.xsd&quot;</replace>
@@ -187,6 +191,11 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -267,7 +276,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -284,6 +292,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -768,10 +777,10 @@
     <option name="totallyTimeSpent" value="15425000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1984" y="0" width="2496" height="1440" extended-state="6" />
+    <frame x="1984" y="0" width="1856" height="1080" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19387755" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19281767" />
       <window_info id="Structure" order="1" weight="0.24958587" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -793,7 +802,7 @@
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="9" weight="0.32846004" />
       <window_info anchor="bottom" id="Console" order="10" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.33052146" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.33050847" />
       <window_info anchor="bottom" id="Version Control" order="12" weight="0.23006135" />
       <window_info anchor="bottom" id="Docker" order="13" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="14" />
@@ -990,13 +999,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/resources/xsl/egi_users.xsl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="14" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/global_functions.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="9750">
@@ -1022,13 +1024,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="9825">
           <caret line="655" column="135" selection-start-line="655" selection-start-column="135" selection-end-line="655" selection-end-column="135" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/entities.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7800">
-          <caret line="520" column="79" selection-start-line="520" selection-start-column="79" selection-end-line="520" selection-end-column="79" />
         </state>
       </provider>
     </entry>
@@ -1095,13 +1090,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/users.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7275">
-          <caret line="485" selection-start-line="485" selection-end-line="485" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/uidentrypoint">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -1150,6 +1138,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Dockerfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="58" selection-start-line="17" selection-start-column="58" selection-end-line="17" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/etc/app/views/VO/vo.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="7905">
@@ -1161,6 +1156,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="25" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/entities.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7785">
+          <caret line="519" column="50" selection-start-line="519" selection-start-column="50" selection-end-line="519" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/etc/app/resources/xsl/egi_users.xsl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="59" selection-start-line="7" selection-start-column="59" selection-end-line="7" selection-end-column="73" />
         </state>
       </provider>
     </entry>
@@ -1178,24 +1187,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Dockerfile">
+    <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/users.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="58" selection-start-line="17" selection-start-column="58" selection-end-line="17" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/app.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="89" column="25" selection-start-line="89" selection-end-line="89" selection-end-column="25" />
+        <state relative-caret-position="187">
+          <caret line="287" column="50" lean-forward="true" selection-start-line="287" selection-start-column="50" selection-end-line="287" selection-end-column="67" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/etc/app/views/CSI/csi.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="112" column="81" selection-start-line="112" selection-start-column="81" selection-end-line="112" selection-end-column="81" />
+        <state relative-caret-position="277">
+          <caret line="112" column="80" selection-start-line="112" selection-start-column="80" selection-end-line="112" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/etc/app/app.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="146" lean-forward="true" selection-start-line="146" selection-end-line="146" />
         </state>
       </provider>
     </entry>
