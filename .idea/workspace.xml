@@ -258,11 +258,10 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="2470" />
-    <option name="y" value="110" />
-    <option name="width" value="1660" />
-    <option name="height" value="941" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="1984" />
+    <option name="width" value="2496" />
+    <option name="height" value="1440" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">

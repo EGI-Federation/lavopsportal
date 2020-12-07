@@ -19,8 +19,8 @@ job_tests:
     - PATH=$MAVEN_HOME/bin:$PATH
     - wget http://archive.apache.org/dist/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz &&  tar -zxvf apache-maven-$MAVEN_VERSION-bin.tar.gz &&  rm apache-maven-$MAVEN_VERSION-bin.tar.gz &&   mv apache-maven-$MAVEN_VERSION /usr/lib/mvn
     - echo "${app_wok}" > /opt/lavopsportal/etc/app/app-hidden.properties
+    - echo "${app_wok}" > /opt/lavopsportal/etc/app/app-wok.properties
     - cd /opt/lavopsportal
-    - echo "${pom_test}"
     - echo "${pom_test}" > pom.xml
     - mvn exec:java
 
