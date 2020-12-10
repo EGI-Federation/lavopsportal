@@ -385,6 +385,16 @@
             </parameter>
         </connector>
 
+        <processors>
+            <element in="result">
+                <element in="row">
+                    <element in="dn" if="contains(text(),'')" out="id">
+                        <text>substring-after(.,'Id=')</text>
+                    </element>
+                </element>
+            </element>
+        </processors>
+
         <cache type="FileCache">
             <trigger type="DeltaTimeTrigger">
                 <parameter name="minutes">23</parameter>
