@@ -388,7 +388,7 @@
         <processors>
             <element in="result">
                 <element in="row">
-                    <element in="dn" if="contains(text(),'')" out="id">
+                    <element in="dn" if="contains(text(),'/O=AAI/')" out="id">
                         <text>substring-after(.,'Id=')</text>
                     </element>
                 </element>
