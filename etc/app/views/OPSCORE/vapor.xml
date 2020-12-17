@@ -91,15 +91,12 @@
         <connector type="XMLConnector">
             <parameter name="content" eval="view('OPSCORE_get_site')"/>
         </connector>
-
-
         <processors>
             <element in="results">
                 <set variable="VAPOR_biomed_sites_list">view('VAPOR_biomed_sites_list')</set>
                 <element-ignore in="SITE" if="not(@NAME=$VAPOR_biomed_sites_list/sites/site/@key)"/>
             </element>
         </processors>
-
     </view>
 
 
