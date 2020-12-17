@@ -381,16 +381,16 @@
             <parameter name="username" eval="property('VO.db.username')"/>
             <parameter name="password" eval="property('VO.db.password')"/>
             <parameter name="query">
-                SELECT vc.email , vc.first_name , vc.last_name , vc.dn , vo.name , vu .profile FROM vo_contact_has_profile as vch , vo_contacts as vc, vo , vo_user_profile vu where vch.user_profile_id=1 and vch.vo_contact_id=vc.id and vch.serial=vo.serial and vu.id=vch.user_profile_id
+                SELECT vc.email , vc.first_name , vc.last_name , vc.dn , vo.name , vu .profile FROM vo_contact_has_profile as vch , vo_contacts as vc, vo , vo_user_profile vu where vch.vo_contact_id=vc.id and vch.serial=vo.serial and vu.id=vch.user_profile_id
             </parameter>
         </connector>
 
         <processors>
             <element in="result">
                 <element in="row">
-                    <element in="dn" if="contains(text(),'/O=AAI/')" out="id">
-                        <text>substring-after(.,'Id=')</text>
-                    </element>
+                    <element-create if="contains(../dn/text(),'/O=AAI/')">
+                        new_element('id',substring-after(../dn/text(),'Id='))
+                    </element-create>
                 </element>
             </element>
         </processors>
