@@ -432,8 +432,9 @@
             </element>
             <element in="result">
                 <element in="row">
+
                     <element-create>new_element('QueueConfiguration',new_element('JobMaxCPUTime',new_text(../job_max_cpu/text()))|new_element('JobMaxWallClockTime',new_text(../job_max_wall/text())))</element-create>
-                    <element-create>new_element('SingleCoreJobs',new_element('RAM_per_i386_Core',new_text(../ram386/text()))|new_element('RAM_per_x86_64_Core',new_text(../ram64/text())))</element-create>
+                    <element-create>new_element('SingleCoreJobs',new_element('RAM_per_i386_Core',new_text(../ram386/text()))|new_element('RAM_per_x86_64_Core',new_text(../ram64/text()))|new_element('Max_scratch_space',new_text(../job_scratch_space/text())))</element-create>
                     <element-create>new_element('MultiCoreJobs',
                         new_element('RamValuesPerJob',new_element('min',new_text(../minimum_ram/text()))|new_element('prefered',new_text(../pref_ram/text()))|new_element('max',new_text(../maxi_ram//text())))
                         |new_element('ScratchValuesPerJob',new_element('min',new_text(../min_scratch_space_values/text()))|new_element('prefered',new_text(../pref_scratch_space_values/text()))|new_element('max',new_text(../max_scratch_space_values//text())))
