@@ -696,6 +696,7 @@
             <element in="e:entries">
                 <element in="e:entries">
                     <element in="e:entries">
+                        <element-create>entry('type','items')</element-create>
                         <element-ignore>
                             <element-create if="../text()">entry(local-name(..),../text())</element-create>
                             <element-create if="not(../text())">entry(local-name(..),'')</element-create>
