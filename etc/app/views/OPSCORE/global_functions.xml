@@ -641,6 +641,77 @@
 
     </view>
 
+    <view name="OPSCORE_PORTAL_EOSC_Releases"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+
+        <connector type="HTTPConnector">
+            <parameter name="url">https://gitlab.in2p3.fr/api/v4/projects/11614/issues?scope=all</parameter>
+            <parameter name="method">GET</parameter>
+            <parameter name="header" eval="concat('PRIVATE-TOKEN: ',property('gitlab-eosc.token'))"/>
+        </connector>
+        <serializer type="JSONStreamSerializer"/>
+
+        <processors>
+            <element in="item" out="e:entries">
+                <element in="object" out="e:entries">
+                    <attribute-create out="milestone" if="not(../milestone/id/text())">0</attribute-create>
+                    <attribute-create out="milestone" if="../milestone/id/text()">number(../milestone/id/text())</attribute-create>
+                    <element in="id"/>
+                    <element in="title"/>
+                    <element in="description"/>
+                    <element in="state"/>
+                    <element in="closed_at"/>
+                    <element in="milestone"/>
+                    <element in="web_url"/>
+                    <element-ignore/>
+
+                </element>
+
+            </element>
+
+
+
+            <element in="e:entries">
+                <element-ignore in="e:entries"/>
+                <element-create>sort_by_number(../e:entries,'@milestone')</element-create>
+            </element>
+
+            <element in="e:entries">
+                <element-create-as-parent out="e:entries" attributes="@milestone" group-by="@milestone">
+                    <element in="e:entries"/>
+                </element-create-as-parent>
+            </element>
+
+            <element in="e:entries">
+                <element in="e:entries">
+                    <attribute in="milestone" out="key"/>
+                    <element-create as="first-child">../e:entries[1]/milestone/*</element-create>
+                    <element in="e:entries">
+                        <attribute-create out="key">../id/text()</attribute-create>
+                        <attribute-ignore/>
+                        <element-ignore in="milestone"/>
+                    </element>
+                </element>
+            </element>
+
+            <element in="e:entries">
+                <element in="e:entries">
+                    <element in="e:entries">
+                        <element-ignore>
+                            <element-create if="../text()">entry(local-name(..),../text())</element-create>
+                            <element-create if="not(../text())">entry(local-name(..),'')</element-create>
+                        </element-ignore>
+                    </element>
+                    <element-ignore>
+                        <element-create if="../text()">entry(local-name(..),../text())</element-create>
+                        <element-create if="not(../text())">entry(local-name(..),'')</element-create>
+                    </element-ignore>
+                </element>
+            </element>
+
+        </processors>
+
+    </view>
+
 
 
     <view name="OpsPortal_Milestones" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">

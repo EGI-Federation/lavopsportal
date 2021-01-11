@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="mo">
-      <change beforePath="$PROJECT_DIR$/etc/app/views/OPSCORE/vapor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/OPSCORE/vapor.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/app/views/OPSCORE/global_functions.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/OPSCORE/global_functions.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/app/views/VO/vo.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/VO/vo.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,24 +30,6 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/etc/app/app.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="29" selection-start-line="29" selection-end-line="30" selection-end-column="91" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/etc/app/resources/xsl/egi_users.xsl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="59" selection-start-line="7" selection-start-column="59" selection-end-line="7" selection-end-column="73" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/users.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1065">
@@ -66,17 +50,35 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/etc/app/views/VO/vo.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="528">
-              <caret line="404" column="19" selection-start-line="404" selection-start-column="19" selection-end-line="404" selection-end-column="19" />
+            <state relative-caret-position="292">
+              <caret line="1601" lean-forward="true" selection-start-line="1601" selection-end-line="1601" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/global_functions.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="320">
+              <caret line="643" column="8" selection-start-line="643" selection-start-column="8" selection-end-line="643" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/etc/app/app-hidden.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="675">
+              <caret line="45" column="38" selection-start-line="45" selection-start-column="38" selection-end-line="45" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/vapor.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="604">
-              <caret line="94" column="34" lean-forward="true" selection-start-line="94" selection-start-column="34" selection-end-line="94" selection-end-column="34" />
+            <state relative-caret-position="638">
+              <caret line="62" selection-start-line="62" selection-end-line="62" />
             </state>
           </provider>
         </entry>
@@ -129,11 +131,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>dpmt</find>
-      <find>authentication.dpmt</find>
-      <find>date:date</find>
-      <find>UNION</find>
-      <find>ROD_Cle</find>
       <find>CSI.db.url</find>
       <find>csi_cl</find>
       <find>Vo_full</find>
@@ -159,6 +156,11 @@
       <find>VoResources</find>
       <find>vo_si</find>
       <find>vapor</find>
+      <find>VouserAccountingHistory</find>
+      <find>VoAccountingHistoryBase</find>
+      <find>VoUsersAccountingByDate</find>
+      <find>OPSCORE_listReleases</find>
+      <find>VoUsersAccountingByDate&quot;</find>
     </findStrings>
     <replaceStrings>
       <replace>xmlns=&quot;http://software.in2p3.fr/lavoisier/application.xsd&quot;</replace>
@@ -217,7 +219,6 @@
         <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/metrics.xml" />
         <option value="$PROJECT_DIR$/etc/app/html/db.html" />
         <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/argo.xml" />
-        <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/global_functions.xml" />
         <option value="$PROJECT_DIR$/etc/app/resources/xsl/vo-idcard.xsl" />
         <option value="$PROJECT_DIR$/etc/app/resources/xml/jstreeconf.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/BROADCAST/jstree_branches.xml" />
@@ -231,7 +232,6 @@
         <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/bdii.xml" />
         <option value="$PROJECT_DIR$/etc/app/resources/xsl/egi_users.xsl" />
         <option value="$PROJECT_DIR$/etc/app/resources/xml/test.xml" />
-        <option value="$PROJECT_DIR$/etc/app/app-hidden.properties" />
         <option value="$PROJECT_DIR$/etc/service/authenticators.xml" />
         <option value="$PROJECT_DIR$/etc/app/resources/xml/fake_users.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/downtimes.xml" />
@@ -242,9 +242,11 @@
         <option value="$PROJECT_DIR$/etc/app/views/SOMBO/sombo.xml" />
         <option value="$PROJECT_DIR$/etc/app/resources/json/services.json" />
         <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/users.xml" />
-        <option value="$PROJECT_DIR$/etc/app/views/VO/vo.xml" />
         <option value="$PROJECT_DIR$/etc/app/app.properties" />
         <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/vapor.xml" />
+        <option value="$PROJECT_DIR$/etc/app/views/VO/vo.xml" />
+        <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/global_functions.xml" />
+        <option value="$PROJECT_DIR$/etc/app/app-hidden.properties" />
       </list>
     </option>
   </component>
@@ -269,6 +271,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -323,8 +327,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -386,7 +388,7 @@
     <configuration name="Run" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="fr.in2p3.lavoisier.command.StandaloneExec" />
       <module name="lavopsportal" />
-      <option name="PROGRAM_PARAMETERS" value="VAPOR_biomed_sites?nbsteps=999&amp;accept=xml" />
+      <option name="PROGRAM_PARAMETERS" value="OPSCORE_PORTAL_EOSC_Releases?nbsteps=999&amp;accept=xml" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -810,7 +812,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1984" y="0" width="2496" height="1440" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19265306" />
       <window_info id="Structure" order="1" weight="0.24958587" />
@@ -834,7 +835,7 @@
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="9" weight="0.32846004" />
       <window_info anchor="bottom" id="Console" order="10" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.33052146" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.3297546" />
       <window_info anchor="bottom" id="Version Control" order="12" weight="0.32786885" />
       <window_info anchor="bottom" id="Docker" order="13" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="14" />
@@ -1067,13 +1068,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/global_functions.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9750">
-          <caret line="650" column="78" selection-start-line="650" selection-start-column="78" selection-end-line="650" selection-end-column="90" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/argo.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -1113,13 +1107,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="15" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/app-hidden.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="41" column="7" selection-start-line="41" selection-end-line="41" selection-end-column="56" />
         </state>
       </provider>
     </entry>
@@ -1172,6 +1159,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/etc/app/app.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="29" selection-start-line="29" selection-end-line="30" selection-end-column="91" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/etc/app/resources/xsl/egi_users.xsl">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -1221,24 +1215,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/views/VO/vo.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="404" column="19" selection-start-line="404" selection-start-column="19" selection-end-line="404" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/app.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="29" selection-start-line="29" selection-end-line="30" selection-end-column="91" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/vapor.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="604">
-          <caret line="94" column="34" lean-forward="true" selection-start-line="94" selection-start-column="34" selection-end-line="94" selection-end-column="34" />
+        <state relative-caret-position="638">
+          <caret line="62" selection-start-line="62" selection-end-line="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/etc/app/views/VO/vo.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="1601" lean-forward="true" selection-start-line="1601" selection-end-line="1601" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/etc/app/app-hidden.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="675">
+          <caret line="45" column="38" selection-start-line="45" selection-start-column="38" selection-end-line="45" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/global_functions.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="643" column="8" selection-start-line="643" selection-start-column="8" selection-end-line="643" selection-end-column="8" />
         </state>
       </provider>
     </entry>

@@ -1899,7 +1899,7 @@
 
     <view name="VoAccountingHistoryBase" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
 
-        <argument name="date">2016-08</argument>
+        <argument name="date">2020-08</argument>
 
         <connector type="SQLConnector">
             <parameter name="driver">com.mysql.jdbc.Driver</parameter>
