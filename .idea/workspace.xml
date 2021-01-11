@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="mo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/app/views/OPSCORE/global_functions.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/OPSCORE/global_functions.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -54,20 +55,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/global_functions.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="643" column="16" lean-forward="true" selection-start-line="643" selection-start-column="16" selection-end-line="643" selection-end-column="44" />
+            <state relative-caret-position="397">
+              <caret line="663" column="43" lean-forward="true" selection-start-line="663" selection-start-column="43" selection-end-line="663" selection-end-column="43" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/etc/app/app-hidden.properties">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="630">
-              <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
+              <caret line="45" column="3" selection-start-line="45" selection-end-line="45" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -129,8 +130,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>csi_cl</find>
-      <find>Vo_full</find>
       <find>marketpla</find>
       <find>CSI_Import_Nagios</find>
       <find>need_</find>
@@ -159,6 +158,8 @@
       <find>OPSCORE_listReleases</find>
       <find>VoUsersAccountingByDate&quot;</find>
       <find>cclavoisier</find>
+      <find>str:join</find>
+      <find>join</find>
     </findStrings>
     <replaceStrings>
       <replace>xmlns=&quot;http://software.in2p3.fr/lavoisier/application.xsd&quot;</replace>
@@ -810,7 +811,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1984" y="0" width="2496" height="1440" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19265306" />
       <window_info id="Structure" order="1" weight="0.24958587" />
@@ -1228,17 +1228,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/app-hidden.properties">
+    <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/global_functions.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
+        <state relative-caret-position="397">
+          <caret line="663" column="43" lean-forward="true" selection-start-line="663" selection-start-column="43" selection-end-line="663" selection-end-column="43" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/global_functions.xml">
+    <entry file="file://$PROJECT_DIR$/etc/app/app-hidden.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="643" column="16" lean-forward="true" selection-start-line="643" selection-start-column="16" selection-end-line="643" selection-end-column="44" />
+        <state relative-caret-position="630">
+          <caret line="45" column="3" selection-start-line="45" selection-end-line="45" selection-end-column="38" />
         </state>
       </provider>
     </entry>

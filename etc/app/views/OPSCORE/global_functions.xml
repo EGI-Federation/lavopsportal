@@ -662,6 +662,7 @@
                     <element in="closed_at"/>
                     <element in="milestone"/>
                     <element in="web_url"/>
+                    <element-create>new_element('labels',join(../labels/item/text(),','))</element-create>
                     <element-ignore/>
 
                 </element>
