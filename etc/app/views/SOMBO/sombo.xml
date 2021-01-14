@@ -612,6 +612,56 @@
 
     </view>
 
+    <view name="JiraSOFilteredbyID" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <argument name="id"/>
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('JiraSOList')"/>
+        </connector>
+
+        <processors>
+
+            <element in="e:entries">
+                <element in="e:entries">
+                    <attribute-ignore in="count"></attribute-ignore>
+                    <element in="e:entries">
+                        <element-create>
+                            entry('service',new_text(substring-before(substring-after(../e:entry[@key='SO-1']/text(),'"service":"'),'"')))
+                        </element-create>
+                    </element>
+                </element>
+            </element>
+
+            <element in="e:entries">
+                <set variable="services">view('ServicesAuthorized_Id',entry('id',$id))</set>
+                <element in="e:entries" if="not($services/result/row/service/text()='ALL')" >
+                    <element-ignore in="e:entries" if="not($services/result/row/service/text()=e:entry[@key='service']/text())"/>
+                </element>
+            </element>
+
+            <element in="e:entries">
+                <element in="e:entries" if="count(e:entries)!=0">
+                    <attribute-create out="count">count(../e:entries)</attribute-create>
+                </element>
+                <element-ignore/>
+            </element>
+
+        </processors>
+
+    </view>
+
+    <view name="ServicesAuthorized_Id">
+        <argument name="id"/>
+        <connector type="SQLConnector">
+            <parameter name="driver">com.mysql.jdbc.Driver</parameter>
+            <parameter name="url" eval="property('ROD.db.url')"/>
+            <parameter name="username" eval="property('ROD.db.username')"/>
+            <parameter name="password" eval="property('ROD.db.password')"/>
+            <parameter name="query">
+                <entry>SELECT sg.service  from sombo_groupe_ticket sg where sg.user_authorized=</entry>
+                <entry eval="quot($id)"/>
+            </parameter>
+        </connector>
+    </view>
 
     <view name="ServicesAuthorized">
         <argument name="dn"/>
@@ -625,8 +675,6 @@
                 <entry eval="quot($dn)"/>
             </parameter>
         </connector>
-
-
     </view>
 
     <view name="JiraEpicNotReferenced" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
