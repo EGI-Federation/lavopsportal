@@ -558,6 +558,9 @@
                     <element in="test_name" out="e:entry">
                         <attribute-create out="key">'test_name'</attribute-create>
                     </element>
+                    <element in="friendly_name" out="e:entry">
+                        <attribute-create out="key">'firendly_name'</attribute-create>
+                    </element>
                     <element in="host_name" out="e:entry">
                         <attribute-create out="key">'host_name'</attribute-create>
                     </element>
