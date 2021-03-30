@@ -33,6 +33,14 @@
                 <entry>134.158.239.26</entry>
                 <!-- Checkin team -->
 
+                <!--WoK -->
+                <entry>193.48.97.71</entry>
+                <entry>193.48.97.72</entry>
+                <entry>193.48.97.73</entry>
+                <entry>193.48.97.74</entry>
+                <entry>193.48.97.75</entry>
+                <entry>193.48.97.76</entry>
+
             </parameter>
         </authenticator>
     </authenticators>
