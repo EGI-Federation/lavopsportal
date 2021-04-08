@@ -61,5 +61,60 @@
         </renderers>
     </view>
 
+    <view name="VAPOR_biomed_sites_list" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <connector type="HTTPConnector">
+            <parameter name="url" eval="property('VAPOR.biomed.sites')"/>
+        </connector>
+
+        <processors>
+            <element in="e:entries" out="sites">
+                <element in="e:entries" out="site">
+                    <element-ignore/>
+                </element>
+            </element>
+        </processors>
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="hours">6</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+        </cache>
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+    </view>
+
+
+    <view name="VAPOR_biomed_sites">
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('OPSCORE_get_site')"/>
+        </connector>
+        <processors>
+            <element in="results">
+                <set variable="VAPOR_biomed_sites_list">view('VAPOR_biomed_sites_list')</set>
+                <element-ignore in="SITE" if="not(@NAME=$VAPOR_biomed_sites_list/sites/site/@key)"/>
+            </element>
+        </processors>
+    </view>
+
+
+    <view name="VAPOR_biomed_endpoints">
+        <connector type="HTTPConnector">
+            <parameter name="url" eval="property('VAPOR.biomed.endpoints')"/>
+        </connector>
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="hours">4</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+        </cache>
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+    </view>
 
 </views>

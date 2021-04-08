@@ -381,16 +381,16 @@
             <parameter name="username" eval="property('VO.db.username')"/>
             <parameter name="password" eval="property('VO.db.password')"/>
             <parameter name="query">
-                SELECT vc.email , vc.first_name , vc.last_name , vc.dn , vo.name , vu .profile FROM vo_contact_has_profile as vch , vo_contacts as vc, vo , vo_user_profile vu where vch.user_profile_id=1 and vch.vo_contact_id=vc.id and vch.serial=vo.serial and vu.id=vch.user_profile_id
+                SELECT vc.email , vc.first_name , vc.last_name , vc.dn , vo.name , vu .profile FROM vo_contact_has_profile as vch , vo_contacts as vc, vo , vo_user_profile vu where vch.vo_contact_id=vc.id and vch.serial=vo.serial and vu.id=vch.user_profile_id
             </parameter>
         </connector>
 
         <processors>
             <element in="result">
                 <element in="row">
-                    <element in="dn" if="contains(text(),'')" out="id">
-                        <text>substring-after(.,'Id=')</text>
-                    </element>
+                    <element-create if="contains(../dn/text(),'/O=AAI/')">
+                        new_element('id',substring-after(../dn/text(),'Id='))
+                    </element-create>
                 </element>
             </element>
         </processors>
@@ -432,8 +432,9 @@
             </element>
             <element in="result">
                 <element in="row">
+
                     <element-create>new_element('QueueConfiguration',new_element('JobMaxCPUTime',new_text(../job_max_cpu/text()))|new_element('JobMaxWallClockTime',new_text(../job_max_wall/text())))</element-create>
-                    <element-create>new_element('SingleCoreJobs',new_element('RAM_per_i386_Core',new_text(../ram386/text()))|new_element('RAM_per_x86_64_Core',new_text(../ram64/text())))</element-create>
+                    <element-create>new_element('SingleCoreJobs',new_element('RAM_per_i386_Core',new_text(../ram386/text()))|new_element('RAM_per_x86_64_Core',new_text(../ram64/text()))|new_element('Max_scratch_space',new_text(../job_scratch_space/text())))</element-create>
                     <element-create>new_element('MultiCoreJobs',
                         new_element('RamValuesPerJob',new_element('min',new_text(../minimum_ram/text()))|new_element('prefered',new_text(../pref_ram/text()))|new_element('max',new_text(../maxi_ram//text())))
                         |new_element('ScratchValuesPerJob',new_element('min',new_text(../min_scratch_space_values/text()))|new_element('prefered',new_text(../pref_scratch_space_values/text()))|new_element('max',new_text(../max_scratch_space_values//text())))
@@ -1898,7 +1899,7 @@
 
     <view name="VoAccountingHistoryBase" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
 
-        <argument name="date">2016-08</argument>
+        <argument name="date">2020-08</argument>
 
         <connector type="SQLConnector">
             <parameter name="driver">com.mysql.jdbc.Driver</parameter>
@@ -2533,7 +2534,7 @@
     <view xmlns:date="http://exslt.org/dates-and-times" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd"  name="VO_CPU_Raw">
 
 
-        <argument name="dateStart">2015-01-01</argument>
+        <argument name="dateStart">2021-01-01</argument>
         <argument name="dateEnd" eval="date:date()"/>
 
         <variable name="eYear" eval="date:year($dateEnd)"/>
@@ -2641,9 +2642,7 @@
             </element>
 
             <element in="result">
-                <element in="row"
-                         if="date:seconds(u_month/text()) &gt;= date:seconds($dateStart)  and date:seconds(u_month/text()) &lt;= date:seconds($dateEnd)"/>
-
+                <element in="row"  if="u_month/text()=$dateStart or u_month/text()=$dateEnd"/>
                 <element-ignore/>
             </element>
 
@@ -2657,6 +2656,7 @@
                     <element in="row"/>
                 </element-create-as-parent>
             </element>
+
 
             <element in="result" out="e:entries">
                 <element in="vo" out="e:entries">
@@ -2679,7 +2679,7 @@
 
     <view name="VoActivities" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
 
-        <argument name="dateStart">2016-08</argument>
+        <argument name="dateStart">20-08</argument>
         <argument name="dateEnd">2016-11</argument>
 
         <connector type="XMLConnector">
@@ -2716,6 +2716,8 @@
             </element>
 
         </processors>
+
+
     </view>
 
     <view xmlns:appdb="http://appdb.egi.eu/api/1.0/appdb" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd"  name="VoAPPDB">

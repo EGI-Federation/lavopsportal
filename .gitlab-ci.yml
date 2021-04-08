@@ -1,6 +1,15 @@
+default:
+  services:
+    - docker:dind
+  image: docker:latest
+
 stages:
   - tests
+  - build
   - deploy
+
+variables:
+  IMAGE_LAVOISIER: $CI_REGISTRY_IMAGE/lavoisier:$CI_COMMIT_REF_SLUG-$CI_COMMIT_SHORT_SHA
 
 job_tests:
   image: openjdk:8-alpine
@@ -9,24 +18,21 @@ job_tests:
     - cd /opt
     - apk update && apk upgrade && apk add --no-cache bash git
     - cd /opt
-    - mkdir  lavopsportal
-    - cd lavopsportal
+    - mkdir lavoisier
+    - cd lavoisier
     - mkdir etc
-    - ls -alh /builds
     - cp -R /builds/opsportal/lavopsportal/etc/* etc
     - MAVEN_VERSION=3.5.4
     - MAVEN_HOME=/usr/lib/mvn
     - PATH=$MAVEN_HOME/bin:$PATH
     - wget http://archive.apache.org/dist/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz &&  tar -zxvf apache-maven-$MAVEN_VERSION-bin.tar.gz &&  rm apache-maven-$MAVEN_VERSION-bin.tar.gz &&   mv apache-maven-$MAVEN_VERSION /usr/lib/mvn
-    - echo "${app_wok}" > /opt/lavopsportal/etc/app/app-hidden.properties
-    - echo "${app_wok}" > /opt/lavopsportal/etc/app/app-wok.properties
-    - cd /opt/lavopsportal
+    - echo "${app_wok}" > etc/app/app-hidden.properties
     - echo "${pom_test}" > pom.xml
     - mvn exec:java
 
-job_deploy:
+job_build:
   image: docker:latest
-  stage: deploy
+  stage: build
   services:
     - docker:dind
   before_script:
@@ -34,3 +40,32 @@ job_deploy:
   script:
     - docker build --pull -t "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG" .
     - docker push "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG"
+
+deploy-to-wok:
+  image: docker.io/appuio/oc:v3.11
+  stage: deploy
+  services:
+    - docker:dind
+  script: |
+    oc login $WOK_URL --token=$WOK_TOKEN --insecure-skip-tls-verify
+    oc project $WOK_PROJECT
+    oc patch deployment lavoisier -p "{\"spec\": {\"template\": {\"spec\": {\"containers\": [{\"name\": \"php-fpm\", \"image\":\"$IMAGE_LAVOISIER\"}]}}}}"
+
+  only:
+    - tags
+    - master
+
+deploy-to-wok-dev:
+  image: docker.io/appuio/oc:v3.11
+  stage: deploy
+  services:
+    - docker:dind
+  script: |
+    oc login $WOK_URL --token=$WOK_TOKEN_DEV --insecure-skip-tls-verify
+    oc project $WOK_PROJECT_DEV
+    oc patch deployment lavoisier -p "{\"spec\": {\"template\": {\"spec\": {\"containers\": [{\"name\": \"php-fpm\", \"image\":\"$IMAGE_LAVOISIER\"}]}}}}"
+
+  except:
+    - tags
+  only:
+    - develop
