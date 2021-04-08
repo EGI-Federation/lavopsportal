@@ -37,7 +37,7 @@ WORKDIR ${APP_ROOT}
 
 RUN sh uidentrypoint.sh
 EXPOSE 8080/tcp
-EXPOSE 80/tcp
+
 CMD mvn exec:java
 
 
