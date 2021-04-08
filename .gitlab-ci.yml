@@ -21,7 +21,7 @@ job_tests:
     - mkdir lavoisier
     - cd lavoisier
     - mkdir etc
-    - cp -R /builds/opsportal/lavopsportal/* etc
+    - cp -R /builds/opsportal/lavopsportal/etc/* etc
     - MAVEN_VERSION=3.5.4
     - MAVEN_HOME=/usr/lib/mvn
     - PATH=$MAVEN_HOME/bin:$PATH
@@ -51,8 +51,8 @@ deploy-to-wok:
   script: |
     oc login $WOK_URL --token=$WOK_TOKEN --insecure-skip-tls-verify
     oc project $WOK_PROJECT
-    oc patch deployment php-fpm -p "{\"spec\": {\"template\": {\"spec\": {\"containers\": [{\"name\": \"php-fpm\", \"image\":\"$IMAGE_PHP\"}]}}}}"
-    oc patch deployment nginx -p "{\"spec\": {\"template\": {\"spec\": {\"containers\": [{\"name\": \"nginx\", \"image\":\"$IMAGE_NGINX\"}]}}}}"
+    oc patch deployment lavoisier -p "{\"spec\": {\"template\": {\"spec\": {\"containers\": [{\"name\": \"php-fpm\", \"image\":\"$IMAGE_LAVOISIER\"}]}}}}"
+
   only:
     - tags
     - master
@@ -65,8 +65,8 @@ deploy-to-wok-dev:
   script: |
     oc login $WOK_URL --token=$WOK_TOKEN_DEV --insecure-skip-tls-verify
     oc project $WOK_PROJECT_DEV
-    oc patch deployment php-fpm -p "{\"spec\": {\"template\": {\"spec\": {\"containers\": [{\"name\": \"php-fpm\", \"image\":\"$IMAGE_PHP\"}]}}}}"
-    oc patch deployment nginx -p "{\"spec\": {\"template\": {\"spec\": {\"containers\": [{\"name\": \"nginx\", \"image\":\"$IMAGE_NGINX\"}]}}}}"
+    oc patch deployment lavoisier -p "{\"spec\": {\"template\": {\"spec\": {\"containers\": [{\"name\": \"php-fpm\", \"image\":\"$IMAGE_LAVOISIER\"}]}}}}"
+
   except:
     - tags
   only:
