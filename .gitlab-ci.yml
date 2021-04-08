@@ -1,0 +1,72 @@
+default:
+  services:
+    - docker:dind
+  image: docker:latest
+
+stages:
+  - tests
+  - build
+  - deploy
+
+variables:
+  IMAGE_LAVOISIER: $CI_REGISTRY_IMAGE/lavoisier:$CI_COMMIT_REF_SLUG-$CI_COMMIT_SHORT_SHA
+
+job_tests:
+  image: openjdk:8-alpine
+  stage: tests
+  script:
+    - cd /opt
+    - apk update && apk upgrade && apk add --no-cache bash git
+    - cd /opt
+    - mkdir lavoisier
+    - cd lavoisier
+    - mkdir etc
+    - cp -R /builds/OpsPortal/lavopsportal/* etc
+    - MAVEN_VERSION=3.5.4
+    - MAVEN_HOME=/usr/lib/mvn
+    - PATH=$MAVEN_HOME/bin:$PATH
+    - wget http://archive.apache.org/dist/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz &&  tar -zxvf apache-maven-$MAVEN_VERSION-bin.tar.gz &&  rm apache-maven-$MAVEN_VERSION-bin.tar.gz &&   mv apache-maven-$MAVEN_VERSION /usr/lib/mvn
+    - echo "${devel_app_hidden_properties}" > /etc/app/lavoisier-hidden.properties
+    - cd /opt/lavoisier
+    - echo "${pom_test}" > pom.xml
+    - mvn exec:java
+
+job_build:
+  image: docker:latest
+  stage: build
+  services:
+    - docker:dind
+  before_script:
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+  script:
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG" .
+    - docker push "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG"
+
+deploy-to-wok:
+  image: docker.io/appuio/oc:v3.11
+  stage: deploy
+  services:
+    - docker:dind
+  script: |
+    oc login $WOK_URL --token=$WOK_TOKEN --insecure-skip-tls-verify
+    oc project $WOK_PROJECT
+    oc patch deployment php-fpm -p "{\"spec\": {\"template\": {\"spec\": {\"containers\": [{\"name\": \"php-fpm\", \"image\":\"$IMAGE_PHP\"}]}}}}"
+    oc patch deployment nginx -p "{\"spec\": {\"template\": {\"spec\": {\"containers\": [{\"name\": \"nginx\", \"image\":\"$IMAGE_NGINX\"}]}}}}"
+  only:
+    - tags
+    - master
+
+deploy-to-wok-dev:
+  image: docker.io/appuio/oc:v3.11
+  stage: deploy
+  services:
+    - docker:dind
+  script: |
+    oc login $WOK_URL --token=$WOK_TOKEN_DEV --insecure-skip-tls-verify
+    oc project $WOK_PROJECT_DEV
+    oc patch deployment php-fpm -p "{\"spec\": {\"template\": {\"spec\": {\"containers\": [{\"name\": \"php-fpm\", \"image\":\"$IMAGE_PHP\"}]}}}}"
+    oc patch deployment nginx -p "{\"spec\": {\"template\": {\"spec\": {\"containers\": [{\"name\": \"nginx\", \"image\":\"$IMAGE_NGINX\"}]}}}}"
+  except:
+    - tags
+  only:
+    - develop
