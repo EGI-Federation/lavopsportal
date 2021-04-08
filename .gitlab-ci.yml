@@ -21,6 +21,8 @@ job_tests:
     - mkdir lavoisier
     - cd lavoisier
     - mkdir etc
+    - cd /builds
+    - ls -alh
     - cp -R /builds/OpsPortal/lavopsportal/* etc
     - MAVEN_VERSION=3.5.4
     - MAVEN_HOME=/usr/lib/mvn
