@@ -26,7 +26,7 @@ job_tests:
     - MAVEN_HOME=/usr/lib/mvn
     - PATH=$MAVEN_HOME/bin:$PATH
     - wget http://archive.apache.org/dist/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz &&  tar -zxvf apache-maven-$MAVEN_VERSION-bin.tar.gz &&  rm apache-maven-$MAVEN_VERSION-bin.tar.gz &&   mv apache-maven-$MAVEN_VERSION /usr/lib/mvn
-    - echo "${devel_app_hidden_properties}" > etc/app/app-hidden.properties
+    - echo "${app_wok}" > etc/app/app-hidden.properties
     - echo "${pom_test}" > pom.xml
     - mvn exec:java
 
