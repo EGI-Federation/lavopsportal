@@ -50,7 +50,6 @@ deploy-to-wok:
     oc login $WOK_URL --token=$WOK_TOKEN --insecure-skip-tls-verify
     oc project $WOK_PROJECT
     oc patch deployment lavoisier -p "{\"spec\": {\"template\": {\"spec\": {\"containers\": [{\"name\": \"php-fpm\", \"image\":\"$IMAGE_LAVOISIER\"}]}}}}"
-
   only:
     - tags
     - master
