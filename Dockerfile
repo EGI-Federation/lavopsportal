@@ -35,7 +35,7 @@ RUN chgrp -R 0 ${APP_ROOT} && \
 USER 10001
 WORKDIR ${APP_ROOT}
 
-RUN sh uidentrypoint
+RUN sh uidentrypoint.sh
 EXPOSE 8080/tcp
 
 CMD mvn exec:java
