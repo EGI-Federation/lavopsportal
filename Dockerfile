@@ -6,7 +6,9 @@ ENV PATH $MAVEN_HOME/bin:$PATH
 
 WORKDIR /opt
 RUN mkdir lavoisier
+RUN mkdir certificates
 WORKDIR /opt/lavoisier
+
 
 RUN wget http://archive.apache.org/dist/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz && \
   tar -zxvf apache-maven-$MAVEN_VERSION-bin.tar.gz && \
