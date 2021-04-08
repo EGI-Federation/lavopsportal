@@ -21,8 +21,7 @@ RUN apk add --no-cache git alpine-sdk python-dev py-cffi linux-headers musl-dev 
 RUN apk add --no-cache krb5-pkinit krb5-dev krb5 cyrus-sasl-gssapi
 
 
-RUN  cp -R /builds/opsportal/lavopsportal/etc/* etc
-
+ADD . /opt/lavoisier
 
 
 ### Setup user for build execution and application runtime
