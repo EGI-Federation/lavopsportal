@@ -8,6 +8,7 @@ WORKDIR /opt
 RUN mkdir lavoisier
 RUN mkdir certificates
 WORKDIR /opt/lavoisier
+RUN mkdir etc
 
 
 RUN wget http://archive.apache.org/dist/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz && \
@@ -20,9 +21,8 @@ RUN apk add --no-cache git alpine-sdk python-dev py-cffi linux-headers musl-dev 
 RUN apk add --no-cache krb5-pkinit krb5-dev krb5 cyrus-sasl-gssapi
 
 
-RUN cp -R /builds/OpsPortal/lavopsportal/*
+RUN  cp -R /builds/opsportal/lavopsportal/etc/* etc
 
-RUN mv app engine service etc
 
 
 ### Setup user for build execution and application runtime
