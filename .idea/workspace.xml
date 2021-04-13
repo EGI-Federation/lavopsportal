@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="mo">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/app/app.properties" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/app.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/app/resources/xml/test.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/resources/xml/test.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/etc/app/views/SOMBO/sombo.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/SOMBO/sombo.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -42,8 +39,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/etc/app/views/SOMBO/sombo.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="355">
-              <caret line="325" column="147" selection-start-line="325" selection-start-column="147" selection-end-line="325" selection-end-column="147" />
+            <state relative-caret-position="268">
+              <caret line="202" column="12" selection-start-line="202" selection-start-column="12" selection-end-line="202" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -81,8 +78,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.gitlab-ci.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="645">
-              <caret line="43" column="14" selection-start-line="43" selection-start-column="14" selection-end-line="43" selection-end-column="14" />
+            <state relative-caret-position="630">
+              <caret line="69" column="13" selection-start-line="69" selection-start-column="13" selection-end-line="69" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -135,8 +132,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Vo_full_n</find>
-      <find>VoResources</find>
       <find>vo_si</find>
       <find>vapor</find>
       <find>VouserAccountingHistory</find>
@@ -165,6 +160,8 @@
       <find>date:seco</find>
       <find>date:dif</find>
       <find>xmlns:date</find>
+      <find>JiraSOListDate</find>
+      <find>2020</find>
     </findStrings>
     <replaceStrings>
       <replace>xmlns=&quot;http://software.in2p3.fr/lavoisier/application.xsd&quot;</replace>
@@ -243,13 +240,13 @@
         <option value="$PROJECT_DIR$/etc/app/views/CSI/csi.xml" />
         <option value="$PROJECT_DIR$/etc/service/authenticators.xml" />
         <option value="$PROJECT_DIR$/etc/app/app-hidden.properties" />
-        <option value="$PROJECT_DIR$/.gitlab-ci.yml" />
         <option value="$PROJECT_DIR$/etc/service/service.properties" />
         <option value="$PROJECT_DIR$/Dockerfile" />
         <option value="$PROJECT_DIR$/test" />
         <option value="$PROJECT_DIR$/lavoisier-logs.1.xml" />
         <option value="$PROJECT_DIR$/etc/app/resources/xml/test.xml" />
         <option value="$PROJECT_DIR$/etc/app/app.properties" />
+        <option value="$PROJECT_DIR$/.gitlab-ci.yml" />
         <option value="$PROJECT_DIR$/etc/app/views/SOMBO/sombo.xml" />
       </list>
     </option>
@@ -360,7 +357,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Start Lavoisier server">
+  <component name="RunManager" selected="Application.Run with arguments">
     <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
@@ -370,7 +367,7 @@
     <configuration name="Run with arguments" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="fr.in2p3.lavoisier.command.StandaloneExec" />
       <module name="lavopsportal" />
-      <option name="PROGRAM_PARAMETERS" value="VO_CPU?nbsteps=999&amp;dateStart=2020-09&amp;dateEnd=2021-01&amp;accept=xml" />
+      <option name="PROGRAM_PARAMETERS" value="JiraServiceProvidersDate?nbsteps=999&amp;startDate=2020-02-01&amp;endDate=2020-02-25&amp;accept=xml" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -379,7 +376,7 @@
     <configuration name="Run" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="fr.in2p3.lavoisier.command.StandaloneExec" />
       <module name="lavopsportal" />
-      <option name="PROGRAM_PARAMETERS" value="marketplace.providers?nbsteps=2&amp;accept=xml" />
+      <option name="PROGRAM_PARAMETERS" value="JiraSOStats1?nbsteps=999&amp;accept=xml" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -818,7 +815,7 @@
       <window_info id="App Structure" order="10" weight="0.32965213" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32606325" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.22464558" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.29225737" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1184,13 +1181,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitlab-ci.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="43" column="14" selection-start-line="43" selection-start-column="14" selection-end-line="43" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Dockerfile">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="645">
@@ -1233,10 +1223,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitlab-ci.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="69" column="13" selection-start-line="69" selection-start-column="13" selection-end-line="69" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/etc/app/views/SOMBO/sombo.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="325" column="147" selection-start-line="325" selection-start-column="147" selection-end-line="325" selection-end-column="147" />
+        <state relative-caret-position="268">
+          <caret line="202" column="12" selection-start-line="202" selection-start-column="12" selection-end-line="202" selection-end-column="12" />
         </state>
       </provider>
     </entry>

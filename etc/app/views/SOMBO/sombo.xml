@@ -188,6 +188,26 @@
     </view>
 
 
+    <view name="JiraServiceProvidersDate" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" xmlns:date="http://exslt.org/dates-and-times">
+    <argument name="startDate"/>
+    <argument name="endDate"/>
+
+    <connector type="XMLConnector">
+        <parameter name="content" eval="view('JiraServiceProviders')"/>
+    </connector>
+
+    <processors>
+
+
+    <element in="e:entries">
+            <element-ignore if="name()!='e:entries'"/>
+            <element-ignore in="e:entries" if="date:seconds(date:difference(substring-before(e:entry[@key='created']/text(),'T'),$endDate)) + 86400 &lt;=0 or  date:seconds(date:difference($startDate,substring-before(e:entry[@key='created']/text(),'T'))) + 86400 &lt;=0">
+
+            </element-ignore>
+
+    </element>
+    </processors>
+    </view>
 
 
 
@@ -347,6 +367,7 @@
     </view>
 
     <view name="JiraSOList" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
+
         <connector type="HTTPConnector">
             <parameter name="url"      eval="concat('https://',property('userJira'),':',property('pwdJira'),'@jira.eosc-hub.eu/rest/api/2/search?fields=assignee,status,created,updated,resolutiondate,customfield_10711,customfield_10223,customfield_10100,customfield_10254,customfield_10900,customfield_10400,customfield_11310&amp;jql=project=',quot(property(concat('jira.project.',property('env')))),'AND ',quot('EOSC-hub TEST'),'=No',' AND issuetype=',quot('Service Order'),'&amp;maxResults=2000')"/>
         </connector>
@@ -484,8 +505,12 @@
 
 
   <view name="JiraSOStats1" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" xmlns:str="http://exslt.org/strings" >
+
+      <argument name="startDate">_start_</argument>
+      <argument name="endDate">_end_</argument>
+
       <connector type="XMLConnector">
-          <parameter name="content" eval="view('JiraSOList')"/>
+          <parameter name="content" eval="choose($startDate!='_start_',view('JiraSOListDate',entry('startDate',$startDate)|entry('endDate',$endDate)),view('JiraSOList'))"/>
       </connector>
 
       <processors>
@@ -595,15 +620,7 @@
 
       </processors>
 
-      <cache type="FileCache">
-          <trigger type="DependencyRefreshedTrigger">
-              <parameter name="views">
-                  <entry>JiraSOList</entry>
-              </parameter>
-          </trigger>
-          <trigger type="ViewNotifiedTrigger"/>
 
-      </cache>
       <renderers>
           <renderer type="DefaultRenderer">
               <parameter name="contentType">text/xml</parameter>
