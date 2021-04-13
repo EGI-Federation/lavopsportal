@@ -50,21 +50,5 @@ deploy-to-wok:
     oc login $WOK_URL --token=$WOK_TOKEN --insecure-skip-tls-verify
     oc project $WOK_PROJECT
     oc patch deployment lavoisier -p "{\"spec\": {\"template\": {\"spec\": {\"containers\": [{\"name\": \"lavoisier\", \"image\":\"$IMAGE_LAVOISIER\"}]}}}}"
-  only:
-    - tags
-    - master
 
-deploy-to-wok-dev:
-  image: docker.io/appuio/oc:v3.11
-  stage: deploy
-  services:
-    - docker:dind
-  script: |
-    oc login $WOK_URL --token=$WOK_TOKEN_DEV --insecure-skip-tls-verify
-    oc project $WOK_PROJECT_DEV
-    oc patch deployment lavoisier -p "{\"spec\": {\"template\": {\"spec\": {\"containers\": [{\"name\": \"lavoisier\", \"image\":\"$IMAGE_LAVOISIER\"}]}}}}"
 
-  except:
-    - tags
-  only:
-    - develop
