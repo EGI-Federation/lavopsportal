@@ -589,7 +589,7 @@
 
             <connector type="XSLTConnector">
                 <parameter name="stylesheet" eval="document('/app/resources/xsl/vo-idcard.xsl')"/>
-                <parameter name="input" eval="view('VO_full')"/>
+                <parameter name="input" eval="view('VO_full_new')"/>
                 <parameter name="documents">
                     <entry key="voms-certificates" eval="view('voms-certificates')"/>
                     <entry key="cic_dump" eval="view('cic_dump')"/>
@@ -606,7 +606,7 @@
             <trigger type="ViewNotifiedTrigger"/>
             <trigger type="DependencyRefreshedTrigger">
                 <parameter name="views">
-                    <entry>VO_full</entry>
+                    <entry>VO_full_new</entry>
                 </parameter>
             </trigger>
         </cache>
