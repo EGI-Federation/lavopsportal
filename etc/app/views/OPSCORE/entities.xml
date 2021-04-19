@@ -329,8 +329,10 @@
 
         <connector type="HTTPConnector">
             <parameter name="url" eval="property('OPSCORE.update.siteDB')"/>
-            <parameter name="certificate" eval="property('certificate.path')"/>
-            <parameter name="passphrase" eval="property('certificate.password')"/>
+            <parameter name="header">
+                <entry key="x-api-key" eval="property('lavoisier-token')"/>
+                <entry key="Accept">application/xml</entry>
+            </parameter>
             <parameter name="force-redirect">true</parameter>
             <parameter name="connect-timeout">120</parameter>
             <parameter name="read-timeout">120</parameter>
@@ -518,8 +520,10 @@
 
         <connector type="HTTPConnector">
             <parameter name="url" eval="property('OPSCORE.get_sites_av_re')"/>
-            <parameter name="certificate" eval="property('certificate.path')"/>
-            <parameter name="passphrase" eval="property('certificate.password')"/>
+            <parameter name="header">
+                <entry key="x-api-key" eval="property('lavoisier-token')"/>
+                <entry key="Accept">application/xml</entry>
+            </parameter>
             <parameter name="force-redirect">true</parameter>
             <parameter name="connect-timeout">60</parameter>
             <parameter name="read-timeout">60</parameter>

@@ -516,86 +516,86 @@
 
     </view>
 
-    <view name="VO_full_0">
+<!--    <view name="VO_full_0">-->
 
-        <argument xmlns:html="http://www.w3.org/1999/xhtml" name="vo">all</argument>
-        <connector xmlns:html="http://www.w3.org/1999/xhtml" type="HTTPConnector">
-            <parameter name="url"
-                       eval="concat(property('portal.base_url'),'/cron/voDatabaseDump/voname/',parent_match()/name/text())"/>
-            <parameter name="certificate" eval="property('certificate.path')"/>
-            <parameter name="passphrase" eval="property('certificate.password')"/>
-            <parameter name="force-redirect">true</parameter>
-            <fallback eval="new_element('ERROR', arguments())">
-                <exception type="java.net.SocketTimeoutException"/>
-                <exception type="java.net.ConnectException" predicate-on-message="contains(.,'Connection refused')"/>
-                <exception type="org.xml.sax.SAXParseException"/>
-                <exception type="java.io.FileNotFoundException"/>
-            </fallback>
-        </connector>
-        <serializer xmlns:html="http://www.w3.org/1999/xhtml" type="HTMLSerializer"/>
-        <processors xmlns:html="http://www.w3.org/1999/xhtml">
-            <processor match="//*" type="ChangeNamespaceProcessor"/>
-        </processors>
-    </view>
+<!--        <argument xmlns:html="http://www.w3.org/1999/xhtml" name="vo">all</argument>-->
+<!--        <connector xmlns:html="http://www.w3.org/1999/xhtml" type="HTTPConnector">-->
+<!--            <parameter name="url"-->
+<!--                       eval="concat(property('portal.base_url'),'/cron/voDatabaseDump/voname/',parent_match()/name/text())"/>-->
+<!--            <parameter name="certificate" eval="property('certificate.path')"/>-->
+<!--            <parameter name="passphrase" eval="property('certificate.password')"/>-->
+<!--            <parameter name="force-redirect">true</parameter>-->
+<!--            <fallback eval="new_element('ERROR', arguments())">-->
+<!--                <exception type="java.net.SocketTimeoutException"/>-->
+<!--                <exception type="java.net.ConnectException" predicate-on-message="contains(.,'Connection refused')"/>-->
+<!--                <exception type="org.xml.sax.SAXParseException"/>-->
+<!--                <exception type="java.io.FileNotFoundException"/>-->
+<!--            </fallback>-->
+<!--        </connector>-->
+<!--        <serializer xmlns:html="http://www.w3.org/1999/xhtml" type="HTMLSerializer"/>-->
+<!--        <processors xmlns:html="http://www.w3.org/1999/xhtml">-->
+<!--            <processor match="//*" type="ChangeNamespaceProcessor"/>-->
+<!--        </processors>-->
+<!--    </view>-->
 
-    <view xmlns:html="http://www.w3.org/1999/xhtml" name="VO_full">
+<!--    <view xmlns:html="http://www.w3.org/1999/xhtml" name="VO_full">-->
 
-        <argument name="vo">all</argument>
-        <connector type="XMLConnector">
-            <parameter name="content" eval="view('VoListUrl')"/>
-        </connector>
-        <processors>
+<!--        <argument name="vo">all</argument>-->
+<!--        <connector type="XMLConnector">-->
+<!--            <parameter name="content" eval="view('VoListUrl')"/>-->
+<!--        </connector>-->
+<!--        <processors>-->
 
-            <processor match="/data/Vo[*]" type="InsertProcessor">
-                <parameter name="nodes"
-                           eval="view_path_post('VO_full_0', choose(path(false()), path(false()), ''), match(), arguments())"/>
-            </processor>
+<!--            <processor match="/data/Vo[*]" type="InsertProcessor">-->
+<!--                <parameter name="nodes"-->
+<!--                           eval="view_path_post('VO_full_0', choose(path(false()), path(false()), ''), match(), arguments())"/>-->
+<!--            </processor>-->
 
-            <elements path="/data/Vo">
-                <element in="data" out="data">
-                    <element in="Vo" out="Vo">
-                        <element in="name" out="name"/>
-                        <element in="validationdate" out="validationdate"/>
-                        <element in="creationdate" out="creationdate"/>
-                        <element in="VoHeader" out="VoHeader">
-                            <element in="name" out="name"/>
-                            <element in="enrollmenturl" out="enrollmenturl"/>
+<!--            <elements path="/data/Vo">-->
+<!--                <element in="data" out="data">-->
+<!--                    <element in="Vo" out="Vo">-->
+<!--                        <element in="name" out="name"/>-->
+<!--                        <element in="validationdate" out="validationdate"/>-->
+<!--                        <element in="creationdate" out="creationdate"/>-->
+<!--                        <element in="VoHeader" out="VoHeader">-->
+<!--                            <element in="name" out="name"/>-->
+<!--                            <element in="enrollmenturl" out="enrollmenturl"/>-->
 
-                            <element in="VoScope" out="VoScope">
-                                <element in="scope" out="scope"/>
-                                <element in="roc" out="roc"/>
-                            </element>
-                            <element in="VoStatus" out="VoStatus">
-                                <element in="status" out="status"/>
-                                <element in="description" out="description"/>
-                            </element>
-                        </element>
-                    </element>
-                </element>
-            </elements>
+<!--                            <element in="VoScope" out="VoScope">-->
+<!--                                <element in="scope" out="scope"/>-->
+<!--                                <element in="roc" out="roc"/>-->
+<!--                            </element>-->
+<!--                            <element in="VoStatus" out="VoStatus">-->
+<!--                                <element in="status" out="status"/>-->
+<!--                                <element in="description" out="description"/>-->
+<!--                            </element>-->
+<!--                        </element>-->
+<!--                    </element>-->
+<!--                </element>-->
+<!--            </elements>-->
 
 
-        </processors>
+<!--        </processors>-->
 
-        <cache type="FileCache">
-            <trigger type="DeltaTimeTrigger">
-                <parameter name="hours">1</parameter>
-                <parameter name="minutes">8</parameter>
-            </trigger>
-            <trigger type="ViewNotifiedTrigger"/>
-            <trigger type="DependencyRefreshedTrigger">
-                <parameter name="views">
-                    <entry>VoListUrl</entry>
-                </parameter>
-            </trigger>
-        </cache>
-    </view>
+<!--        <cache type="FileCache">-->
+<!--            <trigger type="DeltaTimeTrigger">-->
+<!--                <parameter name="hours">1</parameter>-->
+<!--                <parameter name="minutes">8</parameter>-->
+<!--            </trigger>-->
+<!--            <trigger type="ViewNotifiedTrigger"/>-->
+<!--            <trigger type="DependencyRefreshedTrigger">-->
+<!--                <parameter name="views">-->
+<!--                    <entry>VoListUrl</entry>-->
+<!--                </parameter>-->
+<!--            </trigger>-->
+<!--        </cache>-->
+<!--    </view>-->
 
 
     <view xmlns:html="http://www.w3.org/1999/xhtml" name="VO_full_full">
         
        <connector type="XMLConnector">
-           <parameter name="content" eval="view('VO_full')"></parameter>
+           <parameter name="content" eval="view('VO_full_new')"></parameter>
        </connector>
     </view>
 
@@ -1685,8 +1685,10 @@
     <view name="generateMetricsCron">
         <connector type="HTTPConnector">
             <parameter name="url" eval="property('OPSCORE.users.metrics')"/>
-            <parameter name="certificate" eval="property('certificate.path')"/>
-            <parameter name="passphrase" eval="property('certificate.password')"/>
+            <parameter name="header">
+                <entry key="x-api-key" eval="property('lavoisier-token')"/>
+                <entry key="Accept">application/xml</entry>
+            </parameter>
             <parameter name="force-redirect">true</parameter>
         </connector>
 

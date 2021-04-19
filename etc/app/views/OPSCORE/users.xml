@@ -286,8 +286,10 @@
 
         <connector type="HTTPConnector">
             <parameter name="url" eval="property('OPSCORE.users.csi')"/>
-            <parameter name="certificate" eval="property('certificate.path')"/>
-            <parameter name="passphrase" eval="property('certificate.password')"/>
+            <parameter name="header">
+                <entry key="x-api-key" eval="property('lavoisier-token')"/>
+                <entry key="Accept">application/xml</entry>
+            </parameter>
             <parameter name="force-redirect">true</parameter>
             <parameter name="connect-timeout">30</parameter>
             <parameter name="read-timeout">30</parameter>

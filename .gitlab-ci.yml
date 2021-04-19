@@ -47,8 +47,8 @@ deploy-to-wok:
   services:
     - docker:dind
   script: |
-    oc login $WOK_URL --token=$WOK_TOKEN --insecure-skip-tls-verify
-    oc project $WOK_PROJECT
+    oc login $WOK_URL --token=$WOK_TOKEN_DEV --insecure-skip-tls-verify
+    oc project $WOK_PROJECT_DEV
     oc patch deployment lavoisier -p "{\"spec\": {\"template\": {\"spec\": {\"containers\": [{\"name\": \"lavoisier\", \"image\":\"$IMAGE_LAVOISIER\"}]}}}}"
   only:
     - tags
@@ -60,7 +60,7 @@ deploy-to-wok-dev:
   services:
     - docker:dind
   script: |
-    oc login $WOK_URL --token=$WOK_TOKEN --insecure-skip-tls-verify
+    oc login $WOK_URL --token=$WOK_TOKEN_DEV --insecure-skip-tls-verify
     oc project $WOK_PROJECT_DEV
     oc patch deployment lavoisier -p "{\"spec\": {\"template\": {\"spec\": {\"containers\": [{\"name\": \"lavoisier\", \"image\":\"$IMAGE_LAVOISIER\"}]}}}}"
 
