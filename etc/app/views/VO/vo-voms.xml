@@ -223,8 +223,10 @@
         <argument name="vo"/>
         <connector type="HTTPConnector">
             <parameter name="url" eval="concat(property('vo.check.url'),$vo)"/>
-            <parameter name="certificate" eval="property('certificate.path')"/>
-            <parameter name="passphrase" eval="property('certificate.password')"/>
+            <parameter name="header">
+                <entry key="x-api-key" eval="property('lavoisier-token')"/>
+                <entry key="Accept">application/xml</entry>
+            </parameter>
             <parameter name="force-redirect">true</parameter>
         </connector>
 
@@ -534,8 +536,10 @@
         
         <connector type="HTTPConnector">
             <parameter name="url" eval="property('vo.users.history')"/>
-            <parameter name="certificate" eval="property('certificate.path')"/>
-            <parameter name="passphrase" eval="property('certificate.password')"/>
+            <parameter name="header">
+                <entry key="x-api-key" eval="property('lavoisier-token')"/>
+                <entry key="Accept">application/xml</entry>
+            </parameter>
             <parameter name="force-redirect">true</parameter>
         </connector>
 
@@ -720,14 +724,14 @@
         <argument name="vo">_VO_</argument>
 
 
-
         <connector type="HTTPConnector">
             <parameter name="url" eval="concat(property('voms.users'),$vo)"/>
-            <parameter name="certificate" eval="property('certificate.path')"/>
-            <parameter name="passphrase" eval="property('certificate.password')"/>
             <parameter name="force-redirect">true</parameter>
-            <parameter name="connect-timeout">40</parameter>
-
+            <parameter name="connect-timeout">140</parameter>
+            <parameter name="header">
+                <entry key="x-api-key" eval="property('lavoisier-token')"/>
+                <entry key="Accept">application/xml</entry>
+            </parameter>
             <fallback>
                 <exception type="java.lang.Exception"/>
             </fallback>
@@ -876,8 +880,13 @@
         <argument name="vo">_VO_</argument>
         <connector type="HTTPConnector">
             <parameter name="url" eval="concat(property('voms.users.db'),$vo)"/>
-            <parameter name="certificate" eval="property('certificate.path')"/>
-            <parameter name="passphrase" eval="property('certificate.password')"/>
+
+
+            <parameter name="header">
+                <entry key="x-api-key" eval="property('lavoisier-token')"/>
+                <entry key="Accept">application/xml</entry>
+            </parameter>
+
             <parameter name="force-redirect">true</parameter>
 
             <fallback>

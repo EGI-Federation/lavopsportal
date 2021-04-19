@@ -29,8 +29,10 @@
         <variable name="url" eval="concat(property('CSI.nagios.import'),'/',$ngi)"/>
         <connector type="HTTPConnector">
             <parameter name="url" eval="$url"/>
-            <parameter name="certificate" eval="property('certificate.path')"/>
-            <parameter name="passphrase" eval="property('certificate.password')"/>
+            <parameter name="header">
+                <entry key="x-api-key" eval="property('lavoisier-token')"/>
+                <entry key="Accept">application/xml</entry>
+            </parameter>
             <fallback eval="new_element('exception',new_text(concat('exception for url ',$url)))">
                 <exception type="java.io.IOException"/>
                 <exception type="java.net.NoRouteToHostException"/>
@@ -324,9 +326,10 @@
 
         <connector type="HTTPConnector">
             <parameter name="url" eval="property('CSI.portal.clean.url')"/>
-            <parameter name="certificate" eval="property('certificate.path')"/>
-            <parameter name="passphrase" eval="property('certificate.password')"/>
-            <parameter name="force-redirect">true</parameter>
+            <parameter name="header">
+                <entry key="x-api-key" eval="property('lavoisier-token')"/>
+                <entry key="Accept">application/xml</entry>
+            </parameter>
             <parameter name="connect-timeout">400</parameter>
             <parameter name="read-timeout">500</parameter>
         </connector>
