@@ -498,10 +498,7 @@
 
     <view name="OPSCORE_VaporReleaseList" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
 
-
-
         <argument name="name">_RNAME_</argument>
-
 
         <connector type="HTTPConnector">
             <parameter name="url">https://gitlab.in2p3.fr/api/v4/projects/1274/milestones?scope=all</parameter>
@@ -636,9 +633,6 @@
 
        </processors>
 
-
-
-
     </view>
 
     <view name="OPSCORE_PORTAL_EOSC_Releases"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
@@ -749,12 +743,11 @@
     </view>
 
 
-    <view name="OPSCORE_renderReleaseNote" xmlns:t="http://software.in2p3.fr/lavoisier/tables.xsd">
+    <view name="OPSCORE_renderReleaseNote_Raw" xmlns:t="http://software.in2p3.fr/lavoisier/tables.xsd">
 
-        <argument name="base_url" eval="property('OPSCORE.forge.baseurl')"/>
-        <argument name="release_id"/>
+
         <connector type="HTTPConnector">
-            <parameter name="url" eval="concat($base_url,$release_id)"/>
+            <parameter name="url" eval="property('OPSCORE.forge.baseurl')"/>
             <parameter name="connect-timeout">600</parameter>
             <parameter name="read-timeout">600</parameter>
             <parameter name="force-redirect">true</parameter>
@@ -767,6 +760,29 @@
                 <element-ignore in="t:column" if="@label='6'"/>
             </elements>
         </processors>
+
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="minutes">25</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+        </cache>
+    </view>
+
+    <view name="OPSCORE_renderReleaseNote" xmlns:t="http://software.in2p3.fr/lavoisier/tables.xsd">
+
+        <argument name="release_id"/>
+
+      <connector type="XMLConnector">
+          <parameter name="content" eval="view('OPSCORE_renderReleaseNote_Raw')"/>
+      </connector>
+
+        <processors>
+            <elements path="t:tables/t:table">
+                <element-ignore in="t:row" if="t:column[@label='5']/text()!=$release_id or t:column[@label='5']/text()='' or not(t:column[@label='5']/text())"/>
+            </elements>
+        </processors>
+
     </view>
 
 
