@@ -157,5 +157,13 @@
         <e:entry key="CERTDN">/O=AAI/CN=Guillaume PERRIER/Id=9799b7fc498e3ff8966fe6816e3ba6e3b804f3baa26091c0b684561d657c48dc@egi.eu</e:entry>
     </e:entries>
 
+    <e:entries key="/O=AAI/CN=Guillaume Perrier/Id=569bcab56c3521b148b75ca12f183a8dc8a3b3ed7b26ed51c89f076b3583c3e8@egi.eu">
+        <e:entry key="ROLES">Site Operations Manager::site::GRIDOPS-OPSPORTAL</e:entry>
+        <e:entry key="ROLES">VO MANAGER::vo::atlas</e:entry>
+        <e:entry key="ROLES">Site Operations Manager::site::IN2P3-CC</e:entry>
+        <e:entry key="NAME">Guillaume Perrier</e:entry>
+        <e:entry key="EMAIL">guillaume.perrier@cc.in2p3.fr</e:entry>
+        <e:entry key="CERTDN">/O=AAI/CN=Guillaume Perrier/Id=569bcab56c3521b148b75ca12f183a8dc8a3b3ed7b26ed51c89f076b3583c3e8@egi.eu</e:entry>
+    </e:entries>
 
 </e:entries>
