@@ -415,7 +415,7 @@
             <parameter name="password" eval="property('ROD.db.password')"/>
             <parameter name="query">
                 <entry>SELECT * from rod_nagios_problem where site=</entry>
-                <entry>$site</entry>
+                <entry eval="quot($site)"></entry>
             </parameter>
         </connector>
 
