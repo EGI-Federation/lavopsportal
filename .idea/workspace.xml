@@ -5,74 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="mo">
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_classic_1_2_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_core_1_2_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_9_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_9_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_9_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_mchange_c3p0_0_9_5_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_mchange_mchange_commons_java_0_2_11.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_mail_javax_mail_1_6_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_zaxxer_HikariCP_java6_2_3_13.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_authenticator_base_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_cache_base_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_cache_basex_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_connector_base_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_connector_config_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_connector_diff_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_connector_grid_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_connector_remctl_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_connector_scala_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_connector_sql_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_connector_ssh_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_connector_telnet_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_processor_base_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_renderer_base_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_renderer_chart_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_renderer_json_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_renderer_pdf_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_serializer_base_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_serializer_html_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_serializer_ini_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_serializer_json_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_serializer_yaml_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_trigger_base_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_validator_base_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_html_template_engine_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_lavoisier_chaining_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_lavoisier_configuration_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_lavoisier_engine_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_lavoisier_gui_admin_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_lavoisier_gui_dashboard_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_lavoisier_interfaces_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_lavoisier_package_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_lavoisier_service_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_lavoisier_views_library_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_xml_interfaces_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_xml_template_engine_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_xpath_absolute_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_xpath_functions_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_xpath_parser_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_jsonwebtoken_jjwt_0_9_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_prometheus_jmx_jmx_prometheus_javaagent_0_12_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_logstash_logback_logstash_logback_encoder_5_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_oltu_oauth2_org_apache_oltu_oauth2_client_1_0_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_oltu_oauth2_org_apache_oltu_oauth2_common_1_0_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_janino_commons_compiler_3_0_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_janino_janino_3_0_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jgrapht_jgrapht_core_1_3_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jheaps_jheaps_0_9.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_json_json_20140107.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_postgresql_postgresql_42_2_14.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_quartz_scheduler_quartz_2_3_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_jul_to_slf4j_1_7_25.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_25.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/app/app.properties" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/app.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/app/resources/xml/fake_users.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/resources/xml/fake_users.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/etc/app/views/DASHBOARD/commons.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/DASHBOARD/commons.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lavopsportal.iml" beforeDir="false" afterPath="$PROJECT_DIR$/lavopsportal.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -300,6 +233,7 @@
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -412,7 +346,7 @@
       <workItem from="1561127689050" duration="9000" />
       <workItem from="1621431609055" duration="784000" />
       <workItem from="1621498199939" duration="613000" />
-      <workItem from="1621498837116" duration="634000" />
+      <workItem from="1621498837116" duration="1733000" />
     </task>
     <task id="LOCAL-00075" summary="filtre tickets">
       <created>1536755736442</created>
