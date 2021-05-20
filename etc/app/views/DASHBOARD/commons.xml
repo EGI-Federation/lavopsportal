@@ -415,12 +415,17 @@
             <parameter name="password" eval="property('ROD.db.password')"/>
             <parameter name="query">
                 <entry>SELECT * from rod_nagios_problem where site=</entry>
-                <entry eval="quot($site)"></entry>
+                <entry eval="quot($site)"/>
             </parameter>
         </connector>
 
         <processors>
-            <element-ignore if="name()='id' and name()!='last_history_id' and name()!='ops_flags' and name()!='created_at' and name()!='updated_at' and name()!='profiles'"/>
+            <element in="result" out="alarms">
+                <element in="row" out="alarm">
+                    <element-ignore if="name()='id' and name()!='last_history_id' and name()!='flags' and name()!='ticket_id' and name()!='vo' and name()!='ops_flags' and name()!='created_at' and name()!='updated_at' and name()!='profiles'"/>
+
+                </element>
+            </element>
         </processors>
     </view>
 
