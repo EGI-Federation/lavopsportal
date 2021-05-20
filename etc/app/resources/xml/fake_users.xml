@@ -181,4 +181,14 @@
         <e:entry key="CERTDN">/O=AAI/CN=Guillaume Perrier/Id=569bcab56c3521b148b75ca12f183a8dc8a3b3ed7b26ed51c89f076b3583c3e8@egi.eu</e:entry>
     </e:entries>
 
+
+    <e:entries key="/O=AAI/CN=Gordon Stewart/Id=52b3d0cdb2811474503326d0586a3fb2683a2118ad02762f59924a99dcf1aeab@egi.eu">
+            <e:entry key="ROLES" >Site Administrator::site::UKI-SCOTGRID-GLASGOW</e:entry>
+            <e:entry key="ROLES" >Regional Staff (ROD)::ngi::NGI_UK</e:entry>
+            <e:entry key="ROLES" >Site Security Officer::site::UKI-SCOTGRID-GLASGOW</e:entry>
+        <e:entry key="NAME">Gordon Stewart</e:entry>
+        <e:entry key="EMAIL">gordon.stewart@glasgow.ac.uk</e:entry>
+        <e:entry key="CERTDN">/O=AAI/CN=Gordon Stewart/Id=52b3d0cdb2811474503326d0586a3fb2683a2118ad02762f59924a99dcf1aeab@egi.eu</e:entry>
+    </e:entries>
+
 </e:entries>
