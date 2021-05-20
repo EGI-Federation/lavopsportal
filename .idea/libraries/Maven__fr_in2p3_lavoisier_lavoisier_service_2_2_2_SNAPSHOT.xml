@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: fr.in2p3.lavoisier:lavoisier-service:2.2.2-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/fr/in2p3/lavoisier/lavoisier-service/2.2.2-SNAPSHOT/lavoisier-service-2.2.2-20210423.080840-26.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/fr/in2p3/lavoisier/lavoisier-service/2.2.2-SNAPSHOT/lavoisier-service-2.2.2-20210423.080840-26-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/fr/in2p3/lavoisier/lavoisier-service/2.2.2-SNAPSHOT/lavoisier-service-2.2.2-20210423.080840-26-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
