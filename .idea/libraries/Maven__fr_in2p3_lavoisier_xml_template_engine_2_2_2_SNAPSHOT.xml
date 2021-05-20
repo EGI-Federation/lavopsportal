@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: fr.in2p3.lavoisier:xml-template-engine:2.2.2-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/fr/in2p3/lavoisier/xml-template-engine/2.2.2-SNAPSHOT/xml-template-engine-2.2.2-20210423.080247-29.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/fr/in2p3/lavoisier/xml-template-engine/2.2.2-SNAPSHOT/xml-template-engine-2.2.2-20210423.080247-29-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/fr/in2p3/lavoisier/xml-template-engine/2.2.2-SNAPSHOT/xml-template-engine-2.2.2-20210423.080247-29-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -405,13 +405,30 @@
 
     </view>
 
+    <view  name="Alarms_Site">
+        <argument name="site">_site_</argument>
+
+          <connector type="SQLConnector">
+            <parameter name="driver">com.mysql.jdbc.Driver</parameter>
+            <parameter name="url" eval="property('ROD.db.url')"/>
+            <parameter name="username" eval="property('ROD.db.username')"/>
+            <parameter name="password" eval="property('ROD.db.password')"/>
+            <parameter name="query">
+                <entry>SELECT * from rod_nagios_problem where site=</entry>
+                <entry>$site</entry>
+            </parameter>
+        </connector>
+
+        <processors>
+            <element-ignore if="name()='id' and name()!='last_history_id' and name()!='ops_flags' and name()!='created_at' and name()!='updated_at' and name()!='profiles'"/>
+        </processors>
+    </view>
+
     <view name="DASHBOARD_alarms_sec_filter"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" authenticators="local">
 
 
         <argument name="SitesListFormatted">_1_</argument>
         <argument name="statusListFormatted">_2_</argument>
-
-
 
         <connector type="XMLConnector">
             <parameter name="content" eval="view('DASHBOARD_alarms_sec')"/>

@@ -148,6 +148,14 @@
         <e:entry key="CERTDN">/DC=org/DC=terena/DC=tcs/C=NL/O=Stichting EGI/CN=Giuseppe La Rocca larocca@egi.eu</e:entry>
     </e:entries>
 
+    <e:entries key="/C=IT/O=INFN/OU=Personal Certificate/L=Catania/CN=Giuseppe La Rocca">
+        <e:entry key="ROLES">Site Operations Manager::site::GRIDOPS-OPSPORTAL</e:entry>
+        <e:entry key="NAME">Giuseppe La Rocca</e:entry>
+        <e:entry key="EMAIL">larocca@egi.eu</e:entry>
+        <e:entry key="CERTDN">/C=IT/O=INFN/OU=Personal Certificate/L=Catania/CN=Giuseppe La Rocca</e:entry>
+    </e:entries>
+
+
     <e:entries key="/O=AAI/CN=Giuseppe La Rocca/Id=2048f453444002f7b8c0881fed245a531f8c0e7577f50f497312832988ccd4c9@egi.eu">
         <e:entry key="ROLES">Site Operations Manager::site::GRIDOPS-OPSPORTAL</e:entry>
         <e:entry key="NAME">Giuseppe La Rocca</e:entry>
