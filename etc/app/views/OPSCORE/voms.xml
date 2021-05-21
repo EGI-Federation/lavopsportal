@@ -39,6 +39,33 @@
         </cache>
     </view>
 
+    <view name="VomsMembers_v2">
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('voms_vo')"/>
+        </connector>
+
+        <processors>
+            <element in="data" out="vos">
+                <element in="Vo" out="vo">
+                    <attribute-create out="name">../name/text()</attribute-create>
+                    <attribute-create out="url">concat('https://',../VoVomsServer/VoVomsServer/hostname/text(),':',../VoVomsServer/VoVomsServer/@https_port,'/voms/',../name/text(),'/apiv2/users')</attribute-create>
+                    <element-ignore/>
+                </element>
+            </element>
+
+            <elements path="vos/vo">
+                <element-create>view('Voms_Users_Connector',entry('voms_url',../@url)|entry('vo',../@name))</element-create>
+            </elements>
+        </processors>
+
+        <cache type="FileCache">
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="hours">8</parameter>
+            </trigger>
+        </cache>
+    </view>
+
     <view name="Voms_Users_Connector">
 
 
@@ -82,13 +109,14 @@
     <view name="voms_users">
 
 
-
         <connector type="XMLConnector">
             <parameter name="content" eval="view('voms_vo')"/>
         </connector>
 
         <processors>
-            <processor match="/data/Vo[VoVomsServer/VoVomsServer/memberslisturl_v2 and VoVomsServer/VoVomsServer/memberslisturl_v2/text()!='']" type="InsertProcessor"><parameter name="nodes" eval="view('Voms_Users_Connector',entry('voms_url',match()/VoVomsServer/VoVomsServer/memberslisturl_v2/text())|entry('vo',match()/name/text()))"/></processor>
+            <processor match="/data/Vo[VoVomsServer/VoVomsServer/memberslisturl_v2 and VoVomsServer/VoVomsServer/memberslisturl_v2/text()!='']" type="InsertProcessor">
+                <parameter name="nodes" eval="view('Voms_Users_Connector',entry('voms_url',match()/VoVomsServer/VoVomsServer/memberslisturl_v2/text())|entry('vo',match()/name/text()))"/>
+            </processor>
         </processors>
 
         <cache type="IndexedFileCache">
