@@ -48,7 +48,7 @@
             <element in="data" out="vos">
                 <element in="Vo" out="vo">
                     <attribute-create out="name">../name/text()</attribute-create>
-                    <attribute-create out="url">concat('https://',../VoVomsServer/VoVomsServer/hostname/text(),':',../VoVomsServer/VoVomsServer/@https_port,'/voms/',../name/text(),'/apiv2/users?pageSize=1000')</attribute-create>
+                    <attribute-create out="url">concat('https://',../VoVomsServer/VoVomsServer/hostname/text(),':',../VoVomsServer/VoVomsServer/@https_port,'/voms/',../name/text(),'/apiv2/users?pageSize=4500')</attribute-create>
                     <element-ignore/>
                 </element>
             </element>
@@ -61,11 +61,10 @@
                 <set variable="volist">view('VoList')/data</set>
                 <element in="vo">
                     <attribute-create out="count">../object/count/text()</attribute-create>
-                    <attribute-create out="coutUsers">count(../object/result/object)</attribute-create>
                     <attribute-create out="count_v1">$volist/Vo[@name=current()/../@name]/@members</attribute-create>
                     <elements-ignore path="object/result">
                         <element in="object" out="user">
-                                <element-ignore if="name()!='certificates' and name()!='fqan' and name()!='emailAddress'"/>
+                                <element-ignore if="name()!='certificates' and name()!='fqans' and name()!='emailAddress'"/>
                         </element>
                     </elements-ignore>
                 </element>
