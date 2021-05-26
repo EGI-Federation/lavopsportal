@@ -153,8 +153,8 @@
             <parameter name="certificate" eval="property('certificate.path')"/>
             <parameter name="passphrase" eval="property('certificate.password')"/>
 
-            <parameter name="connect-timeout">45</parameter>
-            <parameter name="read-timeout">35</parameter>
+            <parameter name="connect-timeout">15</parameter>
+            <parameter name="read-timeout">65</parameter>
 
             <parameter name="header">
                 <entry key="Content-type">text/json</entry>
