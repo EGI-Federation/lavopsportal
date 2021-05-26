@@ -54,7 +54,7 @@
             </element>
 
             <elements path="vos/vo">
-                <element-create>view('Voms_Users_Connector_2',entry('voms_url',../@url)|entry('vo',../@name))</element-create>
+                <element-create>view('Voms_Users_Connector_2',entry('voms_url',../@url))</element-create>
             </elements>
 
             <element  in="vos">
@@ -67,7 +67,6 @@
                         <element in="object" out="user"/>
                     </element-ignore>
                 </element>
-
 
             </element>
         </processors>
@@ -105,8 +104,6 @@
     </view>
 
     <view name="Voms_Users_Connector">
-
-
 
         <argument name="voms_url"/>
         <argument name="vo"/>
@@ -146,7 +143,7 @@
     <view name="Voms_Users_Connector_2">
 
         <argument name="voms_url"/>
-        <argument name="vo"/>
+
 
         <connector type="HTTPConnector">
             <parameter name="url" eval="$voms_url"/>
@@ -161,7 +158,7 @@
                 <entry key="X-VOMS-CSRF-GUARD">;</entry>
             </parameter>
 
-            <fallback eval="new_element('exception',new_text(concat('exception for url ',$voms_url)))">
+            <fallback eval="new_element('VOMS not reachable')">
                 <exception type="java.io.IOException"/>
                 <exception type="java.net.NoRouteToHostException"/>
                 <exception type="java.io.FileNotFoundException"/>
