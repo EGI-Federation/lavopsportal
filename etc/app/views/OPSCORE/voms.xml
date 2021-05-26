@@ -48,7 +48,7 @@
             <element in="data" out="vos">
                 <element in="Vo" out="vo">
                     <attribute-create out="name">../name/text()</attribute-create>
-                    <attribute-create out="url">concat('https://',../VoVomsServer/VoVomsServer/hostname/text(),':',../VoVomsServer/VoVomsServer/@https_port,'/voms/',../name/text(),'/apiv2/users')</attribute-create>
+                    <attribute-create out="url">concat('https://',../VoVomsServer/VoVomsServer/hostname/text(),':',../VoVomsServer/VoVomsServer/@https_port,'/voms/',../name/text(),'/apiv2/users?pageSize=1000')</attribute-create>
                     <element-ignore/>
                 </element>
             </element>
