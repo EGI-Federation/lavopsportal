@@ -63,9 +63,11 @@
                     <attribute-create out="count">../object/count/text()</attribute-create>
                     <attribute-create out="coutUsers">count(../object/result/object)</attribute-create>
                     <attribute-create out="count_v1">$volist/Vo[@name=current()/../@name]/@members</attribute-create>
-                    <element-ignore in="result">
-                        <element in="object" out="user"/>
-                    </element-ignore>
+                    <elements-ignore path="object/result">
+                        <element in="object" out="user">
+                                <element-ignore if="name()!='certificates' and name()!='fqan' and name()!='emailAddress'"/>
+                        </element>
+                    </elements-ignore>
                 </element>
 
             </element>
