@@ -59,6 +59,7 @@
 
             <elements path="vos/vo">
                 <attribute-create out="count">../object/count/text()</attribute-create>
+                <attribute-create out="coutUsers">count(../result/object)</attribute-create>
 
                 <element-ignore in="result">
                     <element in="object" out="user"/>
