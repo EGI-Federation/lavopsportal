@@ -57,15 +57,19 @@
                 <element-create>view('Voms_Users_Connector_2',entry('voms_url',../@url)|entry('vo',../@name))</element-create>
             </elements>
 
-            <elements path="vos/vo">
-                <attribute-create out="count">../object/count/text()</attribute-create>
-                <attribute-create out="coutUsers">count(../result/object)</attribute-create>
+            <element  in="vos">
+                <set variable="volist">view('VoList')/data</set>
+                <element in="vo">
+                    <attribute-create out="count">../object/count/text()</attribute-create>
+                    <attribute-create out="coutUsers">count(../object/result/object)</attribute-create>
+                    <attribute-create out="count_v1">$volist/Vo[@name=current()/../@name]/@members</attribute-create>
+                    <element-ignore in="result">
+                        <element in="object" out="user"/>
+                    </element-ignore>
+                </element>
 
-                <element-ignore in="result">
-                    <element in="object" out="user"/>
-                </element-ignore>
 
-            </elements>
+            </element>
         </processors>
 
         <cache type="FileCache">
@@ -149,8 +153,8 @@
             <parameter name="certificate" eval="property('certificate.path')"/>
             <parameter name="passphrase" eval="property('certificate.password')"/>
 
-            <parameter name="connect-timeout">45</parameter>
-            <parameter name="read-timeout">35</parameter>
+            <parameter name="connect-timeout">15</parameter>
+            <parameter name="read-timeout">65</parameter>
 
             <parameter name="header">
                 <entry key="Content-type">text/json</entry>
