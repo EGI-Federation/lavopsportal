@@ -48,13 +48,23 @@
             <element in="data" out="vos">
                 <element in="Vo" out="vo">
                     <attribute-create out="name">../name/text()</attribute-create>
-                    <attribute-create out="url">concat('https://',../VoVomsServer/VoVomsServer/hostname/text(),':',../VoVomsServer/VoVomsServer/@https_port,'/voms/',../name/text(),'/apiv2/users')</attribute-create>
+                    <attribute-create out="url">concat('https://',../VoVomsServer/VoVomsServer/hostname/text(),':',../VoVomsServer/VoVomsServer/@https_port,'/voms/',../name/text(),'/apiv2/users?pageSize=1000')</attribute-create>
                     <element-ignore/>
                 </element>
             </element>
 
             <elements path="vos/vo">
                 <element-create>view('Voms_Users_Connector_2',entry('voms_url',../@url)|entry('vo',../@name))</element-create>
+            </elements>
+
+            <elements path="vos/vo">
+                <attribute-create out="count">../object/count/text()</attribute-create>
+                <attribute-create out="coutUsers">count(../result/object)</attribute-create>
+
+                <element-ignore in="result">
+                    <element in="object" out="user"/>
+                </element-ignore>
+
             </elements>
         </processors>
 
@@ -64,6 +74,30 @@
                 <parameter name="hours">8</parameter>
             </trigger>
         </cache>
+    </view>
+
+    <view name="VoUsers_v2">
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('VomsMembers_v2')"/>
+        </connector>
+
+        <processors>
+            <element in="vos">
+                <element in="vo">
+                    <element-ignore/>
+                </element>
+            </element>
+        </processors>
+
+        <cache type="FileCache">
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="DependencyRefreshedTrigger">
+                <parameter name="views">
+                    <entry>VomsMembers_v2</entry>
+                </parameter>
+            </trigger>
+        </cache>
+
     </view>
 
     <view name="Voms_Users_Connector">
