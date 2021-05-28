@@ -61,8 +61,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/voms.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="557">
-              <caret line="75" column="21" lean-forward="true" selection-start-line="75" selection-start-column="21" selection-end-line="75" selection-end-column="21" />
+            <state relative-caret-position="542">
+              <caret line="74" column="283" selection-start-line="74" selection-start-column="283" selection-end-line="74" selection-end-column="283" />
             </state>
           </provider>
         </entry>
@@ -97,7 +97,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>portal.base_url</find>
       <find>date_format</find>
       <find>form</find>
       <find>release</find>
@@ -127,6 +126,7 @@
       <find>vo_users</find>
       <find>index=</find>
       <find>OPSCORE_vo_users_raw</find>
+      <find>find(</find>
     </findStrings>
     <replaceStrings>
       <replace>xmlns=&quot;http://software.in2p3.fr/lavoisier/application.xsd&quot;</replace>
@@ -1199,8 +1199,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/voms.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="557">
-          <caret line="75" column="21" lean-forward="true" selection-start-line="75" selection-start-column="21" selection-end-line="75" selection-end-column="21" />
+        <state relative-caret-position="542">
+          <caret line="74" column="283" selection-start-line="74" selection-start-column="283" selection-end-line="74" selection-end-column="283" />
         </state>
       </provider>
     </entry>

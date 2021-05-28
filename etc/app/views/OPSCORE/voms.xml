@@ -59,19 +59,21 @@
 
             <element  in="vos">
                 <set variable="volist">view('VoList')/data</set>
-                <set variable="userList" index="CERTDN/text()">view('OPSCORE_vo_users_raw')/result/row</set>
                 <element in="vo">
                     <attribute-create out="count">../object/count/text()</attribute-create>
                     <attribute-create out="count_v1">$volist/Vo[@name=current()/../@name]/@members</attribute-create>
                     <elements-ignore path="object/result">
-                        <element in="object" out="user">
-                            <element-create if="current()/../certificates/object/subjectString/text() and find($userList,current()/../certificates/object/subjectString/text())">new_element('email',find($userList,current()/../certificates/object/subjectString/text())/EMAIL/text())</element-create>
-                            <element-create if="current()/../certificates/object/subjectString/text() and find($userList,current()/../certificates/object/subjectString/text())">new_element('username',find($userList,current()/../certificates/object/subjectString/text())/USERVO/text())</element-create>
-
-                        </element>
+                        <element in="object" out="user"/>
                     </elements-ignore>
                 </element>
+            </element>
+            <element in="vos">
+                <set variable="userList" index="CERTDN/text()">view('OPSCORE_vo_users_raw')/result/row</set>
 
+                <elements path="vo/user/certificates/object">
+                    <element-create if="../subjectString/text() and find($userList,current()/../subjectString/text())">new_element('email',find($userList,current()/../subjectString/text())/EMAIL/text())</element-create>
+                    <element-create if="../subjectString/text() and find($userList,current()/../subjectString/text())">new_element('username',find($userList,current()/../subjectString/text())/USERVO/text())</element-create>
+                </elements>
             </element>
         </processors>
 
