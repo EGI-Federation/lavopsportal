@@ -9,7 +9,7 @@
                     <attribute-ignore/>
                         <element in="VoVomsServer">
                             <element in="VoVomsServer">
-                                <element-create>new_element('memberslisturl_v2', new_text(str:replace(current()/../memberslisturl/text(),'/services/VOMSAdmin?method=listMembers','/apiv2/user-stats.action')))</element-create>
+                                <element-create>new_element('memberslisturl_v2', new_text(str:replace(current()/../memberslisturl/text(),'/services/VOMSAdmin?method=listMembers','/apiv3/user-stats.action')))</element-create>
                             </element>
                         </element>
                         <element in="name"/>
@@ -59,12 +59,15 @@
 
             <element  in="vos">
                 <set variable="volist">view('VoList')/data</set>
+                <set variable="userList" index="CERTDN/text()">view('OPSCORE_vo_users_raw')/result/row</set>
                 <element in="vo">
                     <attribute-create out="count">../object/count/text()</attribute-create>
                     <attribute-create out="count_v1">$volist/Vo[@name=current()/../@name]/@members</attribute-create>
                     <elements-ignore path="object/result">
                         <element in="object" out="user">
-                                <element-ignore if="name()!='certificates' and name()!='fqans' and name()!='emailAddress'"/>
+                            <element-create>new_element('email',find($userList,current()/../certificates/object/subjectString/text())/EMAIL/text())</element-create>
+                            <element-create>new_element('username',find($userList,current()/../certificates/object/subjectString/text())/USERVO/text())</element-create>
+
                         </element>
                     </elements-ignore>
                 </element>
@@ -72,12 +75,21 @@
             </element>
         </processors>
 
+
+
         <cache type="FileCache">
             <trigger type="ViewNotifiedTrigger"/>
             <trigger type="DeltaTimeTrigger">
                 <parameter name="hours">8</parameter>
             </trigger>
         </cache>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+
     </view>
 
     <view name="VoUsers_v2">
