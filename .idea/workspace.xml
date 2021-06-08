@@ -5,6 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="mo">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/app/views/OPSCORE/users.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/OPSCORE/users.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/etc/app/views/OPSCORE/voms.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/OPSCORE/voms.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -34,17 +36,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/etc/app/views/DASHBOARD/commons.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="628">
+            <state relative-caret-position="650">
               <caret line="420" selection-start-line="420" selection-end-line="420" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/etc/app/resources/xml/fake_users.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="673">
-              <caret line="160" column="55" selection-start-line="160" selection-start-column="55" selection-end-line="160" selection-end-column="55" />
             </state>
           </provider>
         </entry>
@@ -52,26 +45,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/etc/app/views/VO/vo-voms.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3615">
+            <state relative-caret-position="650">
               <caret line="241" column="47" selection-start-line="241" selection-start-column="47" selection-end-line="241" selection-end-column="47" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/voms.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="542">
-              <caret line="74" column="283" selection-start-line="74" selection-start-column="283" selection-end-line="74" selection-end-column="283" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/users.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="497" column="7" selection-start-line="497" selection-start-column="7" selection-end-line="501" selection-end-column="20" />
+            <state relative-caret-position="485">
+              <caret line="495" column="83" selection-start-line="495" selection-start-column="83" selection-end-line="495" selection-end-column="83" />
             </state>
           </provider>
         </entry>
@@ -81,6 +65,15 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="270">
               <caret line="18" column="60" selection-start-line="18" selection-start-column="60" selection-end-line="18" selection-end-column="60" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/voms.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="440">
+              <caret line="69" selection-start-line="69" selection-end-line="69" />
             </state>
           </provider>
         </entry>
@@ -204,7 +197,6 @@
         <option value="$PROJECT_DIR$/etc/app/views/VO/vo.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/endpoints.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/entities.xml" />
-        <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/users.xml" />
         <option value="$PROJECT_DIR$/etc/engine/engine.properties" />
         <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/global_functions.xml" />
         <option value="$PROJECT_DIR$/etc/app/app.properties" />
@@ -213,14 +205,15 @@
         <option value="$PROJECT_DIR$/etc/app/resources/xml/fake_users.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/VO/vo-voms.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/voms.xml" />
+        <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/users.xml" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="196" />
-    <option name="y" value="144" />
-    <option name="width" value="1392" />
-    <option name="height" value="791" />
+    <option name="x" value="64" />
+    <option name="y" value="27" />
+    <option name="width" value="1856" />
+    <option name="height" value="1053" />
   </component>
   <component name="ProjectId" id="1skzuyGiLAchFbc5UIDh7QyMVZq" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -231,7 +224,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -269,6 +261,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -769,7 +762,7 @@
     <frame x="64" y="27" width="1856" height="1053" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15303868" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15248619" />
       <window_info id="Structure" order="1" weight="0.24958587" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -1155,10 +1148,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/views/VO/vo-voms.xml">
+    <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/global_functions.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3615">
-          <caret line="241" column="47" selection-start-line="241" selection-start-column="47" selection-end-line="241" selection-end-column="47" />
+        <state relative-caret-position="39">
+          <caret line="235" lean-forward="true" selection-start-line="235" selection-end-line="235" />
         </state>
       </provider>
     </entry>
@@ -1171,36 +1164,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/etc/app/resources/xml/fake_users.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="673">
-          <caret line="160" column="55" selection-start-line="160" selection-start-column="55" selection-end-line="160" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/global_functions.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="39">
-          <caret line="235" lean-forward="true" selection-start-line="235" selection-end-line="235" />
+        <state relative-caret-position="652">
+          <caret line="166" column="56" selection-start-line="166" selection-start-column="56" selection-end-line="166" selection-end-column="56" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/etc/app/views/DASHBOARD/commons.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="628">
+        <state relative-caret-position="650">
           <caret line="420" selection-start-line="420" selection-end-line="420" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/users.xml">
+    <entry file="file://$PROJECT_DIR$/etc/app/views/VO/vo-voms.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="497" column="7" selection-start-line="497" selection-start-column="7" selection-end-line="501" selection-end-column="20" />
+        <state relative-caret-position="650">
+          <caret line="241" column="47" selection-start-line="241" selection-start-column="47" selection-end-line="241" selection-end-column="47" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/voms.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="542">
-          <caret line="74" column="283" selection-start-line="74" selection-start-column="283" selection-end-line="74" selection-end-column="283" />
+        <state relative-caret-position="440">
+          <caret line="69" selection-start-line="69" selection-end-line="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/users.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="485">
+          <caret line="495" column="83" selection-start-line="495" selection-start-column="83" selection-end-line="495" selection-end-column="83" />
         </state>
       </provider>
     </entry>
