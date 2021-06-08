@@ -491,7 +491,7 @@
             <element in="result">
                 <set variable="vomsMembers2">view('VomsMembers_v2')/vos</set>
                 <element in="row">
-                    <element-create if="$vomsMembers2/vo[@name=current()/../VO/text()]/user[certificates/object/subjectString=current()/../CERTDN/text()]/fqans/fqan">$vomsMembers2/vo[@name=current()/../VO/text()]/user[certificates/object/subjectString=current()/../CERTDN/text()]/fqans</element-create>
+                    <element-create if="$vomsMembers2/vo[@name=current()/../VO/text()]/user[certificates/object/subjectString/text()=current()/../CERTDN/text()]/fqans/item">$vomsMembers2/vo[@name=current()/../VO/text()]/user[certificates/object/subjectString/text()=current()/../CERTDN/text()]/fqans</element-create>
                 </element>
             </element>
         </processors>
