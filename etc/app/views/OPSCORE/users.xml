@@ -486,6 +486,16 @@
 
         </connector>
 
+        <processors>
+
+            <element in="result">
+                <set variable="vomsMembers2">view('VomsMembers_v2')/vos</set>
+                <element in="row">
+                    <element-create>$vomsMembers2/vo[@name=current()/../VO/text()]/user[certificates/object/subjectString=current()/../CERTDN/text()]/fqans</element-create>
+                </element>
+            </element>
+        </processors>
+
         <cache type="FileCache">
             <trigger type="ViewNotifiedTrigger"/>
          <trigger type="DeltaTimeTrigger">
