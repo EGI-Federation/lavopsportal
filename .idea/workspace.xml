@@ -54,8 +54,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/users.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="485">
-              <caret line="495" column="83" selection-start-line="495" selection-start-column="83" selection-end-line="495" selection-end-column="83" />
+            <state relative-caret-position="297">
+              <caret line="493" column="299" selection-start-line="493" selection-start-column="299" selection-end-line="493" selection-end-column="299" />
             </state>
           </provider>
         </entry>
@@ -72,8 +72,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/voms.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="69" selection-start-line="69" selection-end-line="69" />
+            <state relative-caret-position="187">
+              <caret line="41" column="16" selection-start-line="41" selection-start-column="16" selection-end-line="41" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -90,7 +90,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>date_format</find>
       <find>form</find>
       <find>release</find>
       <find>OPSCORE_VaporReleases</find>
@@ -120,6 +119,7 @@
       <find>index=</find>
       <find>OPSCORE_vo_users_raw</find>
       <find>find(</find>
+      <find>apiv3</find>
     </findStrings>
     <replaceStrings>
       <replace>xmlns=&quot;http://software.in2p3.fr/lavoisier/application.xsd&quot;</replace>
@@ -312,7 +312,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Run with arguments">
+  <component name="RunManager" selected="Application.Start Lavoisier server">
     <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
@@ -760,7 +760,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="27" width="1856" height="1053" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15248619" />
       <window_info id="Structure" order="1" weight="0.24958587" />
@@ -784,7 +783,7 @@
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="9" weight="0.32846004" />
       <window_info anchor="bottom" id="Console" order="10" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.19847329" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.19847329" />
       <window_info anchor="bottom" id="Version Control" order="12" weight="0.327454" />
       <window_info anchor="bottom" id="Docker" order="13" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="14" />
@@ -1185,15 +1184,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/voms.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="69" selection-start-line="69" selection-end-line="69" />
+        <state relative-caret-position="187">
+          <caret line="41" column="16" selection-start-line="41" selection-start-column="16" selection-end-line="41" selection-end-column="30" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/users.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="485">
-          <caret line="495" column="83" selection-start-line="495" selection-start-column="83" selection-end-line="495" selection-end-column="83" />
+        <state relative-caret-position="297">
+          <caret line="493" column="299" selection-start-line="493" selection-start-column="299" selection-end-line="493" selection-end-column="299" />
         </state>
       </provider>
     </entry>
