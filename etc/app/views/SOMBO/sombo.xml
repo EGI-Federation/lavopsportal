@@ -560,6 +560,15 @@
 
 
           <element in="e:entries">
+          <element in="e:entries">
+              <element in="e:entry" if="@key='service'">
+                  <text>upper-case(.)</text>
+              </element>
+          </element>
+      </element>
+
+
+          <element in="e:entries">
               <element in="e:entries">
                   <attribute-create out="id">concat(../e:entry[@key='service'],'___',../e:entry[@key='year'],'-',../e:entry[@key='month'])</attribute-create>
               </element>
