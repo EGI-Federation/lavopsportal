@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="mo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/app/views/SOMBO/sombo.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/SOMBO/sombo.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -40,11 +41,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/etc/app/views/VO/vo-voms.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="447" column="59" lean-forward="true" selection-start-line="447" selection-start-column="59" selection-end-line="447" selection-end-column="59" />
+            <state relative-caret-position="6705">
+              <caret line="447" column="59" selection-start-line="447" selection-start-column="59" selection-end-line="447" selection-end-column="59" />
             </state>
           </provider>
         </entry>
@@ -52,17 +53,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/users.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
+            <state relative-caret-position="7290">
               <caret line="486" column="20" selection-start-line="486" selection-start-column="20" selection-end-line="486" selection-end-column="20" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/etc/app/views/SOMBO/sombo.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1411">
-              <caret line="331" column="16" selection-start-line="331" selection-start-column="16" selection-end-line="331" selection-end-column="16" />
+            <state relative-caret-position="525">
+              <caret line="600" column="120" selection-start-line="600" selection-start-column="120" selection-end-line="600" selection-end-column="120" />
             </state>
           </provider>
         </entry>
@@ -70,8 +71,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/entities.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="518" column="16" lean-forward="true" selection-start-line="518" selection-start-column="16" selection-end-line="518" selection-end-column="38" />
+            <state relative-caret-position="7770">
+              <caret line="518" column="16" selection-start-line="518" selection-start-column="16" selection-end-line="518" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -79,7 +80,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/etc/app/app.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
+            <state relative-caret-position="2205">
               <caret line="147" column="43" selection-start-line="147" selection-start-column="43" selection-end-line="147" selection-end-column="73" />
             </state>
           </provider>
@@ -94,7 +95,7 @@
         <entry file="file://$PROJECT_DIR$/etc/app/app-hidden.properties">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="150">
-              <caret line="10" column="68" lean-forward="true" selection-start-line="10" selection-start-column="68" selection-end-line="10" selection-end-column="68" />
+              <caret line="10" column="68" selection-start-line="10" selection-start-column="68" selection-end-line="10" selection-end-column="68" />
             </state>
           </provider>
         </entry>
@@ -120,7 +121,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>CSITriggerCriticalIssues</find>
       <find>vo.check</find>
       <find>OPSCORE.update.servicesDB</find>
       <find>host</find>
@@ -150,6 +150,7 @@
       <find>OPSCORE.get_sites_av_re</find>
       <find>download-cert.sh</find>
       <find>ShellConnector</find>
+      <find>Stats1</find>
     </findStrings>
     <replaceStrings>
       <replace>xmlns=&quot;http://software.in2p3.fr/lavoisier/application.xsd&quot;</replace>
@@ -221,7 +222,6 @@
         <option value="$PROJECT_DIR$/test" />
         <option value="$PROJECT_DIR$/lavoisier-logs.1.xml" />
         <option value="$PROJECT_DIR$/etc/app/resources/xml/test.xml" />
-        <option value="$PROJECT_DIR$/etc/app/views/SOMBO/sombo.xml" />
         <option value="$PROJECT_DIR$/.gitlab-ci.yml" />
         <option value="$PROJECT_DIR$/etc/app/views/CSI/csi.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/VO/vo.xml" />
@@ -236,6 +236,7 @@
         <option value="$PROJECT_DIR$/etc/app/views/VO/vo-voms.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/voms.xml" />
         <option value="$PROJECT_DIR$/etc/app/views/OPSCORE/users.xml" />
+        <option value="$PROJECT_DIR$/etc/app/views/SOMBO/sombo.xml" />
       </list>
     </option>
   </component>
@@ -253,8 +254,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -300,6 +299,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="ProjectViewState">
@@ -349,7 +350,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Run">
+  <component name="RunManager" selected="Application.Start Lavoisier server">
     <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
@@ -796,10 +797,9 @@
     <option name="totallyTimeSpent" value="15425000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1984" y="0" width="1856" height="1200" extended-state="6" />
-    <editor active="true" />
+    <frame x="1984" y="0" width="2496" height="1440" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1519337" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15183674" />
       <window_info id="Structure" order="1" weight="0.24958587" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -812,7 +812,7 @@
       <window_info id="App Structure" order="10" weight="0.32965213" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32606325" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.45864663" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.45858896" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -821,7 +821,7 @@
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="9" weight="0.32846004" />
       <window_info anchor="bottom" id="Console" order="10" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.19847329" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.19785276" />
       <window_info anchor="bottom" id="Version Control" order="12" weight="0.327454" />
       <window_info anchor="bottom" id="Docker" order="13" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="14" />
@@ -1178,44 +1178,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/voms.xml">
+    <entry file="file://$PROJECT_DIR$/etc/app/views/VO/vo-voms.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="41" column="16" selection-start-line="41" selection-start-column="16" selection-end-line="41" selection-end-column="30" />
+        <state relative-caret-position="6705">
+          <caret line="447" column="59" selection-start-line="447" selection-start-column="59" selection-end-line="447" selection-end-column="59" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/users.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
+        <state relative-caret-position="7290">
           <caret line="486" column="20" selection-start-line="486" selection-start-column="20" selection-end-line="486" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/views/SOMBO/sombo.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1411">
-          <caret line="331" column="16" selection-start-line="331" selection-start-column="16" selection-end-line="331" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/entities.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="518" column="16" lean-forward="true" selection-start-line="518" selection-start-column="16" selection-end-line="518" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/app-hidden.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="68" lean-forward="true" selection-start-line="10" selection-start-column="68" selection-end-line="10" selection-end-column="68" />
+        <state relative-caret-position="7770">
+          <caret line="518" column="16" selection-start-line="518" selection-start-column="16" selection-end-line="518" selection-end-column="38" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/etc/app/app.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
+        <state relative-caret-position="2205">
           <caret line="147" column="43" selection-start-line="147" selection-start-column="43" selection-end-line="147" selection-end-column="73" />
         </state>
       </provider>
@@ -1223,10 +1209,24 @@
     <entry file="file://$PROJECT_DIR$/etc/app/resources/shell/download-cert.sh">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/etc/app/views/VO/vo-voms.xml">
+    <entry file="file://$PROJECT_DIR$/etc/app/app-hidden.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="447" column="59" lean-forward="true" selection-start-line="447" selection-start-column="59" selection-end-line="447" selection-end-column="59" />
+        <state relative-caret-position="150">
+          <caret line="10" column="68" selection-start-line="10" selection-start-column="68" selection-end-line="10" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/voms.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="615">
+          <caret line="41" column="16" selection-start-line="41" selection-start-column="16" selection-end-line="41" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/etc/app/views/SOMBO/sombo.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="600" column="120" selection-start-line="600" selection-start-column="120" selection-end-line="600" selection-end-column="120" />
         </state>
       </provider>
     </entry>
