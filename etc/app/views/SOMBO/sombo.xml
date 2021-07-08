@@ -518,7 +518,7 @@
               <element-ignore in="e:entries">
 
                   <element in="e:entries">
-                      <element in="e:entry" if="@key='created' or @key='SO-1' or @key='SO-1-legacy'"/>
+                      <element in="e:entry" if="@key='created' or @key='SO-1' or @key='SO-1-legacy' or @key='status'"/>
                       <element-ignore/>
                   </element>
               </element-ignore>
@@ -598,6 +598,7 @@
                       <attribute-ignore in="id"/>
                       <attribute-create out="key">substring-after(current()/../@id,'___')</attribute-create>
                       <element-create>entry('count',count(../e:entries))</element-create>
+                      <element-create>entry('countApproved',count(../e:entries/e:entry[@key='status'][text()='Approved']))</element-create>
                       <element-create>entry('list',join(../e:entries/@key,','))</element-create>
                       <element-ignore/>
                   </element>
@@ -613,7 +614,7 @@
           <element in="e:entries">
               <element in="e:entries">
                       <element-create as="last-child">
-                          entries(entry('count',sum(../e:entries/e:entry[@key='count']))|entry('list',join(../e:entries/e:entry[@key='list'],',')))
+                          entries(entry('count',sum(../e:entries/e:entry[@key='count']))|entry('countApproved',sum(../e:entries/e:entry[@key='countApproved']))|entry('list',join(../e:entries/e:entry[@key='list'],',')))
                       </element-create>
               </element>
           </element>
