@@ -15,8 +15,66 @@
 
     </view>
 
+    <view name="marketplace.services" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <connector type="FileConnector">
+            <parameter name="path">/app/resources/xml/listServices.xml</parameter>
+        </connector>
 
-    <view name="marketplace.providers" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <processors>
+            <element in="e:entries">
+                <element in="e:entries">
+                    <element-create>view('marketplace.services.provider',entry('providerId',../@id))</element-create>
+                </element>
+            </element>
+            <element in="e:entries">
+                <element in="e:entries">
+                    <element-ignore in="e:entries"><element in="e:entries"/></element-ignore>
+                </element>
+            </element>
+
+        </processors>
+
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="minutes">28</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+        </cache>
+
+
+    </view>
+
+    <view name="marketplace.services.provider" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <argument name="providerId"/>
+        <connector type="HTTPConnector">
+            <parameter name="url" eval="concat(property('marketplace.services'),$providerId)"/>
+            <parameter name="certificate" eval="property('certificate.path')"/>
+            <parameter name="passphrase" eval="property('certificate.password')"/>
+            <parameter name="force-redirect">true</parameter>
+
+        </connector>
+        <serializer type="HTMLSerializer"/>
+
+        <processors>
+            <element in="html:html" out="e:entries" >
+                <attribute-ignore/>
+                    <element-ignore in="html:body">
+                            <element-ignore in="html:main">
+                                <elements-ignore path="html:div/html:div/html:div/html:div/html:div/html:div/html:div">
+                                    <element in="html:h2" out="e:entries">
+                                        <attribute-ignore/>
+                                        <element-ignore in="html:a"><text/></element-ignore>
+                                    </element>
+                                </elements-ignore>
+                            </element-ignore>
+                    </element-ignore>
+                    <element-ignore/>
+            </element>
+        </processors>
+
+
+    </view>
+    <view name="marketplace.providers" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
         <connector type="HTTPConnector">
             <parameter name="url" eval="property('marketplace.api')"/>
             <parameter name="certificate" eval="property('certificate.path')"/>
