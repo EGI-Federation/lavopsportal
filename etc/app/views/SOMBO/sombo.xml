@@ -395,6 +395,7 @@
     <view name="JiraSOListDate" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" xmlns:date="http://exslt.org/dates-and-times">
         <argument name="startDate"/>
         <argument name="endDate"/>
+        <argument name="status">_status_</argument>
 
         <connector type="XMLConnector">
             <parameter name="content" eval="view('JiraSOList')"/>
@@ -403,7 +404,7 @@
         <processors>
 
 
-            <element in="e:entries">
+            <element in="e:entries" >
                 <element in="e:entries">
                     <attribute-ignore in="count"/>
                     <element-ignore in="e:entries" if="date:seconds(date:difference(substring-before(e:entry[@key='created']/text(),'T'),$endDate)) + 86400 &lt;=0 or  date:seconds(date:difference($startDate,substring-before(e:entry[@key='created']/text(),'T'))) + 86400 &lt;=0">
@@ -417,6 +418,10 @@
                 <element in="e:entries">
                     <attribute-create out="count">count(../e:entries)</attribute-create>
                 </element>
+            </element>
+
+            <element in="e:entries" if="$status!='_status_'">
+                <element-ignore in="e:entries" if="@key!=$status"/>
             </element>
 
         </processors>
