@@ -191,4 +191,11 @@
         <e:entry key="CERTDN">/O=AAI/CN=Gordon Stewart/Id=52b3d0cdb2811474503326d0586a3fb2683a2118ad02762f59924a99dcf1aeab@egi.eu</e:entry>
     </e:entries>
 
+    <e:entries key="/O=AAI/CN=Renato Santana/Id=6db1c2f0405a47624901006a1128a7a3e9f7d67cfe7fa9d14399f3f4fdd07214@egi.eu">
+        <e:entry key="ROLES">Site Operations Manager::site::GRIDOPS-OPSPORTAL</e:entry>
+        <e:entry key="NAME">Renato Santana</e:entry>
+        <e:entry key="EMAIL">renato.santana@egi.eu</e:entry>
+        <e:entry key="CERTDN">/O=AAI/CN=Renato Santana/Id=6db1c2f0405a47624901006a1128a7a3e9f7d67cfe7fa9d14399f3f4fdd07214@egi.eu</e:entry>
+    </e:entries>
+
 </e:entries>
