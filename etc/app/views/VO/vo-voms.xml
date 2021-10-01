@@ -414,6 +414,24 @@
         <argument name="url" eval="concat('https://',$key,':8443')"/>
         <connector type="PublicKeyConnector">
             <parameter name="url" eval="$url"/>
+            <fallback eval="view('voms-certificate-url-fallback', entry('key',$key))">
+                <exception type="fr.in2p3.lavoisier.interfaces.error.ConfigurationException"/>
+                <exception type="java.net.SocketTimeoutException"/>
+            </fallback>
+        </connector>
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+    </view>
+
+    <view name="voms-certificate-url-fallback" timeout="PT1M">
+
+        <argument name="key"/>
+        <argument name="url" eval="concat('https://',$key,':443')"/>
+        <connector type="PublicKeyConnector">
+            <parameter name="url" eval="$url"/>
             <fallback eval="view('cert_fallback', arguments())">
                 <exception type="fr.in2p3.lavoisier.interfaces.error.ConfigurationException"/>
             </fallback>
@@ -497,7 +515,6 @@
                 <exception type="fr.in2p3.lavoisier.interfaces.error.AdaptorException"/>
             </fallback>
         </connector>
-        
     </view>
 
     <view name="voms-certificates" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
