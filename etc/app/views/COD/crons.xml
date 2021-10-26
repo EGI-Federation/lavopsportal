@@ -6,8 +6,6 @@
         <argument name="collection"/>
         <argument name="base_url"/>
 
-
-
         <connector type="HTTPConnector">
             <parameter name="certificate" eval="property('certificate.path')"/>
             <parameter name="passphrase" eval="property('certificate.password')"/>
@@ -38,90 +36,8 @@
                 <column label="Missing">concat(Missing, ' (',Timers/@missing, ' s)')</column>
             </row>
         </pre-renderers>
-
-
     </view>
 
-<!--    <view name="COD_xii_RTicket">-->
-
-<!--        <variable name="base_url" eval="property('COD.dashboard.base.url')"/>-->
-<!--        <variable name="collection">COD_ticket_alerts</variable>-->
-
-
-<!--        <connector type="XMLConnector">-->
-<!--            <parameter name="content"-->
-<!--                       eval="view('templateCrons',entry('base_url',$base_url)|entry('collection',$collection))"/>-->
-<!--        </connector>-->
-
-<!--        <cache type="FileCache">-->
-<!--            <trigger type="ViewNotifiedTrigger"/>-->
-<!--            <trigger type="DeltaTimeTrigger">-->
-<!--                <parameter name="minutes">10</parameter>-->
-<!--            </trigger>-->
-<!--        </cache>-->
-
-<!--    </view>-->
-
-
-<!--    <view name="COD_xii_MWTicket">-->
-
-<!--        <variable name="base_url" eval="property('COD.dashboard.base.url')"/>-->
-<!--        <variable name="collection">COD_MW_ticket_alerts</variable>-->
-
-
-<!--        <connector type="XMLConnector">-->
-<!--            <parameter name="content"-->
-<!--                       eval="view('templateCrons',entry('base_url',$base_url)|entry('collection',$collection))"/>-->
-<!--        </connector>-->
-
-<!--        <cache type="FileCache">-->
-<!--            <trigger type="ViewNotifiedTrigger"/>-->
-<!--            <trigger type="DeltaTimeTrigger">-->
-<!--                <parameter name="minutes">8</parameter>-->
-<!--            </trigger>-->
-<!--        </cache>-->
-
-<!--    </view>-->
-
-<!--    <view name="COD_xii_RNagios">-->
-
-<!--        <variable name="base_url" eval="property('COD.dashboard.base.url')"/>-->
-<!--        <variable name="collection">COD_nagios_problem</variable>-->
-
-
-<!--        <connector type="XMLConnector">-->
-<!--            <parameter name="content"-->
-<!--                       eval="view('templateCrons',entry('base_url',$base_url)|entry('collection',$collection))"/>-->
-<!--        </connector>-->
-
-<!--        <cache type="FileCache">-->
-<!--            <trigger type="ViewNotifiedTrigger"/>-->
-<!--            <trigger type="DeltaTimeTrigger">-->
-<!--                <parameter name="minutes">6</parameter>-->
-<!--            </trigger>-->
-<!--        </cache>-->
-
-<!--    </view>-->
-
-<!--    <view name="COD_xii_RDowntime">-->
-
-<!--        <variable name="base_url" eval="property('COD.dashboard.base.url')"/>-->
-<!--        <variable name="collection">COD_Downtime</variable>-->
-
-
-<!--        <connector type="XMLConnector">-->
-<!--            <parameter name="content"-->
-<!--                       eval="view('templateCrons',entry('base_url',$base_url)|entry('collection',$collection))"/>-->
-<!--        </connector>-->
-
-<!--        <cache type="FileCache">-->
-<!--            <trigger type="ViewNotifiedTrigger"/>-->
-<!--            <trigger type="DeltaTimeTrigger">-->
-<!--                <parameter name="minutes">9</parameter>-->
-<!--            </trigger>-->
-<!--        </cache>-->
-
-<!--    </view>-->
 
 
 </views>

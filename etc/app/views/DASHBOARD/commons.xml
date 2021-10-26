@@ -40,7 +40,7 @@
 
         <processors>
             <element in="result">
-                <attribute-create out="query">concat('DELETE from rod_nagios_history where updated_at <',quot($last_update))</attribute-create>
+                <attribute-create out="query">concat('DELETE from rod_nagios_history where updated_at &lt;',quot($last_update))</attribute-create>
             </element>
         </processors>
 

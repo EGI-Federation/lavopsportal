@@ -31,7 +31,6 @@
             <trigger type="ViewNotifiedTrigger"/>
             <trigger type="ViewCreatedTrigger"/>
         </cache>
-
     </view>
 
 

@@ -24,6 +24,7 @@
     <view authenticators="local"  name="CSI_Import_Nagios">
         <argument name="ngi"/>
         <variable name="url" eval="concat(property('CSI.nagios.import'),'/',$ngi)"/>
+
         <connector type="HTTPConnector">
             <parameter name="url" eval="$url"/>
             <parameter name="header">
@@ -209,7 +210,7 @@
         <parameter name="content" eval="view('CsiNagios')"/>
     </connector>
         <processors>
-            
+
             <element in="nagios" out="Data">
                 <attribute-create out="history_table_name">CsiNagiosHistory</attribute-create>
                 <attribute-create out="problem_table_name">CsiNagiosProblem</attribute-create>
@@ -234,7 +235,7 @@
                    <element in="last_check" out="GenerationDate">
                        <text>substring(str:replace(date:add('1970-01-01T00:00:00Z', date:duration(.)),'T',' '),1,19)</text>
                    </element>
-               </element>     
+               </element>
             </element>
 
             <element in="Data">
@@ -245,7 +246,7 @@
                     <element-create as="first-child">new_element('wn',substring-before(../plugin_output/text(),': '))</element-create>
                 </element>
             </element>
-            
+
             <element in="Data">
                 <element-ignore in="Issue"></element-ignore>
                 <element-create>sort_by_number(../Issue,'last_hard_state/@value')</element-create>
