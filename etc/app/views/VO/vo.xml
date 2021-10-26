@@ -608,94 +608,6 @@
 
     </view>
 
-   <!-- <view xmlns:str="http://exslt.org/strings" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd"  name="VO_export">
-
-        <connector type="XMLConnector">
-            <parameter name="content" eval="view('VO_full_new')"/>
-        </connector>
-
-        <processors>
-            <element in="data" out="e:entries">
-                <element in="Vo" attributes="@*[local-name()='serial']">
-                    <set variable="vo_disciplines">view('VoDisciplinesTree_Metrics')</set>
-                    <element-create>entry('validationDate',../validationdate/text())</element-create>
-                    <element-create>entry('name',../name/text())</element-create>
-                    <element-create>
-                        entry('scope',choose(../VoHeader/scope/text(),../VoHeader/scope/text(),'NA'))
-                    </element-create>
-                    <element-create>
-                        entry('status',choose(../VoHeader/status/text(),../VoHeader/status/text(),'NA'))
-                    </element-create>
-
-                    <element-create>entry('Number of
-                        Members',choose($vo_disciplines/disciplines/discipline//row[@name=current()/../name/text()]/@NbUsers,$vo_disciplines/disciplines/discipline//row[@name=current()/../name/text()]/@NbUsers,'NA'))
-                    </element-create>
-
-
-                    <elements-ignore path="data/DoctrineCollection">
-                        <element-ignore in="Disciplines">
-                            <element-create>entry('discipline',concat(../disciplinelabel/text()," - "))</element-create>
-                        </element-ignore>
-                        <element-ignore in="VoContactHasProfile">
-                            <element-ignore/>
-                            <element-create>entry('contact',concat(../VoContacts/firstname/text(),'
-                                ',../VoContacts/lastname/text(),' : ',../VoContacts/email/text(),' :
-                                ',../VoUserProfile/profile/text(),' - '))
-                            </element-create>
-                        </element-ignore>
-                    </elements-ignore>
-
-
-                    <element-ignore/>
-                </element>
-
-            </element>
-            <elements path="e:entries/Vo">
-                <element-create>entry('disciplines',str:concat(../e:entry[@key='discipline']/text()))</element-create>
-                <element-create>entry('contacts',str:concat(../e:entry[@key='contact']/text()))</element-create>
-            </elements>
-
-
-            <elements path="e:entries/Vo">
-                <element-ignore in="e:entry" if="@key='contact' or @key='discipline'">
-                </element-ignore>
-            </elements>
-
-
-        </processors>
-
-
-        <cache type="FileCache">
-            <trigger type="DeltaTimeTrigger">
-                <parameter name="hours">1</parameter>
-                <parameter name="minutes">18</parameter>
-            </trigger>
-            <trigger type="ViewNotifiedTrigger"/>
-            <trigger type="ViewCreatedTrigger"/>
-        </cache>
-
-        <pre-renderers>
-            <namespace prefix="e" uri="http://software.in2p3.fr/lavoisier/entries.xsd"/>
-            <namespace prefix="str" uri="http://exslt.org/strings"/>
-            <row foreach="e:entries/Vo">
-                <column label="name">e:entry[@key='name']/text()</column>
-                <column label="validationDate">e:entry[@key='validationDate']/text()</column>
-                <column label="scope">e:entry[@key='scope']/text()</column>
-                <column label="status">e:entry[@key='status']/text()</column>
-                <column label="Number of Members">e:entry[@key='Number of Members']/text()</column>
-                <column label="disciplines">e:entry[@key='disciplines']/text()</column>
-                <column label="Middlewares">e:entry[@key='Middlewares']/text()</column>
-                <column label="contacts">e:entry[@key='contacts']/text()</column>
-
-            </row>
-        </pre-renderers>
-        <renderers>
-            <renderer type="DefaultRenderer">
-                <parameter name="contentType">text/xml</parameter>
-            </renderer>
-        </renderers>
-
-    </view>-->
 
     <view name="VoDisciplines">
 
@@ -2163,12 +2075,10 @@
                 <element-ignore/>
 
                 <element-create>
-                    entry('date_validation',choose(../date_validation/text(),../date_validation/text(),'0000-00-00
-                    00:00:00'))
+                    entry('date_validation',choose(../date_validation/text(),../date_validation/text(),'0000-00-00 00:00:00'))
                 </element-create>
                 <element-create>
-                    entry('date_last_email_sending',choose(../date_last_email_sending/text(),../date_last_email_sending/text(),'0000-00-00
-                    00:00:00'))
+                    entry('date_last_email_sending',choose(../date_last_email_sending/text(),../date_last_email_sending/text(),'0000-00-00 00:00:00'))
                 </element-create>
                 <element-create as="first-child">entry('status',choose(../status/text(),../status/text(),100))
                 </element-create>
@@ -2373,17 +2283,7 @@
                     <element-create if="$VomsVO/data/Vo[name/text()=current()/../name/text()]/VoVomsServer/@registry">entry("registry",$VomsVO/data/Vo[name/text()=current()/../name/text()]/VoVomsServer/@registry)</element-create>
                     <element-create if="not($VomsVO/data/Vo[name/text()=current()/../name/text()]/VoVomsServer/@registry)">entry("registry",'Undefined')</element-create>
 
-                    <!--
-                    <element-create as="last-child">entry("middlewares",concat(
-                        choose(../arc_supported/text()='1',',Arc'),
-                        choose(../glite_supported/text()='1',',gLite'),
-                        choose(../unicore_supported/text()='1',',Unicore'),
-                        choose(../globus_supported/text()='1',',Globus'),
-                        choose(../cloud_computing_supported/text()='1',',Cloud Computing Resources'),
-                        choose(../cloud_storage_supported/text()='1',',Cloud Storage Resources')
-                        ))
-                    </element-create>
--->
+
 
                     <element-ignore/>
 

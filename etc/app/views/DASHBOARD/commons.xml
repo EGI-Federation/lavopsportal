@@ -38,6 +38,12 @@
             </parameter>
         </connector>
 
+        <processors>
+            <element in="result">
+                <attribute-create out="query">concat('DELETE from rod_nagios_history where updated_at <',quot($last_update))</attribute-create>
+            </element>
+        </processors>
+
         <cache type="FileCache">
             <trigger type="ViewNotifiedTrigger"></trigger>
         </cache>

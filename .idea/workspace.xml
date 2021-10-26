@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="mo" />
+    <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="mo">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/app/views/CSI/csi.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/CSI/csi.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/app/views/DASHBOARD/commons.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/DASHBOARD/commons.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/app/views/GGUS/readme.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/app/views/GGUS/soap.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/app/views/ROD/rod.bcup" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/app/views/VO/vo.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/VO/vo.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -233,7 +242,7 @@
     <configuration name="Run with arguments" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="fr.in2p3.lavoisier.command.StandaloneExec" />
       <module name="lavopsportal" />
-      <option name="PROGRAM_PARAMETERS" value="voms-certificate-url?nbsteps=999&amp;key=voms-atlas-auth.app.cern.ch&amp;accept=xml" />
+      <option name="PROGRAM_PARAMETERS" value="osg_voms?nbsteps=999&amp;&amp;accept=xml" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -250,7 +259,6 @@
     </configuration>
     <configuration name="Start Lavoisier server" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="/usr/lib/jvm/oracle-java8-jdk-amd64/jre" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="fr.in2p3.lavoisier.command.StartServer" />
       <module name="lavopsportal" />
       <option name="VM_PARAMETERS" value="-Dhttps.protocols=TLSv1,TLSv1.1,TLSv1.2" />
@@ -322,7 +330,11 @@
       <workItem from="1633087118485" duration="4135000" />
       <workItem from="1633336109726" duration="29000" />
       <workItem from="1633357257491" duration="929000" />
-      <workItem from="1633605120015" duration="352000" />
+      <workItem from="1633605120015" duration="963000" />
+      <workItem from="1633606099341" duration="718000" />
+      <workItem from="1633679999808" duration="50000" />
+      <workItem from="1635236852668" duration="3634000" />
+      <workItem from="1635247786575" duration="1826000" />
     </task>
     <task id="LOCAL-00075" summary="filtre tickets">
       <created>1536755736442</created>
