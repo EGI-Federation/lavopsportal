@@ -286,7 +286,7 @@
                     <element in="Issue" if="$CsiNagiosProbes/service[@name=current()/service_description/text()]">
                         <element-create>new_element('friendly_name',new_text($CsiNagiosProbes/service[@name=current()/../service_description/text()]/@friendly_name))</element-create>
                         <element-create>new_element('description',new_text($CsiNagiosProbes/service[@name=current()/service_description/text()]/@description))</element-create>
-                        <element-create>new_element('urltohelp',new_text($CsiNagiosProbes/service[@name=current()/service_description/text()]/@url))</element-create>
+                        <element-create>new_element('urltohelp','https://wiki.egi.eu/wiki/EGI_CSIRT:SMG#Monitoring_probe')</element-create>
                         <element-create>new_element('cod','false')</element-create>
                         <element-create>new_element('ngi',new_text($ngis/NGI[Sites/Site/@name=current()/../site/text()]/@name))</element-create>
                   </element>
