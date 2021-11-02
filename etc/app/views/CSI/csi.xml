@@ -235,7 +235,7 @@
                         <attribute-ignore/>
                         <text-create>substring-after(../@value,"0;")</text-create>
                     </element>
-                   <element in="last_check" out="GenerationDate">
+                   <element in="last_check">
                        <attribute-ignore/>
                        <text>../@value</text>
                    </element>
