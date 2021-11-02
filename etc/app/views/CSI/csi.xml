@@ -281,28 +281,32 @@
                 <set variable="CsiNagiosProbes" >view('CsiNagiosProbes')/probe_descriptions/services</set>
                 <set variable="ngis">view('OPSCORE_prod_entities')/NGIs</set>
                 <element>
-                    <element in="Issue">
-                        <element-create>new_element('friendly_name',new_text(choose($CsiNagiosProbes/service[@name=current()/../service_description/text()]/@friendly_name,$CsiNagiosProbes/service[@name=current()/../service_description/text()]/@friendly_name,'friendly_name')))</element-create>
-                        <element-create>new_element('description',new_text(choose($CsiNagiosProbes/service[@name=current()/../service_description/text()]/@description,$CsiNagiosProbes/service[@name=current()/service_description/text()]/@description,'No description available')))</element-create>
-                        <element-create>new_element('urltohelp',new_text(choose($CsiNagiosProbes/service[@name=current()/../service_description/text()]/@url,$CsiNagiosProbes/service[@name=current()/service_description/text()]/@url,'https://wiki.egi.eu/wiki/EGI_CSIRT:SMG#Monitoring_probe')))</element-create>
+                    <element in="Issue" if="$CsiNagiosProbes/service[@name=current()/service_description/text()]">
+                        <element-create>new_element('friendly_name',new_text($CsiNagiosProbes/service[@name=current()/../service_description/text()]/@friendly_name))</element-create>
+                        <element-create>new_element('description',new_text($CsiNagiosProbes/service[@name=current()/service_description/text()]/@description))</element-create>
+                        <element-create>new_element('urltohelp',new_text($CsiNagiosProbes/service[@name=current()/service_description/text()]/@url))</element-create>
                         <element-create>new_element('cod','false')</element-create>
                         <element-create>new_element('ngi',new_text($ngis/NGI[Sites/Site/@name=current()/../site/text()]/@name))</element-create>
                   </element>
-                </element>
-            </element>
-            <element in="Data">
-                <element>
-                    <element in="Issue">
-                        <element in="description" if="text()=''"><text>'No description available'</text></element>
+                    <element in="Issue" if="not($CsiNagiosProbes/service[@name=current()/service_description/text()])">
+                        <element-create>new_element('friendly_name','friendly_name')</element-create>
+                        <element-create>new_element('description','description not available')</element-create>
+                        <element-create>new_element('urltohelp','https://wiki.egi.eu/wiki/EGI_CSIRT:SMG#Monitoring_probe')</element-create>
+                        <element-create>new_element('cod','false')</element-create>
+                        <element-create>new_element('ngi',new_text($ngis/NGI[Sites/Site/@name=current()/../site/text()]/@name))</element-create>
                     </element>
+
                 </element>
             </element>
 
             <element in="Data">
                 <element>
-                    <element-ignore in="Issue" if="friendly_name/text()='friendly_name'"/>
+                    <element in="Issue" if="not($CsiNagiosProbes/service[@name=current()/service_description/text()]/@description)">
+                        <element in="description" if="text()=''"><text>'No description available'</text></element>
+                    </element>
                 </element>
             </element>
+
 
 
             <element in="Data">
