@@ -299,13 +299,7 @@
                 </element>
             </element>
 
-            <element in="Data">
-                <element>
-                    <element in="Issue" if="not($CsiNagiosProbes/service[@name=current()/service_description/text()]/@description)">
-                        <element in="description" if="text()=''"><text>'No description available'</text></element>
-                    </element>
-                </element>
-            </element>
+
 
 
 
