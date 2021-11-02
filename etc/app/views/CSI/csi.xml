@@ -290,6 +290,13 @@
                   </element>
                 </element>
             </element>
+            <element in="Data">
+                <element>
+                    <element in="Issue">
+                        <element in="description" if="text()=''"><text>'No description available'</text></element>
+                    </element>
+                </element>
+            </element>
 
             <element in="Data">
                 <element>
