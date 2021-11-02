@@ -204,16 +204,15 @@
         </renderers>
     </view>
 
-    <view authenticators="local" name="CsiNagiosRecords2"   xmlns:str="http://exslt.org/strings"  xmlns:date="http://exslt.org/dates-and-times" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
+    <view authenticators="local" name="CsiNagiosRecords"   xmlns:str="http://exslt.org/strings"  xmlns:date="http://exslt.org/dates-and-times" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
 
     <connector type="XMLConnector">
         <parameter name="content" eval="view('CsiNagios')"/>
     </connector>
         <processors>
-
             <element in="nagios" out="Data">
-                <attribute-create out="history_table_name">CsiNagiosHistory</attribute-create>
-                <attribute-create out="problem_table_name">CsiNagiosProblem</attribute-create>
+                <attribute-create out="history_table_name">'CsiNagiosHistory'</attribute-create>
+                <attribute-create out="problem_table_name">'CsiNagiosProblem'</attribute-create>
                 <attribute-create out="global_date">str:replace(substring(date:add(date:date-time(),concat('-PT',substring(date:date-time(),21,2),'H')),1,19),'T',' ')</attribute-create>
 
                <element in="servicestatus" out="Issue">
@@ -227,35 +226,104 @@
                    </element>
                    <element in="last_hard_state">
                        <attribute-ignore/>
-                       <element-create>new_text(../@value)</element-create>
+                       <element-create if="../@value">new_text(../@value)</element-create>
+                       <element-create if="not(../@value)">new_text('N/A')</element-create>
+
                    </element>
                     <element in="_SITE_NAME" out="site">
-                        <text>substring-after(.,"0;")</text>
+                        <attribute-ignore/>
+                        <text-create>substring-after(../@value,"0;")</text-create>
                     </element>
                    <element in="last_check" out="GenerationDate">
-                       <text>substring(str:replace(date:add('1970-01-01T00:00:00Z', date:duration(.)),'T',' '),1,19)</text>
+                       <attribute-ignore/>
+                       <text>../@value</text>
                    </element>
+                   <element-create>
+                       new_element('GenerationDate',new_text(substring(str:replace(date:add('1970-01-01T00:00:00Z', date:duration(../last_check/@value)),'T',' '),1,19)))
+                   </element-create>
+                   <element-create as="first-child">new_element('wn')</element-create>
                </element>
             </element>
 
             <element in="Data">
-                <element in="Issue" if="contains(plugin_output/text(),'Pakiti-Vuln')">
-                    <element-create as="first-child">new_element('wn',substring-before(substring-after(../plugin_output/text(),' - '),':'))</element-create>
-                </element>
-                <element in="Issue" if="not(contains(plugin_output/text(),'Pakiti-Vuln'))">
-                    <element-create as="first-child">new_element('wn',substring-before(../plugin_output/text(),': '))</element-create>
+                <element in="Issue">
+                    <element in="wn">
+                        <text-create if="contains(../plugin_output/text(),'Pakiti-Vuln')">
+                            substring-before(substring-after(../../plugin_output/text(),' - '),':')
+                        </text-create>
+                        <text-create if="not(contains(../plugin_output/text(),'Pakiti-Vuln'))">
+                            substring-before(../../plugin_output/text(),': ')
+                        </text-create>
+                    </element>
                 </element>
             </element>
 
             <element in="Data">
                 <element-ignore in="Issue"></element-ignore>
-                <element-create>sort_by_number(../Issue,'last_hard_state/@value')</element-create>
+                <element-create>sort_by_string(../Issue,'last_hard_state/text()')</element-create>
             </element>
+
+            <element in="Data">
+                <element-create-as-parent out="Issues" attributes="new_attribute('key',last_hard_state/text())" group-by="last_hard_state/text()">
+                    <element in="Issue"/>
+                </element-create-as-parent>
+            </element>
+            <element in="Data">
+                <attribute-create out="status_0">count(../Issues/Issue[last_hard_state/text()=0])</attribute-create>
+                <attribute-create out="status_1">count(../Issues/Issue[last_hard_state/text()=1])</attribute-create>
+                <attribute-create out="status_2">count(../Issues/Issue[last_hard_state/text()=2])</attribute-create>
+                <attribute-create out="status_3">count(../Issues/Issue[last_hard_state/text()=3])</attribute-create>
+
+                <element in="Issues" if="@key=0" out="Recoveries"/>
+            </element>
+
+            <element in="Data">
+                <set variable="CsiNagiosProbes" >view('CsiNagiosProbes')/probe_descriptions/services</set>
+                <set variable="ngis">view('OPSCORE_prod_entities')/NGIs</set>
+                <element>
+                    <element in="Issue">
+                        <element-create>new_element('friendly_name',new_text(choose($CsiNagiosProbes/service[@name=current()/../service_description/text()]/@friendly_name,$CsiNagiosProbes/service[@name=current()/../service_description/text()]/@friendly_name,../service_description/text())))</element-create>
+                        <element-create>new_element('description',new_text(choose($CsiNagiosProbes/service[@name=current()/../service_description/text()]/@description,$CsiNagiosProbes/service[@name=current()/service_description/text()]/@description,'No description available')))</element-create>
+                        <element-create>new_element('urltohelp',new_text(choose($CsiNagiosProbes/service[@name=current()/../service_description/text()]/@url,$CsiNagiosProbes/service[@name=current()/service_description/text()]/@url,'https://wiki.egi.eu/wiki/EGI_CSIRT:SMG#Monitoring_probe')))</element-create>
+                        <element-create>new_element('cod','false')</element-create>
+                        <element-create>new_element('ngi',new_text($ngis/NGI[Sites/Site/@name=current()/../site/text()]/@name))</element-create>
+                  </element>
+                </element>
+
+
+
+            </element>
+
+
+            <element in="Data">
+                <element>
+                    <element in="Issue">
+                        <element in="plugin_output">
+                            <text-ignore/>
+                            <text-create>choose(../../wn/text()!='',concat(../../wn/text(),'****',../text()),../text())</text-create>
+                        </element>
+                        <element in="long_plugin_output">
+                            <text-ignore/>
+                            <text-create>choose(../../wn/text()!='',concat(../../wn/text(),'****',../text()),../text())</text-create>
+                        </element>
+                    </element>
+                </element>
+            </element>
+
+
+
         </processors>
+
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">xml</parameter>
+            </renderer>
+        </renderers>
 
     </view>
 
-    <view authenticators="local" name="CsiNagiosRecords"  xmlns:str="http://exslt.org/strings"  xmlns:date="http://exslt.org/dates-and-times" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
+    <view authenticators="local" name="CsiNagiosRecords_bcup"  xmlns:str="http://exslt.org/strings"  xmlns:date="http://exslt.org/dates-and-times" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
 
         <connector type="XMLConnector">
             <parameter name="content" eval="view('CsiNagios')"/>
@@ -333,7 +401,17 @@
                     </element>
                 </element>
             </element>
+
+            <element in="Data">
+                <attribute-create out="status_0">count(../../Issue[last_hard_state/text()=0])</attribute-create>
+                <attribute-create out="status_1">count(../../Issue[last_hard_state/text()=1])</attribute-create>
+                <attribute-create out="status_2">count(../../Issue[last_hard_state/text()=2])</attribute-create>
+                <attribute-create out="status_3">count(../../Issue[last_hard_state/text()=3])</attribute-create>
+            </element>
+
         </processors>
+
+
 
 
         <renderers>
