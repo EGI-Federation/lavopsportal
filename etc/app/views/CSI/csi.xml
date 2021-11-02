@@ -237,7 +237,8 @@
                     </element>
                    <element in="last_check">
                        <attribute-ignore/>
-                       <text>../@value</text>
+                       <text-ignore/>
+                       <text-create>../@value</text-create>
                    </element>
                    <element-create>
                        new_element('GenerationDate',new_text(substring(str:replace(date:add('1970-01-01T00:00:00Z', date:duration(../last_check/@value)),'T',' '),1,19)))
