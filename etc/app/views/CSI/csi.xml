@@ -180,8 +180,8 @@
                 <set variable="nagiosDB" index="id/text()">view('CsiNagiosDB')/result/row</set>
                 <element out="e:entries">
                     <set variable="record">find($nagiosDB,@key)</set>
-                    <attribute-create out="record">$record/id/text()</attribute-create>
-                    <element-create if="not($record/id/text())">entry('type','insert')</element-create>
+                    <attribute-create out="record">count($record/id/text())</attribute-create>
+                    <element-create if="$record/id/text()=0">entry('type','insert')</element-create>
                     <element-create if="$record/id/text() and (not($record/summary/text()=current()/../e:entry[@key='summary']/text()))">entry('type','update record')</element-create>
                     <element-create if="$record/id/text() and ($record/summary/text()=current()/../e:entry[@key='summary']/text())">entry('type','update date')</element-create>
 
@@ -488,7 +488,7 @@
     </view>
 
     <view  authenticators="local" name="CsiDelete1" xmlns:date="http://exslt.org/dates-and-times">
-        <variable name="last_update" eval="substring(date:add(date:date(),'-P15D'),0,11)"/>
+        <variable name="last_update" eval="substring(date:add(date:date(),'-P8D'),0,11)"/>
 
         <connector type="SQLConnector">
             <parameter name="driver">com.mysql.jdbc.Driver</parameter>
