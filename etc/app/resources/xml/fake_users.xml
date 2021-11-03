@@ -213,4 +213,12 @@
         <e:entry key="CERTDN">/O=AAI/CN=Renato Santana/Id=376c571837547ab00753c4d456c78decc8006fd9de05b2e23143d0114576b4c0@egi.eu</e:entry>
     </e:entries>
 
+    <e:entries key="/O=AAI/CN=Daniel Kouřil/Id=31932513eefc9850ac3c50ece88cca7f0f362670ad55659a7855381b1ce041c9@egi.eu">
+        <e:entry key="ROLES">EGI CSIRT Officer::project::EGI</e:entry>
+        <e:entry key="NAME">Daniel Kouril</e:entry>
+        <e:entry key="EMAIL">1388@mail.muni.cz</e:entry>
+        <e:entry key="CERTDN">/O=AAI/CN=Daniel Kouřil/Id=31932513eefc9850ac3c50ece88cca7f0f362670ad55659a7855381b1ce041c9@egi.eu</e:entry>
+
+    </e:entries>
+
 </e:entries>
