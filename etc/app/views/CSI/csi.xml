@@ -112,13 +112,55 @@
     </view>
 
 
-    <view authenticators="local" name="CsiNagios">
+    <view authenticators="local" name="CsiNagios"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" xmlns:date="http://exslt.org/dates-and-times">
 
         <connector type="HTTPConnector">
             <parameter name="url" eval="property('CSI.nagiosBoxUrlLavoisier')"/>
             <parameter name="certificate" eval="property('certificate.sec.path')"/>
             <parameter name="passphrase" eval="property('certificate.sec.password')"/>
         </connector>
+
+        <processors>
+            <element in="nagios">
+                <set variable="CsiNagiosProbes" >view('CsiNagiosProbes')/probe_descriptions/services</set>
+                <element-ignore in="servicestatus" if="not($CsiNagiosProbes/service[@name=current()/service_description/text()])"></element-ignore>
+            </element>
+
+            <element in="nagios">
+                <set variable="OPSCORE_host_service" index="e:entry[@key='hostname']/text()">uniq(view('OPSCORE_host_service')/e:entries/e:entries,"e:entry[@key='hostname']/text()")</set>
+                <element in="servicestatus" if="not(_SITE_NAME)">
+                    <element-create>new_element(_SITE_NAME,new_attribute('value',concat('0;',find($OPSCORE_host_service,../host_name/text())/e:entry[@key='site']/text())))</element-create>
+                </element>
+            </element>
+
+            <element in="nagios">
+                <element in="servicestatus" if="not(plugin_output)">
+                    <element-create>new_element('plugin_output',new_text('No summary available'))</element-create>
+                </element>
+            </element>
+
+            <element in="nagios">
+                <element in="servicestatus" if="not(long_plugin_output)">
+                    <element-create>new_element('long_plugin_output',new_text('No details available'))</element-create>
+                </element>
+            </element>
+
+
+            <element in="nagios">
+                <element in="servicestatus">
+                    <element in="last_check">
+                        <attribute-ignore/>
+                        <text-ignore/>
+                        <text-create if="../@value!=0">../@value</text-create>
+                        <text-create if="../@value=0">date:seconds()</text-create>
+                    </element>
+                </element>
+            </element>
+
+
+
+
+        </processors>
         <cache type="FileCache">
             <trigger type="DeltaTimeTrigger">
                 <parameter name="minutes">15</parameter>
@@ -126,7 +168,39 @@
             <trigger type="ViewNotifiedTrigger"/>
         </cache>
 
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">xml</parameter>
+            </renderer>
+        </renderers>
+
     </view>
+
+    <view authenticators="local" name="CsiNagiosCritical"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('CsiNagios')"/>
+        </connector>
+
+        <processors>
+            <element in="nagios">
+               <element-ignore in="servicestatus" if="last_hard_state/@value!=2"></element-ignore>
+            </element>
+
+
+
+        </processors>
+
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">xml</parameter>
+            </renderer>
+        </renderers>
+
+    </view>
+
+
 
     <view name="CsiAlarmsImport" authenticators="local" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
 
@@ -178,12 +252,13 @@
 
             <element in="e:entries">
                 <set variable="nagiosDB" index="id/text()">view('CsiNagiosDB')/result/row</set>
+
                 <element out="e:entries">
                     <set variable="record">find($nagiosDB,@key)</set>
-                    <attribute-create out="record">count($record/id/text())</attribute-create>
-                    <element-create if="count($record/id/text())=0">entry('type','insert')</element-create>
-                    <element-create if="count($record/id/text())=1 and (not($record/summary/text()=current()/../e:entry[@key='summary']/text()))">entry('type','update record')</element-create>
-                    <element-create if="count($record/id/text())=1 and ($record/summary/text()=current()/../e:entry[@key='summary']/text())">entry('type','update date')</element-create>
+                    <attribute-create out="record">$record/id/text()</attribute-create>
+                    <element-create if="$record/id/text()=''">entry('type','insert')</element-create>
+                    <element-create if="$record/id/text()!='' and (not($record/summary/text()=current()/../e:entry[@key='summary']/text()))">entry('type','update record')</element-create>
+                    <element-create if="$record/id/text()!='' and ($record/summary/text()=current()/../e:entry[@key='summary']/text())">entry('type','update date')</element-create>
 
                 </element>
             </element>
@@ -205,18 +280,64 @@
         </renderers>
     </view>
 
+    <view authenticators="local" name="CsiNagiosInsert"   xmlns:str="http://exslt.org/strings"  xmlns:date="http://exslt.org/dates-and-times">
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('CsiNagios')"/>
+        </connector>
+
+        <processors>
+            <element in="nagios">
+                <set variable="nagiosDB" index="id/text()">view('CsiNagiosDB')/result/row</set>
+
+                <element in="servicestatus">
+                    <set variable="record">find($nagiosDB,concat(service_description/text(),'___',host_name/text()))</set>
+                    <attribute-create out="pk1">../service_description/text()</attribute-create>
+                    <attribute-create out="pk2">../host_name/text()</attribute-create>
+                    <attribute-create out="key">concat(../service_description/text(),'___',../host_name/text())</attribute-create>
+                    <attribute-create out="record_id">$record/id/text()</attribute-create>
+                </element>
+            </element>
+
+
+            <element in="nagios">
+                <element-ignore in="servicestatus" if="@record_id!=''"></element-ignore>
+            </element>
+
+        </processors>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">xml</parameter>
+            </renderer>
+        </renderers>
+    </view>
+
     <view authenticators="local" name="CsiNagiosRecords"   xmlns:str="http://exslt.org/strings"  xmlns:date="http://exslt.org/dates-and-times" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
 
     <connector type="XMLConnector">
         <parameter name="content" eval="view('CsiNagios')"/>
     </connector>
         <processors>
+
             <element in="nagios" out="Data">
+                <set variable="CsiNagiosProbes" >view('CsiNagiosProbes')/probe_descriptions/services</set>
+
+                        <element in="servicestatus" out="Issue" if="$CsiNagiosProbes/service[@name=current()/service_description/text()]">
+                            <element-create>new_element('friendly_name',new_text($CsiNagiosProbes/service[@name=current()/../service_description/text()]/@friendly_name))</element-create>
+                            <element-create>new_element('description',new_text($CsiNagiosProbes/service[@name=current()/service_description/text()]/@description))</element-create>
+                            <element-create>new_element('urltohelp','https://wiki.egi.eu/wiki/EGI_CSIRT:SMG#Monitoring_probe')</element-create>
+                            <element-create>new_element('cod','false')</element-create>
+                        </element>
+                        <element-ignore/>
+            </element>
+
+            <element in="Data">
+<!--                <set variable="OPSCORE_host_service">view('OPSCORE_host_service')/e:entries</set>-->
                 <attribute-create out="history_table_name">'CsiNagiosHistory'</attribute-create>
                 <attribute-create out="problem_table_name">'CsiNagiosProblem'</attribute-create>
                 <attribute-create out="global_date">str:replace(substring(date:add(date:date-time(),concat('-PT',substring(date:date-time(),21,2),'H')),1,19),'T',' ')</attribute-create>
 
-               <element in="servicestatus" out="Issue">
+               <element in="Issue">
 
                    <attribute-create out="pk1">../service_description/text()</attribute-create>
                    <attribute-create out="pk2">../host_name/text()</attribute-create>
@@ -231,23 +352,22 @@
                        <element-create if="not(../@value)">new_text('N/A')</element-create>
 
                    </element>
-                    <element in="_SITE_NAME" out="site">
+                    <element in="_SITE_NAME"  out="site">
                         <attribute-ignore/>
                         <text-create>substring-after(../@value,"0;")</text-create>
                     </element>
-                   <element in="last_check">
-                       <attribute-ignore/>
-                       <text-ignore/>
-                       <text-create>../@value</text-create>
-                   </element>
+
+
+
                    <element-create>
-                       new_element('GenerationDate',new_text(substring(str:replace(date:add('1970-01-01T00:00:00Z', date:duration(../last_check/@value)),'T',' '),1,19)))
+                       new_element('GenerationDate',new_text(substring(str:replace(date:add('1970-01-01T00:00:00Z', date:duration(../last_check/text())),'T',' '),1,19)))
                    </element-create>
                    <element-create as="first-child">new_element('wn')</element-create>
                </element>
             </element>
 
             <element in="Data">
+
                 <element in="Issue">
                     <element in="wn">
                         <text-create if="contains(../plugin_output/text(),'Pakiti-Vuln')">
@@ -257,6 +377,7 @@
                             substring-before(../../plugin_output/text(),': ')
                         </text-create>
                     </element>
+
                 </element>
             </element>
 
@@ -266,7 +387,7 @@
             </element>
 
             <element in="Data">
-                <element-create-as-parent out="Issues" attributes="new_attribute('key',last_hard_state/text())" group-by="last_hard_state/text()">
+                <element-create-as-parent out="Issues" attributes="new_attribute('status',last_hard_state/text())" group-by="last_hard_state/text()">
                     <element in="Issue"/>
                 </element-create-as-parent>
             </element>
@@ -276,26 +397,8 @@
                 <attribute-create out="status_2">count(../Issues/Issue[last_hard_state/text()=2])</attribute-create>
                 <attribute-create out="status_3">count(../Issues/Issue[last_hard_state/text()=3])</attribute-create>
 
-                <element in="Issues" if="@key=0" out="Recoveries"/>
+                <element in="Issues" if="@status=0" out="Recoveries"/>
             </element>
-
-            <element in="Data">
-                <set variable="CsiNagiosProbes" >view('CsiNagiosProbes')/probe_descriptions/services</set>
-                <set variable="ngis">view('OPSCORE_prod_entities')/NGIs</set>
-                <element>
-                    <element in="Issue" if="$CsiNagiosProbes/service[@name=current()/service_description/text()]">
-                        <element-create>new_element('friendly_name',new_text($CsiNagiosProbes/service[@name=current()/../service_description/text()]/@friendly_name))</element-create>
-                        <element-create>new_element('description',new_text($CsiNagiosProbes/service[@name=current()/service_description/text()]/@description))</element-create>
-                        <element-create>new_element('urltohelp','https://wiki.egi.eu/wiki/EGI_CSIRT:SMG#Monitoring_probe')</element-create>
-                        <element-create>new_element('cod','false')</element-create>
-                        <element-create>new_element('ngi',new_text($ngis/NGI[Sites/Site/@name=current()/../site/text()]/@name))</element-create>
-                    </element>
-                    <element-ignore/>
-                </element>
-            </element>
-
-
-
 
 
             <element in="Data">
