@@ -181,9 +181,9 @@
                 <element out="e:entries">
                     <set variable="record">find($nagiosDB,@key)</set>
                     <attribute-create out="record">count($record/id/text())</attribute-create>
-                    <element-create if="$record/id/text()=0">entry('type','insert')</element-create>
-                    <element-create if="$record/id/text() and (not($record/summary/text()=current()/../e:entry[@key='summary']/text()))">entry('type','update record')</element-create>
-                    <element-create if="$record/id/text() and ($record/summary/text()=current()/../e:entry[@key='summary']/text())">entry('type','update date')</element-create>
+                    <element-create if="count($record/id/text())=0">entry('type','insert')</element-create>
+                    <element-create if="count($record/id/text())=1 and (not($record/summary/text()=current()/../e:entry[@key='summary']/text()))">entry('type','update record')</element-create>
+                    <element-create if="count($record/id/text())=1 and ($record/summary/text()=current()/../e:entry[@key='summary']/text())">entry('type','update date')</element-create>
 
                 </element>
             </element>
@@ -289,16 +289,8 @@
                         <element-create>new_element('urltohelp','https://wiki.egi.eu/wiki/EGI_CSIRT:SMG#Monitoring_probe')</element-create>
                         <element-create>new_element('cod','false')</element-create>
                         <element-create>new_element('ngi',new_text($ngis/NGI[Sites/Site/@name=current()/../site/text()]/@name))</element-create>
-                  </element>
+                    </element>
                     <element-ignore/>
-<!--                    <element in="Issue" if="not($CsiNagiosProbes/service[@name=current()/service_description/text()])">-->
-<!--                        <element-create>new_element('friendly_name',../service_description/text())</element-create>-->
-<!--                        <element-create>new_element('description','description not available')</element-create>-->
-<!--                        <element-create>new_element('urltohelp','https://wiki.egi.eu/wiki/EGI_CSIRT:SMG#Monitoring_probe')</element-create>-->
-<!--                        <element-create>new_element('cod','false')</element-create>-->
-<!--                        <element-create>new_element('ngi',new_text($ngis/NGI[Sites/Site/@name=current()/../site/text()]/@name))</element-create>-->
-<!--                    </element>-->
-
                 </element>
             </element>
 
