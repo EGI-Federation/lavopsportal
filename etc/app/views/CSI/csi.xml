@@ -181,6 +181,12 @@
         </connector>
 
         <processors>
+
+            <element in="nagios">
+                <element-ignore in="servicestatus" if="not(service_description/text())"></element-ignore>
+                <element-ignore in="servicestatus" if="not(last_hard_state/@value)"></element-ignore>
+            </element>
+
             <element in="nagios">
                 <set variable="CsiNagiosProbes" >view('CsiNagiosProbes')/probe_descriptions/services</set>
                 <element-ignore in="servicestatus" if="not($CsiNagiosProbes/service[@name=current()/service_description/text()])"></element-ignore>
