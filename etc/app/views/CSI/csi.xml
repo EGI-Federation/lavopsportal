@@ -189,7 +189,7 @@
             <element in="nagios">
                 <set variable="OPSCORE_host_service" index="e:entry[@key='hostname']/text()">uniq(view('OPSCORE_host_service')/e:entries/e:entries,"e:entry[@key='hostname']/text()")</set>
                 <element in="servicestatus" if="not(_SITE_NAME)">
-                    <element-create>new_element(_SITE_NAME,new_attribute('value',concat('0;',find($OPSCORE_host_service,../host_name/text())/e:entry[@key='site']/text())))</element-create>
+                    <element-create>new_element(_SITE_NAME,new_attribute('value',concat('0;',find($OPSCORE_host_service,../host_name/text())/e:entry[@key='site'][0]/text())))</element-create>
                 </element>
             </element>
 
