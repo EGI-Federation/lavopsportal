@@ -112,10 +112,10 @@
     </view>
 
 
-    <view authenticators="local" name="CsiNagios"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" xmlns:date="http://exslt.org/dates-and-times">
+    <view authenticators="local" name="CsiNagiosFilter"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" xmlns:date="http://exslt.org/dates-and-times">
 
         <connector type="HTTPConnector">
-            <parameter name="url" eval="property('CSI.nagiosBoxUrlLavoisier')"/>
+            <parameter name="url" eval="property('CSI.nagiosBoxUrl.filter')"/>
             <parameter name="certificate" eval="property('certificate.sec.path')"/>
             <parameter name="passphrase" eval="property('certificate.sec.password')"/>
         </connector>
@@ -151,13 +151,71 @@
                     <element in="last_check">
                         <attribute-ignore/>
                         <text-ignore/>
-                        <text-create if="../@value!=0">../@value</text-create>
-                        <text-create if="../@value=0">date:seconds()</text-create>
+                        <text-create if="../@value!=0 and ../@value!='' and ../@value">../@value</text-create>
+                        <text-create>date:seconds()</text-create>
                     </element>
                 </element>
             </element>
 
 
+        </processors>
+        <cache type="FileCache">
+            <trigger type="ViewNotifiedTrigger"/>
+        </cache>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">xml</parameter>
+            </renderer>
+        </renderers>
+
+    </view>
+
+
+    <view authenticators="local" name="CsiNagios"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" xmlns:date="http://exslt.org/dates-and-times">
+
+        <connector type="HTTPConnector">
+            <parameter name="url" eval="choose(property('env')='prod',property('CSI.nagiosBoxUrl'),property('CSI.nagiosBoxUrlLavoisier'))"/>
+            <parameter name="certificate" eval="property('certificate.sec.path')"/>
+            <parameter name="passphrase" eval="property('certificate.sec.password')"/>
+        </connector>
+
+        <processors>
+            <element in="nagios">
+                <set variable="CsiNagiosProbes" >view('CsiNagiosProbes')/probe_descriptions/services</set>
+                <element-ignore in="servicestatus" if="not($CsiNagiosProbes/service[@name=current()/service_description/text()])"></element-ignore>
+            </element>
+
+            <element in="nagios">
+                <set variable="OPSCORE_host_service" index="e:entry[@key='hostname']/text()">uniq(view('OPSCORE_host_service')/e:entries/e:entries,"e:entry[@key='hostname']/text()")</set>
+                <element in="servicestatus" if="not(_SITE_NAME)">
+                    <element-create>new_element(_SITE_NAME,new_attribute('value',concat('0;',find($OPSCORE_host_service,../host_name/text())/e:entry[@key='site']/text())))</element-create>
+                </element>
+            </element>
+
+            <element in="nagios">
+                <element in="servicestatus" if="not(plugin_output)">
+                    <element-create>new_element('plugin_output',new_text('No summary available'))</element-create>
+                </element>
+            </element>
+
+            <element in="nagios">
+                <element in="servicestatus" if="not(long_plugin_output)">
+                    <element-create>new_element('long_plugin_output',new_text('No details available'))</element-create>
+                </element>
+            </element>
+
+
+            <element in="nagios">
+                <element in="servicestatus">
+                    <element in="last_check">
+                        <attribute-ignore/>
+                        <text-ignore/>
+                        <text-create if="../@value!=0 and ../@value!='' and ../@value">../@value</text-create>
+                        <text-create>date:seconds()</text-create>
+                    </element>
+                </element>
+            </element>
 
 
         </processors>
@@ -359,7 +417,7 @@
 
 
 
-                   <element-create>
+                   <element-create if="../last_check/text()!=''">
                        new_element('GenerationDate',new_text(substring(str:replace(date:add('1970-01-01T00:00:00Z', date:duration(../last_check/text())),'T',' '),1,19)))
                    </element-create>
                    <element-create as="first-child">new_element('wn')</element-create>
@@ -392,10 +450,6 @@
                 </element-create-as-parent>
             </element>
             <element in="Data">
-                <attribute-create out="status_0">count(../Issues/Issue[last_hard_state/text()=0])</attribute-create>
-                <attribute-create out="status_1">count(../Issues/Issue[last_hard_state/text()=1])</attribute-create>
-                <attribute-create out="status_2">count(../Issues/Issue[last_hard_state/text()=2])</attribute-create>
-                <attribute-create out="status_3">count(../Issues/Issue[last_hard_state/text()=3])</attribute-create>
 
                 <element in="Issues" if="@status=0" out="Recoveries"/>
             </element>
