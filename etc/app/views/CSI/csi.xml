@@ -183,6 +183,7 @@
         <processors>
 
             <element in="nagios">
+                <attribute-create out="nagiosBox">choose(property('env')='prod',property('CSI.nagiosBoxUrl'),property('CSI.nagiosBoxUrlLavoisier'))</attribute-create>
                 <element-ignore in="servicestatus" if="not(service_description/text())"></element-ignore>
                 <element-ignore in="servicestatus" if="not(last_hard_state/@value)"></element-ignore>
             </element>
@@ -195,7 +196,7 @@
             <element in="nagios">
                 <set variable="OPSCORE_host_service" index="e:entry[@key='hostname']/text()">uniq(view('OPSCORE_host_service')/e:entries/e:entries,"e:entry[@key='hostname']/text()")</set>
                 <element in="servicestatus" if="not(_SITE_NAME)">
-                    <element-create>new_element(_SITE_NAME,new_attribute('value',concat('0;',find($OPSCORE_host_service,../host_name/text())/e:entry[@key='site'][0]/text())))</element-create>
+                    <element-create>new_element('_SITE_NAME',new_attribute('value',concat('0;',find($OPSCORE_host_service,../host_name/text())/e:entry[@key='site'][0]/text())))</element-create>
                 </element>
             </element>
 
@@ -215,10 +216,15 @@
             <element in="nagios">
                 <element in="servicestatus">
                     <element in="last_check">
-                        <attribute-ignore/>
-                        <text-ignore/>
-                        <text-create if="../@value!=0 and ../@value!='' and ../@value">../@value</text-create>
-                        <text-create>date:seconds()</text-create>
+                        <text-create>../@value</text-create>
+                    </element>
+                </element>
+            </element>
+
+            <element in="nagios">
+                <element in="servicestatus">
+                    <element in="last_check">
+                        <text if=".=0 or .=''">date:seconds()</text>
                     </element>
                 </element>
             </element>
