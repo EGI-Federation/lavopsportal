@@ -727,6 +727,8 @@
                     <element-ignore/>
                 </element>
                 <element-create>view('perun-members-voms')/root/*</element-create>
+                <element-create>view('comanage-members-voms')/root/*</element-create>
+
             </element>
 
         </processors>
