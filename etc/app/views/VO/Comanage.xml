@@ -1,0 +1,207 @@
+<views xmlns="http://software.in2p3.fr/lavoisier/application.xsd"
+       xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" xmlns:t="http://software.in2p3.fr/lavoisier/tables.xsd">
+    <!-- 
+        Project : lavopsportal 
+        File    : Comanage.xml
+        Created by cyril on 2021/11/24 
+    -->
+
+
+    <view  xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" name="comanage-members-voms">
+
+
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('CoManageVOs')"/>
+        </connector>
+
+        <processors>
+
+            <element in="vos" out="root">
+                <element-ignore in="vo">
+                    <element in="user" out="multiRef">
+                        <element in="Given"  out="firstName"/>
+                        <element in="Family"  out="lastName"/>
+                        <element in="ActorIdentifier"  out="DN"/>
+                        <element in="Mail" if="count(preceding-sibling::t:column)=4" out="mail"/>
+                        <element-create>new_element('CA','aai registry')</element-create>
+                        <element-create>new_element('vo',../../@name)</element-create>
+                        <element-ignore/>
+                    </element>
+                </element-ignore>
+            </element>
+
+            <element in="root">
+                <element in="multiRef">
+                    <element-create>new_element('CN',concat(../firstName/text(),' ',../lastName/text()))</element-create>
+                    <element if="name()='DN' or name()='vo' or name()='CA' or name()='mail' "><attribute-ignore/></element>
+                    <element-ignore/>
+                </element>
+            </element>
+
+            <element in="root">
+                <element-ignore/>
+                <element-create>sort_by_string(../multiRef,'vo/text()')</element-create>
+            </element>
+
+            <element in="root">
+                <element-create-as-parent out="VoListMembers" group-by="vo" attributes="new_attribute('VoName',vo/text())">
+                    <element in="multiRef"/>
+                </element-create-as-parent>
+            </element>
+
+            <element in="root">
+                <element-create-as-parent out="Vo">
+                    <element in="VoListMembers">
+                        <element-create-as-parent out="soapenv:Body">
+                            <element in="multiRef"/>
+                        </element-create-as-parent>
+                    </element>
+                </element-create-as-parent>
+            </element>
+
+            <elements path="root/Vo/VoListMembers">
+                <element-create-as-parent out="soapenv:Envelope">
+                    <element in="soapenv:Body"/>
+                </element-create-as-parent>
+            </elements>
+
+            <elements path="root/Vo/VoListMembers">
+                <element-create-as-parent out="VomsListMembers">
+                    <element in="soapenv:Envelope"/>
+                </element-create-as-parent>
+            </elements>
+        </processors>
+
+
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+    </view>
+
+
+    <view name="CoManageVOs">
+
+        <connector type="HTTPConnector">
+            <parameter name="url" eval="concat('https://',property('comanage-user'),':',property('comanage-pwd'),'@aai.egi.eu/registry/cous.json?coid=2')"/>
+            <parameter name="default">{"root":"empty"}</parameter>
+        </connector>
+
+        <serializer type="JSONStreamSerializer"/>
+
+
+        <processors>
+            <element in="object" out="vos">
+                <element-ignore in="Cous">
+                    <element in="object" out="vo">
+                        <attribute-create out="id">../Id/text()</attribute-create>
+                        <attribute-create out="coid">../CoId/text()</attribute-create>
+
+                        <attribute-create out="name">../Name/text()</attribute-create>
+                        <attribute-create out="description">../Description/text()</attribute-create>
+                        <element-create>view('CoManageMembers',entry('cogroupid',../Id/text()))/users/*</element-create>
+                        <element-ignore/>
+                    </element>
+                    <element-ignore/>
+                </element-ignore>
+            </element>
+
+        </processors>
+
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="hours">6</parameter>
+            </trigger>
+        </cache>
+    </view>
+
+
+    <view name="CoManageMembers">
+        <argument name="cogroupid"/>
+
+        <connector type="HTTPConnector">
+            <parameter name="url" eval="concat('https://',property('comanage-user'),':',property('comanage-pwd'),'@aai.egi.eu/registry/co_person_roles.json?couid=',$cogroupid)"/>
+            <parameter name="default">{"root":"empty"}</parameter>
+
+        </connector>
+        <serializer type="JSONStreamSerializer"/>
+
+
+        <processors>
+            <element in="object" out="users">
+                <element-ignore in="CoPersonRoles">
+                    <element in="object" out="user">
+                        <attribute-create out="id">../Person/Id/text()</attribute-create>
+                        <attribute-create out="affiliation">../Affiliation/text()</attribute-create>
+                        <attribute-create out="status">../Status/text()</attribute-create>
+                        <element-ignore/>
+                    </element>
+                </element-ignore>
+                <element-ignore/>
+            </element>
+
+            <element in="users">
+                <element in="user">
+                    <element-create>view('CoManagePerson',entry('copersonid',../@id))/object/*</element-create>
+                    <element-create>view('CoManageEmail',entry('copersonid',../@id))/object/*</element-create>
+
+                </element>
+            </element>
+
+            <element in="users">
+                <element-ignore in="user" if="status!='Active'"/>
+            </element>
+        </processors>
+    </view>
+
+    <view name="CoManagePerson">
+        <argument name="copersonid"/>
+
+        <connector type="HTTPConnector">
+            <parameter name="url" eval="concat('https://',property('comanage-user'),':',property('comanage-pwd'),'@aai.egi.eu/registry/names.json?copersonid=',$copersonid)"/>
+            <parameter name="default">{"root":"empty"}</parameter>
+
+        </connector>
+        <serializer type="JSONStreamSerializer"/>
+
+
+        <processors>
+            <element in="object">
+                <elements-ignore path="Names/object">
+                    <element in="Given"/>
+                    <element in="Family"/>
+                    <element in="ActorIdentifier"/>
+                    <element-ignore/>
+                </elements-ignore>
+                <element-ignore/>
+            </element>
+        </processors>
+    </view>
+
+    <view name="CoManageEmail">
+        <argument name="copersonid"/>
+
+        <connector type="HTTPConnector">
+            <parameter name="url" eval="concat('https://',property('comanage-user'),':',property('comanage-pwd'),'@aai.egi.eu/registry/email_addresses.json?copersonid=',$copersonid)"/>
+            <parameter name="default">{"root":"empty"}</parameter>
+
+        </connector>
+        <serializer type="JSONStreamSerializer"/>
+
+
+        <processors>
+            <element in="object">
+                <elements-ignore path="EmailAddresses/object">
+                    <element in="Mail"/>
+                    <element-ignore/>
+                </elements-ignore>
+                <element-ignore/>
+            </element>
+        </processors>
+
+    </view>
+
+
+</views>

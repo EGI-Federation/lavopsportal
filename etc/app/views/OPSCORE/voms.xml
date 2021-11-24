@@ -7,7 +7,7 @@
             <element in="data">
                 <element in="Vo">
                     <attribute-ignore/>
-                        <element in="VoVomsServer">
+                        <element in="Registries">
                             <element in="VoVomsServer">
                                 <element-create>new_element('memberslisturl_v2', new_text(str:replace(current()/../memberslisturl/text(),'/services/VOMSAdmin?method=listMembers','/apiv2/user-stats.action')))</element-create>
                             </element>
@@ -17,16 +17,7 @@
                 </element>
             </element>
 
-                 <element in="data">
-                     <element in="Vo">
-                         <element in="VoVomsServer">
-                             <attribute-create out="registry" if="contains(../VoVomsServer/hostname,'perun')">'perun'</attribute-create>
-                             <attribute-create out="registry" if="contains(../VoVomsServer/hostname,'aai.egi.eu')">'CoManage'</attribute-create>
-                             <attribute-create out="registry" if="not(contains(../VoVomsServer/hostname,'perun')) and not(contains(../VoVomsServer/hostname,'aai.egi.eu'))">'VOMS'</attribute-create>
 
-                         </element>
-                     </element>
-                 </element>
         </processors>
 
 
@@ -48,7 +39,7 @@
             <element in="data" out="vos">
                 <element in="Vo" out="vo">
                     <attribute-create out="name">../name/text()</attribute-create>
-                    <attribute-create out="url">concat('https://',../VoVomsServer/VoVomsServer/hostname/text(),':',../VoVomsServer/VoVomsServer/@https_port,'/voms/',../name/text(),'/apiv2/users?pageSize=4500')</attribute-create>
+                    <attribute-create out="url">concat('https://',../Registries/VoVomsServer/hostname/text(),':',../Registries/VoVomsServer/@https_port,'/voms/',../name/text(),'/apiv2/users?pageSize=4500')</attribute-create>
                     <element-ignore/>
                 </element>
             </element>
@@ -189,8 +180,8 @@
         </connector>
 
         <processors>
-            <processor match="/data/Vo[VoVomsServer/VoVomsServer/memberslisturl_v2 and VoVomsServer/VoVomsServer/memberslisturl_v2/text()!='']" type="InsertProcessor">
-                <parameter name="nodes" eval="view('Voms_Users_Connector',entry('voms_url',match()/VoVomsServer/VoVomsServer/memberslisturl_v2/text())|entry('vo',match()/name/text()))"/>
+            <processor match="/data/Vo[Registries/VoVomsServer/memberslisturl_v2 and VoVomsServer/VoVomsServer/memberslisturl_v2/text()!='']" type="InsertProcessor">
+                <parameter name="nodes" eval="view('Voms_Users_Connector',entry('voms_url',match()/Registries/VoVomsServer/memberslisturl_v2/text())|entry('vo',match()/name/text()))"/>
             </processor>
         </processors>
 

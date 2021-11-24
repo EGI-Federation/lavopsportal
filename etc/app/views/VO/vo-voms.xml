@@ -14,7 +14,7 @@
                     <attribute-create out="name">../name/text()</attribute-create>
                     <attribute-ignore/>
 
-                    <element in="VoVomsServer">
+                    <element in="Registries">
                         <element in="VoVomsServer">
                             <element-create as="last-child">view('voms-certificates')/results/X509Cert[@host=current()/../hostname/text()][1]</element-create>
                         </element>
@@ -799,6 +799,7 @@
         </renderers>
     </view>
 
+
     <view xmlns:t="http://software.in2p3.fr/lavoisier/tables.xsd" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" name="perun-members-voms">
         
 
@@ -1064,7 +1065,7 @@
 
                 <element in="Vo" out="VO">
                     <attribute-create out="key">../name/text()</attribute-create>
-                    <element-ignore in="VoVomsServer">
+                    <element-ignore in="Registries">
                         <element in="VoVomsServer">
                             <attribute-create out="memberslisturl">../memberslisturl/text()</attribute-create>
                             <attribute-create out="hostname">../hostname/text()</attribute-create>

@@ -104,124 +104,6 @@
     </view>
 
 
-    <view name="CoManageVOs">
-
-        <connector type="HTTPConnector">
-            <parameter name="url" eval="concat('https://',property('comanage-user'),':',property('comanage-pwd'),'@aai.egi.eu/registry/cous.json?coid=2')"/>
-            <parameter name="default">{"root":"empty"}</parameter>
-        </connector>
-
-        <serializer type="JSONStreamSerializer"/>
-
-
-
-        <processors>
-            <element in="object" out="vos">
-                <element-ignore in="Cous">
-                <element in="object" out="vo">
-                    <attribute-create out="id">../Id/text()</attribute-create>
-                    <attribute-create out="coid">../CoId/text()</attribute-create>
-
-                    <attribute-create out="name">../Name/text()</attribute-create>
-                    <attribute-create out="description">../Description/text()</attribute-create>
-                    <element-create>view('CoManageGroups',entry('id',../Id/text()))/groups/group/*</element-create>
-                    <element-ignore/>
-                </element>
-                <element-ignore/>
-                </element-ignore>
-            </element>
-
-        </processors>
-    </view>
-
-    <view name="CoManageGroups">
-            <argument name="id"/>
-
-        <connector type="HTTPConnector">
-            <parameter name="url" eval="concat('https://',property('comanage-user'),':',property('comanage-pwd'),'@aai.egi.eu/registry/co_groups.json?coid=2&amp;couid=',$id)"/>
-            <parameter name="default">{"root":"empty"}</parameter>
-            <fallback eval="new_element('exception')">
-                <exception type="java.io.IOException"/>
-            </fallback>
-        </connector>
-        <serializer type="JSONStreamSerializer"/>
-
-        <processors>
-            <element in="object" out="groups">
-                <element-ignore in="CoGroups">
-                    <element in="object" out="group" if="GroupType/text()='MA'">
-                        <attribute-create out="id">../Id/text()</attribute-create>
-                        <element-ignore/>
-                    </element>
-                    <element-ignore/>
-                </element-ignore>
-                <element-ignore/>
-            </element>
-
-            <element in="groups">
-                <element in="group">
-                   <element-create>view('CoManageMember',entry('cogroupid',../@id))/users/*</element-create>
-                </element>
-                <element-ignore/>
-            </element>
-        </processors>
-
-    </view>
-
-    <view name="CoManageMember">
-        <argument name="cogroupid"/>
-
-        <connector type="HTTPConnector">
-            <parameter name="url" eval="concat('https://',property('comanage-user'),':',property('comanage-pwd'),'@aai.egi.eu/registry/co_group_members.json?cogroupid=',$cogroupid)"/>
-            <parameter name="default">{"root":"empty"}</parameter>
-
-        </connector>
-        <serializer type="JSONStreamSerializer"/>
-
-
-        <processors>
-            <element in="object" out="users">
-                <element-ignore in="CoGroupMembers">
-                   <element in="object" out="user">
-                       <attribute-create out="id">../Person/Id/text()</attribute-create>
-                       <element-ignore/>
-                   </element>
-                </element-ignore>
-                <element-ignore/>
-            </element>
-
-            <element in="users">
-                <element in="user">
-                    <element-create>view('CoManagePerson',entry('copersonid',../@id))/object/*</element-create>
-
-                </element>
-
-            </element>
-        </processors>
-    </view>
-
-    <view name="CoManagePerson">
-        <argument name="copersonid"/>
-
-        <connector type="HTTPConnector">
-            <parameter name="url" eval="concat('https://',property('comanage-user'),':',property('comanage-pwd'),'@aai.egi.eu/registry/names.json?copersonid=',$copersonid)"/>
-            <parameter name="default">{"root":"empty"}</parameter>
-
-        </connector>
-        <serializer type="JSONStreamSerializer"/>
-
-
-        <processors>
-            <element in="object">
-                <elements-ignore path="Names/object">
-                    <element in="Given"/>
-                    <element in="Family"/>
-                    <element in="ActorIdentifier"/>
-                </elements-ignore>
-                <element-ignore/>
-            </element>
-        </processors>
-    </view>
 
 
     <view name="VO_full_new" authenticators="local">
@@ -235,16 +117,9 @@
 
                 <attribute-ignore if="name()!='serial'"/>
                 <attribute-create out="key">../name/text()</attribute-create>
-                <element in="VoVomsServer" out="Registries">
-                    <element in="VoVomsServer" if="contains(memberslisturl/text(),'https://aai.egi.eu/registry')" out="CoManage">
-                        <attribute-ignore/>
-                        <element-ignore in="hostname"/>
-                    </element>
-                    <element in="VoVomsServer" if="contains(memberslisturl/text(),'https://perun.metacentrum.cz')" out="Perun">
-                        <attribute-ignore/>
-                        <element-ignore in="hostname"/>
-                    </element>
-                </element>
+                <element in="VoVomsServer" out="Registries"/>
+
+
 
                 <element-create as="first-child">new_element('VoHeader')</element-create>
                 <element-create as="first-child">new_element('VoContacts')</element-create>
@@ -2718,20 +2593,42 @@
                     <element-create>new_element('lastchange',../row[1]/last_change/text())</element-create>
 
 
-                    <element in="row" out="VoVomsServer">
+                    <element in="row" out="Registries">
                         <element-create>new_element('VoVomsServer',
                             new_attribute('serial',choose(../serial/text(),../serial/text(),'serial'))|new_attribute('https_port',choose(../https_port/text(),../https_port/text(),'https'))|new_attribute('vomses_port',choose(../vomses_port/text(),../vomses_port/text(),'vomsport'))
                             |new_attribute('is_vomsadmin_server',choose(../is_vomsadmin_server/text(),../is_vomsadmin_server/text(),'isvomsadmin'))
                             |new_element('memberslisturl',choose(../members_list_url/text(),../members_list_url/text(),'url'))
+                            |new_element('ComanageId',choose(../id_comanage/text(),../id_comanage/text(),'N/A'))
                             |new_element('hostname',choose(../hostname/text(),../hostname/text(),'hostname'))
                             )
                         </element-create>
+
                         <element-ignore/>
                     </element>
 
                 </element>
 
 
+            </element>
+            <element in="data">
+                <element in="Vo">
+                       <element in="Registries">
+                            <element in="VoVomsServer" if="contains(memberslisturl/text(),'https://aai.egi.eu/registry')" out="CoManage">
+                                <attribute-ignore/>
+                                <element in="memberslisturl"/>
+                                <element-ignore/>
+                            </element>
+                            <element in="VoVomsServer" if="contains(memberslisturl/text(),'https://perun.metacentrum.cz')" out="Perun">
+                                <attribute-ignore/>
+                                <element in="memberslisturl"><text>concat(.,../ComanageId/text())</text></element>
+                                <element-ignore/>
+                            </element>
+
+                           <element in="VoVomsServer">
+                               <element-ignore in="ComanageId"/>
+                           </element>
+                        </element>
+                </element>
             </element>
 
         </processors>
