@@ -282,6 +282,14 @@
 
                 </Comanage>
             </xsl:when>
+            <xsl:when test="contains(hostname,'aai.egi.eu')">
+                <Comanage>
+                    <xsl:attribute name="MembersListUrl">
+                        <xsl:value-of select="concat(memberslisturl,id_comanage)"/>
+                    </xsl:attribute>
+
+                </Comanage>
+            </xsl:when>
             <xsl:otherwise>
                 <VOMS_Server>
                     <xsl:attribute name="HttpsPort">
