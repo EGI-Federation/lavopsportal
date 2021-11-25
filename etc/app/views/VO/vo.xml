@@ -2619,8 +2619,8 @@
                                 <element-ignore/>
                             </element>
                             <element in="VoVomsServer" if="contains(memberslisturl/text(),'https://perun.metacentrum.cz')" out="Perun">
-                                <element in="memberslisturl"/>
                                 <attribute-ignore/>
+                                <element in="memberslisturl"/>
                                 <element-ignore/>
                             </element>
 
