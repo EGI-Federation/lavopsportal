@@ -22,9 +22,9 @@
                         <element in="Given"  out="firstName"/>
                         <element in="Family"  out="lastName"/>
                         <element in="ActorIdentifier"  out="DN"/>
-                        <element in="Mail" if="count(preceding-sibling::t:column)=4" out="mail"/>
+                        <element in="Mail"  out="mail"/>
                         <element-create>new_element('CA','aai registry')</element-create>
-                        <element-create>new_element('vo',../../@name)</element-create>
+                        <element-create>new_element('vo',new_text(../../@name))</element-create>
                         <element-ignore/>
                     </element>
                 </element-ignore>
