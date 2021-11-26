@@ -779,7 +779,6 @@
 
         <connector type="FileConnector">
            <parameter name="path" eval="concat(property('lavoisier.cache.directory'),'/perunfile')"/>
-
             <fallback>
                 <exception type="java.lang.Exception"/>
             </fallback>
@@ -793,11 +792,11 @@
                 <element in="t:tables" out="ListMembers">
                     <element in="t:table" out="rows">
                         <element in="t:row" out="row">
-                            <element in="column" if="@label='# firstName'" out="firstname"/>
-                            <element in="column" if="@label=' lastName'" out="lastName"/>
-                            <element in="column" if="@label=' voName'" out="vo"/>
-                            <element in="column" if="@label=' certDN'" out="dn"/>
-                            <element in="column" if="@label=' mail'" out="mail"/>
+                            <element in="t:column" if="@label='# firstName'" out="firstname"/>
+                            <element in="t:column" if="@label=' lastName'" out="lastName"/>
+                            <element in="t:column" if="@label=' voName'" out="vo"/>
+                            <element in="t:column" if="@label=' certDN'" out="dn"/>
+                            <element in="t:column" if="@label=' mail'" out="mail"/>
                         </element>
                         <element-ignore></element-ignore>
                     </element>
