@@ -726,9 +726,6 @@
                     <element-create>view('voms-members',entry('vo',../name/text()))</element-create>
                     <element-ignore/>
                 </element>
-                <element-create>view('perun-members-voms')/root/*</element-create>
-                <element-create>view('comanage-members-voms')/root/*</element-create>
-
             </element>
 
         </processors>
@@ -756,7 +753,6 @@
         
         <argument name="vo">_VO_</argument>
 
-
         <connector type="HTTPConnector">
             <parameter name="url" eval="concat(property('voms.users'),$vo)"/>
             <parameter name="force-redirect">true</parameter>
@@ -771,7 +767,6 @@
         </connector>
 
 
-
         <renderers>
             <renderer type="DefaultRenderer">
                 <parameter name="contentType">text/xml</parameter>
@@ -779,7 +774,7 @@
         </renderers>
     </view>
 
-    <view name="perun-members">
+    <view name="perun-members" xmlns:t="http://software.in2p3.fr/lavoisier/tables.xsd">
         
 
         <connector type="FileConnector">
@@ -794,81 +789,22 @@
             <parameter name="header">true</parameter>
         </serializer>
 
-        <renderers>
-            <renderer type="DefaultRenderer">
-                <parameter name="contentType">text/xml</parameter>
-            </renderer>
-        </renderers>
-    </view>
-
-
-    <view xmlns:t="http://software.in2p3.fr/lavoisier/tables.xsd" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" name="perun-members-voms">
-        
-
-        <connector type="XMLConnector">
-            <parameter name="content" eval="view('perun-members')"/>
-        </connector>
-
         <processors>
-
-            <element in="t:tables" out="root">
-                    <element-ignore>
-                            <element in="t:row" out="multiRef">
-                                <element in="t:column" if="count(preceding-sibling::t:column)=0" out="firstName"/>
-                                <element in="t:column" if="count(preceding-sibling::t:column)=1" out="lastName"/>
-                                <element in="t:column" if="count(preceding-sibling::t:column)=2" out="DN"/>
-                                <element in="t:column" if="count(preceding-sibling::t:column)=3" out="vo"/>
-                                <element in="t:column" if="count(preceding-sibling::t:column)=4" out="mail"/>
-                                <element-create>new_element('CA','perun')</element-create>
-                                <element-ignore/>
-                            </element>
-                    </element-ignore>
-            </element>
-
-            <element in="root">
-                <element in="multiRef">
-                    <element-create>new_element('CN',concat(../firstName/text(),' ',../lastName/text()))</element-create>
-                    <element if="name()='DN' or name()='vo' or name()='CA' or name()='mail' "><attribute-ignore/></element>
-                    <element-ignore/>
-                </element>
-            </element>
-            
-            <element in="root">
-                <element-ignore/>                
-                <element-create>sort_by_string(../multiRef,'vo/text()')</element-create>                
-            </element>
-            
-            <element in="root">
-                <element-create-as-parent out="VoListMembers" group-by="vo" attributes="new_attribute('VoName',vo/text())">
-                    <element in="multiRef"/>
-                </element-create-as-parent>
-            </element>
-
-            <element in="root">
-                <element-create-as-parent out="Vo">
-                    <element in="VoListMembers">
-                            <element-create-as-parent out="soapenv:Body">
-                                <element in="multiRef"/>
-                            </element-create-as-parent>
+                <element in="t:tables" out="ListMembers">
+                    <element in="t:table" out="rows">
+                        <element in="t:row" out="row">
+                            <element in="column" if="@label='# firstName'" out="firstname"/>
+                            <element in="column" if="@label=' lastName'" out="lastName"/>
+                            <element in="column" if="@label=' voName'" out="vo"/>
+                            <element in="column" if="@label=' certDN'" out="dn"/>
+                            <element in="column" if="@label=' mail'" out="mail"/>
+                        </element>
+                        <element-ignore></element-ignore>
                     </element>
-                </element-create-as-parent>
-            </element>
 
-            <elements path="root/Vo/VoListMembers">
-                <element-create-as-parent out="soapenv:Envelope">
-                        <element in="soapenv:Body"/>
-                </element-create-as-parent>
-            </elements>
-
-            <elements path="root/Vo/VoListMembers">
-                    <element-create-as-parent out="VomsListMembers">
-                        <element in="soapenv:Envelope"/>
-                    </element-create-as-parent>
-            </elements>
+                </element>
         </processors>
 
-
-
         <renderers>
             <renderer type="DefaultRenderer">
                 <parameter name="contentType">text/xml</parameter>
@@ -876,9 +812,8 @@
         </renderers>
     </view>
 
-    <view name="insert-voms-members">
 
-        
+    <view name="insert-voms-members">
 
         <connector type="XMLConnector">
             <parameter name="content" eval="view('vo-voms_INDEX')"/>
