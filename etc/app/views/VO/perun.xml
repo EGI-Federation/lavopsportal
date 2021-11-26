@@ -1,0 +1,67 @@
+<views xmlns="http://software.in2p3.fr/lavoisier/application.xsd"
+       xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" xmlns:t="http://software.in2p3.fr/lavoisier/tables.xsd">
+    <!-- 
+        Project : lavopsportal 
+        File    : perun.xml
+        Created by cyril on 2021/11/26 
+    -->
+
+
+    <view name="perun.insert.users">
+        <connector type="HTTPConnector">
+            <parameter name="url" eval="property('perun.insert.users')"></parameter>
+        </connector>
+
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="hours">7</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+        </cache>
+    </view>
+
+    <view name="perun-members" xmlns:t="http://software.in2p3.fr/lavoisier/tables.xsd">
+
+        <connector type="FileConnector">
+            <parameter name="path" eval="concat(property('lavoisier.cache.directory'),'/perunfile')"/>
+            <fallback>
+                <exception type="java.lang.Exception"/>
+            </fallback>
+        </connector>
+
+        <serializer type="CSVSerializer">
+            <parameter name="header">true</parameter>
+        </serializer>
+
+        <processors>
+            <element in="t:tables" out="ListMembers">
+                <element in="t:table" out="rows">
+                    <element in="t:row" out="row">
+                        <element in="t:column" if="@label='# firstName'" out="firstname"><attribute-ignore/></element>
+                        <element in="t:column" if="@label=' lastName'" out="lastName"><attribute-ignore/></element>
+                        <element in="t:column" if="@label=' voName'" out="VO"><attribute-ignore/></element>
+                        <element in="t:column" if="@label=' certDN'" out="DN"><attribute-ignore/></element>
+                        <element in="t:column" if="@label=' mail'" out="mail"><attribute-ignore/></element>
+                        <element-create>new_element('CA',new_text('perun'))</element-create>
+                        <element-create>new_element('VOMS',new_text('perun'))</element-create>
+                    </element>
+                    <element-ignore></element-ignore>
+                </element>
+            </element>
+            <element in="ListMembers">
+                <element in="rows">
+                    <element in="row">
+                        <element-create>new_element('CN',new_text(concat(../firstname/text(),' ',../lastName/text())))</element-create>
+                    </element>
+                </element>
+            </element>
+        </processors>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+    </view>
+
+</views>

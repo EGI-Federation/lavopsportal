@@ -34,6 +34,14 @@
                     <element-ignore/>
                 </element-ignore>
             </element>
+            <element in="vos">
+                <element in="vo">
+                    <element in="user">
+                        <element-create>new_element('VO',new_text(../../@name))</element-create>
+                    </element>
+                </element>
+                <element-ignore/>
+            </element>
 
         </processors>
 
@@ -98,12 +106,18 @@
         <processors>
             <element in="object">
                 <elements-ignore path="Names/object">
-                    <element in="Given"/>
+                    <element in="Given" />
                     <element in="Family"/>
-                    <element in="ActorIdentifier"/>
+                    <element in="ActorIdentifier" out="DN"/>
                     <element-ignore/>
                 </elements-ignore>
                 <element-ignore/>
+            </element>
+
+            <element in="object">
+                <element-create>new_element('CN',new_text(concat(../Given/text(),' ',../Family/text())))</element-create>
+                <element-create>new_element('CA',new_text('aai'))</element-create>
+                <element-create>new_element('VOMS',new_text('aai'))</element-create>
             </element>
         </processors>
     </view>
@@ -122,7 +136,7 @@
         <processors>
             <element in="object">
                 <elements-ignore path="EmailAddresses/object">
-                    <element in="Mail"/>
+                    <element in="Mail" out="mail"/>
                     <element-ignore/>
                 </elements-ignore>
                 <element-ignore/>
