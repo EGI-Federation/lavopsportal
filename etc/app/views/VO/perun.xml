@@ -7,9 +7,16 @@
     -->
 
 
+
     <view name="perun.insert.users">
         <connector type="HTTPConnector">
             <parameter name="url" eval="property('perun.insert.users')"></parameter>
+            <parameter name="header">
+                <entry key="x-api-key" eval="property('lavoisier-token')"/>
+                <entry key="Accept">application/xml</entry>
+            </parameter>
+            <parameter name="connect-timeout">400</parameter>
+            <parameter name="read-timeout">500</parameter>
         </connector>
 
         <cache type="FileCache">
