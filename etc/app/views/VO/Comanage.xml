@@ -79,7 +79,7 @@
             </element>
 
             <element in="users">
-                <element-ignore in="user" if="status!='Active'"/>
+                <element-ignore in="user" if="@status!='Active'"/>
             </element>
         </processors>
     </view>
