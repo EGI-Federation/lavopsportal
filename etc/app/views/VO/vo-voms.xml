@@ -792,16 +792,24 @@
                 <element in="t:tables" out="ListMembers">
                     <element in="t:table" out="rows">
                         <element in="t:row" out="row">
-                            <element in="t:column" if="@label='# firstName'" out="firstname"/>
-                            <element in="t:column" if="@label=' lastName'" out="lastName"/>
-                            <element in="t:column" if="@label=' voName'" out="vo"/>
-                            <element in="t:column" if="@label=' certDN'" out="dn"/>
-                            <element in="t:column" if="@label=' mail'" out="mail"/>
+                            <element in="t:column" if="@label='# firstName'" out="firstname"><attribute-ignore/></element>
+                            <element in="t:column" if="@label=' lastName'" out="lastName"><attribute-ignore/></element>
+                            <element in="t:column" if="@label=' voName'" out="VO"><attribute-ignore/></element>
+                            <element in="t:column" if="@label=' certDN'" out="DN"><attribute-ignore/></element>
+                            <element in="t:column" if="@label=' mail'" out="mail"><attribute-ignore/></element>
+                            <element-create>new_element('CA',new_text('perun'))</element-create>
+                            <element-create>new_element('VOMS',new_text('perun'))</element-create>
                         </element>
                         <element-ignore></element-ignore>
                     </element>
-
                 </element>
+            <element in="ListMembers">
+                <element in="rows">
+                    <element in="row">
+                        <element-create>new_element('CN',new_text(concat(../firstname/text(),' ',../lastName/text())))</element-create>
+                    </element>
+                </element>
+            </element>
         </processors>
 
         <renderers>
