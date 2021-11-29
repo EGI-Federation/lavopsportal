@@ -19,10 +19,10 @@
         </connector>
 
         <cache type="FileCache">
-            <trigger type="DeltaTimeTrigger">
-                <parameter name="hours">8</parameter>
+            <trigger type="FixedTimeTrigger">
+                <parameter name="hour">4</parameter>
+                <parameter name="minute">35</parameter>
             </trigger>
-            <trigger type="ViewNotifiedTrigger"/>
         </cache>
     </view>
 
@@ -62,12 +62,12 @@
 
         </processors>
 
-<!--        <cache type="FileCache">-->
-<!--            <trigger type="DeltaTimeTrigger">-->
-<!--                <parameter name="hours">6</parameter>-->
-<!--            </trigger>-->
-<!--            <trigger type="ViewNotifiedTrigger"/>-->
-<!--        </cache>-->
+        <cache type="FileCache">
+            <trigger type="FixedTimeTrigger">
+                <parameter name="hour">3</parameter>
+                <parameter name="minute">55</parameter>
+            </trigger>
+        </cache>
     </view>
 
 
