@@ -576,6 +576,13 @@
             <processor match="/NGIs/NGI/@NAME" type="RenameProcessor"><namespaces><entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry></namespaces><parameter name="node_name">Name</parameter></processor>
         </processors>
 
+        <cache type="FileCache">
+            <trigger type="ViewNotifiedTrigger"></trigger>
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="minutes">8</parameter>
+            </trigger>
+        </cache>
+
     </view>
 
     <view name="OPSCORE_NGI" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
