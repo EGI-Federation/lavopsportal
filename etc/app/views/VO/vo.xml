@@ -2158,7 +2158,7 @@
                     <element-create>entry("registry",new_text(
                         concat('voms:',count($VomsVO/data/Vo[name/text()=current()/../name/text()]/Registries/VoVomsServer),
                         ',perun:',count($VomsVO/data/Vo[name/text()=current()/../name/text()]/Registries/Perun),
-                        ',CoManage',count($VomsVO/data/Vo[name/text()=current()/../name/text()]/Registries/CoManage)
+                        ',CoManage:',count($VomsVO/data/Vo[name/text()=current()/../name/text()]/Registries/CoManage)
                         )))</element-create>
 
 
