@@ -157,7 +157,7 @@
                 <entry key="X-VOMS-CSRF-GUARD">;</entry>
             </parameter>
 
-            <fallback eval="new_element('exception','VOMS not reachable')">
+            <fallback>
                 <exception type="java.io.IOException"/>
                 <exception type="java.net.NoRouteToHostException"/>
                 <exception type="java.io.FileNotFoundException"/>
@@ -165,6 +165,7 @@
                 <exception type="java.net.SocketTimeoutException"/>
                 <exception type="java.net.UnknownHostException"/>
                 <exception type="java.net.SocketException"/>
+                <exception type="org.xml.sax.SAXParseException"/>
             </fallback>
         </connector>
         <serializer type="JSONStreamSerializer"/>
