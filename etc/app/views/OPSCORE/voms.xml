@@ -1,25 +1,28 @@
-<views xmlns="http://software.in2p3.fr/lavoisier/application.xsd" >
+<views xmlns="http://software.in2p3.fr/lavoisier/application.xsd">
 
     <view xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" xmlns:str="http://exslt.org/strings" name="voms_vo">
 
-        <connector type="XMLConnector"><parameter name="content" eval="view('vo-voms_INDEX')"/></connector>
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('vo-voms_INDEX')"/>
+        </connector>
         <processors>
             <element in="data">
                 <element in="Vo">
                     <attribute-ignore/>
-                        <element in="Registries">
-                            <element in="VoVomsServer">
-                                <element-create>new_element('memberslisturl_v2', new_text(str:replace(current()/../memberslisturl/text(),'/services/VOMSAdmin?method=listMembers','/apiv2/user-stats.action')))</element-create>
-                            </element>
+                    <element in="Registries">
+                        <element in="VoVomsServer">
+                            <element-create>new_element('memberslisturl_v2',
+                                new_text(str:replace(current()/../memberslisturl/text(),'/services/VOMSAdmin?method=listMembers','/apiv2/user-stats.action')))
+                            </element-create>
                         </element>
-                        <element in="name"/>
-                        <element-ignore/>
+                    </element>
+                    <element in="name"/>
+                    <element-ignore/>
                 </element>
             </element>
 
 
         </processors>
-
 
 
         <cache type="FileCache">
@@ -30,6 +33,7 @@
         </cache>
     </view>
 
+
     <view name="VomsMembers_v2">
         <connector type="XMLConnector">
             <parameter name="content" eval="view('voms_vo')"/>
@@ -39,7 +43,9 @@
             <element in="data" out="vos">
                 <element in="Vo" out="vo">
                     <attribute-create out="name">../name/text()</attribute-create>
-                    <attribute-create out="url">concat('https://',../Registries/VoVomsServer/hostname/text(),':',../Registries/VoVomsServer/@https_port,'/voms/',../name/text(),'/apiv2/users?pageSize=4500')</attribute-create>
+                    <attribute-create out="url">
+                        concat('https://',../Registries/VoVomsServer/hostname/text(),':',../Registries/VoVomsServer/@https_port,'/voms/',../name/text(),'/apiv2/users?pageSize=4500')
+                    </attribute-create>
                     <element-ignore/>
                 </element>
             </element>
@@ -48,19 +54,23 @@
                 <element-create>view('Voms_Users_Connector_2',entry('voms_url',../@url))</element-create>
             </elements>
 
-            <element  in="vos">
+            <element in="vos">
                 <set variable="volist">view('VoList')/data</set>
                 <element in="vo">
                     <attribute-create out="count">../object/count/text()</attribute-create>
                     <attribute-create out="count_v1">$volist/Vo[@name=current()/../@name]/@members</attribute-create>
                     <elements-ignore path="object/result">
-                        <element in="object" out="user"/>
+                        <element in="object" out="user">
+                            <element-ignore in="address"/>
+                            <element-ignore in="creationTime"/>
+                            <element-ignore in="endTime"/>
+                            <element-ignore in="phoneNumber"/>
+                        </element>
                     </elements-ignore>
                 </element>
             </element>
 
         </processors>
-
 
 
         <cache type="FileCache">
@@ -134,7 +144,9 @@
         <serializer type="EncapsulateSerializer"/>
         <processors>
             <processor match="//*" type="ChangeNamespaceProcessor"/>
-            <processor match="/" type="InsertProcessor"><parameter name="nodes" eval="new_attribute('vo',$vo)"/></processor>
+            <processor match="/" type="InsertProcessor">
+                <parameter name="nodes" eval="new_attribute('vo',$vo)"/>
+            </processor>
         </processors>
 
     </view>
@@ -181,8 +193,11 @@
         </connector>
 
         <processors>
-            <processor match="/data/Vo[Registries/VoVomsServer/memberslisturl_v2 and VoVomsServer/VoVomsServer/memberslisturl_v2/text()!='']" type="InsertProcessor">
-                <parameter name="nodes" eval="view('Voms_Users_Connector',entry('voms_url',match()/Registries/VoVomsServer/memberslisturl_v2/text())|entry('vo',match()/name/text()))"/>
+            <processor
+                    match="/data/Vo[Registries/VoVomsServer/memberslisturl_v2 and VoVomsServer/VoVomsServer/memberslisturl_v2/text()!='']"
+                    type="InsertProcessor">
+                <parameter name="nodes"
+                           eval="view('Voms_Users_Connector',entry('voms_url',match()/Registries/VoVomsServer/memberslisturl_v2/text())|entry('vo',match()/name/text()))"/>
             </processor>
         </processors>
 
