@@ -445,7 +445,7 @@
     </view>
 
     <view name="OPSCORE_vo_users_raw" authenticators="local">
-
+        <argument name="duree" eval="choose(property('env')='test',5555,5)"/>
         <connector type="SQLConnector">
             <parameter name="driver">com.mysql.jdbc.Driver</parameter>
             <parameter name="url" eval="property('OPSCORE.db.url')"/>
@@ -455,7 +455,7 @@
                 SELECT USERVO , DN as CERTDN , CA, VO , EMAIL , LAST_UPDATE , FIRST_UPDATE
                 FROM vo_users
                 WHERE
-                DATEDIFF(NOW(),LAST_UPDATE)&lt; 5
+                DATEDIFF(NOW(),LAST_UPDATE)&lt; <entry eval="$duree"/>
             </parameter>
 
         </connector>
