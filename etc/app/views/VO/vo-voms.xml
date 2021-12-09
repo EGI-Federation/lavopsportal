@@ -132,7 +132,7 @@
 
         <cache type="FileCache">
             <trigger type="DeltaTimeTrigger">
-                <parameter name="hours">8</parameter>
+                <parameter name="hours">4</parameter>
             </trigger>
             <trigger type="ViewNotifiedTrigger"/>
         </cache>
@@ -206,7 +206,7 @@
         </processors>
         <cache type="FileCache">
             <trigger type="DeltaTimeTrigger">
-                <parameter name="hours">9</parameter>
+                <parameter name="hours">3</parameter>
             </trigger>
             <trigger type="ViewNotifiedTrigger"/>
         </cache>
@@ -233,6 +233,7 @@
                 <fallback>
                     <exception type="java.io.IOException"/>
                     <exception type="org.xml.sax.SAXException"/>
+                    <exception type="org.xml.sax.SAXParseException"/>
                     <exception type="java.net.NoRouteToHostException"/>
                     <exception type="java.io.FileNotFoundException"/>
                     <exception type="java.lang.Exception"/>
