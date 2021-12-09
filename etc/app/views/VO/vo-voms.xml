@@ -225,7 +225,7 @@
     <view name="checkUrlsVo">
         <argument name="vo"/>
         <connector type="XMLConnector">
-            <parameter name="content" eval="view('checkUrlsVoConnect',entry('vo',$vo))"/>
+            <parameter name="content" eval="view('checkUrlsVoConnect',entry('vo',$vo))/*"/>
 
             <fallback>
             <exception type="org.xml.sax.SAXException"/>
