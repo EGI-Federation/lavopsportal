@@ -9,7 +9,6 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="etc" level="project" />
     <orderEntry type="library" name="Maven: fr.in2p3.lavoisier:lavoisier-package:2.2.2-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Maven: fr.in2p3.lavoisier:lavoisier-service:2.2.2-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Maven: fr.in2p3.lavoisier:lavoisier-engine:2.2.2-SNAPSHOT" level="project" />
@@ -128,6 +127,6 @@
     <orderEntry type="library" name="Maven: net.logstash.logback:logstash-logback-encoder:5.2" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.9.6" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.9.0" level="project" />
-    <orderEntry type="library" name="etc1" level="project" />
+    <orderEntry type="library" name="etc" level="project" />
   </component>
 </module>

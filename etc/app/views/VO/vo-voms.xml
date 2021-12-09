@@ -207,18 +207,35 @@
         <cache type="FileCache">
             <trigger type="DeltaTimeTrigger">
                 <parameter name="hours">3</parameter>
+                <parameter name="minutes">34</parameter>
             </trigger>
             <trigger type="ViewNotifiedTrigger"/>
         </cache>
+
 
         <renderers>
             <renderer type="DefaultRenderer">
                 <parameter name="contentType">text/xml</parameter>
             </renderer>
         </renderers>
+
+
     </view>
 
     <view name="checkUrlsVo">
+        <argument name="vo"/>
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('checkUrlsVoConnect',entry('vo',$vo))"/>
+
+            <fallback>
+            <exception type="org.xml.sax.SAXException"/>
+            <exception type="org.xml.sax.SAXParseException"/>
+            </fallback>
+        </connector>
+    </view>
+
+
+    <view name="checkUrlsVoConnect">
         
         <argument name="vo"/>
         <connector type="HTTPConnector">
@@ -232,8 +249,6 @@
 
                 <fallback>
                     <exception type="java.io.IOException"/>
-                    <exception type="org.xml.sax.SAXException"/>
-                    <exception type="org.xml.sax.SAXParseException"/>
                     <exception type="java.net.NoRouteToHostException"/>
                     <exception type="java.io.FileNotFoundException"/>
                     <exception type="java.lang.Exception"/>
