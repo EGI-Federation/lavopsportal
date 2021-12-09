@@ -230,6 +230,14 @@
             <fallback>
             <exception type="org.xml.sax.SAXException"/>
             <exception type="org.xml.sax.SAXParseException"/>
+                <exception type="java.io.IOException"/>
+                <exception type="java.net.NoRouteToHostException"/>
+                <exception type="java.io.FileNotFoundException"/>
+                <exception type="java.lang.Exception"/>
+                <exception type="java.net.SocketTimeoutException"/>
+                <exception type="java.net.UnknownHostException"/>
+                <exception type="java.net.SocketException"/>
+                <exception type="java.lang.NullPointerException"/>
             </fallback>
         </connector>
     </view>
