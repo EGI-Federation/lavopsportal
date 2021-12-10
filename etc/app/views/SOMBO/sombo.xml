@@ -434,7 +434,7 @@
 
     </view>
 
-    <view name="JiraSOList" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
+    <view name="JiraSOListRaw" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
 
         <connector type="HTTPConnector">
             <parameter name="url"      eval="concat('https://',property('userJira'),':',property('pwdJira'),'@jira.eosc-hub.eu/rest/api/2/search?fields=assignee,status,created,updated,resolutiondate,customfield_10711,customfield_10223,customfield_10100,customfield_10254,customfield_10900,customfield_10400,customfield_11310&amp;jql=project=',quot(property(concat('jira.project.',property('env')))),'AND ',quot('EOSC-hub TEST'),'=No',' AND issuetype=',quot('Service Order'),'&amp;maxResults=2000')"/>
@@ -505,7 +505,6 @@
                             </element>
 
 
-
                             <element-ignore in="status">
                                 <element in="name" out="e:entry">
                                     <attribute-create out="key">'status'</attribute-create>
@@ -527,6 +526,31 @@
                 </element>
             </element>
 
+        </processors>
+
+    <cache type="FileCache">
+        <trigger type="ViewNotifiedTrigger"/>
+        <trigger type="DeltaTimeTrigger">
+            <parameter name="minutes"  eval="choose(property('env')='test',12,3)"/>
+        </trigger>
+        <trigger type="ViewCreatedTrigger"/>
+    </cache>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+    </view>
+
+
+    <view name="JiraSOList" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
+
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('JiraSOListRaw')"/>
+        </connector>
+
+        <processors>
             <element in="e:entries">
                 <element-ignore/>
                 <element-create>sort_by_string(../e:entries,'e:entry[@key="status"]/text()')</element-create>
@@ -551,17 +575,60 @@
                 <element-ignore in="e:entries" if="@key='New'"/>
                 <element-create as="first-child">../e:entries[@key='New']</element-create>
             </element>
-
-
         </processors>
 
-        <cache type="FileCache">
-            <trigger type="ViewNotifiedTrigger"/>
-            <trigger type="DeltaTimeTrigger">
-                <parameter name="minutes"  eval="choose(property('env')='test',12,3)"/>
-            </trigger>
-            <trigger type="ViewCreatedTrigger"/>
-        </cache>
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+
+    </view>
+
+    <view name="JiraSOListFiltered" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
+
+        <argument name="SOStatuses">,New,Waiting for respond,In progress,</argument>
+        <argument name="EpicStatuses">,Active,</argument>
+
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('JiraSOListRaw')"/>
+        </connector>
+
+        <processors>
+            <element in="e:entries">
+                <element in="e:entries">
+                    <attribute-create out="parent">../e:entry[@key="EpicLink"]/text()</attribute-create>
+                </element>
+                <element-ignore/>
+            </element>
+
+            <element in="e:entries">
+                <element-ignore in="e:entries" if="not(contains($SOStatuses,concat(',',e:entry[@key='status']/text(),',')))"/>
+            </element>
+
+            <element in="e:entries">
+                <element-ignore in="e:entries" if="not(contains($EpicStatuses,concat(',',e:entry[@key='Project status']/text(),',')))"/>
+            </element>
+
+            <element in="e:entries">
+                <element-ignore in="e:entries"></element-ignore>
+                <element-create>sort_by_string(../e:entries,'@parent')</element-create>
+            </element>
+
+            <element in="e:entries">
+                <element-create-as-parent out="e:entries" group-by="@parent" attributes="@parent">
+                    <element in="e:entries"/>
+                </element-create-as-parent>
+            </element>
+
+            <element in="e:entries">
+                <element in="e:entries">
+                    <attribute-create out="count">count(../e:entries)</attribute-create>
+                    <attribute in="parent" out="key"/>
+                </element>
+            </element>
+
+        </processors>
 
         <renderers>
             <renderer type="DefaultRenderer">
@@ -572,7 +639,8 @@
     </view>
 
 
-  <view name="JiraSOStats1" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" xmlns:str="http://exslt.org/strings" >
+
+    <view name="JiraSOStats1" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" xmlns:str="http://exslt.org/strings" >
 
       <argument name="startDate">_start_</argument>
       <argument name="endDate">_end_</argument>
