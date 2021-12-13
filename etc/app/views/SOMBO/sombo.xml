@@ -623,9 +623,30 @@
 
             <element in="e:entries">
                 <element in="e:entries">
-                    <attribute-create out="count">count(../e:entries)</attribute-create>
                     <attribute in="parent" out="key"/>
                 </element>
+            </element>
+
+
+
+            <element in="e:entries">
+                <element in="e:entries">
+                    <element in="e:entries">
+                        <element-create>entry('service',substring-before(substring-after(../e:entry[@key="SO-1"],'"service":"'),'",'))</element-create>
+                        <element-create>entry('category',substring-before(substring-after(../e:entry[@key="SO-1"],'"category":"'),'",'))</element-create>
+                        <element-create>entry('offer',substring-before(substring-after(../e:entry[@key="SO-1"],'"offer":"'),'",'))</element-create>
+                    </element>
+                </element>
+            </element>
+
+
+            <element in="e:entries">
+                <element-create as="first-child">
+                    entries(new_attribute('key','nbEpics')|new_text(count(/*/e:entries)))
+                </element-create>
+                <element-create as="first-child">
+                    entries(new_attribute('key','nbSO')|new_text(count(/*/*/e:entries)))
+                </element-create>
             </element>
 
         </processors>
