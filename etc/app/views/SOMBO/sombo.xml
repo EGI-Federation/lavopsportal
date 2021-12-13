@@ -642,12 +642,46 @@
 
             <element in="e:entries">
                 <element-create as="first-child">
-                    new_element('e:entries',new_attribute('key','nbEpics')|new_text(count(/*/e:entries)))
+                    new_element('e:entries',new_attribute('key','nb_byStatus'))
                 </element-create>
                 <element-create as="first-child">
-                    new_element('e:entries',new_attribute('key','nbSO')|new_text(count(/*/*/e:entries)))
+                    new_element('e:entries',new_attribute('key','nb_Epics')|new_text(count(/*/e:entries)))
+                </element-create>
+                <element-create as="first-child">
+                    new_element('e:entries',new_attribute('key','nb_SO')|new_text(count(/*/*/e:entries)))
                 </element-create>
             </element>
+
+            <element in="e:entries">
+                <element in="e:entries" if="@key='nb_byStatus'">
+                    <element-create>/*/*/*/e:entry[@key='status']</element-create>
+                </element>
+            </element>
+
+            <element in="e:entries">
+                <element in="e:entries" if="@key='nb_byStatus'">
+                    <element-ignore in="e:entry"></element-ignore>
+                    <element-create>sort_by_string(../e:entry,'text()')</element-create>
+                </element>
+            </element>
+
+            <element in="e:entries">
+                <element in="e:entries" if="@key='nb_byStatus'">
+                    <element-create-as-parent out="e:entry" attributes="new_attribute('key' , text())" group-by="text()">
+                        <element in="e:entry"/>
+                    </element-create-as-parent>
+                </element>
+            </element>
+
+            <element in="e:entries">
+            <element in="e:entries" if="@key='nb_byStatus'">
+                <element in="e:entry">
+                    <text-create>count(../e:entry)</text-create>
+                    <element-ignore/>
+                </element>
+            </element>
+            </element>
+
 
         </processors>
 
