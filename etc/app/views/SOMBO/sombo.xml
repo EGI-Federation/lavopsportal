@@ -950,6 +950,20 @@
 
 
         </processors>
+
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="minutes">4</parameter>
+                <parameter name="seconds">45</parameter>
+            </trigger>
+        </cache>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+
     </view>
 
     <view name="JiraEpicList" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
@@ -1021,7 +1035,11 @@
 
 
         </processors>
-
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
 
 
     </view>
