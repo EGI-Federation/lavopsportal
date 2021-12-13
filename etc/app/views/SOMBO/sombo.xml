@@ -603,7 +603,7 @@
                 <element-ignore/>
             </element>
 
-            <element in="e:entries" if="$SoStatuses!='_status_'">
+            <element in="e:entries" if="$SOStatuses!='_status_'">
                 <element-ignore in="e:entries" if="not(contains($SOStatuses,concat(',',e:entry[@key='status']/text(),',')))"/>
             </element>
 
