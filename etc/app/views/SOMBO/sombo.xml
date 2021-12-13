@@ -434,14 +434,30 @@
 
     </view>
 
-    <view name="JiraSOListRaw" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
-
+    <view name="JIRA_API_CALL">
+        <argument name="start"/>
         <connector type="HTTPConnector">
-            <parameter name="url"      eval="concat('https://',property('userJira'),':',property('pwdJira'),'@jira.eosc-hub.eu/rest/api/2/search?fields=assignee,status,created,updated,resolutiondate,customfield_10711,customfield_10223,customfield_10100,customfield_10254,customfield_10900,customfield_10400,customfield_11310&amp;jql=project=',quot(property(concat('jira.project.',property('env')))),'AND ',quot('EOSC-hub TEST'),'=No',' AND issuetype=',quot('Service Order'),'&amp;maxResults=2000')"/>
+            <parameter name="url"  eval="concat('https://',property('userJira'),':',property('pwdJira'),'@jira.eosc-hub.eu/rest/api/2/search?fields=assignee,status,created,updated,resolutiondate,customfield_10711,customfield_10223,customfield_10100,customfield_10254,customfield_10900,customfield_10400,customfield_11310&amp;jql=project=',quot(property(concat('jira.project.',property('env')))),'AND ',quot('EOSC-hub TEST'),'=No',' AND issuetype=',quot('Service Order'),'&amp;startAt=',round($start),'&amp;maxResults=1000')"/>
         </connector>
         <serializer type="JSONStreamSerializer"/>
+    </view>
+
+    <view name="JiraSOListRaw" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
+
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('JIRA_API_CALL',entry('start',0))"></parameter>
+        </connector>
 
         <processors>
+
+            <element in="object">
+                <element-create >view('JIRA_API_CALL',entry('start',1000))/object/*</element-create>
+            </element>
+
+            <element in="object">
+                <element-create >view('JIRA_API_CALL',entry('start',2000))/object/*</element-create>
+            </element>
+
 
             <element in="object" out="e:entries">
                 <element-ignore in="issues">
@@ -646,6 +662,9 @@
                     new_element('e:entries',new_attribute('key','nb_byStatus'))
                 </element-create>
                 <element-create as="first-child">
+                    new_element('e:entries',new_attribute('key','nb_byStatus_Epic'))
+                </element-create>
+                <element-create as="first-child">
                     new_element('e:entries',new_attribute('key','nb_Epics')|new_text(count(/*/e:entries)))
                 </element-create>
                 <element-create as="first-child">
@@ -660,28 +679,43 @@
             </element>
 
             <element in="e:entries">
-                <element in="e:entries" if="@key='nb_byStatus'">
+                <element in="e:entries" if="@key='nb_byStatus_Epic'">
+                    <element-create>/*/*/*/e:entry[@key='Project status']</element-create>
+                </element>
+            </element>
+
+            <element in="e:entries">
+                <element in="e:entries" if="@key='nb_byStatus' or @key='nb_byStatus_Epic'">
                     <element-ignore in="e:entry"></element-ignore>
                     <element-create>sort_by_string(../e:entry,'text()')</element-create>
                 </element>
             </element>
 
+
+
+
+
             <element in="e:entries">
-                <element in="e:entries" if="@key='nb_byStatus'">
+                <element in="e:entries" if="@key='nb_byStatus' or @key='nb_byStatus_Epic'">
                     <element-create-as-parent out="e:entry" attributes="new_attribute('key' , text())" group-by="text()">
                         <element in="e:entry"/>
                     </element-create-as-parent>
                 </element>
             </element>
 
+
+
+
             <element in="e:entries">
-            <element in="e:entries" if="@key='nb_byStatus'">
-                <element in="e:entry">
-                    <text-create>count(../e:entry)</text-create>
-                    <element-ignore/>
+                <element in="e:entries" if="@key='nb_byStatus' or @key='nb_byStatus_Epic'">
+                    <element in="e:entry">
+                        <text-create>count(../e:entry)</text-create>
+                        <element-ignore/>
+                    </element>
                 </element>
             </element>
-            </element>
+
+
 
 
         </processors>

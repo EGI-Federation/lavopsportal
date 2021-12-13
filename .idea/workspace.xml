@@ -240,15 +240,19 @@
       </method>
     </configuration>
     <configuration name="Run with arguments" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="/usr/lib/jvm/java-1.8.0-openjdk-amd64" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="fr.in2p3.lavoisier.command.StandaloneExec" />
       <module name="lavopsportal" />
-      <option name="PROGRAM_PARAMETERS" value="checkUrlsVo?nbsteps=999&amp;vo=aegis&amp;accept=xml" />
+      <option name="PROGRAM_PARAMETERS" value="JIRA_API_CALL?nbsteps=999&amp;start=0&amp;accept=xml" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="Run" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="/usr/lib/jvm/java-8-openjdk-amd64" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="fr.in2p3.lavoisier.command.StandaloneExec" />
       <module name="lavopsportal" />
       <option name="PROGRAM_PARAMETERS" value="OPSCORE_vo_users_raw?nbsteps=999&amp;accept=xml" />
@@ -366,7 +370,7 @@
       <workItem from="1639147861035" duration="2613000" />
       <workItem from="1639388007625" duration="2576000" />
       <workItem from="1639396172360" duration="2681000" />
-      <workItem from="1639407681971" duration="841000" />
+      <workItem from="1639407681971" duration="5113000" />
     </task>
     <task id="LOCAL-00075" summary="filtre tickets">
       <created>1536755736442</created>
