@@ -642,10 +642,10 @@
 
             <element in="e:entries">
                 <element-create as="first-child">
-                    entries(new_attribute('key','nbEpics')|new_text(count(/*/e:entries)))
+                    new_element('e:entries',new_attribute('key','nbEpics')|new_text(count(/*/e:entries)))
                 </element-create>
                 <element-create as="first-child">
-                    entries(new_attribute('key','nbSO')|new_text(count(/*/*/e:entries)))
+                    new_element('e:entries',new_attribute('key','nbSO')|new_text(count(/*/*/e:entries)))
                 </element-create>
             </element>
 
