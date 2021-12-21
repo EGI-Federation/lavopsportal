@@ -663,7 +663,7 @@
                         <element-create>entry('service',substring-before(substring-after(../e:entry[@key="SO-1"],'"service":"'),'",'))</element-create>
                         <element-create>entry('category',substring-before(substring-after(../e:entry[@key="SO-1"],'"category":"'),'",'))</element-create>
                         <element-create>entry('offer',substring-before(substring-after(../e:entry[@key="SO-1"],'"offer":"'),'",'))</element-create>
-                        <element-create>entry('attributes',concat('{',substring-after(../e:entry[@key="SO-1"],'"attributes":'),'}'))</element-create>
+                        <element-create>entry('attributes',concat('{',substring-after(../e:entry[@key="SO-1"],'"attributes":')))</element-create>
                     </element>
                     <element in="e:entries" if="not(starts-with(e:entry[@key='SO-1'],'{'))">
                         <element-create>entry('category',substring-before(../e:entry[@key="SO-1"],'/'))</element-create>
