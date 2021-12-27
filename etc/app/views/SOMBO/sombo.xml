@@ -434,7 +434,7 @@
 
     </view>
 
-    <view name="JIRA_API_CALL">
+    <view name="JIRA_API_CALL_SO">
         <argument name="start"/>
         <connector type="HTTPConnector">
             <parameter name="url"  eval="concat('https://',property('userJira'),':',property('pwdJira'),'@jira.eosc-hub.eu/rest/api/2/search?fields=assignee,status,created,updated,resolutiondate,customfield_10711,customfield_10223,customfield_10100,customfield_10254,customfield_10900,customfield_10400,customfield_11310&amp;jql=project=',quot(property(concat('jira.project.',property('env')))),'AND ',quot('EOSC-hub TEST'),'=No',' AND issuetype=',quot('Service Order'),'&amp;startAt=',round($start),'&amp;maxResults=1000')"/>
@@ -445,17 +445,17 @@
     <view name="JiraSOListRaw" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
 
         <connector type="XMLConnector">
-            <parameter name="content" eval="view('JIRA_API_CALL',entry('start',0))"></parameter>
+            <parameter name="content" eval="view('JIRA_API_CALL_SO',entry('start',0))"></parameter>
         </connector>
 
         <processors>
 
             <element in="object">
-                <element-create >view('JIRA_API_CALL',entry('start',1000))/object/*</element-create>
+                <element-create >view('JIRA_API_CALL_SO',entry('start',1000))/object/*</element-create>
             </element>
 
             <element in="object">
-                <element-create >view('JIRA_API_CALL',entry('start',2000))/object/*</element-create>
+                <element-create >view('JIRA_API_CALL_SO',entry('start',2000))/object/*</element-create>
             </element>
 
 
@@ -466,7 +466,6 @@
 
 
                         <element-ignore in="fields">
-
 
 
                             <element in="created" out="e:entry">
@@ -541,6 +540,8 @@
                     <element-create>find($JiraEpicList,../e:entry[@key='EpicLink']/text())/*</element-create>
                 </element>
             </element>
+
+
 
         </processors>
 
@@ -619,6 +620,10 @@
                 <element-ignore/>
             </element>
 
+            <element in="e:entries">
+                <element-ignore in="e:entries" if="e:entry[@key='Test']/text()='Yes'"/>
+            </element>
+
             <element in="e:entries" if="$SOStatuses!='_status_'">
                 <element-ignore in="e:entries" if="not(contains($SOStatuses,concat(',',e:entry[@key='status']/text(),',')))"/>
             </element>
@@ -670,7 +675,6 @@
                         <element-create>entry('service',substring-before(substring-after(../e:entry[@key="SO-1"],'/'),'/'))</element-create>
                         <element-create>entry('offer',substring-before(substring-after(substring-after(../e:entry[@key="SO-1"],'/'),'/'),'?'))</element-create>
                         <element-create>entry('attributes',substring-after(../e:entry[@key="SO-1"],'?'))</element-create>
-
                     </element>
                 </element>
             </element>
@@ -1021,15 +1025,32 @@
 
     </view>
 
-    <view name="JiraEpicList" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
+    <view name="JIRA_API_CALL_Epic">
+        <argument name="start"/>
         <connector type="HTTPConnector">
-            <parameter name="url"
-                       eval="concat('https://',property('userJira'),':',property('pwdJira'),'@jira.eosc-hub.eu/rest/api/2/search?fields=created,updated,summary,status,customfield_10228,customfield_1010,customfield_11204,customfield_10706,customfield_11310&amp;jql=project=',quot(property(concat('jira.project.',property('env')))),'AND ',quot('EOSC-hub TEST'),'=No',' AND issuetype=',quot('epic'),'&amp;maxResults=3000')"/>
-
+            <parameter name="url"       eval="concat('https://',property('userJira'),':',property('pwdJira'),'@jira.eosc-hub.eu/rest/api/2/search?fields=created,updated,summary,status,customfield_10228,customfield_1010,customfield_11204,customfield_10706,customfield_11310&amp;jql=project=',quot(property(concat('jira.project.',property('env')))),' AND issuetype=',quot('epic'),'&amp;startAt=',round($start),'&amp;maxResults=1000')"/>
         </connector>
+
         <serializer type="JSONStreamSerializer"/>
+    </view>
+
+
+    <view name="JiraEpicList" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('JIRA_API_CALL_Epic',entry('start',0))"></parameter>
+        </connector>
 
         <processors>
+
+        <element in="object">
+            <element-create >view('JIRA_API_CALL_Epic',entry('start',1000))/object/*</element-create>
+        </element>
+
+        <element in="object">
+            <element-create >view('JIRA_API_CALL_Epic',entry('start',2000))/object/*</element-create>
+        </element>
+
+
 
             <element in="object" out="e:entries">
                 <element-ignore in="issues">
@@ -1040,7 +1061,6 @@
                             <element in="summary" out="e:entry">
                                 <attribute-create out="key">'Project Summary'</attribute-create>
                             </element>
-
 
 
                             <element in="created" out="e:entry">
@@ -1067,8 +1087,11 @@
                                 <elements-ignore path="/customfieldvalues/customfieldvalue"><text></text></elements-ignore>
                             </element>
 
-
-
+                            <element in="customfield_11310" out="e:entry">
+                                <attribute-create out="key">'Test'</attribute-create>
+                                <element-ignore in="value"><text></text></element-ignore>
+                                <element-ignore/>
+                            </element>
 
                             <element-ignore in="status">
                                 <element in="name" out="e:entry">
@@ -1084,12 +1107,16 @@
                 </element-ignore>
             </element>
 
-            <element in="e:entries">
-                <element-ignore in="e:entries" if="e:entry[@key='test']/text()='Yes'"></element-ignore>
-            </element>
 
 
         </processors>
+
+        <cache type="FileCache">
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="minutes"  eval="choose(property('env')='test',12,5)"/>
+            </trigger>
+        </cache>
         <renderers>
             <renderer type="DefaultRenderer">
                 <parameter name="contentType">text/xml</parameter>
