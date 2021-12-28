@@ -249,9 +249,11 @@
       </method>
     </configuration>
     <configuration name="Run" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="/usr/lib/jvm/java-1.8.0-openjdk-amd64" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="fr.in2p3.lavoisier.command.StandaloneExec" />
       <module name="lavopsportal" />
-      <option name="PROGRAM_PARAMETERS" value="JIRA_API_CALL_Epic?nbsteps=999&amp;accept=xml" />
+      <option name="PROGRAM_PARAMETERS" value="JiraComments?nbsteps=999&amp;accept=xml" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -370,7 +372,9 @@
       <workItem from="1639739378015" duration="15000" />
       <workItem from="1640098366395" duration="6743000" />
       <workItem from="1640591177986" duration="7000" />
-      <workItem from="1640594453549" duration="1433000" />
+      <workItem from="1640594453549" duration="2841000" />
+      <workItem from="1640609256403" duration="13043000" />
+      <workItem from="1640680632642" duration="11518000" />
     </task>
     <task id="LOCAL-00075" summary="filtre tickets">
       <created>1536755736442</created>
