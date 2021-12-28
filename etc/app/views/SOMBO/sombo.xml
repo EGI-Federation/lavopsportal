@@ -1357,6 +1357,7 @@
                     <attribute-create out="In_progress">count(../e:entries[@status='In progress'])</attribute-create>
                     <attribute-create out="Waiting_for_respond">count(../e:entries[@status='Waiting for respond'])</attribute-create>
                     <attribute-create out="Total">count(../e:entries)</attribute-create>
+                    <attribute-create out="Count">count(../e:entries)</attribute-create>
                     <attribute-create out="TotalwithComments">count(../e:entries[@nbComments>1 and @nbComments!='']) </attribute-create>
                     <attribute-create out="ResponseTimeMonth">sum(../e:entries/@responseTime)</attribute-create>
                     <element-ignore/>
@@ -1384,6 +1385,7 @@
                     <element-create>entry('In_progress',../@In_progress)</element-create>
                     <element-create>entry('Waiting_for_respond',../@Waiting_for_respond)</element-create>
                     <element-create>entry('Total',../@Total)</element-create>
+                    <element-create>entry('Count',../@Count)</element-create>
                     <element-create>entry('TotalwithComments',../@TotalwithComments)</element-create>
                     <element-create>entry('ResponseTime',../@ResponseTime)</element-create>
                     <element-create>entry('ResponseTimeMonth',../@ResponseTimeMonth)</element-create>
