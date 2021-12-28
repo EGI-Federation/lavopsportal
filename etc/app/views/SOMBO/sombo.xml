@@ -1376,6 +1376,19 @@
                 </element>                
             </element>
 
+            <element in="e:entries">
+                <element in="e:entries">
+                    <element-create>entry('Approved',../@Approved)</element-create>
+                    <element-create>entry('Rejected',../@Rejected)</element-create>
+                    <element-create>entry('Ready',../@Ready)</element-create>
+                    <element-create>entry('In_progress',../@In_progress)</element-create>
+                    <element-create>entry('Waiting_for_respond',../@Waiting_for_respond)</element-create>
+                    <element-create>entry('Total',../@Total)</element-create>
+                    <element-create>entry('TotalwithComments',../@TotalwithComments)</element-create>
+                    <element-create>entry('ResponseTime',../@ResponseTime)</element-create>
+                </element>
+            </element>
+
         </processors>
 
         <renderers>
