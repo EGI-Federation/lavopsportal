@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="mo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/app/views/SOMBO/sombo.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/SOMBO/sombo.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -374,7 +373,7 @@
       <workItem from="1640591177986" duration="7000" />
       <workItem from="1640594453549" duration="2841000" />
       <workItem from="1640609256403" duration="13043000" />
-      <workItem from="1640680632642" duration="12955000" />
+      <workItem from="1640680632642" duration="14049000" />
     </task>
     <task id="LOCAL-00075" summary="filtre tickets">
       <created>1536755736442</created>

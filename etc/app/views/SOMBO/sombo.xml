@@ -1359,7 +1359,7 @@
                     <attribute-create out="Total">count(../e:entries)</attribute-create>
                     <attribute-create out="Count">count(../e:entries)</attribute-create>
                     <attribute-create out="TotalwithComments">count(../e:entries[@nbComments>1 and @nbComments!='']) </attribute-create>
-                    <attribute-create out="ResponseTimeMonth">sum(../e:entries/@responseTime)</attribute-create>
+                    <attribute-create out="ResponseTimeMonth">sum(../e:entries[@test!='Yes']/@responseTime)</attribute-create>
                     <element-ignore/>
                 </element>
             </element>
