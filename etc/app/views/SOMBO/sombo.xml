@@ -202,6 +202,15 @@
     </view>
 
 
+    <view name="JIRA_API_CALL_COMMENTS_EPIC">
+        <argument name="start"/>
+        <connector type="HTTPConnector">
+            <parameter name="url"  eval="concat('https://',property('userJira'),':',property('pwdJira'),'@jira.eosc-hub.eu/rest/api/2/search?fields=comment,summary&amp;jql=project=',quot(property(concat('jira.project.',property('env')))),'AND ',quot('EOSC-hub TEST'),'=No',' AND issuetype=',quot('epic'),'&amp;startAt=',round($start),'&amp;maxResults=1000')"/>
+        </connector>
+        <serializer type="JSONStreamSerializer"/>
+    </view>
+
+
 
     <view name="JIRA_API_CALL_COMMENTS">
         <argument name="start"/>
@@ -254,6 +263,48 @@
         </renderers>
 
     </view>
+
+    <view name="JiraCommentsEpic">
+
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('JIRA_API_CALL_COMMENTS_EPIC',entry('start',0))"></parameter>
+        </connector>
+
+        <processors>
+
+            <element in="object">
+                <element-create >view('JIRA_API_CALL_COMMENTS_EPIC',entry('start',1000))/object/*</element-create>
+            </element>
+
+            <element in="object" out="issues">
+                <element-ignore in="issues">
+                    <element in="object" out="issue">
+                        <attribute-create out="key">../key/text()</attribute-create>
+                        <attribute-create out="nbComments">count(../fields/comment/comments/object)</attribute-create>
+                        <element-ignore/>
+                    </element>
+                </element-ignore>
+                <element-ignore></element-ignore>
+            </element>
+        </processors>
+
+
+        <cache type="FileCache">
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="minutes"  eval="choose(property('env')='test',14,6)"/>
+            </trigger>
+            <trigger type="ViewCreatedTrigger"/>
+        </cache>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+
+    </view>
+
 
 
     <view name="JiraComment" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
@@ -587,8 +638,15 @@
 
             <element in="e:entries">
                 <set variable="JiraEpicList" index="@key">view('JiraEpicList')/e:entries/e:entries</set>
+                <set variable="JiraComments">view('JiraComments')/issues</set>
+                <set variable="JiraCommentsEpic">view('JiraCommentsEpic')/issues</set>
+
+
                 <element in="e:entries">
                     <element-create>find($JiraEpicList,../e:entry[@key='EpicLink']/text())/*</element-create>
+                    <element-create>entry('nbComments',new_text($JiraComments/issue[@key=current()/../@key]/@nbComments))</element-create>
+                    <element-create>entry('nbCommentsEpic',new_text($JiraCommentsEpic/issue[@key=current()/../@key]/@nbComments))</element-create>
+
                 </element>
             </element>
 
