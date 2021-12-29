@@ -645,7 +645,7 @@
                 <element in="e:entries">
                     <element-create>find($JiraEpicList,../e:entry[@key='EpicLink']/text())/*</element-create>
                     <element-create>entry('nbComments',new_text($JiraComments/issue[@key=current()/../@key]/@nbComments))</element-create>
-                    <element-create>entry('nbCommentsEpic',new_text($JiraCommentsEpic/issue[@key=current()/../@key]/@nbComments))</element-create>
+                    <element-create>entry('nbCommentsEpic',new_text($JiraCommentsEpic/issue[@key=current()/../e:entry[@key='EpicLink']/text()]/@nbComments))</element-create>
 
                 </element>
             </element>
