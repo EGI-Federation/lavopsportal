@@ -305,6 +305,43 @@
 
     </view>
 
+    <view name="InternalComments" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <connector type="SQLConnector">
+            <parameter name="driver">com.mysql.jdbc.Driver</parameter>
+            <parameter name="url" eval="property('ROD.db.url')"/>
+            <parameter name="username" eval="property('ROD.db.username')"/>
+            <parameter name="password" eval="property('ROD.db.password')"/>
+            <parameter name="query">
+                <entry>SELECT count(id), idTicket  from sombo_internal_comment group by idTicket</entry>
+            </parameter>
+        </connector>
+
+        <processors>
+            <element in="result" out="issues">
+                <element in="row" out="issue">
+                    <attribute-create out="key">../idTicket/text()</attribute-create>
+                    <element-create>entry('nbComments',../count_id_/text())</element-create>
+                    <element-ignore/>
+                </element>
+            </element>
+        </processors>
+
+        <cache type="FileCache">
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="minutes"  eval="choose(property('env')='test',15,3)"/>
+            </trigger>
+            <trigger type="ViewCreatedTrigger"/>
+        </cache>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+
+    </view>
+
 
 
     <view name="JiraComment" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
@@ -640,16 +677,25 @@
                 <set variable="JiraEpicList" index="@key">view('JiraEpicList')/e:entries/e:entries</set>
                 <set variable="JiraComments">view('JiraComments')/issues</set>
                 <set variable="JiraCommentsEpic">view('JiraCommentsEpic')/issues</set>
-
-
+                <set variable="InternalComments">view('InternalComments')/issues</set>
                 <element in="e:entries">
                     <element-create>find($JiraEpicList,../e:entry[@key='EpicLink']/text())/*</element-create>
                     <element-create>entry('nbComments',new_text($JiraComments/issue[@key=current()/../@key]/@nbComments))</element-create>
                     <element-create>entry('nbCommentsEpic',new_text($JiraCommentsEpic/issue[@key=current()/../e:entry[@key='EpicLink']/text()]/@nbComments))</element-create>
+                    <element-create if="$InternalComments/issue[@key=current()/../e:entry[@key='EpicLink']/text()]/@nbComments">entry('nbNotes1',new_text($InternalComments/issue[@key=current()/../e:entry[@key='EpicLink']/text()]/@nbComments))</element-create>
+                    <element-create if="not($InternalComments/issue[@key=current()/../e:entry[@key='EpicLink']/text()]/@nbComments)">entry('nbNotes1',0)</element-create>
+                    <element-create if="$InternalComments/issue[@key=current()/../@key]/@nbComments">entry('nbNotes1',new_text($InternalComments/issue[@key=current()/../@key]/@nbComments))</element-create>
+                    <element-create if="not($InternalComments/issue[@key=current()/../@key]/@nbComments)">entry('nbNotes2',0)</element-create>
 
                 </element>
             </element>
 
+            <element in="e:entries">
+                <element in="e:entries">
+                    <element-create>entry('nbNotes',new_text(../e:entry[@key='nbNotes1']/text() + ../e:entry[@key='nbNotes2']/text() + 0))</element-create>
+                    <element-ignore if="@key='nbNotes1' or @key='nbNotes2'"></element-ignore>
+                </element>
+            </element>
 
 
         </processors>
