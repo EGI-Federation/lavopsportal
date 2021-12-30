@@ -682,20 +682,14 @@
                     <element-create>find($JiraEpicList,../e:entry[@key='EpicLink']/text())/*</element-create>
                     <element-create>entry('nbComments',new_text($JiraComments/issue[@key=current()/../@key]/@nbComments))</element-create>
                     <element-create>entry('nbCommentsEpic',new_text($JiraCommentsEpic/issue[@key=current()/../e:entry[@key='EpicLink']/text()]/@nbComments))</element-create>
-                    <element-create if="$InternalComments/issue[@key=current()/../e:entry[@key='EpicLink']/text()]/@nbComments">entry('nbNotes1',new_text($InternalComments/issue[@key=current()/../e:entry[@key='EpicLink']/text()]/@nbComments))</element-create>
-                    <element-create if="not($InternalComments/issue[@key=current()/../e:entry[@key='EpicLink']/text()]/@nbComments)">entry('nbNotes1',0)</element-create>
-                    <element-create if="$InternalComments/issue[@key=current()/../@key]/@nbComments">entry('nbNotes1',new_text($InternalComments/issue[@key=current()/../@key]/@nbComments))</element-create>
-                    <element-create if="not($InternalComments/issue[@key=current()/../@key]/@nbComments)">entry('nbNotes2',0)</element-create>
+
+                    <element-create if="$InternalComments/issue[@key=current()/../@key]/@nbComments">entry('nbNotes',new_text($InternalComments/issue[@key=current()/../@key]/@nbComments))</element-create>
+                    <element-create if="not($InternalComments/issue[@key=current()/../@key]/@nbComments)">entry('nbNotes',0)</element-create>
 
                 </element>
             </element>
 
-            <element in="e:entries">
-                <element in="e:entries">
-                    <element-create>entry('nbNotes',new_text(../e:entry[@key='nbNotes1']/text() + ../e:entry[@key='nbNotes2']/text() + 0))</element-create>
-                    <element-ignore if="@key='nbNotes1' or @key='nbNotes2'"></element-ignore>
-                </element>
-            </element>
+
 
 
         </processors>
