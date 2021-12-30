@@ -320,7 +320,7 @@
             <element in="result" out="issues">
                 <element in="row" out="issue">
                     <attribute-create out="key">../idTicket/text()</attribute-create>
-                    <element-create>entry('nbComments',../count_id_/text())</element-create>
+                    <attribute-create out="nbComments">../count_id_/text()</attribute-create>
                     <element-ignore/>
                 </element>
             </element>
