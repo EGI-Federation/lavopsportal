@@ -1206,6 +1206,10 @@
                         <attribute-create out="key" if="not(starts-with(name(current()/..),'customfield_'))">name(..)</attribute-create>
                         <text-create if="../value/text()">../value/text()</text-create>
                         <text-create if="not(../value/text()) and ../name/text()">../name/text()</text-create>
+                        <element in="status" out="e:entry">
+                            <attribute-create out="key">'status'</attribute-create>
+                            <text-create>../statusCategory/name/text()</text-create>
+                        </element>
                         <element-ignore/>
                     </element>
 
