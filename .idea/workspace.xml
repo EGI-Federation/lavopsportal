@@ -251,7 +251,7 @@
     <configuration name="Run" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="fr.in2p3.lavoisier.command.StandaloneExec" />
       <module name="lavopsportal" />
-      <option name="PROGRAM_PARAMETERS" value="JIRA_API_ISSUE?nbsteps=999&amp;accept=xml" />
+      <option name="PROGRAM_PARAMETERS" value="VoAcknowledgments?nbsteps=999&amp;accept=xml" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -381,7 +381,8 @@
       <workItem from="1641831755887" duration="405000" />
       <workItem from="1642000860547" duration="228000" />
       <workItem from="1642417236652" duration="6000" />
-      <workItem from="1642598448899" duration="2707000" />
+      <workItem from="1642598448899" duration="3574000" />
+      <workItem from="1642608694755" duration="770000" />
     </task>
     <task id="LOCAL-00075" summary="filtre tickets">
       <created>1536755736442</created>

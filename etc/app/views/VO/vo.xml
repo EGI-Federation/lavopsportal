@@ -127,6 +127,8 @@
                 <element-create as="first-child">new_element('VoMailingLists')</element-create>
                 <element-create as="first-child">new_element('VoDisciplines')</element-create>
                 <element-create as="first-child">new_element('VoVomsGroups')</element-create>
+                <element-create as="first-child">new_element('VoAcknowledgments')</element-create>
+
             </elements>
 
 
@@ -138,6 +140,7 @@
                 <set variable="VoResources" index="name/text()">view('VoResources')/result/row</set>
                 <set variable="VoVomsGroups">view('VoVomsGroups')</set>
                 <set variable="VoDisciplines" index="@name">view('VoDisciplinesList')/rootD/vo_Disciplines</set>
+                <set variable="VoAcknowledgments" index="serial/text()">view('VoAcknowledgments')/result/row</set>
 
                 <element in="Vo">
 
@@ -161,6 +164,10 @@
                     </element>
                     <element in="VoDisciplines">
                         <element-create>find($VoDisciplines,current()/../../@key)</element-create>
+                    </element>
+
+                    <element in="VoAcknowledgments">
+                        <element-create>find($VoAcknowledgments,current()/../../@serial)</element-create>
                     </element>
                 </element>
             </element>
@@ -327,6 +334,32 @@
         <cache type="FileCache">
             <trigger type="DeltaTimeTrigger">
                 <parameter name="minutes">33</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+        </cache>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+
+    </view>
+
+    <view name="VoAcknowledgments">
+        <connector type="SQLConnector">
+            <parameter name="driver">com.mysql.jdbc.Driver</parameter>
+            <parameter name="url" eval="property('VO.db.url')"/>
+            <parameter name="username" eval="property('VO.db.username')"/>
+            <parameter name="password" eval="property('VO.db.password')"/>
+            <parameter name="query">
+                SELECT serial, type_as, grantid, suggested, relationShip, publicationUrl FROM `vo_acknowledgment_statements` ORDER BY `id` ASC
+            </parameter>
+        </connector>
+
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="minutes">26</parameter>
             </trigger>
             <trigger type="ViewNotifiedTrigger"/>
         </cache>
