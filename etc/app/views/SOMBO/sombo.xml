@@ -699,7 +699,6 @@
         <trigger type="DeltaTimeTrigger">
             <parameter name="minutes"  eval="choose(property('env')='test',12,3)"/>
         </trigger>
-        <trigger type="ViewCreatedTrigger"/>
 
         <trigger type="DependencyRefreshedTrigger">
             <parameter name="views">
@@ -1354,6 +1353,7 @@
             <trigger type="DeltaTimeTrigger">
                 <parameter name="minutes"  eval="choose(property('env')='test',12,5)"/>
             </trigger>
+            <trigger type="ViewCreatedTrigger"/>
         </cache>
         <renderers>
             <renderer type="DefaultRenderer">
