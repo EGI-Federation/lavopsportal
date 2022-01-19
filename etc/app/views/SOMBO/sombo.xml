@@ -700,6 +700,15 @@
             <parameter name="minutes"  eval="choose(property('env')='test',12,3)"/>
         </trigger>
         <trigger type="ViewCreatedTrigger"/>
+
+        <trigger type="DependencyRefreshedTrigger">
+            <parameter name="views">
+                <entry>JiraEpicList</entry>
+                <entry>JiraComments</entry>
+                <entry>JiraCommentsEpic</entry>
+                <entry>InternalComments</entry>
+            </parameter>
+        </trigger>
     </cache>
 
         <renderers>
