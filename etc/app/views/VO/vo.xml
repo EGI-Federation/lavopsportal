@@ -939,7 +939,7 @@
 
         <cache type="FileCache">
             <trigger type="DeltaTimeTrigger">
-                <parameter name="hours">4</parameter>
+                <parameter name="minutes">8</parameter>
             </trigger>
             <trigger type="ViewNotifiedTrigger"/>
         </cache>
