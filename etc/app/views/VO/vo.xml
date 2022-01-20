@@ -140,7 +140,7 @@
                 <set variable="VoResources" index="name/text()">view('VoResources')/result/row</set>
                 <set variable="VoVomsGroups">view('VoVomsGroups')</set>
                 <set variable="VoDisciplines" index="@name">view('VoDisciplinesList')/rootD/vo_Disciplines</set>
-                <set variable="VoAcknowledgments" index="serial/text()">view('VoAcknowledgments')/result/row</set>
+                <set variable="VoAcknowledgments">view('VoAcknowledgments')/result</set>
 
                 <element in="Vo">
 
@@ -167,7 +167,7 @@
                     </element>
 
                     <element in="VoAcknowledgments">
-                        <element-create>find($VoAcknowledgments,current()/../../@serial)</element-create>
+                        <element-create>$VoAcknowledgments/VoAcknowledgment[serial/text()=current()/../../@serial]</element-create>
                     </element>
                 </element>
             </element>
@@ -356,6 +356,12 @@
                 SELECT serial, type_as, grantid, suggested, relationShip, publicationUrl FROM `vo_acknowledgment_statements` ORDER BY `id` ASC
             </parameter>
         </connector>
+
+        <processors>
+            <element in="result">
+                <element in="row" out="VoAcknowledgment"></element>
+            </element>
+        </processors>
 
         <cache type="FileCache">
             <trigger type="DeltaTimeTrigger">
