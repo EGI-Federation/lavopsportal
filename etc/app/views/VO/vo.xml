@@ -174,6 +174,14 @@
 
             <elements path="data/Vo">
 
+                <element in="VoAcknowledgments">
+                    <element in="VoAcknowledgment">
+                        <element-ignore in="serial"></element-ignore>
+                        <element-ignore in="type_as"></element-ignore>
+                        <element in="suggested" out="acknowledgment"></element>
+                    </element>
+                </element>
+
                 <element>
                     <element-ignore in="row" if="name(..)!='VoContacts' and name(..)!='VoVomsGroups'">
                         <element if="name()!='name'"/>
