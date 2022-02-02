@@ -92,7 +92,7 @@
         <processors>
         <element in="item" out="e:entries">
             <element in="object" out="e:entries">
-                <attribute-create out="key">../SITENAME-SERVICEGROUP/text()</attribute-create>
+                <attribute-create out="key">normalize-space(../SITENAME-SERVICEGROUP/text())</attribute-create>
                 <element in="URL" out="e:entry"><attribute-create out="key">'url'</attribute-create></element>
                 <element in="CONTACT_EMAIL" out="e:entry">
                     <attribute-create out="key">'email'</attribute-create>
