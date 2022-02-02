@@ -85,9 +85,7 @@
             <parameter name="certificate" eval="property('certificate.path')"/>
             <parameter name="passphrase" eval="property('certificate.password')"/>
             <parameter name="force-redirect">true</parameter>
-<!--            <fallback eval="view('marketplace.providers.file')">-->
-<!--                <exception type="java.io.IOException"/>-->
-<!--            </fallback>-->
+
         </connector>
         <serializer type="JSONStreamSerializer"/>
 
@@ -103,9 +101,15 @@
                 </element>
                 <element-ignore/>
             </element>
-
         </element>
+
+            <element in="e:entries">
+                <element-ignore in="e:entries"></element-ignore>
+                <element-create>sort_by_string(../e:entries,'@key')</element-create>
+            </element>
     </processors>
+
+
 
         <cache type="FileCache">
             <trigger type="ViewNotifiedTrigger"/>
@@ -113,6 +117,14 @@
                 <parameter name="minutes"  eval="choose(property('env')='test',32,10)"/>
             </trigger>
         </cache>
+
+        <pre-renderers>
+            <row foreach="e:entries/e:entries">
+                <column label="name">@key</column>
+                <column label="email">e:entry[@key='email']/text()</column>
+                <column label="url">e:entry[@key='url']/text()</column>
+            </row>
+        </pre-renderers>
 
         <renderers>
             <renderer type="DefaultRenderer">
@@ -1588,6 +1600,37 @@
             </renderer>
         </renderers>
 
+    </view>
+
+    <view name="eosc.api.providers">
+        <connector type="HTTPConnector">
+            <parameter name="url" eval="property('eosc.api.providers')"></parameter>
+        </connector>
+        <serializer type="JSONStreamSerializer"/>
+
+        <processors>
+            <element in="object" out="providers">
+                <element-ignore in="results">
+                    <element in="object" out="provider">
+                        <attribute-create out="id">../id/text()</attribute-create>
+                        <attribute-create out="name">../name/text()</attribute-create>
+                        <attribute-create out="email">../publicContacts/object/email/text()</attribute-create>
+                        <attribute-create out="url">../website/text()</attribute-create>
+                        <element-ignore/>
+                    </element>
+                </element-ignore>
+
+            </element>
+        </processors>
+
+        <pre-renderers>
+            <row foreach="providers/provider">
+                <column label="id">@id</column>
+                <column label="name">@name</column>
+                <column label="email">@email</column>
+                <column label="url">@url</column>
+            </row>
+        </pre-renderers>
     </view>
 
 
