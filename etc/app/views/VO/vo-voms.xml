@@ -9,29 +9,19 @@
 
         <processors>
 
-            <element in="data" out="voVoms">
+            <element in="data" out="results">
                 <element in="Vo">
                     <attribute-create out="name">../name/text()</attribute-create>
                     <attribute-ignore/>
-
                     <element in="Registries">
                         <element in="VoVomsServer">
                             <element-create as="last-child">view('voms-certificates')/results/X509Cert[@host=current()/../hostname/text()][1]</element-create>
                         </element>
                     </element>
-
                     <element-ignore/>
                 </element>
-
             </element>
-
-            <element in="voVoms">
-                <element-ignore in="Vo" if="not(VoVomsServer/VoVomsServer/X509Cert)"/>
-            </element>
-
         </processors>
-
-
 
         <cache type="FileCache">
             <trigger type="DeltaTimeTrigger">
