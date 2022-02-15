@@ -1808,7 +1808,7 @@
             </element>
 
             <element in="object">
-                <element-create >view('JIRA_API_CALL_HISTORY',entry('start',2000|entry('tenant','egi')))/object/*</element-create>
+                <element-create >view('JIRA_API_CALL_HISTORY',entry('start',2000)|entry('tenant','egi'))/object/*</element-create>
             </element>
 
             <element in="object" out="e:entries">
