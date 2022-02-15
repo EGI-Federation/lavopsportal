@@ -2592,6 +2592,17 @@
         </processors>
     </view>
 
+    <view name="VoPerunList">
+        <connector type="HTTPConnector">
+            <parameter name="url" eval="property('vo.perun.list')"/>
+            <parameter name="certificate" eval="property('certificate.path')"/>
+            <parameter name="passphrase" eval="property('certificate.password')"/>
+            <parameter name="connect-timeout">30</parameter>
+            <parameter name="read-timeout">30</parameter>
+        </connector>
+        <serializer type="JSONStreamSerializer"></serializer>
+
+    </view>
 
     <view name="VoListUrl">
 

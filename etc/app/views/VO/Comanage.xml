@@ -30,9 +30,13 @@
 
     <view name="CoManageVOs">
 
+            <variable name="url" eval="concat('https://',property('comanage-user'),':',property('comanage-pwd'),'@',property('comanage-instance'),'/cous.json?coid=2')"/>
         <connector type="HTTPConnector">
-            <parameter name="url" eval="concat('https://',property('comanage-user'),':',property('comanage-pwd'),'@',property('comanage-instance'),'/cous.json?coid=2')"/>
+            <parameter name="url" eval="$url"/>
             <parameter name="default">{"root":"empty"}</parameter>
+            <fallback eval="new_element('error',concat('error with url :',$url))">
+                <exception type="java.io.IOException"/>
+            </fallback>
         </connector>
 
         <serializer type="JSONStreamSerializer"/>
@@ -40,6 +44,7 @@
 
         <processors>
             <element in="object" out="vos">
+               
                 <element-ignore in="Cous">
                     <element in="object" out="vo">
                         <attribute-create out="id">../Id/text()</attribute-create>
@@ -76,15 +81,17 @@
 
 
     <view name="CoManageMembers">
-        <argument name="cogroupid"/>
-
+        <argument name="cogroupid">11</argument>
+        <variable name="url" eval="concat('https://',property('comanage-user'),':',property('comanage-pwd'),'@aai.egi.eu/registry/co_person_roles.json?couid=',$cogroupid)"/>
         <connector type="HTTPConnector">
-            <parameter name="url" eval="concat('https://',property('comanage-user'),':',property('comanage-pwd'),'@aai.egi.eu/registry/co_person_roles.json?couid=',$cogroupid)"/>
+            <parameter name="url" eval="$url"/>
             <parameter name="default">{"root":"empty"}</parameter>
-
+            <fallback eval="new_element('error',concat('error with url :',$url))">
+                <exception type="java.io.IOException"/>
+            </fallback>
         </connector>
-        <serializer type="JSONStreamSerializer"/>
 
+        <serializer type="JSONStreamSerializer"/>
 
         <processors>
             <element in="object" out="users">
