@@ -1511,7 +1511,7 @@
         <argument name="start"/>
         <argument name="tenant">eosc</argument>
         <connector type="HTTPConnector">
-            <parameter name="url"       eval="concat('https://',property(concat('userJira_',$tenant)),':',property(concat('pwdJira_',$tenant)),'@',property(concat('instance_',$tenant)),'rest/api/2/search?fields=created,updated,summary,status,customfield_10228,customfield_1010,customfield_11204,customfield_10706,customfield_11310&amp;jql=project=',quot(property(concat('jira.project.',property('env')))),' AND issuetype=',quot('epic'),'&amp;startAt=',round($start),'&amp;maxResults=1000')"/>
+            <parameter name="url"       eval="concat('https://',property(concat('userJira_',$tenant)),':',property(concat('pwdJira_',$tenant)),'@',property(concat('instance_',$tenant)),'/rest/api/2/search?fields=created,updated,summary,status,customfield_10228,customfield_1010,customfield_11204,customfield_10706,customfield_11310&amp;jql=project=',quot(property(concat('jira.project.',property('env')))),' AND issuetype=',quot('epic'),'&amp;startAt=',round($start),'&amp;maxResults=1000')"/>
         </connector>
         <serializer type="JSONStreamSerializer"/>
     </view>
