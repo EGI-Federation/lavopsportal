@@ -123,9 +123,14 @@
                         </element-ignore>
 
                     </element>
+                    <element-ignore/>
                 </element-ignore>
             </element>
-            <element-ignore/>
+
+            <element in="e:entries">
+                <element-ignore in="links"/>
+            </element>
+
         </processors>
 
 
