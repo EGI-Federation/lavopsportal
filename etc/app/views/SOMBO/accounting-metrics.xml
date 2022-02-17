@@ -96,7 +96,7 @@
         </cache>
     </view>
 
-    <view name="listMetricsbyId">
+    <view name="listMetricsbyId"   xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
 
         <argument name="metricId">620a4fb0bbe46734c6bfa785</argument>
         <variable name="url" eval="concat('https://acc.devel.argo.grnet.gr/accounting-system/metric-definition/',$metricId,'/metrics')"/>
@@ -128,7 +128,8 @@
             </element>
 
             <element in="e:entries">
-                <element-ignore in="links"/>
+                <element in="e:entries"/>
+                <element-ignore/>
             </element>
 
         </processors>
