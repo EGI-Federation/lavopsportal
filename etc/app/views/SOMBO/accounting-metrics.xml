@@ -1,0 +1,171 @@
+<views xmlns="http://software.in2p3.fr/lavoisier/application.xsd"
+       xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" xmlns:t="http://software.in2p3.fr/lavoisier/tables.xsd">
+    <!-- 
+        Project : lavopsportal 
+        File    : accounting-metrics.xml
+        Created by cyril on 2022/02/17 
+    -->
+    <view name="publishMetricDefinition">
+        <argument name="metric_name">metric_test_api1</argument>
+        <argument name="metric_description">metric_test_description</argument>
+        <argument name="metric_type">aggregated</argument>
+        <argument name="unit_type">#</argument>
+
+        <connector type="HTTPConnector">
+            <parameter name="url">https://acc.devel.argo.grnet.gr/accounting-system/metric-definition</parameter>
+            <parameter name="method">POST</parameter>
+            <parameter name="header">
+                <entry key="Content-Type">application/json</entry>
+            </parameter>
+
+            <parameter name="post" eval="concat( '{'
+            , quot('metric_name'), ': ',quot($metric_name),','
+            , quot('metric_description'), ': ',quot($metric_description),','
+            , quot('metric_type'), ': ',quot($metric_type),','
+            , quot('unit_type'), ': ',quot($unit_type)
+            ,'}')"/>
+        </connector>
+
+        <serializer type="JSONStreamSerializer"></serializer>
+
+    </view>
+
+    <view name="listMetricDefinition">
+
+        <connector type="HTTPConnector">
+            <parameter name="url">https://acc.devel.argo.grnet.gr/accounting-system/metric-definition</parameter>
+            <parameter name="method">GET</parameter>
+            <parameter name="header">
+                <entry key="Content-Type">application/json</entry>
+            </parameter>
+        </connector>
+
+        <serializer type="JSONStreamSerializer"></serializer>
+
+        <processors>
+            <element in="item" out="e:entries">
+                <element in="object" out="e:entries">
+                    <attribute-create out="key">../metric_definition_id/text()</attribute-create>
+                    <element-ignore>
+                        <element-create>
+                            entry(local-name(current()/..),current()/../text())
+                        </element-create>
+                    </element-ignore>
+                </element>
+
+            </element>
+        </processors>
+
+        <cache type="FileCache">
+            <trigger type="ViewNotifiedTrigger"></trigger>
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="minutes">10</parameter>
+            </trigger>
+        </cache>
+
+    </view>
+
+    <view name="listMetricType">
+
+        <connector type="HTTPConnector">
+            <parameter name="url">https://acc.devel.argo.grnet.gr/accounting-system/metric-definition/metric-types</parameter>
+            <parameter name="method">GET</parameter>
+            <parameter name="header">
+                <entry key="Content-Type">application/json</entry>
+            </parameter>
+        </connector>
+
+        <serializer type="JSONStreamSerializer"></serializer>
+
+        <processors>
+            <element in="object" out="e:entries">
+                <element-ignore>
+                   <element in="object" out="e:entries">
+                       <attribute-create out="key">../metric_type/text()</attribute-create>
+                       <element-ignore></element-ignore>
+                   </element>
+                </element-ignore>
+            </element>
+        </processors>
+
+        <cache type="FileCache">
+            <trigger type="ViewNotifiedTrigger"></trigger>
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="minutes">31</parameter>
+            </trigger>
+        </cache>
+    </view>
+
+    <view name="listMetricsbyId">
+
+        <argument name="metricId">620e0c98fbedc07f931b4353</argument>
+        <variable name="url" eval="concat('https://acc.devel.argo.grnet.gr/accounting-system/metric-definition/',$metricId,'/metrics')"/>
+
+        <connector type="HTTPConnector">
+            <parameter name="url" eval="$url"></parameter>
+            <parameter name="method">GET</parameter>
+            <parameter name="header">
+                <entry key="Content-Type">application/json</entry>
+            </parameter>
+        </connector>
+
+        <serializer type="JSONStreamSerializer"></serializer>
+
+        <processors>
+            <element in="object" out="e:entries">
+                <element-ignore in="content">
+                    <element in="object" out="e:entries">
+                        <attribute-create out="key">../id/text()</attribute-create>
+                        <element-ignore>
+                            <element-create>
+                                entry(local-name(current()/..),current()/../text())
+                            </element-create>
+                        </element-ignore>
+
+                    </element>
+                </element-ignore>
+            </element>
+        </processors>
+
+
+    </view>
+
+
+    <view name="listUnits">
+
+        <connector type="HTTPConnector">
+            <parameter name="url">https://acc.devel.argo.grnet.gr/accounting-system/metric-definition/unit-types</parameter>
+            <parameter name="method">GET</parameter>
+            <parameter name="header">
+                <entry key="Content-Type">application/json</entry>
+            </parameter>
+        </connector>
+
+        <serializer type="JSONStreamSerializer"></serializer>
+
+        <processors>
+            <element in="object" out="e:entries">
+                <element-ignore>
+                    <element in="object" out="e:entries">
+                        <attribute-create out="key">../symbol/text()</attribute-create>
+                        <element-ignore>
+                            <element-create>
+                                entry(local-name(current()/..),current()/../text())
+                            </element-create>
+                        </element-ignore>
+                    </element>
+                </element-ignore>
+            </element>
+        </processors>
+
+        <cache type="FileCache">
+            <trigger type="ViewNotifiedTrigger"></trigger>
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="minutes">30</parameter>
+            </trigger>
+        </cache>
+    </view>
+
+
+
+</views>
