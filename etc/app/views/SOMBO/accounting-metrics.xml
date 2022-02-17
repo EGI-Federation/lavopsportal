@@ -98,7 +98,7 @@
 
     <view name="listMetricsbyId">
 
-        <argument name="metricId">620e0c98fbedc07f931b4353</argument>
+        <argument name="metricId">620a4fb0bbe46734c6bfa785</argument>
         <variable name="url" eval="concat('https://acc.devel.argo.grnet.gr/accounting-system/metric-definition/',$metricId,'/metrics')"/>
 
         <connector type="HTTPConnector">
@@ -125,6 +125,7 @@
                     </element>
                 </element-ignore>
             </element>
+            <element-ignore/>
         </processors>
 
 
