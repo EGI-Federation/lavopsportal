@@ -57,6 +57,21 @@
 
     </view>
 
+    <view name="deleteMetricDefinition">
+        <argument name="metric_id"/>
+
+        <connector type="HTTPConnector">
+            <parameter name="url" eval="concat('https://acc.devel.argo.grnet.gr/accounting-system/metric-definition/',$metric_id)"/>
+            <parameter name="method">DELETE</parameter>
+            <parameter name="header">
+                <entry key="Content-Type">application/json</entry>
+            </parameter>
+        </connector>
+
+        <serializer type="JSONStreamSerializer"></serializer>
+
+    </view>
+
     <view name="listMetricDefinition">
 
         <connector type="HTTPConnector">
