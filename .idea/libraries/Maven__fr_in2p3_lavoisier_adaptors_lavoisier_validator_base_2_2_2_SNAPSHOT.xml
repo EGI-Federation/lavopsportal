@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Maven: fr.in2p3.lavoisier.adaptors:lavoisier-validator-base:2.2.2-SNAPSHOT">
     <CLASSES>
-      <root url="jar://$MAVEN_REPOSITORY$/fr/in2p3/lavoisier/adaptors/lavoisier-validator-base/2.2.2-SNAPSHOT/lavoisier-validator-base-2.2.2-20210423.080715-27.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/fr/in2p3/lavoisier/adaptors/lavoisier-validator-base/2.2.2-SNAPSHOT/lavoisier-validator-base-2.2.2-20220221.100107-29.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$MAVEN_REPOSITORY$/fr/in2p3/lavoisier/adaptors/lavoisier-validator-base/2.2.2-SNAPSHOT/lavoisier-validator-base-2.2.2-20210423.080715-27-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/fr/in2p3/lavoisier/adaptors/lavoisier-validator-base/2.2.2-SNAPSHOT/lavoisier-validator-base-2.2.2-20220221.100107-29-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://$MAVEN_REPOSITORY$/fr/in2p3/lavoisier/adaptors/lavoisier-validator-base/2.2.2-SNAPSHOT/lavoisier-validator-base-2.2.2-20210423.080715-27-sources.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/fr/in2p3/lavoisier/adaptors/lavoisier-validator-base/2.2.2-SNAPSHOT/lavoisier-validator-base-2.2.2-20220221.100107-29-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

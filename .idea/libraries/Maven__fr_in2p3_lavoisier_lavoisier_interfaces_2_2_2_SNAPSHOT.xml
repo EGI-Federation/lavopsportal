@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Maven: fr.in2p3.lavoisier:lavoisier-interfaces:2.2.2-SNAPSHOT">
     <CLASSES>
-      <root url="jar://$MAVEN_REPOSITORY$/fr/in2p3/lavoisier/lavoisier-interfaces/2.2.2-SNAPSHOT/lavoisier-interfaces-2.2.2-20210423.080226-29.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/fr/in2p3/lavoisier/lavoisier-interfaces/2.2.2-SNAPSHOT/lavoisier-interfaces-2.2.2-20220221.095727-31.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$MAVEN_REPOSITORY$/fr/in2p3/lavoisier/lavoisier-interfaces/2.2.2-SNAPSHOT/lavoisier-interfaces-2.2.2-20210423.080226-29-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/fr/in2p3/lavoisier/lavoisier-interfaces/2.2.2-SNAPSHOT/lavoisier-interfaces-2.2.2-20220221.095727-31-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://$MAVEN_REPOSITORY$/fr/in2p3/lavoisier/lavoisier-interfaces/2.2.2-SNAPSHOT/lavoisier-interfaces-2.2.2-20210423.080226-29-sources.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/fr/in2p3/lavoisier/lavoisier-interfaces/2.2.2-SNAPSHOT/lavoisier-interfaces-2.2.2-20220221.095727-31-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

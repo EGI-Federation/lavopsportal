@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Maven: fr.in2p3.lavoisier:xpath-parser:2.2.2-SNAPSHOT">
     <CLASSES>
-      <root url="jar://$MAVEN_REPOSITORY$/fr/in2p3/lavoisier/xpath-parser/2.2.2-SNAPSHOT/xpath-parser-2.2.2-20210423.080139-31.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/fr/in2p3/lavoisier/xpath-parser/2.2.2-SNAPSHOT/xpath-parser-2.2.2-20220221.095657-33.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$MAVEN_REPOSITORY$/fr/in2p3/lavoisier/xpath-parser/2.2.2-SNAPSHOT/xpath-parser-2.2.2-20210423.080139-31-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/fr/in2p3/lavoisier/xpath-parser/2.2.2-SNAPSHOT/xpath-parser-2.2.2-20220221.095657-33-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://$MAVEN_REPOSITORY$/fr/in2p3/lavoisier/xpath-parser/2.2.2-SNAPSHOT/xpath-parser-2.2.2-20210423.080139-31-sources.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/fr/in2p3/lavoisier/xpath-parser/2.2.2-SNAPSHOT/xpath-parser-2.2.2-20220221.095657-33-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

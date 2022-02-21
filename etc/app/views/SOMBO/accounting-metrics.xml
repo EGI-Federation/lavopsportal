@@ -30,36 +30,40 @@
 
     </view>
 
-    <view name="patchMetricDefinition">
-        <argument name="metric_id"/>
-        <argument name="metric_name">metric_test_api1</argument>
+
+    <view name="patchMetricDefinition" xmlns:java="http://software.in2p3.fr/lavoisier/java">
+        <argument name="metric_id">62135ab0fbedc07f931b4356</argument>
+        <argument name="metric_name">metric_test_api1_test_45456</argument>
         <argument name="metric_description">metric_test_description</argument>
         <argument name="metric_type">aggregated</argument>
         <argument name="unit_type">#</argument>
-
-        <connector type="HTTPConnector">
-            <parameter name="url" eval="concat('https://acc.devel.argo.grnet.gr/accounting-system/metric-definition/',$metric_id)"/>
-            <parameter name="method">PATCH</parameter>
-            <parameter name="header">
-                <entry key="Content-Type">application/json</entry>
-            </parameter>
-
-            <parameter name="post" eval="concat( '{'
-            , quot('metric_name'), ': ',quot($metric_name),','
-            , quot('metric_description'), ': ',quot($metric_description),','
-            , quot('metric_type'), ': ',quot($metric_type),','
-            , quot('unit_type'), ': ',quot($unit_type)
+        <variable name="post" eval="concat('{'
+            , quot('metric_name'), ':',quot($metric_name),','
+            , quot('metric_description'), ':',quot($metric_description),','
+            , quot('metric_type'), ':',quot($metric_type),','
+            , quot('unit_type'), ':',quot($unit_type)
             ,'}')"/>
+       <variable name="url" eval="concat('https://acc.devel.argo.grnet.gr/accounting-system/metric-definition/',$metric_id)"/>
+
+
+        <connector type="ShellConnector">
+            <parameter name="executable">/usr/bin/sh </parameter>
+            <parameter name="arguments">
+                <entry eval="concat(property('user.dir'),'/etc/app/resources/shell/curlApi.sh')"/>
+                <entry eval="$url"/>
+                <entry eval="$post"/>
+            </parameter>
         </connector>
-
-        <serializer type="JSONStreamSerializer"></serializer>
-
+        <serializer type="EncapsulateSerializer"></serializer>
     </view>
+
+
 
     <view name="deleteMetricDefinition">
         <argument name="metric_id"/>
 
         <connector type="HTTPConnector">
+
             <parameter name="url" eval="concat('https://acc.devel.argo.grnet.gr/accounting-system/metric-definition/',$metric_id)"/>
             <parameter name="method">DELETE</parameter>
             <parameter name="header">
@@ -140,7 +144,7 @@
     <view name="listMetricsbyId"   xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
 
         <argument name="metricId">620a4fb0bbe46734c6bfa785</argument>
-        <variable name="url" eval="concat('https://acc.devel.argo.grnet.gr/accounting-system/metric-definition/',$metricId,'/metrics')"/>
+        <variable name="url" eval="concat('https://acc.devel.argo.grnet.gr/accounting-system/metric-definition/',$metricId,'/metrics?size=100')"/>
 
         <connector type="HTTPConnector">
             <parameter name="url" eval="$url"></parameter>
