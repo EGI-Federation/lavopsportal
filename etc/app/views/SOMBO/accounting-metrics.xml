@@ -38,14 +38,13 @@
         <argument name="unit_type">#</argument>
 
         <connector type="HTTPConnector">
-            <parameter name="url">https://acc.devel.argo.grnet.gr/accounting-system/metric-definition</parameter>
+            <parameter name="url" eval="concat('https://acc.devel.argo.grnet.gr/accounting-system/metric-definition/',$metric_id)"/>
             <parameter name="method">PATCH</parameter>
             <parameter name="header">
                 <entry key="Content-Type">application/json</entry>
             </parameter>
 
             <parameter name="post" eval="concat( '{'
-            , quot('metric_id'), ': ',quot($metric_id),','
             , quot('metric_name'), ': ',quot($metric_name),','
             , quot('metric_description'), ': ',quot($metric_description),','
             , quot('metric_type'), ': ',quot($metric_type),','
