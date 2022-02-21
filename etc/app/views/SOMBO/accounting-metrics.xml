@@ -30,6 +30,33 @@
 
     </view>
 
+    <view name="patchMetricDefinition">
+        <argument name="metric_id"/>
+        <argument name="metric_name">metric_test_api1</argument>
+        <argument name="metric_description">metric_test_description</argument>
+        <argument name="metric_type">aggregated</argument>
+        <argument name="unit_type">#</argument>
+
+        <connector type="HTTPConnector">
+            <parameter name="url">https://acc.devel.argo.grnet.gr/accounting-system/metric-definition</parameter>
+            <parameter name="method">PATCH</parameter>
+            <parameter name="header">
+                <entry key="Content-Type">application/json</entry>
+            </parameter>
+
+            <parameter name="post" eval="concat( '{'
+            , quot('metric_id'), ': ',quot($metric_id),','
+            , quot('metric_name'), ': ',quot($metric_name),','
+            , quot('metric_description'), ': ',quot($metric_description),','
+            , quot('metric_type'), ': ',quot($metric_type),','
+            , quot('unit_type'), ': ',quot($unit_type)
+            ,'}')"/>
+        </connector>
+
+        <serializer type="JSONStreamSerializer"></serializer>
+
+    </view>
+
     <view name="listMetricDefinition">
 
         <connector type="HTTPConnector">
