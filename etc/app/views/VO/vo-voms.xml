@@ -467,7 +467,7 @@
             <connector type="ShellConnector">
                 <parameter name="executable">/usr/bin/sh</parameter>
                 <parameter name="arguments">
-                    <entry>/app/resources/shell/download-cert.sh</entry>
+                    <entry eval="concat(property('shell.dir'),'download-cert.sh')"/>
                     <entry eval="substring-after($url,'https://')"/>
                     <entry>-subject</entry>
                     <entry>-issuer</entry>
@@ -505,7 +505,7 @@
             <connector type="ShellConnector">
                 <parameter name="executable">/usr/bin/sh</parameter>
                 <parameter name="arguments">
-                    <entry>/app/resources/shell/download-cert.sh</entry>
+                    <entry eval="concat(property('shell.dir'),'download-cert.sh')"/>
                     <entry eval="substring-after($url,'https://')"/>
                 </parameter>
                 <parameter name="workdir" eval="property('user.dir')"/>

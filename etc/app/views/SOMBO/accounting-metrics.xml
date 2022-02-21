@@ -49,7 +49,7 @@
         <connector type="ShellConnector">
             <parameter name="executable">/bin/sh </parameter>
             <parameter name="arguments">
-                <entry eval="concat(property('user.dir'),'/etc/app/resources/shell/curlApi.sh')"/>
+                <entry eval="concat(property('shell.dir'),'curlApi.sh')"/>
                 <entry eval="$url"/>
                 <entry eval="$post"/>
             </parameter>
