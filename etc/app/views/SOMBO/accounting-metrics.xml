@@ -6,7 +6,7 @@
         Created by cyril on 2022/02/17 
     -->
     <view name="publishMetricDefinition">
-        <argument name="metric_name">metric_test_api1</argument>
+        <argument name="metric_name">metric_test_api122</argument>
         <argument name="metric_description">metric_test_description</argument>
         <argument name="metric_type">aggregated</argument>
         <argument name="unit_type">#</argument>
@@ -27,6 +27,9 @@
         </connector>
 
         <serializer type="JSONStreamSerializer"></serializer>
+
+
+
 
     </view>
 

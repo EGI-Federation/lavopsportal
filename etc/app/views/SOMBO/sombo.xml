@@ -990,9 +990,9 @@
 
             <trigger type="DependencyRefreshedTrigger">
                 <parameter name="views">
-                    <entry>JiraEpicList</entry>
-                    <entry>JiraComments</entry>
-                    <entry>JiraCommentsEpic</entry>
+                    <entry>JiraEpicList_egi</entry>
+                    <entry>JiraComments_egi</entry>
+                    <entry>JiraCommentsEpic_egi</entry>
                     <entry>InternalComments</entry>
                 </parameter>
             </trigger>
@@ -1054,12 +1054,14 @@
         <argument name="SOStatuses">_status_</argument>
         <argument name="EpicStatuses">_status_</argument>
         <argument name="tenant">eosc</argument>
+        <argument name="removeId">0</argument>
 
         <connector type="XMLConnector">
             <parameter name="content" eval="choose($tenant='eosc',view('JiraSOListRaw'),view('JiraSOListRaw_egi'))"/>
         </connector>
 
         <processors>
+
             <element in="e:entries">
                 <element in="e:entries">
                     <attribute-create out="parent">../e:entry[@key="EpicLink"]/text()</attribute-create>
@@ -1068,8 +1070,13 @@
             </element>
 
             <element in="e:entries">
+                <element-ignore in="e:entries" if="@key=$removeId"/>
+            </element>
+
+            <element in="e:entries">
                 <element-ignore in="e:entries" if="e:entry[@key='Test']/text()='Yes'"/>
             </element>
+
 
             <element in="e:entries" if="$SOStatuses!='_status_'">
                 <element-ignore in="e:entries" if="not(contains($SOStatuses,concat(',',e:entry[@key='status']/text(),',')))"/>
