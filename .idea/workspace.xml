@@ -7,7 +7,6 @@
     <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="mo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/etc/app/views/SOMBO/accounting-metrics.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/SOMBO/accounting-metrics.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/app/views/SOMBO/sombo.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/SOMBO/sombo.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -252,7 +251,7 @@
     <configuration name="Run" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="fr.in2p3.lavoisier.command.StandaloneExec" />
       <module name="lavopsportal" />
-      <option name="PROGRAM_PARAMETERS" value="publishMetricDefinition?nbsteps=999&amp;accept=xml" />
+      <option name="PROGRAM_PARAMETERS" value="patchMetricDefinition?nbsteps=999&amp;accept=xml" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -399,7 +398,10 @@
       <workItem from="1645434666981" duration="2784000" />
       <workItem from="1645438794988" duration="8392000" />
       <workItem from="1645459033422" duration="18000" />
-      <workItem from="1645529570638" duration="1031000" />
+      <workItem from="1645529570638" duration="2347000" />
+      <workItem from="1645631418252" duration="3070000" />
+      <workItem from="1645776408712" duration="1355000" />
+      <workItem from="1645781468671" duration="1415000" />
     </task>
     <task id="LOCAL-00075" summary="filtre tickets">
       <created>1536755736442</created>

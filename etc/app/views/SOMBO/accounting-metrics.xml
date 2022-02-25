@@ -5,7 +5,7 @@
         File    : accounting-metrics.xml
         Created by cyril on 2022/02/17 
     -->
-    <view name="publishMetricDefinition">
+    <view name="publishMetricDefinition" authenticators="admin">
         <argument name="metric_name">metric_test_api122</argument>
         <argument name="metric_description">metric_test_description</argument>
         <argument name="metric_type">aggregated</argument>
@@ -16,6 +16,7 @@
             <parameter name="method">POST</parameter>
             <parameter name="header">
                 <entry key="Content-Type">application/json</entry>
+                <entry key="Authorization: Bearer">eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJiRy1TUERFRU9hempOQzVDY0hQZ3k3Q2lzVmlhQ1AzeXpmemh3b0RIcnV3In0.eyJleHAiOjE2NDU3NzY2MzAsImlhdCI6MTY0NTc3NjMzMCwiYXV0aF90aW1lIjoxNjQ1Nzc2MzI5LCJqdGkiOiIxMTU4ZDlkMC03NmVhLTQ2ZGEtODAzMi1jY2FjZThiZDdlYWYiLCJpc3MiOiJodHRwczovL2xvZ2luLWRldmVsLmVpbmZyYS5ncm5ldC5nci9hdXRoL3JlYWxtcy9laW5mcmEiLCJzdWIiOiJiNDQ0MWY1ZC0wZTgyLTQxMGItYmY2My0wOGU4MzU1NTQwMDYiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJhY2NvdW50aW5nLXN5c3RlbS1wdWJsaWMiLCJub25jZSI6ImJlN2M1ZTIwLTVhYjMtNDM5Ny1hYWQ1LTUxZDdiZmJjZjZjNCIsInNlc3Npb25fc3RhdGUiOiI5YjZmMGI0MS0yY2ZlLTQ1NjQtYWM5YS0wNGU1ODYzNTU2NWYiLCJhY3IiOiIxIiwic2NvcGUiOiJvcGVuaWQiLCJzaWQiOiI5YjZmMGI0MS0yY2ZlLTQ1NjQtYWM5YS0wNGU1ODYzNTU2NWYifQ.TEuP_7Q2x6wWu09XADLH5CJ07lQ68t_ENWX5qHLDwA9MpLcp3wPZOeqoU0v9tZcOAkkZ0ReC7Ees6VsVh7Gu04GxUJmcU0BFpv_MuAf4yRaC19itkWj0-5D6PiGaRW_3Uvqf2qwJZFZEeFWtwPqgU3OTt-eTjCcPROCvMbndKytcQ48WQT7ZdoPu88L4VkoQfmWnz4MwU28YIAOhYOkP20D-zBUsIAfob8gJV5TOtR1T8DUcQiTNuc3po8mARCxqhuvImM_vZCBquaTABVRRVSu_ryaNmZkWo7tZVjbRsUmzfizZKc0UhIbKY4hXQquQuN3MS58oV_jFbcJZdxdSuA</entry>
             </parameter>
 
             <parameter name="post" eval="concat( '{'
@@ -28,15 +29,14 @@
 
         <serializer type="JSONStreamSerializer"></serializer>
 
-
-
-
     </view>
 
 
-    <view name="patchMetricDefinition" xmlns:java="http://software.in2p3.fr/lavoisier/java">
-        <argument name="metric_id">62135ab0fbedc07f931b4356</argument>
-        <argument name="metric_name">metric_test_api1_test_45456</argument>
+
+
+    <view name="patchMetricDefinition" xmlns:java="http://software.in2p3.fr/lavoisier/java" authenticators="admin">
+        <argument name="metric_id">6213a0b6fbedc07f931b436a</argument>
+        <argument name="metric_name">nb_eosc_services_test_core</argument>
         <argument name="metric_description">metric_test_description</argument>
         <argument name="metric_type">aggregated</argument>
         <argument name="unit_type">#</argument>
@@ -62,8 +62,8 @@
 
 
 
-    <view name="deleteMetricDefinition">
-        <argument name="metric_id"/>
+    <view name="deleteMetricDefinition" authenticators="admin">
+        <argument name="metric_id">62165480fbedc07f931b436e</argument>
 
         <connector type="HTTPConnector">
 
@@ -72,13 +72,17 @@
             <parameter name="header">
                 <entry key="Content-Type">application/json</entry>
             </parameter>
+            <fallback eval="new_element('code','409')|new_element('message','The Metric Definition cannot be deleted. There is a Metric assigned to it.')">
+                <exception type="java.io.IOException" />
+            </fallback>
+
         </connector>
 
         <serializer type="JSONStreamSerializer"></serializer>
 
     </view>
 
-    <view name="listMetricDefinition">
+    <view name="listMetricDefinition" authenticators="admin">
 
         <connector type="HTTPConnector">
             <parameter name="url">https://acc.devel.argo.grnet.gr/accounting-system/metric-definition</parameter>
