@@ -5,7 +5,7 @@
         File    : accounting-metrics.xml
         Created by cyril on 2022/02/17 
     -->
-    <view name="publishMetricDefinition" authenticators="admin">
+    <view name="publishMetricDefinition">
         <argument name="metric_name">metric_test_api122</argument>
         <argument name="metric_description">metric_test_description</argument>
         <argument name="metric_type">aggregated</argument>
@@ -33,7 +33,7 @@
 
 
 
-    <view name="patchMetricDefinition" xmlns:java="http://software.in2p3.fr/lavoisier/java" authenticators="admin">
+    <view name="patchMetricDefinition" xmlns:java="http://software.in2p3.fr/lavoisier/java">
         <argument name="metric_id">6213a0b6fbedc07f931b436a</argument>
         <argument name="metric_name">nb_eosc_services_test_core</argument>
         <argument name="metric_description">metric_test_description</argument>
@@ -61,7 +61,7 @@
 
 
 
-    <view name="deleteMetricDefinition" authenticators="admin">
+    <view name="deleteMetricDefinition">
         <argument name="metric_id">62165480fbedc07f931b436e</argument>
 
         <connector type="HTTPConnector">
@@ -81,7 +81,7 @@
 
     </view>
 
-    <view name="listMetricDefinition" authenticators="admin">
+    <view name="listMetricDefinition">
 
         <connector type="HTTPConnector">
             <parameter name="url">https://acc.devel.argo.grnet.gr/accounting-system/metric-definition</parameter>
