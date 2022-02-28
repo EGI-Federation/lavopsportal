@@ -241,70 +241,70 @@
     </view>
 
 
-    <view name="OPSCORE_portal_cron_sendMail">
+<!--    <view name="OPSCORE_portal_cron_sendMail">-->
 
-        <argument name="url"/>
-        <connector type="HTTPConnector">
-            <parameter name="url" eval="property('OPSCORE.sendMail.url')"/>
-            <parameter name="certificate" eval="property('certificate.path')"/>
-            <parameter name="passphrase" eval="property('certificate.password')"/>
-
-
-            <!--optional: timeout (in seconds) for connecting (Integer)-->
-            <parameter name="connect-timeout">600</parameter>
-
-            <!--optional: timeout (in seconds) for reading (Integer)-->
-            <parameter name="read-timeout">600</parameter>
-
-            <!--optional: If false, the HTTP redirection will be forbidden between different protocols (http / https) (Boolean)-->
-            <parameter name="force-redirect">true</parameter>
+<!--        <argument name="url"/>-->
+<!--        <connector type="HTTPConnector">-->
+<!--            <parameter name="url" eval="property('OPSCORE.sendMail.url')"/>-->
+<!--            <parameter name="certificate" eval="property('certificate.path')"/>-->
+<!--            <parameter name="passphrase" eval="property('certificate.password')"/>-->
 
 
-        </connector>
-        <serializer type="EncapsulateSerializer"/>
+<!--            &lt;!&ndash;optional: timeout (in seconds) for connecting (Integer)&ndash;&gt;-->
+<!--            <parameter name="connect-timeout">600</parameter>-->
 
-        <cache type="FileCache">
-            <trigger type="DeltaTimeTrigger">
-                <parameter name="minutes"  eval="choose(property('env')='test',14,4)"/>
-            </trigger>
-            <trigger type="ViewNotifiedTrigger"/>
-            <!--<trigger type="ViewCreatedTrigger"/>-->
-        </cache>
+<!--            &lt;!&ndash;optional: timeout (in seconds) for reading (Integer)&ndash;&gt;-->
+<!--            <parameter name="read-timeout">600</parameter>-->
 
-    </view>
-
-    <view name="OPSCORE_portal_spoolMail">
-
-        <argument name="url"/>
-        <connector type="HTTPConnector">
-            <parameter name="url" eval="property('OPSCORE.sendSpool.url')"/>
-            <parameter name="certificate" eval="property('certificate.path')"/>
-            <parameter name="passphrase" eval="property('certificate.password')"/>
+<!--            &lt;!&ndash;optional: If false, the HTTP redirection will be forbidden between different protocols (http / https) (Boolean)&ndash;&gt;-->
+<!--            <parameter name="force-redirect">true</parameter>-->
 
 
-            <!--optional: timeout (in seconds) for connecting (Integer)-->
-            <parameter name="connect-timeout">600</parameter>
+<!--        </connector>-->
+<!--        <serializer type="EncapsulateSerializer"/>-->
 
-            <!--optional: timeout (in seconds) for reading (Integer)-->
-            <parameter name="read-timeout">600</parameter>
+<!--        <cache type="FileCache">-->
+<!--            <trigger type="DeltaTimeTrigger">-->
+<!--                <parameter name="minutes"  eval="choose(property('env')='test',14,4)"/>-->
+<!--            </trigger>-->
+<!--            <trigger type="ViewNotifiedTrigger"/>-->
+<!--            &lt;!&ndash;<trigger type="ViewCreatedTrigger"/>&ndash;&gt;-->
+<!--        </cache>-->
 
-            <!--optional: If false, the HTTP redirection will be forbidden between different protocols (http / https) (Boolean)-->
-            <parameter name="force-redirect">true</parameter>
+<!--    </view>-->
+
+<!--    <view name="OPSCORE_portal_spoolMail">-->
+
+<!--        <argument name="url"/>-->
+<!--        <connector type="HTTPConnector">-->
+<!--            <parameter name="url" eval="property('OPSCORE.sendSpool.url')"/>-->
+<!--            <parameter name="certificate" eval="property('certificate.path')"/>-->
+<!--            <parameter name="passphrase" eval="property('certificate.password')"/>-->
 
 
-        </connector>
+<!--            &lt;!&ndash;optional: timeout (in seconds) for connecting (Integer)&ndash;&gt;-->
+<!--            <parameter name="connect-timeout">600</parameter>-->
 
-        <serializer type="EncapsulateSerializer"/>
+<!--            &lt;!&ndash;optional: timeout (in seconds) for reading (Integer)&ndash;&gt;-->
+<!--            <parameter name="read-timeout">600</parameter>-->
 
-        <cache type="FileCache">
-            <trigger type="DeltaTimeTrigger">
-                <parameter name="minutes"  eval="choose(property('env')='test',13,4)"/>
-            </trigger>
-            <trigger type="ViewNotifiedTrigger"/>
-            <!--<trigger type="ViewCreatedTrigger"/>-->
-        </cache>
+<!--            &lt;!&ndash;optional: If false, the HTTP redirection will be forbidden between different protocols (http / https) (Boolean)&ndash;&gt;-->
+<!--            <parameter name="force-redirect">true</parameter>-->
 
-    </view>
+
+<!--        </connector>-->
+
+<!--        <serializer type="EncapsulateSerializer"/>-->
+
+<!--        <cache type="FileCache">-->
+<!--            <trigger type="DeltaTimeTrigger">-->
+<!--                <parameter name="minutes"  eval="choose(property('env')='test',13,4)"/>-->
+<!--            </trigger>-->
+<!--            <trigger type="ViewNotifiedTrigger"/>-->
+<!--            &lt;!&ndash;<trigger type="ViewCreatedTrigger"/>&ndash;&gt;-->
+<!--        </cache>-->
+
+<!--    </view>-->
 
 
     <view name="OPSCORE_VaporReleases" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
