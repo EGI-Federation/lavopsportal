@@ -233,7 +233,7 @@
       <recent name="$PROJECT_DIR$/etc/app/resources/xsl" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Run">
+  <component name="RunManager" selected="Application.Start Lavoisier server">
     <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
@@ -407,7 +407,7 @@
       <workItem from="1645790693714" duration="16000" />
       <workItem from="1646054222004" duration="498000" />
       <workItem from="1646055518685" duration="97000" />
-      <workItem from="1646216573937" duration="683000" />
+      <workItem from="1646216573937" duration="1246000" />
     </task>
     <task id="LOCAL-00075" summary="filtre tickets">
       <created>1536755736442</created>

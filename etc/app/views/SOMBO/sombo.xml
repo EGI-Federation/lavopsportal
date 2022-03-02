@@ -2116,7 +2116,7 @@
 
     </view>
     
-    <view name="ServicesPerProviders">
+    <view name="ServicesPerProviders"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
         <connector type="XMLConnector">
             <parameter name="content" eval="view('eosc.api.providers')"/>
         </connector>
@@ -2205,7 +2205,12 @@
             </element>
         </processors>
 
-
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="hours">2</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+        </cache>
 
         <pre-renderers>
             <row foreach="providers/provider">
@@ -2223,12 +2228,7 @@
         </renderers>
 
 
-        <cache type="FileCache">
-            <trigger type="DeltaTimeTrigger">
-                <parameter name="hours">2</parameter>
-            </trigger>
-            <trigger type="ViewNotifiedTrigger"/>
-        </cache>
+
     </view>
 
 
