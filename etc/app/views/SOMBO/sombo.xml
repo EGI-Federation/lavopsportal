@@ -2115,6 +2115,69 @@
         </renderers>
 
     </view>
+    
+    <view name="ServicesPerProviders">
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('eosc.api.providers')"/>
+        </connector>
+        
+        <processors>
+            <element in="providers" out="e:entries">
+                <attribute-create out="key">'providers'</attribute-create>
+                <element in="provider" out="e:entries">
+                    <attribute-create out="key">../@id</attribute-create>
+                    <element-create>entry('name',../@name)</element-create>
+                    <element-create>entry('email',../@email)</element-create>
+                    <element in="services" out="e:entries">
+                        <attribute-create out="key">'services'</attribute-create>
+                        <element in="service" out="e:entries">
+                            <attribute-create out="key">../@id</attribute-create>
+                            <element-create>entry('name',../@name)</element-create>
+                            <element-create>entry('email',../@helpdeskEmail)</element-create>
+                            <element in="relatedPlatforms" out="e:entries">
+                                <attribute-create out="key">'platforms'</attribute-create>
+                                <element in="item" out="e:entry"/>
+
+                            </element>
+                        </element>
+                    </element>
+                </element>
+            </element>
+        </processors>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+    </view>
+
+    <view name="eosc.api.services">
+        <argument name="providerId">egi-fed</argument>
+        <connector type="HTTPConnector">
+            <parameter name="url" eval="concat(property('eosc.api.services'),$providerId)"></parameter>
+        </connector>
+        <serializer type="JSONStreamSerializer"/>
+
+        <processors>
+            <element in="item" out="services">
+                <element in="object" out="service">
+                    <attribute-create out="id">../id/text()</attribute-create>
+                    <attribute-create out="name">../name/text()</attribute-create>
+                    <attribute-create out="helpdeskEmail">../helpdeskEmail/text()</attribute-create>
+                    <element in="relatedPlatforms"/>
+                    <element-ignore/>
+                </element>
+
+            </element>
+        </processors>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+    </view>
 
     <view name="eosc.api.providers">
         <connector type="HTTPConnector">
@@ -2133,9 +2196,16 @@
                         <element-ignore/>
                     </element>
                 </element-ignore>
+            </element>
 
+            <element in="providers">
+                <element in="provider">
+                    <element-create>view('eosc.api.services',entry('providerId',current()/../@id))</element-create>
+                </element>
             </element>
         </processors>
+
+
 
         <pre-renderers>
             <row foreach="providers/provider">
@@ -2145,6 +2215,20 @@
                 <column label="url">@url</column>
             </row>
         </pre-renderers>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+
+
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="hours">2</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+        </cache>
     </view>
 
 
