@@ -610,7 +610,7 @@
                     <element-create>entry('PRIMARY_KEY',../PRIMARY_KEY/text())</element-create>
                     <element-create>entry('NAME',../NAME/text())</element-create>
                     <element-create>entry('EMAIL',choose(../EMAIL/text(),../EMAIL/text(),'NA'))</element-create>
-                    <element-create>entry('ROD_EMAIL',choose(../ROD_EMAIL/text(),ROD_EMAIL/text(),'NA'))</element-create>
+                    <element-create>entry('ROD_EMAIL',choose(../ROD_EMAIL/text(),../ROD_EMAIL/text(),'NA'))</element-create>
                     <element-create>entry('SECURITY_EMAIL',choose(../SECURITY_EMAIL/text(),../SECURITY_EMAIL/text(),'NA'))</element-create>
                     <element-ignore/>
                 </element>
