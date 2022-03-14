@@ -5,17 +5,44 @@
         File    : accounting-metrics.xml
         Created by cyril on 2022/02/17 
     -->
+    <view name="getAccessToken" authenticators="admin">
+        <variable name="client-id" eval="property('acc-client-id')"></variable>
+        <variable name="client-secret" eval="property('acc-client-secret')"></variable>
+
+        <connector type="HTTPConnector">
+            <parameter name="url" eval="property('acc-url')"/>
+            <parameter name="header">
+                <entry key="Content-Type">application/x-www-form-urlencoded</entry>
+            </parameter>
+            <parameter name="post" eval="concat('client_id=',$client-id,'&amp;client_secret=',$client-secret,'&amp;grant_type=client_credentials')"/>
+        </connector>
+
+        <serializer type="JSONStreamSerializer"></serializer>
+
+        <cache type="FileCache">
+            <trigger type="ViewNotifiedTrigger"></trigger>
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="seconds">250</parameter>
+            </trigger>
+            <trigger type="ViewCreatedTrigger"/>
+        </cache>
+    </view>
+
+
     <view name="publishMetricDefinition">
         <argument name="metric_name">metric_test_api122</argument>
         <argument name="metric_description">metric_test_description</argument>
         <argument name="metric_type">aggregated</argument>
         <argument name="unit_type">#</argument>
 
+        <variable name="access_token" eval="view('getAccessToken')/object/access_token/text()"></variable>
+
         <connector type="HTTPConnector">
             <parameter name="url">https://acc.devel.argo.grnet.gr/accounting-system/metric-definition</parameter>
             <parameter name="method">POST</parameter>
             <parameter name="header">
                 <entry key="Content-Type">application/json</entry>
+                <entry key="Authorization" eval="concat('Bearer',$access_token)"></entry>
             </parameter>
 
             <parameter name="post" eval="concat( '{'
@@ -45,7 +72,9 @@
             , quot('metric_type'), ':',quot($metric_type),','
             , quot('unit_type'), ':',quot($unit_type)
             ,'}')"/>
+
        <variable name="url" eval="concat('https://acc.devel.argo.grnet.gr/accounting-system/metric-definition/',$metric_id)"/>
+        <variable name="access_token" eval="concat('Authorization:Bearer',view('getAccessToken')/object/access_token/text())"></variable>
 
 
         <connector type="ShellConnector">
@@ -53,6 +82,7 @@
             <parameter name="arguments">
                 <entry eval="concat(property('shell.dir'),'curlApi.sh')"/>
                 <entry eval="$url"/>
+                <entry eval="$access_token"/>
                 <entry eval="$post"/>
             </parameter>
         </connector>
@@ -63,6 +93,7 @@
 
     <view name="deleteMetricDefinition">
         <argument name="metric_id">62165480fbedc07f931b436e</argument>
+        <variable name="access_token" eval="view('getAccessToken')/object/access_token/text()"></variable>
 
         <connector type="HTTPConnector">
 
@@ -70,6 +101,8 @@
             <parameter name="method">DELETE</parameter>
             <parameter name="header">
                 <entry key="Content-Type">application/json</entry>
+                <entry key="Authorization" eval="concat('Bearer',$access_token)"></entry>
+
             </parameter>
             <fallback eval="new_element('code','409')|new_element('message','The Metric Definition cannot be deleted. There is a Metric assigned to it.')">
                 <exception type="java.io.IOException" />
@@ -82,12 +115,15 @@
     </view>
 
     <view name="listMetricDefinition">
+        <variable name="access_token" eval="view('getAccessToken')/object/access_token/text()"></variable>
 
         <connector type="HTTPConnector">
             <parameter name="url">https://acc.devel.argo.grnet.gr/accounting-system/metric-definition</parameter>
             <parameter name="method">GET</parameter>
             <parameter name="header">
                 <entry key="Content-Type">application/json</entry>
+                <entry key="Authorization" eval="concat('Bearer',$access_token)"></entry>
+
             </parameter>
         </connector>
 
@@ -117,12 +153,15 @@
     </view>
 
     <view name="listMetricType">
+        <variable name="access_token" eval="view('getAccessToken')/object/access_token/text()"></variable>
 
         <connector type="HTTPConnector">
             <parameter name="url">https://acc.devel.argo.grnet.gr/accounting-system/metric-definition/metric-types</parameter>
             <parameter name="method">GET</parameter>
             <parameter name="header">
                 <entry key="Content-Type">application/json</entry>
+                <entry key="Authorization" eval="concat('Bearer',$access_token)"></entry>
+
             </parameter>
         </connector>
 
@@ -151,12 +190,15 @@
 
         <argument name="metricId">620a4fb0bbe46734c6bfa785</argument>
         <variable name="url" eval="concat('https://acc.devel.argo.grnet.gr/accounting-system/metric-definition/',$metricId,'/metrics?size=100')"/>
+        <variable name="access_token" eval="view('getAccessToken')/object/access_token/text()"></variable>
 
         <connector type="HTTPConnector">
             <parameter name="url" eval="$url"></parameter>
             <parameter name="method">GET</parameter>
             <parameter name="header">
                 <entry key="Content-Type">application/json</entry>
+                <entry key="Authorization" eval="concat('Bearer',$access_token)"></entry>
+
             </parameter>
         </connector>
 
@@ -190,12 +232,15 @@
 
 
     <view name="listUnits">
+        <variable name="access_token" eval="view('getAccessToken')/object/access_token/text()"></variable>
 
         <connector type="HTTPConnector">
             <parameter name="url">https://acc.devel.argo.grnet.gr/accounting-system/metric-definition/unit-types</parameter>
             <parameter name="method">GET</parameter>
             <parameter name="header">
                 <entry key="Content-Type">application/json</entry>
+                <entry key="Authorization" eval="concat('Bearer',$access_token)"></entry>
+
             </parameter>
         </connector>
 

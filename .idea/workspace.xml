@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="mo">
-      <change beforePath="$PROJECT_DIR$/etc/app/views/SOMBO/sombo.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/SOMBO/sombo.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/app/resources/shell/curlApi.sh" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/resources/shell/curlApi.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/app/views/SOMBO/accounting-metrics.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/SOMBO/accounting-metrics.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -250,7 +252,7 @@
     <configuration name="Run" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="fr.in2p3.lavoisier.command.StandaloneExec" />
       <module name="lavopsportal" />
-      <option name="PROGRAM_PARAMETERS" value="JiraSOListRaw_egi?nbsteps=999&amp;accept=xml" />
+      <option name="PROGRAM_PARAMETERS" value="listMetricDefinition?nbsteps=999&amp;accept=xml" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -410,7 +412,7 @@
       <workItem from="1646396258364" duration="1244000" />
       <workItem from="1646744374505" duration="1997000" />
       <workItem from="1647012217490" duration="1405000" />
-      <workItem from="1647246092982" duration="5147000" />
+      <workItem from="1647246092982" duration="9749000" />
     </task>
     <task id="LOCAL-00075" summary="filtre tickets">
       <created>1536755736442</created>
