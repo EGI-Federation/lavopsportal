@@ -1073,9 +1073,9 @@
                 <element-ignore in="e:entries" if="@key=$removeId"/>
             </element>
 
-            <element in="e:entries">
-                <element-ignore in="e:entries" if="e:entry[@key='Test']/text()='Yes'"/>
-            </element>
+<!--            <element in="e:entries">-->
+<!--                <element-ignore in="e:entries" if="e:entry[@key='Test']/text()='Yes'"/>-->
+<!--            </element>-->
 
 
             <element in="e:entries" if="$SOStatuses!='_status_'">
