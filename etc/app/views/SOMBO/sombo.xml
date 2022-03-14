@@ -831,7 +831,7 @@
                 <set variable="JiraEpicList" index="@key">view('JiraEpicList')/e:entries/e:entries</set>
                 <set variable="JiraComments" index="@key">view('JiraComments')/issues/issue</set>
                 <set variable="JiraCommentsEpic" index="@key">view('JiraCommentsEpic')/issues/issue</set>
-                <set variable="InternalComments">view('InternalComments')/issues</set>
+                <set variable="InternalComments" index="@key">view('InternalComments')/issues</set>
                 <element in="e:entries">
                     <element-create>find($JiraEpicList,../e:entry[@key='EpicLink']/text())/*</element-create>
                     <element-create>entry('nbComments',new_text(find($JiraComments,current()/../@key)/@nbComments))</element-create>
