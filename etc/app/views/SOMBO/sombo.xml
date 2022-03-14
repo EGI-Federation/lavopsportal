@@ -836,9 +836,7 @@
                     <element-create>find($JiraEpicList,../e:entry[@key='EpicLink']/text())/*</element-create>
                     <element-create>entry('nbComments',new_text(find($JiraComments,current()/../@key)/@nbComments))</element-create>
                     <element-create>entry('nbCommentsEpic',new_text(find($JiraCommentsEpic,current()/../e:entry[@key='EpicLink']/text())/@nbComments))</element-create>
-                    <element-create if="$InternalComments/issue[@key=current()/../@key]/@nbComments">entry('nbNotes',new_text($InternalComments/issue[@key=current()/../@key]/@nbComments))</element-create>
-                    <element-create if="not($InternalComments/issue[@key=current()/../@key]/@nbComments)">entry('nbNotes',0)</element-create>
-
+                    <element-create>entry('nbNotes',new_text(find($InternalComments,current()/../@key,false())/@nbComments))</element-create>
                 </element>
             </element>
 
@@ -962,18 +960,15 @@
                 <set variable="JiraEpicList" index="@key">view('JiraEpicList_egi')/e:entries/e:entries</set>
                 <set variable="JiraComments" index="@key">view('JiraComments_egi')/issues/issue</set>
                 <set variable="JiraCommentsEpic" index="@key">view('JiraCommentsEpic_egi')/issues/issue</set>
-                <set variable="InternalComments">view('InternalComments')/issues</set>
+                <set variable="InternalComments" index="@key">view('InternalComments')/issues/issue</set>
                 <element in="e:entries">
                     <element-create>find($JiraEpicList,../e:entry[@key='EpicLink']/text())/*</element-create>
                     <element-create>entry('nbComments',new_text(find($JiraComments,current()/../@key)/@nbComments))</element-create>
                     <element-create>entry('nbCommentsEpic',new_text(find($JiraCommentsEpic,current()/../e:entry[@key='EpicLink']/text())/@nbComments))</element-create>
-                    <element-create if="$InternalComments/issue[@key=current()/../@key]/@nbComments">entry('nbNotes',new_text($InternalComments/issue[@key=current()/../@key]/@nbComments))</element-create>
-                    <element-create if="not($InternalComments/issue[@key=current()/../@key]/@nbComments)">entry('nbNotes',0)</element-create>
+                    <element-create>entry('nbNotes',new_text(find($InternalComments,current()/../@key,false())/@nbComments))</element-create>
 
                 </element>
             </element>
-
-
 
 
         </processors>
