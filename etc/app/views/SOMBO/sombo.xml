@@ -1652,7 +1652,7 @@
                             </element>
 
                             <element in="customfield_11310" out="e:entry">
-                                <attribute-create out="key">'Test'</attribute-create>
+                                <attribute-create out="key">'Epic_Test'</attribute-create>
                                 <element-ignore in="value"><text></text></element-ignore>
                                 <element-ignore/>
                             </element>
