@@ -812,6 +812,12 @@
                                 <element-ignore/>
                             </element>
 
+                            <element in="customfield_11310" out="e:entry">
+                                <attribute-create out="key">'Test'</attribute-create>
+                                <element-ignore in="value"><text></text></element-ignore>
+                                <element-ignore/>
+                            </element>
+
 
                             <element-ignore in="status">
                                 <element in="name" out="e:entry">
@@ -2038,7 +2044,7 @@
 
                 <element in="e:entries">
                         <attribute-create out="nbComments">$JiraComments/issue[@key=current()/../@key]/@nbComments</attribute-create>
-                        <attribute-create out="test">find($JiraEpicList,current()/../@epicId)/e:entry[@key='Test']/text()</attribute-create>
+                        <attribute-create out="test">find($JiraEpicList,current()/../@epicId)/e:entry[@key='Epic_Test']/text()</attribute-create>
                 </element>
             </element>
 
