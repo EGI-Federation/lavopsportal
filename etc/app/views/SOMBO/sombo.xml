@@ -960,14 +960,13 @@
 
             <element in="e:entries">
                 <set variable="JiraEpicList" index="@key">view('JiraEpicList_egi')/e:entries/e:entries</set>
-                <set variable="JiraComments">view('JiraComments_egi')/issues</set>
-                <set variable="JiraCommentsEpic">view('JiraCommentsEpic_egi')/issues</set>
+                <set variable="JiraComments" index="@key">view('JiraComments_egi')/issues/issue</set>
+                <set variable="JiraCommentsEpic" index="@key">view('JiraCommentsEpic_egi')/issues/issue</set>
                 <set variable="InternalComments">view('InternalComments')/issues</set>
                 <element in="e:entries">
                     <element-create>find($JiraEpicList,../e:entry[@key='EpicLink']/text())/*</element-create>
-                    <element-create>entry('nbComments',new_text($JiraComments/issue[@key=current()/../@key]/@nbComments))</element-create>
-                    <element-create>entry('nbCommentsEpic',new_text($JiraCommentsEpic/issue[@key=current()/../e:entry[@key='EpicLink']/text()]/@nbComments))</element-create>
-
+                    <element-create>entry('nbComments',new_text(find($JiraComments,current()/../@key)/@nbComments))</element-create>
+                    <element-create>entry('nbCommentsEpic',new_text(find($JiraCommentsEpic,current()/../e:entry[@key='EpicLink']/text())/@nbComments))</element-create>
                     <element-create if="$InternalComments/issue[@key=current()/../@key]/@nbComments">entry('nbNotes',new_text($InternalComments/issue[@key=current()/../@key]/@nbComments))</element-create>
                     <element-create if="not($InternalComments/issue[@key=current()/../@key]/@nbComments)">entry('nbNotes',0)</element-create>
 
