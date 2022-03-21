@@ -640,11 +640,15 @@
                             <element in="endTime"/>
                             <element-create>new_element('name',concat(../name/text(),' ',../surname/text()))</element-create>
                             <element-create if="../suspended/text()='false' and ../aupAcceptanceRecords/object/valid/text()='true'">new_element('status','ACTIVE')</element-create>
-                            <element-create if="../suspended/text()='true'">new_element('status','SUSPENDED')</element-create>
-                            <element-create if="../aupAcceptanceRecords/object/valid/text()='false'">new_element('status','EXPIRED')</element-create>
+                            <element-create if="(../suspended/text()='true') OR (../aupAcceptanceRecords/object/valid/text()='false') ">new_element('status','SUSPENDED')</element-create>
+
                             <element in="certificates">
-                                <element-ignore in="creationTime"/>
-                                <element-ignore in="suspended"/>
+                                <element-ignore in="object">
+                                    <element in="issuerString"/>
+                                    <element in="subjectString"/>
+                                    <element in="suspensionReason" if="suspended/text()='true'"/>
+                                </element-ignore>
+
                             </element>
                             <element in="fqans"/>
 
