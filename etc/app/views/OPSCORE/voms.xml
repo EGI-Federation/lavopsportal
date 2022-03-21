@@ -62,8 +62,8 @@
                     <elements-ignore path="object/result">
                         <element in="object" out="user">
                             <element-ignore in="address"/>
-                            <element-ignore in="creationTime"/>
-                            <element-ignore in="endTime"/>
+<!--                            <element-ignore in="creationTime"/>-->
+<!--                            <element-ignore in="endTime"/>-->
                             <element-ignore in="phoneNumber"/>
                         </element>
                     </elements-ignore>
@@ -107,6 +107,9 @@
                 <parameter name="views">
                     <entry>VomsMembers_v2</entry>
                 </parameter>
+            </trigger>
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="hours">2</parameter>
             </trigger>
         </cache>
 

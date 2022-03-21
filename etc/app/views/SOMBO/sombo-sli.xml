@@ -1,0 +1,53 @@
+<views xmlns="http://software.in2p3.fr/lavoisier/application.xsd"
+       xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" xmlns:t="http://software.in2p3.fr/lavoisier/tables.xsd">
+    <!-- 
+        Project : lavopsportal 
+        File    : sombo-sli.xml
+        Created by cyril on 2022/03/15 
+    -->
+
+    <view name="ServiceOrderSLI">
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('JiraSOListRaw')"/>
+        </connector>
+
+        <processors>
+            <element in="e:entries">
+                <element in="e:entries">
+                    <attribute-create out="month">substring(../e:entry[@key='created'],0,8)</attribute-create>
+                </element>
+
+            </element>
+
+            <element in="e:entries" out="metrics">
+                <element-ignore in="e:entries"></element-ignore>
+                <element-create>sort_by_string(../e:entries,'@month')</element-create>
+            </element>
+
+            <element in="metrics">
+                <element-create-as-parent out="month" attributes="@month" group-by="@month">
+                    <element in="e:entries"/>
+                </element-create-as-parent>
+            </element>
+
+            <element in="metrics">
+                <element in="month">
+                    <attribute in="month" out="key"/>
+                    <attribute-create out="numberofSO">count(../e:entries)</attribute-create>
+                    <attribute-create out="numberofComments">sum(../e:entries/e:entry[@key='nbComments']) + sum(../e:entries/e:entry[@key='nbCommentsEpic'])</attribute-create>
+                    <element-ignore in="e:entries"/>
+                </element>
+
+            </element>
+
+        </processors>
+
+        <pre-renderers>
+            <row foreach="/metrics/month">
+                <column label="month">@key</column>
+                <column  unit="comments" >@numberofComments</column>
+            </row>
+        </pre-renderers>
+
+    </view>
+</views>

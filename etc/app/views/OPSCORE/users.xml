@@ -123,8 +123,6 @@
             </element>
 
 
-
-
             <element in="e:entries">
                 <element-ignore/>
                 <element-create>sort_by_string(../e:entries,'@key')</element-create>
@@ -174,8 +172,6 @@
                     </element>
                 </element>
             </element>
-
-
 
 
             <elements path="e:entries/e:entries">
@@ -623,6 +619,49 @@
             <trigger type="ViewNotifiedTrigger"/>
             <trigger ignore-during="PT3H" type="ViewCreatedTrigger"/>
         </cache>
+    </view>
+
+
+    <view name="UsersListforAPI" authenticators="local">
+
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('VomsMembers_v2')"></parameter>
+        </connector>
+
+        <processors>
+            <element in="vos">
+                <element in="vo">
+                    <attribute-create out="group_mgmt">'VOMS'</attribute-create>
+                    <element-create-as-parent out="users">
+                        <element in="user"></element>
+                    </element-create-as-parent>
+                </element>
+            </element>
+
+            <element in="vos">
+                <element-create>view('CoManageVOs')/vos/*</element-create>
+            </element>
+
+
+            <element in="vos">
+                <element in="vo" if="VOMS/text()='aai'">
+                    <attribute-create out="group_mgmt">'COMANAGE'</attribute-create>
+                    <attribute-ignore in="coid"/>
+                    <attribute-ignore in="description"/>
+                            <element-create-as-parent out="users">
+                                <element in="user">
+                                    <element in="CN" out="name"></element>
+                                    <element in="DN" out="id"></element>
+                                    <element in="mail" out="email"></element>
+                                    <element-ignore/>
+                                    <element-create>new_element('status',../@status)</element-create>
+                                </element>
+                            </element-create-as-parent>
+                </element>
+            </element>
+        </processors>
+
+
     </view>
 
 
