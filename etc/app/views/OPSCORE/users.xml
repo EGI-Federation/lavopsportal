@@ -634,8 +634,7 @@
                     <attribute-create out="group_mgmt">'VOMS'</attribute-create>
                     <element-create-as-parent out="users">
                         <element in="user">
-                            <element in="certificates"/>
-                            <element in="fqans"/>
+                            <element in="id"/>
                             <element in="emailAddress" out="email"/>
                             <element in="creationTime"/>
                             <element in="endTime"/>
@@ -643,6 +642,12 @@
                             <element-create if="../suspended/text()='false' and ../aupAcceptanceRecords/object/valid/text()='true'">new_element('status','ACTIVE')</element-create>
                             <element-create if="../suspended/text()='true'">new_element('status','SUSPENDED')</element-create>
                             <element-create if="../aupAcceptanceRecords/object/valid/text()='false'">new_element('status','EXPIRED')</element-create>
+                            <element in="certificates">
+                                <element-ignore in="creationTime"/>
+                                <element-ignore in="suspended"/>
+                            </element>
+                            <element in="fqans"/>
+
                             <element-ignore/>
                         </element>
                     </element-create-as-parent>
@@ -673,6 +678,14 @@
         </processors>
 
 
+        <cache type="FileCache">
+            <trigger type="ViewNotifiedTrigger"></trigger>
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="hours">2</parameter>
+                <parameter name="minutes">12</parameter>
+            </trigger>
+            <trigger type="ViewCreatedTrigger"/>
+        </cache>
     </view>
 
 
