@@ -55,10 +55,10 @@
             </elements>
 
             <element in="vos">
-                <set variable="volist">view('VoList')/data</set>
+                <set variable="volist" index="@name">uniq(view('VoList')/data/Vo,'@name')</set>
                 <element in="vo">
                     <attribute-create out="count">../object/count/text()</attribute-create>
-                    <attribute-create out="count_v1">$volist/Vo[@name=current()/../@name]/@members</attribute-create>
+                    <attribute-create out="count_v1">find($volist, current()/../@name)/@members</attribute-create>
                     <elements-ignore path="object/result">
                         <element in="object" out="user">
                             <element-ignore in="address"/>

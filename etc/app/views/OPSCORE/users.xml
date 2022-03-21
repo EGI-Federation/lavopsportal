@@ -633,7 +633,18 @@
                 <element in="vo">
                     <attribute-create out="group_mgmt">'VOMS'</attribute-create>
                     <element-create-as-parent out="users">
-                        <element in="user"></element>
+                        <element in="user">
+                            <element in="certificates"/>
+                            <element in="fqans"/>
+                            <element in="emailAddress" out="email"/>
+                            <element in="creationTime"/>
+                            <element in="endTime"/>
+                            <element-create>new_element('name',concat(../name/text(),' ',../surname/text()))</element-create>
+                            <element-create if="../suspended/text()='false' and ../aupAcceptanceRecords/object/valid/text()='true'">new_element('status','ACTIVE')</element-create>
+                            <element-create if="../suspended/text()='true'">new_element('status','SUSPENDED')</element-create>
+                            <element-create if="../aupAcceptanceRecords/object/valid/text()='false'">new_element('status','EXPIRED')</element-create>
+                            <element-ignore/>
+                        </element>
                     </element-create-as-parent>
                 </element>
             </element>
