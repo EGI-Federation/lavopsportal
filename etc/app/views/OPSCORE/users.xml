@@ -647,7 +647,7 @@
                                 <element-ignore in="object">
                                     <element in="issuerString"/>
                                     <element in="subjectString"/>
-                                    <element in="suspensionReason" if="suspended/text()='true'"/>
+                                    <element in="suspensionReason" if="../suspended/text()='true'"/>
                                 </element-ignore>
 
                             </element>

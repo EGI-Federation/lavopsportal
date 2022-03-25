@@ -117,4 +117,196 @@
         </renderers>
     </view>
 
+
+    <view xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" name="StorageListRaw">
+        <info>
+            <description>Storage Info </description>
+        </info>
+
+        <connector type="LDAPConnector">
+            <parameter name="url">ldap://egee-bdii.cnaf.infn.it:2170</parameter>
+            <parameter name="path">GLUE2GroupID=grid,o=glue</parameter>
+            <parameter name="filter">(&amp;(ObjectClass=GLUE2StorageShareCapacity))</parameter>
+        </connector>
+
+        <processors>
+            <elements path="o/GLUE2GroupID">
+                <element-ignore in="GLUE2DomainID" if="GLUE2DomainID">
+                    <element/>
+                </element-ignore>
+            </elements>
+
+            <element in="o" out="storages">
+                <attribute-ignore/>
+                <elements-ignore path="GLUE2GroupID/GLUE2DomainID/GLUE2GroupID">
+                    <element in="GLUE2ServiceID" out="storage">
+                        <attribute in="id" out="key"/>
+                        <element in="GLUE2ShareID" out="shares">
+                            <attribute in="id" out="key"/>
+                            <element in="GLUE2StorageShareCapacityID" out="share">
+                                <element-ignore>
+                                    <element-create if="contains(name(..),'GLUE2StorageShareCapacity')">new_element(substring-after(name(..),'GLUE2StorageShareCapacity'),../text())</element-create>
+                                </element-ignore>
+                            </element>
+                        </element>
+                    </element>
+                </elements-ignore>
+            </element>
+
+            <element in="storages">
+                <elements path="storage/shares">
+                    <element in="share">
+                        <attribute from-element="true"/>
+                        <element-ignore/>
+                    </element>
+                </elements>
+            </element>
+
+            <element in="storages">
+                <set variable="VAPOR_GL2_Services_Mapping_Policy" index="@id">uniq(view('VAPOR_GL2_Services_Mapping_Policy')/e:entries/e:entries,'@id')</set>
+                <elements path="storage/shares">
+                    <element-create>find($VAPOR_GL2_Services_Mapping_Policy,current()/../@key)/*</element-create>
+                    <element in="share">
+                        <attribute-ignore in="ID"/>
+                    </element>
+                </elements>
+            </element>
+
+            <element in="storages">
+                <element-ignore in="storage"/>
+                <element-create>sort_by_string(../storage,'@key')</element-create>
+            </element>
+
+            <element in="storages">
+                <element-create-as-parent out="storage" group-by="@key" attributes="@key">
+                    <element in="storage"/>
+                </element-create-as-parent>
+            </element>
+
+            <element in="storages">
+                <element in="storage">
+                    <element-ignore in="storage">
+                        <element/>
+                    </element-ignore>
+                </element>
+            </element>
+
+        </processors>
+
+        <cache type="FileCache">
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="minutes">15</parameter>
+            </trigger>
+        </cache>
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+    </view>
+
+    <view xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" name="StorageList">
+        <info>
+            <description>Storage Info </description>
+        </info>
+        <argument name="vo">_vo_</argument>
+        <argument name="service">_service_</argument>
+
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('StorageListRaw')"/>
+        </connector>
+
+        <processors>
+            <element in="storages" if="$vo!='_vo_'">
+                <element in="storage" if="shares/VO/text()=$vo">
+                    <element-ignore in="shares" if="not(VO/text()=$vo)"/>
+                </element>
+                <element-ignore/>
+            </element>
+
+            <element in="storages" if="$service!='_service_'">
+                <element-ignore in="storage" if="@key!=$service"/>
+            </element>
+
+        </processors>
+    </view>
+
+
+
+    <!-- This view brings everything at the GLUE2 policy level (vo and voms and proxy ) -->
+
+    <view xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" name="VAPOR_GL2_Services_Mapping_Policy">
+        <info>
+            <description>List of share ID and supported VO</description>
+        </info>
+        <connector type="LDAPConnector">
+            <parameter name="url">ldap://egee-bdii.cnaf.infn.it:2170</parameter>
+            <parameter name="path">GLUE2GroupID=grid,o=glue</parameter>
+            <parameter name="filter">(&amp;(ObjectClass=GLUE2Policy)(ObjectClass=GLUE2MappingPolicy))</parameter>
+        </connector>
+
+        <processors>
+            <elements path="o/GLUE2GroupID">
+                <element in="GLUE2DomainID">
+                    <element-ignore in="GLUE2DomainID"><element/></element-ignore>
+                </element>
+            </elements>
+
+            <element in="o" out="e:entries">
+
+                <elements-ignore path="GLUE2GroupID/GLUE2DomainID/GLUE2GroupID/GLUE2ServiceID">
+                    <element in="GLUE2ShareID" out="e:entries">
+
+                        <attribute-create out="ServiceKey">../../@id</attribute-create>
+                        <attribute-create out="EndpointKey">../ComputingEndpointForeignKey/text()</attribute-create>
+                        <attribute-create out="Site">../../ancestor::GLUE2DomainID/@id</attribute-create>
+
+
+                        <element-ignore in="GLUE2PolicyID">
+                            <element in="GLUE2PolicyRule" out="VO" if="contains(text(),'VO:') or contains(text(),'vo:')">
+                                <text if="contains(.,'VO:')">substring-after(.,'VO:')</text>
+                                <text if="contains(.,'vo:')">substring-after(.,'vo:')</text>
+                            </element>
+
+                            <element in="GLUE2PolicyRule" out="VOMS" if="contains(text(),'VOMS:') or contains(text(),'voms:')">
+                                <text if="contains(.,'VOMS:')">substring-after(.,'VOMS:')</text>
+                                <text if="contains(.,'voms:')">substring-after(.,'voms:')</text>
+                            </element>
+
+                            <element in="GLUE2PolicyRule" out="MYPROXY" if="contains(text(),'MYPROXY:') or contains(text(),'myproxy:')">
+                                <text if="contains(.,'MYPROXY:')">substring-after(.,'MYPROXY:')</text>
+                                <text if="contains(.,'myproxy:')">substring-after(.,'myproxy:')</text>
+                            </element>
+
+                        </element-ignore>
+                    </element>
+                </elements-ignore>
+            </element>
+
+            <elements path="e:entries/e:entries">
+                <element>
+                    <text if="contains(.,',')">substring-before(.,',')</text>
+                    <text if="contains(.,')')">substring-before(.,')')</text>
+                    <text if="starts-with(.,' ')">substring-after(.,' ')</text>
+                    <text if="ends-with(.,' ')">substring-before(.,' ')</text>
+                </element>
+            </elements>
+
+        </processors>
+
+        <cache type="FileCache">
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="minutes">18</parameter>
+            </trigger>
+        </cache>
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+
+    </view>
+
 </views>
