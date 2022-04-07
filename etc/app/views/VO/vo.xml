@@ -2684,7 +2684,7 @@
                                 <element-ignore/>
                             </element>
 
-                           <element in="VoVomsServer" if="not(contains(memberslisturl/text(),'perun')) and not(contains(memberslisturl/text(),'aai.egi.eu')) and  vomses_port='0' and https_port='0'" out="ExternalRegistry">
+                           <element in="VoVomsServer" if="not(contains(memberslisturl/text(),'perun')) and not(contains(memberslisturl/text(),'aai.egi.eu')) and  @vomses_port=0 and @https_port=0" out="ExternalRegistry">
                                <attribute-ignore/>
                                <element in="memberslisturl"/>
                                <element-ignore/>
