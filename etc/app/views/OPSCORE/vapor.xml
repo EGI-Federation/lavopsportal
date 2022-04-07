@@ -118,6 +118,50 @@
     </view>
 
 
+    <view name="ComputingEndpoints_vo">
+        <variable name="vo">biomed</variable>
+        <connector type="HTTPConnector">
+            <parameter name="url" eval="property('ComputingEndpointsUrl')"></parameter>
+        </connector>
+
+        <processors>
+            <element in="EGI" out="results">
+                    <element in="site" if="CE/queue/@vo=$vo">
+                        <element in="CE" if="queue/@vo=$vo">
+                            <element-ignore in="queue" />
+                        </element>
+                        <element-ignore/>
+                    </element>
+                    <element-ignore/>
+            </element>
+        </processors>
+    </view>
+
+    <view name="StorageList_vo">
+        <variable name="vo">biomed</variable>
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('StorageList',entry('vo',$vo))"/>
+        </connector>
+
+        <processors>
+            <element in="storages" out="results">
+                <element in="storage">
+                    <element-ignore/>
+                </element>
+            </element>
+
+            <element in="results">
+                <element in="storage">
+                    <attribute  if="contains(.,'/storage')" in="key">substring-before(.,'/storage')</attribute>
+                    <attribute if="contains(.,'/data')" in="key">substring-before(.,'/data')</attribute>
+                    <attribute if="contains(.,'glue:')" in="key">substring-after(.,'glue:')</attribute>
+                </element>
+            </element>
+        </processors>
+    </view>
+
+
+
     <view xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" name="StorageListRaw">
         <info>
             <description>Storage Info </description>

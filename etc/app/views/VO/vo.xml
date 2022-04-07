@@ -2673,16 +2673,22 @@
             <element in="data">
                 <element in="Vo">
                        <element in="Registries">
-                            <element in="VoVomsServer" if="contains(memberslisturl/text(),'https://aai.egi.eu/registry')" out="CoManage">
+                            <element in="VoVomsServer" if="contains(memberslisturl/text(),'aai.egi.eu')" out="CoManage">
                                 <attribute-ignore/>
                                 <element in="memberslisturl"><text>concat(.,../../ComanageId/text())</text></element>
                                 <element-ignore/>
                             </element>
-                            <element in="VoVomsServer" if="contains(memberslisturl/text(),'https://perun.metacentrum.cz')" out="Perun">
+                            <element in="VoVomsServer" if="contains(memberslisturl/text(),'perun')" out="Perun">
                                 <attribute-ignore/>
                                 <element in="memberslisturl"/>
                                 <element-ignore/>
                             </element>
+
+                           <element in="VoVomsServer" if="not(contains(memberslisturl/text(),'perun')) and not(contains(memberslisturl/text(),'aai.egi.eu')) and  vomses_port='0' and https_port='0'" out="ExternalRegistry">
+                               <attribute-ignore/>
+                               <element in="memberslisturl"/>
+                               <element-ignore/>
+                           </element>
 
                            <element in="VoVomsServer">
                                <element-ignore in="ComanageId"/>

@@ -6,7 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="mo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/app/views/OPSCORE/users.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/OPSCORE/users.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/app/app.properties" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/app.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/app/views/OPSCORE/vapor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/OPSCORE/vapor.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/app/views/VO/vo.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/VO/vo.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,6 +100,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/etc/app/views/OPSCORE/global_functions.xml" root0="SKIP_INSPECTION" />
@@ -207,7 +217,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542023584356" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../lavoisier-vapor" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ArgoConsumer" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -232,7 +242,7 @@
       <recent name="$PROJECT_DIR$/etc/app/resources/xsl" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Start Lavoisier server">
+  <component name="RunManager" selected="Application.Run">
     <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
@@ -251,7 +261,7 @@
     <configuration name="Run" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="fr.in2p3.lavoisier.command.StandaloneExec" />
       <module name="lavopsportal" />
-      <option name="PROGRAM_PARAMETERS" value="ServiceOrderSLI?nbsteps=999&amp;accept=xml" />
+      <option name="PROGRAM_PARAMETERS" value="VoListUrl?nbsteps=4&amp;accept=xml" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -419,7 +429,14 @@
       <workItem from="1647869287949" duration="95000" />
       <workItem from="1647938533160" duration="632000" />
       <workItem from="1647975635727" duration="3000" />
-      <workItem from="1648211810964" duration="854000" />
+      <workItem from="1648211810964" duration="1594000" />
+      <workItem from="1648562435910" duration="726000" />
+      <workItem from="1648563522990" duration="377000" />
+      <workItem from="1648712037643" duration="23000" />
+      <workItem from="1649061242540" duration="2938000" />
+      <workItem from="1649161681747" duration="2535000" />
+      <workItem from="1649247975522" duration="657000" />
+      <workItem from="1649322392445" duration="530000" />
     </task>
     <task id="LOCAL-00075" summary="filtre tickets">
       <created>1536755736442</created>
