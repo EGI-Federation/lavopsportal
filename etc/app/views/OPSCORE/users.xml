@@ -664,8 +664,7 @@
 
 
             <element in="vos">
-                <element in="vo" if="user[1]/VOMS/text()='aai'">
-                    <attribute-create out="group_mgmt">'COMANAGE'</attribute-create>
+                <element in="vo" if="@group_mgmt='COMANAGE'">
                     <attribute-ignore in="coid"/>
                     <attribute-ignore in="description"/>
                             <element-create-as-parent out="users">

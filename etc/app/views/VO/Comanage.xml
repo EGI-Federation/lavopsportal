@@ -47,6 +47,7 @@
                
                 <element-ignore in="Cous">
                     <element in="object" out="vo">
+                        <attribute-create out="group_mgmt">'COMANAGE'</attribute-create>
                         <attribute-create out="id">../Id/text()</attribute-create>
                         <attribute-create out="coid">../CoId/text()</attribute-create>
                         <attribute-create out="name">../Name/text()</attribute-create>
