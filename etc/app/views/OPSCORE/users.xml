@@ -697,7 +697,7 @@
 
             <element in="vos">
                 <element in="vo">
-                    <attribute-create out="count" if="not(../@count)">0</attribute-create>
+                    <attribute-create out="count" if="not(../@count)">count(../users/user)</attribute-create>
                     <attribute in="count" if=".=''">0</attribute>
                 </element>
             </element>
