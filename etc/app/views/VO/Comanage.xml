@@ -52,6 +52,7 @@
                         <attribute-create out="name">../Name/text()</attribute-create>
                         <attribute-create out="description">../Description/text()</attribute-create>
                         <element-create if="property('env')='prod'">view('CoManageMembers',entry('cogroupid',../Id/text()))/users/*</element-create>
+
                         <element-ignore/>
                     </element>
                     <element-ignore/>

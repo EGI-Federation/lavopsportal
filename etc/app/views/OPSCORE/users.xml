@@ -622,7 +622,7 @@
     </view>
 
 
-    <view name="UsersListforAPI" authenticators="local">
+    <view name="UsersListforAPI" authenticators="local" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
 
         <connector type="XMLConnector">
             <parameter name="content" eval="view('VomsMembers_v2')"></parameter>
@@ -639,9 +639,8 @@
                             <element in="creationTime"/>
                             <element in="endTime"/>
                             <element-create>new_element('name',concat(../name/text(),' ',../surname/text()))</element-create>
-                            <element-create if="../suspended/text()='false' and ../aupAcceptanceRecords/object/valid/text()='true'">new_element('status','ACTIVE')</element-create>
-
-                            <element-create if="not(../suspended/text()='false' and ../aupAcceptanceRecords/object/valid/text()='true')">new_element('status','SUSPENDED')</element-create>
+                            <element-create if="../suspended/text() and ../suspended/text()='false' and ../aupAcceptanceRecords/object/valid/text()='true'">new_element('status','ACTIVE')</element-create>
+                            <element-create if="../suspended/text() and not(../suspended/text()='false' and ../aupAcceptanceRecords/object/valid/text()='true')">new_element('status','SUSPENDED')</element-create>
 
                             <element in="certificates">
                                 <element-ignore in="object">
@@ -665,7 +664,7 @@
 
 
             <element in="vos">
-                <element in="vo" if="VOMS/text()='aai'">
+                <element in="vo" if="user[0]/VOMS/text()='aai'">
                     <attribute-create out="group_mgmt">'COMANAGE'</attribute-create>
                     <attribute-ignore in="coid"/>
                     <attribute-ignore in="description"/>
@@ -678,6 +677,16 @@
                                     <element-create>new_element('status',../@status)</element-create>
                                 </element>
                             </element-create-as-parent>
+                </element>
+            </element>
+
+            <element in="vos">
+                <element in="vo">
+                    <element in="e:entries" out="exception" if="e:entry[@key='ERROR']/text()">
+                        <element in="e:entry" if="@key='ERROR'" out="details"/>
+                        <element-ignore/>
+                        <text-create>'Impossible to reach VOMS server'</text-create>
+                    </element>
                 </element>
             </element>
         </processors>

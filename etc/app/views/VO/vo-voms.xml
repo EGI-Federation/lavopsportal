@@ -585,7 +585,8 @@
                 <entry key="x-api-key" eval="property('lavoisier-token')"/>
                 <entry key="Accept">application/xml</entry>
             </parameter>
-            <parameter name="force-redirect">true</parameter>
+            <parameter name="read-timeout">600</parameter>
+            <parameter name="connect-timeout">600</parameter>
         </connector>
 
 
