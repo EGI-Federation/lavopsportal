@@ -2602,6 +2602,17 @@
         </connector>
         <serializer type="JSONStreamSerializer"></serializer>
 
+        <processors>
+            <element in="item" out="vos">
+                <element in="object" out="vo">
+                    <attribute-create out="name">../vo/text()</attribute-create>
+                    <attribute-create out="count">../allMembers/text()</attribute-create>
+                    <attribute-create out="group_mgmt">'PERUN'</attribute-create>
+                </element>
+
+            </element>
+        </processors>
+
     </view>
 
     <view name="VoListUrl">

@@ -670,14 +670,19 @@
                     <attribute-ignore in="description"/>
                             <element-create-as-parent out="users">
                                 <element in="user">
+                                    <attribute-ignore/>
                                     <element in="CN" out="name"></element>
                                     <element in="DN" out="id"></element>
                                     <element in="mail" out="email"></element>
                                     <element-ignore/>
-                                    <element-create>new_element('status',../@status)</element-create>
+                                    <element-create>new_element('status',new_text(../@status))</element-create>
                                 </element>
                             </element-create-as-parent>
                 </element>
+            </element>
+
+            <element in="vos">
+                <element-create>view('VoPerunList')/vos/*</element-create>
             </element>
 
             <element in="vos">
@@ -689,6 +694,8 @@
                     </element>
                 </element>
             </element>
+
+
         </processors>
 
 
