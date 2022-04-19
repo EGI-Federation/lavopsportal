@@ -41,13 +41,14 @@
 
         <processors>
             <element in="data" out="vos">
-                <element in="Vo" out="vo">
+                <element in="Vo" out="vo" if="Registries/VoVomsServer">
                     <attribute-create out="name">../name/text()</attribute-create>
                     <attribute-create out="url">
                         concat('https://',../Registries/VoVomsServer/hostname/text(),':',../Registries/VoVomsServer/@https_port,'/voms/',../name/text(),'/apiv2/users?pageSize=4500')
                     </attribute-create>
                     <element-ignore/>
                 </element>
+                <element-ignore/>
             </element>
 
             <elements path="vos/vo">
