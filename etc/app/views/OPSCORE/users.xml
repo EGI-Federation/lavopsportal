@@ -685,6 +685,10 @@
             </element>
 
             <element in="vos">
+                <element-create>view('VoPerunList')/vos/*</element-create>
+            </element>
+
+            <element in="vos">
                 <element in="vo">
                     <element in="e:entries" out="exception" if="e:entry[@key='ERROR']/text()">
                         <element in="e:entry" if="@key='ERROR'" out="details"/>

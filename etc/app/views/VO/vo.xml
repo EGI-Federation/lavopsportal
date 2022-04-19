@@ -2608,6 +2608,7 @@
                     <attribute-create out="name">../vo/text()</attribute-create>
                     <attribute-create out="count">../allMembers/text()</attribute-create>
                     <attribute-create out="group_mgmt">'PERUN'</attribute-create>
+                    <element-ignore/>
                 </element>
 
             </element>
