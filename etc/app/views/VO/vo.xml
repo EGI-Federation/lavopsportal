@@ -1523,7 +1523,6 @@
                 <entry key="x-api-key" eval="property('lavoisier-token')"/>
                 <entry key="Accept">application/xml</entry>
             </parameter>
-            <parameter name="force-redirect">true</parameter>
         </connector>
 
 

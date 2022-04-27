@@ -170,7 +170,7 @@
 
             <parameter name="header">
                 <entry key="Content-Type">text/json</entry>
-                <entry key="X-VOMS-CSRF-GUARD">;</entry>
+                <entry key="X-VOMS-CSRF-GUARD">y</entry>
             </parameter>
 
             <fallback>

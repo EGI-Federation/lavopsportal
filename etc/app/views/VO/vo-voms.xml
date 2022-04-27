@@ -810,8 +810,9 @@
         </processors>
 
         <cache type="FileCache">
-            <trigger type="DeltaTimeTrigger">
-                <parameter name="hours">6</parameter>
+            <trigger type="FixedTimeTrigger">
+                <parameter name="hour">5</parameter>
+                <parameter name="minute">22</parameter>
             </trigger>
             <trigger type="ViewNotifiedTrigger"/>
         </cache>
