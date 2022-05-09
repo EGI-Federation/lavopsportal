@@ -139,7 +139,7 @@
                 <set variable="VoMailingLists" index="name/text()">uniq(view('VoMailingLists')/result/row,"name/text()")</set>
                 <set variable="VoResources" index="name/text()">uniq(view('VoResources')/result/row,"name/text()")</set>
                 <set variable="VoVomsGroups">view('VoVomsGroups')</set>
-                <set variable="VoDisciplines" index="@name">uniq(view('VoDisciplinesList')/rootD/vo_Disciplines,"name/text()")</set>
+                <set variable="VoDisciplines" index="@name">uniq(view('VoDisciplinesList')/rootD/vo_Disciplines,"@name")</set>
                 <set variable="VoAcknowledgments">view('VoAcknowledgments')/result</set>
 
                 <element in="Vo">
