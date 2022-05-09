@@ -167,6 +167,20 @@
                 </element>
             </element>
 
+            <element in="results">
+                <element in="site">
+                    <element in="CE">
+
+                        <attribute-create out="service">../e:entry[@key='SERVICE_TYPE']/text()</attribute-create>
+                        <attribute-create out="goc_url">../e:entry[@key='GOCDB_PORTAL_URL']/text()</attribute-create>
+                        <attribute-create out="in_production">../e:entry[@key='IN_PRODUCTION']/text()</attribute-create>
+                        <attribute-create out="monitored">../e:entry[@key='NODE_MONITORED']/text()</attribute-create>
+
+                        <element-ignore/>
+                    </element>
+                </element>
+            </element>
+
         </processors>
     </view>
 
