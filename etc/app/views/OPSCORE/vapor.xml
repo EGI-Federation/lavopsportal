@@ -137,7 +137,7 @@
         </processors>
     </view>
 
-    <view name="ComputingEndpoints_biomed">
+    <view name="ComputingEndpoints_biomed" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
         <connector type="XMLConnector">
             <parameter name="content" eval="view('ComputingEndpoints_vo')"/>
         </connector>
