@@ -6,9 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="mo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/app/views/OPSCORE/voms.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/OPSCORE/voms.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/app/views/VO/vo-voms.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/VO/vo-voms.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/app/views/VO/vo.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/VO/vo.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/app/views/OPSCORE/vapor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/OPSCORE/vapor.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/service/service.properties" beforeDir="false" afterPath="$PROJECT_DIR$/etc/service/service.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -283,6 +282,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="/home/cyril/Projets/lavopsportal" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list />
+        </option>
+        <option name="vmOptions" value="" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
@@ -312,7 +330,13 @@
       <item itemvalue="Application.Run with arguments" />
       <item itemvalue="Application.Run" />
       <item itemvalue="Application.Start Lavoisier server" />
+      <item itemvalue="Gradle./home/cyril/Projets/lavopsportal" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle./home/cyril/Projets/lavopsportal" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
@@ -442,7 +466,11 @@
       <workItem from="1650032142189" duration="6818000" />
       <workItem from="1650370888694" duration="94000" />
       <workItem from="1650524734505" duration="2302000" />
-      <workItem from="1651042062080" duration="2600000" />
+      <workItem from="1651042062080" duration="3635000" />
+      <workItem from="1651060925482" duration="9000" />
+      <workItem from="1651223888425" duration="710000" />
+      <workItem from="1651652100981" duration="1926000" />
+      <workItem from="1651654149045" duration="4000" />
     </task>
     <task id="LOCAL-00075" summary="filtre tickets">
       <created>1536755736442</created>

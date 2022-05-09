@@ -137,6 +137,39 @@
         </processors>
     </view>
 
+    <view name="ComputingEndpoints_biomed">
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('ComputingEndpoints_vo')"/>
+        </connector>
+
+        <processors>
+            <element in="results">
+                <element in="site">
+                    <attribute-ignore in="Description"></attribute-ignore>
+                    <attribute-ignore in="Coordinates"/>
+
+                    <element in="CE">
+                        <attribute in="serviceType" if=".='ARC CE'">'ARC-CE'</attribute>
+                        <attribute in="serviceType" if=".='HTCondorCE'">'org.opensciencegrid.htcondorce'</attribute>
+                        <attribute in="serviceType" if=".='org.glite.ce.CREAM'">'CREAM-CE'</attribute>
+                        <attribute-ignore in="Host_OS"/>
+                        <attribute-ignore in="HOST_ARCH"/>
+                    </element>
+                </element>
+
+            </element>
+            <element in="results">
+                <set variable="endpoints" index="@key">uniq(view('OPSCORE_endpoints')/results/e:entries,'@key')</set>
+                <element in="site">
+                    <element in="CE">
+                        <element-create>find($endpoints,concat(../@host,../@serviceType))/*</element-create>
+                    </element>
+                </element>
+            </element>
+
+        </processors>
+    </view>
+
     <view name="StorageList_vo">
         <variable name="vo">biomed</variable>
         <connector type="XMLConnector">
