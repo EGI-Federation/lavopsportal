@@ -119,7 +119,7 @@
 
 
     <view name="ComputingEndpoints_vo">
-        <variable name="vo">biomed</variable>
+        <argument name="vo">biomed</argument>
         <connector type="HTTPConnector">
             <parameter name="url" eval="property('ComputingEndpointsUrl')"></parameter>
         </connector>
@@ -137,9 +137,11 @@
         </processors>
     </view>
 
-    <view name="ComputingEndpoints_biomed" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+    <view name="ComputingEndpoints_argo" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <argument name="vo">biomed</argument>
+
         <connector type="XMLConnector">
-            <parameter name="content" eval="view('ComputingEndpoints_vo')"/>
+            <parameter name="content" eval="view('ComputingEndpoints_vo',entry('vo',$vo))"/>
         </connector>
 
         <processors>
@@ -170,12 +172,9 @@
             <element in="results">
                 <element in="site">
                     <element in="CE">
-
-                        <attribute-create out="service">../e:entry[@key='SERVICE_TYPE']/text()</attribute-create>
-                        <attribute-create out="goc_url">../e:entry[@key='GOCDB_PORTAL_URL']/text()</attribute-create>
+                        <attribute-create out="goc_url">new_text(../e:entry[@key='GOCDB_PORTAL_URL']/text())</attribute-create>
                         <attribute-create out="in_production">../e:entry[@key='IN_PRODUCTION']/text()</attribute-create>
                         <attribute-create out="monitored">../e:entry[@key='NODE_MONITORED']/text()</attribute-create>
-
                         <element-ignore/>
                     </element>
                 </element>
