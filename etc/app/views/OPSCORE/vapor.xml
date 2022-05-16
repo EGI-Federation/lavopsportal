@@ -126,8 +126,8 @@
 
         <processors>
             <element in="EGI" out="results">
-                    <element in="site" if="CE/queue/@vo=$vo">
-                        <element in="CE" if="queue/@vo=$vo">
+                    <element in="site" if="CE/queue/@vo=$vo or $vo='_vo_'">
+                        <element in="CE" if="queue/@vo=$vo or $vo='_vo_'">
                             <element-ignore in="queue" />
                         </element>
                         <element-ignore/>
