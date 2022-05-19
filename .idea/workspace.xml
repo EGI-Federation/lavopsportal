@@ -259,7 +259,7 @@
     <configuration name="Run" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="fr.in2p3.lavoisier.command.StandaloneExec" />
       <module name="lavopsportal" />
-      <option name="PROGRAM_PARAMETERS" value="CsiNagios?nbsteps=999&amp;accept=xml" />
+      <option name="PROGRAM_PARAMETERS" value="listCVE?nbsteps=999&amp;accept=xml" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -474,6 +474,8 @@
       <workItem from="1652172034412" duration="715000" />
       <workItem from="1652699618376" duration="1806000" />
       <workItem from="1652942798036" duration="1529000" />
+      <workItem from="1652958503958" duration="19000" />
+      <workItem from="1652960036203" duration="5576000" />
     </task>
     <task id="LOCAL-00075" summary="filtre tickets">
       <created>1536755736442</created>

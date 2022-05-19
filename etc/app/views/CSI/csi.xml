@@ -702,6 +702,86 @@
         </renderers>
     </view>
 
+    <view name="listCVE" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+      <connector type="XMLConnector">
+          <parameter name="content" eval="view('CVE-Pakiti')"/>
+      </connector>
+
+        <processors>
+            <element in="CVEs" out="e:entries">
+                <element-ignore in="Issue">
+                    <element in="cve" out="e:entries"/>
+                </element-ignore>
+            </element>
+
+            <element in="e:entries">
+                <element-ignore in="e:entries"/>
+                <element-create>sort_by_string(../e:entries,'text()')</element-create>
+            </element>
+
+            <element in="e:entries">
+                <element-create-as-parent out="e:entries" group-by="text()">
+                    <element in="e:entries"></element>
+                </element-create-as-parent>
+            </element>
+
+            <element in="e:entries">
+                <element in="e:entries">
+                    <attribute-create out="key">../e:entries[1]/text()</attribute-create>
+                    <element-create>entry('count',count(../e:entries))</element-create>
+                    <element-ignore in="e:entries"/>
+                </element>
+
+            </element>
+
+
+        </processors>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">xml</parameter>
+            </renderer>
+        </renderers>
+    </view>
+
+    <view name="CVE-Pakiti"  xmlns:regexp="http://exslt.org/regular-expressions">
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('CsiNagiosRecords')"/>
+        </connector>
+
+        <processors>
+            <element in="Data" out="CVEs">
+                <attribute-ignore in="problem_table_name"/>
+                <attribute-ignore in="history_table_name"/>
+
+                <element-ignore in="Issues">
+                    <element>
+                        <attribute-create out="key">concat(../@pk1,'___',../@pk2)</attribute-create>
+                        <attribute-ignore/>
+                    </element>
+                </element-ignore>
+                <element-ignore in="Recoveries"/>
+            </element>
+
+            <element in="CVEs">
+                <element in="Issue" if="contains(plugin_output/text(),'cve-') or contains(long_plugin_output/text(),'cve-')">
+                    <element-create if="contains(../plugin_output/text(),'cve-')">eval("new_element('cve',.)", regexp:match(../plugin_output/text(),'(cve-\d{4}-\d{4})', 'g'))</element-create>
+                    <element-create if="contains(../long_plugin_output/text(),'cve-')">eval("new_element('cve',.)", regexp:match(../long_plugin_output/text(),'(cve-\d{4}-\d{4})', 'g'))</element-create>
+                    <element-ignore/>
+                </element>
+                <element-ignore/>
+            </element>
+
+        </processors>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">xml</parameter>
+            </renderer>
+        </renderers>
+
+    </view>
+
     <view xmlns:date="http://exslt.org/dates-and-times" authenticators="local"  xmlns:str="http://exslt.org/strings"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd"  name="reportcsiIssues">
 
         <argument name="status">critical</argument>
@@ -751,7 +831,21 @@
                     </element>
                     <element-ignore/>
                 </element>
+            </element>
 
+
+
+
+            <element in="e:entries">
+                <set variable="OPSCORE_sites_info" index="@key">uniq(view('OPSCORE_sites_info')/e:entries/e:entries,"@key")</set>
+                <element in="e:entries">
+                    <attribute-create out="production">find($OPSCORE_sites_info,../e:entry[@key='site']/text())/e:entry[@key='PRODUCTION']/text()</attribute-create>
+                    <attribute-create out="certified">find($OPSCORE_sites_info,../e:entry[@key='site']/text())/e:entry[@key='CERTIFIED']/text()</attribute-create>
+                </element>
+            </element>
+
+            <element in="e:entries">
+                <element-ignore in="e:entries" if="@production!=1 or @certified!=1"/>
             </element>
         </processors>
 
