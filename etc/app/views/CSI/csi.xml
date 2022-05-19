@@ -726,6 +726,7 @@
             </element>
 
             <element in="e:entries">
+                <attribute in="global_date" out="key"/>
                 <element in="e:entries">
                     <attribute-create out="key">../e:entries[1]/text()</attribute-create>
                     <element-create>entry('count',count(../e:entries))</element-create>
