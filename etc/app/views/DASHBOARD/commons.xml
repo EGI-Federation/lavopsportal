@@ -802,6 +802,8 @@
         <argument name="summary">_summary_</argument>
 
         <argument name="FilterAssigned">false</argument>
+        <argument name="production">_production_</argument>
+        <argument name="certified">_certified_</argument>
 
         <variable name="SitesListFormatted" eval="choose($SitesList!='egi',concat(',',$SitesList,','),'_1_')"/>
 
@@ -819,6 +821,14 @@
                     <element in="e:entry"/>
                 </element-create-as-parent>
             </elements>
+
+            <element in="e:entries" if="$production!='_production_'">
+                <element-ignore in="e:entries" if="e:entries/e:entry[@key='PRODUCTION_INFRASTRUCTURE']/text()!=$production"/>
+            </element>
+
+            <element in="e:entries" if="$certified!='_certified_'">
+                <element-ignore in="e:entries" if="e:entries/e:entry[@key='CERTIFICATION_STATUS']/text()!=$certified"/>
+            </element>
 
             <elements path="e:entries">
                 <element in="e:entries" if="contains($SitesListFormatted,concat(',',@key,',')) or $SitesList='egi'">
