@@ -147,10 +147,20 @@
             </element>
 
             <element in="nagios">
-                <set variable="OPSCORE_site_list_prod" index="e:entry[@key='site']/text()">uniq(view('OPSCORE_site_list_prod')/e:entries/e:entries,"e:entry[@key='site']/text()")</set>
+                <set variable="OPSCORE_sites_info" index="@key">uniq(view('OPSCORE_sites_info')/e:entries/e:entries,"@key")</set>
                 <element in="servicestatus" >
-                     <element-create>new_element('ngi',new_text(find($OPSCORE_site_list_prod,../site/text())/e:entry[@key='ngi']/text()))</element-create>
+                     <element-create>new_element('ngi',new_text(find($OPSCORE_sites_info,../site/text())/e:entry[@key='NGI']/text()))</element-create>
+                    <element in="site">
+                        <attribute-create out="production">find($OPSCORE_sites_info,../text())/e:entry[@key='PRODUCTION']/text()</attribute-create>
+                        <attribute-create out="certified">find($OPSCORE_sites_info,../text())/e:entry[@key='CERTIFIED']/text()</attribute-create>
+                    </element>
                 </element>
+            </element>
+
+            <element in="nagios">
+                <element in="servicestatus" if="site/@production=1 and site/@certified=1"/>
+                <element-ignore/>
+
             </element>
 
 

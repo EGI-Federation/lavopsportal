@@ -674,11 +674,12 @@
         <argument name="statusList">0,1,2,3</argument>
 <!--        <argument name="profilesList">ARGO_MON_OPERATORS,MW_MONITOR,OPS_MONITOR</argument>-->
         <argument name="summary">_summary_</argument>
+        <argument name="production">_production_</argument>
+        <argument name="certified">_certified_</argument>
 
 
 
         <variable name="SitesListFormatted" eval="choose($SitesList!='egi',concat(',',$SitesList,','),'_1_')"/>
-
         <variable name="statusListFormatted" eval="concat(',',$statusList,',')"/>
 <!--        <variable name="profilesListFormatted" eval="concat(',',$profilesList,',')"/>-->
 
@@ -693,6 +694,14 @@
                     <element in="e:entry"/>
                 </element-create-as-parent>
             </elements>
+
+            <element in="e:entries" if="$production!='_production_'">
+                <element-ignore in="e:entries" if="e:entries/e:entry[@key='PRODUCTION_INFRASTRUCTURE']/text()!=$production"/>
+            </element>
+
+            <element in="e:entries" if="$certified!='_certified_'">
+                <element-ignore in="e:entries" if="e:entries/e:entry[@key='CERTIFICATION_STATUS']/text()!=$certified"/>
+            </element>
 
             <elements path="e:entries">
                 <element in="e:entries" if="contains($SitesListFormatted,concat(',',@key,',')) or $SitesList='egi'">
