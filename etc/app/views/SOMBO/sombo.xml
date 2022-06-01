@@ -1657,9 +1657,14 @@
                                 <elements-ignore path="/customfieldvalues/customfieldvalue"><text></text></elements-ignore>
                             </element>
 
-                            <element in="customfield_11310" out="e:entry">
+                            <element in="customfield_11310" out="e:entry" if="value/text()!='null'">
                                 <attribute-create out="key">'Epic_Test'</attribute-create>
                                 <element-ignore in="value"><text></text></element-ignore>
+                                <element-ignore/>
+                            </element>
+                            <element in="customfield_11310" out="e:entry" if="value/text()='null'">
+                                <attribute-create out="key">'Epic_Test'</attribute-create>
+                                <element-ignore in="value"><text>'No'</text></element-ignore>
                                 <element-ignore/>
                             </element>
 
