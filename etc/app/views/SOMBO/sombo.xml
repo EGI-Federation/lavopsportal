@@ -1682,7 +1682,11 @@
                 </element-ignore>
             </element>
 
-
+            <element in="e:entries">
+                <element in="e:entries" if="not(e:entry[@key='Epic_Test'])">
+                    <element-create>entry('Epic_Test','No')</element-create>
+                </element>
+            </element>
 
         </processors>
 
@@ -1780,6 +1784,11 @@
                 </element-ignore>
             </element>
 
+            <element in="e:entries">
+                <element in="e:entries" if="not(e:entry[@key='Epic_Test'])">
+                    <element-create>entry('Epic_Test','No')</element-create>
+                </element>
+            </element>
 
 
         </processors>
