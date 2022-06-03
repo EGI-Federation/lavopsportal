@@ -985,5 +985,26 @@
     </view>
 
 
+    <view authenticators="local" name="CSI_CVE_imports">
+
+        <connector type="HTTPConnector">
+            <parameter name="url" eval="property('CSI.cves.imports')"/>
+            <parameter name="header">
+                <entry key="x-api-key" eval="property('lavoisier-token')"/>
+                <entry key="Accept">application/xml</entry>
+            </parameter>
+            <parameter name="connect-timeout">400</parameter>
+            <parameter name="read-timeout">500</parameter>
+        </connector>
+        <serializer type="EncapsulateSerializer"></serializer>
+
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="hours">4</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+
+        </cache>
+    </view>
 
 </views>
