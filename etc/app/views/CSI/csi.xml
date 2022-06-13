@@ -118,8 +118,8 @@
 
         <connector type="HTTPConnector">
             <parameter name="url" eval="choose(property('env')='prod',property('CSI.nagiosBoxUrl'),property('CSI.nagiosBoxUrlLavoisier'))"/>
-            <parameter name="certificate" eval="property('certificate.path')"/>
-            <parameter name="passphrase" eval="property('certificate.password')"/>
+            <parameter name="certificate" eval="property('certificate.sec.path')"/>
+            <parameter name="passphrase" eval="property('certificate.sec.password')"/>
         </connector>
 
         <processors>
@@ -468,8 +468,8 @@
 
         <connector type="HTTPConnector">
             <parameter name="url" eval="property('CSI.NagiosProbes')"/>
-            <parameter name="certificate" eval="property('certificate.path')"/>
-            <parameter name="passphrase" eval="property('certificate.password')"/>
+            <parameter name="certificate" eval="property('certificate.sec.path')"/>
+            <parameter name="passphrase" eval="property('certificate.sec.password')"/>
         </connector>
 
 
@@ -787,8 +787,8 @@
     <view name="CSI.Pakiti.API" xmlns:t="http://software.in2p3.fr/lavoisier/tables.xsd"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
         <connector type="HTTPConnector">
             <parameter name="url" eval="property('CSI.Pakiti.API')"></parameter>
-            <parameter name="certificate" eval="property('certificate.path')"/>
-            <parameter name="passphrase" eval="property('certificate.password')"/>
+            <parameter name="certificate" eval="property('certificate.sec.path')"/>
+            <parameter name="passphrase" eval="property('certificate.sec.password')"/>
         </connector>
         <serializer type="CSVSerializer">
             <parameter name="header">true</parameter>
@@ -798,10 +798,27 @@
             <element in="t:tables" out="e:entries">
                 <element-ignore in="t:table">
                     <element in="t:row" out="e:entries">
-                        <element in="t:column"  out="e:entry">
-                            <attribute in="label" out="key"></attribute>
+                        <element in="t:column" if="@label='1'" out="e:entry">
+                            <attribute-create out="key">'tag'</attribute-create>
                         </element>
-
+                        <element in="t:column" if="@label='2'" out="e:entry">
+                            <attribute-create out="key">'cve'</attribute-create>
+                        </element>
+                        <element in="t:column" if="@label='3'" out="e:entry">
+                            <attribute-create out="key">'site'</attribute-create>
+                        </element>
+                        <element in="t:column" if="@label='4'" out="e:entry">
+                            <attribute-create out="key">'host'</attribute-create>
+                        </element>
+                        <element in="t:column" if="@label='5'" out="e:entry">
+                            <attribute-create out="key">'os'</attribute-create>
+                        </element>
+                        <element in="t:column" if="@label='6'" out="e:entry">
+                            <attribute-create out="key">'arch'</attribute-create>
+                        </element>
+                        <element in="t:column" if="@label='7'" out="e:entry">
+                            <attribute-create out="key">'last_report'</attribute-create>
+                        </element>
                     </element>
                 </element-ignore>
             </element>
