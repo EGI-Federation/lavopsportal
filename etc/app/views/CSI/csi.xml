@@ -118,8 +118,8 @@
 
         <connector type="HTTPConnector">
             <parameter name="url" eval="choose(property('env')='prod',property('CSI.nagiosBoxUrl'),property('CSI.nagiosBoxUrlLavoisier'))"/>
-            <parameter name="certificate" eval="property('certificate.sec.path')"/>
-            <parameter name="passphrase" eval="property('certificate.sec.password')"/>
+            <parameter name="certificate" eval="property('certificate.path')"/>
+            <parameter name="passphrase" eval="property('certificate.password')"/>
         </connector>
 
         <processors>
@@ -468,8 +468,8 @@
 
         <connector type="HTTPConnector">
             <parameter name="url" eval="property('CSI.NagiosProbes')"/>
-            <parameter name="certificate" eval="property('certificate.sec.path')"/>
-            <parameter name="passphrase" eval="property('certificate.sec.password')"/>
+            <parameter name="certificate" eval="property('certificate.path')"/>
+            <parameter name="passphrase" eval="property('certificate.password')"/>
         </connector>
 
 
@@ -780,6 +780,35 @@
                 <parameter name="contentType">xml</parameter>
             </renderer>
         </renderers>
+
+    </view>
+
+
+    <view name="CSI.Pakiti.API" xmlns:t="http://software.in2p3.fr/lavoisier/tables.xsd"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <connector type="HTTPConnector">
+            <parameter name="url" eval="property('CSI.Pakiti.API')"></parameter>
+            <parameter name="certificate" eval="property('certificate.path')"/>
+            <parameter name="passphrase" eval="property('certificate.password')"/>
+        </connector>
+        <serializer type="CSVSerializer">
+            <parameter name="header">true</parameter>
+        </serializer>
+
+        <processors>
+            <element in="t:tables" out="e:entries">
+                <element-ignore in="t:table">
+                    <element in="t:row" out="e:entries">
+                        <element in="t:column"  out="e:entry">
+                            <attribute in="label" out="key"></attribute>
+                        </element>
+
+                    </element>
+                </element-ignore>
+            </element>
+
+
+
+        </processors>
 
     </view>
 
