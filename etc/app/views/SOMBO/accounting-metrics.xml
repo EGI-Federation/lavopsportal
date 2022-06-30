@@ -28,6 +28,7 @@
         </cache>
     </view>
 
+<!--
 
     <view name="publishMetricDefinition">
         <argument name="metric_name">metric_test_api122</argument>
@@ -269,6 +270,7 @@
         </cache>
     </view>
 
+-->
 
 
 </views>
