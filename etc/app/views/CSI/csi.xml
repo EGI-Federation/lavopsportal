@@ -710,7 +710,9 @@
         <processors>
             <element in="CVEs" out="e:entries">
                 <element-ignore in="Issue">
-                    <element in="cve" out="e:entries"/>
+                    <element in="cve" out="e:entries">
+                        <attribute-create out="site">ancestor::Issue/@site</attribute-create>
+                    </element>
                 </element-ignore>
             </element>
 
@@ -729,12 +731,18 @@
                 <attribute in="global_date" out="key"/>
                 <element in="e:entries">
                     <attribute-create out="key">../e:entries[1]/text()</attribute-create>
-                    <element-create>entry('count',count(../e:entries))</element-create>
-                    <element-ignore in="e:entries"/>
+                    <element in="e:entries">
+                        <attribute in="site" out="key"/>
+                        <text-ignore/>
+                    </element>
                 </element>
-
             </element>
 
+            <element in="e:entries">
+                <element in="e:entries">
+                    <element-ignore in="e:entries" if="@key=preceding-sibling::e:entries/@key"/>
+                </element>
+            </element>
 
         </processors>
 
@@ -758,6 +766,7 @@
                 <element-ignore in="Issues">
                     <element>
                         <attribute-create out="key">concat(../@pk1,'___',../@pk2)</attribute-create>
+                        <attribute-create out="site">../site/text()</attribute-create>
                         <attribute-ignore/>
                     </element>
                 </element-ignore>
@@ -784,18 +793,21 @@
     </view>
 
 
-    <view name="CSI.Pakiti.API" xmlns:t="http://software.in2p3.fr/lavoisier/tables.xsd"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+    <view name="CSI.Pakiti.API" xmlns:t="http://software.in2p3.fr/lavoisier/tables.xsd" xmlns:date="http://exslt.org/dates-and-times" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+
+        <variable name="today" eval="substring(date:date(),0,11)"/>
         <connector type="HTTPConnector">
             <parameter name="url" eval="property('CSI.Pakiti.API')"></parameter>
             <parameter name="certificate" eval="property('certificate.sec.path')"/>
             <parameter name="passphrase" eval="property('certificate.sec.password')"/>
         </connector>
         <serializer type="CSVSerializer">
-            <parameter name="header">true</parameter>
+            <parameter name="header">false</parameter>
         </serializer>
 
         <processors>
             <element in="t:tables" out="e:entries">
+                <attribute-create out="today">$today</attribute-create>
                 <element-ignore in="t:table">
                     <element in="t:row" out="e:entries">
                         <element in="t:column" if="@label='1'" out="e:entry">
@@ -821,11 +833,29 @@
                         </element>
                     </element>
                 </element-ignore>
+
+
             </element>
 
-
+            <element in="e:entries">
+                <element-ignore in="e:entries" if="not(starts-with(e:entry[@key='last_report']/text(),$today))"/>
+            </element>
 
         </processors>
+
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="hours">1</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+
+        </cache>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">xml</parameter>
+            </renderer>
+        </renderers>
 
     </view>
 
@@ -885,14 +915,17 @@
 
             <element in="e:entries">
                 <set variable="OPSCORE_sites_info" index="@key">uniq(view('OPSCORE_sites_info')/e:entries/e:entries,"@key")</set>
+                <set variable="OPSCORE_downtime_ongoing" index="text()">view('OPSCORE_downtime_ongoing')/e:entries/e:entry/e:entry[@key='HOSTED_BY']</set>
                 <element in="e:entries">
                     <attribute-create out="production">find($OPSCORE_sites_info,../e:entry[@key='site']/text())/e:entry[@key='PRODUCTION']/text()</attribute-create>
                     <attribute-create out="certified">find($OPSCORE_sites_info,../e:entry[@key='site']/text())/e:entry[@key='CERTIFIED']/text()</attribute-create>
+                    <attribute-create out="downtime_site">find($OPSCORE_downtime_ongoing,../e:entry[@key='site']/text())</attribute-create>
                 </element>
             </element>
 
+
             <element in="e:entries">
-                <element-ignore in="e:entries" if="@production!=1 or @certified!=1"/>
+                <element-ignore in="e:entries" if="@production!=1 or @certified!=1 or @downtime_site!=''"/>
             </element>
         </processors>
 
