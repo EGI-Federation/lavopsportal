@@ -24,12 +24,26 @@
         <cache type="FileCache">
             <trigger type="ViewNotifiedTrigger"></trigger>
             <trigger type="DeltaTimeTrigger">
-                <parameter name="seconds">3000</parameter>
+                <parameter name="seconds">120</parameter>
             </trigger>
             <trigger type="ViewCreatedTrigger"/>
         </cache>
     </view>
 
+
+<view name="projectDetails">
+    <variable name="access_token" eval="view('getAccessToken')/object/access_token/text()"></variable>
+    <connector type="HTTPConnector">
+        <parameter name="url">https://acc.devel.argo.grnet.gr/accounting-system/projects/101017452</parameter>
+        <parameter name="method">GET</parameter>
+        <parameter name="header">
+            <entry key="Content-Type">application/json</entry>
+            <entry key="Authorization" eval="concat('Bearer ',$access_token)"></entry>
+
+        </parameter>
+    </connector>
+    <serializer type="JSONStreamSerializer"/>
+</view>
 
 
 
@@ -37,7 +51,7 @@
 
         <variable name="access_token" eval="view('getAccessToken')/object/access_token/text()"></variable>
         <connector type="HTTPConnector">
-            <parameter name="url">https://acc.devel.argo.grnet.gr/accounting-system/projects?size=1500</parameter>
+            <parameter name="url">https://acc.devel.argo.grnet.gr/accounting-system/projects</parameter>
             <parameter name="method">GET</parameter>
             <parameter name="header">
                 <entry key="Content-Type">application/json</entry>
@@ -76,6 +90,13 @@
             </element>
 
         </processors>
+
+        <cache type="FileCache">
+            <trigger type="ViewNotifiedTrigger"></trigger>
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="minutes">10</parameter>
+            </trigger>
+        </cache>
     </view>
 
     <view name="listProviders">
@@ -108,7 +129,12 @@
 
         </processors>
 
-
+        <cache type="FileCache">
+            <trigger type="ViewNotifiedTrigger"></trigger>
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="minutes">6</parameter>
+            </trigger>
+        </cache>
     </view>
 
 
@@ -128,11 +154,11 @@
     </view>
 
 
-    <view name="listDef">
+    <view name="listClients">
 
         <variable name="access_token" eval="view('getAccessToken')/object/access_token/text()"></variable>
         <connector type="HTTPConnector">
-            <parameter name="url">https://acc.devel.argo.grnet.gr/accounting-system/metric-definitions</parameter>
+            <parameter name="url">https://acc.devel.argo.grnet.gr/accounting-system/clients</parameter>
             <parameter name="method">GET</parameter>
             <parameter name="header">
                 <entry key="Content-Type">application/json</entry>
@@ -159,7 +185,7 @@
             <parameter name="method">POST</parameter>
             <parameter name="header">
                 <entry key="Content-Type">application/json</entry>
-                <entry key="Authorization" eval="concat('Bearer',$access_token)"></entry>
+                <entry key="Authorization" eval="concat('Bearer ',$access_token)"></entry>
             </parameter>
 
             <parameter name="post" eval="concat( '{'
@@ -218,7 +244,7 @@
             <parameter name="method">DELETE</parameter>
             <parameter name="header">
                 <entry key="Content-Type">application/json</entry>
-                <entry key="Authorization" eval="concat('Bearer',$access_token)"></entry>
+                <entry key="Authorization" eval="concat('Bearer ',$access_token)"></entry>
 
             </parameter>
             <fallback eval="new_element('code','409')|new_element('message','The Metric Definition cannot be deleted. There is a Metric assigned to it.')">
@@ -276,7 +302,7 @@
             <parameter name="method">GET</parameter>
             <parameter name="header">
                 <entry key="Content-Type">application/json</entry>
-                <entry key="Authorization" eval="concat('Bearer',$access_token)"></entry>
+                <entry key="Authorization" eval="concat('Bearer ',$access_token)"></entry>
 
             </parameter>
         </connector>
@@ -313,7 +339,53 @@
             <parameter name="method">GET</parameter>
             <parameter name="header">
                 <entry key="Content-Type">application/json</entry>
-                <entry key="Authorization" eval="concat('Bearer',$access_token)"></entry>
+                <entry key="Authorization" eval="concat('Bearer ',$access_token)"></entry>
+
+            </parameter>
+        </connector>
+
+        <serializer type="JSONStreamSerializer"></serializer>
+
+        <processors>
+            <element in="object" out="e:entries">
+                <element-ignore in="content">
+                    <element in="object" out="e:entries">
+                        <attribute-create out="key">../id/text()</attribute-create>
+                        <element-ignore>
+                            <element-create>
+                                entry(local-name(current()/..),current()/../text())
+                            </element-create>
+                        </element-ignore>
+
+                    </element>
+                    <element-ignore/>
+                </element-ignore>
+            </element>
+
+            <element in="e:entries">
+                <element in="e:entries"/>
+                <element-ignore/>
+            </element>
+
+        </processors>
+
+
+    </view>
+
+
+    <view name="listMetricsbyProject"   xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+
+        <argument name="projectId">101017452</argument>
+
+        <variable name="url" eval="concat('https://acc.devel.argo.grnet.gr/accounting-system/projects/',$projectId,'/metrics?size=100')"/>
+        <variable name="access_token" eval="view('getAccessToken')/object/access_token/text()"></variable>
+
+        <connector type="HTTPConnector">
+            <parameter name="url" eval="$url"></parameter>
+            <parameter name="method">GET</parameter>
+            <parameter name="header">
+                <entry key="Content-Type">application/json</entry>
+                <entry key="Authorization" eval="concat('Bearer ',$access_token)"></entry>
 
             </parameter>
         </connector>
@@ -355,7 +427,7 @@
             <parameter name="method">GET</parameter>
             <parameter name="header">
                 <entry key="Content-Type">application/json</entry>
-                <entry key="Authorization" eval="concat('Bearer',$access_token)"></entry>
+                <entry key="Authorization" eval="concat('Bearer ',$access_token)"></entry>
 
             </parameter>
         </connector>
