@@ -251,7 +251,7 @@
       <recent name="$PROJECT_DIR$/etc/app/resources/xsl" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Start Lavoisier server">
+  <component name="RunManager" selected="Application.Run">
     <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
@@ -270,7 +270,7 @@
     <configuration name="Run" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="fr.in2p3.lavoisier.command.StandaloneExec" />
       <module name="lavopsportal" />
-      <option name="PROGRAM_PARAMETERS" value="listProjects?nbsteps=999&amp;accept=xml" />
+      <option name="PROGRAM_PARAMETERS" value="getAccessToken?nbsteps=999&amp;accept=xml" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -501,7 +501,11 @@
       <workItem from="1655115951738" duration="1578000" />
       <workItem from="1655277822791" duration="12000" />
       <workItem from="1656427847831" duration="699000" />
-      <workItem from="1658240001991" duration="17599000" />
+      <workItem from="1658240001991" duration="17990000" />
+      <workItem from="1658390347221" duration="6000" />
+      <workItem from="1658392505375" duration="4068000" />
+      <workItem from="1658475014336" duration="1107000" />
+      <workItem from="1658477177120" duration="2070000" />
     </task>
     <task id="LOCAL-00075" summary="filtre tickets">
       <created>1536755736442</created>

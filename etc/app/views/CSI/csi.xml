@@ -915,18 +915,32 @@
 
             <element in="e:entries">
                 <set variable="OPSCORE_sites_info" index="@key">uniq(view('OPSCORE_sites_info')/e:entries/e:entries,"@key")</set>
-                <set variable="OPSCORE_downtime_ongoing" index="text()">view('OPSCORE_downtime_ongoing')/e:entries/e:entry/e:entry[@key='HOSTED_BY']</set>
+                <set variable="OPSCORE_downtime_ongoing">view('OPSCORE_downtime_ongoing')</set>
                 <element in="e:entries">
                     <attribute-create out="production">find($OPSCORE_sites_info,../e:entry[@key='site']/text())/e:entry[@key='PRODUCTION']/text()</attribute-create>
                     <attribute-create out="certified">find($OPSCORE_sites_info,../e:entry[@key='site']/text())/e:entry[@key='CERTIFIED']/text()</attribute-create>
-                    <attribute-create out="downtime_site">find($OPSCORE_downtime_ongoing,../e:entry[@key='site']/text())</attribute-create>
+                    <attribute-create out="downtime_endpoints">str:concat($OPSCORE_downtime_ongoing/e:entries/e:entry[e:entry[@key='HOSTED_BY']/text()=current()/../e:entry[@key='site']/text()]/e:entries[@key='ENDPOINTS']/e:entry/text())</attribute-create>
                 </element>
             </element>
 
 
             <element in="e:entries">
-                <element-ignore in="e:entries" if="@production!=1 or @certified!=1 or @downtime_site!=''"/>
+                <element in="e:entries" if="@downtime_endpoints!=''">
+                    <attribute-ignore in="downtime_endpoints"/>
+                    <attribute-create out="downtime">starts-with(../@downtime_endpoints,current()/../e:entry[@key='host_name']/text())</attribute-create>
+                </element>
+                <element in="e:entries" if="@downtime_endpoints=''">
+                    <attribute-ignore in="downtime_endpoints"/>
+                    <attribute-create out="downtime">0</attribute-create>
+                </element>
             </element>
+
+
+
+            <element in="e:entries">
+                <element-ignore in="e:entries" if="@production!=1 or @certified!=1 or @downtime='true'"/>
+            </element>
+
         </processors>
 
         <renderers>

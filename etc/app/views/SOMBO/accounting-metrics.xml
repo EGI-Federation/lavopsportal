@@ -5,16 +5,18 @@
         File    : accounting-metrics.xml
         Created by cyril on 2022/02/17 
     -->
+
     <view name="getAccessToken" authenticators="admin">
         <variable name="client-id" eval="property('acc-client-id')"></variable>
-        <variable name="client-secret" eval="property('acc-client-secret')"></variable>
+        <variable name="acc-refresh_token" eval="property('acc-refresh_token')"></variable>
 
         <connector type="HTTPConnector">
-            <parameter name="url" eval="property('acc-url')"/>
+            <parameter name="url" eval="concat('https://',property('acc-client-id'),':',property('acc-client-pwd'),'@',property('acc-url'))"/>
             <parameter name="header">
                 <entry key="Content-Type">application/x-www-form-urlencoded</entry>
+
             </parameter>
-            <parameter name="post" eval="concat('client_id=',$client-id,'&amp;client_secret=',$client-secret,'&amp;grant_type=client_credentials')"/>
+            <parameter name="post" eval="concat('client_id=',$client-id,'&amp;grant_type=refresh_token&amp;refresh_token=',$acc-refresh_token,'&amp;scope=openid%20email%20profile%20voperson_id%20eduperson_entitlement')"/>
         </connector>
 
         <serializer type="JSONStreamSerializer"></serializer>
@@ -22,71 +24,18 @@
         <cache type="FileCache">
             <trigger type="ViewNotifiedTrigger"></trigger>
             <trigger type="DeltaTimeTrigger">
-                <parameter name="seconds">250</parameter>
-            </trigger>
-            <trigger type="ViewCreatedTrigger"/>
-        </cache>
-    </view>
-
-    <view name="getAAIToken" authenticators="admin">
-        <variable name="client-id" eval="property('opsportal-aai-id')"></variable>
-        <variable name="client-secret" eval="property('opsportal-aai-secret')"></variable>
-
-        <connector type="HTTPConnector">
-            <parameter name="url" eval="property('opsportal-aai-endpoint')"/>
-            <parameter name="header">
-                <entry key="Content-Type">application/x-www-form-urlencoded</entry>
-            </parameter>
-            <parameter name="post" eval="concat('client_id=',$client-id,'&amp;scope=openid%20email%20profile')"/>
-        </connector>
-
-        <serializer type="EncapsulateSerializer"></serializer>
-
-        <cache type="FileCache">
-            <trigger type="ViewNotifiedTrigger"></trigger>
-            <trigger type="DeltaTimeTrigger">
-                <parameter name="seconds">250</parameter>
+                <parameter name="seconds">3000</parameter>
             </trigger>
             <trigger type="ViewCreatedTrigger"/>
         </cache>
     </view>
 
 
-    <view name="loginAAI" authenticators="aai">
 
-        <connector type="XMLConnector">
-            <parameter name="content" eval="new_element('root')"/>
-        </connector>
-
-        <processors>
-            <element in="root">
-                <element-create>entry('token',user('token'))</element-create>
-                <element-create>view('userInfo', entry('token',user('token')))</element-create>
-            </element>
-
-        </processors>
-
-        <renderers>
-            <renderer type="HTMLRenderer">
-                <parameter name="template">app/html/profile.html</parameter>
-            </renderer>
-        </renderers>
-
-    </view>
-
-    <view name="userInfo">
-        <argument name="token"/>
-        <connector type="HTTPConnector">
-            <parameter name="url" eval="concat(property('egi.oidc.userInfo'),$token)"/>
-            <parameter name="certificate" eval="property('certificate.path')"/>
-            <parameter name="passphrase" eval="property('certificate.password')"/>
-        </connector>
-        <serializer type="JSONStreamSerializer"/>
-    </view>
 
     <view name="listProjects">
 
-        <variable name="access_token">eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJiRy1TUERFRU9hempOQzVDY0hQZ3k3Q2lzVmlhQ1AzeXpmemh3b0RIcnV3In0.eyJleHAiOjE2NTgzMjgwNzAsImlhdCI6MTY1ODMyNDQ3MCwianRpIjoiMmRhYzdjNzktOTczMy00MzFhLWE2MDktM2JkOGE0ZDlmYjFjIiwiaXNzIjoiaHR0cHM6Ly9sb2dpbi1kZXZlbC5laW5mcmEuZ3JuZXQuZ3IvYXV0aC9yZWFsbXMvZWluZnJhIiwic3ViIjoiZGNiOGFhZTUtZDFhNi00NGNhLTg4MzgtMzIxYzdhYWZhZmRkIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiZW9zYy1vcGVyYXRpb25zLXBvcnRhbCIsImFjciI6IjEiLCJzY29wZSI6ImFhcmMgdm9wZXJzb25faWQgYWNjb3VudGluZy1zeXN0ZW0iLCJ2b3BlcnNvbl9pZCI6ImVvc2Mtb3BlcmF0aW9ucy1wb3J0YWxAZWluZnJhLmdybmV0LmdyIiwiY2xpZW50SWQiOiJlb3NjLW9wZXJhdGlvbnMtcG9ydGFsIiwiY2xpZW50SG9zdCI6IjEzNC4xNTguMjMxLjI4Iiwicm9sZXMiOlsibWV0cmljX2luc3BlY3RvciIsIm1ldHJpY19kZWZpbml0aW9uX2luc3BlY3RvciJdLCJjbGllbnRBZGRyZXNzIjoiMTM0LjE1OC4yMzEuMjgifQ.MzOD9wQY3i5lDcWsO5UbUqXDUbiVGXr4GnnBR0EN5QAh40LLOvMfFJ09zDkktgKjbHJKXUL7wWX2m2fzz-M1CJZmIEQN5aM2XMU-AVwC-xyFb_G23g2_vnQEESeTeLgqm7MEDj3JJuxXZGFdJ2OGu3DllWPtRs73aZA2eztCg_NuAV7B5K4p2yv7MOhAb1h_RqEJuGp-qT6g9_6cgauKRm4rMfiQ9D3E31KIJTB4qHVgKxxiPJ7KMgl4XSzQMIa9oz0d2WNKOZA_fcRcJLN-tOGGfgrEgBm59t7-YZ5AvYqJ_nOZp6_eaSBMX2c7ey-CJ8XeoCKwYphlyuYSeyHajw</variable>
+        <variable name="access_token" eval="view('getAccessToken')/object/access_token/text()"></variable>
         <connector type="HTTPConnector">
             <parameter name="url">https://acc.devel.argo.grnet.gr/accounting-system/projects</parameter>
             <parameter name="method">GET</parameter>
@@ -103,8 +52,7 @@
 
     <view name="registerClient">
 
-        <variable name="access_token">eyJraWQiOiJvaWRjIiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiI0NmQ5OTc3NzI2ZTU5ZjkzYmJkMzhlMTBiMmMwOGZhOGY3ZjJiNTQxZWYxYzY2YmFiMjc3OTYwZTFmODU2NGY0QGVnaS5ldSIsImF6cCI6ImUyYjQ0ZDY3LTE3NGMtNDAxYy05Y2FmLTJiZDUzYTRlMDU1YSIsImlzcyI6Imh0dHBzOlwvXC9hYWktZGVtby5lb3NjLXBvcnRhbC5ldVwvb2lkY1wvIiwiZXhwIjoxNjU4MzA4NjA1LCJpYXQiOjE2NTgzMDUwMDUsImp0aSI6IjliNjQ5MjlmLTEyMWItNDU1MS05NDVlLWQyM2VjMWNhZDc0YyJ9.AV6-KPsK_tO_8wJWEm2RLPdt_P3neqP7TM8BecOnBbRpI2_Fnh9xcD9H1liyku4Xxr5sWgCkPJp2_pc84xMoJ1Q92ED82CS3XL6fDItZfbbbOGhuyrkdPCYQyiEcv2249nYC2p6tfU1vvzeWi3O_xce8PsTvWGc09lYr7hXNvHt8gNFXA91Okhbmt1ljuNmoNZSQ282YJ_yoP8IWtZ86yxrpZQV82hqN0TCGuNIiElRiE1VgFl4u1oNbYGm786w9MW6VUB8WVKB0JWzdvmEJKiFOD-D0HaKCGuIQEj5zfl2uAi1WN9BgEzxN7JcygQ5XZGGHIaXdL8rBGnBkEQH50g</variable>
-        <connector type="HTTPConnector">
+        <variable name="access_token" eval="view('getAccessToken')/object/access_token/text()"></variable>        <connector type="HTTPConnector">
             <parameter name="url">https://acc.devel.argo.grnet.gr/accounting-system/clients</parameter>
             <parameter name="method">POST</parameter>
             <parameter name="header">
@@ -119,13 +67,8 @@
 
 
     <view name="listDef">
-  <!--
-  <object>
-    <voperson_id>46d9977726e59f93bbd38e10b2c08fa8f7f2b541ef1c66bab277960e1f8564f4@egi.eu</voperson_id>
-    <name>Cyril Lorphelin</name>
-    <email>cyril.lorphelin@cc.in2p3.fr</email>
-</object>-->
-        <variable name="access_token">eyJraWQiOiJvaWRjIiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiI0NmQ5OTc3NzI2ZTU5ZjkzYmJkMzhlMTBiMmMwOGZhOGY3ZjJiNTQxZWYxYzY2YmFiMjc3OTYwZTFmODU2NGY0QGVnaS5ldSIsImF6cCI6ImUyYjQ0ZDY3LTE3NGMtNDAxYy05Y2FmLTJiZDUzYTRlMDU1YSIsImlzcyI6Imh0dHBzOlwvXC9hYWktZGVtby5lb3NjLXBvcnRhbC5ldVwvb2lkY1wvIiwiZXhwIjoxNjU4MzA4NjA1LCJpYXQiOjE2NTgzMDUwMDUsImp0aSI6IjliNjQ5MjlmLTEyMWItNDU1MS05NDVlLWQyM2VjMWNhZDc0YyJ9.AV6-KPsK_tO_8wJWEm2RLPdt_P3neqP7TM8BecOnBbRpI2_Fnh9xcD9H1liyku4Xxr5sWgCkPJp2_pc84xMoJ1Q92ED82CS3XL6fDItZfbbbOGhuyrkdPCYQyiEcv2249nYC2p6tfU1vvzeWi3O_xce8PsTvWGc09lYr7hXNvHt8gNFXA91Okhbmt1ljuNmoNZSQ282YJ_yoP8IWtZ86yxrpZQV82hqN0TCGuNIiElRiE1VgFl4u1oNbYGm786w9MW6VUB8WVKB0JWzdvmEJKiFOD-D0HaKCGuIQEj5zfl2uAi1WN9BgEzxN7JcygQ5XZGGHIaXdL8rBGnBkEQH50g</variable>
+
+        <variable name="access_token" eval="view('getAccessToken')/object/access_token/text()"></variable>
         <connector type="HTTPConnector">
             <parameter name="url">https://acc.devel.argo.grnet.gr/accounting-system/metric-definitions</parameter>
             <parameter name="method">GET</parameter>
@@ -227,10 +170,7 @@
     </view>
 
     <view name="listMetricDefinition">
-<!--        <variable name="access_token" eval="view('getAccessToken')/object/access_token/text()"></variable>-->
-<!--        <variable name="access_token">eyJraWQiOiJvaWRjIiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiI0NmQ5OTc3NzI2ZTU5ZjkzYmJkMzhlMTBiMmMwOGZhOGY3ZjJiNTQxZWYxYzY2YmFiMjc3OTYwZTFmODU2NGY0QGVnaS5ldSIsImF6cCI6ImUyYjQ0ZDY3LTE3NGMtNDAxYy05Y2FmLTJiZDUzYTRlMDU1YSIsImlzcyI6Imh0dHBzOlwvXC9hYWktZGVtby5lb3NjLXBvcnRhbC5ldVwvb2lkY1wvIiwiZXhwIjoxNjU4MjQ1NDU2LCJpYXQiOjE2NTgyNDE4NTYsImp0aSI6IjQ2MDg0NGYxLWRkZDEtNDZjMS04NWEwLTRkZjAyOGNiZTVjNSJ9.M1rhz8BVKFqokdnLtqb5Ty1zVbOINhhiXeDeDBK-A7Gf-h2BxkI8ZxlUtuDpyVE7UigutwFQRHTqejOxZqr-X_nauTn2ooRRWAH7XGy2kkiNyiN5kZU-VxApj4O9A44sMx3OZwWZBMWLwtXCzOS4_RGR3f87t96TKqubit2OiVtSiOzWOgPTqDHEuOVi2vvI-_V2VT9qHXo_sw3OfoEHK22m4nMN6HmsfRi05Hv0vPpyBwDHcQMIqwHIc_JItuC7r8hZbUPqtJE9BIpv5TLuZiOArpR044XEpTFwtNwFJtN9E4j9Bkss6eLU4IpQkyqf8zhgVk7_I_YLLR_RmqbPLw</variable>-->
-        <variable name="access_token">eyJraWQiOiJvaWRjIiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiI0NmQ5OTc3NzI2ZTU5ZjkzYmJkMzhlMTBiMmMwOGZhOGY3ZjJiNTQxZWYxYzY2YmFiMjc3OTYwZTFmODU2NGY0QGVnaS5ldSIsImF6cCI6ImUyYjQ0ZDY3LTE3NGMtNDAxYy05Y2FmLTJiZDUzYTRlMDU1YSIsImlzcyI6Imh0dHBzOlwvXC9hYWktZGVtby5lb3NjLXBvcnRhbC5ldVwvb2lkY1wvIiwiZXhwIjoxNjU4MzA4NjA1LCJpYXQiOjE2NTgzMDUwMDUsImp0aSI6IjliNjQ5MjlmLTEyMWItNDU1MS05NDVlLWQyM2VjMWNhZDc0YyJ9.AV6-KPsK_tO_8wJWEm2RLPdt_P3neqP7TM8BecOnBbRpI2_Fnh9xcD9H1liyku4Xxr5sWgCkPJp2_pc84xMoJ1Q92ED82CS3XL6fDItZfbbbOGhuyrkdPCYQyiEcv2249nYC2p6tfU1vvzeWi3O_xce8PsTvWGc09lYr7hXNvHt8gNFXA91Okhbmt1ljuNmoNZSQ282YJ_yoP8IWtZ86yxrpZQV82hqN0TCGuNIiElRiE1VgFl4u1oNbYGm786w9MW6VUB8WVKB0JWzdvmEJKiFOD-D0HaKCGuIQEj5zfl2uAi1WN9BgEzxN7JcygQ5XZGGHIaXdL8rBGnBkEQH50g</variable>
-
+        <variable name="access_token" eval="view('getAccessToken')/object/access_token/text()"></variable>
         <connector type="HTTPConnector">
             <parameter name="url">https://acc.devel.argo.grnet.gr/accounting-system/metric-definitions</parameter>
             <parameter name="method">GET</parameter>
