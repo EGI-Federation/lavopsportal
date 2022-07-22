@@ -272,7 +272,8 @@
         <serializer type="JSONStreamSerializer"></serializer>
 
         <processors>
-            <element in="item" out="e:entries">
+            <element in="object" out="e:entries">
+                <element-ignore>
                 <element in="object" out="e:entries">
                     <attribute-create out="key">../metric_definition_id/text()</attribute-create>
                     <element-ignore>
@@ -281,6 +282,7 @@
                         </element-create>
                     </element-ignore>
                 </element>
+                </element-ignore>
 
             </element>
         </processors>
