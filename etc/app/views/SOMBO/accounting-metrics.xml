@@ -192,6 +192,38 @@
 
     </view>
 
+    <view name="publishProject">
+        <argument name="id">5564</argument>
+        <argument name="acronym">EOSC API</argument>
+        <argument name="title">EOSC API project</argument>
+        <argument name="start_date">2021-01-01</argument>
+        <argument name="end_date">2023-12-31</argument>
+        <argument name="call_identifier">2020-EINFRA-2022</argument>
+
+        <variable name="access_token" eval="view('getAccessToken')/object/access_token/text()"></variable>
+
+        <connector type="HTTPConnector">
+            <parameter name="url" eval="concat('https://acc.devel.argo.grnet.gr/accounting-system/projects/',$id)"/>
+            <parameter name="method">POST</parameter>
+            <parameter name="header">
+                <entry key="Content-Type">application/json</entry>
+                <entry key="Authorization" eval="concat('Bearer ',$access_token)"></entry>
+            </parameter>
+
+            <parameter name="post" eval="concat( '{'
+            , quot('id'), ': ',quot($id),','
+            , quot('acronym'), ': ',quot($acronym),','
+              , quot('title'), ': ',quot($title),','
+            , quot('start_date'), ': ',quot($start_date),','
+             , quot('end_date'), ': ',quot($end_date),','
+            , quot('call_identifier'), ': ',quot($call_identifier)
+            ,'}')"/>
+        </connector>
+
+        <serializer type="JSONStreamSerializer"></serializer>
+
+    </view>
+
     <view name="publishProvider">
         <argument name="id">provider_id</argument>
         <argument name="name">provider_name</argument>
