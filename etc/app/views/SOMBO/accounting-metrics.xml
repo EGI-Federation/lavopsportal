@@ -6,6 +6,9 @@
         Created by cyril on 2022/02/17 
     -->
 
+<!--    https://acc.devel.argo.grnet.gr/swagger-ui/-->
+
+
     <view name="getAccessToken" authenticators="admin">
         <variable name="client-id" eval="property('acc-client-id')"></variable>
         <variable name="acc-refresh_token" eval="property('acc-refresh_token')"></variable>
@@ -138,6 +141,25 @@
     </view>
 
 
+    <view name="listroles">
+
+        <variable name="access_token" eval="view('getAccessToken')/object/access_token/text()"></variable>
+
+
+        <connector type="HTTPConnector">
+            <parameter name="url">https://acc.devel.argo.grnet.gr/accounting-system/roles</parameter>
+            <parameter name="method">GET</parameter>
+            <parameter name="header">
+                <entry key="Content-Type">application/json</entry>
+                <entry key="Authorization" eval="concat('Bearer ',$access_token)"></entry>
+
+            </parameter>
+        </connector>
+        <serializer type="JSONStreamSerializer"/>
+
+
+    </view>
+
     <view name="registerClient">
 
         <variable name="access_token" eval="view('getAccessToken')/object/access_token/text()"></variable>        <connector type="HTTPConnector">
@@ -170,6 +192,58 @@
 
     </view>
 
+    <view name="publishProvider">
+        <argument name="id">provider_id</argument>
+        <argument name="name">provider_name</argument>
+        <argument name="web_site">web_site</argument>
+        <argument name="abbreviation">abbr</argument>
+        <argument name="logo">https://eosc-portal.wip/build/images/logo_opsportal_short.png</argument>
+
+        <variable name="access_token" eval="view('getAccessToken')/object/access_token/text()"></variable>
+
+        <connector type="HTTPConnector">
+            <parameter name="url">https://acc.devel.argo.grnet.gr/accounting-system/providers</parameter>
+            <parameter name="method">POST</parameter>
+            <parameter name="header">
+                <entry key="Content-Type">application/json</entry>
+                <entry key="Authorization" eval="concat('Bearer ',$access_token)"></entry>
+            </parameter>
+
+            <parameter name="post" eval="concat( '{'
+            , quot('id'), ': ',quot($id),','
+            , quot('name'), ': ',quot($name),','
+              , quot('website'), ': ',quot($website),','
+            , quot('abbreviation'), ': ',quot($abbreviation),','
+            , quot('logo'), ': ',quot($logo)
+            ,'}')"/>
+        </connector>
+
+        <serializer type="JSONStreamSerializer"></serializer>
+
+    </view>
+
+    <view name="deleteProvider">
+        <argument name="provider_id">provider_id</argument>
+        <variable name="access_token" eval="view('getAccessToken')/object/access_token/text()"></variable>
+
+        <connector type="HTTPConnector">
+
+            <parameter name="url" eval="concat('https://acc.devel.argo.grnet.gr/accounting-system/providers/',$provider_id)"/>
+            <parameter name="method">DELETE</parameter>
+            <parameter name="header">
+                <entry key="Content-Type">application/json</entry>
+                <entry key="Authorization" eval="concat('Bearer ',$access_token)"></entry>
+
+            </parameter>
+            <fallback eval="new_element('code','409')|new_element('message','The provider cannot be deleted. There is a Metric assigned to it.')">
+                <exception type="java.io.IOException" />
+            </fallback>
+
+        </connector>
+
+        <serializer type="JSONStreamSerializer"></serializer>
+
+    </view>
 
 
     <view name="publishMetricDefinition">
@@ -330,49 +404,6 @@
         </cache>
     </view>
 
-    <view name="listMetricsbyId"   xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
-
-        <argument name="metricId">620a4fb0bbe46734c6bfa785</argument>
-        <variable name="url" eval="concat('https://acc.devel.argo.grnet.gr/accounting-system/metric-definitions/',$metricId,'/metrics?size=100')"/>
-        <variable name="access_token" eval="view('getAccessToken')/object/access_token/text()"></variable>
-
-        <connector type="HTTPConnector">
-            <parameter name="url" eval="$url"></parameter>
-            <parameter name="method">GET</parameter>
-            <parameter name="header">
-                <entry key="Content-Type">application/json</entry>
-                <entry key="Authorization" eval="concat('Bearer ',$access_token)"></entry>
-
-            </parameter>
-        </connector>
-
-        <serializer type="JSONStreamSerializer"></serializer>
-
-        <processors>
-            <element in="object" out="e:entries">
-                <element-ignore in="content">
-                    <element in="object" out="e:entries">
-                        <attribute-create out="key">../id/text()</attribute-create>
-                        <element-ignore>
-                            <element-create>
-                                entry(local-name(current()/..),current()/../text())
-                            </element-create>
-                        </element-ignore>
-
-                    </element>
-                    <element-ignore/>
-                </element-ignore>
-            </element>
-
-            <element in="e:entries">
-                <element in="e:entries"/>
-                <element-ignore/>
-            </element>
-
-        </processors>
-
-
-    </view>
 
 
     <view name="listMetricsbyProject"   xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
