@@ -797,11 +797,10 @@
 
         <argument name="SitesList"></argument>
 
-        <argument name="statusList">0,1</argument>
+        <argument name="statusList">0,1,2,3</argument>
         <argument name="profilesList">ARGO_MON_OPERATORS,MW_MONITOR,OPS_MONITOR</argument>
         <argument name="summary">_summary_</argument>
 
-        <argument name="FilterAssigned">false</argument>
         <argument name="production">_production_</argument>
         <argument name="certified">_certified_</argument>
 
@@ -842,7 +841,7 @@
             </elements>
 
             <elements path="e:entries">
-                <set variable="alarms">view('DASHBOARD_alarms_sec_filter',entry('FilterAssigned',$FilterAssigned)|entry('SitesListFormatted',$SitesListFormatted)|entry('statusListFormatted',$statusListFormatted))/e:entries</set>
+                <set variable="alarms">view('DASHBOARD_alarms_sec_filter',entry('SitesListFormatted',$SitesListFormatted)|entry('statusListFormatted',$statusListFormatted))/e:entries</set>
                 <set variable="avRe">view('DASHBOARD_AV_RE',entry('summary',$summary))/e:entries</set>
                 <set variable="downtimes">view('OPSCORE_downtime_ongoing')/e:entries</set>
                 <set variable="tickets">view('DASHBOARD_TICKETS')/e:entries</set>

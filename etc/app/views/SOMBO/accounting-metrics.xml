@@ -225,9 +225,9 @@
     </view>
 
     <view name="publishProvider">
-        <argument name="id">provider_id</argument>
+        <argument name="id"></argument>
         <argument name="name">provider_name</argument>
-        <argument name="web_site">web_site</argument>
+        <argument name="website">website</argument>
         <argument name="abbreviation">abbr</argument>
         <argument name="logo">https://eosc-portal.wip/build/images/logo_opsportal_short.png</argument>
 
