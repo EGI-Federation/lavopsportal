@@ -551,7 +551,7 @@
             <element in="e:entries">
                 <set variable="definition" index="@key">view('listMetricDefinition')/e:entries/e:entries</set>
                 <element in="e:entries">
-                    <element-create>find($defintion,../e:entry[@key='metric_definition_id']/text())/*</element-create>
+                    <element-create>find($definition,../e:entry[@key='metric_definition_id']/text())/*</element-create>
                 </element>
 
             </element>
