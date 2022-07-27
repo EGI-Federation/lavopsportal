@@ -250,7 +250,7 @@
       <recent name="$PROJECT_DIR$/etc/app/resources/xsl" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Start Lavoisier server">
+  <component name="RunManager" selected="Application.Run">
     <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
@@ -269,7 +269,7 @@
     <configuration name="Run" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="fr.in2p3.lavoisier.command.StandaloneExec" />
       <module name="lavopsportal" />
-      <option name="PROGRAM_PARAMETERS" value="publishProvider?nbsteps=999&amp;accept=xml" />
+      <option name="PROGRAM_PARAMETERS" value="listMetricDefinition?nbsteps=999&amp;accept=xml" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -508,6 +508,8 @@
       <workItem from="1658732117280" duration="9499000" />
       <workItem from="1658821124206" duration="877000" />
       <workItem from="1658840502288" duration="8000" />
+      <workItem from="1658842895426" duration="697000" />
+      <workItem from="1658933653699" duration="957000" />
     </task>
     <task id="LOCAL-00075" summary="filtre tickets">
       <created>1536755736442</created>

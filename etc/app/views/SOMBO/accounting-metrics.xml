@@ -31,6 +31,12 @@
             </trigger>
             <trigger type="ViewCreatedTrigger"/>
         </cache>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
     </view>
 
 
@@ -46,6 +52,11 @@
         </parameter>
     </connector>
     <serializer type="JSONStreamSerializer"/>
+    <renderers>
+        <renderer type="DefaultRenderer">
+            <parameter name="contentType">text/xml</parameter>
+        </renderer>
+    </renderers>
 </view>
 
 
@@ -100,6 +111,12 @@
                 <parameter name="minutes">10</parameter>
             </trigger>
         </cache>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
     </view>
 
     <view name="listProviders">
@@ -138,6 +155,12 @@
                 <parameter name="minutes">6</parameter>
             </trigger>
         </cache>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
     </view>
 
 
@@ -157,7 +180,11 @@
         </connector>
         <serializer type="JSONStreamSerializer"/>
 
-
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
     </view>
 
     <view name="registerClient">
@@ -172,7 +199,11 @@
             </parameter>
         </connector>
         <serializer type="JSONStreamSerializer"/>
-
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
     </view>
 
 
@@ -189,6 +220,11 @@
             </parameter>
         </connector>
         <serializer type="JSONStreamSerializer"/>
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
 
     </view>
 
@@ -221,7 +257,11 @@
         </connector>
 
         <serializer type="JSONStreamSerializer"></serializer>
-
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
     </view>
 
     <view name="publishProvider">
@@ -251,7 +291,11 @@
         </connector>
 
         <serializer type="JSONStreamSerializer"></serializer>
-
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
     </view>
 
     <view name="deleteProvider">
@@ -274,7 +318,11 @@
         </connector>
 
         <serializer type="JSONStreamSerializer"></serializer>
-
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
     </view>
 
 
@@ -303,7 +351,11 @@
         </connector>
 
         <serializer type="JSONStreamSerializer"></serializer>
-
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
     </view>
 
 
@@ -336,6 +388,11 @@
             </parameter>
         </connector>
         <serializer type="EncapsulateSerializer"></serializer>
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
     </view>
 
 
@@ -360,7 +417,11 @@
         </connector>
 
         <serializer type="JSONStreamSerializer"></serializer>
-
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
     </view>
 
     <view name="listMetricDefinition">
@@ -399,7 +460,11 @@
                 <parameter name="minutes">10</parameter>
             </trigger>
         </cache>
-
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
     </view>
 
     <view name="listMetricType">
@@ -434,6 +499,11 @@
                 <parameter name="minutes">31</parameter>
             </trigger>
         </cache>
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
     </view>
 
 
@@ -478,8 +548,20 @@
                 <element-ignore/>
             </element>
 
-        </processors>
+            <element in="e:entries">
+                <set variable="definition" index="@key">view('listMetricDefinition')/e:entries/e:entries</set>
+                <element in="e:entries">
+                    <element-create>find($defintion,../e:entry[@key='metric_definition_id']/text())/*</element-create>
+                </element>
 
+            </element>
+
+        </processors>
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
 
     </view>
 
@@ -520,6 +602,12 @@
                 <parameter name="minutes">30</parameter>
             </trigger>
         </cache>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
     </view>
 
 
