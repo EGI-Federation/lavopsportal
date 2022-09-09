@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="mo" />
+    <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="mo">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -266,7 +268,7 @@
     <configuration name="Run" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="fr.in2p3.lavoisier.command.StandaloneExec" />
       <module name="lavopsportal" />
-      <option name="PROGRAM_PARAMETERS" value="listMetricDefinition?nbsteps=999&amp;accept=xml" />
+      <option name="PROGRAM_PARAMETERS" value="OPSCORE_PORTAL_EGI_Releases?nbsteps=999&amp;accept=xml" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -506,7 +508,12 @@
       <workItem from="1658821124206" duration="877000" />
       <workItem from="1658840502288" duration="8000" />
       <workItem from="1658842895426" duration="697000" />
-      <workItem from="1658933653699" duration="1260000" />
+      <workItem from="1658933653699" duration="1671000" />
+      <workItem from="1658989736953" duration="751000" />
+      <workItem from="1658998290145" duration="8000" />
+      <workItem from="1662384891943" duration="12000" />
+      <workItem from="1662464237919" duration="63000" />
+      <workItem from="1662707650863" duration="798000" />
     </task>
     <task id="LOCAL-00075" summary="filtre tickets">
       <created>1536755736442</created>

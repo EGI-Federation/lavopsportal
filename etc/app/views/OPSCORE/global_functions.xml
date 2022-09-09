@@ -594,7 +594,7 @@
     <view name="OPSCORE_PORTAL_EOSC_Releases"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
 
         <connector type="HTTPConnector">
-            <parameter name="url">https://gitlab.in2p3.fr/api/v4/projects/11614/issues?scope=all</parameter>
+            <parameter name="url">https://gitlab.in2p3.fr/api/v4/projects/11614/issues?scope=all&amp;per_page=100</parameter>
             <parameter name="method">GET</parameter>
             <parameter name="header" eval="concat('PRIVATE-TOKEN: ',property('gitlab-eosc.token'))"/>
         </connector>
@@ -666,7 +666,7 @@
 
 
         <connector type="HTTPConnector">
-            <parameter name="url">https://gitlab.in2p3.fr/api/v4/projects/1357/issues?scope=all</parameter>
+            <parameter name="url">https://gitlab.in2p3.fr/api/v4/projects/1357/issues?scope=all&amp;per_page=100</parameter>
             <parameter name="method">GET</parameter>
             <parameter name="header" eval="concat('PRIVATE-TOKEN: ',property('gitlab.token'))"/>
         </connector>
