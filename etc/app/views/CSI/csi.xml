@@ -341,7 +341,7 @@
                 <element in="servicestatus" out="Issue" if="$CsiNagiosProbes/service[@name=current()/service_description/text()]">
                     <element-create>new_element('friendly_name',new_text($CsiNagiosProbes/service[@name=current()/../service_description/text()]/@friendly_name))</element-create>
                     <element-create>new_element('description',new_text($CsiNagiosProbes/service[@name=current()/service_description/text()]/@description))</element-create>
-                    <element-create>new_element('urltohelp','https://wiki.egi.eu/wiki/EGI_CSIRT:SMG#Monitoring_probe')</element-create>
+                    <element-create>new_element('urltohelp','https://confluence.egi.eu/display/EGIBG/CSIRT+SMG')</element-create>
                     <element-create>new_element('cod','false')</element-create>
                 </element>
                 <element-ignore/>
