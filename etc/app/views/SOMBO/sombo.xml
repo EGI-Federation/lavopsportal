@@ -15,7 +15,7 @@
 
     </view>
 
-    <view name="marketplace.services" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+    <view name="marketplace.services" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" xmlns:str="http://exslt.org/strings">
         <connector type="FileConnector">
             <parameter name="path">/app/resources/xml/listServices.xml</parameter>
         </connector>
@@ -26,16 +26,26 @@
                     <element-create>view('marketplace.services.provider',entry('providerId',../@id))</element-create>
                 </element>
             </element>
+
             <element in="e:entries">
                 <element in="e:entries">
                     <element-ignore in="e:entries">
                         <element in="e:entries">
-                            <attribute-create out="key">../text()</attribute-create>
+                            <text-ignore if="normalize-space(.)=''"/>
                         </element>
-
                     </element-ignore>
                 </element>
             </element>
+
+            <element in="e:entries">
+                <element in="e:entries">
+                        <element in="e:entries">
+                            <attribute-create out="key">../text()</attribute-create>
+                        </element>
+                </element>
+            </element>
+
+
 
         </processors>
 

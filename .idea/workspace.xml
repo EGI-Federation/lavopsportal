@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="mo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/app/views/SOMBO/sombo.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/SOMBO/sombo.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -249,7 +250,7 @@
       <recent name="$PROJECT_DIR$/etc/app/resources/xsl" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Run with arguments">
+  <component name="RunManager" selected="Application.Run">
     <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
@@ -268,7 +269,7 @@
     <configuration name="Run" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="fr.in2p3.lavoisier.command.StandaloneExec" />
       <module name="lavopsportal" />
-      <option name="PROGRAM_PARAMETERS" value="OPSCORE_PORTAL_EGI_Releases?nbsteps=999&amp;accept=xml" />
+      <option name="PROGRAM_PARAMETERS" value="marketplace.services?nbsteps=999&amp;accept=xml" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -518,7 +519,7 @@
       <workItem from="1662966341001" duration="7000" />
       <workItem from="1663055331383" duration="193000" />
       <workItem from="1663058401070" duration="6000" />
-      <workItem from="1663242928400" duration="1067000" />
+      <workItem from="1663242928400" duration="3817000" />
     </task>
     <task id="LOCAL-00075" summary="filtre tickets">
       <created>1536755736442</created>
