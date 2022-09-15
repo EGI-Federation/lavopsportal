@@ -249,7 +249,7 @@
       <recent name="$PROJECT_DIR$/etc/app/resources/xsl" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Run">
+  <component name="RunManager" selected="Application.Run with arguments">
     <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
@@ -259,7 +259,7 @@
     <configuration name="Run with arguments" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="fr.in2p3.lavoisier.command.StandaloneExec" />
       <module name="lavopsportal" />
-      <option name="PROGRAM_PARAMETERS" value="Voms_Users_Connector_2?nbsteps=2&amp;voms_url=https://grid-voms.desy.de:8443/voms/belle/apiv2/users?pageSize=4500&amp;accept=xml" />
+      <option name="PROGRAM_PARAMETERS" value="marketplace.services.provider?nbsteps=999&amp;providerId=69&amp;accept=xml" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -516,6 +516,9 @@
       <workItem from="1662707650863" duration="1935000" />
       <workItem from="1662964775650" duration="925000" />
       <workItem from="1662966341001" duration="7000" />
+      <workItem from="1663055331383" duration="193000" />
+      <workItem from="1663058401070" duration="6000" />
+      <workItem from="1663242928400" duration="1067000" />
     </task>
     <task id="LOCAL-00075" summary="filtre tickets">
       <created>1536755736442</created>
