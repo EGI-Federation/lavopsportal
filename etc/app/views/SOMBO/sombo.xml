@@ -701,9 +701,10 @@
         <argument name="startDate"/>
         <argument name="endDate"/>
         <argument name="status">_status_</argument>
+        <argument name="soTest">_false_</argument>
 
         <connector type="XMLConnector">
-            <parameter name="content" eval="view('JiraSOList')"/>
+            <parameter name="content" eval="view('JiraSOList', entry('soTest',$soTest))"/>
         </connector>
 
         <processors>
@@ -1015,6 +1016,8 @@
     <view name="JiraSOList" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
 
         <argument name="tenant">eosc</argument>
+        <argument name="soTest">_false_</argument>
+
 
         <connector type="XMLConnector">
             <parameter name="content" eval="choose($tenant='eosc',view('JiraSOListRaw'),view('JiraSOListRaw_egi'))"/>
@@ -1045,6 +1048,14 @@
                 <element-ignore in="e:entries" if="@key='New'"/>
                 <element-create as="first-child">../e:entries[@key='New']</element-create>
             </element>
+
+            <element in="e:entries" if="$soTest!='_false_'">
+                <element in="e:entries">
+                    <element-ignore in="e:entries" if="e:entry[@key='Test']='Yes' or e:entry[@key='Epic_Test']='Yes'"/>
+                </element>
+            </element>
+
+
         </processors>
 
         <renderers>
@@ -1216,10 +1227,12 @@
 
       <argument name="startDate">_start_</argument>
       <argument name="endDate">_end_</argument>
+        <argument name="soTest">_false_</argument>
 
       <connector type="XMLConnector">
-          <parameter name="content" eval="choose($startDate!='_start_',view('JiraSOListDate',entry('startDate',$startDate)|entry('endDate',$endDate)),view('JiraSOList'))"/>
+          <parameter name="content" eval="choose($startDate!='_start_',view('JiraSOListDate',entry('startDate',$startDate)|entry('endDate',$endDate)|entry('soTest',$soTest)),view('JiraSOList',entry('soTest',$soTest)))"/>
       </connector>
+
 
       <processors>
           <element in="e:entries">
