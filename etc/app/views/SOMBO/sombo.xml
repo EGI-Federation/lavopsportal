@@ -1035,6 +1035,12 @@
                 </element-create-as-parent>
             </element>
 
+            <element in="e:entries" if="$soTest!='_false_'">
+                <element in="e:entries">
+                    <element-ignore in="e:entries" if="e:entry[@key='Test']='Yes' or e:entry[@key='Epic_Test']='Yes'"/>
+                </element>
+            </element>
+
             <element in="e:entries">
                 <element in="e:entries">
                     <attribute-create out="count">count(../e:entries)</attribute-create>
@@ -1049,11 +1055,7 @@
                 <element-create as="first-child">../e:entries[@key='New']</element-create>
             </element>
 
-            <element in="e:entries" if="$soTest!='_false_'">
-                <element in="e:entries">
-                    <element-ignore in="e:entries" if="e:entry[@key='Test']='Yes' or e:entry[@key='Epic_Test']='Yes'"/>
-                </element>
-            </element>
+
 
 
         </processors>
