@@ -2005,16 +2005,8 @@
                 <element-create >view('JIRA_API_CALL_HISTORY',entry('start',3000))/object/*</element-create>
             </element>
 
-            <element in="object">
-                <element-create >view('JIRA_API_CALL_HISTORY',entry('start',4000))/object/*</element-create>
-            </element>
-
-            <element in="object">
-                <element-create >view('JIRA_API_CALL_HISTORY',entry('start',5000))/object/*</element-create>
-            </element>
-
             <element in="object" out="e:entries">
-                <element-ignore in="issues">
+
                     <element in="object" out="e:entries">
                         <element-ignore in="fields">
                             <element in="status">
@@ -2038,7 +2030,6 @@
                             </element-ignore>
                         </element-ignore>
                     </element>
-                </element-ignore>
                 <element-ignore/>
             </element>
 
