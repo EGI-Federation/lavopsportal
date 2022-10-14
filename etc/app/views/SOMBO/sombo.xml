@@ -1839,10 +1839,26 @@
         <argument name="start"/>
         <argument name="tenant">eosc</argument>
         <connector type="HTTPConnector">
-            <parameter name="url"  eval="concat('https://',property(concat('userJira_',$tenant)),':',property(concat('pwdJira_',$tenant)),'@',property(concat('instance_',$tenant)),'/rest/api/2/search?fields=status,created,updated,resolutiondate,customfield_10100&amp;expand=changelog&amp;jql=project=',quot(property(concat('jira.project.',property('env')))),'AND ',quot('EOSC-hub TEST'),'=No',' AND issuetype=',quot('Service Order'),'&amp;startAt=',round($start),'&amp;maxResults=1000')"/>
+            <parameter name="url"  eval="concat('https://',property(concat('userJira_',$tenant)),':',property(concat('pwdJira_',$tenant)),'@',property(concat('instance_',$tenant)),
+            '/rest/api/2/search?fields=status,created,updated,resolutiondate,customfield_10100,customfield_11310&amp;expand=changelog&amp;jql=project=',quot(property(concat('jira.project.',property('env')))),
+            ' AND issuetype=',quot('Service Order'),'&amp;startAt=',round($start),'&amp;maxResults=1000')"/>
         </connector>
         <serializer type="JSONStreamSerializer"/>
+
+        <processors>
+            <element in="object">
+                <element-ignore in="issues">
+                    <element  in="object" if="not(fields/customfield_11310) or fields/customfield_11310/value!='Yes'"/>
+                </element-ignore>
+            </element>
+
+
+
+        </processors>
+
     </view>
+
+
 
     <view name="JiraSO_History_egi" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" xmlns:date="http://exslt.org/dates-and-times" xmlns:str="http://exslt.org/strings">
 
@@ -1875,6 +1891,7 @@
             <element in="object" out="e:entries">
                 <element-ignore in="issues">
                     <element in="object" out="e:entries">
+                        <attribute-create out="key">../customfield_10100/text()</attribute-create>
                         <element-ignore in="fields">
                             <element in="status">
                                 <element-ignore in="name">
@@ -1902,6 +1919,18 @@
             </element>
 
             <element in="e:entries">
+                <set variable="JiraEpicList" index="@key">view('JiraEpicList_egi')/e:entries/e:entries</set>
+                <element in="e:entries">
+                    <attribute-create out="test">find($JiraEpicList,current()/../@epicId)/e:entry[@key='Epic_Test']/text()</attribute-create>
+                </element>
+            </element>
+
+            <element in="e:entries">
+                <element-ignore in="e:entries" if="@test='Yes'"/>
+            </element>
+
+
+            <element in="e:entries">
                 <element in="e:entries">
                     <element in="history">
                         <element in="items">
@@ -1918,6 +1947,8 @@
                     <element-ignore in="self"/>
                 </element>
             </element>
+
+
 
             <element in="e:entries">
                 <element in="e:entries">
@@ -2009,6 +2040,18 @@
                     </element>
                 </element-ignore>
                 <element-ignore/>
+            </element>
+
+
+            <element in="e:entries">
+                <set variable="JiraEpicList" index="@key">view('JiraEpicList')/e:entries/e:entries</set>
+                <element in="e:entries">
+                    <attribute-create out="test">find($JiraEpicList,current()/../@epicId)/e:entry[@key='Epic_Test']/text()</attribute-create>
+                </element>
+            </element>
+
+            <element in="e:entries">
+                <element-ignore in="e:entries" if="@test='Yes'"/>
             </element>
 
             <element in="e:entries">
