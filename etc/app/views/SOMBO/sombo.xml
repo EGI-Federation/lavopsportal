@@ -1860,6 +1860,18 @@
                 <element-create >view('JIRA_API_CALL_HISTORY',entry('start',2000)|entry('tenant','egi'))/object/*</element-create>
             </element>
 
+            <element in="object">
+                <element-create >view('JIRA_API_CALL_HISTORY',entry('start',3000)|entry('tenant','egi'))/object/*</element-create>
+            </element>
+
+            <element in="object">
+                <element-create >view('JIRA_API_CALL_HISTORY',entry('start',4000)|entry('tenant','egi'))/object/*</element-create>
+            </element>
+
+            <element in="object">
+                <element-create >view('JIRA_API_CALL_HISTORY',entry('start',5000)|entry('tenant','egi'))/object/*</element-create>
+            </element>
+
             <element in="object" out="e:entries">
                 <element-ignore in="issues">
                     <element in="object" out="e:entries">
@@ -1950,12 +1962,24 @@
 
         <processors>
 
-        <element in="object">
-            <element-create >view('JIRA_API_CALL_HISTORY',entry('start',1000))/object/*</element-create>
-        </element>
+            <element in="object">
+                <element-create >view('JIRA_API_CALL_HISTORY',entry('start',1000))/object/*</element-create>
+            </element>
 
             <element in="object">
                 <element-create >view('JIRA_API_CALL_HISTORY',entry('start',2000))/object/*</element-create>
+            </element>
+
+            <element in="object">
+                <element-create >view('JIRA_API_CALL_HISTORY',entry('start',3000))/object/*</element-create>
+            </element>
+
+            <element in="object">
+                <element-create >view('JIRA_API_CALL_HISTORY',entry('start',4000))/object/*</element-create>
+            </element>
+
+            <element in="object">
+                <element-create >view('JIRA_API_CALL_HISTORY',entry('start',5000))/object/*</element-create>
             </element>
 
             <element in="object" out="e:entries">

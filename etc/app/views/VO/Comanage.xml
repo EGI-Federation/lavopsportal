@@ -84,7 +84,8 @@
 
     <view name="CoManageMembers">
         <argument name="cogroupid">11</argument>
-        <variable name="url" eval="concat('https://',property('comanage-user'),':',property('comanage-pwd'),'@aai.egi.eu/registry/co_person_roles.json?couid=',$cogroupid)"/>
+
+        <variable name="url" eval="concat('https://',property('comanage-user'),':',property('comanage-pwd'),'@',property('comanage-instance'),'/co_person_roles.json?couid=',$cogroupid)"/>
         <connector type="HTTPConnector">
             <parameter name="url" eval="$url"/>
             <parameter name="default">{"root":"empty"}</parameter>
@@ -122,7 +123,7 @@
     </view>
 
     <view name="CoManagePerson">
-        <argument name="copersonid"/>
+        <argument name="copersonid">1</argument>
 
         <connector type="HTTPConnector">
             <parameter name="url" eval="concat('https://',property('comanage-user'),':',property('comanage-pwd'),'@aai.egi.eu/registry/names.json?copersonid=',$copersonid)"/>

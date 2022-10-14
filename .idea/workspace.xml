@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="mo" />
+    <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="mo">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/app/views/VO/Comanage.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/VO/Comanage.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -266,7 +269,7 @@
     <configuration name="Run" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="fr.in2p3.lavoisier.command.StandaloneExec" />
       <module name="lavopsportal" />
-      <option name="PROGRAM_PARAMETERS" value="marketplace.services?nbsteps=999&amp;accept=xml" />
+      <option name="PROGRAM_PARAMETERS" value="CoManagePerson?nbsteps=999&amp;accept=xml" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -517,7 +520,11 @@
       <workItem from="1663055331383" duration="193000" />
       <workItem from="1663058401070" duration="6000" />
       <workItem from="1663242928400" duration="4548000" />
-      <workItem from="1664780692676" duration="1470000" />
+      <workItem from="1664780692676" duration="2307000" />
+      <workItem from="1664808605372" duration="5000" />
+      <workItem from="1664954715821" duration="660000" />
+      <workItem from="1665146792347" duration="8000" />
+      <workItem from="1665651196735" duration="1806000" />
     </task>
     <task id="LOCAL-00075" summary="filtre tickets">
       <created>1536755736442</created>
