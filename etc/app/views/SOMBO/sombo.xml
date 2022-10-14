@@ -1889,7 +1889,7 @@
             </element>
 
             <element in="object" out="e:entries">
-                <element-ignore in="issues">
+
                     <element in="object" out="e:entries">
                         <attribute-create out="key">../customfield_10100/text()</attribute-create>
                         <element-ignore in="fields">
@@ -1914,7 +1914,7 @@
                             </element-ignore>
                         </element-ignore>
                     </element>
-                </element-ignore>
+
                 <element-ignore/>
             </element>
 
