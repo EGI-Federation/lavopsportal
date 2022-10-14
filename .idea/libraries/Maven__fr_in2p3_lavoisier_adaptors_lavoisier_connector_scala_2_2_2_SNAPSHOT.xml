@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Maven: fr.in2p3.lavoisier.adaptors:lavoisier-connector-scala:2.2.2-SNAPSHOT">
     <CLASSES>
-      <root url="jar://$MAVEN_REPOSITORY$/fr/in2p3/lavoisier/adaptors/lavoisier-connector-scala/2.2.2-SNAPSHOT/lavoisier-connector-scala-2.2.2-20220221.095910-30.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/fr/in2p3/lavoisier/adaptors/lavoisier-connector-scala/2.2.2-SNAPSHOT/lavoisier-connector-scala-2.2.2-20220913.090725-38.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$MAVEN_REPOSITORY$/fr/in2p3/lavoisier/adaptors/lavoisier-connector-scala/2.2.2-SNAPSHOT/lavoisier-connector-scala-2.2.2-20220221.095910-30-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/fr/in2p3/lavoisier/adaptors/lavoisier-connector-scala/2.2.2-SNAPSHOT/lavoisier-connector-scala-2.2.2-20220913.090725-38-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://$MAVEN_REPOSITORY$/fr/in2p3/lavoisier/adaptors/lavoisier-connector-scala/2.2.2-SNAPSHOT/lavoisier-connector-scala-2.2.2-20220221.095910-30-sources.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/fr/in2p3/lavoisier/adaptors/lavoisier-connector-scala/2.2.2-SNAPSHOT/lavoisier-connector-scala-2.2.2-20220913.090725-38-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

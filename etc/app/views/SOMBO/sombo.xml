@@ -444,6 +444,47 @@
     </view>
 
 
+    <view name="JiraLogs" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
+
+    <argument name="ticketId">EOSCSO-3561</argument>
+    <variable name="tenant">eosc</variable>
+
+    <connector type="HTTPConnector">
+        <parameter name="url"
+                   eval="concat('https://',property(concat('userJira_',$tenant)),':',property(concat('pwdJira_',$tenant)),'@',property(concat('instance_',$tenant)),'/rest/api/2/issue/',$ticketId,'?expand=changelog')"/>
+
+    </connector>
+
+        <serializer type="JSONStreamSerializer"/>
+
+        <processors>
+        <element in="object" out="e:entries">
+                <element-ignore in="fields">
+                    <element in="status">
+                        <element-ignore in="name">
+                            <text></text>
+                        </element-ignore>
+                        <element-ignore/>
+                    </element>
+                    <element in="customfield_10100" out="epicId"/>
+                    <element in="created"></element>
+                    <element in="updated"></element>
+                    <element in="resolutiondate"/>
+                </element-ignore>
+                <element-ignore in="changelog">
+                    <element-ignore in="histories">
+                        <element in="object" out="history" if="items/object/field/text()='status'">
+                            <element in="created"></element>
+                            <element in="items"></element>
+                            <element-ignore/>
+                        </element>
+                    </element-ignore>
+                </element-ignore>
+
+            <element-ignore/>
+        </element>
+        </processors>
+    </view>
 
     <view name="JiraComment" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
 
@@ -1839,10 +1880,16 @@
         <argument name="start"/>
         <argument name="tenant">eosc</argument>
         <connector type="HTTPConnector">
+<!--            <parameter name="url"  eval="concat('https://',property(concat('userJira_',$tenant)),':',property(concat('pwdJira_',$tenant)),'@',property(concat('instance_',$tenant)),-->
+<!--            '/rest/api/2/search?fields=status,created,updated,resolutiondate,customfield_10100,customfield_11310&amp;expand=changelog&amp;jql=project=',quot(property(concat('jira.project.',property('env')))),-->
+<!--            ' AND issuetype=',quot('Service Order'),'&amp;startAt=',round($start),'&amp;maxResults=1000')"/>-->
+
             <parameter name="url"  eval="concat('https://',property(concat('userJira_',$tenant)),':',property(concat('pwdJira_',$tenant)),'@',property(concat('instance_',$tenant)),
-            '/rest/api/2/search?fields=status,created,updated,resolutiondate,customfield_10100,customfield_11310&amp;expand=changelog&amp;jql=project=',quot(property(concat('jira.project.',property('env')))),
-            ' AND issuetype=',quot('Service Order'),'&amp;startAt=',round($start),'&amp;maxResults=1000')"/>
+        '/rest/api/2/search?fields=assignee,status,created,updated,resolutiondate,customfield_10711,customfield_10223,customfield_10100,customfield_10254,customfield_10900,customfield_10400,customfield_11310&amp;jql=project=',
+        quot(property(concat('jira.project.',property('env')))),' AND issuetype=',quot('Service Order'),'&amp;startAt=',round($start),'&amp;maxResults=1000&amp;expand=changelog')"/>
         </connector>
+
+
         <serializer type="JSONStreamSerializer"/>
 
         <processors>
@@ -1859,122 +1906,17 @@
     </view>
 
 
-
     <view name="JiraSO_History_egi" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" xmlns:date="http://exslt.org/dates-and-times" xmlns:str="http://exslt.org/strings">
-
         <connector type="XMLConnector">
-            <parameter name="content" eval="view('JIRA_API_CALL_HISTORY',entry('start',0)|entry('tenant','egi'))"></parameter>
+            <parameter name="content" eval="view('JiraSO_History_raw',entry('tenant','egi'))"></parameter>
         </connector>
-
-        <processors>
-
-            <element in="object">
-                <element-create >view('JIRA_API_CALL_HISTORY',entry('start',1000)|entry('tenant','egi'))/object/*</element-create>
-            </element>
-
-            <element in="object">
-                <element-create >view('JIRA_API_CALL_HISTORY',entry('start',2000)|entry('tenant','egi'))/object/*</element-create>
-            </element>
-
-            <element in="object">
-                <element-create >view('JIRA_API_CALL_HISTORY',entry('start',3000)|entry('tenant','egi'))/object/*</element-create>
-            </element>
-
-            <element in="object">
-                <element-create >view('JIRA_API_CALL_HISTORY',entry('start',4000)|entry('tenant','egi'))/object/*</element-create>
-            </element>
-
-            <element in="object">
-                <element-create >view('JIRA_API_CALL_HISTORY',entry('start',5000)|entry('tenant','egi'))/object/*</element-create>
-            </element>
-
-            <element in="object" out="e:entries">
-
-                    <element in="object" out="e:entries">
-                        <attribute-create out="key">../customfield_10100/text()</attribute-create>
-                        <element-ignore in="fields">
-                            <element in="status">
-                                <element-ignore in="name">
-                                    <text></text>
-                                </element-ignore>
-                                <element-ignore/>
-                            </element>
-                            <element in="customfield_10100" out="epicId"/>
-                            <element in="created"></element>
-                            <element in="updated"></element>
-                            <element in="resolutiondate"/>
-                        </element-ignore>
-                        <element-ignore in="changelog">
-                            <element-ignore in="histories">
-                                <element in="object" out="history" if="items/object/field/text()='status'">
-                                    <element in="created"></element>
-                                    <element in="items"></element>
-                                    <element-ignore/>
-                                </element>
-                            </element-ignore>
-                        </element-ignore>
-                    </element>
-
-                <element-ignore/>
-            </element>
-
-            <element in="e:entries">
-                <set variable="JiraEpicList" index="@key">view('JiraEpicList_egi')/e:entries/e:entries</set>
-                <element in="e:entries">
-                    <attribute-create out="test">find($JiraEpicList,current()/../@epicId)/e:entry[@key='Epic_Test']/text()</attribute-create>
-                </element>
-            </element>
-
-            <element in="e:entries">
-                <element-ignore in="e:entries" if="@test='Yes'"/>
-            </element>
-
-
-            <element in="e:entries">
-                <element in="e:entries">
-                    <element in="history">
-                        <element in="items">
-                            <element in="object" if="field/text()='status'">
-                                <element-ignore in="from"/>
-                                <element-ignore in="to"/>
-                                <element-ignore in="fieldtype"/>
-                            </element>
-                            <element-ignore/>
-                        </element>
-                    </element>
-                    <element-ignore in="expand"/>
-                    <element-ignore in="id"/>
-                    <element-ignore in="self"/>
-                </element>
-            </element>
-
-
-
-            <element in="e:entries">
-                <element in="e:entries">
-                    <attribute-create out="key">../key/text()</attribute-create>
-                    <attribute-create out="epicId">../epicId/text()</attribute-create>
-                    <attribute-create out="status">../status</attribute-create>
-                    <attribute-create out="monthCreated">substring(../created/text(),0,8)</attribute-create>
-                    <attribute-create out="monthResolved" if="../resolutiondate/text()!='null'">substring(../resolutiondate/text(),0,8)</attribute-create>
-                    <attribute-create out="monthRejected" if="../history/items/object/toString/text()='Rejected'">substring(../history[items/object/toString/text()='Rejected']/created/text(),0,8)</attribute-create>
-                    <attribute-create out="monthReadyness" if="../history/items/object/toString/text()='Ready'">substring(../history[items/object/toString/text()='Ready']/created/text(),0,8)</attribute-create>
-                    <attribute-create out="responseTime" if="../history/items/object/fromString/text()='New'">
-                        date:seconds(substring( ../history[items/object/fromString/text()='New']/created/text(),0,20))  -   date:seconds(substring(../created/text(),0,20))
-                    </attribute-create>
-                    <element-ignore/>
-                </element>
-
-            </element>
-        </processors>
-
 
         <cache type="FileCache">
             <trigger type="ViewNotifiedTrigger"/>
             <trigger type="DeltaTimeTrigger">
-                <parameter name="minutes"  eval="choose(property('env')='test',11,8)"/>
+                <parameter name="minutes"  eval="choose(property('env')='test',145,90)"/>
             </trigger>
-            <trigger type="ViewCreatedTrigger"/>
+
         </cache>
 
         <renderers>
@@ -1986,108 +1928,16 @@
     </view>
 
     <view name="JiraSO_History" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" xmlns:date="http://exslt.org/dates-and-times" xmlns:str="http://exslt.org/strings">
-
         <connector type="XMLConnector">
-            <parameter name="content" eval="view('JIRA_API_CALL_HISTORY',entry('start',0))"></parameter>
+            <parameter name="content" eval="view('JiraSO_History_raw',entry('tenant','eosc'))"></parameter>
         </connector>
-
-        <processors>
-
-            <element in="object">
-                <element-create >view('JIRA_API_CALL_HISTORY',entry('start',1000))/object/*</element-create>
-            </element>
-
-            <element in="object">
-                <element-create >view('JIRA_API_CALL_HISTORY',entry('start',2000))/object/*</element-create>
-            </element>
-
-            <element in="object">
-                <element-create >view('JIRA_API_CALL_HISTORY',entry('start',3000))/object/*</element-create>
-            </element>
-
-            <element in="object" out="e:entries">
-
-                    <element in="object" out="e:entries">
-                        <element-ignore in="fields">
-                            <element in="status">
-                                <element-ignore in="name">
-                                    <text></text>
-                                </element-ignore>
-                                <element-ignore/>
-                            </element>
-                            <element in="customfield_10100" out="epicId"/>
-                            <element in="created"></element>
-                            <element in="updated"></element>
-                            <element in="resolutiondate"/>
-                        </element-ignore>
-                        <element-ignore in="changelog">
-                            <element-ignore in="histories">
-                                <element in="object" out="history" if="items/object/field/text()='status'">
-                                    <element in="created"></element>
-                                    <element in="items"></element>
-                                    <element-ignore/>
-                                </element>
-                            </element-ignore>
-                        </element-ignore>
-                    </element>
-                <element-ignore/>
-            </element>
-
-
-            <element in="e:entries">
-                <set variable="JiraEpicList" index="@key">view('JiraEpicList')/e:entries/e:entries</set>
-                <element in="e:entries">
-                    <attribute-create out="test">find($JiraEpicList,current()/../@epicId)/e:entry[@key='Epic_Test']/text()</attribute-create>
-                </element>
-            </element>
-
-            <element in="e:entries">
-                <element-ignore in="e:entries" if="@test='Yes'"/>
-            </element>
-
-            <element in="e:entries">
-                <element in="e:entries">
-                    <element in="history">
-                        <element in="items">
-                            <element in="object" if="field/text()='status'">
-                                <element-ignore in="from"/>
-                                <element-ignore in="to"/>
-                                <element-ignore in="fieldtype"/>
-                            </element>
-                            <element-ignore/>
-                        </element>
-                    </element>
-                    <element-ignore in="expand"/>
-                    <element-ignore in="id"/>
-                    <element-ignore in="self"/>
-                </element>
-            </element>
-
-            <element in="e:entries">
-                <element in="e:entries">
-                    <attribute-create out="key">../key/text()</attribute-create>
-                    <attribute-create out="epicId">../epicId/text()</attribute-create>
-                    <attribute-create out="status">../status</attribute-create>
-                    <attribute-create out="monthCreated">substring(../created/text(),0,8)</attribute-create>
-                    <attribute-create out="monthResolved" if="../resolutiondate/text()!='null'">substring(../resolutiondate/text(),0,8)</attribute-create>
-                    <attribute-create out="monthRejected" if="../history/items/object/toString/text()='Rejected'">substring(../history[items/object/toString/text()='Rejected']/created/text(),0,8)</attribute-create>
-                    <attribute-create out="monthReadyness" if="../history/items/object/toString/text()='Ready'">substring(../history[items/object/toString/text()='Ready']/created/text(),0,8)</attribute-create>
-                    <attribute-create out="responseTime" if="../history/items/object/fromString/text()='New'">
-                         date:seconds(substring( ../history[items/object/fromString/text()='New']/created/text(),0,20))  -   date:seconds(substring(../created/text(),0,20))
-                    </attribute-create>
-                    <element-ignore/>
-                </element>
-
-            </element>
-        </processors>
-
 
         <cache type="FileCache">
             <trigger type="ViewNotifiedTrigger"/>
             <trigger type="DeltaTimeTrigger">
-                <parameter name="minutes"  eval="choose(property('env')='test',12,7)"/>
+                <parameter name="minutes"  eval="choose(property('env')='test',225,102)"/>
             </trigger>
-            <trigger type="ViewCreatedTrigger"/>
+
         </cache>
 
         <renderers>
@@ -2095,6 +1945,57 @@
                 <parameter name="contentType">text/xml</parameter>
             </renderer>
         </renderers>
+    </view>
+
+    <view name="JiraSO_History_raw" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" xmlns:date="http://exslt.org/dates-and-times" xmlns:str="http://exslt.org/strings">
+
+
+        <connector type="XMLConnector">
+            <parameter name="content" eval="choose($tenant='eosc',view('JiraSOListRaw'),view('JiraSOListRaw_egi'))"/>
+        </connector>
+
+
+        <processors>
+
+            <element in="e:entries">
+                <element-ignore in="e:entries" if="e:entry/@key['Epic_Test']='Yes' or e:entry/@key['Test']='Yes'"/>
+            </element>
+
+            <element in="e:entries">
+
+                <element in="e:entries">
+                    <attribute-create out="epicId">../e:entry[@key='EpicLink']/text()</attribute-create>
+                    <attribute-create out="status">../e:entry[@key='status']/text()</attribute-create>
+                    <attribute-create out="monthCreated">substring(../e:entry[@key='created']/text(),0,8)</attribute-create>
+                    <attribute-create out="created">../e:entry[@key='created']/text()</attribute-create>
+                    <attribute-create out="monthResolved" if="../e:entry[@key='resolved']/text()!='null'">substring(../e:entry[@key='resolved']/text(),0,8)</attribute-create>
+                    <element-create>view('JiraLogs',entry('ticketId',../@key)|entry('tenant','egi'))/e:entries/history</element-create>
+                    <element-ignore/>
+                </element>
+                <element-ignore/>
+
+
+            </element>
+
+
+
+            <element in="e:entries">
+                <element in="e:entries">
+                    <attribute-create out="monthRejected" if="../history/items/object/toString/text()='Rejected'">substring(../history[items/object/toString/text()='Rejected']/created/text(),0,8)</attribute-create>
+                    <attribute-create out="monthReadyness" if="../history/items/object/toString/text()='Ready'">substring(../history[items/object/toString/text()='Ready']/created/text(),0,8)</attribute-create>
+                    <attribute-create out="responseTime" if="../history/items/object/fromString/text()='New'">
+                        date:seconds(substring( ../history[items/object/fromString/text()='New']/created/text(),0,20))  -   date:seconds(concat(../@created,':00'))
+                    </attribute-create>
+                    <attribute-ignore in="created"/>
+                    <element-ignore/>
+
+                </element>
+
+            </element>
+        </processors>
+
+
+
 
     </view>
 

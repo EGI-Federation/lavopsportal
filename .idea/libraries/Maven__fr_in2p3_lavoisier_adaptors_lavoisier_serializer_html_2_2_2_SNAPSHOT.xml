@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Maven: fr.in2p3.lavoisier.adaptors:lavoisier-serializer-html:2.2.2-SNAPSHOT">
     <CLASSES>
-      <root url="jar://$MAVEN_REPOSITORY$/fr/in2p3/lavoisier/adaptors/lavoisier-serializer-html/2.2.2-SNAPSHOT/lavoisier-serializer-html-2.2.2-20220221.100032-29.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/fr/in2p3/lavoisier/adaptors/lavoisier-serializer-html/2.2.2-SNAPSHOT/lavoisier-serializer-html-2.2.2-20220913.090857-37.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$MAVEN_REPOSITORY$/fr/in2p3/lavoisier/adaptors/lavoisier-serializer-html/2.2.2-SNAPSHOT/lavoisier-serializer-html-2.2.2-20220221.100032-29-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/fr/in2p3/lavoisier/adaptors/lavoisier-serializer-html/2.2.2-SNAPSHOT/lavoisier-serializer-html-2.2.2-20220913.090857-37-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://$MAVEN_REPOSITORY$/fr/in2p3/lavoisier/adaptors/lavoisier-serializer-html/2.2.2-SNAPSHOT/lavoisier-serializer-html-2.2.2-20220221.100032-29-sources.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/fr/in2p3/lavoisier/adaptors/lavoisier-serializer-html/2.2.2-SNAPSHOT/lavoisier-serializer-html-2.2.2-20220913.090857-37-sources.jar!/" />
     </SOURCES>
   </library>
 </component>
