@@ -120,23 +120,23 @@
     </view>
 
 
-    <view name="testLogo">
-        <argument name="url"></argument>
-        <connector type="HTTPConnector">
-            <parameter name="url" eval="$url"/>
-            <parameter name="force-redirect">true</parameter>
-            <parameter name="read-timeout">10</parameter>
-            <parameter name="connect-timeout">10</parameter>
-            <fallback eval="entry('error','image not found')">
-                <exception type="java.net.UnknownHostException"/>
-                <exception type="java.io.IOException"/>
+<!--    <view name="testLogo">-->
+<!--        <argument name="url"></argument>-->
+<!--        <connector type="HTTPConnector">-->
+<!--            <parameter name="url" eval="$url"/>-->
+<!--            <parameter name="force-redirect">true</parameter>-->
+<!--            <parameter name="read-timeout">10</parameter>-->
+<!--            <parameter name="connect-timeout">10</parameter>-->
+<!--            <fallback eval="entry('error','image not found')">-->
+<!--                <exception type="java.net.UnknownHostException"/>-->
+<!--                <exception type="java.io.IOException"/>-->
 
-            </fallback>
-        </connector>
+<!--            </fallback>-->
+<!--        </connector>-->
 
-        <serializer type="SurroundSerializer"></serializer>
 
-    </view>
+
+<!--    </view>-->
 
     <view name="listProviders">
 
@@ -166,19 +166,11 @@
                 <element-ignore/>
             </element>
 
-            <element in="e:entries">
-                <element in="e:entries">
-                    <element in="e:entry" if="@key='logo'">
-                        <text-ignore/>
-                        <element-create>view('testLogo',entry('url',../text()))</element-create>
-                    </element>
-                </element>
-            </element>
 
         </processors>
 
         <cache type="FileCache">
-            <trigger type="ViewCreatedTrigger"></trigger>
+
             <trigger type="ViewNotifiedTrigger"></trigger>
             <trigger type="DeltaTimeTrigger">
                 <parameter name="minutes">6</parameter>
