@@ -127,7 +127,7 @@
             <parameter name="force-redirect">true</parameter>
             <parameter name="read-timeout">5</parameter>
             <parameter name="connect-timeout">5</parameter>
-            <fallback eval="entry('error','image not found')">
+            <fallback eval="new_element('error','image not found')">
                 <exception type="java.net.UnknownHostException"/>
                 <exception type="java.io.IOException"/>
             </fallback>
@@ -179,7 +179,7 @@
             <element in="e:entries">
                 <element in="e:entries">
                     <element in="e:entry" if="@key='logo'">
-                        <text if="view('testLogo',entry('url',.))/e:entries/text()='image not found'">'Not found'</text>
+                        <text if="view('testLogo',entry('url',.))/error/text()">'Not found'</text>
                     </element>
                 </element>
             </element>
