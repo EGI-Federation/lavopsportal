@@ -149,7 +149,8 @@
 
         <variable name="access_token" eval="view('getAccessToken')/object/access_token/text()"></variable>
         <connector type="HTTPConnector">
-            <parameter name="url">http://cclavoisier01.in2p3.fr:8080/lavoisier/listProviders</parameter>
+            <parameter name="url">https://acc.devel.argo.grnet.gr/accounting-system/providers?size=1500</parameter>
+
             <parameter name="method">GET</parameter>
             <parameter name="header">
                 <entry key="Content-Type">application/json</entry>
