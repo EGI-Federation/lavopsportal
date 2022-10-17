@@ -133,7 +133,8 @@
 
             </fallback>
         </connector>
-        <serializer type="EncapsulateSerializer"></serializer>
+
+        <serializer type="SurroundSerializer"></serializer>
 
     </view>
 
