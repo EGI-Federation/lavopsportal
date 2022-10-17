@@ -125,8 +125,8 @@
         <connector type="HTTPConnector">
             <parameter name="url" eval="$url"/>
             <parameter name="force-redirect">true</parameter>
-            <parameter name="read-timeout">10</parameter>
-            <parameter name="connect-timeout">10</parameter>
+            <parameter name="read-timeout">5</parameter>
+            <parameter name="connect-timeout">5</parameter>
             <fallback eval="entry('error','image not found')">
                 <exception type="java.net.UnknownHostException"/>
                 <exception type="java.io.IOException"/>
