@@ -119,6 +119,19 @@
         </renderers>
     </view>
 
+
+    <view name="testLogo">
+        <argument name="url"></argument>
+        <connector type="HTTPConnector">
+            <parameter name="url" eval="$url"/>
+            <fallback eval="entry('error','image not found')">
+                <exception type="java.net.UnknownHostException"/>
+            </fallback>
+        </connector>
+        <serializer type="EncapsulateSerializer"></serializer>
+
+    </view>
+
     <view name="listProviders">
 
         <variable name="access_token" eval="view('getAccessToken')/object/access_token/text()"></variable>
@@ -145,6 +158,13 @@
 
                 </element-ignore>
                 <element-ignore/>
+            </element>
+
+            <element in="e:entries">
+                <element in="e:entry" if="@key='logo'">
+                    <text-ignore/>
+                    <element-create>view('testLogo',entry('url',../text()))</element-create>
+                </element>
             </element>
 
         </processors>

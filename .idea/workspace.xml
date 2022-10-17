@@ -5,47 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="mo">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_authenticator_base_2_2_2_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_authenticator_base_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_cache_base_2_2_2_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_cache_base_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_cache_basex_2_2_2_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_cache_basex_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_connector_base_2_2_2_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_connector_base_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_connector_config_2_2_2_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_connector_config_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_connector_diff_2_2_2_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_connector_diff_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_connector_remctl_2_2_2_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_connector_remctl_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_connector_scala_2_2_2_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_connector_scala_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_connector_sql_2_2_2_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_connector_sql_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_connector_ssh_2_2_2_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_connector_ssh_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_connector_telnet_2_2_2_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_connector_telnet_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_processor_base_2_2_2_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_processor_base_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_renderer_base_2_2_2_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_renderer_base_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_renderer_chart_2_2_2_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_renderer_chart_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_renderer_json_2_2_2_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_renderer_json_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_renderer_pdf_2_2_2_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_renderer_pdf_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_serializer_base_2_2_2_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_serializer_base_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_serializer_html_2_2_2_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_serializer_html_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_serializer_ini_2_2_2_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_serializer_ini_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_serializer_json_2_2_2_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_serializer_json_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_serializer_yaml_2_2_2_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_serializer_yaml_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_trigger_base_2_2_2_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_trigger_base_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_validator_base_2_2_2_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_adaptors_lavoisier_validator_base_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_html_template_engine_2_2_2_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_html_template_engine_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_lavoisier_chaining_2_2_2_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_lavoisier_chaining_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_lavoisier_configuration_2_2_2_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_lavoisier_configuration_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_lavoisier_engine_2_2_2_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_lavoisier_engine_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_lavoisier_gui_admin_2_2_2_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_lavoisier_gui_admin_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_lavoisier_gui_dashboard_2_2_2_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_lavoisier_gui_dashboard_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_lavoisier_interfaces_2_2_2_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_lavoisier_interfaces_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_lavoisier_package_2_2_2_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_lavoisier_package_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_lavoisier_service_2_2_2_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_lavoisier_service_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_lavoisier_views_library_2_2_2_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_lavoisier_views_library_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_xml_interfaces_2_2_2_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_xml_interfaces_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_xml_template_engine_2_2_2_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_xml_template_engine_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_xpath_absolute_2_2_2_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_xpath_absolute_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_xpath_functions_2_2_2_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_xpath_functions_2_2_2_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_xpath_parser_2_2_2_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_in2p3_lavoisier_xpath_parser_2_2_2_SNAPSHOT.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/app/views/SOMBO/accounting-metrics.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/ACCOUNTING/accounting-metrics.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/etc/app/views/SOMBO/sombo.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/SOMBO/sombo.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lavopsportal.iml" beforeDir="false" afterPath="$PROJECT_DIR$/lavopsportal.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -282,14 +244,14 @@
       <recent name="$PROJECT_DIR$/etc/app/views" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/etc/app/views/ACCOUNTING" />
       <recent name="$PROJECT_DIR$/etc/app/views/GGUS" />
       <recent name="$PROJECT_DIR$/etc/app/resources/xml" />
       <recent name="$PROJECT_DIR$/etc/app/views/VO" />
       <recent name="$PROJECT_DIR$/etc/app/resources/shell" />
-      <recent name="$PROJECT_DIR$/etc/app/resources/xsl" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Start Lavoisier server">
+  <component name="RunManager" selected="Application.Run">
     <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
@@ -308,7 +270,7 @@
     <configuration name="Run" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="fr.in2p3.lavoisier.command.StandaloneExec" />
       <module name="lavopsportal" />
-      <option name="PROGRAM_PARAMETERS" value="JiraLogs?nbsteps=999&amp;accept=xml" />
+      <option name="PROGRAM_PARAMETERS" value="testLogo?nbsteps=999&amp;accept=xml" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -565,7 +527,7 @@
       <workItem from="1665146792347" duration="8000" />
       <workItem from="1665651196735" duration="1806000" />
       <workItem from="1665747148911" duration="8663000" />
-      <workItem from="1665755827677" duration="1746000" />
+      <workItem from="1665755827677" duration="6303000" />
     </task>
     <task id="LOCAL-00075" summary="filtre tickets">
       <created>1536755736442</created>

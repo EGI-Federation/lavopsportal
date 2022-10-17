@@ -1949,7 +1949,7 @@
 
     <view name="JiraSO_History_raw" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" xmlns:date="http://exslt.org/dates-and-times" xmlns:str="http://exslt.org/strings">
 
-
+        <argument name="tenant">eosc</argument>
         <connector type="XMLConnector">
             <parameter name="content" eval="choose($tenant='eosc',view('JiraSOListRaw'),view('JiraSOListRaw_egi'))"/>
         </connector>
@@ -1969,6 +1969,11 @@
                     <attribute-create out="monthCreated">substring(../e:entry[@key='created']/text(),0,8)</attribute-create>
                     <attribute-create out="created">../e:entry[@key='created']/text()</attribute-create>
                     <attribute-create out="monthResolved" if="../e:entry[@key='resolved']/text()!='null'">substring(../e:entry[@key='resolved']/text(),0,8)</attribute-create>
+                    <attribute-create out="nbComments">../e:entry[@key='nbComments']/text()</attribute-create>
+                    <attribute-create out="nbCommentsEpic">../e:entry[@key='nbCommentsEpic']/text()</attribute-create>
+                    <attribute-create out="nbNotes" if="../e:entry[@key='nbNotes']/text()">../e:entry[@key='nbNotes']/text()</attribute-create>
+                    <attribute-create out="nbNotes" if="not(../e:entry[@key='nbNotes']/text())">0</attribute-create>
+
                     <element-create>view('JiraLogs',entry('ticketId',../@key)|entry('tenant','egi'))/e:entries/history</element-create>
                     <element-ignore/>
                 </element>
@@ -2044,10 +2049,8 @@
 
             <element in="e:entries">
                 <set variable="JiraEpicList" index="@key">choose($tenant='eosc',view('JiraEpicList')/e:entries/e:entries,view('JiraEpicList_egi')/e:entries/e:entries)</set>
-                <set variable="JiraComments">choose($tenant='eosc',view('JiraComments')/issues,view('JiraComments_egi')/issues)</set>
 
                 <element in="e:entries">
-                        <attribute-create out="nbComments">$JiraComments/issue[@key=current()/../@key]/@nbComments</attribute-create>
                         <attribute-create out="test">find($JiraEpicList,current()/../@epicId)/e:entry[@key='Epic_Test']/text()</attribute-create>
                 </element>
             </element>
@@ -2072,6 +2075,9 @@
                     <attribute-create out="Waiting_for_respond">count(../e:entries[@status='Waiting for respond'])</attribute-create>
                     <attribute-create out="Total">count(../e:entries)</attribute-create>
                     <attribute-create out="Count">count(../e:entries)</attribute-create>
+                    <attribute-create out="TotalComments">sum(../e:entries/@nbComments) </attribute-create>
+                    <attribute-create out="TotalCommentsEpic">sum(../e:entries/@nbCommentsEpic) </attribute-create>
+                    <attribute-create out="TotalNotes">sum(../e:entries/@nbNotes) </attribute-create>
                     <attribute-create out="TotalwithComments">count(../e:entries[@nbComments>1 and @nbComments!='']) </attribute-create>
                     <attribute-create out="ResponseTimeMonth">sum(../e:entries[@test!='Yes']/@responseTime)</attribute-create>
                     <element-ignore/>
