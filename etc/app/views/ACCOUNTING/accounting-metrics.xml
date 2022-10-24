@@ -103,6 +103,13 @@
                 <element-ignore/>
             </element>
 
+
+            <element in="e:entries">
+                <element in="e:entries">
+                    <attribute-create out="key">../e:entry[@key='acronym']</attribute-create>
+                </element>
+
+            </element>
         </processors>
 
         <cache type="FileCache">
