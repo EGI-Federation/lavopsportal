@@ -59,6 +59,20 @@
     </renderers>
 </view>
 
+    <view name="listInstallations">
+
+    <variable name="access_token" eval="view('getAccessToken')/object/access_token/text()"></variable>
+    <connector type="HTTPConnector">
+        <parameter name="url">https://accounting.devel.argo.grnet.gr/accounting-system/installations/all</parameter>
+        <parameter name="method">GET</parameter>
+        <parameter name="header">
+            <entry key="Content-Type">application/json</entry>
+            <entry key="Authorization" eval="concat('Bearer ',$access_token)"></entry>
+
+        </parameter>
+    </connector>
+    <serializer type="JSONStreamSerializer"/>
+    </view>
 
 
     <view name="listProjects">
@@ -152,22 +166,36 @@
         </processors>
     </view>
 
+    <view name="listProvidersRaw">
+
+        <argument name="page">1</argument>
+        <argument name="size">100</argument>
+    <variable name="access_token" eval="view('getAccessToken')/object/access_token/text()"></variable>
+    <connector type="HTTPConnector">
+        <parameter name="url" eval="concat('https://accounting.devel.argo.grnet.gr/accounting-system/providers?size=',$size,'&amp;page=',$page)"/>
+
+        <parameter name="method">GET</parameter>
+        <parameter name="header">
+            <entry key="Content-Type">application/json</entry>
+            <entry key="Authorization" eval="concat('Bearer ',$access_token)"></entry>
+
+        </parameter>
+    </connector>
+    <serializer type="JSONStreamSerializer"/>
+    </view>
+
     <view name="listProviders">
 
         <variable name="access_token" eval="view('getAccessToken')/object/access_token/text()"></variable>
-        <connector type="HTTPConnector">
-            <parameter name="url">https://accounting.devel.argo.grnet.gr/accounting-system/providers?size=100</parameter>
-
-            <parameter name="method">GET</parameter>
-            <parameter name="header">
-                <entry key="Content-Type">application/json</entry>
-                <entry key="Authorization" eval="concat('Bearer ',$access_token)"></entry>
-
-            </parameter>
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('listProvidersRaw')"></parameter>
         </connector>
         <serializer type="JSONStreamSerializer"/>
 
         <processors>
+            <element in="object">
+                <element-create>view('listProvidersRaw',entry('page',2))/object/*</element-create>
+            </element>
             <element in="object"  out="e:entries">
                 <element-ignore in="content">
                     <element in="object" out="e:entries">
