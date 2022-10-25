@@ -205,7 +205,7 @@
 
         <processors>
             <element in="object">
-                <element-create>view('listProvidersRaw',entry('page',2))/object/*</element-create>
+                <element-create>view('listProvidersRaw',entry('page','2'))/object/*</element-create>
             </element>
             <element in="object"  out="e:entries">
                 <element-ignore in="content">
