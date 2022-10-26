@@ -269,7 +269,7 @@
     <configuration name="Run" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="fr.in2p3.lavoisier.command.StandaloneExec" />
       <module name="lavopsportal" />
-      <option name="PROGRAM_PARAMETERS" value="addInstallation?nbsteps=999&amp;accept=xml" />
+      <option name="PROGRAM_PARAMETERS" value="deleteInstallation?nbsteps=999&amp;accept=xml" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -533,7 +533,7 @@
       <workItem from="1666617052017" duration="308000" />
       <workItem from="1666617562635" duration="2884000" />
       <workItem from="1666681513503" duration="9539000" />
-      <workItem from="1666771218545" duration="4645000" />
+      <workItem from="1666771218545" duration="5656000" />
     </task>
     <task id="LOCAL-00075" summary="filtre tickets">
       <created>1536755736442</created>

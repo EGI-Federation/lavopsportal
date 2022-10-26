@@ -406,7 +406,7 @@
     </view>
 
     <view name="deleteInstallation">
-        <argument name="installation_id">installation_id</argument>
+        <argument name="installation_id">6357c2b7f43ef74eaf31665e</argument>
         <variable name="access_token" eval="view('getAccessToken')/object/access_token/text()"></variable>
 
         <connector type="HTTPConnector">
@@ -418,9 +418,7 @@
                 <entry key="Authorization" eval="concat('Bearer ',$access_token)"></entry>
 
             </parameter>
-            <fallback eval="new_element('code','409')|new_element('message','The installation cannot be deleted.')">
-                <exception type="java.io.IOException" />
-            </fallback>
+
 
         </connector>
 
