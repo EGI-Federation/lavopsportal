@@ -155,7 +155,7 @@
 
             <element in="e:entries">
                 <element in="e:entries">
-                    <attribute-create out="key">../e:entry[@key='acronym']</attribute-create>
+                    <attribute-create out="key">../e:entry[@key='id']</attribute-create>
                 </element>
 
             </element>
