@@ -784,9 +784,7 @@
             </element>
 
         </processors>
-        <cache type="FileCache">
-            <trigger type="ViewAccessedTrigger"></trigger>
-        </cache>
+
 
         <renderers>
             <renderer type="DefaultRenderer">
