@@ -733,7 +733,7 @@
 
         <variable name="url_end" eval="choose($provider!=0,
         concat('projects/',$projectId,'/providers/',$provider,'/metrics?size=100'),
-        choose($projectId!=0,
+        choose($projectId!=0 and $provider=0,
                 concat('projects/',$projectId,'/metrics?size=100'),
                 concat('installations/',$installation,'/metrics?size=100')))"/>
 
@@ -754,6 +754,7 @@
 
         <processors>
             <element in="object" out="e:entries">
+                <attribute-create out="url">$url</attribute-create>
                 <element-ignore in="content">
                     <element in="object" out="e:entries">
                         <attribute-create out="key">../id/text()</attribute-create>

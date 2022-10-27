@@ -250,7 +250,7 @@
       <recent name="$PROJECT_DIR$/etc/app/resources/shell" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Run">
+  <component name="RunManager" selected="Application.Run with arguments">
     <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
@@ -260,7 +260,7 @@
     <configuration name="Run with arguments" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="fr.in2p3.lavoisier.command.StandaloneExec" />
       <module name="lavopsportal" />
-      <option name="PROGRAM_PARAMETERS" value="JIRA_API_CALL_HISTORY?nbsteps=999&amp;start=0&amp;tenant=eosc&amp;accept=xml" />
+      <option name="PROGRAM_PARAMETERS" value="listMetricsDetails?nbsteps=999&amp;projectId=888743&amp;provider=0&amp;installation=0&amp;accept=xml" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -534,6 +534,7 @@
       <workItem from="1666617562635" duration="2884000" />
       <workItem from="1666681513503" duration="9539000" />
       <workItem from="1666771218545" duration="7123000" />
+      <workItem from="1666857146916" duration="1837000" />
     </task>
     <task id="LOCAL-00075" summary="filtre tickets">
       <created>1536755736442</created>
