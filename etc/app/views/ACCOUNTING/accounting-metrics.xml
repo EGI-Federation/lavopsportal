@@ -232,6 +232,7 @@
             <element in="object"  out="e:entries">
                 <element-ignore in="content">
                     <element in="object" out="e:entries">
+                        <attribute-create out="key">../id/text()</attribute-create>
                         <element-ignore>
                             <element-create>entry(name(..),../text())</element-create>
                         </element-ignore>
