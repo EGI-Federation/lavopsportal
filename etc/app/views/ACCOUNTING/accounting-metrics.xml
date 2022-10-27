@@ -97,7 +97,7 @@
         <cache type="FileCache">
             <trigger type="ViewNotifiedTrigger"></trigger>
             <trigger type="DeltaTimeTrigger">
-                <parameter name="minutes">10</parameter>
+                <parameter name="minutes">3</parameter>
             </trigger>
         </cache>
 
@@ -406,7 +406,7 @@
     </view>
 
     <view name="deleteInstallation">
-        <argument name="installation_id">6357c2b7f43ef74eaf31665e</argument>
+        <argument name="installation_id">63562d71a6b3c27f486bdea6</argument>
         <variable name="access_token" eval="view('getAccessToken')/object/access_token/text()"></variable>
 
         <connector type="HTTPConnector">
@@ -676,7 +676,7 @@
         <cache type="FileCache">
             <trigger type="ViewNotifiedTrigger"></trigger>
             <trigger type="DeltaTimeTrigger">
-                <parameter name="minutes">10</parameter>
+                <parameter name="minutes">3</parameter>
             </trigger>
         </cache>
         <renderers>
@@ -715,7 +715,7 @@
         <cache type="FileCache">
             <trigger type="ViewNotifiedTrigger"></trigger>
             <trigger type="DeltaTimeTrigger">
-                <parameter name="minutes">31</parameter>
+                <parameter name="minutes">4</parameter>
             </trigger>
         </cache>
         <renderers>
@@ -725,6 +725,71 @@
         </renderers>
     </view>
 
+    <view name="listMetricsDetails"   xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+
+        <argument name="projectId"/>
+        <argument name="provider"/>
+        <argument name="installation"/>
+
+        <variable name="url_end" eval="choose($provider!=0,
+        concat('projects/',$projectId,'/providers/',$provider,'/metrics?size=100'),
+        choose($projectId!=0,
+                concat('projects/',$projectId,'/metrics?size=100'),
+                concat('installations/',$installation,'/metrics?size=100')))"/>
+
+        <variable name="url" eval="concat('https://accounting.devel.argo.grnet.gr/accounting-system/',$url_end)"/>
+        <variable name="access_token" eval="view('getAccessToken')/object/access_token/text()"></variable>
+
+        <connector type="HTTPConnector">
+            <parameter name="url" eval="$url"></parameter>
+            <parameter name="method">GET</parameter>
+            <parameter name="header">
+                <entry key="Content-Type">application/json</entry>
+                <entry key="Authorization" eval="concat('Bearer ',$access_token)"></entry>
+
+            </parameter>
+        </connector>
+
+        <serializer type="JSONStreamSerializer"></serializer>
+
+        <processors>
+            <element in="object" out="e:entries">
+                <element-ignore in="content">
+                    <element in="object" out="e:entries">
+                        <attribute-create out="key">../id/text()</attribute-create>
+                        <element-ignore>
+                            <element-create>
+                                entry(local-name(current()/..),current()/../text())
+                            </element-create>
+                        </element-ignore>
+
+                    </element>
+                    <element-ignore/>
+                </element-ignore>
+            </element>
+
+            <element in="e:entries">
+                <element in="e:entries"/>
+                <element-ignore/>
+            </element>
+
+            <element in="e:entries">
+                <set variable="definition" index="@key">view('listMetricDefinition')/e:entries/e:entries</set>
+                <element in="e:entries">
+                    <element-create>find($definition,../e:entry[@key='metric_definition_id']/text())/*</element-create>
+                    <element-ignore in="e:entry" if="@key='metric_definition_id'"/>
+                </element>
+
+            </element>
+
+        </processors>
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+
+    </view>
 
 
     <view name="listMetricsbyProject"   xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
@@ -819,7 +884,7 @@
         <cache type="FileCache">
             <trigger type="ViewNotifiedTrigger"></trigger>
             <trigger type="DeltaTimeTrigger">
-                <parameter name="minutes">30</parameter>
+                <parameter name="minutes">5</parameter>
             </trigger>
         </cache>
 
