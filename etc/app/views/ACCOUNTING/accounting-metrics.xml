@@ -727,9 +727,9 @@
 
     <view name="listMetricsDetails"   xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
 
-        <argument name="projectId"/>
-        <argument name="provider"/>
-        <argument name="installation"/>
+        <argument name="projectId">888743</argument>
+        <argument name="provider">0</argument>
+        <argument name="installation">0</argument>
 
         <variable name="url_end" eval="choose($provider!=0,
         concat('projects/',$projectId,'/providers/',$provider,'/metrics?size=100'),
