@@ -732,10 +732,11 @@
         <argument name="projectId">888743</argument>
         <argument name="provider">0</argument>
         <argument name="installation">0</argument>
+        <argument name="details"></argument>
 
-        <variable name="url_end" eval="choose($provider!=0,
+        <variable name="url_end" eval="choose($details=2,
         concat('projects/',$projectId,'/providers/',$provider,'/metrics?size=100'),
-        choose($projectId!=0 and $provider=0,
+        choose($details=1,
                 concat('projects/',$projectId,'/metrics?size=100'),
                 concat('installations/',$installation,'/metrics?size=100')))"/>
 
@@ -748,7 +749,6 @@
             <parameter name="header">
                 <entry key="Content-Type">application/json</entry>
                 <entry key="Authorization" eval="concat('Bearer ',$access_token)"></entry>
-
             </parameter>
         </connector>
 
