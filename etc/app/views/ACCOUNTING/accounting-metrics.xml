@@ -61,7 +61,7 @@
 
     <view name="listInstallationsOrdered">
         <connector type="XMLConnector">
-            <parameter name="content" eval="view('ListInstallations')"/>
+            <parameter name="content" eval="view('listInstallations')"/>
         </connector>
 
         <processors>
