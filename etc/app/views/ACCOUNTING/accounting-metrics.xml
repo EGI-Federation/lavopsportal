@@ -70,12 +70,13 @@
                 <element in="e:entries">
                     <attribute-create out="sort">concat(../e:entry[@key='project'],'  ***  ',../e:entry[@key='organisation'])</attribute-create>
                 </element>
+                <element-ignore/>
             </element>
 
             <element in="e:entries">
-                <element-ignore in="e:entries">
-                    <element-create>sort_by_string(../e:entries,'@sort')</element-create>
-                </element-ignore>
+                <element-ignore in="e:entries"/>
+                <element-create>sort_by_string(../e:entries,'@sort')</element-create>
+
             </element>
 
             <element in="e:entries">
@@ -87,8 +88,6 @@
                     <attribute in="sort" out="key"/>
                 </element>
             </element>
-
-
 
 
         </processors>
