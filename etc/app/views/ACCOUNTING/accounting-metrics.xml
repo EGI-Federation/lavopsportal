@@ -85,11 +85,14 @@
               </element-create-as-parent>
             </element>
 
-<!--            <element in="e:entries">-->
-<!--                <element in="e:entries">-->
-<!--                    <attribute in="sort" out="key"/>-->
-<!--                </element>-->
-<!--            </element>-->
+            <element in="e:entries">
+                <element in="e:entries">
+                    <attribute in="sort" out="key"/>
+                    <element in="e:entries">
+                        <attribute-ignore in="sort"/>
+                    </element>
+                </element>
+            </element>
 
 
         </processors>
