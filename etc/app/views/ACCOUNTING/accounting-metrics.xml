@@ -67,8 +67,15 @@
         <processors>
 
             <element in="e:entries">
+                <set variable="project" index="e:entry[@key='id']/text()">view('listProjects')/e:entries/e:entries</set>
                 <element in="e:entries">
-                    <attribute-create out="sort">concat(../e:entry[@key='project'],'  ***  ',../e:entry[@key='organisation'])</attribute-create>
+                    <element-create>entry('projectName',find($project,current()/../e:entry[@key='project']/text())/e:entry[@key='acronym']/text())</element-create>
+                </element>
+            </element>
+
+            <element in="e:entries">
+                <element in="e:entries">
+                    <attribute-create out="sort">concat('Project : ',../e:entry[@key='projectName'],'  ***  Provider : ',../e:entry[@key='organisation'])</attribute-create>
                 </element>
                 <element-ignore/>
             </element>
