@@ -733,6 +733,8 @@
         <argument name="provider">0</argument>
         <argument name="installation">0</argument>
         <argument name="details"></argument>
+        <argument name="start">0</argument>
+        <argument name="end">0</argument>
 
         <variable name="url_end" eval="choose($details=2,
         concat('projects/',$projectId,'/providers/',$provider,'/metrics?size=100'),
@@ -740,7 +742,7 @@
                 concat('projects/',$projectId,'/metrics?size=100'),
                 concat('installations/',$installation,'/metrics?size=100')))"/>
 
-        <variable name="url" eval="concat('https://accounting.devel.argo.grnet.gr/accounting-system/',$url_end)"/>
+        <variable name="url" eval="choose($start!=0 and $end!=0,concat('https://accounting.devel.argo.grnet.gr/accounting-system/',$url_end,'&amp;start=',$start,'&amp;end=',$end),concat('https://accounting.devel.argo.grnet.gr/accounting-system/',$url_end))"/>
         <variable name="access_token" eval="view('getAccessToken')/object/access_token/text()"></variable>
 
         <connector type="HTTPConnector">
