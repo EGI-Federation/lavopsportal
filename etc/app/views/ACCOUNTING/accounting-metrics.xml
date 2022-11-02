@@ -80,14 +80,16 @@
             </element>
 
             <element in="e:entries">
-              <element-create-as-parent out="e:entries" group-by="@sort" attributes="@sort"/>
+              <element-create-as-parent out="e:entries" group-by="@sort" attributes="@sort">
+                      <element in="e:entries"/>
+              </element-create-as-parent>
             </element>
 
-            <element in="e:entries">
-                <element in="e:entries">
-                    <attribute in="sort" out="key"/>
-                </element>
-            </element>
+<!--            <element in="e:entries">-->
+<!--                <element in="e:entries">-->
+<!--                    <attribute in="sort" out="key"/>-->
+<!--                </element>-->
+<!--            </element>-->
 
 
         </processors>
