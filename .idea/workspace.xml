@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="mo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/app/views/ACCOUNTING/accounting-metrics.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/ACCOUNTING/accounting-metrics.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/app/views/OPSCORE/users.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/OPSCORE/users.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -232,7 +232,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
@@ -250,7 +250,7 @@
       <recent name="$PROJECT_DIR$/etc/app/resources/shell" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Start Lavoisier server">
+  <component name="RunManager" selected="Application.Run">
     <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
@@ -269,7 +269,7 @@
     <configuration name="Run" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="fr.in2p3.lavoisier.command.StandaloneExec" />
       <module name="lavopsportal" />
-      <option name="PROGRAM_PARAMETERS" value="deleteInstallation?nbsteps=999&amp;accept=xml" />
+      <option name="PROGRAM_PARAMETERS" value="getAccessToken?nbsteps=999&amp;accept=xml" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -537,7 +537,15 @@
       <workItem from="1666857146916" duration="6136000" />
       <workItem from="1666946441142" duration="3072000" />
       <workItem from="1667383320538" duration="3352000" />
-      <workItem from="1667400180617" duration="1849000" />
+      <workItem from="1667400180617" duration="3324000" />
+      <workItem from="1667462502164" duration="10000" />
+      <workItem from="1667463630112" duration="574000" />
+      <workItem from="1667464333085" duration="423000" />
+      <workItem from="1667465381544" duration="65000" />
+      <workItem from="1668499163223" duration="735000" />
+      <workItem from="1668678459299" duration="17000" />
+      <workItem from="1668679405108" duration="95000" />
+      <workItem from="1669047937149" duration="773000" />
     </task>
     <task id="LOCAL-00075" summary="filtre tickets">
       <created>1536755736442</created>
