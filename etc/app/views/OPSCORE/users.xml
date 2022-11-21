@@ -295,9 +295,9 @@
             <elements path="/results/EGEE_USER">
                 <element in="USER_ROLE">
                     <element-ignore in="PRIMARY_KEY"/>
-                    <element in="CERTDN" if="contains(text(),'@egi.eu') and not(contains(text(),'/DC='))">
-                        <text>concat('/O=AAI/CN=',../../FORENAME/text(),' ',../../SURNAME/text(),'/Id=',.)</text>
-                    </element>
+                </element>
+                <element in="CERTDN" if="contains(text(),'@egi.eu') and not(contains(text(),'/DC='))">
+                    <text>concat('/O=AAI/CN=',../../FORENAME/text(),' ',../../SURNAME/text(),'/Id=',.)</text>
                 </element>
             </elements>
         </processors>
