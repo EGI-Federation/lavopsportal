@@ -59,11 +59,18 @@
         <e:entry key="CERTDN">/C=DE/O=GermanGrid/OU=KIT/CN=Pavel Weber</e:entry>
     </e:entries>
 
-    <e:entries key="/DC=org/DC=terena/DC=tcs/C=NL/O=Stichting EGI/OU=Operations/CN=Baptiste Grenier">
+    <e:entries key="/O=AAI/CN=Baptiste Grenier/Id=bf9ba8f9538b50d838194ed5fc6f3e90fbf156c637728214e311e80971a5d9d6@egi.eu">
         <e:entry key="ROLES">GRID BODY::project::EGI</e:entry>
         <e:entry key="NAME">Baptiste Grenier</e:entry>
         <e:entry key="EMAIL">baptiste.grenier@egi.eu</e:entry>
-        <e:entry key="CERTDN">/DC=org/DC=terena/DC=tcs/C=NL/O=Stichting EGI/OU=Operations/CN=Baptiste Grenier</e:entry>
+        <e:entry key="CERTDN">/O=AAI/CN=Baptiste Grenier/Id=bf9ba8f9538b50d838194ed5fc6f3e90fbf156c637728214e311e80971a5d9d6@egi.eu</e:entry>
+    </e:entries>
+
+    <e:entries key="/O=AAI/CN=Baptiste Grenier/Id=bf9ba8f9538b50d838194ed5fc6f3e90fbf156c637728214e311e80971a5d9d6@egi.eu">
+        <e:entry key="ROLES">Site Operations Manager::site::GRIDOPS-OPSPORTAL</e:entry>
+        <e:entry key="NAME">Giuseppe La Rocca</e:entry>
+        <e:entry key="EMAIL">larocca@egi.eu</e:entry>
+        <e:entry key="CERTDN">/O=AAI/CN=Baptiste Grenier/Id=bf9ba8f9538b50d838194ed5fc6f3e90fbf156c637728214e311e80971a5d9d6@egi.eu</e:entry>
     </e:entries>
 
 
