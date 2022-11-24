@@ -69,7 +69,8 @@
             <element in="e:entries">
                 <set variable="project" index="e:entry[@key='id']/text()">view('listProjects')/e:entries/e:entries</set>
                 <element in="e:entries">
-                    <element-create>entry('projectName',find($project,current()/../e:entry[@key='project']/text())/e:entry[@key='acronym']/text())</element-create>
+                    <element-create if="find($project,current()/../e:entry[@key='project']/text())">entry('projectName',find($project,current()/../e:entry[@key='project']/text())/e:entry[@key='acronym']/text())</element-create>
+                    <element-create if="not(find($project,current()/../e:entry[@key='project']/text()))">entry('projectName','unknown')</element-create>
                 </element>
             </element>
 
