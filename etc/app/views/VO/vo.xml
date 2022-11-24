@@ -146,6 +146,7 @@
 
                     <elements path="Registries/VoVomsServer">
                         <element-create>find($voms-certificates,../hostname/text())</element-create>
+
                     </elements>
                     <element in="VoHeader">
                         <element-create>find($VoDetails,current()/../../@key)</element-create>

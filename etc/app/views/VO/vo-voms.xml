@@ -421,10 +421,32 @@
 
     </view>
 
+    <view name="voms-certificate-url-gsi" timeout="PT1M">
+
+        <argument name="key"></argument>
+        <argument name="url" eval="concat('https://',$key,':15020')"/>
+        <connector type="PublicKeyConnector">
+            <parameter name="url" eval="$url"/>
+            <fallback eval="view('voms-certificate-url-fallback', entry('key',$key))">
+                <exception type="fr.in2p3.lavoisier.interfaces.error.ConfigurationException"/>
+                <exception type="java.net.SocketTimeoutException"/>
+            </fallback>
+        </connector>
+        <processors>
+            <element in="X509Cert">
+                <attribute-create out="port">15020</attribute-create>
+            </element>
+        </processors>
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+    </view>
 
     <view name="voms-certificate-url" timeout="PT1M">
-        
-        <argument name="key"/>
+
+        <argument name="key"></argument>
         <argument name="url" eval="concat('https://',$key,':8443')"/>
         <connector type="PublicKeyConnector">
             <parameter name="url" eval="$url"/>
@@ -433,6 +455,12 @@
                 <exception type="java.net.SocketTimeoutException"/>
             </fallback>
         </connector>
+
+        <processors>
+            <element in="X509Cert">
+                <attribute-create out="port">8443</attribute-create>
+            </element>
+        </processors>
         <renderers>
             <renderer type="DefaultRenderer">
                 <parameter name="contentType">text/xml</parameter>
@@ -464,6 +492,7 @@
         <!-- echo "/bin/openssl s_client -connect \$1 2>/dev/null | /bin/openssl x509 \$2 \$3 \$4" > download-cert.sh -->
         <view name="cert_fallback" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
             <argument name="url"/>
+            <argument name="port"/>
             <connector type="ShellConnector">
                 <parameter name="executable">/usr/bin/sh</parameter>
                 <parameter name="arguments">
@@ -520,7 +549,7 @@
 
 
     <view name="vomscert">
-        <argument name="key"/>
+        <argument name="key"></argument>
         <connector type="XMLConnector">
             <parameter name="content" eval="view('voms-certificate-url',entry('key',$key))/*"/>
             <fallback>
@@ -531,8 +560,23 @@
         </connector>
     </view>
 
+    <view name="vomscert-gsi">
+        <argument name="key"></argument>
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('voms-certificate-url-gsi',entry('key',$key))/*"/>
+            <fallback>
+                <exception type="java.lang.Exception"/>
+                <exception type="java.net.SocketTimeoutException"/>
+                <exception type="fr.in2p3.lavoisier.interfaces.error.AdaptorException"/>
+            </fallback>
+        </connector>
+    </view>
+
+
+
     <view name="voms-certificates" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
-        
+
+
 
         <connector type="XMLConnector">
             <parameter name="content" eval="view('voms-endpoint')"/>
@@ -544,11 +588,14 @@
                 <element-ignore in="SERVICE_ENDPOINT" if="HOSTNAME/text()=preceding-sibling::SERVICE_ENDPOINT/HOSTNAME/text()"/>
             </element>
 
-            <element in="results">
+            <element in="results" >
                 <element-ignore in="SERVICE_ENDPOINT">
                     <element-create>view('vomscert',entry('key',../HOSTNAME/text()))</element-create>
+                    <element-create>view('vomscert-gsi',entry('key',../HOSTNAME/text()))</element-create>
                 </element-ignore>
             </element>
+
+
 
             <element in="results">
                 <element-ignore in="e:entries"/>
