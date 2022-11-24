@@ -427,7 +427,7 @@
         <argument name="url" eval="concat('https://',$key,':15020')"/>
         <connector type="PublicKeyConnector">
             <parameter name="url" eval="$url"/>
-            <fallback eval="view('voms-certificate-url-fallback', entry('key',$key))">
+            <fallback eval="view('voms-certificate-url-fallback', entry('key',$key)|entry('port',$port))">
                 <exception type="fr.in2p3.lavoisier.interfaces.error.ConfigurationException"/>
                 <exception type="java.net.SocketTimeoutException"/>
             </fallback>
@@ -450,7 +450,7 @@
         <argument name="url" eval="concat('https://',$key,':8443')"/>
         <connector type="PublicKeyConnector">
             <parameter name="url" eval="$url"/>
-            <fallback eval="view('voms-certificate-url-fallback', entry('key',$key))">
+            <fallback eval="view('voms-certificate-url-fallback', entry('key',$key)|entry('port',$port))">
                 <exception type="fr.in2p3.lavoisier.interfaces.error.ConfigurationException"/>
                 <exception type="java.net.SocketTimeoutException"/>
             </fallback>
@@ -515,7 +515,8 @@
             <processors>
                 <element out="X509Cert" in="e:entries">
                     <attribute-create out="expiry">../e:entry[@key='notAfter']/text()</attribute-create>
-                    <attribute-create out="host">substring-before(substring-after($url,'https://'),':8443')</attribute-create>
+                    <attribute-create out="host">substring-before(substring-after($url,'https://'),concat(':',$port))</attribute-create>
+                    <attribute-create out="port">$port</attribute-create>
                     <element out="DN" in="e:entry" if="@key='subject'">
                         <attribute-ignore/>
                     </element>
@@ -602,7 +603,7 @@
             </element>
 
             <element in="results">
-                <element-ignore in="X509Cert" if="@host=preceding-sibling::X509Cert/@host"/>
+                <element-ignore in="X509Cert" if="preceding-sibling::X509Cert[@host=current()/@host][@port=current()/@port]"></element-ignore>
             </element>
 
         </processors>
