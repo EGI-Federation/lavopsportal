@@ -249,6 +249,7 @@
             <fallback eval="new_element('error','image not found')">
                 <exception type="java.net.UnknownHostException"/>
                 <exception type="java.io.IOException"/>
+                <exception type=" java.lang.RuntimeException"/>
             </fallback>
         </connector>
         <serializer type="EncapsulateSerializer"/>
