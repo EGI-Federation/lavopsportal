@@ -45,6 +45,164 @@
 
     </view>
 
+    <view name="OPSCORE_users_agg_emails" authenticators="local" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
+
+
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('OPSCORE_users_goc')"/>
+        </connector>
+
+        <processors>
+
+            <element in="results">
+                <element-create as="last-child">view('OPSCORE_users_cic')</element-create>
+                <element-create as="last-child">view('OPSCORE_users_cic_serial')</element-create>
+                <element-create as="last-child">view('OPSCORE_users_csi')</element-create>
+
+            </element>
+
+            <element in="results" out="e:entries">
+
+                <element in="EGEE_USER" out="e:entries">
+
+                    <element-create>entry('NAME',new_text(concat(../FORENAME/text(),' ',../SURNAME/text())))</element-create>
+                    <element-create>entry('EMAIL',new_text(../EMAIL/text()))</element-create>
+                    <element-create>entry('CERTDN',new_text(../CERTDN/text()))</element-create>
+                    <element-ignore if="name()!='USER_ROLE'"/>
+
+                    <element-ignore in="USER_ROLE">
+                        <element-create>entry('ROLES',concat(../USER_ROLE/text(),'::',../ENTITY_TYPE/text(),'::',../ON_ENTITY/text()))</element-create>
+                    </element-ignore>
+                </element>
+
+                <element-ignore in="result">
+                    <element in="row" out="e:entries">
+                        <element-create>entry('ROLES',concat(../e:entry[@key="USER_ROLE"]/text(),'::',../e:entry[@key="ENTITY_TYPE"]/text(),'::',../e:entry[@key="ON_ENTITY"]/text()))</element-create>
+                        <element-ignore if="@key='USER_ROLE' or @key='ENTITY_TYPE' or @key='ON_ENTITY'"/>
+                        <element in="e:entry" if="@key='CN'">
+                            <attribute-ignore in="key"/>
+                            <attribute-create out="key">'NAME'</attribute-create>
+                        </element>
+                    </element>
+                </element-ignore>
+
+                <element-ignore in="CSIRTTeam" >
+                    <element-ignore in="Users">
+                        <element in="EGEE_USER" out="e:entries">
+
+                            <element-create>entry('PRIMARY_KEY',new_text(../@PRIMARY_KEY))</element-create>
+                            <element-create>entry('NAME',new_text(concat(../FORENAME/text(),../SURNAME/text())))</element-create>
+                            <element-create>entry('EMAIL',new_text(../EMAIL/text()))</element-create>
+                            <element-create>entry('CERTDN',new_text(../CERTDN/text()))</element-create>
+                            <element-ignore if="name()!='USER_ROLE'"/>
+                            <element-ignore in="USER_ROLE">
+                                <element-create>entry('ROLES',concat('EGI CSIRT Officer::',../ENTITY_TYPE/text(),'::',../ON_ENTITY/text()))</element-create>
+                            </element-ignore>
+                        </element>
+
+
+                    </element-ignore>
+                    <element-ignore/>
+                </element-ignore>
+
+            </element>
+
+
+            <element in="e:entries">
+                <element in="e:entries">
+                    <attribute-create out="key">../e:entry[@key="email"]/text()</attribute-create>
+                </element>
+            </element>
+
+            <element in="e:entries">
+                <element-create as="first-child">choose(view("OPSCORE_fake_users")/e:entries/*,view("OPSCORE_fake_users")/e:entries/*,entries())</element-create>
+            </element>
+
+            <element in="e:entries">
+                <element-ignore in="e:entries" if="@key='' or @key='-' or @key='--'"/>
+            </element>
+
+
+            <element in="e:entries">
+                <element-ignore/>
+                <element-create>sort_by_string(../e:entries,'@key')</element-create>
+            </element>
+
+            <element in="e:entries">
+                <element-create-as-parent out="e:entries" group-by="@key" attributes="@key">
+                    <element in="e:entries"/>
+                </element-create-as-parent>
+            </element>
+
+            <element in="e:entries">
+                <element in="e:entries">
+                    <element-ignore in="e:entries">
+                        <element/>
+                    </element-ignore>
+                </element>
+            </element>
+
+            <element in="e:entries">
+                <element in="e:entries">
+                    <element-ignore in="e:entry" if="@key!='ROLES'"/>
+                    <element-create>entry('NAME',choose(../e:entry[@key='NAME'][1]/text(),../e:entry[@key='NAME'][1]/text(),'NA'))</element-create>
+                    <element-create>entry('EMAIL',choose(../e:entry[@key='EMAIL'][1]/text(),../e:entry[@key='EMAIL'][1]/text(),'NA'))</element-create>
+                    <element-create>entry('CERTDN',choose(../e:entry[@key='CERTDN'][1]/text(),../e:entry[@key='CERTDN'][1]/text(),'NA'))</element-create>
+                </element>
+            </element>
+
+
+
+            <element in="e:entries">
+                <element in="e:entries">
+                    <element-create-as-parent out="e:entries">
+                        <element in="e:entry" if="@key='ROLES'"/>
+                    </element-create-as-parent>
+                </element>
+            </element>
+
+
+            <element in="e:entries">
+                <element in="e:entries">
+                    <element in="e:entries">
+                        <attribute-create out="key">'ROLES'</attribute-create>
+                        <element in="e:entry">
+                            <attribute-ignore/>
+                        </element>
+                    </element>
+                </element>
+            </element>
+
+
+            <elements path="e:entries/e:entries">
+                <element in="e:entries" if="@key='ROLES'">
+                    <element-ignore in="e:entry"/>
+                    <element-create>uniq(../e:entry,'text()')</element-create>
+                </element>
+
+            </elements>
+
+        </processors>
+
+
+
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="minutes">21</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+
+        </cache>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+
+    </view>
+
+
     <view name="OPSCORE_users_agg" authenticators="local" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
 
 
@@ -227,15 +385,21 @@
     <view name="OPSCORE_user" authenticators="local" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
 
 
-        <argument name="DN"/>
+        <argument name="DN">_DN_</argument>
+        <argument name="email">_email_</argument>
 
         <connector type="XMLConnector">
-            <parameter name="content" eval="view('OPSCORE_users_agg')"/>
+            <parameter name="content" eval="choose($DN!='_DN_',view('OPSCORE_users_agg'),view('OPSCORE_users_agg_emails'))"/>
         </connector>
 
         <processors>
-            <element in="e:entries">
+            <element in="e:entries" if="$DN!='_DN_'">
                <element in="e:entries" if="e:entry[@key='CERTDN']/text()=$DN"/>
+                <element-ignore/>
+            </element>
+
+            <element in="e:entries" if="$email!='_email_'">
+                <element in="e:entries" if="e:entry[@key='EMAIL']/text()=$email"/>
                 <element-ignore/>
             </element>
 
