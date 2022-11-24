@@ -118,9 +118,9 @@
 <!--                <element-create as="first-child">choose(view("OPSCORE_fake_users")/e:entries/*,view("OPSCORE_fake_users")/e:entries/*,entries())</element-create>-->
 <!--            </element>-->
 
-<!--            <element in="e:entries">-->
-<!--                <element-ignore in="e:entries" if="@key='' or @key='-' or @key='&#45;&#45;'"/>-->
-<!--            </element>-->
+            <element in="e:entries">
+                <element-ignore in="e:entries" if="@key='' or @key='-' or @key='--'"/>
+            </element>
 
 
             <element in="e:entries">
