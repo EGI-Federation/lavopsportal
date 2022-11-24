@@ -133,7 +133,7 @@
 
 
             <element in="data">
-                <set variable="voms-certificates" index="@host">view('voms-certificates')/results/X509Cert</set>
+                <set variable="voms-certificates">view('voms-certificates')/results</set>
                 <set variable="VoDetails" index="@name">view('VoDetails')/result/row</set>
                 <set variable="VoContactsAll">view('VoContactsAll')</set>
                 <set variable="VoMailingLists" index="name/text()">uniq(view('VoMailingLists')/result/row,"name/text()")</set>
@@ -145,7 +145,7 @@
                 <element in="Vo">
 
                     <elements path="Registries/VoVomsServer">
-                        <element-create>find($voms-certificates,../hostname/text())</element-create>
+                        <element-create>$voms-certificates/X509Cert[@host=current()/../hostname/text()]</element-create>
 
                     </elements>
                     <element in="VoHeader">
