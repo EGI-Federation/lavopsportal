@@ -2028,6 +2028,29 @@
         </renderers>
     </view>
 
+    <view name="VoRolesEmail" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
+
+
+        <argument name="email"/>
+
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('VoRoles')"/>
+        </connector>
+
+        <processors>
+            <element in="e:entries">
+                <element in="e:entries" if="e:entry[@key='email']/text()=$email"/>
+                <element-ignore/>
+            </element>
+        </processors>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+    </view>
+
     <view name="VoRolesDN" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
 
 
