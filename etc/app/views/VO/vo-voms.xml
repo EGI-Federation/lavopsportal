@@ -603,7 +603,7 @@
             </element>
 
             <element in="results">
-                <element-ignore in="X509Cert" if="preceding-sibling::X509Cert[@host=current()/@host][@port=current()/@port]"></element-ignore>
+                <element-ignore in="X509Cert" if="preceding-sibling::X509Cert[SerialNumber/text()][SerialNumber/text()]"></element-ignore>
             </element>
 
         </processors>
