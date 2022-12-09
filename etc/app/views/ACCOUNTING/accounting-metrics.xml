@@ -61,7 +61,7 @@
                     <element in="object" out="e:entries">
 
                         <element-ignore if="name()!='permissions'">
-                            <element-create>entry(name(..),../text())</element-create>
+                            <element-create if="../text()">entry(name(..),../text())</element-create>
                         </element-ignore>
                         <element in="permissions" out="e:entries">
                             <elements-ignore path="object/access_permissions/object">
