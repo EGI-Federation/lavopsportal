@@ -78,6 +78,7 @@
                                 <attribute-create out="key">'providers'</attribute-create>
 
                                 <element in="object" out="e:entries">
+                                    <attribute-create out="key">../id/text()</attribute-create>
 
                                     <element-ignore if="name()!='permissions' and name()!='installations'">
                                         <element-create if="../text()">entry(name(..),../text())</element-create>
@@ -85,19 +86,14 @@
 
                                     <element in="installations" out="e:entries">
                                         <attribute-create out="key">'installations'</attribute-create>
-                                        <element-ignore if="name()!='permissions' and name()!='installations'">
-                                            <element-create if="../text()">entry(name(..),../text())</element-create>
-                                        </element-ignore>
 
-                                        <element in="permissions" out="e:entries">
+
                                             <element in="object" out="e:entries">
-                                                <attribute-create out="key">../collection/text()</attribute-create>
-                                                <elements-ignore path="access_permissions/object">
-                                                    <element-create>entry(../operation/text(),../access_type/text())</element-create>
-                                                </elements-ignore>
-                                                <element-ignore/>
+                                                <attribute-create out="key">../id/text()</attribute-create>
+                                                <element-create if="../text()">entry(name(..),../text())</element-create>
+
                                             </element>
-                                        </element>
+
 
                                     </element>
 
@@ -111,7 +107,6 @@
                                         </element>
                                     </element>
                                 </element>
-
 
 
 
