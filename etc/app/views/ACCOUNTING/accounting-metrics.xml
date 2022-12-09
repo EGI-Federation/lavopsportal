@@ -60,9 +60,10 @@
                 <element-ignore in="content">
                         <element in="object" out="e:entries">
 
-                            <element-ignore if="name()!='permissions'">
+                            <element-ignore if="name()!='permissions' and name()!='providers'">
                                 <element-create if="../text()">entry(name(..),../text())</element-create>
                             </element-ignore>
+
                             <element in="permissions" out="e:entries">
                                 <element in="object" out="e:entries">
                                     <attribute-create out="key">../collection/text()</attribute-create>
@@ -72,6 +73,7 @@
                                     <element-ignore/>
                                 </element>
                             </element>
+
                             <element in="providers" out="e:entries">
                                 <attribute-create out="key">'providers'</attribute-create>
                                 <element in="object" out="e:entries">
