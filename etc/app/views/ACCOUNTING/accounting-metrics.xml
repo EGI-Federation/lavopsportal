@@ -59,7 +59,7 @@
             <element in="object" out="e:entries">
                 <element-ignore in="content">
                         <element in="object" out="e:entries">
-
+                            <attribute-create out="key">../acronym/text()</attribute-create>
                             <element-ignore if="name()!='permissions' and name()!='providers'">
                                 <element-create if="../text()">entry(name(..),../text())</element-create>
                             </element-ignore>
@@ -80,10 +80,24 @@
                                     <element-ignore if="name()!='permissions' and name()!='installations'">
                                         <element-create if="../text()">entry(name(..),../text())</element-create>
                                     </element-ignore>
+                                    <element in="installations" out="e:entries">
+                                        <attribute-create out="key">'installations'</attribute-create>
+                                        <element-ignore>
+                                            <element-create if="../text()">entry(name(..),../text())</element-create>
+                                        </element-ignore>
+                                    </element>
+                                    <element in="permissions" out="e:entries">
+                                        <attribute-create out="key">'permissions'</attribute-create>
+                                        <element-ignore>
+                                            <element-create if="../text()">entry(name(..),../text())</element-create>
+                                        </element-ignore>
+                                    </element>
+
                                 </element>
                             </element>
                         </element>
                 </element-ignore>
+                <element-ignore/>
             </element>
 
         </processors>

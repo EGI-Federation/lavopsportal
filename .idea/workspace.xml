@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="mo">
-      <change beforePath="$PROJECT_DIR$/etc/app/views/ACCOUNTING/accounting-metrics.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/ACCOUNTING/accounting-metrics.xml" afterDir="false" />
-    </list>
+    <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="mo" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -550,7 +548,7 @@
       <workItem from="1669368505287" duration="1503000" />
       <workItem from="1669622420322" duration="35000" />
       <workItem from="1669889736913" duration="1043000" />
-      <workItem from="1670574901368" duration="4913000" />
+      <workItem from="1670574901368" duration="5311000" />
     </task>
     <task id="LOCAL-00075" summary="filtre tickets">
       <created>1536755736442</created>
