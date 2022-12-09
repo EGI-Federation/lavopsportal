@@ -81,7 +81,6 @@
                                     <element-ignore if="name()!='permissions' and name()!='installations'">
                                         <element-create if="../text()">entry(name(..),../text())</element-create>
                                     </element-ignore>
-                                </element>
 
                                     <element in="installations" out="e:entries">
                                         <attribute-create out="key">'installations'</attribute-create>
@@ -100,14 +99,11 @@
                                         </element>
 
                                     </element>
+                                </element>
 
-                                    <element in="permissions" out="e:entries">
-                                        <attribute-create out="key">'permissions'</attribute-create>
-                                        <element-ignore>
-                                            <element in="object"></element>
-                                            <element-create if="../text()">entry(name(..),../text())</element-create>
-                                        </element-ignore>
-                                    </element>
+
+
+
 
 
                             </element>
