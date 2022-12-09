@@ -51,6 +51,10 @@
             </parameter>
         </connector>
 
+
+
+        <serializer type="JSONStreamSerializer"/>
+
         <processors>
             <element in="object" out="e:entries">
                 <element-ignore in="content">
@@ -61,7 +65,7 @@
                         </element-ignore>
                         <element in="permissions" out="e:entries">
                             <elements-ignore path="object/access_permissions/object">
-                                <element-ignore><element-create>entry(../operatuins/text(),../access_type/text())</element-create></element-ignore>
+                                <element-ignore><element-create>entry(../operations/text(),../access_type/text())</element-create></element-ignore>
                             </elements-ignore>
                         </element>
                     </element>
@@ -72,8 +76,6 @@
             </element>
 
         </processors>
-
-        <serializer type="JSONStreamSerializer"/>
         <renderers>
             <renderer type="DefaultRenderer">
                 <parameter name="contentType">text/xml</parameter>
