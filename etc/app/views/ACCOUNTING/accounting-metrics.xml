@@ -50,6 +50,29 @@
 
             </parameter>
         </connector>
+
+        <processors>
+            <element in="object" out="e:entries">
+                <element-ignore in="content">
+                    <element in="object" out="e:entries">
+
+                        <element-ignore if="name()!='permissions'">
+                            <element-create>entry(name(..),../text())</element-create>
+                        </element-ignore>
+                        <element in="permissions" out="e:entries">
+                            <elements-ignore path="object/access_permissions/object">
+                                <element-ignore><element-create>entry(../operatuins/text(),../access_type/text())</element-create></element-ignore>
+                            </elements-ignore>
+                        </element>
+                    </element>
+
+
+                </element-ignore>
+
+            </element>
+
+        </processors>
+
         <serializer type="JSONStreamSerializer"/>
         <renderers>
             <renderer type="DefaultRenderer">
