@@ -268,7 +268,7 @@
     <configuration name="Run" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="fr.in2p3.lavoisier.command.StandaloneExec" />
       <module name="lavopsportal" />
-      <option name="PROGRAM_PARAMETERS" value="vomscert?nbsteps=999&amp;accept=xml" />
+      <option name="PROGRAM_PARAMETERS" value="getAccessToken?nbsteps=999&amp;accept=xml" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -549,6 +549,7 @@
       <workItem from="1669277741928" duration="12936000" />
       <workItem from="1669368505287" duration="1503000" />
       <workItem from="1669622420322" duration="35000" />
+      <workItem from="1669889736913" duration="1043000" />
     </task>
     <task id="LOCAL-00075" summary="filtre tickets">
       <created>1536755736442</created>
