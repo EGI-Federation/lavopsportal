@@ -65,7 +65,7 @@
                         </element-ignore>
                         <element in="permissions" out="e:entries">
                             <elements-ignore path="object/access_permissions/object">
-                                <element-ignore><element-create>entry(../operations/text(),../access_type/text())</element-create></element-ignore>
+                               <element-create>entry(../operations/text(),../access_type/text())</element-create>
                             </elements-ignore>
                         </element>
                     </element>
