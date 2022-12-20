@@ -133,7 +133,6 @@
 
 
             <element in="data">
-                <set variable="voms-certificates">view('voms-certificates')/results</set>
                 <set variable="VoDetails" index="@name">view('VoDetails')/result/row</set>
                 <set variable="VoContactsAll">view('VoContactsAll')</set>
                 <set variable="VoMailingLists" index="name/text()">uniq(view('VoMailingLists')/result/row,"name/text()")</set>
