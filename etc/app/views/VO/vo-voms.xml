@@ -425,7 +425,8 @@
     <view name="voms-certificate-url-gsi" timeout="PT1M">
 
         <argument name="key"></argument>
-        <argument name="url" eval="concat('https://',$key,':15020')"/>
+        <argument name="port">15020</argument>
+        <argument name="url" eval="concat('https://',$key,':',$port)"/>
         <connector type="PublicKeyConnector">
             <parameter name="url" eval="$url"/>
             <fallback eval="view('voms-certificate-url-fallback', entry('key',$key)|entry('port',$port))">
@@ -435,7 +436,7 @@
         </connector>
         <processors>
             <element in="X509Cert">
-                <attribute-create out="port">15020</attribute-create>
+                <attribute-create out="port">$port</attribute-create>
             </element>
         </processors>
         <renderers>
@@ -472,7 +473,8 @@
     <view name="voms-certificate-url-fallback" timeout="PT1M">
 
         <argument name="key"/>
-        <argument name="url" eval="concat('https://',$key,':443')"/>
+        <argument name="port">15003</argument>
+        <argument name="url" eval="concat('https://',$key,':',$port)"/>
         <connector type="PublicKeyConnector">
             <parameter name="url" eval="$url"/>
             <fallback eval="view('cert_fallback', arguments())">
@@ -574,7 +576,133 @@
         </connector>
     </view>
 
+    <view name="vomscert-db">
+        <argument name="hostname"/>
+        <argument name="port"/>
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('voms-certificate-url-gsi',entry('key',$hostname)|entry('port',$port))/*"/>
+            <fallback>
+                <exception type="java.lang.Exception"/>
+                <exception type="java.net.SocketTimeoutException"/>
+                <exception type="fr.in2p3.lavoisier.interfaces.error.AdaptorException"/>
+            </fallback>
+        </connector>
+    </view>
 
+
+    <view name="voms-db">
+        <connector type="SQLConnector">
+            <parameter name="driver">com.mysql.jdbc.Driver</parameter>
+            <parameter name="url" eval="property('VO.db.url')"/>
+            <parameter name="username" eval="property('VO.db.username')"/>
+            <parameter name="password" eval="property('VO.db.password')"/>
+            <parameter name="query">
+                SELECT  hostname, https_port , vomses_port  FROM vo_voms_server where https_port!=0
+            </parameter>
+
+        </connector>
+
+        <processors>
+            <element in="result">
+                <element-ignore in="row"/>
+                <element-create>sort_by_string(../row,'hostname/text()')</element-create>
+            </element>
+
+            <element in="result">
+                <element-create-as-parent out="voms"  group-by="hostname/text()">
+                    <element in="row"/>
+                </element-create-as-parent>
+            </element>
+
+            <element in="result">
+                <element in="voms">
+                    <attribute-create out="hostname">../row[1]/hostname/text()</attribute-create>
+                    <element-ignore in="row">
+                        <element in="https_port"></element>
+                        <element in="vomses_port"/>
+                    </element-ignore>
+                </element>
+            </element>
+
+            <element in="result">
+                <element in="voms">
+                    <element-ignore in="https_port" if="preceding-sibling::https_port/text()=current()/text()"/>
+                    <element-ignore in="vomses_port" if="preceding-sibling::vomses_port/text()=current()/text()"/>
+                </element>
+            </element>
+
+            <element in="result">
+                <element in="voms">
+                    <element out="port"/>
+                </element>
+            </element>
+
+
+        </processors>
+
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="minutes">22</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+        </cache>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+    </view>
+
+    <view name="vomsdb-certificates">
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('voms-db')"/>
+        </connector>
+
+        <processors>
+            <element in="result">
+                <element in="voms">
+                    <element in="port">
+                        <element-create>view('vomscert-db',entry('hostname',../../@hostname)|entry('port',../text()))</element-create>
+                    </element>
+                </element>
+            </element>
+
+            <element in="result">
+                <element in="voms">
+                    <element in="port">
+                            <element-ignore in="X509Cert" if="preceding-sibling::X509Cert[SerialNumber/text()=current()/SerialNumber/text()][@host=current()/@host]"></element-ignore>
+                    </element>
+                </element>
+            </element>
+
+            <element in="result">
+                <elements-ignore path="voms/port">
+                    <element/>
+                </elements-ignore>
+            </element>
+
+            <element in="result" out="results">
+                <attribute-create out="nbCertificates">count(../X509Cert)</attribute-create>
+            </element>
+
+
+        </processors>
+
+
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="hours">8</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+        </cache>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+    </view>
 
     <view name="voms-certificates" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
 
@@ -605,6 +733,10 @@
 
             <element in="results">
                 <element-ignore in="X509Cert" if="preceding-sibling::X509Cert[SerialNumber/text()=current()/SerialNumber/text()][@host=current()/@host]"></element-ignore>
+            </element>
+
+            <element in="results">
+                <attribute-create out="nbCertificates">count(../X509Cert)</attribute-create>
             </element>
 
         </processors>

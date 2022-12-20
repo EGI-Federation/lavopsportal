@@ -40,7 +40,8 @@
     </view>
 
     <view name="listPermissions">
-        <variable name="access_token" eval="view('getAccessToken')/object/access_token/text()"></variable>
+<!--        <variable name="access_token" eval="view('getAccessToken')/object/access_token/text()"></variable>-->
+        <variable name="access_token">eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJ2LUQwenB3YTF5MlhjYlVmQTNXVWdrOUFXSUJUREVyYllXOXdlRFphUUE4In0.eyJleHAiOjE2NzE0NDM3ODksImlhdCI6MTY3MTQ0MDE4OSwiYXV0aF90aW1lIjoxNjcxNDQwMTg5LCJqdGkiOiIxMzdkMzY5MS02ZTFkLTQxMzEtOWM2OC1jOTQ5NTEwNTIyMWEiLCJpc3MiOiJodHRwczovL2FhaS1kZW1vLmVvc2MtcG9ydGFsLmV1L2F1dGgvcmVhbG1zL2NvcmUiLCJzdWIiOiI0NmQ5OTc3NzI2ZTU5ZjkzYmJkMzhlMTBiMmMwOGZhOGY3ZjJiNTQxZWYxYzY2YmFiMjc3OTYwZTFmODU2NGY0QGVnaS5ldSIsInR5cCI6IkJlYXJlciIsImF6cCI6IjExNDMzM2JkLTQwN2QtNGZlMy05OTQ0LWNmOWY2ZTY2ZGJjNiIsInNlc3Npb25fc3RhdGUiOiIyYzBlM2Y5ZS1lMWVmLTRjZjgtYmUyYy0zN2IzMjAzM2IyMjUiLCJzY29wZSI6Im9wZW5pZCBlZHVwZXJzb25fZW50aXRsZW1lbnQgcHJvZmlsZSBlbWFpbCIsInNpZCI6IjJjMGUzZjllLWUxZWYtNGNmOC1iZTJjLTM3YjMyMDMzYjIyNSJ9.I8enOC5JCCykMG_Idhu-f9vNAF2NH6_RAAxo-xJl3fJTv2oTXDp2QNAmomcY5TjmzJRxqkqHq1uIOcpD7ph-4wnJWiG2VCAoWfwQB7FGZ_SjmLKalyuxV7dYqbp-3RoAd0_hmlrjZMC1pu92ekE8toLwQAlSqE9_u0P2d-ZAchMr8Bbr1fEtpqd3sr8ALElxO9m9aexdjnMIlpyGmiApCydNo03iWiPwa3PqfbEWPOuzIC4fkdH_Gen_fkC-vrpnWA5Rr1h6yJTJI9H8dM03GQHXjiDJyk6S1wQX9q_dXVzjVd5NBncLI22ne1q1yJGVzBJ72jEU4iUXPpdwTLUTig</variable>
         <connector type="HTTPConnector">
             <parameter name="url">https://accounting.devel.argo.grnet.gr/accounting-system/clients/me</parameter>
             <parameter name="method">GET</parameter>
@@ -142,6 +143,7 @@
 
 <view name="projectDetails">
     <variable name="access_token" eval="view('getAccessToken')/object/access_token/text()"></variable>
+
     <connector type="HTTPConnector">
         <parameter name="url">https://accounting.devel.argo.grnet.gr/accounting-system/projects/101017452</parameter>
         <parameter name="method">GET</parameter>
