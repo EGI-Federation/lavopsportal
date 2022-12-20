@@ -146,7 +146,7 @@
 
                     <elements path="Registries/VoVomsServer">
                         <element-create as="last-child">view('vomsdb-certificates')/results/X509Cert[@host=current()/../hostname/text()][@port=current()/../@https_port]</element-create>
-                        <element-create as="last-child">view('vomsdb-certificates')/results/X509Cert[@host=current()/../hostname/text()][@port=current()/../@vomses_port]</element-create
+                        <element-create as="last-child">view('vomsdb-certificates')/results/X509Cert[@host=current()/../hostname/text()][@port=current()/../@vomses_port]</element-create>
                     </elements>
                     <element in="VoHeader">
                         <element-create>find($VoDetails,current()/../../@key)</element-create>
