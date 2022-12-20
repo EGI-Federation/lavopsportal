@@ -145,8 +145,8 @@
                 <element in="Vo">
 
                     <elements path="Registries/VoVomsServer">
-                        <element-create>$voms-certificates/X509Cert[@host=current()/../hostname/text()]</element-create>
-
+                        <element-create as="last-child">view('vomsdb-certificates')/results/X509Cert[@host=current()/../hostname/text()][@port=current()/../@https_port]</element-create>
+                        <element-create as="last-child">view('vomsdb-certificates')/results/X509Cert[@host=current()/../hostname/text()][@port=current()/../@vomses_port]</element-create
                     </elements>
                     <element in="VoHeader">
                         <element-create>find($VoDetails,current()/../../@key)</element-create>
@@ -174,8 +174,11 @@
             </element>
 
             <elements path="data/Vo">
+                <elements path="Registries/VoVomsServer">
+                    <element-ignore in="X509Cert" if="preceding-sibling::X509Cert[SerialNumber/text()=current()/SerialNumber/text()]"></element-ignore>
+                </elements>
 
-                <element in="VoAcknowledgments">
+            <element in="VoAcknowledgments">
                     <element in="VoAcknowledgment">
                         <element-ignore in="serial"></element-ignore>
                         <element-ignore in="type_as"></element-ignore>

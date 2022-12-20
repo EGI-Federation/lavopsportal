@@ -40,7 +40,8 @@
     </view>
 
     <view name="listPermissions">
-        <variable name="access_token" eval="view('getAccessToken')/object/access_token/text()"></variable>
+<!--        <variable name="access_token" eval="view('getAccessToken')/object/access_token/text()"></variable>-->
+        <variable name="access_token">eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJ2LUQwenB3YTF5MlhjYlVmQTNXVWdrOUFXSUJUREVyYllXOXdlRFphUUE4In0.eyJleHAiOjE2NzE1NDU4MzQsImlhdCI6MTY3MTU0MjIzNCwiYXV0aF90aW1lIjoxNjcxNTQyMjA1LCJqdGkiOiJiYmM2YmViMi1iYjVmLTQzNTUtYTMzNi1jYjQ1M2ZjZTc2ZjUiLCJpc3MiOiJodHRwczovL2FhaS1kZW1vLmVvc2MtcG9ydGFsLmV1L2F1dGgvcmVhbG1zL2NvcmUiLCJzdWIiOiI0NmQ5OTc3NzI2ZTU5ZjkzYmJkMzhlMTBiMmMwOGZhOGY3ZjJiNTQxZWYxYzY2YmFiMjc3OTYwZTFmODU2NGY0QGVnaS5ldSIsInR5cCI6IkJlYXJlciIsImF6cCI6ImUyYjQ0ZDY3LTE3NGMtNDAxYy05Y2FmLTJiZDUzYTRlMDU1YSIsInNlc3Npb25fc3RhdGUiOiI4OTM0NmY4Yy0yZWI3LTRhNDQtYjUxNi05MTYxZWJjOGEyYjAiLCJzY29wZSI6Im9wZW5pZCBlZHVwZXJzb25fZW50aXRsZW1lbnQgcHJvZmlsZSBlbWFpbCIsInNpZCI6Ijg5MzQ2ZjhjLTJlYjctNGE0NC1iNTE2LTkxNjFlYmM4YTJiMCJ9.T2xhKxF_3Yi1sRoU84lJdQeHxtSUpWzhLnBFx6CnGdxQ4O1FjuDLtkZomib8tN4iZP7MwJ6BopvvAmKXfIidnmM6SO2b4OOLL9d_fB43a6HLhUJ-Ki7pjFdvLnEZwsc07BrnAW1PUNawMVFRquFVeQrDIHi9Oq_HmOZeTQ4M1MFcnITKsSRfljN5z4l6ZcxKr2KXjKxN0WnMFul1nf90BwbGeOv30RirVKLSWLfmfG4qiuNE9zxMmg7jhuJLcIFVgdbhuBpp_ySuwfgG5tgxRQI_rtzd-SGA504jv2kwLm78iWykmkL9TfaoAqvlpG7wHoBP_bDFWffjY3hWxSLy6A</variable>
         <connector type="HTTPConnector">
             <parameter name="url">https://accounting.devel.argo.grnet.gr/accounting-system/clients/me</parameter>
             <parameter name="method">GET</parameter>

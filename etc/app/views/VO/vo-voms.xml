@@ -15,12 +15,18 @@
                     <attribute-ignore/>
                     <element in="Registries">
                         <element in="VoVomsServer">
-
-                            <element-create as="last-child">view('voms-certificates')/results/X509Cert[@host=current()/../hostname/text()]</element-create>
+                            <element-create as="last-child">view('vomsdb-certificates')/results/X509Cert[@host=current()/../hostname/text()][@port=current()/../@https_port]</element-create>
+                            <element-create as="last-child">view('vomsdb-certificates')/results/X509Cert[@host=current()/../hostname/text()][@port=current()/../@vomses_port]</element-create>
                         </element>
                     </element>
                     <element-ignore/>
                 </element>
+            </element>
+
+            <element in="results">
+                <elements path="Vo/Registries/VoVomsServer">
+                    <element-ignore in="X509Cert" if="preceding-sibling::X509Cert[SerialNumber/text()=current()/SerialNumber/text()]"></element-ignore>
+                </elements>
             </element>
         </processors>
 
@@ -676,10 +682,6 @@
                 </elements-ignore>
             </element>
 
-            <element in="result">
-                <element-ignore in="e:entries"/>
-                <element-ignore in="X509Cert" if="preceding-sibling::X509Cert[SerialNumber/text()=current()/SerialNumber/text()][@host=current()/@host]"></element-ignore>
-            </element>
 
             <element in="result" out="results">
                 <attribute-create out="nbCertificates">count(../X509Cert)</attribute-create>
