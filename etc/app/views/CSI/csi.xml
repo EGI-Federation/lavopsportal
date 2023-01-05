@@ -920,9 +920,12 @@
 
             <element in="results">
                 <element in="row">
+                    <attribute-ignore in="key"/>
                     <element in="token" if="count(preceding-sibling::token)=0" out="node"/>    
                     <element in="token" if="count(preceding-sibling::token)=1" out="arch"/>
-                    <element in="token" if="count(preceding-sibling::token)=2" out="os"/>    
+                    <element in="token" if="count(preceding-sibling::token)=2" out="os"/>
+
+                    <element-ignore if="name()='id' or name()='created_at' or name()='flags' or name()='ops_flags' or name()='url_to_history' or name()='start_date' or name()='end_date' "/>
                 </element>
             </element>
 
