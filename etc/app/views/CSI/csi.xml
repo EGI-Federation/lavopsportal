@@ -899,7 +899,7 @@
 
         <processors>
         <element in="result" out="results">
-            <attribute-create out="count">count(../row)</attribute-create>
+
 
             <element in="row" >
                 <attribute-create out="key">../id/text()</attribute-create>
@@ -925,7 +925,13 @@
                     <element in="token" if="count(preceding-sibling::token)=1" out="arch"/>
                     <element in="token" if="count(preceding-sibling::token)=2" out="os"/>
 
-                    <element-ignore if="name()='id' or name()='created_at' or name()='flags' or name()='ops_flags' or name()='url_to_history' or name()='start_date' or name()='end_date' "/>
+                    <element in="summary" if="contains(.,'****')">
+                        <text>substring-after(.,'****')</text>
+                    </element>
+
+                    <element-ignore if="name()='id' or name()='created_at' or name()='flags' or name()='ops_flags' or name()='url_to_history' or name()='start_date' or name()='end_date' or name()='details' "/>
+
+
                 </element>
             </element>
 
@@ -945,6 +951,42 @@
 
             <element in="results" if="$ngi!='_ngi_'">
                 <element-ignore in="row" if="ngi/text()!=$ngi"/>
+            </element>
+
+            <element in="results" if="$ngi!='_ngi_'">
+                <element-ignore in="row" if="ngi/text()!=$ngi"/>
+            </element>
+
+            <element in="results" if="$severity!='all'">
+                <element-ignore in="row" if="$severity='critical' and status/text()!=1"/>
+            </element>
+
+            <element in="results" if="$severity!='all'">
+                <element-ignore in="row" if="$severity='warning' and status/text()!=2"/>
+            </element>
+
+            <element in="results" if="$severity!='all'">
+                <element-ignore in="row" if="$severity='unknown' and status/text()!=3"/>
+            </element>
+
+
+
+            <element in="results">
+                <attribute-create out="count">count(../row)</attribute-create>
+
+                <element in="row" if="contains(summary/text(),': WARNING:')">
+                    <element-create>new_element('node',substring-before(../summary/text(),': WARNING:'))</element-create>
+                    <element in="summary" if="contains(text(),': WARNING:')">
+                        <text>substring-after(.,': ')</text>
+                    </element>
+                </element>
+
+                <element in="row" if="contains(summary/text(),': ERROR:')">
+                    <element-create>new_element('node',substring-before(../summary/text(),': ERROR:'))</element-create>
+                    <element in="summary" if="contains(text(),': ERROR:')">
+                        <text>substring-after(.,': ')</text>
+                    </element>
+                </element>
             </element>
 
         </processors>
