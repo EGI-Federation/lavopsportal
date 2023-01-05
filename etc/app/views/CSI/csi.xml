@@ -958,11 +958,11 @@
             </element>
 
             <element in="results" if="$severity!='all'">
-                <element-ignore in="row" if="$severity='critical' and status/text()!=1"/>
+                <element-ignore in="row" if="$severity='critical' and status/text()!=2"/>
             </element>
 
             <element in="results" if="$severity!='all'">
-                <element-ignore in="row" if="$severity='warning' and status/text()!=2"/>
+                <element-ignore in="row" if="$severity='warning' and status/text()!=1"/>
             </element>
 
             <element in="results" if="$severity!='all'">
