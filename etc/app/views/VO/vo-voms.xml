@@ -343,9 +343,9 @@
                         <element-create>new_element('IN_PRODUCTION','Y')</element-create>
                         <element-create>new_element('MONITORED','Y')</element-create>
                         <element-create>new_element('NODE_MONITORED','Y')</element-create>
-                        <element-create>new_element('SITENAME','OSG')</element-create>
-                        <element-create>new_element('COUNTRY_NAME','OSG')</element-create>
-                        <element-create>new_element('COUNTRY_CODE','OSG')</element-create>
+                        <element-create>new_element('SITENAME','N.A')</element-create>
+                        <element-create>new_element('COUNTRY_NAME','N.A')</element-create>
+                        <element-create>new_element('COUNTRY_CODE','N.A')</element-create>
                         <element-create>new_element('ROC_NAME','OSG')</element-create>
 
 
