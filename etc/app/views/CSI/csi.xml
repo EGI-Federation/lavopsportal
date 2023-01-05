@@ -859,6 +859,150 @@
 
     </view>
 
+
+
+    <view xmlns:date="http://exslt.org/dates-and-times" xmlns:regexp="http://exslt.org/regular-expressions"  authenticators="local" xmlns:str="http://exslt.org/strings"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd"  name="CSI_API">
+
+<!--        tag - severity of CVE tagged in pakiti (eg EGI-Critical)-->
+<!--        cve - CVE identificator-->
+<!--        site - site name-->
+<!--        host - host name-->
+<!--        os - OS of host-->
+<!--        arch - host architecture-->
+<!--        last_report - time of last report from host-->
+<!--        The default (without any parameter) would be to provide hosts vulnerable to critical issues detected over the past 48 hours (and not fixed in the meantime).-->
+
+<!--        Having parameters allowing to customise the query may be handy:-->
+
+<!--        history: customising the duration for checking the history of reports (default: 48 hours)-->
+<!--        severity: configuring the severity of tagged CVE (egi EGI-High or EGI-Critical, default: EGI-Critical)-->
+        <argument name="nbHours">48</argument>
+        <argument name="severity">critical</argument>
+
+        <connector type="SQLConnector">
+            <parameter name="driver">com.mysql.jdbc.Driver</parameter>
+            <parameter name="url" eval="property('CSI.db.url')"/>
+            <parameter name="username" eval="property('CSI.db.username')"/>
+            <parameter name="password" eval="property('CSI.db.password')"/>
+            <parameter name="query">
+                <entry>SELECT * from csi_nagios_problem</entry>
+                <entry>where updated_at > now() - interval ? hour</entry>
+                <entry > and status=1</entry>
+            </parameter>
+            <parameter name="parameters">
+                <entry eval="$nbHours"/>
+            </parameter>
+        </connector>
+
+        <processors>
+        <element in="result" out="e:entries">
+            <attribute-create out="count">count(../row)</attribute-create>
+
+            <element in="row" out="e:entries" >
+                <attribute-create out="key">../id/text()</attribute-create>
+
+                <element in="test_name" out="e:entry">
+                    <attribute-create out="key">'test_name'</attribute-create>
+                </element>
+                <element in="friendly_name" out="e:entry">
+                    <attribute-create out="key">'friendly_name'</attribute-create>
+                </element>
+                <element in="status" out="e:entry">
+                    <attribute-create out="key">'status'</attribute-create>
+                </element>
+                <element in="host_name" out="e:entry">
+                    <attribute-create out="key">'host_name'</attribute-create>
+                </element>
+                <element in="created_at" out="e:entry">
+                    <attribute-create out="key">'created_at'</attribute-create>
+                </element>
+                <element in="site" out="e:entry">
+                    <attribute-create out="key">'site'</attribute-create>
+                </element>
+                <element in="ngi" out="e:entry">
+                    <attribute-create out="key">'ngi'</attribute-create>
+                </element>
+                <element in="summary" out="e:entry">
+                    <attribute-create out="key">'summary'</attribute-create>
+                </element>
+
+                <element in="ops_flags" out="e:entry" if="text()!=0">
+                    <attribute-create out="key">'last_report'</attribute-create>
+                </element>
+
+                <element in="updated_at" out="e:entry" if="../ops_flags/text()=0">
+                    <attribute-create out="key">'last_report'</attribute-create>
+                    <text>date:seconds(str:replace(substring(.,0,20),' ','T'))</text>
+                </element>
+
+                <element-create if="contains(../summary/text(),'cve-')">eval("new_element('e:entry',.|new_attribute('key','cve'))", regexp:match(../summary/text(),'(cve-\d{4}-\d{4})', 'g'))</element-create>
+
+                <element-create if="contains(../summary/text(),'Pakiti-Vuln CRITICAL - ')">str:split(substring-after(substring-before(../summary/text(),'****Pakiti-Vuln'),'Pakiti-Vuln CRITICAL - '),', ')</element-create>
+                <element-ignore/>
+            </element>
+
+
+        </element>
+
+            <element in="e:entries">
+                <element in="e:entries">
+
+                    <element in="token" if="count(preceding-sibling::token)=0" out="e:entry">
+                        <attribute-create out="key">'node'</attribute-create>
+                    </element>
+
+                    <element in="token" if="count(preceding-sibling::token)=1" out="e:entry">
+                        <attribute-create out="key">'arch'</attribute-create>
+                    </element>
+
+                    <element in="token" if="count(preceding-sibling::token)=2" out="e:entry">
+                        <attribute-create out="key">'os'</attribute-create>
+                    </element>
+
+
+                    <element-create-as-parent out="e:entries" group-by="e:entry[@key='cve']" >
+                        <element in="e:entry" if="@key='cve'"></element>
+                    </element-create-as-parent>
+                </element>
+
+
+            </element>
+
+
+
+
+<!--        <element in="e:entries">-->
+<!--            <set variable="OPSCORE_sites_info" index="@key">uniq(view('OPSCORE_sites_info')/e:entries/e:entries,"@key")</set>-->
+<!--            <set variable="OPSCORE_downtime_ongoing">view('OPSCORE_downtime_ongoing')</set>-->
+<!--            <element in="e:entries">-->
+<!--                <attribute-create out="production">find($OPSCORE_sites_info,../e:entry[@key='site']/text())/e:entry[@key='PRODUCTION']/text()</attribute-create>-->
+<!--                <attribute-create out="certified">find($OPSCORE_sites_info,../e:entry[@key='site']/text())/e:entry[@key='CERTIFIED']/text()</attribute-create>-->
+<!--                <attribute-create out="downtime_endpoints">str:concat($OPSCORE_downtime_ongoing/e:entries/e:entry[e:entry[@key='HOSTED_BY']/text()=current()/../e:entry[@key='site']/text()]/e:entries[@key='ENDPOINTS']/e:entry/text())</attribute-create>-->
+<!--            </element>-->
+<!--        </element>-->
+
+
+<!--        <element in="e:entries">-->
+<!--            <element in="e:entries" if="@downtime_endpoints!=''">-->
+<!--                <attribute-ignore in="downtime_endpoints"/>-->
+<!--                <attribute-create out="downtime">starts-with(../@downtime_endpoints,current()/../e:entry[@key='host_name']/text())</attribute-create>-->
+<!--            </element>-->
+<!--            <element in="e:entries" if="@downtime_endpoints=''">-->
+<!--                <attribute-ignore in="downtime_endpoints"/>-->
+<!--                <attribute-create out="downtime">0</attribute-create>-->
+<!--            </element>-->
+<!--        </element>-->
+
+
+
+        <element in="e:entries">
+            <element-ignore in="e:entries" if="@production!=1 or @certified!=1 or @downtime='true'"/>
+        </element>
+
+        </processors>
+
+    </view>
+
     <view xmlns:date="http://exslt.org/dates-and-times" authenticators="local"  xmlns:str="http://exslt.org/strings"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd"  name="reportcsiIssues">
 
         <argument name="status">critical</argument>
