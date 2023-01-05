@@ -42,7 +42,6 @@
                 <exception type="java.lang.NullPointerException"/>
             </fallback>
         </connector>
-
     </view>
 
 
@@ -878,6 +877,9 @@
 <!--        severity: configuring the severity of tagged CVE (egi EGI-High or EGI-Critical, default: EGI-Critical)-->
         <argument name="nbHours">48</argument>
         <argument name="severity">critical</argument>
+        <argument name="cve">_cve_</argument>
+        <argument name="test_name">_test_name_</argument>
+        <argument name="site">_site_</argument>
 
         <connector type="SQLConnector">
             <parameter name="driver">com.mysql.jdbc.Driver</parameter>
@@ -963,6 +965,18 @@
                     <element-create-as-parent out="e:entries" group-by="e:entry[@key='cve']" >
                         <element in="e:entry" if="@key='cve'"></element>
                     </element-create-as-parent>
+                </element>
+
+                <element in="e:entries" if="$test_name!='_test_name_'">
+                    <element-ignore in="e:entries" if="e:entry[@key='test_name']!=$test_name"/>
+                </element>
+
+                <element in="e:entries" if="$cve!='_cve_'">
+                    <element-ignore in="e:entries" if="not(e:entries[@key='cves']/e:entry=$cve)"/>
+                </element>
+
+                <element in="e:entries" if="$site!='_site_'">
+                    <element-ignore in="e:entries"  if="e:entry[@key='site']!=$site"/>
                 </element>
 
 
