@@ -889,7 +889,7 @@
             <parameter name="query">
                 <entry>SELECT * from csi_nagios_problem</entry>
                 <entry>where updated_at > now() - interval ? hour</entry>
-                <entry > and status=1</entry>
+                <entry > and status in (1,2,3)</entry>
             </parameter>
             <parameter name="parameters">
                 <entry eval="$nbHours"/>
