@@ -880,6 +880,7 @@
         <argument name="cve">_cve_</argument>
         <argument name="test_name">_test_name_</argument>
         <argument name="site">_site_</argument>
+        <argument name="ngi">_ngi_</argument>
 
         <connector type="SQLConnector">
             <parameter name="driver">com.mysql.jdbc.Driver</parameter>
