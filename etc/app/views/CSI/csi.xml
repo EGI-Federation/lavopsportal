@@ -881,6 +881,7 @@
         <argument name="test_name">_test_name_</argument>
         <argument name="site">_site_</argument>
         <argument name="ngi">_ngi_</argument>
+        <argument name="format"/>
 
         <connector type="SQLConnector">
             <parameter name="driver">com.mysql.jdbc.Driver</parameter>
@@ -988,6 +989,14 @@
                     </element>
                 </element>
             </element>
+
+            <element in="results" if="$format!='csv'">
+                <element-create-as-parent out="cves">
+                    <element in="cve"/>
+                </element-create-as-parent>
+            </element>
+
+
 
         </processors>
 

@@ -32,6 +32,7 @@
             <parameter name="certificate" eval="property('certificate.path')"/>
             <parameter name="passphrase" eval="property('certificate.password')"/>
         </connector>
+
         <cache type="FileCache">
             <trigger type="DeltaTimeTrigger">
                 <parameter name="hours">1</parameter>
