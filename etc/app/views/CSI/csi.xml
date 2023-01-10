@@ -916,7 +916,7 @@
                 <attribute-create out="key">../id/text()</attribute-create>
                
 
-                <element in="updated_at" out="last_report" if="../ops_flags/text()=0">                   
+                <element in="updated_at" out="last_report" if="../last_report/text()=0">
                     <text>date:seconds(str:replace(substring(.,0,20),' ','T'))</text>
                 </element>
 
