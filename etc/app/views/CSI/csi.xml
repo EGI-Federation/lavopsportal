@@ -890,6 +890,7 @@
         <argument name="test_name">_test_name_</argument>
         <argument name="site">_site_</argument>
         <argument name="ngi">_ngi_</argument>
+        <argument name="test_name">_test_name_</argument>
         <argument name="format">_format_</argument>
 
         <connector type="SQLConnector">
@@ -967,6 +968,10 @@
                 <element-ignore in="row" if="ngi/text()!=$ngi"/>
             </element>
 
+            <element in="results" if="$test_name!='_test_name_'">
+                <element-ignore in="row" if="test_name/text()!=$test_name"/>
+            </element>
+
             <element in="results" if="$severity!='all'">
                 <element-ignore in="row" if="$severity='critical' and status/text()!=2"/>
             </element>
@@ -1028,7 +1033,7 @@
                     <entry>host_name</entry>
                     <entry>cve</entry>
                 </parameter>
-                <parameter name="skip">2</parameter>
+                <parameter name="skip">1</parameter>
             </renderer>
             <renderer type="DefaultRenderer">
                 <parameter name="contentType">xml</parameter>
