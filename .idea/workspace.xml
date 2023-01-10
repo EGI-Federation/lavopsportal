@@ -7,6 +7,7 @@
     <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="mo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/etc/app/views/CSI/csi.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/CSI/csi.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/app/views/OPSCORE/entities.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/OPSCORE/entities.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -566,7 +567,7 @@
       <workItem from="1672918762433" duration="14024000" />
       <workItem from="1673277416324" duration="971000" />
       <workItem from="1673281209701" duration="599000" />
-      <workItem from="1673338519502" duration="334000" />
+      <workItem from="1673338519502" duration="921000" />
     </task>
     <task id="LOCAL-00075" summary="filtre tickets">
       <created>1536755736442</created>
