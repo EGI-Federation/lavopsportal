@@ -250,7 +250,7 @@
       <recent name="$PROJECT_DIR$/etc/app/resources/shell" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Run">
+  <component name="RunManager" selected="Application.Start Lavoisier server">
     <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
@@ -260,7 +260,7 @@
     <configuration name="Run with arguments" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="fr.in2p3.lavoisier.command.StandaloneExec" />
       <module name="lavopsportal" />
-      <option name="PROGRAM_PARAMETERS" value="CSI_Import_Nagios?nbsteps=999&amp;ngi=CERN&amp;accept=xml" />
+      <option name="PROGRAM_PARAMETERS" value="CSI_API?nbsteps=999&amp;nbHours=48&amp;severity=critical&amp;cve=_cve_&amp;test_name=_test_name_&amp;site=_site_&amp;ngi=_ngi_&amp;format=csv&amp;accept=xml" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -567,6 +567,8 @@
       <workItem from="1673277416324" duration="971000" />
       <workItem from="1673281209701" duration="599000" />
       <workItem from="1673338519502" duration="4911000" />
+      <workItem from="1673451497086" duration="1647000" />
+      <workItem from="1673511688331" duration="4908000" />
     </task>
     <task id="LOCAL-00075" summary="filtre tickets">
       <created>1536755736442</created>

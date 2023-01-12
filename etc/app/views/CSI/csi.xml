@@ -914,14 +914,14 @@
 
             <element in="row" >
                 <attribute-create out="key">../id/text()</attribute-create>
-               
+                <element-ignore in="last_report" if="text()=0"/>
 
                 <element in="updated_at" out="last_report" if="../last_report/text()=0">
                     <text>date:seconds(str:replace(substring(.,0,20),' ','T'))</text>
                 </element>
 
-                <element-create if="contains(../summary/text(),'cve-')">eval("new_element('cve',.)", regexp:match(../summary/text(),'(cve-\d{4}-\d{4})', 'g'))</element-create>
 
+                <element-create if="contains(../summary/text(),'cve-')">eval("new_element('cve',.)", regexp:match(../summary/text(),'(cve-\d{4}-\d{4})', 'g'))</element-create>
                 <element-create if="contains(../summary/text(),'Pakiti-Vuln CRITICAL - ')">str:split(substring-after(substring-before(../summary/text(),'****Pakiti-Vuln'),'Pakiti-Vuln CRITICAL - '),', ')</element-create>
 
             </element>
@@ -984,10 +984,20 @@
                 <element-ignore in="row" if="$severity='unknown' and status/text()!=3"/>
             </element>
 
+            <element in="results">
+                <element in="row">
+                    <element in="status" out="severity">
+                        <text if=".=1">'warning'</text>
+                        <text if=".=2">'critical'</text>
+                        <text if=".=3">'unknown'</text>
+                    </element>
+                </element>
+
+            </element>
 
 
             <element in="results">
-                <attribute-create out="count">count(../row)</attribute-create>
+
 
                 <element in="row" if="contains(summary/text(),': WARNING:')">
                     <element-create>new_element('node',substring-before(../summary/text(),': WARNING:'))</element-create>
@@ -1004,19 +1014,55 @@
                 </element>
             </element>
 
-            <element in="results" if="$format!='csv'">
+            <element in="results" if="$format='csv'">
+                <element in="row">
+                    <element-create if="not(../cve)">new_element('cve',../test_name/text())</element-create>
+                </element>
+            </element>
+
+
+            <element in="results">
                 <element in="row">
                     <element-create-as-parent out="cves">
                         <element in="cve"/>
                     </element-create-as-parent>
                 </element>
-
             </element>
 
 
 
-        </processors>
 
+
+            <element in="results">
+                <element in="row">
+                    <element-create if="not(../os)">new_element('os','N.A')</element-create>
+                    <element-create if="not(../node)">new_element('node','N.A')</element-create>
+                    <element-create if="not(../arch)">new_element('arch','N.A')</element-create>
+                </element>
+            </element>
+
+
+
+            <element in="results">
+                <attribute-create out="count">count(../row)</attribute-create>
+            </element>
+
+        </processors>
+        <!--severity,test_name,site,host,node,os,arch,last_report, summary-->
+        <pre-renderers>
+            <row foreach="/results/row/cves/cve" >
+                <column label="severity">ancestor::row/severity/text()</column>
+                <column label="test_name">text()</column>
+                <column label="site">ancestor::row/site/text()</column>
+                <column label="host">ancestor::row/host_name/text()</column>
+                <column label="node">ancestor::row/node/text()</column>
+                <column label="os">ancestor::row/os/text()</column>
+                <column label="arch">ancestor::row/arch/text()</column>
+                <column label="summary">ancestor::row/summary/text()</column>
+                <column label="last_report">ancestor::row/last_report/text()</column>
+            </row>
+
+        </pre-renderers>
         <renderers>
             <renderer type="JSONRenderer">
                 <parameter name="texts">
@@ -1035,6 +1081,7 @@
                 </parameter>
                 <parameter name="skip">1</parameter>
             </renderer>
+
             <renderer type="DefaultRenderer">
                 <parameter name="contentType">xml</parameter>
             </renderer>
