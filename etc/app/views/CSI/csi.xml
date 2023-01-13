@@ -947,9 +947,7 @@
             </element>
 
 
-            <element in="results" if="$test_name!='_test_name_'">
-                <element-ignore in="row" if="test_name/text()!=$test_name"/>              
-            </element>
+
 
             <element in="results" if="$cve!='_cve_'">
                 <element-ignore in="row" if="not(cve/text()=$cve)"/>
@@ -1017,6 +1015,7 @@
             <element in="results" if="$format='csv'">
                 <element in="row">
                     <element-create if="not(../cve)">new_element('cve',../test_name/text())</element-create>
+                    <element-ignore in="cve" if="$cve!='_cve_' and cve/text()!=$cve"></element-ignore>
                 </element>
             </element>
 
@@ -1050,7 +1049,7 @@
         </processors>
         <!--severity,test_name,site,host,node,os,arch,last_report, summary-->
         <pre-renderers>
-            <row foreach="/results/row/cves/cve" >
+            <row  foreach="/results/row/cves/cve" >
                 <column label="severity">ancestor::row/severity/text()</column>
                 <column label="test_name">text()</column>
                 <column label="site">ancestor::row/site/text()</column>
