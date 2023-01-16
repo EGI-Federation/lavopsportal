@@ -1,9 +1,9 @@
 <views xmlns="http://software.in2p3.fr/lavoisier/application.xsd"
        xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" xmlns:t="http://software.in2p3.fr/lavoisier/tables.xsd">
-    <!-- 
-        Project : lavopsportal 
+    <!--
+        Project : lavopsportal
         File    : accounting-metrics.xml
-        Created by cyril on 2022/02/17 
+        Created by cyril on 2022/02/17
     -->
 
 <!--    https://accounting.devel.argo.grnet.gr/swagger-ui/-->
