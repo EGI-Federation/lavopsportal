@@ -6,7 +6,7 @@ FROM gitlab-registry.in2p3.fr/cc-in2p3-devops/openshift-origin/openshift-images/
 
  RUN mkdir logs
  RUN chmod 777 logs
- ADD . ${APP_ROOT}/etc
+ ADD . ${APP_ROOT}
 
  #RUN mv ${APP_ROOT}/etc/app/resources/mssql-jdbc-10.2.0.jre8.jar ${APP_ROOT}/lib
  #ENV CLASSPATH_PREFIX=${APP_ROOT}/lib/mssql-jdbc-10.2.0.jre8.jar
