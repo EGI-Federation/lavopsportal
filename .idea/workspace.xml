@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="mo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/app/views/CSI/csi.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/CSI/csi.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -568,7 +567,9 @@
       <workItem from="1673281209701" duration="599000" />
       <workItem from="1673338519502" duration="4911000" />
       <workItem from="1673451497086" duration="1647000" />
-      <workItem from="1673511688331" duration="4908000" />
+      <workItem from="1673511688331" duration="8982000" />
+      <workItem from="1674658649821" duration="12000" />
+      <workItem from="1675067483756" duration="319000" />
     </task>
     <task id="LOCAL-00075" summary="filtre tickets">
       <created>1536755736442</created>
