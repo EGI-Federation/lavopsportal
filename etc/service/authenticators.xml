@@ -22,6 +22,7 @@
                 <!--sous réseaux ccin2p3-->
                 <entry>134.158.230.0/23</entry>
                 <entry>134.158.64.0/21</entry>
+                <entry>193.48.97.64/27</entry>
                 <!-- runners gitlab -->
                 <entry>134.158.239.141</entry>
                 <entry>134.158.239.6</entry>
