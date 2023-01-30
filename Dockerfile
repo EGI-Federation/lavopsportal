@@ -1,43 +1,15 @@
-FROM java:8-alpine
+FROM gitlab-registry.in2p3.fr/cc-in2p3-devops/openshift-origin/openshift-images/lavoisier:latest
+ #RUN apk update && apk upgrade && apk add --no-cache git bash
+ RUN apt update && apt install --assume-yes git bash-completion vim
+ ENV APP_ROOT=/opt/lavoisier
+ WORKDIR ${APP_ROOT}
 
-ENV MAVEN_VERSION 3.5.4
-ENV MAVEN_HOME /usr/lib/mvn
-ENV PATH $MAVEN_HOME/bin:$PATH
+ RUN mkdir logs
+ RUN chmod 777 logs
+ ADD . ${APP_ROOT}/etc
 
-WORKDIR /opt
-RUN mkdir lavoisier
-RUN mkdir certificates
-WORKDIR /opt/lavoisier
-RUN mkdir etc
+ #RUN mv ${APP_ROOT}/etc/app/resources/mssql-jdbc-10.2.0.jre8.jar ${APP_ROOT}/lib
+ #ENV CLASSPATH_PREFIX=${APP_ROOT}/lib/mssql-jdbc-10.2.0.jre8.jar
 
-
-RUN wget http://archive.apache.org/dist/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz && \
-  tar -zxvf apache-maven-$MAVEN_VERSION-bin.tar.gz && \
-  rm apache-maven-$MAVEN_VERSION-bin.tar.gz && \
-  mv apache-maven-$MAVEN_VERSION /usr/lib/mvn
-
-RUN apk update && apk upgrade && apk add --no-cache bash git
-RUN apk add --no-cache git alpine-sdk python-dev py-cffi linux-headers musl-dev python3-dev g++
-RUN apk add --no-cache krb5-pkinit krb5-dev krb5 cyrus-sasl-gssapi
-
-
-ADD . /opt/lavoisier
-
-
-### Setup user for build execution and application runtime
-ENV APP_ROOT=/opt/lavoisier
-ENV PATH=${APP_ROOT}:${PATH} HOME=${APP_ROOT}
-
-RUN chgrp -R 0 ${APP_ROOT} && \
-    chmod -R g=u ${APP_ROOT} /etc/passwd
-
-### Containers should NOT run as root as a good practice
-USER 10001
-WORKDIR ${APP_ROOT}
-
-RUN sh uidentrypoint.sh
-EXPOSE 8080/tcp
-
-CMD mvn exec:java
-
+ CMD  nohup sh ${APP_ROOT}/bin/lavoisier-start-console.sh > ${APP_ROOT}/logs/lavoisier.log
 
