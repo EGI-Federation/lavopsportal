@@ -113,7 +113,7 @@
 
 
 
-    <view authenticators="local" name="CsiNagios"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" xmlns:date="http://exslt.org/dates-and-times">
+    <view authenticators="local" name="CsiNagiosRaw"  >
 
         <connector type="HTTPConnector">
             <parameter name="url" eval="choose(property('env')='prod',property('CSI.nagiosBoxUrl'),property('CSI.nagiosBoxUrlLavoisier'))"/>
@@ -121,6 +121,26 @@
             <parameter name="passphrase" eval="property('certificate.sec.password')"/>
         </connector>
 
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="minutes">15</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+        </cache>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">xml</parameter>
+            </renderer>
+        </renderers>
+
+
+    </view>
+
+<view authenticators="local" name="CsiNagios" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" xmlns:date="http://exslt.org/dates-and-times">
+    <connector type="XMLConnector">
+        <parameter name="content" eval="view('CsiNagiosRaw')"></parameter>
+    </connector>
         <processors>
 
             <element in="nagios">
@@ -194,18 +214,7 @@
 
 
         </processors>
-        <cache type="FileCache">
-            <trigger type="DeltaTimeTrigger">
-                <parameter name="minutes">15</parameter>
-            </trigger>
-            <trigger type="ViewNotifiedTrigger"/>
-        </cache>
 
-        <renderers>
-            <renderer type="DefaultRenderer">
-                <parameter name="contentType">xml</parameter>
-            </renderer>
-        </renderers>
 
     </view>
 
