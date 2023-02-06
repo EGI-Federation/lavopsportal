@@ -951,7 +951,7 @@
 
                     <element-ignore if="name()='id' or name()='last_history_id' or name()='created_at' or name()='flags' or name()='ops_flags' or name()='url_to_history' or name()='service' or name()='start_date' or name()='end_date' or name()='details' "/>
 
-
+                    <element-create>new_element('cve_ref')</element-create>
                 </element>
             </element>
 
@@ -959,7 +959,7 @@
 
 
             <element in="results" if="$cve!='_cve_'">
-                <element-ignore in="row" if="not(cve/text()=$cve)"/>
+                <element-ignore in="row" if="not(contains($cve,cve/text()))"/>
             </element>
 
            
@@ -980,11 +980,11 @@
             </element>
 
             <element in="results" if="$severity!='all'">
-                <element-ignore in="row" if="$severity='critical' and status/text()!=2"/>
+                <element-ignore in="row" if="$severity='EGI-Critical' and status/text()!=2"/>
             </element>
 
             <element in="results" if="$severity!='all'">
-                <element-ignore in="row" if="$severity='warning' and status/text()!=1"/>
+                <element-ignore in="row" if="$severity='EGI-High' and status/text()!=1"/>
             </element>
 
             <element in="results" if="$severity!='all'">
@@ -994,8 +994,8 @@
             <element in="results">
                 <element in="row">
                     <element in="status" out="severity">
-                        <text if=".=1">'warning'</text>
-                        <text if=".=2">'critical'</text>
+                        <text if=".=1">'EGI-High'</text>
+                        <text if=".=2">'EGI-Critical'</text>
                         <text if=".=3">'unknown'</text>
                     </element>
                 </element>
@@ -1073,12 +1073,17 @@
         </pre-renderers>
         <renderers>
             <renderer type="JSONRenderer">
+                <parameter name="arrays">
+                    <entry>row</entry>
+                </parameter>
                 <parameter name="texts">
                     <entry>os</entry>
                     <entry>arch</entry>
                     <entry>last_report</entry>
                     <entry>tag</entry>
                     <entry>status</entry>
+                    <entry>severity</entry>
+                    <entry>node</entry>
                     <entry>friendly_name</entry>
                     <entry>test_name</entry>
                     <entry>summary</entry>
@@ -1086,6 +1091,7 @@
                     <entry>ngi</entry>
                     <entry>host_name</entry>
                     <entry>cve</entry>
+                    <entry>updated_at</entry>
                 </parameter>
                 <parameter name="skip">1</parameter>
             </renderer>
