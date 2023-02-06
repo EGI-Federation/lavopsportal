@@ -1,19 +1,5 @@
 <views xmlns="http://software.in2p3.fr/lavoisier/application.xsd" >
 
-    <view name="spmt.services">
-        <connector type="HTTPConnector">
-            <parameter name="url">https://eosc-hub-devel.agora.grnet.gr/api/v2/services/</parameter>
-        </connector>
-        <serializer type="JSONStreamSerializer"/>
-
-        <cache type="FileCache">
-            <trigger type="DeltaTimeTrigger">
-                <parameter name="minutes">8</parameter>
-            </trigger>
-            <trigger type="ViewNotifiedTrigger"/>
-        </cache>
-
-    </view>
 
     <view name="marketplace.services" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" xmlns:str="http://exslt.org/strings">
         <connector type="FileConnector">

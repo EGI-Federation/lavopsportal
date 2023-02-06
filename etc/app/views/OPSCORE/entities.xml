@@ -3,27 +3,7 @@
 
 
 
-    <view name="OPSCORE_get_eosc_site">
 
-        <connector type="HTTPConnector">
-            <parameter name="url" eval="property('OPSCORE.gocdb.eosc.get_sites')"/>
-            <parameter name="certificate" eval="property('certificate.path')"/>
-            <parameter name="passphrase" eval="property('certificate.password')"/>
-        </connector>
-        <cache type="FileCache">
-            <trigger type="DeltaTimeTrigger">
-                <parameter name="hours">1</parameter>
-            </trigger>
-            <trigger type="ViewNotifiedTrigger"/>
-            <trigger ignore-during="PT1H" type="ViewCreatedTrigger"/>
-        </cache>
-        <renderers>
-            <renderer type="DefaultRenderer">
-                <parameter name="contentType">text/xml</parameter>
-            </renderer>
-        </renderers>
-
-    </view>
 
     <view name="OPSCORE_get_site">
 
