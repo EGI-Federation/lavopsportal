@@ -260,7 +260,7 @@
     <configuration name="Run with arguments" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="fr.in2p3.lavoisier.command.StandaloneExec" />
       <module name="lavopsportal" />
-      <option name="PROGRAM_PARAMETERS" value="CSI_API?nbsteps=999&amp;nbHours=48&amp;severity=critical&amp;cve=cve-2022-2588,cve-2010-3081&amp;test_name=_test_name_&amp;site=_site_&amp;ngi=_ngi_&amp;format=_format_&amp;accept=xml" />
+      <option name="PROGRAM_PARAMETERS" value="CSI_API?nbsteps=999&amp;nbHours=48&amp;severity=critical&amp;cve=cve-2013-2094,cve-2013-2094&amp;test_name=_test_name_&amp;site=_site_&amp;ngi=_ngi_&amp;format=_format_&amp;accept=xml" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -573,7 +573,7 @@
       <workItem from="1675067483756" duration="5493000" />
       <workItem from="1675432149963" duration="5860000" />
       <workItem from="1675697789516" duration="3031000" />
-      <workItem from="1675929861633" duration="1443000" />
+      <workItem from="1675929861633" duration="3955000" />
     </task>
     <task id="LOCAL-00075" summary="filtre tickets">
       <created>1536755736442</created>

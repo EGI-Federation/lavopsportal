@@ -40,9 +40,9 @@
                 <exception type="java.net.UnknownHostException"/>
                 <exception type="java.net.SocketException"/>
                 <exception type="java.lang.NullPointerException"/>
-                <exception type="org.xml.sax.SAXParseException"/>
             </fallback>
         </connector>
+
     </view>
 
 
@@ -110,7 +110,6 @@
         </cache>
 
     </view>
-
 
 
 
@@ -930,7 +929,7 @@
                     <text>date:seconds(str:replace(substring(.,0,20),' ','T'))</text>
                 </element>
 
-
+                <element-create if="$cve!='_cve_'">new_element("cve_ref",str:split($cve,','))</element-create>
                 <element-create if="contains(../summary/text(),'cve-')">eval("new_element('cve',.)", regexp:match(../summary/text(),'(cve-\d{4}-\d{4})', 'g'))</element-create>
                 <element-create if="contains(../summary/text(),'Pakiti-Vuln CRITICAL - ')">str:split(substring-after(substring-before(../summary/text(),'****Pakiti-Vuln'),'Pakiti-Vuln CRITICAL - '),', ')</element-create>
 
@@ -959,8 +958,9 @@
 
 
 
-            <element in="results" if="$cve!='_cve_'">
-                <element-ignore in="row" if="not(cve) or not(contains($cve,cve/text()))"/>
+            <element in="results" if="row/cve_ref">
+                <element in="row" if="cve/text()=cve_ref/token/text()"/>
+                <element-ignore/>
             </element>
 
            
@@ -1050,7 +1050,11 @@
                 </element>
             </element>
 
-
+        <element in="results">
+            <element in="row">
+                <element-ignore in="cve_ref"/>
+            </element>
+        </element>
 
             <element in="results">
                 <attribute-create out="count">count(../row)</attribute-create>
