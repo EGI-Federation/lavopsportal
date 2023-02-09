@@ -40,6 +40,7 @@
                 <exception type="java.net.UnknownHostException"/>
                 <exception type="java.net.SocketException"/>
                 <exception type="java.lang.NullPointerException"/>
+                <exception type="org.xml.sax.SAXParseException"/>
             </fallback>
         </connector>
     </view>
@@ -951,7 +952,7 @@
 
                     <element-ignore if="name()='id' or name()='last_history_id' or name()='created_at' or name()='flags' or name()='ops_flags' or name()='url_to_history' or name()='service' or name()='start_date' or name()='end_date' or name()='details' "/>
 
-                    <element-create>new_element('cve_ref')</element-create>
+
                 </element>
             </element>
 
@@ -959,7 +960,7 @@
 
 
             <element in="results" if="$cve!='_cve_'">
-                <element-ignore in="row" if="not(contains($cve,cve/text()))"/>
+                <element-ignore in="row" if="not(cve) or not(contains($cve,cve/text()))"/>
             </element>
 
            
