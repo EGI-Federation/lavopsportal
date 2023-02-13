@@ -250,7 +250,7 @@
       <recent name="$PROJECT_DIR$/etc/app/resources/shell" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Start Lavoisier server">
+  <component name="RunManager" selected="Application.Run">
     <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
@@ -269,7 +269,7 @@
     <configuration name="Run" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="fr.in2p3.lavoisier.command.StandaloneExec" />
       <module name="lavopsportal" />
-      <option name="PROGRAM_PARAMETERS" value="CsiNagios?nbsteps=999&amp;accept=xml" />
+      <option name="PROGRAM_PARAMETERS" value="CSI_API?nbsteps=3&amp;accept=xml" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -574,6 +574,8 @@
       <workItem from="1675432149963" duration="5860000" />
       <workItem from="1675697789516" duration="3031000" />
       <workItem from="1675929861633" duration="3955000" />
+      <workItem from="1675947938854" duration="11000" />
+      <workItem from="1676294188716" duration="1634000" />
     </task>
     <task id="LOCAL-00075" summary="filtre tickets">
       <created>1536755736442</created>

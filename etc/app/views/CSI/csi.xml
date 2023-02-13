@@ -878,7 +878,7 @@
     </view>
 
 
-    <view xmlns:date="http://exslt.org/dates-and-times" xmlns:regexp="http://exslt.org/regular-expressions"  authenticators="local" xmlns:str="http://exslt.org/strings"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd"  name="CSI_API">
+    <view xmlns:date="http://exslt.org/dates-and-times" xmlns:lavoisier="http://software.in2p3.fr/lavoisier/functions.xsd" xmlns:regexp="http://exslt.org/regular-expressions"  authenticators="local" xmlns:str="http://exslt.org/strings"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd"  name="CSI_API">
 
 <!--        tag - severity of CVE tagged in pakiti (eg EGI-Critical)-->
 <!--        cve - CVE identificator-->
@@ -923,11 +923,20 @@
 
             <element in="row" >
                 <attribute-create out="key">../id/text()</attribute-create>
+
                 <element-ignore in="last_report" if="text()=0"/>
+
+                <element in="last_report" if="text()!=0">
+                    <text>lavoisier:timestamp-to-date(.)</text>
+                </element>
+
+
 
                 <element in="updated_at" out="last_report" if="../last_report/text()=0">
                     <text>date:seconds(str:replace(substring(.,0,20),' ','T'))</text>
                 </element>
+
+
 
                 <element-create if="$cve!='_cve_'">new_element("cve_ref",str:split($cve,','))</element-create>
                 <element-create if="contains(../summary/text(),'cve-')">eval("new_element('cve',.)", regexp:match(../summary/text(),'(cve-\d{4}-\d{4})', 'g'))</element-create>
@@ -1040,8 +1049,6 @@
 
 
 
-
-
             <element in="results">
                 <element in="row">
                     <element-create if="not(../os)">new_element('os','N.A')</element-create>
@@ -1053,6 +1060,7 @@
         <element in="results">
             <element in="row">
                 <element-ignore in="cve_ref"/>
+                <element-ignore in="updated_at"/>
             </element>
         </element>
 
@@ -1096,7 +1104,7 @@
                     <entry>ngi</entry>
                     <entry>host_name</entry>
                     <entry>cve</entry>
-                    <entry>updated_at</entry>
+
                 </parameter>
                 <parameter name="skip">1</parameter>
             </renderer>
