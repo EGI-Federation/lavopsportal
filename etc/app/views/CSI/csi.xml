@@ -1034,7 +1034,6 @@
             <element in="results" if="$format='csv'">
                 <element in="row">
                     <element-create if="not(../cve)">new_element('cve',../test_name/text())</element-create>
-                    <element-ignore in="cve" if="$cve!='_cve_' and text()!=$cve"></element-ignore>
                 </element>
             </element>
 
@@ -1088,6 +1087,7 @@
             <renderer type="JSONRenderer">
                 <parameter name="arrays">
                     <entry>row</entry>
+                    <entry>cves</entry>
                 </parameter>
                 <parameter name="texts">
                     <entry>os</entry>
