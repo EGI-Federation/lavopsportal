@@ -1087,7 +1087,6 @@
             <renderer type="JSONRenderer">
                 <parameter name="arrays">
                     <entry>row</entry>
-                    <entry>cves</entry>
                 </parameter>
                 <parameter name="texts">
                     <entry>os</entry>
