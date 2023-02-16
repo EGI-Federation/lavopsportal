@@ -1046,6 +1046,15 @@
                 </element>
             </element>
 
+            <element in="results">
+                <element in="row">
+                    <element in="cves">
+                       <element-ignore in="cve"></element-ignore>
+                        <element-create>sort_by_string(../cve,'text()')</element-create>
+                    </element>
+                </element>
+            </element>
+
 
 
             <element in="results">
@@ -1062,6 +1071,23 @@
                 <element-ignore in="updated_at"/>
             </element>
         </element>
+
+            <element in="results" >
+                <element in="row">
+                    <element-ignore in="cves"></element-ignore>
+                    <element-create as="last-child">new_element('cves',../cves/*)</element-create>
+                </element>
+            </element>
+
+            <element in="results" if="$format='json'">
+                <element in="row">
+                    <element-ignore in="cves">
+                        <element in="cve" out="cves"/>
+                    </element-ignore>
+                </element>
+            </element>
+
+
 
             <element in="results">
                 <attribute-create out="count">count(../row)</attribute-create>
@@ -1087,6 +1113,7 @@
             <renderer type="JSONRenderer">
                 <parameter name="arrays">
                     <entry>row</entry>
+                    <entry>cves</entry>
                 </parameter>
                 <parameter name="texts">
                     <entry>os</entry>
@@ -1102,7 +1129,7 @@
                     <entry>site</entry>
                     <entry>ngi</entry>
                     <entry>host_name</entry>
-                    <entry>cve</entry>
+                    <entry>cves</entry>
 
                 </parameter>
                 <parameter name="skip">1</parameter>
