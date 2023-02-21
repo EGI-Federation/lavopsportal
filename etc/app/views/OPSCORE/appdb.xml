@@ -1,0 +1,104 @@
+<views xmlns="http://software.in2p3.fr/lavoisier/application.xsd"
+       xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" xmlns:t="http://software.in2p3.fr/lavoisier/tables.xsd">
+    <!-- 
+        Project : lavopsportal 
+        File    : appdb.xml
+        Created by cyril on 2023/02/16 
+    -->
+
+
+
+    <view name="AppDB.endpointsList">
+
+        <variable name="url">https://is.appdb.egi.eu/rest/cloud/computing/endpoints?limit=0&amp;skip=0</variable>
+
+        <connector type="HTTPConnector">
+            <parameter name="url" eval="$url"></parameter>
+        </connector>
+        <serializer type="JSONStreamSerializer"></serializer>
+
+        <processors>
+
+            <element in="object" out="endpoints">
+                <attribute-create out="url">$url</attribute-create>
+                <element-ignore in="data">
+                    <element in="object" out="endpoint">
+                        <attribute-create out="id">../id/text()</attribute-create>
+                        <attribute-create out="endpointPKey">../endpointPKey/text()</attribute-create>
+                        <attribute-create out="endpointID">../endpointID/text()</attribute-create>
+                        <element-create>view('AppDB.endpointDetails',entry('id',../id/text()))</element-create>
+                        <element-ignore/>
+                    </element>
+                </element-ignore>
+                <element-ignore/>
+            </element>
+
+            <element in="endpoints" out="e:entries">
+                <set variable="endpoint.goc" index="@PRIMARY_KEY">view('OPSCORE_endpoints')/results/e:entries</set>
+                <element in="endpoint" out="e:entries">
+                    <attribute-create out="id">find($endpoint.goc,../@endpointPKey)/@key</attribute-create>
+                    <attribute-create out="Site">find($endpoint.goc,../@endpointPKey)/@site</attribute-create>
+                    <attribute-create out="Ngi">find($endpoint.goc,../@endpointPKey)/@ngi</attribute-create>
+                    <attribute-ignore in="id"/>
+                    <element-ignore in="endpoint">
+                        <element in="VO"/>
+                    </element-ignore>
+                </element>
+            </element>
+
+            <element in="e:entries">
+                <element in="e:entries">
+                    <attribute in="endpointID" out="EndpointKey"/>
+                    <attribute-create out="ServiceType">'CloudComputing'</attribute-create>
+                    <attribute-ignore in="endpointPKey"/>
+                </element>
+
+            </element>
+
+        </processors>
+
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="hours">1</parameter>
+                <parameter name="minutes">12</parameter>
+            </trigger>
+            <trigger type="ViewCreatedTrigger"/>
+            <trigger type="ViewNotifiedTrigger"/>
+        </cache>
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+    </view>
+
+    <view name="AppDB.endpointDetails">
+        <argument name="id">egi.top.vaproviders.gsi-lcg2.12928g0.glue2.1</argument>
+        <variable name="url" eval="concat('https://is.appdb.egi.eu/rest/cloud/computing/endpoints/',$id,'/shares?limit=0&amp;skip=0')"></variable>
+        <connector type="HTTPConnector">
+            <parameter name="url" eval="$url"></parameter>
+        </connector>
+        <serializer type="JSONStreamSerializer"></serializer>
+
+
+        <processors>
+            <element in="object" out="endpoint">
+
+                <element-ignore in="items">
+                    <element-ignore in="object">
+                        <element in="VO"/>
+                    </element-ignore>
+                </element-ignore>
+                <element-ignore/>
+            </element>
+
+        </processors>
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+    </view>
+
+
+</views>

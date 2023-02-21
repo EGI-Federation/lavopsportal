@@ -788,6 +788,59 @@
     </view>
 
 
+    <view name="VOs_supported" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('VAPOR_Endpoints_Policy')"></parameter>
+        </connector>
 
+        <processors>
+            <element in="e:entries">
+                <attribute-ignore/>
+                <element-ignore in="e:entries">
+                    <element in="VO" out="e:entry"/>
+                </element-ignore>
+            </element>
+
+
+            <element in="e:entries">
+                <element-create>sort_by_string(../e:entry,'text()')</element-create>
+                <element-ignore in="e:entry"/>
+            </element>
+
+            <element in="e:entries">
+                <element-create-as-parent out="e:entry" group-by="text()">
+                    <element in="e:entry"/>
+                </element-create-as-parent>
+            </element>
+
+            <element in="e:entries">
+                <element in="e:entry">
+                    <text-create>../e:entry[1]/text()</text-create>
+                    <element-ignore/>
+                </element>
+            </element>
+
+            <element in="e:entries">
+                <element-ignore in="e:entry" if="string-length(text())>100"></element-ignore>
+            </element>
+
+
+        </processors>
+
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="minutes">14</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="ViewCreatedTrigger"/>
+        </cache>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+
+    </view>
 
 </views>

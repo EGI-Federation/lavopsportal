@@ -5,8 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="mo">
+      <change afterPath="$PROJECT_DIR$/etc/app/views/OPSCORE/appdb.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/app/views/CSI/csi.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/CSI/csi.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/app/views/OPSCORE/downtimes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/OPSCORE/downtimes.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/app/views/OPSCORE/vapor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/OPSCORE/vapor.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/engine/post-processors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/engine/post-processors.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,8 +43,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Lavoisier File" />
         <option value="HTML File" />
+        <option value="Lavoisier File" />
       </list>
     </option>
   </component>
@@ -269,7 +272,7 @@
     <configuration name="Run" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="fr.in2p3.lavoisier.command.StandaloneExec" />
       <module name="lavopsportal" />
-      <option name="PROGRAM_PARAMETERS" value="CSI_API?nbsteps=3&amp;accept=xml" />
+      <option name="PROGRAM_PARAMETERS" value="AppDB.endpointsList?nbsteps=999&amp;accept=xml" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -576,7 +579,8 @@
       <workItem from="1675929861633" duration="3955000" />
       <workItem from="1675947938854" duration="11000" />
       <workItem from="1676294188716" duration="2555000" />
-      <workItem from="1676534202740" duration="4430000" />
+      <workItem from="1676534202740" duration="17165000" />
+      <workItem from="1676987813942" duration="4894000" />
     </task>
     <task id="LOCAL-00075" summary="filtre tickets">
       <created>1536755736442</created>

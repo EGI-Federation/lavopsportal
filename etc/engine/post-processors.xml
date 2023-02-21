@@ -116,10 +116,6 @@
         </elements>
 
 
-
-
-
-
         <elements path="e:entries/e:entries">
             <element-create>entry('Endpoints',str:concat(../e:entries[@key='entities']/e:entry/text()))</element-create>
         </elements>

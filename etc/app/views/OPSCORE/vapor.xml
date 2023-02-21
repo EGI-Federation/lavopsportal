@@ -6,10 +6,16 @@
 
     -->
 
-    <view name="VAPOR_Endpoints_Policy">
+    <view name="VAPOR_Endpoints_Policy" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
         <connector type="HTTPConnector">
             <parameter name="url" eval="property('VAPOR_Endpoints_Policy.url')"/>
         </connector>
+
+        <processors>
+            <element in="e:entries">
+                <element-create>view('AppDB.endpointsList')/e:entries/*</element-create>
+            </element>
+        </processors>
 
         <cache type="FileCache">
             <trigger type="DeltaTimeTrigger">
@@ -21,8 +27,8 @@
 
 
     <view name="VAPOR_VO">
-        <connector type="HTTPConnector">
-            <parameter name="url" eval="property('VAPOR_VO.url')"/>
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('VOs_supported')"/>
         </connector>
 
         <cache type="FileCache">
