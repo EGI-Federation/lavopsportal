@@ -840,7 +840,10 @@
                     <entry key="e">http://software.in2p3.fr/lavoisier/entries.xsd</entry>
                 </namespaces>
                 <parameter name="nodes"
-                           eval="new_attribute('NbUsers',             choose($date='false',             choose( view('VoUsersAccounting')/result/row[VO/text()=match()/@name]/nbUsers/text(),view('VoUsersAccounting')/result/row[VO/text()=match()/@name]/nbUsers/text(), 0),             choose( view('VoUsersAccountingByDate',entry('date',$date))/result/row[VO/text()=match()/@name]/nbUsers/text(), view('VoUsersAccountingByDate',entry('date',$date))/result/row[VO/text()=match()/@name]/nbUsers/text(), 0))             )             "/>
+                           eval="new_attribute('NbUsers',
+                                    choose($date='false',
+                                              choose( view('VoUsersAccounting')/result/row[VO/text()=match()/@name]/nbUsers/text(),view('VoUsersAccounting')/result/row[VO/text()=match()/@name]/nbUsers/text(), 0),
+                                              choose( view('VoUsersAccountingByDate',entry('date',$date))/result/row[VO/text()=match()/@name]/nbUsers/text(), view('VoUsersAccountingByDate',entry('date',$date))/result/row[VO/text()=match()/@name]/nbUsers/text(), 0))             )             "/>
             </processor>
 
 
@@ -1892,9 +1895,9 @@
     <view name="VoUsersAccountingHistory" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
 
         <argument name="date1"/>
-        <argument name="date2"/>
-        <argument name="date3"/>
-        <argument name="date4"/>
+        <argument name="date2">_date_</argument>
+        <argument name="date3">_date_</argument>
+        <argument name="date4">_date_</argument>
 
         <connector type="XMLConnector">
             <parameter name="content" eval="view('VoUsersAccountingByDate',entry('date',$date1))"/>
@@ -1907,14 +1910,15 @@
                     <element/>
                 </element-create-as-parent>
             </element>
+
             <element in="e:entries">
-                <element-create as="last-child">
+                <element-create as="last-child" if="$date2!='_date_'">
                     view('VoUsersAccountingByDate',entry('date',$date2))
                 </element-create>
-                <element-create as="last-child">
+                <element-create as="last-child" if="$date3!='_date_'">
                     view('VoUsersAccountingByDate',entry('date',$date3))
                 </element-create>
-                <element-create as="last-child">
+                <element-create as="last-child" if="$date4!='_date_'">
                     view('VoUsersAccountingByDate',entry('date',$date4))
                 </element-create>
             </element>

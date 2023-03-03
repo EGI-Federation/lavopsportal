@@ -2,9 +2,6 @@
 
 
 
-
-
-
     <view name="OPSCORE_get_site">
 
         <connector type="HTTPConnector">
