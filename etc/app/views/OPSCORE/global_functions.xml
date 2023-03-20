@@ -898,9 +898,8 @@
             </element>
 
             <element in="results">
-                <set variable="status" index="@key">view('OPSCORE_SITE_Fedcloud')/e:entries/e:entries</set>
                 <element in="site">
-                    <attribute-create out="status">find($status,../@name)/e:entry[@key='CERTIFICATION_STATUS']/text()</attribute-create>
+
                     <element-ignore in="date"/>
                     <element-create>sort_by_string(../date,'@month')</element-create>
                 </element>
@@ -949,6 +948,42 @@
                 <parameter name="contentType">text/xml</parameter>
             </renderer>
         </renderers>
+    </view>
+
+    <view name="cloud_reports" xmlns:date="http://exslt.org/dates-and-times" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <variable name="end_date" eval="substring(date:date(),0,11)"/>
+        <variable name="start_date" eval="substring(date:add(date:date(),'-P14M'),0,11)"/>
+
+        <connector type="HTTPConnector">
+            <parameter name="url" eval="concat('https://argo.egi.eu/lavoisier/cloud_reports?start_date=',$start_date,'&amp;end_date=',$end_date)"></parameter>
+        </connector>
+
+    <processors>
+
+        <element in="root">
+            <set variable="status" index="@key">view('OPSCORE_SITE_Fedcloud')/e:entries/e:entries</set>
+
+            <element in="group">
+                <attribute-create out="status">find($status,../@name)/e:entry[@key='CERTIFICATION_STATUS']/text()</attribute-create>
+                <attribute-ignore in="type"/>
+                <attribute-ignore in="filters"/>
+                <element in="results" if="count(preceding-sibling::results)>=2">
+                    <attribute-create out="month1">../preceding-sibling::results[1]/@timestamp</attribute-create>
+                    <attribute-create out="month2">../preceding-sibling::results[2]/@timestamp</attribute-create>
+                    <attribute-create out="month1_av">../preceding-sibling::results[1]/@availability</attribute-create>
+                    <attribute-create out="month2_av">../preceding-sibling::results[2]/@availability</attribute-create>
+                    <attribute-create out="month1_re">../preceding-sibling::results[1]/@reliability</attribute-create>
+                    <attribute-create out="month2_re">../preceding-sibling::results[2]/@reliability</attribute-create>
+                    <attribute-ignore in="unknown"/>
+                    <attribute-ignore in="uptime"/>
+                    <attribute-ignore in="downtime"/>
+                </element>
+                <element-ignore/>
+            </element>
+            <element-ignore/>
+        </element>
+    </processors>
+
     </view>
 
     <!-- VIEWS used to generate accouting reports : it seems not used anymore -->
