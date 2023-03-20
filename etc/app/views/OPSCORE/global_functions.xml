@@ -817,8 +817,8 @@
 
     <view name="accounting-portal.cloud.all" xmlns:date="http://exslt.org/dates-and-times">
 
-        <variable name="start_month" eval="date:month-in-year(date:add(date:date(),'-P6M'))"/>
-        <variable name="start_year" eval="date:year(date:add(date:date(),'-P6M'))"/>
+        <variable name="start_month" eval="date:month-in-year(date:add(date:date(),'-P14M'))"/>
+        <variable name="start_year" eval="date:year(date:add(date:date(),'-P14M'))"/>
         <variable name="end_month" eval="date:month-in-year(date:date())"/>
         <variable name="end_year" eval="date:year(date:date())"/>
 
@@ -846,8 +846,8 @@
 
     <view name="accounting-portal.cloud.excluded" xmlns:date="http://exslt.org/dates-and-times">
 
-        <variable name="start_month" eval="date:month-in-year(date:add(date:date(),'-P6M'))"/>
-        <variable name="start_year" eval="date:year(date:add(date:date(),'-P6M'))"/>
+        <variable name="start_month" eval="date:month-in-year(date:add(date:date(),'-P14M'))"/>
+        <variable name="start_year" eval="date:year(date:add(date:date(),'-P14M'))"/>
         <variable name="end_month" eval="date:month-in-year(date:date())"/>
         <variable name="end_year" eval="date:year(date:date())"/>
 
@@ -938,7 +938,7 @@
 
         <cache type="FileCache">
             <trigger type="DeltaTimeTrigger">
-                <parameter name="minutes">18</parameter>
+                <parameter name="minutes">12</parameter>
             </trigger>
             <trigger type="ViewNotifiedTrigger"/>
         </cache>
@@ -962,9 +962,10 @@
 
         <element in="root">
             <set variable="status" index="@key">view('OPSCORE_SITE_Fedcloud')/e:entries/e:entries</set>
-
+            <set variable="accounting">view('accounting-portal.cloud.computed')/e:entries</set>
             <element in="group">
                 <attribute-create out="status">find($status,../@name)/e:entry[@key='CERTIFICATION_STATUS']/text()</attribute-create>
+
                 <attribute-ignore in="type"/>
                 <attribute-ignore in="filters"/>
                 <element in="results" if="count(preceding-sibling::results)>=2">
@@ -974,6 +975,7 @@
                     <attribute-create out="month2_av">../preceding-sibling::results[2]/@availability</attribute-create>
                     <attribute-create out="month1_re">../preceding-sibling::results[1]/@reliability</attribute-create>
                     <attribute-create out="month2_re">../preceding-sibling::results[2]/@reliability</attribute-create>
+                    <attribute-create out="accounting">$accounting/e:entries[@name=current()/../ancestor::group/@name]/e:entry[@key=current()/../@timestamp]/text()</attribute-create>
                     <attribute-ignore in="unknown"/>
                     <attribute-ignore in="uptime"/>
                     <attribute-ignore in="downtime"/>
@@ -983,6 +985,19 @@
             <element-ignore/>
         </element>
     </processors>
+
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="minutes">20</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+        </cache>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
 
     </view>
 
