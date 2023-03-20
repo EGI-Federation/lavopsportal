@@ -952,7 +952,7 @@
 
     <view name="cloud_reports" xmlns:date="http://exslt.org/dates-and-times" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
         <variable name="end_date" eval="substring(date:date(),0,11)"/>
-        <variable name="start_date" eval="substring(date:add(date:date(),'-P14M'),0,11)"/>
+        <variable name="start_date" eval="substring(date:add(date:date(),'-P15M'),0,11)"/>
 
         <connector type="HTTPConnector">
             <parameter name="url" eval="concat('https://argo.egi.eu/lavoisier/cloud_reports?start_date=',$start_date,'&amp;end_date=',$end_date)"></parameter>
