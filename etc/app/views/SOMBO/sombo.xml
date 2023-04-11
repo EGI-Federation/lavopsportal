@@ -102,16 +102,16 @@
 
             <element in="e:entries">
                 <element-create-as-parent out="e:entries" attributes="@project" group-by="@project">
-                    <element in="item" out="e:entry"/>
+                    <element in="item" out="e:entries"/>
                 </element-create-as-parent>
             </element>
 
             <element in="e:entries">
                 <element in="e:entries">
                     <attribute in="project" out="key"/>
-                    <element in="e:entry">
+                    <element in="e:entries">
                         <attribute-ignore/>
-                        <text-create>../@service</text-create>
+                        <attribute in="service" out="key"/>
                     </element>
                 </element>
 
