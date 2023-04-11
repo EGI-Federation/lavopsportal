@@ -1,54 +1,55 @@
 <views xmlns="http://software.in2p3.fr/lavoisier/application.xsd" >
 
 
-    <view name="marketplace.services" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" xmlns:str="http://exslt.org/strings">
-        <connector type="FileConnector">
-            <parameter name="path">/app/resources/xml/listServices.xml</parameter>
-        </connector>
+<!--    <view name="marketplace.services" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" xmlns:str="http://exslt.org/strings">-->
+<!--        <connector type="FileConnector">-->
+<!--            <parameter name="path">/app/resources/xml/listServices.xml</parameter>-->
+<!--        </connector>-->
 
-        <processors>
-            <element in="e:entries">
-                <element in="e:entries">
-                    <element-create>view('marketplace.services.provider',entry('providerId',../@id))</element-create>
-                </element>
-            </element>
+<!--        <processors>-->
+<!--            <element in="e:entries">-->
+<!--                <element in="e:entries">-->
+<!--                    <element-create>view('marketplace.services.provider',entry('providerId',../@key))</element-create>-->
+<!--                </element>-->
+<!--            </element>-->
 
-            <element in="e:entries">
-                <element in="e:entries">
-                    <element-ignore in="e:entries">
-                        <element in="e:entries">
-                            <text-ignore if="normalize-space(.)=''"/>
-                        </element>
-                    </element-ignore>
-                </element>
-            </element>
+<!--            <element in="e:entries">-->
+<!--                <element in="e:entries">-->
+<!--                    <element-ignore in="e:entries">-->
+<!--                        <element in="e:entries">-->
+<!--                            <text-ignore if="normalize-space(.)=''"/>-->
+<!--                        </element>-->
+<!--                    </element-ignore>-->
+<!--                </element>-->
+<!--            </element>-->
 
-            <element in="e:entries">
-                <element in="e:entries">
-                        <element in="e:entries">
-                            <attribute-create out="key">../text()</attribute-create>
-                        </element>
-                </element>
-            </element>
-
-
-
-        </processors>
-
-        <cache type="FileCache">
-            <trigger type="DeltaTimeTrigger">
-                <parameter name="minutes">28</parameter>
-            </trigger>
-            <trigger type="ViewNotifiedTrigger"/>
-        </cache>
+<!--            <element in="e:entries">-->
+<!--                <element in="e:entries">-->
+<!--                        <element in="e:entries">-->
+<!--                            <attribute-create out="key">../text()</attribute-create>-->
+<!--                        </element>-->
+<!--                </element>-->
+<!--            </element>-->
 
 
-    </view>
 
-    <view name="marketplace.services.provider" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
-        <argument name="providerId"/>
+<!--        </processors>-->
+
+<!--        <cache type="FileCache">-->
+<!--            <trigger type="DeltaTimeTrigger">-->
+<!--                <parameter name="minutes">28</parameter>-->
+<!--            </trigger>-->
+<!--            <trigger type="ViewNotifiedTrigger"/>-->
+<!--        </cache>-->
+<!--    </view>-->
+
+    
+    <view name="marketplace.services.provider" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" xmlns:str="http://exslt.org/strings">
+        <argument name="providerId">EGI-ACE</argument>
+<!--        <variable name="url" eval="str:replace(property('marketplace.services'),'_target_',$providerId)"></variable>-->
+        <variable name="url" eval="property('marketplace.services.search')"/>
         <connector type="HTTPConnector">
-            <parameter name="url" eval="concat(property('marketplace.services'),$providerId)"/>
+            <parameter name="url" eval="$url"/>
             <parameter name="certificate" eval="property('certificate.path')"/>
             <parameter name="passphrase" eval="property('certificate.password')"/>
             <parameter name="force-redirect">true</parameter>
@@ -58,6 +59,7 @@
 
         <processors>
             <element in="html:html" out="e:entries" >
+                <attribute-create out="url">$url</attribute-create>
                 <attribute-ignore/>
                     <element-ignore in="html:body">
                             <element-ignore in="html:main">
@@ -72,16 +74,58 @@
                     <element-ignore/>
             </element>
         </processors>
+    </view>
 
+    <view name="marketplace.services" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
+        <connector type="FileConnector">
+            <parameter name="path">/app/resources/json/services.txt</parameter>
+        </connector>
+        <serializer type="JSONStreamSerializer"/>
+
+        <processors>
+            <element in="item" out="e:entries">
+                <element-ignore in="item">
+                    <element-ignore in="item">
+                       <element in="item">
+                           <attribute-create out="service">../../../item[1]/text()</attribute-create>
+                           <attribute-create out="project">../text()</attribute-create>
+                           <text-ignore/>
+                       </element>
+                    </element-ignore>
+                </element-ignore>
+            </element>
+
+            <element in="e:entries">
+                <element-ignore in="item"/>
+                <element-create>sort_by_string(../item,'@project')</element-create>
+            </element>
+
+            <element in="e:entries">
+                <element-create-as-parent out="e:entries" attributes="@project" group-by="@project">
+                    <element in="item" out="e:entry"/>
+                </element-create-as-parent>
+            </element>
+
+            <element in="e:entries">
+                <element in="e:entries">
+                    <attribute in="project" out="key"/>
+                    <element in="e:entry">
+                        <attribute-ignore/>
+                        <text-create>../@service</text-create>
+                    </element>
+                </element>
+
+            </element>
+        </processors>
 
     </view>
     <view name="marketplace.providers" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
+
         <connector type="HTTPConnector">
             <parameter name="url" eval="property('marketplace.api')"/>
             <parameter name="certificate" eval="property('certificate.path')"/>
             <parameter name="passphrase" eval="property('certificate.password')"/>
             <parameter name="force-redirect">true</parameter>
-
         </connector>
         <serializer type="JSONStreamSerializer"/>
 
@@ -581,7 +625,7 @@
     <view name="JiraServiceProvidersRaw" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
         <argument name="tenant">eosc</argument>
         <connector type="HTTPConnector">
-            <parameter name="url"     eval="concat('https://',property(concat('userJira_',$tenant)),':',property(concat('pwdJira_',$tenant)),'@',property(concat('instance_',$tenant)),'/rest/api/2/search?fields=assignee,status,created,updated,resolutiondate,customfield_10507,customfield_11600,customfield_10509&amp;jql=project=',quot(property('jira.sp')),'&amp;maxResults=5000')"/>
+            <parameter name="url"     eval="concat('https://',property(concat('userJira_',$tenant)),':',property(concat('pwdJira_',$tenant)),'@',property(concat('instance_',$tenant)),'/rest/api/2/search?fields=assignee,status,created,updated,resolutiondate,customfield_10507,customfield_11600,customfield_10509&amp;jql=project=',quot(property('jira.sp')),'&amp;maxResults=1000')"/>
         </connector>
         <serializer type="JSONStreamSerializer"/>
 
