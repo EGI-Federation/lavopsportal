@@ -110,7 +110,6 @@
                 <element in="e:entries">
                     <attribute in="project" out="key"/>
                     <element in="e:entries">
-                        <attribute-ignore/>
                         <attribute in="service" out="key"/>
                     </element>
                 </element>
