@@ -279,6 +279,7 @@
                 WHERE v.header_id = h.id
                 AND v.serial = m.serial
                 AND h.status_id = 2
+                AND m.id=v.mailing_list_id
                 AND m.users_mailing_list IS NOT NULL
                 AND NOT m.users_mailing_list = ''
                 ORDER BY label
