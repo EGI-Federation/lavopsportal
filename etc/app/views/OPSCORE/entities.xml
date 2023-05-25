@@ -511,12 +511,12 @@
 
             </processor>
 
-            <element in="e:entries">
-                <element in="e:entry" if="@key='EGI.eu'">
-                    <attribute-ignore in="key"/>
-                    <attribute-create out="key">'EGI Operations'</attribute-create>
-                </element>
-            </element>
+<!--            <element in="e:entries">-->
+<!--                <element in="e:entry" if="@key='EGI.eu'">-->
+<!--                    <attribute-ignore in="key"/>-->
+<!--                    <attribute-create out="key">'EGI Operations'</attribute-create>-->
+<!--                </element>-->
+<!--            </element>-->
 
         </processors>
     </view>
