@@ -5,11 +5,11 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
-        <service id="broadcastjstree" class="App\Services\JSTree\JSTree" public="true">
-            <argument key="$hostname">cclavoisier01.in2p3.fr</argument>
-            <argument key="$branchesInformation" type="collection">
+        <service id="broadcastjstree" class="JSTree\JSTree">
+            <argument key="hostname">%lavoisier_host_broadcast%</argument>
+            <argument key="branchesInformation" type="collection">
 
-                <argument key="nmegi" type="collection">
+            <argument key="nmegi" type="collection">
                     <argument key="lavoisierPrefix">nmegi</argument>
                     <argument key="label">NGI managers</argument>
                     <argument key="tree_view">nmJSTreeView_egi</argument>
