@@ -33,6 +33,48 @@
         </cache>
     </view>
 
+    <view name="nmRecipientsView_egi">
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('OPSCORE_get_roc_contacts_egi')"/>
+        </connector>
+        <processors>
+
+
+            <element in="results" out="Recipients">
+                <element in="NGI" out="Recipient">
+                    <attribute-ignore/>
+                    <element in="NAME" out="label"/>
+                    <element in="EMAIL" out="email"/>
+                    <element-create>new_element('id',new_text(../@NAME))</element-create>
+                    <element-ignore/>
+                </element>
+            </element>
+
+
+
+            <elements path="Recipients" >
+                <element-create>
+                    sort_by_string(../Recipient,'id/text()')
+                </element-create>
+                <element-ignore/>
+            </elements>
+
+        </processors>
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="hours">1</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+
+            <trigger type="DependencyRefreshedTrigger">
+                <parameter name="views">
+                    <entry>OPSCORE_ngi_contacts</entry>
+                </parameter>
+            </trigger>
+        </cache>
+
+
+    </view>
 
     <!--RECIPIENTS - SOURCE FOR JSTREE VIEW - NGI Managers BRANCH-->
     <view name="nmRecipientsView">

@@ -60,6 +60,29 @@
     </view>
 
 
+    <view name="nmJSTreeView_egi" xmlns:sf2="http://symfony.com/schema/dic/services">
+
+        <connector type="XSLTConnector">
+            <parameter name="stylesheet" eval="document(concat(property('xsl.directory'),'/JSTreeView.xsl'))"/>
+            <parameter name="documents">
+                <entry key="treeConf" eval="view('JSTreeConf_Cached')//sf2:argument[@key='nm']"/>
+                <entry key="rawData" eval="view('nmRecipientsView_egi')"/>
+            </parameter>
+        </connector>
+
+        <cache type="FileCache">
+
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="DependencyRefreshedTrigger">
+                <parameter name="views">
+                    <entry>JSTreeConf_Cached</entry>
+                    <entry>nmRecipientsView_egi</entry>
+                </parameter>
+            </trigger>
+        </cache>
+    </view>
+
+
     <view name="vmJSTreeView" xmlns:sf2="http://symfony.com/schema/dic/services">
 
         <connector type="XSLTConnector">

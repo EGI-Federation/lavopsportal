@@ -788,6 +788,22 @@
         </cache>
     </view>
 
+    <view name="OPSCORE_get_roc_contacts_egi" authenticators="local">
+
+        <connector type="HTTPConnector">
+            <parameter name="url" eval="property('OPSCORE.gocdb.get_ngis_egi')"/>
+            <parameter name="certificate" eval="property('certificate.path')"/>
+            <parameter name="passphrase" eval="property('certificate.password')"/>
+        </connector>
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="hours">3</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger ignore-during="PT3H" type="ViewCreatedTrigger"/>
+        </cache>
+    </view>
+
 
     <view name="UsersListforAPI" authenticators="local" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
 
