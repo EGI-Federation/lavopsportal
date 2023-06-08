@@ -9,8 +9,8 @@
             <argument key="$hostname">cclavoisier01.in2p3.fr</argument>
             <argument key="$branchesInformation" type="collection">
 
-                <argument key="nm_egi" type="collection">
-                    <argument key="lavoisierPrefix">nm_egi</argument>
+                <argument key="nmegi" type="collection">
+                    <argument key="lavoisierPrefix">nmegi</argument>
                     <argument key="label">NGI managers</argument>
                     <argument key="tree_view">nmJSTreeView_egi</argument>
                     <argument key="recipients_view">nmRecipientsView_egi</argument>
@@ -21,8 +21,8 @@
                     <argument key="enabled">true</argument>
                     <argument key="useDN">false</argument>
                 </argument>
-                <argument key="sa_egi" type="collection">
-                    <argument key="lavoisierPrefix">sa_egi</argument>
+                <argument key="saegi" type="collection">
+                    <argument key="lavoisierPrefix">saegi</argument>
                     <argument key="label">Site administrators</argument>
                     <argument key="tree_view">saJSTreeView</argument>
                     <!--<argument key="tree_view">OPSCORE_ngi_sites</argument>-->
@@ -34,8 +34,8 @@
                     <argument key="enabled">true</argument>
                     <argument key="useDN">false</argument>
                 </argument>
-                <argument key="ssec_egi" type="collection">
-                    <argument key="lavoisierPrefix">ssec_egi</argument>
+                <argument key="ssecegi" type="collection">
+                    <argument key="lavoisierPrefix">ssecegi</argument>
                     <argument key="label">Site Security Contacts</argument>
                     <argument key="tree_view">ssecJSTreeView</argument>
                     <argument key="recipients_view">ssecRecipientsView</argument>

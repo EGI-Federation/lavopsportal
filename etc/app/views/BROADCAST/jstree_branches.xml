@@ -65,7 +65,7 @@
         <connector type="XSLTConnector">
             <parameter name="stylesheet" eval="document(concat(property('xsl.directory'),'/JSTreeView.xsl'))"/>
             <parameter name="documents">
-                <entry key="treeConf" eval="view('JSTreeConf_Cached')//sf2:argument[@key='nm']"/>
+                <entry key="treeConf" eval="view('JSTreeConf_Cached')//sf2:argument[@key='nmegi']"/>
                 <entry key="rawData" eval="view('nmRecipientsView_egi')"/>
             </parameter>
         </connector>
