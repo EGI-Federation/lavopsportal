@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="mo">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/app/app.properties" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/app.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/app/views/BROADCAST/jstree_branches.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/BROADCAST/jstree_branches.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/app/views/BROADCAST/recipients.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/BROADCAST/recipients.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/app/views/OPSCORE/users.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/OPSCORE/users.xml" afterDir="false" />
-    </list>
+    <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="mo" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -600,7 +594,7 @@
       <workItem from="1685001067581" duration="640000" />
       <workItem from="1685086184788" duration="832000" />
       <workItem from="1686054802236" duration="6000" />
-      <workItem from="1686216019982" duration="1947000" />
+      <workItem from="1686216019982" duration="2629000" />
     </task>
     <task id="LOCAL-00075" summary="filtre tickets">
       <created>1536755736442</created>
