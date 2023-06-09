@@ -446,7 +446,7 @@
             <element in="NGIs">
                 <element in="NGI">
                     <element in="Sites">
-                        <element-ignore in="Site" if="@egi_scope=0"/>
+                        <element-ignore in="Site" if="@egi_scope=0 or not(@egi_scope)"/>
                     </element>
                 </element>
             </element>
