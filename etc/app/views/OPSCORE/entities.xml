@@ -410,6 +410,7 @@
             <set variable="ngis" index="@Name">view('OPSCORE_NGIs')/NGIs/NGI</set>
             <set variable="rocs" index="@ROC_NAME">view('OPSCORE_get_roc_contacts')/results/ROC</set>
             <element in="NGI">
+                <attribute in="ngi" out="name"/>
                 <attribute-create out="ID">find($ngis,current()/../@ngi)/@ID</attribute-create>
                 <attribute-create out="ggus_su">find($ngis,current()/../@ngi)/@GgusSU</attribute-create>
                 <attribute-create out="rod_email">find($ngis,current()/../@ngi)/@RodMail</attribute-create>
