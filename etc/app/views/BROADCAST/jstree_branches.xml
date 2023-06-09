@@ -197,6 +197,26 @@
         </cache>
     </view>
 
+    <view name="saJSTreeView_egi" xmlns:sf2="http://symfony.com/schema/dic/services">
+
+        <connector type="XSLTConnector">
+            <parameter name="stylesheet" eval="document(concat(property('xsl.directory'),'/saJSTreeBranch.xsl'))"/>
+            <parameter name="documents">
+                <entry key="treeConf" eval="view('JSTreeConf_Cached')//sf2:argument[@key='saegi']"/>
+                <entry key="rawData" eval="view('OPSCORE_prod_entities_egi')"/>
+            </parameter>
+        </connector>
+        <cache type="FileCache">
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="DependencyRefreshedTrigger">
+                <parameter name="views">
+                    <entry>JSTreeConf_Cached</entry>
+                    <entry>OPSCORE_prod_entities_egi</entry>
+                </parameter>
+            </trigger>
+        </cache>
+    </view>
+
     <view name="ssecJSTreeView" xmlns:sf2="http://symfony.com/schema/dic/services">
 
         <connector type="XSLTConnector">
@@ -212,6 +232,26 @@
                 <parameter name="views">
                     <entry>JSTreeConf_Cached</entry>
                     <entry>OPSCORE_prod_entities</entry>
+                </parameter>
+            </trigger>
+        </cache>
+    </view>
+
+    <view name="ssecJSTreeView_egi" xmlns:sf2="http://symfony.com/schema/dic/services">
+
+        <connector type="XSLTConnector">
+            <parameter name="stylesheet" eval="document(concat(property('xsl.directory'),'/saJSTreeBranch.xsl'))"/>
+            <parameter name="documents">
+                <entry key="treeConf" eval="view('JSTreeConf_Cached')//sf2:argument[@key='ssecegi']"/>
+                <entry key="rawData" eval="view('OPSCORE_prod_entities_egi')"/>
+            </parameter>
+        </connector>
+        <cache type="FileCache">
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="DependencyRefreshedTrigger">
+                <parameter name="views">
+                    <entry>JSTreeConf_Cached</entry>
+                    <entry>OPSCORE_prod_entities_egi</entry>
                 </parameter>
             </trigger>
         </cache>

@@ -421,7 +421,45 @@
         </cache>
     </view>
 
+
     <!--RECIPIENTS - Site Administrators BRANCH-->
+    <view name="saRecipientsView_egi">
+
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('OPSCORE_prod_entities_egi')"/>
+        </connector>
+        <processors>
+
+            <elements path="NGIs/NGI/Sites">
+                <element-ignore in="Site"/>
+                <element-create>sort_by_string(../Site,'@name')</element-create>
+            </elements>
+
+            <element in="NGIs" out="Recipients">
+                <element-ignore in="NGI">
+                    <element-ignore in="Sites">
+                        <element in="Site" out="Recipient" if="@production!=0 and  @certified!=0">
+                            <attribute-ignore/>
+                            <element-create>new_element('id', string(../@primary_key))</element-create>
+                            <element-create>new_element('label', string(../@name))</element-create>
+                            <element-create>new_element('email', string(../@contact_email))</element-create>
+                        </element>
+                    </element-ignore>
+                </element-ignore>
+            </element>
+
+        </processors>
+
+        <cache type="FileCache">
+            <trigger ignore-during="PT1H" type="DependencyRefreshedTrigger">
+                <parameter name="views">
+                    <entry>OPSCORE_prod_entities_egi</entry>
+                </parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+        </cache>
+    </view>
+    <!--RECIPIENTS - Site Administrators BRANCH -->
     <view name="ssecRecipientsView">
 
         <connector type="XMLConnector">
@@ -460,6 +498,44 @@
         </cache>
     </view>
 
+
+    <view name="ssecRecipientsView_egi">
+
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('OPSCORE_prod_entities_egi')"/>
+        </connector>
+        <processors>
+
+            <elements path="NGIs/NGI/Sites">
+                <element-ignore in="Site"/>
+                <element-create>sort_by_string(../Site,'@name')</element-create>
+            </elements>
+
+            <element in="NGIs" out="Recipients">
+                <element-ignore in="NGI">
+                    <element-ignore in="Sites">
+                        <element in="Site" out="Recipient" if="@production!=0 and  @certified!=0">
+                            <attribute-ignore/>
+                            <element-create>new_element('id', string(../@primary_key))</element-create>
+                            <element-create>new_element('label', string(../@name))</element-create>
+                            <element-create>new_element('email', string(../@csirt_email))</element-create>
+                        </element>
+                    </element-ignore>
+                </element-ignore>
+            </element>
+
+
+        </processors>
+
+        <cache type="FileCache">
+            <trigger ignore-during="PT1H" type="DependencyRefreshedTrigger">
+                <parameter name="views">
+                    <entry>OPSCORE_prod_entities_egi</entry>
+                </parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+        </cache>
+    </view>
 
     <!--RECIPIENTS - SOURCE FOR JSTREE VIEW - Operation Tools BRANCH-->
     <view name="otRecipientsView">

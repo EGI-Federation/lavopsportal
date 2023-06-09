@@ -5,11 +5,11 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
-        <service id="broadcastjstree" class="JSTree\JSTree">
-            <argument key="hostname">%lavoisier_host_broadcast%</argument>
-            <argument key="branchesInformation" type="collection">
+        <service id="broadcastjstree" class="App\Services\JSTree\JSTree" public="true">
+            <argument key="$hostname">%env(string:LAVOISIER_URL)%</argument>
+            <argument key="$branchesInformation" type="collection">
 
-            <argument key="nmegi" type="collection">
+                <argument key="nmegi" type="collection">
                     <argument key="lavoisierPrefix">nmegi</argument>
                     <argument key="label">NGI managers</argument>
                     <argument key="tree_view">nmJSTreeView_egi</argument>
@@ -24,12 +24,10 @@
                 <argument key="saegi" type="collection">
                     <argument key="lavoisierPrefix">saegi</argument>
                     <argument key="label">Site administrators</argument>
-                    <argument key="tree_view">saJSTreeView</argument>
-                    <!--<argument key="tree_view">OPSCORE_ngi_sites</argument>-->
-                    <argument key="recipients_view">saRecipientsView</argument>
+                    <argument key="tree_view">saJSTreeView_egi</argument>
+                    <argument key="recipients_view">saRecipientsView_egi</argument>
                     <argument key="position">1</argument>
-                    <argument key="root_checked_behaviour">global_email_cc</argument>
-                    <argument key="mailing_list">operations@mailman.egi.eu</argument>
+                    <argument key="root_checked_behaviour">check_all</argument>
                     <argument key="root_icon">root</argument>
                     <argument key="enabled">true</argument>
                     <argument key="useDN">false</argument>
@@ -37,22 +35,10 @@
                 <argument key="ssecegi" type="collection">
                     <argument key="lavoisierPrefix">ssecegi</argument>
                     <argument key="label">Site Security Contacts</argument>
-                    <argument key="tree_view">ssecJSTreeView</argument>
-                    <argument key="recipients_view">ssecRecipientsView</argument>
+                    <argument key="tree_view">ssecJSTreeView_egi</argument>
+                    <argument key="recipients_view">ssecRecipientsView_egi</argument>
                     <argument key="position">2</argument>
                     <argument key="root_checked_behaviour">check_all</argument>
-                    <argument key="root_icon">root</argument>
-                    <argument key="enabled">true</argument>
-                    <argument key="useDN">false</argument>
-                </argument>
-
-                <argument key="gm" type="collection" >
-                    <argument key="lavoisierPrefix">gm</argument>
-                    <argument key="label">Generic mailing-list</argument>
-                    <argument key="tree_view">gmJSTreeView</argument>
-                    <argument key="recipients_view">gmRecipientsView</argument>
-                    <argument key="position">3</argument>
-                    <argument key="root_checked_behaviour">disabled_root</argument>
                     <argument key="root_icon">root</argument>
                     <argument key="enabled">true</argument>
                     <argument key="useDN">false</argument>
@@ -62,9 +48,8 @@
                     <argument key="label">NGI managers</argument>
                     <argument key="tree_view">nmJSTreeView</argument>
                     <argument key="recipients_view">nmRecipientsView</argument>
-                    <argument key="position">4</argument>
-                    <argument key="root_checked_behaviour">global_email_cc</argument>
-                    <argument key="mailing_list">noc-managers@mailman.egi.eu</argument>
+                    <argument key="position">3</argument>
+                    <argument key="root_checked_behaviour">check_all</argument>
                     <argument key="root_icon">root</argument>
                     <argument key="enabled">true</argument>
                     <argument key="useDN">false</argument>
@@ -73,11 +58,20 @@
                     <argument key="lavoisierPrefix">sa</argument>
                     <argument key="label">Site administrators</argument>
                     <argument key="tree_view">saJSTreeView</argument>
-                    <!--<argument key="tree_view">OPSCORE_ngi_sites</argument>-->
                     <argument key="recipients_view">saRecipientsView</argument>
-                    <argument key="position">5</argument>
-                    <argument key="root_checked_behaviour">global_email_cc</argument>
-                    <argument key="mailing_list">operations@mailman.egi.eu</argument>
+                    <argument key="position">1</argument>
+                    <argument key="root_checked_behaviour">check_all</argument>
+                    <argument key="root_icon">root</argument>
+                    <argument key="enabled">true</argument>
+                    <argument key="useDN">false</argument>
+                </argument>
+                <argument key="ssec" type="collection">
+                    <argument key="lavoisierPrefix">ssec</argument>
+                    <argument key="label">Site Security Contacts</argument>
+                    <argument key="tree_view">ssecJSTreeView</argument>
+                    <argument key="recipients_view">ssecRecipientsView</argument>
+                    <argument key="position">2</argument>
+                    <argument key="root_checked_behaviour">check_all</argument>
                     <argument key="root_icon">root</argument>
                     <argument key="enabled">true</argument>
                     <argument key="useDN">false</argument>
@@ -87,8 +81,19 @@
                     <argument key="label">VO managers</argument>
                     <argument key="tree_view">vmJSTreeView</argument>
                     <argument key="recipients_view">vmRecipientsView</argument>
-                    <argument key="position">6</argument>
+                    <argument key="position">4</argument>
                     <argument key="root_checked_behaviour">check_all</argument>
+                    <argument key="root_icon">root</argument>
+                    <argument key="enabled">true</argument>
+                    <argument key="useDN">false</argument>
+                </argument>
+                <argument key="gm" type="collection">
+                    <argument key="lavoisierPrefix">gm</argument>
+                    <argument key="label">Generic mailing-list</argument>
+                    <argument key="tree_view">gmJSTreeView</argument>
+                    <argument key="recipients_view">gmRecipientsView</argument>
+                    <argument key="position">5</argument>
+                    <argument key="root_checked_behaviour">disabled_root</argument>
                     <argument key="root_icon">root</argument>
                     <argument key="enabled">true</argument>
                     <argument key="useDN">false</argument>
@@ -98,7 +103,7 @@
                     <argument key="label">VO users</argument>
                     <argument key="tree_view">vuJSTreeView</argument>
                     <argument key="recipients_view">vuRecipientsView</argument>
-                    <argument key="position">7</argument>
+                    <argument key="position">6</argument>
                     <argument key="root_checked_behaviour">check_all</argument>
                     <argument key="root_icon">root</argument>
                     <argument key="enabled">true</argument>
@@ -110,7 +115,7 @@
                     <argument key="label">Operation tools</argument>
                     <argument key="tree_view">otJSTreeView</argument>
                     <argument key="recipients_view">otRecipientsView</argument>
-                    <argument key="position">8</argument>
+                    <argument key="position">7</argument>
                     <argument key="root_checked_behaviour">check_all</argument>
                     <argument key="root_icon">root</argument>
                     <argument key="enabled">true</argument>
@@ -122,7 +127,7 @@
                     <argument key="label">VO supporting sites</argument>
                     <argument key="tree_view">vsJSTreeView</argument>
                     <argument key="recipients_view">vsRecipientsView</argument>
-                    <argument key="position">9</argument>
+                    <argument key="position">8</argument>
                     <argument key="root_checked_behaviour">check_all</argument>
                     <argument key="root_icon">root</argument>
                     <argument key="enabled">true</argument>
@@ -133,12 +138,13 @@
                     <argument key="label">VO Security Contacts</argument>
                     <argument key="tree_view">vsecJSTreeView</argument>
                     <argument key="recipients_view">vsecRecipientsView</argument>
-                    <argument key="position">10</argument>
+                    <argument key="position">9</argument>
                     <argument key="root_checked_behaviour">check_all</argument>
                     <argument key="root_icon">root</argument>
                     <argument key="enabled">true</argument>
                     <argument key="useDN">false</argument>
                 </argument>
+
 
 
             </argument>
