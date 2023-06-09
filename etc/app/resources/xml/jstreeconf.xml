@@ -11,7 +11,7 @@
 
                 <argument key="nmegi" type="collection">
                     <argument key="lavoisierPrefix">nmegi</argument>
-                    <argument key="label">NGI managers</argument>
+                    <argument key="label">NGI managers [EGI]</argument>
                     <argument key="tree_view">nmJSTreeView_egi</argument>
                     <argument key="recipients_view">nmRecipientsView_egi</argument>
                     <argument key="position">0</argument>
@@ -23,7 +23,7 @@
                 </argument>
                 <argument key="saegi" type="collection">
                     <argument key="lavoisierPrefix">saegi</argument>
-                    <argument key="label">Site administrators</argument>
+                    <argument key="label">Site administrators [EGI]</argument>
                     <argument key="tree_view">saJSTreeView_egi</argument>
                     <argument key="recipients_view">saRecipientsView_egi</argument>
                     <argument key="position">1</argument>
@@ -34,7 +34,7 @@
                 </argument>
                 <argument key="ssecegi" type="collection">
                     <argument key="lavoisierPrefix">ssecegi</argument>
-                    <argument key="label">Site Security Contacts</argument>
+                    <argument key="label">Site Security Contacts [EGI]</argument>
                     <argument key="tree_view">ssecJSTreeView_egi</argument>
                     <argument key="recipients_view">ssecRecipientsView_egi</argument>
                     <argument key="position">2</argument>
