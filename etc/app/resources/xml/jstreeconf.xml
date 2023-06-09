@@ -59,7 +59,7 @@
                     <argument key="label">Site administrators</argument>
                     <argument key="tree_view">saJSTreeView</argument>
                     <argument key="recipients_view">saRecipientsView</argument>
-                    <argument key="position">1</argument>
+                    <argument key="position">4</argument>
                     <argument key="root_checked_behaviour">check_all</argument>
                     <argument key="root_icon">root</argument>
                     <argument key="enabled">true</argument>
@@ -70,7 +70,7 @@
                     <argument key="label">Site Security Contacts</argument>
                     <argument key="tree_view">ssecJSTreeView</argument>
                     <argument key="recipients_view">ssecRecipientsView</argument>
-                    <argument key="position">2</argument>
+                    <argument key="position">5</argument>
                     <argument key="root_checked_behaviour">check_all</argument>
                     <argument key="root_icon">root</argument>
                     <argument key="enabled">true</argument>
@@ -81,7 +81,7 @@
                     <argument key="label">VO managers</argument>
                     <argument key="tree_view">vmJSTreeView</argument>
                     <argument key="recipients_view">vmRecipientsView</argument>
-                    <argument key="position">4</argument>
+                    <argument key="position">6</argument>
                     <argument key="root_checked_behaviour">check_all</argument>
                     <argument key="root_icon">root</argument>
                     <argument key="enabled">true</argument>
@@ -92,7 +92,7 @@
                     <argument key="label">Generic mailing-list</argument>
                     <argument key="tree_view">gmJSTreeView</argument>
                     <argument key="recipients_view">gmRecipientsView</argument>
-                    <argument key="position">5</argument>
+                    <argument key="position">7</argument>
                     <argument key="root_checked_behaviour">disabled_root</argument>
                     <argument key="root_icon">root</argument>
                     <argument key="enabled">true</argument>
@@ -103,7 +103,7 @@
                     <argument key="label">VO users</argument>
                     <argument key="tree_view">vuJSTreeView</argument>
                     <argument key="recipients_view">vuRecipientsView</argument>
-                    <argument key="position">6</argument>
+                    <argument key="position">8</argument>
                     <argument key="root_checked_behaviour">check_all</argument>
                     <argument key="root_icon">root</argument>
                     <argument key="enabled">true</argument>
@@ -115,7 +115,7 @@
                     <argument key="label">Operation tools</argument>
                     <argument key="tree_view">otJSTreeView</argument>
                     <argument key="recipients_view">otRecipientsView</argument>
-                    <argument key="position">7</argument>
+                    <argument key="position">9</argument>
                     <argument key="root_checked_behaviour">check_all</argument>
                     <argument key="root_icon">root</argument>
                     <argument key="enabled">true</argument>
@@ -127,7 +127,7 @@
                     <argument key="label">VO supporting sites</argument>
                     <argument key="tree_view">vsJSTreeView</argument>
                     <argument key="recipients_view">vsRecipientsView</argument>
-                    <argument key="position">8</argument>
+                    <argument key="position">10</argument>
                     <argument key="root_checked_behaviour">check_all</argument>
                     <argument key="root_icon">root</argument>
                     <argument key="enabled">true</argument>
@@ -138,7 +138,7 @@
                     <argument key="label">VO Security Contacts</argument>
                     <argument key="tree_view">vsecJSTreeView</argument>
                     <argument key="recipients_view">vsecRecipientsView</argument>
-                    <argument key="position">9</argument>
+                    <argument key="position">11</argument>
                     <argument key="root_checked_behaviour">check_all</argument>
                     <argument key="root_icon">root</argument>
                     <argument key="enabled">true</argument>
