@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="mo" />
+    <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="mo">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -247,7 +249,7 @@
       <recent name="$PROJECT_DIR$/etc/app/resources/shell" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Run">
+  <component name="RunManager" selected="Application.Run with arguments">
     <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
@@ -257,7 +259,7 @@
     <configuration name="Run with arguments" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="fr.in2p3.lavoisier.command.StandaloneExec" />
       <module name="lavopsportal" />
-      <option name="PROGRAM_PARAMETERS" value="VoUsersAccountingHistory?nbsteps=999&amp;date1=2023-01-01&amp;date2=_date_&amp;date3=_date_&amp;date4=_date_&amp;accept=xml" />
+      <option name="PROGRAM_PARAMETERS" value="JIRA_API_CALL_COMMENTS_EPIC?nbsteps=999&amp;start=0&amp;tenant=eosc&amp;accept=xml" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -595,7 +597,10 @@
       <workItem from="1685086184788" duration="832000" />
       <workItem from="1686054802236" duration="6000" />
       <workItem from="1686216019982" duration="2880000" />
-      <workItem from="1686235081963" duration="10054000" />
+      <workItem from="1686235081963" duration="11327000" />
+      <workItem from="1686551878499" duration="598000" />
+      <workItem from="1687174661098" duration="8000" />
+      <workItem from="1688107945660" duration="704000" />
     </task>
     <task id="LOCAL-00075" summary="filtre tickets">
       <created>1536755736442</created>

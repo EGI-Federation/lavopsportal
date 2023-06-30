@@ -265,8 +265,15 @@
         <argument name="start"/>
         <argument name="tenant">eosc</argument>
         <connector type="HTTPConnector">
-            <parameter name="url"  eval="concat('https://',property(concat('userJira_',$tenant)),':',property(concat('pwdJira_',$tenant)),'@',property(concat('instance_',$tenant)),'/rest/api/2/search?fields=comment,summary&amp;jql=project=',quot(property(concat('jira.project.',property('env')))),' AND issuetype=',quot('epic'),'&amp;startAt=',round($start),'&amp;maxResults=1000')"/>
+            <parameter name="url"  eval="concat('https://',property(concat('instance_',$tenant)),'/rest/api/2/search?fields=comment,summary&amp;jql=project=',quot(property(concat('jira.project.',property('env')))),' AND issuetype=',quot('epic'),'&amp;startAt=',round($start),'&amp;maxResults=1000')"/>
+
+            <parameter name="header">
+                <entry key="Content-Type">application/json</entry>
+                <entry key="Authorization" eval="concat('Bearer ',property('jira_egi.token'))"></entry>
+            </parameter>
         </connector>
+
+
         <serializer type="JSONStreamSerializer"/>
     </view>
 
@@ -275,7 +282,12 @@
         <argument name="start"/>
         <argument name="tenant">eosc</argument>
         <connector type="HTTPConnector">
-            <parameter name="url"  eval="concat('https://',property(concat('userJira_',$tenant)),':',property(concat('pwdJira_',$tenant)),'@',property(concat('instance_',$tenant)),'/rest/api/2/search?fields=comment,summary&amp;jql=project=',quot(property(concat('jira.project.',property('env')))),' AND issuetype=',quot('Service Order'),'&amp;startAt=',round($start),'&amp;maxResults=1000')"/>
+            <parameter name="url"  eval="concat('https://',property(concat('instance_',$tenant)),'/rest/api/2/search?fields=comment,summary&amp;jql=project=',quot(property(concat('jira.project.',property('env')))),' AND issuetype=',quot('Service Order'),'&amp;startAt=',round($start),'&amp;maxResults=1000')"/>
+
+            <parameter name="header">
+                <entry key="Content-Type">application/json</entry>
+                <entry key="Authorization" eval="concat('Bearer ',property('jira_egi.token'))"></entry>
+            </parameter>
         </connector>
         <serializer type="JSONStreamSerializer"/>
     </view>
@@ -488,8 +500,11 @@
 
     <connector type="HTTPConnector">
         <parameter name="url"
-                   eval="concat('https://',property(concat('userJira_',$tenant)),':',property(concat('pwdJira_',$tenant)),'@',property(concat('instance_',$tenant)),'/rest/api/2/issue/',$ticketId,'?expand=changelog')"/>
-
+                   eval="concat('https://',property(concat('instance_',$tenant)),'/rest/api/2/issue/',$ticketId,'?expand=changelog')"/>
+        <parameter name="header">
+            <entry key="Content-Type">application/json</entry>
+            <entry key="Authorization" eval="concat('Bearer ',property('jira_egi.token'))"></entry>
+        </parameter>
     </connector>
 
         <serializer type="JSONStreamSerializer"/>
@@ -530,8 +545,11 @@
 
         <connector type="HTTPConnector">
             <parameter name="url"
-                       eval="concat('https://',property(concat('userJira_',$tenant)),':',property(concat('pwdJira_',$tenant)),'@',property(concat('instance_',$tenant)),'/rest/api/2/issue/',$ticketId,'/comment')"/>
-
+                       eval="concat('https://',property(concat('instance_',$tenant)),'/rest/api/2/issue/',$ticketId,'/comment')"/>
+            <parameter name="header">
+                <entry key="Content-Type">application/json</entry>
+                <entry key="Authorization" eval="concat('Bearer ',property('jira_egi.token'))"></entry>
+            </parameter>
         </connector>
 
 
@@ -632,7 +650,11 @@
     <view name="JiraServiceProvidersRaw" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
         <argument name="tenant">eosc</argument>
         <connector type="HTTPConnector">
-            <parameter name="url"     eval="concat('https://',property(concat('userJira_',$tenant)),':',property(concat('pwdJira_',$tenant)),'@',property(concat('instance_',$tenant)),'/rest/api/2/search?fields=assignee,status,created,updated,resolutiondate,customfield_10507,customfield_11600,customfield_10509&amp;jql=project=',quot(property('jira.sp')),'&amp;maxResults=1000')"/>
+            <parameter name="url"     eval="concat('https://',property(concat('instance_',$tenant)),'/rest/api/2/search?fields=assignee,status,created,updated,resolutiondate,customfield_10507,customfield_11600,customfield_10509&amp;jql=project=',quot(property('jira.sp')),'&amp;maxResults=1000')"/>
+            <parameter name="header">
+                <entry key="Content-Type">application/json</entry>
+                <entry key="Authorization" eval="concat('Bearer ',property('jira_egi.token'))"></entry>
+            </parameter>
         </connector>
         <serializer type="JSONStreamSerializer"/>
 
@@ -750,7 +772,11 @@
     <view name="JiraUsersRaw" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
         <argument name="tenant">eosc</argument>
         <connector type="HTTPConnector">
-            <parameter name="url"    eval="concat('https://',property(concat('userJira_',$tenant)),':',property(concat('pwdJira_',$tenant)),'@',property(concat('instance_',$tenant)),'/rest/api/2/user/assignable/search?project=',property(concat('jira.project.',property('env'))))" />
+            <parameter name="url"    eval="concat('https://',property(concat('instance_',$tenant)),'/rest/api/2/user/assignable/search?project=',property(concat('jira.project.',property('env'))))" />
+            <parameter name="header">
+                <entry key="Content-Type">application/json</entry>
+                <entry key="Authorization" eval="concat('Bearer ',property('jira_egi.token'))"></entry>
+            </parameter>
         </connector>
         <serializer type="JSONStreamSerializer"/>
 
@@ -821,7 +847,11 @@
         <argument name="start"/>
         <argument name="tenant">eosc</argument>
         <connector type="HTTPConnector">
-            <parameter name="url"  eval="concat('https://',property(concat('userJira_',$tenant)),':',property(concat('pwdJira_',$tenant)),'@',property(concat('instance_',$tenant)),'/rest/api/2/search?fields=assignee,status,created,updated,resolutiondate,customfield_10711,customfield_10223,customfield_10100,customfield_10254,customfield_10900,customfield_10400,customfield_11310&amp;jql=project=',quot(property(concat('jira.project.',property('env')))),' AND issuetype=',quot('Service Order'),'&amp;startAt=',round($start),'&amp;maxResults=1000')"/>
+            <parameter name="url"  eval="concat('https://',property(concat('instance_',$tenant)),'/rest/api/2/search?fields=assignee,status,created,updated,resolutiondate,customfield_10711,customfield_10223,customfield_10100,customfield_10254,customfield_10900,customfield_10400,customfield_11310&amp;jql=project=',quot(property(concat('jira.project.',property('env')))),' AND issuetype=',quot('Service Order'),'&amp;startAt=',round($start),'&amp;maxResults=1000')"/>
+            <parameter name="header">
+                <entry key="Content-Type">application/json</entry>
+                <entry key="Authorization" eval="concat('Bearer ',property('jira_egi.token'))"></entry>
+            </parameter>
         </connector>
         <serializer type="JSONStreamSerializer"/>
     </view>
@@ -1618,8 +1648,13 @@
         <argument name="start"/>
         <argument name="tenant">eosc</argument>
         <connector type="HTTPConnector">
-            <parameter name="url"       eval="concat('https://',property(concat('userJira_',$tenant)),':',property(concat('pwdJira_',$tenant)),'@',property(concat('instance_',$tenant)),'/rest/api/2/search?fields=created,updated,summary,status,customfield_10228,customfield_1010,customfield_11204,customfield_10706,customfield_11310&amp;jql=project=',quot(property(concat('jira.project.',property('env')))),' AND issuetype=',quot('epic'),'&amp;startAt=',round($start),'&amp;maxResults=1000')"/>
+            <parameter name="url"       eval="concat('https://',property(concat('instance_',$tenant)),'/rest/api/2/search?fields=created,updated,summary,status,customfield_10228,customfield_1010,customfield_11204,customfield_10706,customfield_11310&amp;jql=project=',quot(property(concat('jira.project.',property('env')))),' AND issuetype=',quot('epic'),'&amp;startAt=',round($start),'&amp;maxResults=1000')"/>
+            <parameter name="header">
+                <entry key="Content-Type">application/json</entry>
+                <entry key="Authorization" eval="concat('Bearer ',property('jira_egi.token'))"></entry>
+            </parameter>
         </connector>
+
         <serializer type="JSONStreamSerializer"/>
     </view>
 
@@ -1628,7 +1663,11 @@
         <argument name="type">epic</argument>
         <argument name="tenant">eosc</argument>
         <connector type="HTTPConnector">
-            <parameter name="url" eval="concat('https://',property(concat('userJira_',$tenant)),':',property(concat('pwdJira_',$tenant)),'@',property(concat('instance_',$tenant)),'/rest/api/2/issue/',$id)"/>
+            <parameter name="url" eval="concat('https://',property(concat('instance_',$tenant)),'/rest/api/2/issue/',$id)"/>
+            <parameter name="header">
+                <entry key="Content-Type">application/json</entry>
+                <entry key="Authorization" eval="concat('Bearer ',property('jira_egi.token'))"></entry>
+            </parameter>
         </connector>
         <serializer type="JSONStreamSerializer"/>
 
@@ -1669,7 +1708,11 @@
     <view name="JiraEpicFields">
         <argument name="tenant">eosc</argument>
         <connector type="HTTPConnector">
-            <parameter name="url"   eval="concat('https://',property(concat('userJira_',$tenant)),':',property(concat('pwdJira_',$tenant)),'@',property(concat('instance_',$tenant)),'/rest/api/2/field?jql=project=',quot(property(concat('jira.project.',property('env')))),' AND issuetype=',quot('epic'))"/>
+            <parameter name="url"   eval="concat('https://',property(concat('instance_',$tenant)),'/rest/api/2/field?jql=project=',quot(property(concat('jira.project.',property('env')))),' AND issuetype=',quot('epic'))"/>
+            <parameter name="header">
+                <entry key="Content-Type">application/json</entry>
+                <entry key="Authorization" eval="concat('Bearer ',property('jira_egi.token'))"></entry>
+            </parameter>
         </connector>
         <serializer type="JSONStreamSerializer"/>
 
@@ -1690,7 +1733,11 @@
     <view name="JiraSOFields">
         <argument name="tenant">eosc</argument>
         <connector type="HTTPConnector">
-            <parameter name="url"       eval="concat('https://',property(concat('userJira_',$tenant)),':',property(concat('pwdJira_',$tenant)),'@',property(concat('instance_',$tenant)),'/rest/api/2/field?jql=project=',quot(property(concat('jira.project.',property('env')))),' AND issuetype=',quot('Service Order'))"/>
+            <parameter name="url"       eval="concat('https://',property(concat('instance_',$tenant)),'/rest/api/2/field?jql=project=',quot(property(concat('jira.project.',property('env')))),' AND issuetype=',quot('Service Order'))"/>
+            <parameter name="header">
+                <entry key="Content-Type">application/json</entry>
+                <entry key="Authorization" eval="concat('Bearer ',property('jira_egi.token'))"></entry>
+            </parameter>
         </connector>
         <serializer type="JSONStreamSerializer"/>
 
@@ -1917,13 +1964,17 @@
         <argument name="start"/>
         <argument name="tenant">eosc</argument>
         <connector type="HTTPConnector">
-<!--            <parameter name="url"  eval="concat('https://',property(concat('userJira_',$tenant)),':',property(concat('pwdJira_',$tenant)),'@',property(concat('instance_',$tenant)),-->
+<!--            <parameter name="url"  eval="concat('https://',property(concat('instance_',$tenant)),-->
 <!--            '/rest/api/2/search?fields=status,created,updated,resolutiondate,customfield_10100,customfield_11310&amp;expand=changelog&amp;jql=project=',quot(property(concat('jira.project.',property('env')))),-->
 <!--            ' AND issuetype=',quot('Service Order'),'&amp;startAt=',round($start),'&amp;maxResults=1000')"/>-->
 
-            <parameter name="url"  eval="concat('https://',property(concat('userJira_',$tenant)),':',property(concat('pwdJira_',$tenant)),'@',property(concat('instance_',$tenant)),
+            <parameter name="url"  eval="concat('https://',property(concat('instance_',$tenant)),
         '/rest/api/2/search?fields=assignee,status,created,updated,resolutiondate,customfield_10711,customfield_10223,customfield_10100,customfield_10254,customfield_10900,customfield_10400,customfield_11310&amp;jql=project=',
         quot(property(concat('jira.project.',property('env')))),' AND issuetype=',quot('Service Order'),'&amp;startAt=',round($start),'&amp;maxResults=1000&amp;expand=changelog')"/>
+            <parameter name="header">
+                <entry key="Content-Type">application/json</entry>
+                <entry key="Authorization" eval="concat('Bearer ',property('jira_egi.token'))"></entry>
+            </parameter>
         </connector>
 
 
