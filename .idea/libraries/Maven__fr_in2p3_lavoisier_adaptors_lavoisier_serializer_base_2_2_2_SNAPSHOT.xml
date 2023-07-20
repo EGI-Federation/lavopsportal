@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Maven: fr.in2p3.lavoisier.adaptors:lavoisier-serializer-base:2.2.2-SNAPSHOT">
     <CLASSES>
-      <root url="jar://$MAVEN_REPOSITORY$/fr/in2p3/lavoisier/adaptors/lavoisier-serializer-base/2.2.2-SNAPSHOT/lavoisier-serializer-base-2.2.2-20220913.090849-37.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/fr/in2p3/lavoisier/adaptors/lavoisier-serializer-base/2.2.2-SNAPSHOT/lavoisier-serializer-base-2.2.2-20230414.103715-39.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$MAVEN_REPOSITORY$/fr/in2p3/lavoisier/adaptors/lavoisier-serializer-base/2.2.2-SNAPSHOT/lavoisier-serializer-base-2.2.2-20220913.090849-37-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/fr/in2p3/lavoisier/adaptors/lavoisier-serializer-base/2.2.2-SNAPSHOT/lavoisier-serializer-base-2.2.2-20230414.103715-39-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://$MAVEN_REPOSITORY$/fr/in2p3/lavoisier/adaptors/lavoisier-serializer-base/2.2.2-SNAPSHOT/lavoisier-serializer-base-2.2.2-20220913.090849-37-sources.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/fr/in2p3/lavoisier/adaptors/lavoisier-serializer-base/2.2.2-SNAPSHOT/lavoisier-serializer-base-2.2.2-20230414.103715-39-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

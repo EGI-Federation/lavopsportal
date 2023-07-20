@@ -683,6 +683,81 @@
 
     </view>
 
+    <view name="OPSCORE_vo_users_history_date" authenticators="local" xmlns:date="http://exslt.org/dates-and-times">
+
+        <argument name="start_date">2023-01-01</argument>
+        <argument name="end_date">2023-03-01</argument>
+        <argument name="vo">_vo_</argument>
+
+        <variable name="start_timestamp" eval="date:seconds($start_date)"/>
+        <variable name="end_timestamp" eval="date:seconds($end_date)"/>
+
+
+        <connector type="SQLConnector">
+            <parameter name="driver">com.mysql.jdbc.Driver</parameter>
+            <parameter name="url" eval="property('OPSCORE.db.url')"/>
+            <parameter name="username" eval="property('OPSCORE.db.username')"/>
+            <parameter name="password" eval="property('OPSCORE.db.password')"/>
+            <parameter name="query">
+                <entry> SELECT SUBSTR(DATE(concat(u_year,'-',u_month,'-01')),1,7) as month , vo , nbtotal , nbadded , nbremoved FROM `vo_users_history`  where UNIX_TIMESTAMP(DATE(concat(u_year,'-',u_month,'-01'))) >= </entry>
+                <entry eval="$start_timestamp"/>
+                <entry> and UNIX_TIMESTAMP(DATE(concat(u_year,'-',u_month,'-01'))) &lt;= </entry>
+                <entry eval="$end_timestamp"/>
+            </parameter>
+        </connector>
+
+        <processors>
+
+            <element in="result">
+                <element in="row">
+                    <attribute-create out="key">concat(../vo/text(),../month/text())</attribute-create>
+                    <attribute-create out="name">../vo/text()</attribute-create>
+                </element>
+            </element>
+
+            <element in="result" if="$vo!='_vo_'">
+                <element-ignore in="row" if="vo/text()!=$vo"/>
+            </element>
+
+            <element in="result">
+                <element-ignore in="row"/>
+                <element-create>sort_by_string(../row,'@key')</element-create>
+            </element>
+
+            <element in="result">
+                <element-create-as-parent out="vo" group-by="@name" attributes="@name">
+                    <element in="row"/>
+                </element-create-as-parent>
+            </element>
+
+            <element in="result">
+                <element in="vo">
+                    <element in="row" out="users">
+                        <attribute-create out="month">../month/text()</attribute-create>
+                        <attribute-create out="nbtotal">../nbtotal/text()</attribute-create>
+                        <attribute-create out="nbadded">../nbadded/text()</attribute-create>
+                        <attribute-create out="nbremoved">../nbremoved/text()</attribute-create>
+                        <attribute-ignore/>
+                        <element-ignore/>
+
+                    </element>
+
+                </element>
+
+            </element>
+
+        </processors>
+
+
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+
+    </view>
+
     <view name="OPSCORE_vo_users_robots" authenticators="local">
 
         <connector type="XMLConnector">
