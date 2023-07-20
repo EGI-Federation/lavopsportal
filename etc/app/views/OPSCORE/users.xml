@@ -685,12 +685,12 @@
 
     <view name="OPSCORE_vo_users_history_date" authenticators="local" xmlns:date="http://exslt.org/dates-and-times">
 
-        <argument name="start_date">2023-01-01</argument>
-        <argument name="end_date">2023-03-01</argument>
+        <argument name="start_date">2023-01</argument>
+        <argument name="end_date">2023-03</argument>
         <argument name="vo">_vo_</argument>
 
-        <variable name="start_timestamp" eval="date:seconds($start_date)"/>
-        <variable name="end_timestamp" eval="date:seconds($end_date)"/>
+        <variable name="start_timestamp" eval="date:seconds(concat($start_date,'-01'))"/>
+        <variable name="end_timestamp" eval="date:seconds(concat($end_date,'-01'))"/>
 
 
         <connector type="SQLConnector">
