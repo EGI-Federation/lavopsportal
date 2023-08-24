@@ -24,6 +24,8 @@
                 <entry>134.158.230.0/23</entry>
                 <entry>134.158.64.0/21</entry>
                 <entry>193.48.97.64/27</entry>
+                <entry>134.158.80.128/25</entry>
+                <entry>134.158.80.96/27</entry>
                 <!-- runners gitlab -->
                 <entry>134.158.239.141</entry>
                 <entry>134.158.239.6</entry>
