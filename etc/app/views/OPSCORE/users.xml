@@ -425,8 +425,8 @@
                 <entry key="Accept">application/xml</entry>
             </parameter>
             <parameter name="force-redirect">true</parameter>
-            <parameter name="connect-timeout">30</parameter>
-            <parameter name="read-timeout">30</parameter>
+            <parameter name="connect-timeout">300</parameter>
+            <parameter name="read-timeout">300</parameter>
         </connector>
 
 
@@ -672,6 +672,7 @@
                 <parameter name="hours">3</parameter>
                 <parameter name="minutes">25</parameter>
             </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
 
         </cache>
 

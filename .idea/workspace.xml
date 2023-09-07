@@ -269,7 +269,7 @@
     <configuration name="Run" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="fr.in2p3.lavoisier.command.StandaloneExec" />
       <module name="lavopsportal" />
-      <option name="PROGRAM_PARAMETERS" value="CSI.Pakiti.API?nbsteps=2&amp;accept=xml" />
+      <option name="PROGRAM_PARAMETERS" value="VO_CPU_Raw?nbsteps=2&amp;accept=xml" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -611,7 +611,11 @@
       <workItem from="1690187135975" duration="6000" />
       <workItem from="1690815639655" duration="1108000" />
       <workItem from="1692792474731" duration="118000" />
-      <workItem from="1692865226241" duration="395000" />
+      <workItem from="1692865226241" duration="824000" />
+      <workItem from="1692866909764" duration="14000" />
+      <workItem from="1693811648273" duration="30000" />
+      <workItem from="1694003895169" duration="848000" />
+      <workItem from="1694076527754" duration="3318000" />
     </task>
     <task id="LOCAL-00075" summary="filtre tickets">
       <created>1536755736442</created>
