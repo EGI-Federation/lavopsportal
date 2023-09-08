@@ -1854,9 +1854,9 @@
             </element>
 
             <element in="e:entries">
-                <element in="e:entries">
+                <element-ignore in="e:entries">
                     <element in="result" out="e:entries"/>
-                </element>
+                </element-ignore>
             </element>
 
             <element in="e:entries">
