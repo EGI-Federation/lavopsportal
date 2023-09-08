@@ -686,7 +686,7 @@
 
     <view name="OPSCORE_vo_users_history_date" authenticators="local" xmlns:date="http://exslt.org/dates-and-times">
 
-        <argument name="start_date">2021-01</argument>
+        <argument name="start_date">2022-01</argument>
         <argument name="end_date">2023-03</argument>
         <argument name="vo">_vo_</argument>
 
