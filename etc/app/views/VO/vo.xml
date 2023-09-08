@@ -1564,9 +1564,10 @@
 
             <element in="result">
                 <element in="vo">
+                    <attribute-ignore in="timestamp"/>
                     <element-ignore in="users" if="@timestamp&gt;$end_timestamp"></element-ignore>
                     <element-ignore in="users" if="@timestamp&lt;$start_timestamp"></element-ignore>
-                    <attribute-ignore in="timestamp"/>
+
                 </element>
 
             </element>
