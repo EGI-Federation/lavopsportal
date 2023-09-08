@@ -1610,7 +1610,9 @@
 
         <processors>
 
-
+            <element in="result">
+                <element-ignore in="row" if="u_year/text()&lt;2020"></element-ignore>
+            </element>
 
             <element in="result">
                 <element in="row">
@@ -1618,8 +1620,6 @@
                     <element in="u_month" if="text()&lt;10"><text>concat(0,.)</text></element>
                 </element>
             </element>
-
-
 
             <element in="result">
                 <element-create-as-parent out="vo" group-by="@name" attributes="@name">
@@ -1640,6 +1640,7 @@
                     </element>
                 </element>
             </element>
+
             <elements path="result/vo/metric">
                 <attribute-create out="timestamp">date:seconds(concat(../@month,'-01'))</attribute-create>
             </elements>
