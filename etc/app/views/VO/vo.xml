@@ -1827,6 +1827,67 @@
         </pre-renderers>
     </view>
 
+    <view name="VouserAccountingHistory_new" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" xmlns:str="http://exslt.org/strings" >
+
+        <argument name="dates">2023-03-01,2023-04-01,2023-05-01,2023-06-01</argument>
+
+        <argument name="option">VO</argument>
+
+
+        <connector type="XMLConnector">
+            <parameter name="content" eval="new_element('result',str:split($dates,','))"></parameter>
+        </connector>
+
+        <processors>
+
+            <element in="result" out="e:entries">
+                <element in="token" out="e:entries">
+                    <attribute-create out="key">../text()</attribute-create>
+                    <text-ignore></text-ignore>
+                </element>
+            </element>
+
+            <element in="e:entries">
+                <element in="e:entries">
+                    <element-create> view('VoUsersAccountingByDate',entry('date',../@key)|entry('option',$option))</element-create>
+                </element>
+            </element>
+
+            <element in="e:entries">
+                <element in="e:entries">
+                    <element in="result" out="e:entries"/>
+                </element>
+            </element>
+
+            <element in="e:entries">
+                <element in="e:entries">
+                    <element in="row" out="e:entries">
+                        <element in="nbUsers" out="e:entry">
+                            <attribute-create out="key">'nbUsers'</attribute-create>
+                        </element>
+                        <element in="VO" out="e:entry" if="$option='VO'">
+                            <attribute-create out="key">'VO'</attribute-create>
+                        </element>
+                        <element in="CA" out="e:entry" if="$option='CA'">
+                            <attribute-create out="key">'CA'</attribute-create>
+                        </element>
+                    </element>
+                </element>
+            </element>
+        </processors>
+
+        <pre-renderers>
+            <namespace prefix="e" uri="http://software.in2p3.fr/lavoisier/entries.xsd"/>
+            <row foreach="/e:entries/e:entries">
+                <column label="Date">@dateQuery</column>
+                <column label="Name" unit="number">entry[@key='VO' or @key='CA']/text()</column>
+                <column label="User Number" unit="number">entry[@key='nbUsers']/text()</column>
+            </row>
+        </pre-renderers>
+
+    </view>
+
+
     <view name="VouserAccountingHistory" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
 
         <argument name="date1"/>

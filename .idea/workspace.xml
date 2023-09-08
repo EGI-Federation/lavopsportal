@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="mo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/app/views/OPSCORE/users.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/OPSCORE/users.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/app/views/VO/vo.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/VO/vo.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -269,7 +269,7 @@
     <configuration name="Run" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="fr.in2p3.lavoisier.command.StandaloneExec" />
       <module name="lavopsportal" />
-      <option name="PROGRAM_PARAMETERS" value="VO_CPU_Raw?nbsteps=2&amp;accept=xml" />
+      <option name="PROGRAM_PARAMETERS" value="VouserAccountingHistory?nbsteps=3&amp;accept=xml" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -615,7 +615,7 @@
       <workItem from="1692866909764" duration="14000" />
       <workItem from="1693811648273" duration="30000" />
       <workItem from="1694003895169" duration="848000" />
-      <workItem from="1694076527754" duration="3318000" />
+      <workItem from="1694076527754" duration="4737000" />
     </task>
     <task id="LOCAL-00075" summary="filtre tickets">
       <created>1536755736442</created>
