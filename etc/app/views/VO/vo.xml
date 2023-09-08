@@ -1610,6 +1610,11 @@
 
         <processors>
             <element in="result">
+                <element-ignore in="row" if="u_year/text()&lt;2021"/>
+            </element>
+
+
+            <element in="result">
                 <element in="row">
                     <attribute-create out="key">concat(../vo/text(),../month/text())</attribute-create>
                     <attribute-create out="name">../vo/text()</attribute-create>
