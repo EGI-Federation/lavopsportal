@@ -1547,44 +1547,31 @@
 
     <view name="VoUsersReport" authenticators="local" xmlns:date="http://exslt.org/dates-and-times">
         <argument name="vo">_vo_</argument>
-        <argument name="start_date">2022-01-01</argument>
-        <argument name="end_date">2023-06-01</argument>
+        <argument name="start_date">2021-01</argument>
+        <argument name="end_date">2022-06</argument>
         <variable name="start_timestamp" eval="date:seconds(concat($start_date,'-01'))"/>
         <variable name="end_timestamp" eval="date:seconds(concat($end_date,'-01'))"/>
 
         <connector type="XMLConnector">
-            <parameter name="content" eval="view('VoUsersMetricsTable')"></parameter>
+            <parameter name="content" eval="view('VoUsersMetricsTable_sorted')"></parameter>
         </connector>
 
         <processors>
 
-            <element in="result">
-                <element in="row">
-                    <attribute-create out="key">concat(../vo/text(),../month/text())</attribute-create>
-                    <attribute-create out="name">../vo/text()</attribute-create>
-                    <attribute-create out="timestamp">date:seconds(choose(../u_month/text()&lt;10,concat(../u_year/text(),'-0',../u_month/text(),'-01'),concat(../u_year/text(),'-',../u_month/text(),'-01')))</attribute-create>
-                </element>
-            </element>
-
-            <element in="result">
-                <element-ignore in="row" if="@timestamp&gt;$end_timestamp"></element-ignore>
-                <element-ignore in="row" if="@timestamp&lt;$start_timestamp"></element-ignore>
-            </element>
-
             <element in="result" if="$vo!='_vo_'">
-                <element-ignore in="row" if="vo/text()!=$vo"/>
+                <element-ignore in="vo" if="name!=$vo"/>
             </element>
 
             <element in="result">
-                <element-ignore in="row"/>
-                <element-create>sort_by_string(../row,'@key')</element-create>
+                <element in="vo">
+                    <element-ignore in="row" if="@timestamp&gt;$end_timestamp"></element-ignore>
+                    <element-ignore in="row" if="@timestamp&lt;$start_timestamp"></element-ignore>
+                </element>
+
             </element>
 
-            <element in="result">
-                <element-create-as-parent out="vo" group-by="@name" attributes="@name">
-                    <element in="row"/>
-                </element-create-as-parent>
-            </element>
+
+
 
         </processors>
     </view>
@@ -1605,6 +1592,66 @@
         <cache type="FileCache">
             <trigger type="DeltaTimeTrigger">
                 <parameter name="hours">4</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+        </cache>
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+    </view>
+
+    <view name="VoUsersMetricsTable_sorted" xmlns:date="http://exslt.org/dates-and-times">
+
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('VoUsersMetricsTable')"/>
+        </connector>
+
+        <processors>
+            <element in="result">
+                <element in="row">
+                    <attribute-create out="key">concat(../vo/text(),../month/text())</attribute-create>
+                    <attribute-create out="name">../vo/text()</attribute-create>
+                    <element in="u_month" if="text()&lt;10"><text>concat(0,.)</text></element>
+                </element>
+            </element>
+
+
+            <element in="result">
+                <element-ignore in="row"/>
+                <element-create>sort_by_string(../row,'@key')</element-create>
+            </element>
+
+            <element in="result">
+                <element-create-as-parent out="vo" group-by="@name" attributes="@name">
+                    <element in="row"/>
+                </element-create-as-parent>
+            </element>
+
+            <element in="result">
+                <element in="vo">
+                    <element in="row" out="metric">
+                        <attribute-ignore in="name"></attribute-ignore>
+                        <attribute in="key" out="vo"></attribute>
+                        <attribute-create out="month" >concat(../u_year/text(),'-',../u_month/text())</attribute-create>
+                        <attribute-create out="total">../total/text()</attribute-create>
+                        <attribute-create out="nbadded">../nbadded/text()</attribute-create>
+                        <attribute-create out="nbremoved">../nbremoved/text()</attribute-create>
+                        <element-ignore/>
+                    </element>
+                </element>
+            </element>
+            <elements path="result/vo/metric">
+                <attribute-create out="timestamp">date:seconds(concat(../@month,'-01'))</attribute-create>
+            </elements>
+
+
+        </processors>
+
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="hours">3</parameter>
             </trigger>
             <trigger type="ViewNotifiedTrigger"/>
         </cache>
