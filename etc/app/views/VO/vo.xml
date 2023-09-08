@@ -1584,7 +1584,7 @@
             <parameter name="username" eval="property('VO.db.username')"/>
             <parameter name="password" eval="property('VO.db.password')"/>
             <parameter name="query">select vh.vo as vo , vh.nbtotal as total, vh.u_year , vh.u_month, vh.nbremoved,
-                vh.nbadded from vo_users_history vh
+                vh.nbadded from vo_users_history vh order by vo asc, u_year desc, u_month desc
             </parameter>
         </connector>
 
@@ -1609,24 +1609,17 @@
         </connector>
 
         <processors>
-            <element in="result">
-                <element-ignore in="row" if="u_year/text()&lt;2021"/>
-            </element>
+
 
 
             <element in="result">
                 <element in="row">
-                    <attribute-create out="key">concat(../vo/text(),../month/text())</attribute-create>
                     <attribute-create out="name">../vo/text()</attribute-create>
                     <element in="u_month" if="text()&lt;10"><text>concat(0,.)</text></element>
                 </element>
             </element>
 
 
-            <element in="result">
-                <element-ignore in="row"/>
-                <element-create>sort_by_string(../row,'@key')</element-create>
-            </element>
 
             <element in="result">
                 <element-create-as-parent out="vo" group-by="@name" attributes="@name">
