@@ -1559,13 +1559,14 @@
         <processors>
 
             <element in="result" if="$vo!='_vo_'">
-                <element-ignore in="vo" if="name!=$vo"/>
+                <element-ignore in="vo" if="@name!=$vo"/>
             </element>
 
             <element in="result">
                 <element in="vo">
-                    <element-ignore in="row" if="@timestamp&gt;$end_timestamp"></element-ignore>
-                    <element-ignore in="row" if="@timestamp&lt;$start_timestamp"></element-ignore>
+                    <element-ignore in="users" if="@timestamp&gt;$end_timestamp"></element-ignore>
+                    <element-ignore in="users" if="@timestamp&lt;$start_timestamp"></element-ignore>
+                    <attribute-ignore in="timestamp"/>
                 </element>
 
             </element>
@@ -1629,7 +1630,7 @@
 
             <element in="result">
                 <element in="vo">
-                    <element in="row" out="metric">
+                    <element in="row" out="users">
                         <attribute-ignore in="name"></attribute-ignore>
                         <attribute in="key" out="vo"></attribute>
                         <attribute-create out="month" >concat(../u_year/text(),'-',../u_month/text())</attribute-create>
@@ -1641,7 +1642,7 @@
                 </element>
             </element>
 
-            <elements path="result/vo/metric">
+            <elements path="result/vo/users">
                 <attribute-create out="timestamp">date:seconds(concat(../@month,'-01'))</attribute-create>
             </elements>
 
