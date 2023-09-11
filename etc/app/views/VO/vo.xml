@@ -1564,13 +1564,19 @@
 
             <element in="result">
                 <element in="vo">
-                    <element in="users">
-                        <attribute-ignore in="timestamp"/>
                         <element-ignore in="users" if="@timestamp&gt;$end_timestamp"></element-ignore>
                         <element-ignore in="users" if="@timestamp&lt;$start_timestamp"></element-ignore>
+                </element>
+            </element>
+
+            <element in="result">
+                <element in="vo">
+                    <element in="users">
+                        <attribute-ignore in="timestamp"/>
                     </element>
                 </element>
             </element>
+
         </processors>
      <renderers>
          <renderer type="JSONRenderer">
