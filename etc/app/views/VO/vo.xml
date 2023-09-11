@@ -1581,7 +1581,6 @@
      <renderers>
          <renderer type="JSONRenderer">
                  <parameter name="arrays">
-                     <entry>vo</entry>
                      <entry>users</entry>
                  </parameter>
                  <parameter name="texts">
