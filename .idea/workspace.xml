@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="mo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/app/views/VO/vo.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/VO/vo.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -249,7 +250,7 @@
       <recent name="$PROJECT_DIR$/etc/app/resources/shell" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Start Lavoisier server">
+  <component name="RunManager" selected="Application.Run">
     <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
@@ -615,7 +616,7 @@
       <workItem from="1693811648273" duration="30000" />
       <workItem from="1694003895169" duration="848000" />
       <workItem from="1694076527754" duration="6591000" />
-      <workItem from="1694163535208" duration="10381000" />
+      <workItem from="1694163535208" duration="12987000" />
     </task>
     <task id="LOCAL-00075" summary="filtre tickets">
       <created>1536755736442</created>

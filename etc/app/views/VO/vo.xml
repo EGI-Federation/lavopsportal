@@ -1564,18 +1564,32 @@
 
             <element in="result">
                 <element in="vo">
-                    <attribute-ignore in="timestamp"/>
-                    <element-ignore in="users" if="@timestamp&gt;$end_timestamp"></element-ignore>
-                    <element-ignore in="users" if="@timestamp&lt;$start_timestamp"></element-ignore>
-
+                    <element in="users">
+                        <attribute-ignore in="timestamp"/>
+                        <element-ignore in="users" if="@timestamp&gt;$end_timestamp"></element-ignore>
+                        <element-ignore in="users" if="@timestamp&lt;$start_timestamp"></element-ignore>
+                    </element>
                 </element>
-
             </element>
-
-
-
-
         </processors>
+     <renderers>
+         <renderer type="JSONRenderer">
+                 <parameter name="arrays">
+                     <entry>vo</entry>
+                     <entry>users</entry>
+                 </parameter>
+                 <parameter name="texts">
+                     <entry>month</entry>
+                     <entry>total</entry>
+                     <entry>nbadded</entry>
+                     <entry>nbremoved</entry>
+                 </parameter>
+                 <parameter name="skip">1</parameter>
+
+         </renderer>
+     </renderers>
+        
+        
     </view>
 
     <view name="VoUsersMetricsTable">
