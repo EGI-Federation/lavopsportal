@@ -1570,12 +1570,18 @@
             </element>
 
             <element in="result">
+                <element-ignore in="vo" if="not(users)"/>
+
+            </element>
+
+            <element in="result">
                 <element in="vo">
                     <element in="users">
                         <attribute-ignore in="timestamp"/>
                     </element>
                 </element>
             </element>
+
 
         </processors>
      <renderers>
