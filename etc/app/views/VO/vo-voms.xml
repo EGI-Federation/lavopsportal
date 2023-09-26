@@ -85,7 +85,7 @@
                    <attribute-create out="scope">../e:entry[@key='scope']/text()</attribute-create>
                     <attribute-create out="homeUrl">../e:entry[@key='homeUrl']/text()</attribute-create>
                     <attribute-create out="members">../e:entry[@key='members']/text()</attribute-create>
-
+                    <attribute-create out="membersTotal">../e:entry[@key='membersTotal']/text()</attribute-create>
                     <element-ignore/>
                 </element>
                 <element-ignore/>

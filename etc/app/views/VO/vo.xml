@@ -2401,8 +2401,7 @@
                     <element-create>entry("homeUrl",choose(../homepage_url/text(),../homepage_url/text(),'NA'))
                     </element-create>
                     <element-create>
-                        entry("members",choose($vo_disciplines/disciplines/discipline//row[@name=current()/../name/text()]/@NbUsers,
-                        $vo_disciplines/disciplines/discipline//row[@name=current()/../name/text()]/@NbUsers,'NA'))
+                        entry("members",choose($VoUsersAccounting/result/row[VO/text()=current()/../name/text()]/nbUsers/text(),$VoUsersAccounting/result/row[VO/text()=current()/../name/text()]/nbUsers/text(),0))
                     </element-create>
 
                     <element-create>
