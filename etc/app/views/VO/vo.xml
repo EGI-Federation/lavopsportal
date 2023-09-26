@@ -2390,6 +2390,7 @@
             <element in="result">
                 <set variable="vo_disciplines">view('VoDisciplinesTree_Metrics',entry('AllVO','all'))</set>
                 <set variable="VoUsersAccountingTotal">view('VoUsersAccountingTotal')</set>
+                <set variable="VoUsersAccounting">view('VoUsersAccounting')</set>
                 <set variable="VomsVO">view('voms_vo')</set>
 
                 <element in="row" out="e:entries">
