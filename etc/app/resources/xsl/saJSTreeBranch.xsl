@@ -41,7 +41,7 @@
                     </xsl:otherwise>
                 </xsl:choose>
                 <ul>
-                    <xsl:apply-templates select="$rawViewName/*/NGI[@name!='EGI.eu']" />
+                    <xsl:apply-templates select="$rawViewName/*/NGI" />
                 </ul>
             </li>
         </html_data>

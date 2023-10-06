@@ -380,6 +380,7 @@
             </trigger>
             <trigger type="ViewNotifiedTrigger"/>
             <trigger type="ViewCreatedTrigger"/>
+
         </cache>
     </view>
 
@@ -418,6 +419,9 @@
                 </parameter>
             </trigger>
             <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="hours">1</parameter>
+            </trigger>
         </cache>
     </view>
 
@@ -495,6 +499,9 @@
                 </parameter>
             </trigger>
             <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="hours">1</parameter>
+            </trigger>
         </cache>
     </view>
 
@@ -534,6 +541,9 @@
                 </parameter>
             </trigger>
             <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="hours">1</parameter>
+            </trigger>
         </cache>
     </view>
 
@@ -575,6 +585,9 @@
                 </parameter>
             </trigger>
             <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="hours">1</parameter>
+            </trigger>
         </cache>
 
 
