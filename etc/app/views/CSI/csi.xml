@@ -808,9 +808,8 @@
             <parameter name="passphrase" eval="property('certificate.sec.password')"/>
         </connector>
         <serializer type="CSVSerializer">
-            <parameter name="header">false</parameter>
+            <parameter name="strict">false</parameter>
         </serializer>
-
         <processors>
             <element in="t:tables" out="e:entries">
                 <attribute-create out="today">$today</attribute-create>
