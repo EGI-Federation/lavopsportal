@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="mo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/app/views/VO/Comanage.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/VO/Comanage.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -634,7 +633,7 @@
       <workItem from="1697012188882" duration="3919000" />
       <workItem from="1697119296856" duration="9000" />
       <workItem from="1698215664500" duration="1589000" />
-      <workItem from="1698225051091" duration="3760000" />
+      <workItem from="1698225051091" duration="5092000" />
     </task>
     <task id="LOCAL-00075" summary="filtre tickets">
       <created>1536755736442</created>

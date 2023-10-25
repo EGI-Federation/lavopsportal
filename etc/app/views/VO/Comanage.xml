@@ -126,6 +126,10 @@
         <argument name="voname">training.egi.eu</argument>
         <connector type="HTTPConnector">
             <parameter name="url" eval="concat('https://',property('comanage-user'),':',property('comanage-pwd'),'@aai.egi.eu/api/v2/VoMembers/co/2/cou/',$voname,'.json')"/>
+            <parameter name="default">{"root":"empty"}</parameter>
+            <fallback>
+                <exception type="java.io.IOException"/>
+            </fallback>
         </connector>
         <serializer type="JSONStreamSerializer"/>
 
