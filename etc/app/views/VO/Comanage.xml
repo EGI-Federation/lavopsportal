@@ -52,7 +52,7 @@
                         <attribute-create out="coid">../CoId/text()</attribute-create>
                         <attribute-create out="name">../Name/text()</attribute-create>
                         <attribute-create out="description">../Description/text()</attribute-create>
-                        <element-create if="property('env')='prod'">view('CoManageMembers',entry('cogroupid',../Id/text()))/users/*</element-create>
+                        <element-create if="property('env')='prod'">view('CoManageVOMembers',entry('voname',../Name/text()))/users/*</element-create>
 
                         <element-ignore/>
                     </element>
@@ -82,98 +82,125 @@
     </view>
 
 
-    <view name="CoManageMembers">
-        <argument name="cogroupid">11</argument>
+<!--    <view name="CoManageMembers">-->
+<!--        <argument name="cogroupid">11</argument>-->
 
-        <variable name="url" eval="concat('https://',property('comanage-user'),':',property('comanage-pwd'),'@',property('comanage-instance'),'/co_person_roles.json?couid=',$cogroupid)"/>
+<!--        <variable name="url" eval="concat('https://',property('comanage-user'),':',property('comanage-pwd'),'@',property('comanage-instance'),'/co_person_roles.json?couid=',$cogroupid)"/>-->
+<!--        <connector type="HTTPConnector">-->
+<!--            <parameter name="url" eval="$url"/>-->
+<!--            <parameter name="default">{"root":"empty"}</parameter>-->
+<!--            <fallback eval="new_element('error',concat('error with url :',$url))">-->
+<!--                <exception type="java.io.IOException"/>-->
+<!--            </fallback>-->
+<!--        </connector>-->
+
+<!--        <serializer type="JSONStreamSerializer"/>-->
+
+<!--        <processors>-->
+<!--            <element in="object" out="users">-->
+<!--                <element-ignore in="CoPersonRoles">-->
+<!--                    <element in="object" out="user">-->
+<!--                        <attribute-create out="id">../Person/Id/text()</attribute-create>-->
+<!--                        <attribute-create out="affiliation">../Affiliation/text()</attribute-create>-->
+<!--                        <attribute-create out="status">../Status/text()</attribute-create>-->
+<!--                        <element-ignore/>-->
+<!--                    </element>-->
+<!--                </element-ignore>-->
+<!--                <element-ignore/>-->
+<!--            </element>-->
+
+<!--            <element in="users">-->
+<!--                <element in="user">-->
+<!--                    <element-create>view('CoManagePerson',entry('copersonid',../@id))/object/*</element-create>-->
+<!--                    <element-create>view('CoManageEmail',entry('copersonid',../@id))/object/*</element-create>-->
+<!--                </element>-->
+<!--            </element>-->
+
+<!--            <element in="users">-->
+<!--                <element-ignore in="user" if="@status!='Active'"/>-->
+<!--            </element>-->
+<!--        </processors>-->
+<!--    </view>-->
+
+    <view name="CoManageVOMembers">
+        <argument name="voname">training.egi.eu</argument>
         <connector type="HTTPConnector">
-            <parameter name="url" eval="$url"/>
-            <parameter name="default">{"root":"empty"}</parameter>
-            <fallback eval="new_element('error',concat('error with url :',$url))">
-                <exception type="java.io.IOException"/>
-            </fallback>
+            <parameter name="url" eval="concat('https://',property('comanage-user'),':',property('comanage-pwd'),'@aai.egi.eu/api/v2/VoMembers/co/2/cou/',$voname,'.json')"/>
         </connector>
-
         <serializer type="JSONStreamSerializer"/>
+
 
         <processors>
             <element in="object" out="users">
-                <element-ignore in="CoPersonRoles">
-                    <element in="object" out="user">
-                        <attribute-create out="id">../Person/Id/text()</attribute-create>
-                        <attribute-create out="affiliation">../Affiliation/text()</attribute-create>
-                        <attribute-create out="status">../Status/text()</attribute-create>
-                        <element-ignore/>
+                <elements-ignore path="CoPersonRoles/object">
+                    <element in="Person" out="user">
+                    <element-create>new_element('CN',new_text(concat(../Name/object/given/text(),' ',../Name/object/family/text())))</element-create>
+                    <element-create>new_element('CA',new_text('aai'))</element-create>
+                    <element-create>new_element('VOMS',new_text('aai'))</element-create>
+                    <element-create>new_element('email',new_text(../EmailAddress/object/mail/text()))</element-create>
+                    <element-ignore/>
                     </element>
-                </element-ignore>
-                <element-ignore/>
-            </element>
-
-            <element in="users">
-                <element in="user">
-                    <element-create>view('CoManagePerson',entry('copersonid',../@id))/object/*</element-create>
-                    <element-create>view('CoManageEmail',entry('copersonid',../@id))/object/*</element-create>
-                </element>
-            </element>
-
-            <element in="users">
-                <element-ignore in="user" if="@status!='Active'"/>
-            </element>
-        </processors>
-    </view>
-
-    <view name="CoManagePerson">
-        <argument name="copersonid">1</argument>
-
-        <connector type="HTTPConnector">
-            <parameter name="url" eval="concat('https://',property('comanage-user'),':',property('comanage-pwd'),'@aai.egi.eu/registry/names.json?copersonid=',$copersonid)"/>
-            <parameter name="default">{"root":"empty"}</parameter>
-
-        </connector>
-        <serializer type="JSONStreamSerializer"/>
-
-
-        <processors>
-            <element in="object">
-                <elements-ignore path="Names/object">
-                    <element in="Given" />
-                    <element in="Family"/>
-                    <element in="ActorIdentifier" out="DN"/>
-                    <element-ignore/>
                 </elements-ignore>
                 <element-ignore/>
             </element>
 
-            <element in="object">
-                <element-create>new_element('CN',new_text(concat(../Given/text(),' ',../Family/text())))</element-create>
-                <element-create>new_element('CA',new_text('aai'))</element-create>
-                <element-create>new_element('VOMS',new_text('aai'))</element-create>
-            </element>
+
         </processors>
     </view>
 
-    <view name="CoManageEmail">
-        <argument name="copersonid"/>
 
-        <connector type="HTTPConnector">
-            <parameter name="url" eval="concat('https://',property('comanage-user'),':',property('comanage-pwd'),'@aai.egi.eu/registry/email_addresses.json?copersonid=',$copersonid)"/>
-            <parameter name="default">{"root":"empty"}</parameter>
+<!--    <view name="CoManagePerson">-->
+<!--        <argument name="copersonid">1</argument>-->
 
-        </connector>
-        <serializer type="JSONStreamSerializer"/>
+<!--        <connector type="HTTPConnector">-->
+<!--            <parameter name="url" eval="concat('https://',property('comanage-user'),':',property('comanage-pwd'),'@aai.egi.eu/registry/names.json?copersonid=',$copersonid)"/>-->
+<!--            <parameter name="default">{"root":"empty"}</parameter>-->
+
+<!--        </connector>-->
+<!--        <serializer type="JSONStreamSerializer"/>-->
 
 
-        <processors>
-            <element in="object">
-                <elements-ignore path="EmailAddresses/object">
-                    <element in="Mail" out="mail"/>
-                    <element-ignore/>
-                </elements-ignore>
-                <element-ignore/>
-            </element>
-        </processors>
+<!--        <processors>-->
+<!--            <element in="object">-->
+<!--                <elements-ignore path="Names/object">-->
+<!--                    <element in="Given" />-->
+<!--                    <element in="Family"/>-->
+<!--                    <element in="ActorIdentifier" out="DN"/>-->
+<!--                    <element-ignore/>-->
+<!--                </elements-ignore>-->
+<!--                <element-ignore/>-->
+<!--            </element>-->
 
-    </view>
+<!--            <element in="object">-->
+<!--                <element-create>new_element('CN',new_text(concat(../Given/text(),' ',../Family/text())))</element-create>-->
+<!--                <element-create>new_element('CA',new_text('aai'))</element-create>-->
+<!--                <element-create>new_element('VOMS',new_text('aai'))</element-create>-->
+<!--            </element>-->
+<!--        </processors>-->
+<!--    </view>-->
+
+<!--    <view name="CoManageEmail">-->
+<!--        <argument name="copersonid"/>-->
+
+<!--        <connector type="HTTPConnector">-->
+<!--            <parameter name="url" eval="concat('https://',property('comanage-user'),':',property('comanage-pwd'),'@aai.egi.eu/registry/email_addresses.json?copersonid=',$copersonid)"/>-->
+<!--            <parameter name="default">{"root":"empty"}</parameter>-->
+
+<!--        </connector>-->
+<!--        <serializer type="JSONStreamSerializer"/>-->
+
+
+<!--        <processors>-->
+<!--            <element in="object">-->
+<!--                <elements-ignore path="EmailAddresses/object">-->
+<!--                    <element in="Mail" out="mail"/>-->
+<!--                    <element-ignore/>-->
+<!--                </elements-ignore>-->
+<!--                <element-ignore/>-->
+<!--            </element>-->
+<!--        </processors>-->
+
+<!--    </view>-->
 
 
 </views>
