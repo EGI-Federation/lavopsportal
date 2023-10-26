@@ -85,48 +85,8 @@
     </view>
 
 
-<!--    <view name="CoManageMembers">-->
-<!--        <argument name="cogroupid">11</argument>-->
-
-<!--        <variable name="url" eval="concat('https://',property('comanage-user'),':',property('comanage-pwd'),'@',property('comanage-instance'),'/co_person_roles.json?couid=',$cogroupid)"/>-->
-<!--        <connector type="HTTPConnector">-->
-<!--            <parameter name="url" eval="$url"/>-->
-<!--            <parameter name="default">{"root":"empty"}</parameter>-->
-<!--            <fallback eval="new_element('error',concat('error with url :',$url))">-->
-<!--                <exception type="java.io.IOException"/>-->
-<!--            </fallback>-->
-<!--        </connector>-->
-
-<!--        <serializer type="JSONStreamSerializer"/>-->
-
-<!--        <processors>-->
-<!--            <element in="object" out="users">-->
-<!--                <element-ignore in="CoPersonRoles">-->
-<!--                    <element in="object" out="user">-->
-<!--                        <attribute-create out="id">../Person/Id/text()</attribute-create>-->
-<!--                        <attribute-create out="affiliation">../Affiliation/text()</attribute-create>-->
-<!--                        <attribute-create out="status">../Status/text()</attribute-create>-->
-<!--                        <element-ignore/>-->
-<!--                    </element>-->
-<!--                </element-ignore>-->
-<!--                <element-ignore/>-->
-<!--            </element>-->
-
-<!--            <element in="users">-->
-<!--                <element in="user">-->
-<!--                    <element-create>view('CoManagePerson',entry('copersonid',../@id))/object/*</element-create>-->
-<!--                    <element-create>view('CoManageEmail',entry('copersonid',../@id))/object/*</element-create>-->
-<!--                </element>-->
-<!--            </element>-->
-
-<!--            <element in="users">-->
-<!--                <element-ignore in="user" if="@status!='Active'"/>-->
-<!--            </element>-->
-<!--        </processors>-->
-<!--    </view>-->
-
     <view name="CoManageVOMembers">
-        <argument name="voname">training.egi.eu</argument>
+        <argument name="voname">vo.ai4europe.eu</argument>
         <connector type="HTTPConnector">
             <parameter name="url" eval="concat('https://',property('comanage-user'),':',property('comanage-pwd'),'@aai.egi.eu/api/v2/VoMembers/co/2/cou/',$voname,'.json')"/>
             <parameter name="default">{"root":"empty"}</parameter>
@@ -140,11 +100,12 @@
         <processors>
             <element in="object" out="users">
                 <elements-ignore path="CoPersonRoles/object">
-                    <element in="Person" out="user">
+                    <element in="Person" out="user" if="ancestor::object/Status='Active'">
                     <element-create>new_element('CN',new_text(concat(../Name/object/given/text(),' ',../Name/object/family/text())))</element-create>
                     <element-create>new_element('CA',new_text('aai'))</element-create>
                     <element-create>new_element('VOMS',new_text('aai'))</element-create>
-                    <element-create>new_element('email',new_text(../EmailAddress/object/mail/text()))</element-create>
+                        <element-create>new_element('DN',new_text(../ancestor::object/ActorIdentifier/text()))</element-create>
+                    <element-create>new_element('mail',new_text(../EmailAddress/object/mail/text()))</element-create>
                     <element-ignore/>
                     </element>
                 </elements-ignore>
