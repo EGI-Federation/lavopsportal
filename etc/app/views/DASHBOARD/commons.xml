@@ -148,7 +148,23 @@
 
     </view>-->
 
-<view name="DASHBOARD_alarm_history"  authenticators="local" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
+
+    <view name="DASHBOARD_alarm_history_csi">
+        <argument name="id"/>
+        <connector type="SQLConnector">
+            <parameter name="driver">com.mysql.jdbc.Driver</parameter>
+            <parameter name="url" eval="property('ROD.db.url')"/>
+            <parameter name="username" eval="property('ROD.db.username')"/>
+            <parameter name="password" eval="property('ROD.db.password')"/>
+            <parameter name="query">
+                <entry>SELECT * from csi_nagios_history where monitor_id =</entry>
+                <entry eval="quot($id)"/>
+                <entry> order by created_at asc</entry>
+            </parameter>
+        </connector>
+    </view>
+
+    <view name="DASHBOARD_alarm_history_rod"  authenticators="local" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
     <argument name="id"/>
     <connector type="SQLConnector">
         <parameter name="driver">com.mysql.jdbc.Driver</parameter>
@@ -156,19 +172,33 @@
         <parameter name="username" eval="property('ROD.db.username')"/>
         <parameter name="password" eval="property('ROD.db.password')"/>
         <parameter name="query">
-            <entry>(SELECT * from rod_nagios_history where monitor_id =</entry>
+            <entry>SELECT * from rod_nagios_history where monitor_id =</entry>
             <entry eval="quot($id)"/>
-            <entry> order by created_at asc)</entry>
-            <entry>UNION</entry>
-            <entry>(SELECT * from csi_nagios_history where monitor_id =</entry>
-            <entry eval="quot($id)"/>
-            <entry> order by created_at asc)</entry>
+            <entry> order by created_at asc</entry>
+
         </parameter>
     </connector>
+    </view>
+
+<view name="DASHBOARD_alarm_history"  authenticators="local" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
+    <argument name="id"></argument>
+
+    <connector type="XMLConnector">
+        <parameter name="content" eval="new_element('results')"></parameter>
+    </connector>
+
 
     <processors>
 
         <element in="result" out="e:entries">
+          <element-create if="contains($id,'eu.egi.sec')">view('DASHBOARD_alarm_history_csi',arguments())/result/*</element-create>
+            <element-create if="not(contains($id,'eu.egi.sec'))">view('DASHBOARD_alarm_history_rod',arguments())/result/*</element-create>
+
+        </element>
+
+        <element in="e:entries">
+
+
             <element in="row" out="e:entries">
                 <element-ignore>
                     <element-create if="../text()">entry(local-name(..),../text())</element-create>
