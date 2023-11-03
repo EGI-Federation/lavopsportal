@@ -150,7 +150,7 @@
 
 
     <view name="DASHBOARD_alarm_history_csi">
-        <argument name="id"/>
+        <argument name="id">eu.egi.sec.WN-FilePermVulns-ops___lcg-ce3.uw.computecanada.ca</argument>
         <connector type="SQLConnector">
             <parameter name="driver">com.mysql.jdbc.Driver</parameter>
             <parameter name="url" eval="property('ROD.db.url')"/>
@@ -181,7 +181,7 @@
     </view>
 
 <view name="DASHBOARD_alarm_history"  authenticators="local" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
-    <argument name="id"></argument>
+    <argument name="id">eu.egi.sec.WN-FilePermVulns-ops___lcg-ce3.uw.computecanada.ca</argument>
 
     <connector type="XMLConnector">
         <parameter name="content" eval="new_element('results')"></parameter>
@@ -190,7 +190,7 @@
 
     <processors>
 
-        <element in="result" out="e:entries">
+        <element in="results" out="e:entries">
             <element-create if="contains($id,'eu.egi.sec')">view('DASHBOARD_alarm_history_csi',entry('id',$id))</element-create>
             <element-create if="not(contains($id,'eu.egi.sec'))">view('DASHBOARD_alarm_history_rod',entry('id',$id))</element-create>
         </element>
