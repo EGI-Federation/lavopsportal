@@ -191,18 +191,17 @@
     <processors>
 
         <element in="result" out="e:entries">
-            <element-create>view('DASHBOARD_alarm_history_csi',arguments())</element-create>
-            <element-create>view('DASHBOARD_alarm_history_rod',arguments())</element-create>
+            <element-create if="contains($id,'eu.egi.sec')">view('DASHBOARD_alarm_history_csi',entry('id',$id))</element-create>
+            <element-create if="not(contains($id,'eu.egi.sec'))">view('DASHBOARD_alarm_history_rod',entry('id',$id))</element-create>
         </element>
 
         <element in="e:entries">
             <element-ignore in="result">
-
-            <element in="row" out="e:entries">
-                <element-ignore>
-                    <element-create if="../text()">entry(local-name(..),../text())</element-create>
-                </element-ignore>
-            </element>
+                <element in="row" out="e:entries">
+                    <element-ignore>
+                        <element-create if="../text()">entry(local-name(..),../text())</element-create>
+                    </element-ignore>
+                </element>
             </element-ignore>
         </element>
 
