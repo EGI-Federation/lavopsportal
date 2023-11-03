@@ -3020,4 +3020,90 @@
     </renderers>
     </view>
 
+    <view name="egi_vo_report_creation">
+
+        <argument name="start_date">2022-01-01 00:00:00</argument>
+        <argument name="end_date">2023-12-01 00:00:00</argument>
+
+        <connector type="SQLConnector">
+            <parameter name="driver">com.mysql.jdbc.Driver</parameter>
+            <parameter name="url" eval="property('VO.db.url')"/>
+            <parameter name="username" eval="property('VO.db.username')"/>
+            <parameter name="password" eval="property('VO.db.password')"/>
+            <parameter name="query">
+                SELECT  vo.name FROM vo, vo_status vs, vo_header vh where vh.id=vo.header_id and vh.status_id=vs.id and vo.validation_date &lt;
+                <entry eval="quot($end_date)"/>
+                <entry> and vo.validation_date &gt;=</entry>
+                <entry eval="quot($start_date)"/>
+            </parameter>
+        </connector>
+
+        <processors>
+            <element in="result" out="vos">
+                <attribute-create out="status">'Production'</attribute-create>
+                <element-ignore in="row">
+                    <element in="name" out="vo">
+                    </element>
+                </element-ignore>
+            </element>
+
+            <element in="vos">
+                <attribute-create out="count">count(../vo)</attribute-create>
+            </element>
+        </processors>
+
+    </view>
+
+    <view name="egi_vo_report">
+
+        <argument name="start_date">2021-01-01</argument>
+        <argument name="end_date">2023-12-01</argument>
+
+        <connector type="SQLConnector">
+            <parameter name="driver">com.mysql.jdbc.Driver</parameter>
+            <parameter name="url" eval="property('VO.db.url')"/>
+            <parameter name="username" eval="property('VO.db.username')"/>
+            <parameter name="password" eval="property('VO.db.password')"/>
+            <parameter name="query">
+                SELECT  vo.name , vo.creation_date, vs.status FROM vo, vo_status vs, vo_header vh where vh.id=vo.header_id and vh.status_id=vs.id and vh.status_id IN (7,6) and vo.last_change &lt;
+                <entry eval="quot($end_date)"/>
+                <entry> and vo.last_change &gt;=</entry>
+                <entry eval="quot($start_date)"/>
+            </parameter>
+        </connector>
+
+        <processors>
+            <element in="result">
+                <element-ignore in="row">
+                    <element in="name" out="vo">
+                        <attribute-create out="status">../../status/text()</attribute-create>
+                    </element>
+                </element-ignore>
+            </element>
+
+            <element in="result">
+                <element-ignore in="vo"/>
+                <element-create>sort_by_string(../vo,'@status')</element-create>
+            </element>
+
+            <element in="result">
+                <element-create-as-parent out="vos" attributes="@status" group-by="@status">
+                    <element in="vo">
+                        <attribute-ignore/>
+                    </element>
+                </element-create-as-parent>
+            </element>
+
+            <element in="result" out="report">
+                <attribute-create out="start_date">$start_date</attribute-create>
+                <attribute-create out="end_date">$end_date</attribute-create>
+                <element-create>view('egi_vo_report_creation',arguments())</element-create>
+
+                <element in="vos">
+                    <attribute-create out="count">count(../vo)</attribute-create>
+                </element>
+            </element>
+        </processors>
+
+    </view>
 </views>
