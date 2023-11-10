@@ -2225,7 +2225,7 @@
 
         <processors>
             <element in="e:entries">
-                <element in="e:entries" if="e:entry[@key='email']/text()=$email"/>
+                <element in="e:entries" if="lower-case(e:entry[@key='email']/text())=lower-case($email)"/>
                 <element-ignore/>
             </element>
         </processors>
