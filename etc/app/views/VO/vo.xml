@@ -2228,6 +2228,10 @@
                 <element in="e:entries" if="lower-case(e:entry[@key='email']/text())=lower-case($email)"/>
                 <element-ignore/>
             </element>
+
+            <element in="e:entries">
+                <element-ignore in="e:entries" if="following-sibling::e:entries/e:entry[@key='serial']/text()=current()/e:entry[@key='serial']/text()"/>
+            </element>
         </processors>
 
         <renderers>
