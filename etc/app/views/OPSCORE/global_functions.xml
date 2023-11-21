@@ -869,6 +869,12 @@
                 </element>
                 <element-ignore/>
             </element>
+
+            <element in="results">
+                <element in="site">
+                    <element in="date" if="text()='null'"><text>0</text></element>
+                </element>
+            </element>
         </processors>
 
     </view>
