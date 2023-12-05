@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="mo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/app/views/CSI/csi.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/CSI/csi.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -268,7 +269,7 @@
     <configuration name="Run" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="fr.in2p3.lavoisier.command.StandaloneExec" />
       <module name="lavopsportal" />
-      <option name="PROGRAM_PARAMETERS" value="DASHBOARD_alarm_history?nbsteps=999&amp;accept=xml" />
+      <option name="PROGRAM_PARAMETERS" value="CSI_API?nbsteps=999&amp;accept=xml" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -642,7 +643,12 @@
       <workItem from="1699603038406" duration="202000" />
       <workItem from="1699618023602" duration="1350000" />
       <workItem from="1699625012634" duration="11000" />
-      <workItem from="1700563994625" duration="335000" />
+      <workItem from="1700563994625" duration="1686000" />
+      <workItem from="1700742348133" duration="5000" />
+      <workItem from="1701253615178" duration="622000" />
+      <workItem from="1701360749390" duration="100000" />
+      <workItem from="1701676145911" duration="1572000" />
+      <workItem from="1701761245611" duration="9000" />
     </task>
     <task id="LOCAL-00075" summary="filtre tickets">
       <created>1536755736442</created>

@@ -914,6 +914,7 @@
             <parameter name="parameters">
                 <entry eval="$nbHours"/>
             </parameter>
+
         </connector>
 
         <processors>
@@ -938,7 +939,7 @@
 
 
                 <element-create if="$cve!='_cve_'">new_element("cve_ref",str:split($cve,','))</element-create>
-                <element-create if="contains(../summary/text(),'cve-')">eval("new_element('cve',.)", regexp:match(../summary/text(),'(cve-\d{4}-\d{4})', 'g'))</element-create>
+                <element-create if="contains(../summary/text(),'cve-')">eval("new_element('cve',.)", regexp:match(../summary/text(),'(cve-\d{4,5}-\d{4,5})', 'g'))</element-create>
                 <element-create if="contains(../summary/text(),'Pakiti-Vuln CRITICAL - ')">str:split(substring-after(substring-before(../summary/text(),'****Pakiti-Vuln'),'Pakiti-Vuln CRITICAL - '),', ')</element-create>
 
             </element>
