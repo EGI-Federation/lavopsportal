@@ -1153,7 +1153,7 @@
         <parameter name="username" eval="property('CSI.db.username')"/>
         <parameter name="password" eval="property('CSI.db.password')"/>
         <parameter name="query">
-            <entry>SELECT * from csi_nagios_problem</entry>
+            <entry>SELECT * from csi_nagios_history</entry>
             <entry> where status=</entry>
             <entry eval="$statusCode"/>
         </parameter>
