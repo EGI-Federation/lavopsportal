@@ -64,6 +64,7 @@
             <trigger type="FixedTimeTrigger">
                 <parameter name="hour">7</parameter>
             </trigger>
+            <trigger type="ViewNotifiedTrigger"></trigger>
         </cache>
 
     </view>
@@ -86,6 +87,7 @@
                 <parameter name="hour">7</parameter>
                 <parameter name="minute">5</parameter>
             </trigger>
+            <trigger type="ViewNotifiedTrigger"></trigger>
         </cache>
 
     </view>
