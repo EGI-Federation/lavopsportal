@@ -1214,11 +1214,12 @@
                 <element in="e:entries" if="@downtime_endpoints!=''">
                     <attribute-ignore in="downtime_endpoints"/>
                     <attribute-create out="downtime">starts-with(../@downtime_endpoints,current()/../e:entry[@key='host_name']/text())</attribute-create>
-                    <attribute-create out="id">concat(../e:entry[@key='ngi'],'***',../e:entry[@key='site'],'***',../e:entry[@key='host_name'])</attribute-create>
                 </element>
                 <element in="e:entries" if="@downtime_endpoints=''">
                     <attribute-ignore in="downtime_endpoints"/>
                     <attribute-create out="downtime">0</attribute-create>
+                    <attribute-create out="id">concat(../e:entry[@key='ngi'],'***',../e:entry[@key='site'],'***',../e:entry[@key='host_name'])</attribute-create>
+
                 </element>
             </element>
 
