@@ -1230,7 +1230,7 @@
             </element>
 
             <element in="e:entries">
-                <element-create-as-parent out="e:entries" group-by="@id" attributes="id">
+                <element-create-as-parent out="e:entries" group-by="@id" attributes="@id">
                     <element in="e:entries"/>
                 </element-create-as-parent>
             </element>
