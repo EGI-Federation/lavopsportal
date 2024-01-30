@@ -1158,7 +1158,7 @@
             <entry>SELECT * from csi_nagios_history </entry>
             <entry> where status=</entry>
             <entry eval="$statusCode"/>
-            <entry> order by ngi, site, host_name, updated_at</entry>
+            <entry> order by ngi, site, host_name ASC, updated_at DESC</entry>
         </parameter>
         </connector>
 
@@ -1214,6 +1214,7 @@
                 <element in="e:entries" if="@downtime_endpoints!=''">
                     <attribute-ignore in="downtime_endpoints"/>
                     <attribute-create out="downtime">starts-with(../@downtime_endpoints,current()/../e:entry[@key='host_name']/text())</attribute-create>
+                    <attribute-create out="id">concat(../e:entry[@key='ngi'],'***',../e:entry[@key='site'],'***',../e:entry[@key='host_name'])</attribute-create>
                 </element>
                 <element in="e:entries" if="@downtime_endpoints=''">
                     <attribute-ignore in="downtime_endpoints"/>
@@ -1225,6 +1226,12 @@
 
             <element in="e:entries">
                 <element-ignore in="e:entries" if="@production!=1 or @certified!=1 or @downtime='true'"/>
+            </element>
+
+            <element in="e:entries">
+                <element-create-as-parent out="e:entries" group-by="@id" attributes="id">
+                    <element in="e:entries"/>
+                </element-create-as-parent>
             </element>
 
         </processors>
