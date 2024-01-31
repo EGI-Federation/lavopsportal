@@ -1168,7 +1168,7 @@
                 <attribute-create out="status">$status</attribute-create>
                 <element in="row" out="e:entries">
                     <attribute-create out="key">../id/text()</attribute-create>
-                    <element in="id" out="e:entry">
+                    <element in="monitor_id" out="e:entry">
                         <attribute-create out="key">'id'</attribute-create>
                     </element>
                     <element in="test_name" out="e:entry">
