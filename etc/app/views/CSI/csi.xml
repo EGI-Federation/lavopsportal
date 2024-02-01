@@ -912,6 +912,7 @@
                 <entry>SELECT * from csi_nagios_history</entry>
                 <entry>where updated_at > now() - interval ? hour</entry>
                 <entry > and status in (1,2,3)</entry>
+                <entry> order by ngi, site, host_name ASC, updated_at DESC</entry>
             </parameter>
             <parameter name="parameters">
                 <entry eval="$nbHours"/>
@@ -960,7 +961,7 @@
                         <text>substring-after(.,'****')</text>
                     </element>
 
-                    <element-ignore if="name()='id' or name()='last_history_id' or name()='created_at' or name()='flags' or name()='ops_flags' or name()='url_to_history' or name()='service' or name()='start_date' or name()='end_date' or name()='details' "/>
+                    <element-ignore if="name()='id' or name()='token' or name()='monitor_id' or name()='status_has_changed' or  name()='last_history_id' or name()='created_at' or name()='flags' or name()='ops_flags' or name()='url_to_history' or name()='service' or name()='start_date' or name()='end_date' or name()='details' "/>
 
 
                 </element>
