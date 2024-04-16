@@ -298,11 +298,11 @@
         </processors>
 
         <cache type="FileCache">
-            <trigger type="DependencyRefreshedTrigger">
-                <parameter name="views">
-                    <entry>vmRecipientsViewBase</entry>
-                </parameter>
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="hours">1</parameter>
             </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="ViewCreatedTrigger"/>
         </cache>
 
     </view>
@@ -461,6 +461,9 @@
                 </parameter>
             </trigger>
             <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="hours">3</parameter>
+            </trigger>
         </cache>
     </view>
     <!--RECIPIENTS - Site Administrators BRANCH -->

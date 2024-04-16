@@ -2718,7 +2718,7 @@
 
     <view name="VoActivities" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
 
-        <argument name="dateStart">20-08</argument>
+        <argument name="dateStart">2016-08</argument>
         <argument name="dateEnd">2016-11</argument>
 
         <connector type="XMLConnector">
