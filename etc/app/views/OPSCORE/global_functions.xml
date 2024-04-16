@@ -812,7 +812,45 @@
 
     </view>
 
+    <view name="accounting-portal.vo.all" xmlns:date="http://exslt.org/dates-and-times">
 
+      <argument name="start_date"/>
+      <argument name="end_date"/>
+
+    <variable name="start_month" eval="date:month-in-year($start_date)"/>
+    <variable name="start_year" eval="date:year($start_date)"/>
+    <variable name="end_month" eval="date:month-in-year($end_date)"/>
+    <variable name="end_year" eval="date:year($end_date)"/>
+
+
+    <connector type="HTTPConnector">
+        <parameter name="url" eval="concat(property('accportal.baseurl'),'egi/normcpu/VO/DATE/',$start_year,'/',$start_month,'/',$end_year,'/',$end_month,'/egi/onlyinfrajobs/JSON')"/>
+    </connector>
+    <serializer type="JSONStreamSerializer"></serializer>
+
+        <processors>
+            <element in="item" out="results">
+                <element in="object" out="vo" if="id/text()!='Total' and id/text()!='Percent' and id/text()!='xlegend' and id/text()!='ylegend' and id/text()!='var'">
+                    <attribute-create out="name">../id/text()</attribute-create>
+                    <element out="date" if="starts-with(name(),'_')">
+                        <attribute-create out="month">substring-after(name(..),'_')</attribute-create>
+                        <attribute-create out="type">'full'</attribute-create>
+                    </element>
+                    <element-ignore/>
+                </element>
+                <element-ignore/>
+            </element>
+
+            <element in="results">
+                <element in="vo">
+                    <attribute-create out="totalCpusHours">floor(sum(../date/text()))</attribute-create>
+                    <element-ignore/>
+                </element>
+
+            </element>
+        </processors>
+
+    </view>
 
 
     <view name="accounting-portal.cloud.all" xmlns:date="http://exslt.org/dates-and-times">

@@ -2570,89 +2570,89 @@
     </view>
 
 
-    <view xmlns:date="http://exslt.org/dates-and-times" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd"  name="VO_CPU_Raw">
+<!--    <view xmlns:date="http://exslt.org/dates-and-times" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd"  name="VO_CPU_Raw">-->
 
 
-        <argument name="dateStart">2021-01-01</argument>
-        <argument name="dateEnd" eval="date:date()"/>
+<!--        <argument name="dateStart">2021-01-01</argument>-->
+<!--        <argument name="dateEnd" eval="date:date()"/>-->
 
-        <variable name="eYear" eval="date:year($dateEnd)"/>
-        <variable name="eMonth" eval="date:month-in-year($dateEnd)"/>
+<!--        <variable name="eYear" eval="date:year($dateEnd)"/>-->
+<!--        <variable name="eMonth" eval="date:month-in-year($dateEnd)"/>-->
 
-        <variable name="sYear" eval="date:year($dateStart)"/>
-        <variable name="sMonth" eval="date:month-in-year($dateStart)"/>
+<!--        <variable name="sYear" eval="date:year($dateStart)"/>-->
+<!--        <variable name="sMonth" eval="date:month-in-year($dateStart)"/>-->
 
-        <connector type="HTTPConnector">
-            <parameter name="url"
-                       eval="concat('https://accounting-support.egi.eu/custom_xml.php?query=sumcpu&amp;option=REGION&amp;sYear=',$sYear,'&amp;sMonth=',$sMonth,'&amp;eYear=',$eYear,'&amp;eMonth=',$eMonth,'&amp;yrange=DATE&amp;xrange=VO&amp;tree=EGI&amp;localJobs=onlyinfrajobs&amp;groupVO=egi&amp;optval=')"/>
-        </connector>
-
-
-        <serializer type="JSONStreamSerializer"/>
-
-        <processors>
-            <element>
-                <element in="object"
-                         if="not(contains(id/text(),'legend')) and not(contains(id/text(),'Total')) and not(contains(id/text(),'Percent')) and not(contains(id/text(),'var'))"/>
-                <element-ignore/>
-            </element>
-        </processors>
-
-        <cache type="FileCache">
-            <trigger type="DeltaTimeTrigger">
-                <parameter name="minutes">153</parameter>
-            </trigger>
-            <trigger type="ViewNotifiedTrigger"/>
-        </cache>
-        <renderers>
-            <renderer type="DefaultRenderer">
-                <parameter name="contentType">text/xml</parameter>
-            </renderer>
-        </renderers>
-
-    </view>
+<!--        <connector type="HTTPConnector">-->
+<!--            <parameter name="url"-->
+<!--                       eval="concat('https://accounting-support.egi.eu/custom_xml.php?query=sumcpu&amp;option=REGION&amp;sYear=',$sYear,'&amp;sMonth=',$sMonth,'&amp;eYear=',$eYear,'&amp;eMonth=',$eMonth,'&amp;yrange=DATE&amp;xrange=VO&amp;tree=EGI&amp;localJobs=onlyinfrajobs&amp;groupVO=egi&amp;optval=')"/>-->
+<!--        </connector>-->
 
 
-    <view xmlns:date="http://exslt.org/dates-and-times" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd"  name="VO_CPU">
+<!--        <serializer type="JSONStreamSerializer"/>-->
+
+<!--        <processors>-->
+<!--            <element>-->
+<!--                <element in="object"-->
+<!--                         if="not(contains(id/text(),'legend')) and not(contains(id/text(),'Total')) and not(contains(id/text(),'Percent')) and not(contains(id/text(),'var'))"/>-->
+<!--                <element-ignore/>-->
+<!--            </element>-->
+<!--        </processors>-->
+
+<!--        <cache type="FileCache">-->
+<!--            <trigger type="DeltaTimeTrigger">-->
+<!--                <parameter name="minutes">153</parameter>-->
+<!--            </trigger>-->
+<!--            <trigger type="ViewNotifiedTrigger"/>-->
+<!--        </cache>-->
+<!--        <renderers>-->
+<!--            <renderer type="DefaultRenderer">-->
+<!--                <parameter name="contentType">text/xml</parameter>-->
+<!--            </renderer>-->
+<!--        </renderers>-->
+
+<!--    </view>-->
 
 
-        <argument name="dateStart"/>
-        <argument name="dateEnd"/>
+<!--    <view xmlns:date="http://exslt.org/dates-and-times" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd"  name="VO_CPU">-->
 
-        <connector type="XMLConnector">
-            <parameter name="content" eval="view('VO_CPU_Raw')"/>
-        </connector>
 
-        <processors>
+<!--        <argument name="dateStart"/>-->
+<!--        <argument name="dateEnd"/>-->
 
-            <element out="e:entries">
-                <element in="object" out="e:entries"
-                         if="date:seconds(id/text()) &gt;= date:seconds($dateStart) and date:seconds(id/text()) &lt;= date:seconds($dateEnd)">
-                    <element-ignore if="name()='Percent' or name()='id'"/>
-                </element>
-                <element-ignore/>
-            </element>
+<!--        <connector type="XMLConnector">-->
+<!--            <parameter name="content" eval="view('VO_CPU_Raw')"/>-->
+<!--        </connector>-->
 
-            <elements path="e:entries/e:entries">
-                <element>
-                    <text>round(sum(../../../e:entries/*[name()=name(current()/..)]/text()))</text>
-                </element>
-            </elements>
+<!--        <processors>-->
 
-            <elements path="e:entries/e:entries">
-                <element out="e:entry">
-                    <attribute-create out="key">lower-case(name(..))</attribute-create>
-                </element>
-            </elements>
+<!--            <element out="e:entries">-->
+<!--                <element in="object" out="e:entries"-->
+<!--                         if="date:seconds(id/text()) &gt;= date:seconds($dateStart) and date:seconds(id/text()) &lt;= date:seconds($dateEnd)">-->
+<!--                    <element-ignore if="name()='Percent' or name()='id'"/>-->
+<!--                </element>-->
+<!--                <element-ignore/>-->
+<!--            </element>-->
 
-            <element in="e:entries">
-                <element in="e:entries" if="not(preceding-sibling::e:entries)"/>
-                <element-ignore/>
-            </element>
+<!--            <elements path="e:entries/e:entries">-->
+<!--                <element>-->
+<!--                    <text>round(sum(../../../e:entries/*[name()=name(current()/..)]/text()))</text>-->
+<!--                </element>-->
+<!--            </elements>-->
 
-        </processors>
+<!--            <elements path="e:entries/e:entries">-->
+<!--                <element out="e:entry">-->
+<!--                    <attribute-create out="key">lower-case(name(..))</attribute-create>-->
+<!--                </element>-->
+<!--            </elements>-->
 
-    </view>
+<!--            <element in="e:entries">-->
+<!--                <element in="e:entries" if="not(preceding-sibling::e:entries)"/>-->
+<!--                <element-ignore/>-->
+<!--            </element>-->
+
+<!--        </processors>-->
+
+<!--    </view>-->
 
 
     <view xmlns:date="http://exslt.org/dates-and-times"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd"  name="VoMembers">
@@ -2728,7 +2728,7 @@
         <processors>
 
             <element in="data" out="e:entries">
-                <set variable="VO_CPU">view('VO_CPU',entry('dateStart',$dateStart)|entry('dateEnd',$dateEnd))</set>
+                <set variable="VO_CPU">view('accounting-portal.vo.all',entry('start_date',$dateStart)|entry('end_date',$dateEnd))</set>
                 <set variable="VO_Members">view('VoMembers',entry('dateStart',$dateStart)|entry('dateEnd',$dateEnd))
                 </set>
                 <set variable="VoAPPDB">view('VoAPPDB',entry('dateStart',$dateStart)|entry('dateEnd',$dateEnd))</set>
@@ -2741,7 +2741,7 @@
                     <attribute-create out="key">../@name</attribute-create>
                     <element-create>entry('status',../@status)</element-create>
                     <element-create>entry('scope',../@scope)</element-create>
-                    <element-create>entry('CPU_Consumption',choose($VO_CPU/e:entries/e:entries/e:entry[@key=current()/../@name]/text(),$VO_CPU/e:entries/e:entries/e:entry[@key=current()/../@name]/text(),'NA'))
+                    <element-create>entry('CPU_Consumption',choose($VO_CPU/results/vo[@name=current()/../@name]/@totalCpusHours,$VO_CPU/results/vo[@name=current()/../@name]/@totalCpusHours,'NA'))
                     </element-create>
                     <element-create>
                         choose($VO_Members/e:entries/e:entries[@key=current()/../@name]/*,$VO_Members/e:entries/e:entries[@key=current()/../@name]/*,entry('numberStart','NA')|entry('numberEnd','NA')|entry('nbRemoved','NA')|entry('nbAdded','NA'))

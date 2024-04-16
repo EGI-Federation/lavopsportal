@@ -126,42 +126,17 @@
         </cache>
 
     </view>
-    <view name="marketplace.providers" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
 
-        <connector type="HTTPConnector">
-            <parameter name="url" eval="property('marketplace.api')"/>
-            <parameter name="certificate" eval="property('certificate.path')"/>
-            <parameter name="passphrase" eval="property('certificate.password')"/>
-            <parameter name="force-redirect">true</parameter>
+    
+    <view name="marketplace.providers" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <connector type="FileConnector">
+            <parameter name="path">app/resources/xml/providers.xml</parameter>
         </connector>
-        <serializer type="JSONStreamSerializer"/>
-
-        <processors>
-        <element in="item" out="e:entries">
-            <element in="object" out="e:entries">
-                <attribute-create out="key">normalize-space(../SITENAME-SERVICEGROUP/text())</attribute-create>
-                <element in="URL" out="e:entry"><attribute-create out="key">'url'</attribute-create></element>
-                <element in="CONTACT_EMAIL" out="e:entry">
-                    <attribute-create out="key">'email'</attribute-create>
-                    <text-create>join(../item/text(),',')</text-create>
-                    <element-ignore/>
-                </element>
-                <element-ignore/>
-            </element>
-        </element>
-
-            <element in="e:entries">
-                <element-ignore in="e:entries"></element-ignore>
-                <element-create>sort_by_string(../e:entries,'@key')</element-create>
-            </element>
-    </processors>
-
-
 
         <cache type="FileCache">
             <trigger type="ViewNotifiedTrigger"/>
             <trigger type="DeltaTimeTrigger">
-                <parameter name="minutes"  eval="choose(property('env')='test',32,10)"/>
+                <parameter name="minutes"  eval="choose(property('env')='test',132,110)"/>
             </trigger>
         </cache>
 
@@ -178,30 +153,7 @@
                 <parameter name="contentType">text/xml</parameter>
             </renderer>
         </renderers>
-        
-    </view>
-    
-    <view name="marketplace.providers.file" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
-        <connector type="FileConnector">
-            <parameter name="path">app/resources/json/services.json</parameter>
-        </connector>
-        <serializer type="JSONStreamSerializer"/>
-        <processors>
-            <element in="item" out="e:entries">
-                <attribute-create out="fallback">true()</attribute-create>
-                <element in="object" out="e:entries">
-                    <attribute-create out="key">../SITENAME-SERVICEGROUP/text()</attribute-create>
-                    <element in="URL" out="e:entry"><attribute-create out="key">'url'</attribute-create></element>
-                    <element in="CONTACT_EMAIL" out="e:entry">
-                        <attribute-create out="key">'email'</attribute-create>
-                        <text-create>join(../item/text(),',')</text-create>
-                       <element-ignore/>
-                    </element>
-                    <element-ignore/>
-                </element>
 
-            </element>
-        </processors>
     </view>
 
     <view name="dpmt.providers" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">

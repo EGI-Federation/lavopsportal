@@ -1,0 +1,1902 @@
+<e:entries xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+    <e:entries key="100 Percent IT Trusted Cloud" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">support@100percentit.com</e:entry>
+        <e:entry key="url">http://100percentit.com/cloud-computing</e:entry>
+    </e:entries>
+    <e:entries key="3DBIONOTES-WS" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">jr.macias@cnb.csic.es,carolina.simon@cnb.csic.es</e:entry>
+        <e:entry key="url">http://3dbionotes.cnb.csic.es/ws</e:entry>
+    </e:entries>
+    <e:entries key="3rd-Party Data Security Assessment" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">eosc@ictlc.com</e:entry>
+        <e:entry key="url">https://ictlc.com/ICTLC_2023_3rd-Party%20Data%20Security%20Assessment.pdf</e:entry>
+    </e:entries>
+    <e:entries key="ADAM Platform" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">contactus@adamplatform.eu</e:entry>
+        <e:entry key="url">https://adamplatform.eu</e:entry>
+    </e:entries>
+    <e:entries key="AI-GeoSpecies" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">contact@plantnet-project.org</e:entry>
+        <e:entry key="url">https://cos4cloud-eosc.eu/services/ai-geospecies/</e:entry>
+    </e:entries>
+    <e:entries key="AI4EOSC platform" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">ai4eosc-support@listas.csic.es</e:entry>
+        <e:entry key="url">https://ai4eosc.eu/platform/</e:entry>
+    </e:entries>
+    <e:entries key="AI4GEO Engine" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">ai4geo@csgroup.eu</e:entry>
+        <e:entry key="url">https://ai4geo.csgroup.eu</e:entry>
+    </e:entries>
+    <e:entries key="AI4Pheno" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">ai4pheno-info@seth.software</e:entry>
+        <e:entry key="url">https://ai4pheno.seth.software</e:entry>
+    </e:entries>
+    <e:entries key="AI4PublicPolicy Marketplace" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@unparallel.pt</e:entry>
+        <e:entry key="url">https://market.ai4publicpolicy.eu/</e:entry>
+    </e:entries>
+    <e:entries key="AMBER-based Portal Server for NMR structures (AMPS-NMR)" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">giachetti@cerm.unifi.it</e:entry>
+        <e:entry key="url">http://py-enmr.cerm.unifi.it/access/index</e:entry>
+    </e:entries>
+    <e:entries key="AMNESIA" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">amnesia@athenarc.gr</e:entry>
+        <e:entry key="url">https://amnesia.openaire.eu/amnesia</e:entry>
+    </e:entries>
+    <e:entries key="ARCHE. A Resource Centre for the HumanitiEs" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">acdh-ch-helpdesk@oeaw.ac.at</e:entry>
+        <e:entry key="url">https://arche.acdh.oeaw.ac.at/</e:entry>
+    </e:entries>
+    <e:entries key="ARGO monitoring engine" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">themis@admin.grnet.gr</e:entry>
+        <e:entry key="url">https://argo.ni4os.eu/</e:entry>
+    </e:entries>
+    <e:entries key="ARGOS" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">argos@openaire.eu</e:entry>
+        <e:entry key="url">https://argos.openaire.eu/</e:entry>
+    </e:entries>
+    <e:entries key="ARIA (Access to Research Infrastructure Administration)" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">support@instruct-eric.org</e:entry>
+        <e:entry key="url">https://aria.services/</e:entry>
+    </e:entries>
+    <e:entries key="ARIS" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">hpc-access@lists.grnet.gr</e:entry>
+        <e:entry key="url">https://hpc.grnet.gr</e:entry>
+    </e:entries>
+    <e:entries key="ARIS - Archival service" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">hpc-access@lists.grnet.gr</e:entry>
+        <e:entry key="url">https://hpc.grnet.gr</e:entry>
+    </e:entries>
+    <e:entries key="ARMS OTU Unifier" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">cto@lifewatch.eu</e:entry>
+        <e:entry key="url">https://metadatacatalogue.lifewatch.eu/srv/eng/catalog.search#/metadata/a4ff4000-dcb2-41a7-9c61-7bff4ae20507</e:entry>
+    </e:entries>
+    <e:entries key="ARMS WRiMS Invasive Checker" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">cto@lifewatch.eu</e:entry>
+        <e:entry key="url">https://metadatacatalogue.lifewatch.eu/srv/eng/catalog.search#/metadata/8df70810-490d-4dfd-964f-b73f28e34ba5</e:entry>
+    </e:entries>
+    <e:entries key="ARMS WoRMS Taxonomic Checker" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">cto@lifewatch.eu</e:entry>
+        <e:entry key="url">https://metadatacatalogue.lifewatch.eu/srv/eng/catalog.search#/metadata/e9cb479f-9a36-4504-8d59-dd28520cec70</e:entry>
+    </e:entries>
+    <e:entries key="ATMO-4CAST" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">neanias@ubiwhere.com</e:entry>
+        <e:entry key="url">https://atmo-4cast.neanias.eu/</e:entry>
+    </e:entries>
+    <e:entries key="ATMO-FLUD" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">rapso@athenarc.gr</e:entry>
+        <e:entry key="url">https://atmo-flud.neanias.eu/</e:entry>
+    </e:entries>
+    <e:entries key="ATMO-STRESS" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">alessandro.tibaldi@unimib.it,karank@central.ntua.gr</e:entry>
+        <e:entry key="url">https://atmo-stress.neanias.eu/</e:entry>
+    </e:entries>
+    <e:entries key="AUTHENIX" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@authenix.eu</e:entry>
+        <e:entry key="url">https://www.authenix.eu</e:entry>
+    </e:entries>
+    <e:entries key="Agora Resource Portfolio Management Tool" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">agora@grnet.gr</e:entry>
+        <e:entry key="url">https://agora.ni4os.eu/</e:entry>
+    </e:entries>
+    <e:entries key="AiiDAlab" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">aiidalab@materialscloud.org</e:entry>
+        <e:entry key="url">https://www.aiidalab.net/</e:entry>
+    </e:entries>
+    <e:entries key="Alien and Invasive Species Virtual Research Environment" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@d4science.org</e:entry>
+        <e:entry key="url">https://services.d4science.org/web/alienandinvasivespecies</e:entry>
+    </e:entries>
+    <e:entries key="Analytics Engine" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@d4science.org</e:entry>
+        <e:entry key="url">https://blue-cloud.d4science.org/web/blue-cloudlab</e:entry>
+    </e:entries>
+    <e:entries key="Argo marine floats OpenSearch API" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">Romain.Cancouet@euro-argo.eu</e:entry>
+        <e:entry key="url">https://opensearch.ifremer.fr</e:entry>
+    </e:entries>
+    <e:entries key="Argo marine floats SPARQL endpoint" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">Romain.Cancouet@euro-argo.eu</e:entry>
+        <e:entry key="url">https://co.ifremer.fr/co//argo-linked-data/html/Argo-HTML-SPARQL/</e:entry>
+    </e:entries>
+    <e:entries key="Argo marine floats dashboard, fleet monitoring" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">Romain.Cancouet@euro-argo.eu</e:entry>
+        <e:entry key="url">https://fleetmonitoring.euro-argo.eu/dashboard</e:entry>
+    </e:entries>
+    <e:entries key="Argo marine floats data API" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">Romain.Cancouet@euro-argo.eu</e:entry>
+        <e:entry key="url">https://dataselection.euro-argo.eu/swagger-ui.html</e:entry>
+    </e:entries>
+    <e:entries key="Argo marine floats data discovery" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@ifremer.fr</e:entry>
+        <e:entry key="url">https://doi.org/10.17882/42182</e:entry>
+    </e:entries>
+    <e:entries key="Argo marine floats data discovery/download web" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">codac@ifremer.fr</e:entry>
+        <e:entry key="url">https://dataselection.euro-argo.eu</e:entry>
+    </e:entries>
+    <e:entries key="Argo marine floats metadata API" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">Romain.Cancouet@euro-argo.eu</e:entry>
+        <e:entry key="url">https://fleetmonitoring.euro-argo.eu/swagger-ui.html</e:entry>
+    </e:entries>
+    <e:entries key="Argo marine floats metadata ERDDAP server" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">Romain.Cancouet@euro-argo.eu</e:entry>
+        <e:entry key="url">https://erddap.ifremer.fr</e:entry>
+    </e:entries>
+    <e:entries key="Argo marine floats vocabularies from NVS vocabulary server" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">Romain.Cancouet@euro-argo.eu</e:entry>
+        <e:entry key="url">http://www.argodatamgt.org/Documentation/Argo-vocabulary-server</e:entry>
+    </e:entries>
+    <e:entries key="Argus" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">argus@lists.geant.org</e:entry>
+        <e:entry key="url">https://network.geant.org/argus/</e:entry>
+    </e:entries>
+    <e:entries key="Arkivum Digital Archiving and Preservation Solution" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">hello@arkivum.com</e:entry>
+        <e:entry key="url">https://arkivum.com/data-archiving/scientific-research/</e:entry>
+    </e:entries>
+    <e:entries key="B2ACCESS" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">helpdesk@eudat.eu</e:entry>
+        <e:entry key="url">https://www.eudat.eu/services/b2access</e:entry>
+    </e:entries>
+    <e:entries key="B2DROP" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">helpdesk@eudat.eu</e:entry>
+        <e:entry key="url">https://www.eudat.eu/services/b2drop</e:entry>
+    </e:entries>
+    <e:entries key="B2FIND" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">eudat-cdi-secretariat@postit.csc.fi</e:entry>
+        <e:entry key="url">https://www.eudat.eu/services/b2find</e:entry>
+    </e:entries>
+    <e:entries key="B2HANDLE" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">helpdesk@eudat.eu</e:entry>
+        <e:entry key="url">https://www.eudat.eu/services/b2handle</e:entry>
+    </e:entries>
+    <e:entries key="B2SAFE" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">helpdesk@eudat.eu</e:entry>
+        <e:entry key="url">https://www.eudat.eu/services/b2safe</e:entry>
+    </e:entries>
+    <e:entries key="B2SHARE" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">helpdesk@eudat.eu</e:entry>
+        <e:entry key="url">https://www.eudat.eu/services/b2share</e:entry>
+    </e:entries>
+    <e:entries key="BBMRI-ERIC Colorectal Cancer Cohort data set" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">contact@bbmri-eric.eu</e:entry>
+        <e:entry key="url">https://www.bbmri-eric.eu/scientific-collaboration/colorectal-cancer-cohort/</e:entry>
+    </e:entries>
+    <e:entries key="BBMRI-ERIC Directory of biobanks and their collections in the BBMRI-ERIC member states" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">contact@bbmri-eric.eu</e:entry>
+        <e:entry key="url">https://directory.bbmri-eric.eu/menu/main/background</e:entry>
+    </e:entries>
+    <e:entries key="BDRC - Barcelona Dust Regional Center" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">dust@aemet.es</e:entry>
+        <e:entry key="url">http://dust.aemet.es</e:entry>
+    </e:entries>
+    <e:entries key="BacDive – The Bacterial Diversity Metadatabase" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">contact@bacdive.de</e:entry>
+        <e:entry key="url">https://bacdive.dsmz.de/</e:entry>
+    </e:entries>
+    <e:entries key="BeGrenzte Flucht" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">feedback@ehri-project.eu</e:entry>
+        <e:entry key="url">https://begrenzte-flucht.ehri-project.eu/</e:entry>
+    </e:entries>
+    <e:entries key="Bielefeld Academic Search Engine (BASE)" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">base.ub@uni-bielefeld.de</e:entry>
+        <e:entry key="url">https://base-search.net</e:entry>
+    </e:entries>
+    <e:entries key="BioSAS Jupyter Notebook" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">eosc@ill.fr</e:entry>
+        <e:entry key="url">https://replay.notebooks.egi.eu/v2/gh/isafiulina/sas_helper/HEAD</e:entry>
+    </e:entries>
+    <e:entries key="Biobanks" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">access@embrc.eu</e:entry>
+        <e:entry key="url">https://www.embrc.eu/services/service-catalogue</e:entry>
+    </e:entries>
+    <e:entries key="Biotope GBIF extractor" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">cto@lifewatch.eu</e:entry>
+        <e:entry key="url">https://metadatacatalogue.lifewatch.eu/srv/eng/catalog.search#/metadata/955918a8-6ac4-4f98-9870-511549fc4524</e:entry>
+    </e:entries>
+    <e:entries key="Biotope GRISS Extractor" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">cto@lifewatch.eu</e:entry>
+        <e:entry key="url">https://metadatacatalogue.lifewatch.eu/srv/eng/catalog.search#/metadata/ef79bea6-defd-4895-b00e-005c860c4fe6</e:entry>
+    </e:entries>
+    <e:entries key="Blue Safespring AB" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">clouds@geant.org</e:entry>
+        <e:entry key="url">https://clouds.geant.org/ocre/blue-safespring-ab/</e:entry>
+    </e:entries>
+    <e:entries key="Blue-Cloud VRE" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">pasquale.pagano@isti.cnr.it</e:entry>
+        <e:entry key="url">https://www.blue-cloud.org</e:entry>
+    </e:entries>
+    <e:entries key="CERIC Data Portal" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@ceric-eric.eu</e:entry>
+        <e:entry key="url">https://data.ceric-eric.eu/#/about</e:entry>
+    </e:entries>
+    <e:entries key="CERN Open Data Portal" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">opendata-info@cern.ch</e:entry>
+        <e:entry key="url">https://opendata.cern.ch/</e:entry>
+    </e:entries>
+    <e:entries key="CESNET DataCare - Object Based Storage" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">sluzby@cesnet.cz</e:entry>
+        <e:entry key="url">https://du.cesnet.cz/en/navody/object_storage/start</e:entry>
+    </e:entries>
+    <e:entries key="CESSDA Data Catalogue" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">support@cessda.eu</e:entry>
+        <e:entry key="url">https://datacatalogue.cessda.eu/</e:entry>
+    </e:entries>
+    <e:entries key="CESSDA Data Management Expert Guide (DMEG)" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">support@cessda.eu</e:entry>
+        <e:entry key="url">https://dmeg.cessda.eu/</e:entry>
+    </e:entries>
+    <e:entries key="CESSDA European Language Social Science Thesaurus (ELSST)" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">support@cessda.eu</e:entry>
+        <e:entry key="url">https://thesauri.cessda.eu/</e:entry>
+    </e:entries>
+    <e:entries key="CESSDA Vocabularies Service (CVS)" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">support@cessda.eu</e:entry>
+        <e:entry key="url">https://vocabularies.cessda.eu/</e:entry>
+    </e:entries>
+    <e:entries key="CHERRY - CHEmistry RepositoRY" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">anadj@chem.bg.ac.rs</e:entry>
+        <e:entry key="url">https://cherry.chem.bg.ac.rs/</e:entry>
+    </e:entries>
+    <e:entries key="CIMPAL Calculator (Cumulative IMPacts of invasive ALien species calculator)" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">cto@lifewatch.eu</e:entry>
+        <e:entry key="url">https://metadatacatalogue.lifewatch.eu/srv/eng/catalog.search#/metadata/3f77a953-cc22-461c-9390-941775b2b010</e:entry>
+    </e:entries>
+    <e:entries key="CLOUDIFIN" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">cloudifin@nipne.ro</e:entry>
+        <e:entry key="url">https://cc.ifin.ro/cloudifin</e:entry>
+    </e:entries>
+    <e:entries key="CORA.Repositori de Dades de Recerca" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">rdr-contacte@csuc.cat</e:entry>
+        <e:entry key="url">https://dataverse.csuc.cat/</e:entry>
+    </e:entries>
+    <e:entries key="COVID-19 Structural Hub" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">jr.macias@cnb.csic.es,carolina.simon@cnb.csic.es</e:entry>
+        <e:entry key="url">https://3dbionotes.cnb.csic.es/ws/covid19</e:entry>
+    </e:entries>
+    <e:entries key="CSCS Object Storage" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">sgorini@cscs.ch</e:entry>
+        <e:entry key="url">https://user.cscs.ch/storage/object_storage/</e:entry>
+    </e:entries>
+    <e:entries key="Carbon Data notebooks" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">bcdc@uib.no</e:entry>
+        <e:entry key="url">https://blue-cloud.d4science.org/web/marineenvironmentalindicators/</e:entry>
+    </e:entries>
+    <e:entries key="CeR - Central Repository of the Institute of Chemistry, Technology and Metallurgy" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">matija.zlatar@ihtm.bg.ac.rs</e:entry>
+        <e:entry key="url">https://cer.ihtm.bg.ac.rs</e:entry>
+    </e:entries>
+    <e:entries key="Centre for Sensors, Instruments and Systems Development" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">jaume.castella@upc.edu</e:entry>
+        <e:entry key="url">https://www.cd6.upc.edu/</e:entry>
+    </e:entries>
+    <e:entries key="ChemBioServer" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">zcournia@bioacademy.gr</e:entry>
+        <e:entry key="url">https://chembioserver.vi-seem.eu/</e:entry>
+    </e:entries>
+    <e:entries key="Chipster" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">servicedesk@csc.fi</e:entry>
+        <e:entry key="url">https://chipster.csc.fi/</e:entry>
+    </e:entries>
+    <e:entries key="Climadjust" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">jjsaenzde@predictia.es</e:entry>
+        <e:entry key="url">https://climadjust.com/</e:entry>
+    </e:entries>
+    <e:entries key="Cloud-USV" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">ovidiu.schipor@usm.ro</e:entry>
+        <e:entry key="url">https://cloudusv.ro/index_2.html</e:entry>
+    </e:entries>
+    <e:entries key="CloudFerro Data Collections Catalog" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">biuro@cloudferro.com</e:entry>
+        <e:entry key="url">https://discovery.creodias.eu/dataset</e:entry>
+    </e:entries>
+    <e:entries key="CloudFerro Infrastructure" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">support@cloudferro.com</e:entry>
+        <e:entry key="url">https://creodias.eu</e:entry>
+    </e:entries>
+    <e:entries key="Cloudferro Data related Services - EO Finder" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">biuro@cloudferro.com</e:entry>
+        <e:entry key="url">https://finder.creodias.eu/www</e:entry>
+    </e:entries>
+    <e:entries key="Cloudferro Data related Services - EO browser" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">biuro@cloudferro.com</e:entry>
+        <e:entry key="url">https://browser.creodias.eu</e:entry>
+    </e:entries>
+    <e:entries key="Clouds Service" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@geant.org</e:entry>
+        <e:entry key="url">https://clouds.geant.org/</e:entry>
+    </e:entries>
+    <e:entries key="Conny Kristel Fellowship Programme" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">kristel-fellowships@ehri-project.eu</e:entry>
+        <e:entry key="url">https://www.ehri-project.eu/Conny-Kristel-Fellowships</e:entry>
+    </e:entries>
+    <e:entries key="Cos4Bio" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">bineoconsulting@gmail.com</e:entry>
+        <e:entry key="url">https://cos4bio.eu/en/about.html</e:entry>
+    </e:entries>
+    <e:entries key="DAIS - Digital Archive of the Serbian Academy of Sciences and Arts" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">dais@sanu.ac.rs</e:entry>
+        <e:entry key="url">https://dais.sanu.ac.rs/</e:entry>
+    </e:entries>
+    <e:entries key="DARIAH-Campus" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@dariah.eu</e:entry>
+        <e:entry key="url">https://campus.dariah.eu</e:entry>
+    </e:entries>
+    <e:entries key="DEEP training facility" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">computing.support@ifca.unican.es</e:entry>
+        <e:entry key="url">http://deep-hybrid-datacloud.eu/the-platform</e:entry>
+    </e:entries>
+    <e:entries key="DMPonline" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@dcc.ac.uk</e:entry>
+        <e:entry key="url">https://dmponline.dcc.ac.uk/about_us#Background</e:entry>
+    </e:entries>
+    <e:entries key="DODAS collects a small amount of personal information about users who are registered via INDIGO-IAM. The privacy policy is then the very same as the INDIGO-IAM one. Here we explain how INFN uses the personal data collected from users for the derogation of the DODAS service: https://indigo-iam.github.io/docs/v/current/iam-aas/privacy-policy.html DODAS is based on ReCaS-Bari Infrastructure. The use of this infrastructure is regulated by a Policy Privacy and ToU and AUP." xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">infn-eosc@lists.infn.it</e:entry>
+        <e:entry key="url">https://web.infn.it/dodas/index.php/en/</e:entry>
+    </e:entries>
+    <e:entries key="DREAMM" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">zcournia@bioacademy.gr</e:entry>
+        <e:entry key="url">https://dreamm.ni4os.eu/</e:entry>
+    </e:entries>
+    <e:entries key="Data Discovery and Access Service" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@blue-cloud.org</e:entry>
+        <e:entry key="url">https://data.blue-cloud.org/search</e:entry>
+    </e:entries>
+    <e:entries key="Data Service Portal Aila" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">user-services.fsd@tuni.fi</e:entry>
+        <e:entry key="url">https://services.fsd.tuni.fi/?lang=en</e:entry>
+    </e:entries>
+    <e:entries key="Data Stewardship Wizard" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@ds-wizard.org</e:entry>
+        <e:entry key="url">https://ds-wizard.org</e:entry>
+    </e:entries>
+    <e:entries key="Data-driven Classifier" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">cto@lifewatch.eu</e:entry>
+        <e:entry key="url">https://metadatacatalogue.lifewatch.eu/srv/eng/catalog.search#/metadata/9e7a1532-7f39-417f-be8b-94ea4cd3a884</e:entry>
+    </e:entries>
+    <e:entries key="DataCite DOI registration service" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@datacite.org</e:entry>
+        <e:entry key="url">https://doi.datacite.org</e:entry>
+    </e:entries>
+    <e:entries key="DataverseNO" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">support@dataverse.no</e:entry>
+        <e:entry key="url">https://info.dataverse.no/</e:entry>
+    </e:entries>
+    <e:entries key="Digital Commons" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">r.haaren@elsevier.com</e:entry>
+        <e:entry key="url">https://www.elsevier.com/solutions/digital-commons</e:entry>
+    </e:entries>
+    <e:entries key="Digital Humanities and Cultural Heritage OpenAIRE Community Gateway" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@openaire.eu</e:entry>
+        <e:entry key="url">https://dh-ch.openaire.eu/</e:entry>
+    </e:entries>
+    <e:entries key="Digital Repository of Georgian Scientific Works" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">nino.p@sciencelib.ge</e:entry>
+        <e:entry key="url">https://openscience.ge/</e:entry>
+    </e:entries>
+    <e:entries key="Digital production for conferences, workshops, roundtables and other academic and professional events" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@scientificknowledgeservices.com</e:entry>
+        <e:entry key="url">https://www.focusopenscience.org/</e:entry>
+    </e:entries>
+    <e:entries key="Diplomatic Reports" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">feedback@ehri-project.eu</e:entry>
+        <e:entry key="url">https://diplomatic-reports.ehri-project.eu/</e:entry>
+    </e:entries>
+    <e:entries key="DisVis web portal" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">wenmr.project@gmail.com</e:entry>
+        <e:entry key="url">https://wenmr.science.uu.nl/disvis/</e:entry>
+    </e:entries>
+    <e:entries key="Dissemin" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">team@dissem.in</e:entry>
+        <e:entry key="url">https://dissem.in</e:entry>
+    </e:entries>
+    <e:entries key="Distributed Deep Learning by Horovod" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">eosc-horovod@sztaki.hu</e:entry>
+        <e:entry key="url">https://git.science-cloud.hu/eosc/horovod-service/distributed-deep-learning-by-horovod/-/blob/main/readme.rst</e:entry>
+    </e:entries>
+    <e:entries key="Dynamic DNS service" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">viet.tran@savba.sk</e:entry>
+        <e:entry key="url">https://nsupdate.fedcloud.eu</e:entry>
+    </e:entries>
+    <e:entries key="Dynamic On Demand Analysis Service (DODAS Portal)" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">infn-eosc@lists.infn.it</e:entry>
+        <e:entry key="url">https://web.infn.it/dodas/index.php/en/</e:entry>
+    </e:entries>
+    <e:entries key="E-Learning Platform of GBIF Spain" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">support@gbif.es</e:entry>
+        <e:entry key="url">https://elearning.gbif.es</e:entry>
+    </e:entries>
+    <e:entries key="EDC EOxHub Workspace" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">stephan.meissl@eox.at</e:entry>
+        <e:entry key="url">https://eurodatacube.com/marketplace/infra/edc_eoxhub_workspace</e:entry>
+    </e:entries>
+    <e:entries key="EGI Check-In" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">support@egi.eu</e:entry>
+        <e:entry key="url">https://docs.egi.eu/users/aai/check-in/</e:entry>
+    </e:entries>
+    <e:entries key="EGI Cloud Compute" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">support@egi.eu</e:entry>
+        <e:entry key="url">https://docs.egi.eu/users/compute/cloud-compute/</e:entry>
+    </e:entries>
+    <e:entries key="EGI Cloud Container Compute" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">support@egi.eu</e:entry>
+        <e:entry key="url">https://docs.egi.eu/users/compute/cloud-container-compute/</e:entry>
+    </e:entries>
+    <e:entries key="EGI Data Transfer" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">support@egi.eu</e:entry>
+        <e:entry key="url">https://docs.egi.eu/users/data/management/data-transfer/</e:entry>
+    </e:entries>
+    <e:entries key="EGI DataHub" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">techsolutions@egi.eu</e:entry>
+        <e:entry key="url">https://docs.egi.eu/users/data/management/datahub/</e:entry>
+    </e:entries>
+    <e:entries key="EGI FitSM Training" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">support@egi.eu</e:entry>
+        <e:entry key="url">https://www.egi.eu/services/fitsm-training</e:entry>
+    </e:entries>
+    <e:entries key="EGI High-Throughput Compute" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">support@egi.eu</e:entry>
+        <e:entry key="url">https://docs.egi.eu/users/compute/high-throughput-compute/</e:entry>
+    </e:entries>
+    <e:entries key="EGI ISO 27001 Training" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">support@egi.eu</e:entry>
+        <e:entry key="url">https://www.egi.eu/services/iso-27001-training/</e:entry>
+    </e:entries>
+    <e:entries key="EGI Infrastructure Manager" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@grycap.upv.es</e:entry>
+        <e:entry key="url">https://im.egi.eu/</e:entry>
+    </e:entries>
+    <e:entries key="EGI Notebooks" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">support@egi.eu</e:entry>
+        <e:entry key="url">https://docs.egi.eu/users/dev-env/notebooks/</e:entry>
+    </e:entries>
+    <e:entries key="EGI Online Storage" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">support@egi.eu</e:entry>
+        <e:entry key="url">https://docs.egi.eu/users/data/storage/</e:entry>
+    </e:entries>
+    <e:entries key="EGI Replay" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">support@egi.eu</e:entry>
+        <e:entry key="url">https://docs.egi.eu/users/dev-env/replay/</e:entry>
+    </e:entries>
+    <e:entries key="EGI Software Distribution" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">support@egi.eu</e:entry>
+        <e:entry key="url">https://www.egi.eu/service/software-distribution/</e:entry>
+    </e:entries>
+    <e:entries key="EGI Training Infrastructure" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">support@egi.eu</e:entry>
+        <e:entry key="url">https://docs.egi.eu/users/training/</e:entry>
+    </e:entries>
+    <e:entries key="EGI Workload Manager" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">support@egi.eu</e:entry>
+        <e:entry key="url">https://docs.egi.eu/users/compute/orchestration/workload-manager/</e:entry>
+    </e:entries>
+    <e:entries key="EHRI Document Blog" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">feedback@ehri-project.eu</e:entry>
+        <e:entry key="url">https://blog.ehri-project.eu/</e:entry>
+    </e:entries>
+    <e:entries key="EISCAT data access portal" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">eosc@eiscat.se</e:entry>
+        <e:entry key="url">https://eiscat.se/projects/eosc/</e:entry>
+    </e:entries>
+    <e:entries key="EMSO ERIC Data Portal" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">help@emso-eu.org</e:entry>
+        <e:entry key="url">https://data.emso.eu</e:entry>
+    </e:entries>
+    <e:entries key="ENES Climate Analytics Service" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">data@dkrz.de</e:entry>
+        <e:entry key="url">https://is.enes.org/sdm-climate-analytics-data/</e:entry>
+    </e:entries>
+    <e:entries key="ENES Data Space" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">enesds-support@cmcc.it</e:entry>
+        <e:entry key="url">https://enesdataspace.vm.fedcloud.eu/</e:entry>
+    </e:entries>
+    <e:entries key="ENVRI Catalog of Services" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">manager@envri-fair.eu</e:entry>
+        <e:entry key="url">https://envri-hub.envri.eu/cservicesmain</e:entry>
+    </e:entries>
+    <e:entries key="ENVRI Dashboard for the State of the Environment" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">ivan.rodero@emso-eu.org,raul.bardaji@emso-eu.org,andreu.fornos@emso-eu.org,gmon@bodc.ac.uk,angeliki.adamaki@nateko.lu.se,ror@nilu.no,damien.boulanger@obs-mip.fr,tjerk@maris.nl,zois.zogopoulos@nateko.lu.se</e:entry>
+        <e:entry key="url">https://env-dashboard.eoscfuture.eu/</e:entry>
+    </e:entries>
+    <e:entries key="ENVRI-FAIR Marine Essential Ocean Variables data broker" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">Romain.Cancouet@euro-argo.eu</e:entry>
+        <e:entry key="url">https://github.com/envri-fair/marine-eov-broker</e:entry>
+    </e:entries>
+    <e:entries key="EODC Data Catalogue Service" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">support@eodc.eu</e:entry>
+        <e:entry key="url">https://eodc.eu/services/</e:entry>
+    </e:entries>
+    <e:entries key="EOSC RoP Legal &amp; Ethics Compliance Tool (RoLECT)" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">admin-rolectool@athenarc.gr</e:entry>
+        <e:entry key="url">https://rolect.ni4os.eu</e:entry>
+    </e:entries>
+    <e:entries key="EOSC Synergy Online Training Platform" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">mkrzyzanek@man.poznan.pl</e:entry>
+        <e:entry key="url">https://learn.eosc-synergy.eu/</e:entry>
+    </e:entries>
+    <e:entries key="EOSC-Performance" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">perf-support@lists.kit.edu</e:entry>
+        <e:entry key="url">https://performance.services.fedcloud.eu/</e:entry>
+    </e:entries>
+    <e:entries key="EOSC-Synergy FAIR Evaluator, Validator &amp; Advisor" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">aguilarf@ifca.unican.es</e:entry>
+        <e:entry key="url">https://fair.csic.es/es</e:entry>
+    </e:entries>
+    <e:entries key="EOSC-Synergy Software and Services Quality Assurance as a Service (SQAaaS)" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">sqaaas@ibergrid.eu</e:entry>
+        <e:entry key="url">https://sqaaas.eosc-synergy.eu/</e:entry>
+    </e:entries>
+    <e:entries key="ESS Labs" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">hilde.orten@sikt.no</e:entry>
+        <e:entry key="url">https://www.europeansocialsurvey.org/esslabs</e:entry>
+    </e:entries>
+    <e:entries key="Early Holocaust Testimony" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">feedback@ehri-project.eu</e:entry>
+        <e:entry key="url">https://early-testimony.ehri-project.eu</e:entry>
+    </e:entries>
+    <e:entries key="Earth Observation Metadata Query Service" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">contact@c-scale.eu</e:entry>
+        <e:entry key="url">https://c-scale.eu/eo-mqs/</e:entry>
+    </e:entries>
+    <e:entries key="EarthConsole®" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@earthconsole.eu</e:entry>
+        <e:entry key="url">https://earthconsole.eu/</e:entry>
+    </e:entries>
+    <e:entries key="EcoPortal" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">service.centre@lifewatch.eu</e:entry>
+        <e:entry key="url">https://ecoportal.lifewatch.eu</e:entry>
+    </e:entries>
+    <e:entries key="Elastic Cloud Compute Cluster (EC3)" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@grycap.upv.es</e:entry>
+        <e:entry key="url">https://servproject.i3m.upv.es/ec3/</e:entry>
+    </e:entries>
+    <e:entries key="ElixirFM" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">lindat-help@ufal.mff.cuni.cz</e:entry>
+        <e:entry key="url">http://lindat.mff.cuni.cz/services/elixirfm/run.php</e:entry>
+    </e:entries>
+    <e:entries key="Embassy Cloud" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@ebi.ac.uk</e:entry>
+        <e:entry key="url">https://www.embassycloud.org/</e:entry>
+    </e:entries>
+    <e:entries key="EnerMaps Data Management Tool" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@enermaps.eu</e:entry>
+        <e:entry key="url">https://enermaps.openaire.eu/</e:entry>
+    </e:entries>
+    <e:entries key="Enrichment API" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">helpdesk.reliance@expert.ai</e:entry>
+        <e:entry key="url">https://reliance.expertcustomers.ai</e:entry>
+    </e:entries>
+    <e:entries key="Entity Matching Tool" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">feedback@ehri-project.eu</e:entry>
+        <e:entry key="url">https://emt.ehri-project.eu</e:entry>
+    </e:entries>
+    <e:entries key="Environmental Data Extractor" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">cto@lifewatch.eu</e:entry>
+        <e:entry key="url">https://metadatacatalogue.lifewatch.eu/srv/eng/catalog.search#/metadata/c09e4ca7-0b57-4ea0-a57e-215d2c0dc805</e:entry>
+    </e:entries>
+    <e:entries key="Episciences" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">contact@episciences.org</e:entry>
+        <e:entry key="url">https://www.episciences.org/</e:entry>
+    </e:entries>
+    <e:entries key="Ethnic and Migrant Minorities Survey Registry" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">sshoc.project@sciencespo.fr</e:entry>
+        <e:entry key="url">https://ethmigsurveydatahub.eu/emmregistry</e:entry>
+    </e:entries>
+    <e:entries key="European Galaxy Server" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@uni-freiburg.de</e:entry>
+        <e:entry key="url">https://usegalaxy.eu</e:entry>
+    </e:entries>
+    <e:entries key="European Marine Science OpenAIRE Community Gateway" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@openaire.eu</e:entry>
+        <e:entry key="url">https://mes.openaire.eu/</e:entry>
+    </e:entries>
+    <e:entries key="European Social Survey (ESS) as a service" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">bodil.agasoster@sikt.no</e:entry>
+        <e:entry key="url">https://ess-search.nsd.no</e:entry>
+    </e:entries>
+    <e:entries key="European XFEL Metadata Catalogue" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">contact@xfel.eu</e:entry>
+        <e:entry key="url">https://in.xfel.eu/metadata</e:entry>
+    </e:entries>
+    <e:entries key="Europeana APIs" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">api@europeana.eu</e:entry>
+        <e:entry key="url">https://pro.europeana.eu/resources/apis</e:entry>
+    </e:entries>
+    <e:entries key="Expandable Seafloor observatory" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@cdsarti.org</e:entry>
+        <e:entry key="url">https://obsea.es/</e:entry>
+    </e:entries>
+    <e:entries key="Extractor Resampler and Masking" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">cto@lifewatch.eu</e:entry>
+        <e:entry key="url">https://metadatacatalogue.lifewatch.eu/srv/eng/catalog.search#/metadata/4f9fd478-2fae-4c9e-a88b-7a448c920903</e:entry>
+    </e:entries>
+    <e:entries key="FAIRDOMHub" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">support@fair-dom.org</e:entry>
+        <e:entry key="url">https://fairdomhub.org/</e:entry>
+    </e:entries>
+    <e:entries key="FAIRsharing" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">contact@fairsharing.org</e:entry>
+        <e:entry key="url">https://fairsharing.org</e:entry>
+    </e:entries>
+    <e:entries key="FANTEN (Finding Anisotropy TENsor)" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">ravera@cerm.unifi.it</e:entry>
+        <e:entry key="url">http://abs.cerm.unifi.it:8080</e:entry>
+    </e:entries>
+    <e:entries key="FASTCAT-Cloud: Flexible AI SysTem for CAmera Trap images on the cloud" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@dynaikon.com</e:entry>
+        <e:entry key="url">https://service.fastcat-cloud.org/</e:entry>
+    </e:entries>
+    <e:entries key="FEPrepare" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">zcournia@bioacademy.gr</e:entry>
+        <e:entry key="url">https://feprepare.vi-seem.eu/</e:entry>
+    </e:entries>
+    <e:entries key="FINKI cloud" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">boro.jakimovski@finki.ukim.mk</e:entry>
+        <e:entry key="url">https://openstack.finki.ukim.mk/</e:entry>
+    </e:entries>
+    <e:entries key="Fairdata Services" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">servicedesk@csc.fi</e:entry>
+        <e:entry key="url">https://www.fairdata.fi/</e:entry>
+    </e:entries>
+    <e:entries key="Federated Earth System Simulation and Data Processing Platform" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">contact@c-scale.eu</e:entry>
+        <e:entry key="url">https://c-scale.eu/fedearthdata/</e:entry>
+    </e:entries>
+    <e:entries key="Figshare" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">tudor@figshare.com</e:entry>
+        <e:entry key="url">https://knowledge.figshare.com/institutions</e:entry>
+    </e:entries>
+    <e:entries key="FinisTerrae" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@cesga.es</e:entry>
+        <e:entry key="url">https://www.cesga.es/en/infrastructures/computing/</e:entry>
+    </e:entries>
+    <e:entries key="Fisheries Atlas VLab" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">Anton.Ellenbroek@fao.org</e:entry>
+        <e:entry key="url">https://blue-cloud.d4science.org/web/fisheriesatlas/</e:entry>
+    </e:entries>
+    <e:entries key="Flemish Research Information Space" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">fris-tech@vlaanderen.be</e:entry>
+        <e:entry key="url">https://researchportal.be/en</e:entry>
+    </e:entries>
+    <e:entries key="GBIF NIS Verifier" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">cto@lifewatch.eu</e:entry>
+        <e:entry key="url">https://metadatacatalogue.lifewatch.eu/srv/eng/catalog.search#/metadata/5aacde7d-3698-4f23-a2d6-73e4d66fb48a</e:entry>
+    </e:entries>
+    <e:entries key="GBIF Portugal Occurrence Records" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">node@gbif.pt</e:entry>
+        <e:entry key="url">https://registos.gbif.pt</e:entry>
+    </e:entries>
+    <e:entries key="GBIF Spain Collections Registry" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">support@gbif.es</e:entry>
+        <e:entry key="url">https://colecciones.gbif.es/?lang=en</e:entry>
+    </e:entries>
+    <e:entries key="GBIF Spain Images Portal" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">support@gbif.es</e:entry>
+        <e:entry key="url">https://imagenes.gbif.es</e:entry>
+    </e:entries>
+    <e:entries key="GBIF Spain Occurrence Records" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">support@gbif.es</e:entry>
+        <e:entry key="url">https://registros.gbif.es</e:entry>
+    </e:entries>
+    <e:entries key="GBIF Spain Regions module" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">support@gbif.es</e:entry>
+        <e:entry key="url">https://regiones.gbif.es</e:entry>
+    </e:entries>
+    <e:entries key="GBIF Spain Spatial Portal" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@gbif.es</e:entry>
+        <e:entry key="url">https://espacial.gbif.es</e:entry>
+    </e:entries>
+    <e:entries key="GBIF Spain Species Portal" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">support@gbif.es</e:entry>
+        <e:entry key="url">https://especies.gbif.es</e:entry>
+    </e:entries>
+    <e:entries key="GBIF Species Occurrence Data" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@gbif.org</e:entry>
+        <e:entry key="url">https://www.gbif.org</e:entry>
+    </e:entries>
+    <e:entries key="GCloud.ge" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">tamara@grena.ge</e:entry>
+        <e:entry key="url">https://www.gcloud.ge/</e:entry>
+    </e:entries>
+    <e:entries key="GEO Discovery and Access Broker" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">mattia.santoro@cnr.it,paolo.mazzetti@cnr.it</e:entry>
+        <e:entry key="url">http://www.geodab.net</e:entry>
+    </e:entries>
+    <e:entries key="GPU Grant Program for scientific research projects and prospective startups" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">dasafyev@hostkey.com</e:entry>
+        <e:entry key="url">https://hostkey.com/about-us/grants-for-scientific-projects-and-startups/</e:entry>
+    </e:entries>
+    <e:entries key="Gaussian API" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">bojana.koteska@finki.ukim.mk</e:entry>
+        <e:entry key="url">https://gaussian.chem-api.finki.ukim.mk/</e:entry>
+    </e:entries>
+    <e:entries key="Geohazards Exploitation Platform (GEP)" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">contact@geohazards-tep.eu</e:entry>
+        <e:entry key="url">https://geohazards-tep.eu/</e:entry>
+    </e:entries>
+    <e:entries key="Global Record of Stocks and Fisheries" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">aureliano.gentile@fao.org</e:entry>
+        <e:entry key="url">https://blue-cloud.d4science.org/web/grsf</e:entry>
+    </e:entries>
+    <e:entries key="GoTriple Discovery platform" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">triple@operas-eu.org</e:entry>
+        <e:entry key="url">https://www.gotriple.eu</e:entry>
+    </e:entries>
+    <e:entries key="Greek Sustainable Development Solutions Network (SDSN) OpenAIRE Community Gateway" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@openaire.eu</e:entry>
+        <e:entry key="url">https://sdsn-gr.openaire.eu/</e:entry>
+    </e:entries>
+    <e:entries key="Guardomic" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">guardomic@komanord.pl</e:entry>
+        <e:entry key="url">https://guardomic.eu</e:entry>
+    </e:entries>
+    <e:entries key="GÉANT IP" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">EOSC-enquiries@geant.org</e:entry>
+        <e:entry key="url">https://network.geant.org/geant_ip/</e:entry>
+    </e:entries>
+    <e:entries key="GÉANT L3VPN" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">EOSC-enquiries@geant.org</e:entry>
+        <e:entry key="url">https://network.geant.org/vpn-services/</e:entry>
+    </e:entries>
+    <e:entries key="GÉANT Managed Wavelength Service" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">EOSC-enquiries@geant.org</e:entry>
+        <e:entry key="url">https://network.geant.org/geant-point-to-point/</e:entry>
+    </e:entries>
+    <e:entries key="GÉANT Open" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">EOSC-enquiries@geant.org</e:entry>
+        <e:entry key="url">https://network.geant.org/geant_open/</e:entry>
+    </e:entries>
+    <e:entries key="GÉANT Plus" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">EOSC-enquiries@geant.org</e:entry>
+        <e:entry key="url">https://network.geant.org/geant-point-to-point/</e:entry>
+    </e:entries>
+    <e:entries key="HADDOCK2.4 web portal" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">haddock.support@gmail.com</e:entry>
+        <e:entry key="url">https://wenmr.science.uu.nl/haddock2.4/</e:entry>
+    </e:entries>
+    <e:entries key="Hackathon Manager" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">hackathon-manager@bifi.es</e:entry>
+        <e:entry key="url">https://hackathon-manager.bifi.es</e:entry>
+    </e:entries>
+    <e:entries key="IEREK Press" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@ierek.com</e:entry>
+        <e:entry key="url">https://press.ierek.com/index.php/ESSD</e:entry>
+    </e:entries>
+    <e:entries key="IFCA-CSIC Cloud Infrastructure" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">cloud.admin@ifca.unican.es</e:entry>
+        <e:entry key="url">http://confluence.ifca.es/display/IC/Cloud+Computing</e:entry>
+    </e:entries>
+    <e:entries key="ILL Data Portal" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">eosc@ill.eu</e:entry>
+        <e:entry key="url">https://data.ill.fr</e:entry>
+    </e:entries>
+    <e:entries key="INFN-Cloud Object Storage Service for DICE" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">cloud-support@infn.it</e:entry>
+        <e:entry key="url">https://www.cloud.infn.it/infn-cloud-object-storage-for-dice/</e:entry>
+    </e:entries>
+    <e:entries key="INFRA-ART Spectral Library" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">ioana.cortea@inoe.ro</e:entry>
+        <e:entry key="url">https://infraart.inoe.ro/</e:entry>
+    </e:entries>
+    <e:entries key="INFRAFRONTIER Training in mouse functional genomics" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@infrafrontier.eu</e:entry>
+        <e:entry key="url">https://www.infrafrontier.eu/training-events/</e:entry>
+    </e:entries>
+    <e:entries key="INODE Open Data Dialog" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">inode@sirisacademic.com</e:entry>
+        <e:entry key="url">https://www.inode-project.eu/opendatadialog/</e:entry>
+    </e:entries>
+    <e:entries key="IRP2" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">feedback@ehri-project.eu</e:entry>
+        <e:entry key="url">https://irp2.ehri-project.eu/</e:entry>
+    </e:entries>
+    <e:entries key="ISIDORE" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">isidore@huma-num.fr</e:entry>
+        <e:entry key="url">https://isidore.science</e:entry>
+    </e:entries>
+    <e:entries key="ISIS Data Analysis as a Service" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">supportanalysis@stfc.ac.uk</e:entry>
+        <e:entry key="url">https://isis.analysis.stfc.ac.uk/</e:entry>
+    </e:entries>
+    <e:entries key="ISTI Open Portal" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">openportal@isti.cnr.it</e:entry>
+        <e:entry key="url">https://openportal.isti.cnr.it/</e:entry>
+    </e:entries>
+    <e:entries key="ITOAC" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">support@puhuri.io</e:entry>
+        <e:entry key="url">https://share.neic.no/marketplace-public-offering/66ec50d41a9140f381774dcf233bc638/</e:entry>
+    </e:entries>
+    <e:entries key="Identifiers.org" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@ebi.ac.uk</e:entry>
+        <e:entry key="url">https://identifiers.org</e:entry>
+    </e:entries>
+    <e:entries key="Identifiers.org Central Registry" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@ebi.ac.uk</e:entry>
+        <e:entry key="url">https://identifiers.org/</e:entry>
+    </e:entries>
+    <e:entries key="Identifiers.org Resolution Services" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@ebi.ac.uk</e:entry>
+        <e:entry key="url">https://identifiers.org/</e:entry>
+    </e:entries>
+    <e:entries key="Imaging AI platform for aquatic science" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">imagine-ai-platform-support@mailman.egi.eu</e:entry>
+        <e:entry key="url">https://www.imagine-ai.eu/services/imagine-ai-platform/</e:entry>
+    </e:entries>
+    <e:entries key="In-service Aircraft for a Global Observing System Data Portal" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">iagos-dc@iagos.org</e:entry>
+        <e:entry key="url">https://iagos.aeris-data.fr/</e:entry>
+    </e:entries>
+    <e:entries key="InAcademia" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@inacademia.org</e:entry>
+        <e:entry key="url">https://inacademia.org/</e:entry>
+    </e:entries>
+    <e:entries key="Ingredio Application" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">zcournia@bioacademy.gr</e:entry>
+        <e:entry key="url">https://ingredio.ni4os.eu/</e:entry>
+    </e:entries>
+    <e:entries key="Integrated Carbon Observation System Data Portal" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@icos-cp.eu</e:entry>
+        <e:entry key="url">https://data.icos-cp.eu/portal/</e:entry>
+    </e:entries>
+    <e:entries key="Integrated Carbon Observation System Data Portal" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@icos-cp.eu</e:entry>
+        <e:entry key="url">https://data.icos-cp.eu/portal/</e:entry>
+    </e:entries>
+    <e:entries key="Italian SuperComputing Resource Allocation - ISCRA" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">iscra@cineca.it</e:entry>
+        <e:entry key="url">https://www.hpc.cineca.it/services/iscra</e:entry>
+    </e:entries>
+    <e:entries key="Jupyter Hub" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@d4science.org</e:entry>
+        <e:entry key="url">https://blue-cloud.d4science.org/web/blue-cloudlab</e:entry>
+    </e:entries>
+    <e:entries key="Jupyter Notebook can be used to create and share documents that contain live code, equations, visualizations, and text." xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">jupyter@esrf.fr</e:entry>
+        <e:entry key="url">https://confluence.esrf.fr/display/SWGWK/Jupyter+@+ESRF</e:entry>
+    </e:entries>
+    <e:entries key="KER - Keyword Extractor" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">lindat-help@ufal.mff.cuni.cz</e:entry>
+        <e:entry key="url">http://lindat.mff.cuni.cz/services/ker/</e:entry>
+    </e:entries>
+    <e:entries key="KU Leuven RDR" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">rdm@kuleuven.be</e:entry>
+        <e:entry key="url">https://rdr.kuleuven.be/</e:entry>
+    </e:entries>
+    <e:entries key="Kuha2 metadata server" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">fsd@tuni.fi</e:entry>
+        <e:entry key="url">https://www.fsd.tuni.fi/en/data-archive/publications/open-source-software-by-fsd/#kuha2</e:entry>
+    </e:entries>
+    <e:entries key="LEveraging Academic Equipment for New Explorations" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">vrettos@mail.ntua.gr</e:entry>
+        <e:entry key="url">https://cloud.ntua.gr</e:entry>
+    </e:entries>
+    <e:entries key="LIBNOVA LABDRIVE: The Ultimate Research Data Management and Digital Preservation Platform" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">contact@libnova.com</e:entry>
+        <e:entry key="url">https://www.libnova.com/</e:entry>
+    </e:entries>
+    <e:entries key="LINDAT/CLARIAH-CZ Repository for Language Technologies, Arts and Humanities" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">hajic@ufal.mff.cuni.cz</e:entry>
+        <e:entry key="url">https://lindat.cz/faq-repository</e:entry>
+    </e:entries>
+    <e:entries key="LINDAT/CLARIAH-CZ Repository for Language Technologies, Arts and Humanities" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">hajic@ufal.mff.cuni.cz</e:entry>
+        <e:entry key="url">https://lindat.cz/faq-repository</e:entry>
+    </e:entries>
+    <e:entries key="LOFAR Science Processing" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">sdc-helpdesk@astron.nl</e:entry>
+        <e:entry key="url">https://science.astron.nl/telescopes/lofar/observing-with-lofar/regular-proposals/instructions/#PILOTLINCPROJECT</e:entry>
+    </e:entries>
+    <e:entries key="Lagunas de Sierra Nevada / Glacier Lagoons of Sierra Nevada" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@ugr.es</e:entry>
+        <e:entry key="url">https://lagunasdesierranevada.es</e:entry>
+    </e:entries>
+    <e:entries key="Language Health Centre - LHC" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">languagehealthcentreinfo@sussex.ac.uk</e:entry>
+        <e:entry key="url">https://g58ed1f1becdf0d-hatehubdb.adb.uk-london-1.oraclecloudapps.com/ords/r/lang_health_alpha/language-health-centre/</e:entry>
+    </e:entries>
+    <e:entries key="Language Resource Switchboard" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">switchboard@clarin.eu</e:entry>
+        <e:entry key="url">http://switchboard.clarin.eu/</e:entry>
+    </e:entries>
+    <e:entries key="Laniakea@ReCaS" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@elixir-italy.org</e:entry>
+        <e:entry key="url">https://laniakea-elixir-it.github.io/</e:entry>
+    </e:entries>
+    <e:entries key="Latent Space Explorer" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">thomas.cecconello@unimib.it</e:entry>
+        <e:entry key="url">https://lse.neanias.eu/</e:entry>
+    </e:entries>
+    <e:entries key="Leuven Institutional Repository and Information Archiving System(LIRIAS)" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">lirias@kuleuven.be</e:entry>
+        <e:entry key="url">https://research.kuleuven.be/en/lirias</e:entry>
+    </e:entries>
+    <e:entries key="LiDA Dataverse Collection of the Survey Data" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">giedrius.zvaliauskas@ktu.lt</e:entry>
+        <e:entry key="url">https://lida.dataverse.lt/dataverse/SurveyData</e:entry>
+    </e:entries>
+    <e:entries key="License Clearance Tool (LCT)" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@athenarc.gr</e:entry>
+        <e:entry key="url">https://lct.ni4os.eu</e:entry>
+    </e:entries>
+    <e:entries key="MEI Generator" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">oclab@cmcc.it</e:entry>
+        <e:entry key="url">https://blue-cloud.d4science.org/web/marineenvironmentalindicators/</e:entry>
+    </e:entries>
+    <e:entries key="MICS: Measuring the impact of citizen science" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">lceccaroni@earthwatch.org.uk</e:entry>
+        <e:entry key="url">https://mics.tools/</e:entry>
+    </e:entries>
+    <e:entries key="MOBIS - Mobile observation integration service" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">norbert@pocket.science</e:entry>
+        <e:entry key="url">https://pocket.science/products/mobis</e:entry>
+    </e:entries>
+    <e:entries key="MOLGENIS" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">molgenis-support@umcg.nl</e:entry>
+        <e:entry key="url">http://www.molgenis.org</e:entry>
+    </e:entries>
+    <e:entries key="Machine Translation" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">lindat-help@ufal.mff.cuni.cz</e:entry>
+        <e:entry key="url">https://lindat.mff.cuni.cz/services/translation/</e:entry>
+    </e:entries>
+    <e:entries key="Marine Data Viewer displaying in-situ measurements of essential ocean variables co-located with model and satellite products" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">tjerk@maris.nl,dick@maris.nl</e:entry>
+        <e:entry key="url">https://eosc-future.maris.nl/</e:entry>
+    </e:entries>
+    <e:entries key="Marine Environmental Indicators VLab" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">massimiliano.drudi@cmcc.it</e:entry>
+        <e:entry key="url">https://blue-cloud.d4science.org/web/marineenvironmentalindicators</e:entry>
+    </e:entries>
+    <e:entries key="Maritime Engineering Laboratory" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info.lim@upc.edu</e:entry>
+        <e:entry key="url">https://serveiscientificotecnics.upc.edu/en/infrastructures/sustainability-environment/maritime-engineering-laboratory-lim</e:entry>
+    </e:entries>
+    <e:entries key="Materials Cloud Archive" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">archive@materialscloud.org</e:entry>
+        <e:entry key="url">https://archive.materialscloud.org</e:entry>
+    </e:entries>
+    <e:entries key="MetaCentrum Cloud" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@cesnet.cz</e:entry>
+        <e:entry key="url">https://cloud2.metacentrum.cz/</e:entry>
+    </e:entries>
+    <e:entries key="Metabarcoding Occurrence Intersector" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">cto@lifewatch.eu</e:entry>
+        <e:entry key="url">https://metadatacatalogue.lifewatch.eu/srv/eng/catalog.search#/metadata/ddf9cb0c-7655-4930-8501-c11f4e233677</e:entry>
+    </e:entries>
+    <e:entries key="Metabarcoding Runner" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">cto@lifewatch.eu</e:entry>
+        <e:entry key="url">https://metadatacatalogue.lifewatch.eu/srv/eng/catalog.search#/metadata/7ff0c9ec-ce98-4e20-a316-b8b97fec0759</e:entry>
+    </e:entries>
+    <e:entries key="MetalPDB: a database of metal-binding sites in 3D structures of biological macromolecules" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">andreini@cerm.unifi.it</e:entry>
+        <e:entry key="url">http://metalpdb.cerm.unifi.it/</e:entry>
+    </e:entries>
+    <e:entries key="Modelling Service for Water Supply Systems" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">mswss-admin@slovakgrid.sk</e:entry>
+        <e:entry key="url">https://mswss.ui.savba.sk</e:entry>
+    </e:entries>
+    <e:entries key="Modelling phyto &amp; zoo –plankton interactions" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@blue-cloud.org</e:entry>
+        <e:entry key="url">https://blue-cloud.d4science.org/web/zoo-phytoplankton_eov</e:entry>
+    </e:entries>
+    <e:entries key="MorphoDiTa" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">lindat-help@ufal.mff.cuni.cz</e:entry>
+        <e:entry key="url">http://lindat.mff.cuni.cz/services/morphodita/</e:entry>
+    </e:entries>
+    <e:entries key="Most Wiedzy Open Research Data Catalog" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">open-data@pg.edu.pl</e:entry>
+        <e:entry key="url">https://mostwiedzy.pl</e:entry>
+    </e:entries>
+    <e:entries key="Multi-Messenger Online Data Analysis (MMODA)" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">help-desk@odahub.io</e:entry>
+        <e:entry key="url">https://www.astro.unige.ch/mmoda/</e:entry>
+    </e:entries>
+    <e:entries key="Multilingual Corpus of Survey Questionnaires" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">diana.zavala@upf.edu</e:entry>
+        <e:entry key="url">https://www.upf.edu/web/mcsq/</e:entry>
+    </e:entries>
+    <e:entries key="Multiscale Science and Engineering Research Center" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">josep.lluis.tamarit@upc.edu</e:entry>
+        <e:entry key="url">https://multiscale.upc.edu/en</e:entry>
+    </e:entries>
+    <e:entries key="NEw PHilosophy Of Service-orchestration" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">vrettos@ekt.gr</e:entry>
+        <e:entry key="url">https://nephos.ekt.gr/</e:entry>
+    </e:entries>
+    <e:entries key="NI4OS-Europe Login" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">faai@grnet.gr</e:entry>
+        <e:entry key="url">https://aai.ni4os.eu/</e:entry>
+    </e:entries>
+    <e:entries key="NI4OS-Europe repository service" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">themis@admin.grnet.gr</e:entry>
+        <e:entry key="url">https://repo.ni4os.eu/</e:entry>
+    </e:entries>
+    <e:entries key="NOMAD" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">fairmat@physik.hu-berlin.de</e:entry>
+        <e:entry key="url">https://nomad-lab.eu/</e:entry>
+    </e:entries>
+    <e:entries key="NameTag" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">lindat-help@ufal.mff.cuni.cz</e:entry>
+        <e:entry key="url">http://lindat.mff.cuni.cz/services/nametag/</e:entry>
+    </e:entries>
+    <e:entries key="NanoCrystal" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">zcournia@bioacademy.gr</e:entry>
+        <e:entry key="url">https://nanocrystal.vi-seem.eu/</e:entry>
+    </e:entries>
+    <e:entries key="Neuroinformatics OpenAIRE Community Gateway" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@openaire.eu</e:entry>
+        <e:entry key="url">https://ni.openaire.eu/</e:entry>
+    </e:entries>
+    <e:entries key="NiMMBus: Geospatial User Feedback" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">contacte@creaf.uab.cat</e:entry>
+        <e:entry key="url">https://www.nimmbus.cat/</e:entry>
+    </e:entries>
+    <e:entries key="Nivola" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">international@csi.it</e:entry>
+        <e:entry key="url">https://www.nivolapiemonte.it/</e:entry>
+    </e:entries>
+    <e:entries key="Nuvla.io B2B SaaS edge-to-cloud management platform and marketplace of business applications" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@sixsq.com</e:entry>
+        <e:entry key="url">https://sixsq.com</e:entry>
+    </e:entries>
+    <e:entries key="O3as: ozone assessment" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">o3as-support@lists.kit.edu</e:entry>
+        <e:entry key="url">https://o3as.data.kit.edu</e:entry>
+    </e:entries>
+    <e:entries key="OCRE Cloud Service by Google Cloud Compute" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">clouds@geant.org</e:entry>
+        <e:entry key="url">https://clouds.geant.org/ocre/gcp/</e:entry>
+    </e:entries>
+    <e:entries key="OCRE Cloud Services By CSI Piemonte" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">clouds@geant.org</e:entry>
+        <e:entry key="url">https://clouds.geant.org/ocre/csi-piemonte/</e:entry>
+    </e:entries>
+    <e:entries key="OCRE Cloud Services by 100 Percent IT" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">clouds@geant.org</e:entry>
+        <e:entry key="url">https://clouds.geant.org/ocre/national/100-percent-it-ltd-uk-only/</e:entry>
+    </e:entries>
+    <e:entries key="OCRE Cloud Services by Amazon Web Services" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">eosc@geant.org</e:entry>
+        <e:entry key="url">https://clouds.geant.org/ocre/aws/</e:entry>
+    </e:entries>
+    <e:entries key="OCRE Cloud Services by Cloud and Heat" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">clouds@geant.org</e:entry>
+        <e:entry key="url">https://www.cloudandheat.com/</e:entry>
+    </e:entries>
+    <e:entries key="OCRE Cloud Services by CloudFerro" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">sales@cloudferro.com</e:entry>
+        <e:entry key="url">https://clouds.geant.org/ocre/cloudferro/</e:entry>
+    </e:entries>
+    <e:entries key="OCRE Cloud Services by CloudSigma" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">clouds@geant.org</e:entry>
+        <e:entry key="url">https://clouds.geant.org/ocre/cloudsigma/</e:entry>
+    </e:entries>
+    <e:entries key="OCRE Cloud Services by Comtrade" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">clouds@geant.org</e:entry>
+        <e:entry key="url">https://clouds.geant.org/ocre/comtrade/</e:entry>
+    </e:entries>
+    <e:entries key="OCRE Cloud Services by EXOSCALE" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">clouds@geant.org</e:entry>
+        <e:entry key="url">https://clouds.geant.org/ocre/exoscale/</e:entry>
+    </e:entries>
+    <e:entries key="OCRE Cloud Services by Equinix" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">clouds@geant.org</e:entry>
+        <e:entry key="url">https://www.equinix.nl/services/managed-services/netherlands</e:entry>
+    </e:entries>
+    <e:entries key="OCRE Cloud Services by IBM" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">clouds@geant.org</e:entry>
+        <e:entry key="url">https://clouds.geant.org/ocre/ibm/</e:entry>
+    </e:entries>
+    <e:entries key="OCRE Cloud Services by IONOS" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">clouds@geant.org</e:entry>
+        <e:entry key="url">https://clouds.geant.org/ocre/ionos/</e:entry>
+    </e:entries>
+    <e:entries key="OCRE Cloud Services by OVHcloud" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">clouds@geant.org</e:entry>
+        <e:entry key="url">https://clouds.geant.org/ocre/ovhcloud/</e:entry>
+    </e:entries>
+    <e:entries key="OCRE Cloud Services by Oracle" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">eosc@geant.org</e:entry>
+        <e:entry key="url">https://clouds.geant.org/ocre/oracle/</e:entry>
+    </e:entries>
+    <e:entries key="OCRE Cloud Services by Orange Business Services" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">esoc@geant.org</e:entry>
+        <e:entry key="url">https://clouds.geant.org/ocre/orange/</e:entry>
+    </e:entries>
+    <e:entries key="OCRE Cloud Services by PROACT" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">clouds@geant.org</e:entry>
+        <e:entry key="url">https://clouds.geant.org/ocre/proact/</e:entry>
+    </e:entries>
+    <e:entries key="OCRE Cloud Services by Posita" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">clouds@geant.org</e:entry>
+        <e:entry key="url">https://www.posita.si/ocre/</e:entry>
+    </e:entries>
+    <e:entries key="OCRE Cloud Services by SCC" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">clouds@geant.org</e:entry>
+        <e:entry key="url">https://france.scc.com/</e:entry>
+    </e:entries>
+    <e:entries key="OCRE Cloud Services by Sentia" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">clouds@geant.org</e:entry>
+        <e:entry key="url">https://clouds.geant.org/geant-cloud-catalogue/geant-cloud-catalogue-ocre/</e:entry>
+    </e:entries>
+    <e:entries key="OCRE Cloud Services by Setcor" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">clouds@geant.org</e:entry>
+        <e:entry key="url">https://clouds.geant.org/ocre/setcor/</e:entry>
+    </e:entries>
+    <e:entries key="OCRE Cloud Services by T-Systems" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">clouds@geant.org</e:entry>
+        <e:entry key="url">https://clouds.geant.org/ocre/t-systems/</e:entry>
+    </e:entries>
+    <e:entries key="OCRE Cloud Services by Vancis" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">clouds@geant.org</e:entry>
+        <e:entry key="url">https://clouds.geant.org/geant-cloud-catalogue/geant-cloud-catalogue-ocre/</e:entry>
+    </e:entries>
+    <e:entries key="OCRE Cloud Services by x-ion" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">clouds@geant.org</e:entry>
+        <e:entry key="url">https://www.x-ion.de/</e:entry>
+    </e:entries>
+    <e:entries key="OCRE Cloud Services from Microsoft Azure" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">clouds@geant.org</e:entry>
+        <e:entry key="url">https://clouds.geant.org/ocre/azure/</e:entry>
+    </e:entries>
+    <e:entries key="OCRE Services by Cleura" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">clouds@geant.org</e:entry>
+        <e:entry key="url">https://clouds.geant.org/ocre/cleura/</e:entry>
+    </e:entries>
+    <e:entries key="OLOS Swiss" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@olos.swiss</e:entry>
+        <e:entry key="url">https://olos.swiss/</e:entry>
+    </e:entries>
+    <e:entries key="OPENCoastS Portal" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">aoliveira@lnec.pt</e:entry>
+        <e:entry key="url">https://opencoasts.ncg.ingrid.pt/</e:entry>
+    </e:entries>
+    <e:entries key="OPERAS Metrics service" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@operas.org</e:entry>
+        <e:entry key="url">https://metrics.operas-eu.org/</e:entry>
+    </e:entries>
+    <e:entries key="OPERAS Research for Society (Hypotheses)" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@openedition.org</e:entry>
+        <e:entry key="url">https://hypotheses.org/</e:entry>
+    </e:entries>
+    <e:entries key="Occurrences DataCube Analyst" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">cto@lifewatch.eu</e:entry>
+        <e:entry key="url">https://metadatacatalogue.lifewatch.eu/srv/eng/catalog.search#/metadata/6488446b-9445-491d-b2b5-84c88aae4ce2</e:entry>
+    </e:entries>
+    <e:entries key="Occurrences DataCube Builder" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">cto@lifewatch.eu</e:entry>
+        <e:entry key="url">https://metadatacatalogue.lifewatch.eu/srv/eng/catalog.search#/metadata/18f2431e-dcbe-4231-81ce-dfcabaedd761</e:entry>
+    </e:entries>
+    <e:entries key="OceanPatterns notebooks" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">kevin.balem@ifremer.fr</e:entry>
+        <e:entry key="url">https://blue-cloud.d4science.org/web/marineenvironmentalindicators/</e:entry>
+    </e:entries>
+    <e:entries key="OceanRegimes notebooks" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">kevin.balem@ifremer.fr</e:entry>
+        <e:entry key="url">https://blue-cloud.d4science.org/web/marineenvironmentalindicators/</e:entry>
+    </e:entries>
+    <e:entries key="Oceanographic buoy Vida" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">vlado.malacic@nib.si</e:entry>
+        <e:entry key="url">https://www.nib.si/mbp/en/oceanographic-data-and-measurements</e:entry>
+    </e:entries>
+    <e:entries key="OneDataSim" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">lago-eosc@lagoproject.net</e:entry>
+        <e:entry key="url">https://github.com/lagoproject/onedataSim</e:entry>
+    </e:entries>
+    <e:entries key="Open Energy Platform" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">datenzentrum@rl-institut.de</e:entry>
+        <e:entry key="url">https://openenergy-platform.org/</e:entry>
+    </e:entries>
+    <e:entries key="Open Knowledge Maps" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@openknowledgemaps.org</e:entry>
+        <e:entry key="url">https://openknowledgemaps.org</e:entry>
+    </e:entries>
+    <e:entries key="Open Research Knowledge Graph" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@orkg.org</e:entry>
+        <e:entry key="url">https://orkg.org</e:entry>
+    </e:entries>
+    <e:entries key="Open Science Helpdesk" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@openaire.eu</e:entry>
+        <e:entry key="url">https://openaire.eu/helpdesk</e:entry>
+    </e:entries>
+    <e:entries key="Open Science Observatory" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@openaire.eu</e:entry>
+        <e:entry key="url">https://osobservatory.openaire.eu/home</e:entry>
+    </e:entries>
+    <e:entries key="Open Science Training" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">s.venkataraman@openaire.eu</e:entry>
+        <e:entry key="url">https://www.openaire.eu/online-courses</e:entry>
+    </e:entries>
+    <e:entries key="Open Telekom Cloud" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@t-systems.com</e:entry>
+        <e:entry key="url">https://open-telekom-cloud.com/en</e:entry>
+    </e:entries>
+    <e:entries key="Open-source Scientific Software and Service Repository" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">kay.graf@fau.de</e:entry>
+        <e:entry key="url">https://projectescape.eu/services/open-source-scientific-software-and-service-repository-ossr</e:entry>
+    </e:entries>
+    <e:entries key="Open-source Serverless Computing for Data-Processing Applications (OSCAR)" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">products@grycap.upv.es</e:entry>
+        <e:entry key="url">https://oscar.grycap.net</e:entry>
+    </e:entries>
+    <e:entries key="OpenAIRE Broker" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@openaire.eu</e:entry>
+        <e:entry key="url">https://provide.openaire.eu</e:entry>
+    </e:entries>
+    <e:entries key="OpenAIRE CONNECT" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@openaire.eu</e:entry>
+        <e:entry key="url">https://connect.openaire.eu/</e:entry>
+    </e:entries>
+    <e:entries key="OpenAIRE Content Provider Dashboard" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@openaire.eu</e:entry>
+        <e:entry key="url">https://provide.openaire.eu</e:entry>
+    </e:entries>
+    <e:entries key="OpenAIRE Explore Portal" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@openaire.eu</e:entry>
+        <e:entry key="url">https://explore.openaire.eu</e:entry>
+    </e:entries>
+    <e:entries key="OpenAIRE Funder Dashboard" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">helpdesk@openaire.eu</e:entry>
+        <e:entry key="url">https://monitor.openaire.eu/</e:entry>
+    </e:entries>
+    <e:entries key="OpenAIRE Graph Access API" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@openaire.eu</e:entry>
+        <e:entry key="url">http://api.openaire.eu</e:entry>
+    </e:entries>
+    <e:entries key="OpenAIRE Login" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@openaire.eu</e:entry>
+        <e:entry key="url">https://openaire.github.io/login-docs/</e:entry>
+    </e:entries>
+    <e:entries key="OpenAIRE Mining Service" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@openaire.eu</e:entry>
+        <e:entry key="url">http://catalogue.openaire.eu/service/openaire.openaire_inference_</e:entry>
+    </e:entries>
+    <e:entries key="OpenAIRE ScholeXplorer" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@openaire.eu</e:entry>
+        <e:entry key="url">http://scholexplorer.openaire.eu</e:entry>
+    </e:entries>
+    <e:entries key="OpenAIRE Usage Counts" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@openaire.eu</e:entry>
+        <e:entry key="url">http://usagecounts.openaire.eu/</e:entry>
+    </e:entries>
+    <e:entries key="OpenAIRE Validator" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@openaire.eu</e:entry>
+        <e:entry key="url">https://provide.openaire.eu/home</e:entry>
+    </e:entries>
+    <e:entries key="OpenAPC" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">openapc@uni-bielefeld.de</e:entry>
+        <e:entry key="url">https://openapc.net</e:entry>
+    </e:entries>
+    <e:entries key="OpenBio.eu" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@openbio.eu</e:entry>
+        <e:entry key="url">https://www.openbio.eu</e:entry>
+    </e:entries>
+    <e:entries key="OpenCitations" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">contact@opencitations.net</e:entry>
+        <e:entry key="url">https://opencitations.net/</e:entry>
+    </e:entries>
+    <e:entries key="OpenEBench" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">openebench-support@bsc.es</e:entry>
+        <e:entry key="url">https://openebench.bsc.es/</e:entry>
+    </e:entries>
+    <e:entries key="OpenLab Drilling" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">post@norceresearch.no</e:entry>
+        <e:entry key="url">https://openlab.app/</e:entry>
+    </e:entries>
+    <e:entries key="OpenPlato" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@openaire.eu</e:entry>
+        <e:entry key="url">https://openplato.eu/</e:entry>
+    </e:entries>
+    <e:entries key="Orange Cloud Services - OCRE Flexible Engine" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">rob.heymann@orange.com</e:entry>
+        <e:entry key="url">https://clouds.geant.org/ocre/orange/</e:entry>
+    </e:entries>
+    <e:entries key="PANGAEA - Data Publisher for Earth &amp; Environmental Science" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@pangaea.de</e:entry>
+        <e:entry key="url">https://www.pangaea.de</e:entry>
+    </e:entries>
+    <e:entries key="PARADOX-IV cluster" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">dusan@ipb.ac.rs</e:entry>
+        <e:entry key="url">https://www.scl.rs/PARADOX_User_Guide/p4-user-guide.html</e:entry>
+    </e:entries>
+    <e:entries key="PDB-Tools web" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">software.csb@gmail.com</e:entry>
+        <e:entry key="url">https://wenmr.science.uu.nl/pdbtools/</e:entry>
+    </e:entries>
+    <e:entries key="PEMA Converter" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">cto@lifewatch.eu</e:entry>
+        <e:entry key="url">https://metadatacatalogue.lifewatch.eu/srv/eng/catalog.search#/metadata/b2424f84-1eba-4cb6-9798-f4275fd24a97</e:entry>
+    </e:entries>
+    <e:entries key="PEMA Runner" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">cto@lifewatch.eu</e:entry>
+        <e:entry key="url">https://metadatacatalogue.lifewatch.eu/srv/eng/catalog.search#/metadata/dec7b713-9757-4941-8632-a9ed73a2c4a1</e:entry>
+    </e:entries>
+    <e:entries key="PEMA Sequences Retriever" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">cto@lifewatch.eu</e:entry>
+        <e:entry key="url">https://metadatacatalogue.lifewatch.eu/srv/eng/catalog.search#/metadata/4d149fe6-5317-41c8-adde-f72e59d5511b</e:entry>
+    </e:entries>
+    <e:entries key="PRISM: Peer Review Information Service for Monographs" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@doabooks.org</e:entry>
+        <e:entry key="url">https://www.doabooks.org/en/librarians/prism</e:entry>
+    </e:entries>
+    <e:entries key="PROMINENCE" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@prominence.cloud</e:entry>
+        <e:entry key="url">https://prominence.cloud/</e:entry>
+    </e:entries>
+    <e:entries key="PSI Public Data Repository" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">helpdesk@psi.ch</e:entry>
+        <e:entry key="url">https://doi.psi.ch</e:entry>
+    </e:entries>
+    <e:entries key="PSI Remote Desktop Service" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">helpdesk@psi.ch</e:entry>
+        <e:entry key="url">https://www.psi.ch/en/photon-science-data-services/remote-interactive-access</e:entry>
+    </e:entries>
+    <e:entries key="PaN-Training Catalogue" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">pan-training@hzdr.de</e:entry>
+        <e:entry key="url">https://pan-training.eu</e:entry>
+    </e:entries>
+    <e:entries key="PanDrugs" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">bioinformatica@cnio.es</e:entry>
+        <e:entry key="url">https://www.pandrugs.org</e:entry>
+    </e:entries>
+    <e:entries key="Paris Astronomical Data Centre" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">direction.vo@obspm.fr</e:entry>
+        <e:entry key="url">https://padc.obspm.fr</e:entry>
+    </e:entries>
+    <e:entries key="Photon and Neutron Techniques Ontology Service" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">helpdesk@psi.ch</e:entry>
+        <e:entry key="url">https://pan-ontologies.psi.ch</e:entry>
+    </e:entries>
+    <e:entries key="Phytoplankton EOVs" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@blue-cloud.org</e:entry>
+        <e:entry key="url">https://blue-cloud.d4science.org/web/zoo-phytoplankton_eov</e:entry>
+    </e:entries>
+    <e:entries key="Piloting and co-design of Business Pilots" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">business@eosc-dih.eu,marcinp@man.poznan.pl,smitesh.jain@egi.eu</e:entry>
+        <e:entry key="url">https://eosc-dih.eu/</e:entry>
+    </e:entries>
+    <e:entries key="Pl@ntNet Identification Service" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">contact@plantnet-project.org</e:entry>
+        <e:entry key="url">https://my.plantnet.org/</e:entry>
+    </e:entries>
+    <e:entries key="Plankton Genomics VLab" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">pavla.debeljak@gmail.com</e:entry>
+        <e:entry key="url">https://blue-cloud.d4science.org/web/planktongenomics</e:entry>
+    </e:entries>
+    <e:entries key="PlutoF" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">support@puhuri.io</e:entry>
+        <e:entry key="url">https://share.neic.no/marketplace-public-offering/1dcc641e985d42f1876b9a664bf664ad/</e:entry>
+    </e:entries>
+    <e:entries key="Polaris OS" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">contact@mysciencework.com</e:entry>
+        <e:entry key="url">https://www.mysciencework.com/polaris-os</e:entry>
+    </e:entries>
+    <e:entries key="PowerFit web portal" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">wenmr.project@gmail.com</e:entry>
+        <e:entry key="url">https://alcazar.science.uu.nl/enmr/services/POWERFIT</e:entry>
+    </e:entries>
+    <e:entries key="PsychArchives" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">psycharchives-submission@leibniz-psychology.org</e:entry>
+        <e:entry key="url">https://www.psycharchives.org/</e:entry>
+    </e:entries>
+    <e:entries key="Publication and research data repository of the university and state library of Saxony Anhalt" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">roberto.cozatl@bibliothek.uni-halle.de</e:entry>
+        <e:entry key="url">https://opendata.uni-halle.de/</e:entry>
+    </e:entries>
+    <e:entries key="Publications at Bielefeld University" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">publikationsdienste.ub@uni-bielefeld.de</e:entry>
+        <e:entry key="url">https://pub.uni-bielefeld.de</e:entry>
+    </e:entries>
+    <e:entries key="Puhti supercomputer" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">servicedesk@csc.fi</e:entry>
+        <e:entry key="url">https://research.csc.fi/-/puhti</e:entry>
+    </e:entries>
+    <e:entries key="Pundit: a semantic powered web annotation service" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">pundit@netseven.it</e:entry>
+        <e:entry key="url">https://thepund.it/</e:entry>
+    </e:entries>
+    <e:entries key="Quetelet-Progedo-Diffusion" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@progedo.fr</e:entry>
+        <e:entry key="url">https://data.progedo.fr/</e:entry>
+    </e:entries>
+    <e:entries key="RADaR - Digital Repository of Archived Publications of the Institute for Biological Research" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">zorica.jankovic@ibiss.bg.ac.rs</e:entry>
+        <e:entry key="url">https://radar.ibiss.bg.ac.rs</e:entry>
+    </e:entries>
+    <e:entries key="RD-Connect GPAP" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">help@rd-connect.eu</e:entry>
+        <e:entry key="url">https://platform.rd-connect.eu/</e:entry>
+    </e:entries>
+    <e:entries key="RODBUK Cracow Open Research Data Repository" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">rodbuk-support@cyfronet.pl</e:entry>
+        <e:entry key="url">https://rodbuk.pl/</e:entry>
+    </e:entries>
+    <e:entries key="ROHub" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">rpalma@man.poznan.pl</e:entry>
+        <e:entry key="url">https://reliance.rohub.org/</e:entry>
+    </e:entries>
+    <e:entries key="RPrototypingLab Virtual Research Environment" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@d4science.org,pasquale.pagano@d4science.org</e:entry>
+        <e:entry key="url">https://services.d4science.org/web/rprototypinglab</e:entry>
+    </e:entries>
+    <e:entries key="RStudio" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@d4science.org</e:entry>
+        <e:entry key="url">https://blue-cloud.d4science.org/web/blue-cloudlab</e:entry>
+    </e:entries>
+    <e:entries key="Rahti Container Cloud" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">servicedesk@csc.fi</e:entry>
+        <e:entry key="url">https://research.csc.fi/rahti</e:entry>
+    </e:entries>
+    <e:entries key="RePol - Repository Policy Generator" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">repol@rcub.bg.ac.rs</e:entry>
+        <e:entry key="url">https://repol.ni4os.eu/</e:entry>
+    </e:entries>
+    <e:entries key="Recommendation API" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">helpdesk.reliance@expert.ai</e:entry>
+        <e:entry key="url">https://reliance.expertcustomers.ai</e:entry>
+    </e:entries>
+    <e:entries key="Reduce and Visualize Gene Ontology" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">smuc@irb.hr</e:entry>
+        <e:entry key="url">http://revigo.irb.hr</e:entry>
+    </e:entries>
+    <e:entries key="Repository of Psychological Instruments in Serbian" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">lira@f.bg.ac.rs</e:entry>
+        <e:entry key="url">https://www.repopsi.f.bg.ac.rs/en/</e:entry>
+    </e:entries>
+    <e:entries key="Research Data Unipd" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">segreteria@cab.unipd.it</e:entry>
+        <e:entry key="url">https://researchdata.cab.unipd.it/</e:entry>
+    </e:entries>
+    <e:entries key="Research Organization Registry (ROR)" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@ror.org</e:entry>
+        <e:entry key="url">https://ror.org</e:entry>
+    </e:entries>
+    <e:entries key="RvLab Runner" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">cto@lifewatch.eu</e:entry>
+        <e:entry key="url">https://metadatacatalogue.lifewatch.eu/srv/eng/catalog.search#/metadata/818b1740-8da1-4959-b2c0-bb38340227fd</e:entry>
+    </e:entries>
+    <e:entries key="RvLab VRE" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">cpavloud@hcmr.gr</e:entry>
+        <e:entry key="url">https://rvlab.portal.lifewatchgreece.eu/</e:entry>
+    </e:entries>
+    <e:entries key="SAPS: Surface Energy Balance Automated Processing Service" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">iblanque@dsic.upv.es</e:entry>
+        <e:entry key="url">https://www.eosc-synergy.eu/thematic-services/saps/</e:entry>
+    </e:entries>
+    <e:entries key="SCIGNE Cloud Compute" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">scigne@iphc.cnrs.fr</e:entry>
+        <e:entry key="url">https://grand-est.fr/en/services/on-demand-servers-and-containers/</e:entry>
+    </e:entries>
+    <e:entries key="SIMBAD" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">cds-question@unistra.fr</e:entry>
+        <e:entry key="url">https://simbad.cds.unistra.fr/simbad/</e:entry>
+    </e:entries>
+    <e:entries key="SIOS data discovery and access portal" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">director@sios-svalbard.org</e:entry>
+        <e:entry key="url">https://sios-svalbard.org/metsis/search</e:entry>
+    </e:entries>
+    <e:entries key="SPACE-VIS ViaLactea Service" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">eva.sciacca@inaf.it</e:entry>
+        <e:entry key="url">https://vlva.readthedocs.io/en/latest/</e:entry>
+    </e:entries>
+    <e:entries key="SSH Open Marketplace" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@dariah.eu</e:entry>
+        <e:entry key="url">https://marketplace.sshopencloud.eu/</e:entry>
+    </e:entries>
+    <e:entries key="STFC CVMFS Content Distribution Service" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">cvmfs-support@gridpp.rl.ac.uk</e:entry>
+        <e:entry key="url">https://www.scd.stfc.ac.uk/Pages/STFC-CVMFS-content-distribution-service.aspx</e:entry>
+    </e:entries>
+    <e:entries key="STFC Rucio Data Management Service" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">support@gridpp.rl.ac.uk</e:entry>
+        <e:entry key="url">https://www.scd.stfc.ac.uk/Pages/SCD-STFC-Rucio-Data-Management-Service.aspx</e:entry>
+    </e:entries>
+    <e:entries key="Schrödinger API" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">bojana.koteska@finki.ukim.mk</e:entry>
+        <e:entry key="url">https://schrodinger.chem-api.finki.ukim.mk/</e:entry>
+    </e:entries>
+    <e:entries key="Sciencedata.dk" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">support@sciencedata.dk</e:entry>
+        <e:entry key="url">https://sciencedata.dk/</e:entry>
+    </e:entries>
+    <e:entries key="Scientific publishing and Open Science Platform" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@scipedia.com</e:entry>
+        <e:entry key="url">https://www.scipedia.com</e:entry>
+    </e:entries>
+    <e:entries key="ScipionCloud" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">i2pc@cnb.csic.es</e:entry>
+        <e:entry key="url">https://scipion-em.github.io/docs/release-3.0.0/docs/developer/scipion-on-the-egi-federated-cloud</e:entry>
+    </e:entries>
+    <e:entries key="SeaDataNet CDI Data Discovery &amp; Access service: OGC WFS service for metadata features of all data sets (open and restricted)" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">cdi-support@maris.nl</e:entry>
+        <e:entry key="url">https://geo-service.maris.nl/seadatanet/wfs?request=GetCapabilities</e:entry>
+    </e:entries>
+    <e:entries key="SeaDataNet CDI Data Discovery &amp; Access service: OGC WMS service for locations of all data sets (open and restricted)" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">cdi-support@maris.nl</e:entry>
+        <e:entry key="url">https://geo-service.maris.nl/seadatanet/wms?request=GetCapabilities</e:entry>
+    </e:entries>
+    <e:entries key="SeaDataNet CDI Data Discovery &amp; Access service: SPARQL service for CDI metadata (open data)" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">cdi-support@maris.nl</e:entry>
+        <e:entry key="url">https://cdi.seadatanet.org/sparql</e:entry>
+    </e:entries>
+    <e:entries key="SeaDataNet Common Data Index (CDI) user interface" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">dick@maris.nl</e:entry>
+        <e:entry key="url">https://cdi.seadatanet.org/search</e:entry>
+    </e:entries>
+    <e:entries key="SeaDataNet DOI minting service" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">sdn-userdesk@seadatanet.org</e:entry>
+        <e:entry key="url">https://www.seadatanet.org/Software/SEANOE</e:entry>
+    </e:entries>
+    <e:entries key="SeaDataNet European Directory of Marine Environmental Data (EDMED)" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">enquiries@bodc.ac.uk</e:entry>
+        <e:entry key="url">https://edmed.seadatanet.org/</e:entry>
+    </e:entries>
+    <e:entries key="SeaDataNet European Directory of Marine Environmental Research Projects (EDMERP)" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">sdn-userdesk@seadatanet.org</e:entry>
+        <e:entry key="url">https://edmerp.seadatanet.org/</e:entry>
+    </e:entries>
+    <e:entries key="SeaDataNet European Directory of Marine Organisations (EDMO)" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">sdn-userdesk@seadatanet.org</e:entry>
+        <e:entry key="url">https://edmo.seadatanet.org/</e:entry>
+    </e:entries>
+    <e:entries key="SeaDataNet European Directory of the Cruise Summary Reports (CSR)" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">sdn-userdesk@seadatanet.org</e:entry>
+        <e:entry key="url">https://csr.seadatanet.org/</e:entry>
+    </e:entries>
+    <e:entries key="SeaDataNet European Directory of the Initial Ocean-Observing Systems (EDIOS)" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">sdn-userdesk@seadatanet.org</e:entry>
+        <e:entry key="url">http://seadatanet.maris2.nl/v_edios_v2/search.asp</e:entry>
+    </e:entries>
+    <e:entries key="SeaDataNet Vocabulary Services - underpinned by the NERC Vocabulary Server (NVS)" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">sdn-userdesk@seadatanet.org</e:entry>
+        <e:entry key="url">https://www.seadatanet.org/Standards/Common-Vocabularies</e:entry>
+    </e:entries>
+    <e:entries key="Search API" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">helpdesk.reliance@expert.ai</e:entry>
+        <e:entry key="url">https://reliance.expertcustomers.ai/</e:entry>
+    </e:entries>
+    <e:entries key="Secret management service" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">fedcloud@fedcloud.eu</e:entry>
+        <e:entry key="url">https://vault.docs.fedcloud.eu/</e:entry>
+    </e:entries>
+    <e:entries key="Secure Virtual Research Environment (VRE) for sensitive data" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">petra.ritter@bih-charite.de</e:entry>
+        <e:entry key="url">https://www.bihealth.org/en/translation/network/digital-medicine/bihcharite-virtual-research-environment</e:entry>
+    </e:entries>
+    <e:entries key="Sentiment Analysis API &amp; Text Analytics API" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">support@reportbrain.com</e:entry>
+        <e:entry key="url">https://www.reportbrain.com</e:entry>
+    </e:entries>
+    <e:entries key="Sentinel Hub" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">support@sentinel-hub.com</e:entry>
+        <e:entry key="url">https://www.sentinel-hub.com/</e:entry>
+    </e:entries>
+    <e:entries key="Services for Sensitive Data (TSD)" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">tsd-contact@usit.uio.no</e:entry>
+        <e:entry key="url">https://www.uio.no/english/services/it/research/sensitive-data/</e:entry>
+    </e:entries>
+    <e:entries key="Simple storage service" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">dusan@ipb.ac.rs</e:entry>
+        <e:entry key="url">https://sss.ipb.ac.rs/</e:entry>
+    </e:entries>
+    <e:entries key="SmartSMEAR" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">atm-data@helsinki.fi</e:entry>
+        <e:entry key="url">https://smear.avaa.csc.fi/</e:entry>
+    </e:entries>
+    <e:entries key="Snap4City" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">snap4city@disit.org</e:entry>
+        <e:entry key="url">https://www.snap4city.org</e:entry>
+    </e:entries>
+    <e:entries key="SoBigData Literacy Catalogue" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">roberto.trasarti@isti.cnr.it</e:entry>
+        <e:entry key="url">https://ckan-sobigdata.d4science.org/organization/sobigdataliteracy</e:entry>
+    </e:entries>
+    <e:entries key="SoBigData Services and Products Catalogue" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">roberto.trasarti@isti.cnr.it</e:entry>
+        <e:entry key="url">https://ckan-sobigdata.d4science.org/organization/resourcecatalogue</e:entry>
+    </e:entries>
+    <e:entries key="Software Heritage archive" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@softwareheritage.org</e:entry>
+        <e:entry key="url">https://www.softwareheritage.org/</e:entry>
+    </e:entries>
+    <e:entries key="SpotOn web portal" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">wenmr.project@gmail.com</e:entry>
+        <e:entry key="url">https://alcazar.science.uu.nl/services/SPOTON</e:entry>
+    </e:entries>
+    <e:entries key="Storm Severity Index (SSI) notebook" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">janwillem.noteboom@knmi.nl</e:entry>
+        <e:entry key="url">https://blue-cloud.d4science.org/web/marineenvironmentalindicators</e:entry>
+    </e:entries>
+    <e:entries key="SurveyCodings.org" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@surveycodings.org</e:entry>
+        <e:entry key="url">https://www.surveycodings.org</e:entry>
+    </e:entries>
+    <e:entries key="TOPOS Observatory for Individuals" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@scipedia.com</e:entry>
+        <e:entry key="url">https://www.scipedia.com/institution/beopen-project.eu</e:entry>
+    </e:entries>
+    <e:entries key="TOPOS Observatory for Organisations" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">rcd@openaire.eu</e:entry>
+        <e:entry key="url">https://beopen.openaire.eu/</e:entry>
+    </e:entries>
+    <e:entries key="TRANSITS Training" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@geant.org</e:entry>
+        <e:entry key="url">https://tf-csirt.org/transits/</e:entry>
+    </e:entries>
+    <e:entries key="TagMe" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@d4science.org</e:entry>
+        <e:entry key="url">https://sobigdata.d4science.org/web/tagme</e:entry>
+    </e:entries>
+    <e:entries key="Tallinn University of Technology Data Repository" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">data@taltech.ee</e:entry>
+        <e:entry key="url">https://data.taltech.ee</e:entry>
+    </e:entries>
+    <e:entries key="Technical support towards OpenAIRE compliance" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@openaire.eu</e:entry>
+        <e:entry key="url">https://guidelines.openaire.eu</e:entry>
+    </e:entries>
+    <e:entries key="TextGrid Repository" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@de.dariah.eu</e:entry>
+        <e:entry key="url">https://www.textgridrep.org/</e:entry>
+    </e:entries>
+    <e:entries key="The EHRI Portal" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">feedback@ehri-project.eu</e:entry>
+        <e:entry key="url">https://portal.ehri-project.eu/</e:entry>
+    </e:entries>
+    <e:entries key="The National Open Access Research Data Archive (MIDAS)" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@midas.lt</e:entry>
+        <e:entry key="url">https://www.midas.lt/public-app.html#/midas?lang=en</e:entry>
+    </e:entries>
+    <e:entries key="The National Open Access Research Data Archive (MIDAS)" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@vu.lt</e:entry>
+        <e:entry key="url">https://www.midas.lt/public-app.html#/midas?lang=en</e:entry>
+    </e:entries>
+    <e:entries key="The Tromsø Repository of Language and Linguistics (TROLLing)" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">researchdata@hjelp.uit.no</e:entry>
+        <e:entry key="url">https://trolling.uit.no/</e:entry>
+    </e:entries>
+    <e:entries key="Timemap" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">timemap@lists.geant.org</e:entry>
+        <e:entry key="url">https://network.geant.org/timemap/</e:entry>
+    </e:entries>
+    <e:entries key="Transkribus" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@readcoop.eu</e:entry>
+        <e:entry key="url">https://readcoop.eu/transkribus/</e:entry>
+    </e:entries>
+    <e:entries key="Trophic Position Analyzer" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">cto@lifewatch.eu</e:entry>
+        <e:entry key="url">https://metadatacatalogue.lifewatch.eu/srv/eng/catalog.search#/metadata/cfa5a24b-5912-48af-8244-bdf301d77b41</e:entry>
+    </e:entries>
+    <e:entries key="Trophic Positions Modeler" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">cto@lifewatch.eu</e:entry>
+        <e:entry key="url">https://metadatacatalogue.lifewatch.eu/srv/eng/catalog.search#/metadata/de60d154-d8e2-4633-b92f-1fb82adfbf75</e:entry>
+    </e:entries>
+    <e:entries key="Trusted Certificate Service" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@geant.org</e:entry>
+        <e:entry key="url">https://security.geant.org/trusted-certificate-services/</e:entry>
+    </e:entries>
+    <e:entries key="UBORA e-platform" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@ubora-biomedical.org</e:entry>
+        <e:entry key="url">https://platform.ubora-biomedical.org</e:entry>
+    </e:entries>
+    <e:entries key="UDPipe: tool for lemmatization, morphological analysis, POS tagging and dependency parsing in multiple languages" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">lindat-help@ufal.mff.cuni.cz</e:entry>
+        <e:entry key="url">https://lindat.mff.cuni.cz/services/#UDPipe</e:entry>
+    </e:entries>
+    <e:entries key="UT Rocket" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">support@puhuri.io</e:entry>
+        <e:entry key="url">https://share.neic.no/marketplace-public-offering/c8107e145e0d41f7a016b72825072287/</e:entry>
+    </e:entries>
+    <e:entries key="UT Rocket" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@ut.ee</e:entry>
+        <e:entry key="url">https://hpc.ut.ee/services/HPC-services/Rocket</e:entry>
+    </e:entries>
+    <e:entries key="UW-BAT" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">support@teledyne-reson.com</e:entry>
+        <e:entry key="url">https://bathyprocessing.neanias.eu</e:entry>
+    </e:entries>
+    <e:entries key="UW-MAP" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">karank@central.ntua.gr</e:entry>
+        <e:entry key="url">https://uw-map.neanias.eu</e:entry>
+    </e:entries>
+    <e:entries key="UW-Mos" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">ricard.campos@coronis.es</e:entry>
+        <e:entry key="url">https://uw-mos.neanias.eu</e:entry>
+    </e:entries>
+    <e:entries key="University of Opole Base of Knowledge" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">biblioteka@uni.opole.pl</e:entry>
+        <e:entry key="url">https://bazawiedzy.uni.opole.pl/</e:entry>
+    </e:entries>
+    <e:entries key="VAMDC Portal" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@vamdc.eu</e:entry>
+        <e:entry key="url">https://portal.vamdc.eu/vamdc_portal</e:entry>
+    </e:entries>
+    <e:entries key="VAMDC Query Store" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@vamdc.eu</e:entry>
+        <e:entry key="url">https://cite.vamdc.eu</e:entry>
+    </e:entries>
+    <e:entries key="VAMDC Species Database" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">support@vamdc.eu</e:entry>
+        <e:entry key="url">https://species.vamdc.eu/</e:entry>
+    </e:entries>
+    <e:entries key="VERA Hub" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">alessia.smaniotto@openedition.org</e:entry>
+        <e:entry key="url">https://vera.operas-eu.org/</e:entry>
+    </e:entries>
+    <e:entries key="VESPA (Virtual European Solar and Planetary Access) query portal" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">support.vespa@obspm.fr</e:entry>
+        <e:entry key="url">https://vespa.obspm.fr</e:entry>
+    </e:entries>
+    <e:entries key="VESPA (Virtual European Solar and Planetary Access) query portal" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">support.vespa@obspm.fr</e:entry>
+        <e:entry key="url">https://vespa.obspm.fr</e:entry>
+    </e:entries>
+    <e:entries key="Verbal Aggression Analyser (VA Analyser)" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@clarin.gr</e:entry>
+        <e:entry key="url">http://hdl.handle.net/11500/CLARIN-EL-0000-0000-6A6C-1</e:entry>
+    </e:entries>
+    <e:entries key="Virtual Collection Registry" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">vcr@clarin.eu</e:entry>
+        <e:entry key="url">https://www.clarin.eu/content/virtual-collections</e:entry>
+    </e:entries>
+    <e:entries key="Virtual Imaging Platform" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">vip-support@creatis.insa-lyon.fr</e:entry>
+        <e:entry key="url">https://www.creatis.insa-lyon.fr/vip</e:entry>
+    </e:entries>
+    <e:entries key="Virtual Infrastructure for Scientific Analysis" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">helpdesk@esrf.fr</e:entry>
+        <e:entry key="url">https://visa.esrf.fr</e:entry>
+    </e:entries>
+    <e:entries key="Virtual Language Observatory" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">vlo@clarin.eu</e:entry>
+        <e:entry key="url">https://vlo.clarin.eu</e:entry>
+    </e:entries>
+    <e:entries key="Virtuozzo Application Platform" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">sales@virtuozzo.com</e:entry>
+        <e:entry key="url">https://www.virtuozzo.com/</e:entry>
+    </e:entries>
+    <e:entries key="Visual Media Service Virtual Research Environment" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@d4science.org</e:entry>
+        <e:entry key="url">https://services.d4science.org/web/visualmedia</e:entry>
+    </e:entries>
+    <e:entries key="VizieR astronomical catalogue service" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">cds-question@unistra.fr</e:entry>
+        <e:entry key="url">https://vizier.cds.unistra.fr/</e:entry>
+    </e:entries>
+    <e:entries key="WDCC World Data Center for Climate" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">data@dkrz.de</e:entry>
+        <e:entry key="url">https://wdc-climate.de</e:entry>
+    </e:entries>
+    <e:entries key="WDCC World Data Center for Climate" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">data@dkrz.de</e:entry>
+        <e:entry key="url">https://wdc-climate.de</e:entry>
+    </e:entries>
+    <e:entries key="WORSICA - Water Monitoring Sentinel Cloud Platform" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">aazevedo@lnec.pt</e:entry>
+        <e:entry key="url">http://worsica.lnec.pt/</e:entry>
+    </e:entries>
+    <e:entries key="WebODV - Online extraction, analysis and visualization of SeaDataNet and Argo data" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@seadatanet.org</e:entry>
+        <e:entry key="url">http://webodv-egi-ace.cloud.ba.infn.it</e:entry>
+    </e:entries>
+    <e:entries key="WebODV - Online extraction, analysis and visualization of SeaDataNet and Argo data" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@seadatanet.org</e:entry>
+        <e:entry key="url">http://webodv-egi-ace.cloud.ba.infn.it</e:entry>
+    </e:entries>
+    <e:entries key="WiFiMon" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">EOSC-enquiries@geant.org</e:entry>
+        <e:entry key="url">https://network.geant.org/wifimon/</e:entry>
+    </e:entries>
+    <e:entries key="WorkflowHub" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">workflowhub-admin@listserv.manchester.ac.uk</e:entry>
+        <e:entry key="url">https://workflowhub.eu/</e:entry>
+    </e:entries>
+    <e:entries key="World Register of Marine Species" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@marinespecies.org</e:entry>
+        <e:entry key="url">https://www.marinespecies.org/</e:entry>
+    </e:entries>
+    <e:entries key="Zenodo" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">a.ioannidis@cern.ch</e:entry>
+        <e:entry key="url">https://www.zenodo.org</e:entry>
+    </e:entries>
+    <e:entries key="Zoo- and Phytoplankton Essential Ocean Variable products VLab" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@blue-cloud.org</e:entry>
+        <e:entry key="url">https://blue-cloud.d4science.org/web/zoo-phytoplankton_eov</e:entry>
+    </e:entries>
+    <e:entries key="Zooplankton EOVs" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">abarth@uliege.be</e:entry>
+        <e:entry key="url">https://blue-cloud.d4science.org/web/zoo-phytoplankton_eov</e:entry>
+    </e:entries>
+    <e:entries key="cPouta Community Cloud" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">servicedesk@csc.fi</e:entry>
+        <e:entry key="url">https://research.csc.fi/cpouta</e:entry>
+    </e:entries>
+    <e:entries key="da|ra - DOI Registration Service for social science and economic data" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">Gesis-info@gesis.org</e:entry>
+        <e:entry key="url">https://www.da-ra.de/about</e:entry>
+    </e:entries>
+    <e:entries key="de.NBI Cloud: Cloud Computing for Life Sciences" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">cloud@denbi.de</e:entry>
+        <e:entry key="url">https://cloud.denbi.de/</e:entry>
+    </e:entries>
+    <e:entries key="ePouta Virtual Private Cloud" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">servicedesk@csc.fi</e:entry>
+        <e:entry key="url">https://research.csc.fi/epouta</e:entry>
+    </e:entries>
+    <e:entries key="eduDNS: Dynamic DNS service for Academia" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">fedcloud@fedcloud.eu</e:entry>
+        <e:entry key="url">https://edudns.services.fedcloud.eu/</e:entry>
+    </e:entries>
+    <e:entries key="eduGAIN" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">support@edugain.org</e:entry>
+        <e:entry key="url">https://edugain.org/</e:entry>
+    </e:entries>
+    <e:entries key="eduMEET - Webbased videoconferencing platform" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">community@lists.edumeet.org</e:entry>
+        <e:entry key="url">https://edumeet.org/</e:entry>
+    </e:entries>
+    <e:entries key="eduTEAMS" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@geant.org</e:entry>
+        <e:entry key="url">https://eduteams.org/</e:entry>
+    </e:entries>
+    <e:entries key="eduVPN" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">eduvpn-support@lists.geant.org</e:entry>
+        <e:entry key="url">https://eduvpn.org/</e:entry>
+    </e:entries>
+    <e:entries key="eduroam" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">help@eduroam.org</e:entry>
+        <e:entry key="url">https://www.eduroam.org/</e:entry>
+    </e:entries>
+    <e:entries key="eeghub.ge" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">eeghub@gmail.com</e:entry>
+        <e:entry key="url">https://eeghub.ge/</e:entry>
+    </e:entries>
+    <e:entries key="forschungsdaten.info" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">kontakt@forschungsdaten.info</e:entry>
+        <e:entry key="url">https://www.forschungsdaten.info/</e:entry>
+    </e:entries>
+    <e:entries key="iCOMCOT Tsunami Wave Propagation Simulation Portal" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@twgrid.org</e:entry>
+        <e:entry key="url">https://icomcot.twgrid.org/index.html</e:entry>
+    </e:entries>
+    <e:entries key="openEO Platform" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">openeo-platform@eodc.eu</e:entry>
+        <e:entry key="url">https://openeo.cloud/</e:entry>
+    </e:entries>
+    <e:entries key="openRDM EU" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">openrdm.eu@id.ethz.ch</e:entry>
+        <e:entry key="url">https://www.openrdm.eu/</e:entry>
+    </e:entries>
+    <e:entries key="perfSONAR" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@geant.org</e:entry>
+        <e:entry key="url">https://network.geant.org/performance-measurement-platform/</e:entry>
+    </e:entries>
+    <e:entries key="re3data - registry of research data repositories" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">info@re3data.org</e:entry>
+        <e:entry key="url">http://www.re3data.org</e:entry>
+    </e:entries>
+    <e:entries key="robotbenchmark" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <e:entry key="email">Olivier.Michel@cyberbotics.com</e:entry>
+        <e:entry key="url">https://robotbenchmark.net</e:entry>
+    </e:entries>
+</e:entries>
