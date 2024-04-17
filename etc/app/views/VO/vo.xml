@@ -960,6 +960,40 @@
 
     </view>
 
+    <view name="VoDisciplinesMetrics_API">
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('VoDisciplinesTree_Metrics')"></parameter>
+        </connector>
+
+        <processors>
+            <element in="disciplines">
+                <attribute-ignore/>
+                <element in="discipline">
+                    <attribute-ignore in="id"></attribute-ignore>
+                    <attribute-ignore in="order"></attribute-ignore>
+                    <attribute-ignore in="NbVoLocal"></attribute-ignore>
+                    <attribute-ignore in="level"></attribute-ignore>
+                    <element-ignore if="name()!='discipline'"/>
+                    <element in="discipline">
+                        <attribute-ignore in="id"></attribute-ignore>
+                        <attribute-ignore in="order"></attribute-ignore>
+                        <attribute-ignore in="NbVoLocal"></attribute-ignore>
+                        <attribute-ignore in="level"></attribute-ignore>
+                        <element-ignore if="name()!='discipline'"/>
+                        <element in="discipline">
+                            <attribute-ignore in="id"></attribute-ignore>
+                            <attribute-ignore in="order"></attribute-ignore>
+                            <attribute-ignore in="NbVoLocal"></attribute-ignore>
+                            <attribute-ignore in="level"></attribute-ignore>
+                            <element-ignore if="name()!='discipline'"/>
+                        </element>
+                    </element>
+                </element>
+            </element>
+        </processors>
+
+    </view>
+
     <view name="VoWaitingList" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
 
 

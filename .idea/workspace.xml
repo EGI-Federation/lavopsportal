@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="mo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/app/views/BROADCAST/recipients.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/BROADCAST/recipients.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/etc/app/views/VO/vo.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/VO/vo.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -667,7 +666,8 @@
       <workItem from="1709114361228" duration="1820000" />
       <workItem from="1709192643404" duration="1277000" />
       <workItem from="1709292578428" duration="603000" />
-      <workItem from="1713269259189" duration="2930000" />
+      <workItem from="1713269259189" duration="2984000" />
+      <workItem from="1713355241078" duration="370000" />
     </task>
     <task id="LOCAL-00075" summary="filtre tickets">
       <created>1536755736442</created>
