@@ -972,23 +972,31 @@
                     <attribute-ignore in="id"></attribute-ignore>
                     <attribute-ignore in="order"></attribute-ignore>
                     <attribute-ignore in="level"></attribute-ignore>
+                    <attribute-ignore in="NbVoLocal"></attribute-ignore>
+                    <attribute-ignore in="SumNbUsers"></attribute-ignore>
                     <element-ignore if="name()!='discipline'"/>
                     <element in="discipline">
                         <attribute-ignore in="id"></attribute-ignore>
                         <attribute-ignore in="order"></attribute-ignore>
                         <attribute-ignore in="level"></attribute-ignore>
                         <attribute-ignore in="parentid"></attribute-ignore>
+                        <attribute-ignore in="NbVoLocal"></attribute-ignore>
+                        <attribute-ignore in="SumNbUsers"></attribute-ignore>
                         <element-ignore if="name()!='discipline'"/>
                         <element in="discipline">
                             <attribute-ignore in="id"></attribute-ignore>
                             <attribute-ignore in="order"></attribute-ignore>
                             <attribute-ignore in="level"></attribute-ignore>
                             <attribute-ignore in="parentid"></attribute-ignore>
+                            <attribute-ignore in="NbVoLocal"></attribute-ignore>
+                            <attribute-ignore in="SumNbUsers"></attribute-ignore>
                             <element-ignore if="name()!='discipline'"/>
                         </element>
                     </element>
                 </element>
             </element>
+
+
         </processors>
 
     </view>
