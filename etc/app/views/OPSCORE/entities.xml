@@ -708,13 +708,14 @@
                 </element-create-as-parent>
             </element>
             </element>
+
             <element in="e:entries">
                 <element in="e:entries">
                         <element in="e:entries">
                             <attribute in="site" out="key"/>
                             <element in="e:entries">
                                 <attribute-ignore/>
-                                <attribute-create out="key">../@hostname</attribute-create>
+                                <attribute-create out="key">concat(../@hostname,' - ', ../e:entry[@key='SERVICE_TYPE']/text())</attribute-create>
                             </element>
                         </element>
 
