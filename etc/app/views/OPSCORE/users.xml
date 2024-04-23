@@ -393,6 +393,14 @@
         </connector>
 
         <processors>
+
+            <element in="e:entries">
+                <element in="e:entries">
+                    <attribute in="key">normalize-space(.)</attribute>
+                    <element in="e:entry" if="@key='EMAIL'"><text>lower-case(.)</text></element>
+                </element>
+            </element>
+
             <element in="e:entries" if="$DN!='_DN_'">
                <element in="e:entries" if="e:entry[@key='CERTDN']/text()=$DN"/>
                 <element-ignore/>
