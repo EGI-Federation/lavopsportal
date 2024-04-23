@@ -416,7 +416,9 @@
             <element in="e:entries">
                 <attribute-create out="key">../e:entries/@key</attribute-create>
                 <element-ignore in="e:entries">
-                    <element-ignore in="e:entries"></element-ignore>
+                    <element-ignore in="e:entries">
+                        <element in="e:entry"/>
+                    </element-ignore>
                     <element-ignore in="e:entry"></element-ignore>
                 </element-ignore>
             </element>
