@@ -408,9 +408,38 @@
 
             <element in="e:entries" if="$email!='_email_'">
                 <element in="e:entries" if="lower-case(e:entry[@key='EMAIL']/text())=lower-case($email)">
-                    <attribute in="key">concat(lower-case(.),count(../preceding-sibling::e:entries))</attribute>
+                    <attribute in="key">lower-case(.)</attribute>
                 </element>
                 <element-ignore/>
+            </element>
+
+            <element in="e:entries">
+                <attribute-create out="key">../e:entries/@key</attribute-create>
+                <element-ignore in="e:entries">
+                    <element-ignore in="e:entries"></element-ignore>
+                    <element-ignore in="e:entry"></element-ignore>
+                </element-ignore>
+            </element>
+
+            <element in="e:entries">
+                <element-create-as-parent out="e:entries">
+                    <element in="e:entry"></element>
+                </element-create-as-parent>
+            </element>
+
+            <element in="e:entries">
+                <element-create-as-parent out="e:entries">
+                    <element in="e:entries">
+                        <attribute-create out="key">'ROLES'</attribute-create>
+                    </element>
+                </element-create-as-parent>
+            </element>
+
+            <element in="e:entries">
+                <attribute-ignore/>
+                <element in="e:entries">
+                    <attribute-create out="../../@key"/>
+                </element>
             </element>
 
 
