@@ -399,7 +399,7 @@
             </element>
 
             <element in="e:entries" if="$email!='_email_'">
-                <element in="e:entries" if="e:entry[@key='EMAIL']/text()=$email"/>
+                <element in="e:entries" if="lower-case(e:entry[@key='EMAIL']/text())=lower-case($email)"/>
                 <element-ignore/>
             </element>
 
