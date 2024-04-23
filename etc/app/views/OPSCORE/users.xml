@@ -438,7 +438,7 @@
             <element in="e:entries">
                 <attribute-ignore/>
                 <element in="e:entries">
-                    <attribute-create out="../../@key"/>
+                    <attribute-create out="key">../../@key</attribute-create>
                 </element>
             </element>
 
