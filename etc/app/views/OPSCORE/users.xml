@@ -408,7 +408,7 @@
 
             <element in="e:entries" if="$email!='_email_'">
                 <element in="e:entries" if="lower-case(e:entry[@key='EMAIL']/text())=lower-case($email)">
-                    <attribute in="key">concat(lower-case(.),count(preceding-sibling::e:entries))</attribute>
+                    <attribute in="key">concat(lower-case(.),count(../preceding-sibling::e:entries))</attribute>
                 </element>
                 <element-ignore/>
             </element>
