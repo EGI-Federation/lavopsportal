@@ -974,23 +974,18 @@
                     <attribute-ignore in="level"></attribute-ignore>
                     <attribute-ignore in="NbVoLocal"></attribute-ignore>
                     <attribute-ignore in="SumNbUsers"></attribute-ignore>
-                    <element-ignore if="name()!='discipline'"/>
-                    <element in="discipline">
-                        <attribute-ignore in="id"></attribute-ignore>
-                        <attribute-ignore in="order"></attribute-ignore>
-                        <attribute-ignore in="level"></attribute-ignore>
-                        <attribute-ignore in="parentid"></attribute-ignore>
-                        <attribute-ignore in="NbVoLocal"></attribute-ignore>
-                        <attribute-ignore in="SumNbUsers"></attribute-ignore>
-                        <element-ignore if="name()!='discipline'"/>
-                        <element in="discipline">
-                            <attribute-ignore in="id"></attribute-ignore>
-                            <attribute-ignore in="order"></attribute-ignore>
-                            <attribute-ignore in="level"></attribute-ignore>
-                            <attribute-ignore in="parentid"></attribute-ignore>
-                            <attribute-ignore in="NbVoLocal"></attribute-ignore>
-                            <attribute-ignore in="SumNbUsers"></attribute-ignore>
-                            <element-ignore if="name()!='discipline'"/>
+                    <element-ignore if="name()!='row'"/>
+                    <element in="row" out="vo">
+                        <attribute-ignore in="discipline_id"/>
+                        <attribute-ignore in="vo_id"/>
+                        <element-ignore if="name()!='row'"/>
+                        <element in="row" out="vo">
+                            <attribute-ignore in="discipline_id"/>
+                            <attribute-ignore in="vo_id"/>
+                            <element in="row" out="vo">
+                                <attribute-ignore in="discipline_id"/>
+                                <attribute-ignore in="vo_id"/>
+                            </element>
                         </element>
                     </element>
                 </element>
