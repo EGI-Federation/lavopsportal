@@ -990,9 +990,17 @@
                     </element>
                 </element>
             </element>
-
-
         </processors>
+
+        <renderers>
+            <renderer type="JSONRenderer">
+                <parameter name="arrays">
+                    <entry>discipline</entry>
+                    <entry>vo</entry>
+                </parameter>
+
+            </renderer>
+        </renderers>
 
     </view>
 
