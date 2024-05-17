@@ -1150,6 +1150,7 @@
         <argument name="status">critical</argument>
         <variable name="statusCode" eval="choose($status='critical',2,1)"/>
 
+
         <connector type="SQLConnector">
         <parameter name="driver">com.mysql.jdbc.Driver</parameter>
         <parameter name="url" eval="property('CSI.db.url')"/>
