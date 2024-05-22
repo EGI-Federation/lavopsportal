@@ -117,58 +117,28 @@
     </view>
 
 
-<!--    <view name="CoManagePerson">-->
-<!--        <argument name="copersonid">1</argument>-->
+    <view name="CoManageUsersRaw">
+        <connector type="XMLConnector">
+            <parameter name="view" eval="view('CoManageVOs')"></parameter>
+        </connector>
 
-<!--        <connector type="HTTPConnector">-->
-<!--            <parameter name="url" eval="concat('https://',property('comanage-user'),':',property('comanage-pwd'),'@aai.egi.eu/registry/names.json?copersonid=',$copersonid)"/>-->
-<!--            <parameter name="default">{"root":"empty"}</parameter>-->
+        <processors>
+            <element in="vos">
+                <element in="vo">
+                    <element-create>view('CoManageVOMembers',entry('voname',../@name))</element-create>
+                </element>
+            </element>
+        </processors>
 
-<!--        </connector>-->
-<!--        <serializer type="JSONStreamSerializer"/>-->
+        <cache type="FileCache">
+            <trigger type="FixedTimeTrigger">
+                <parameter name="hour">4</parameter>
+                <parameter name="minute">15</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+        </cache>
 
-
-<!--        <processors>-->
-<!--            <element in="object">-->
-<!--                <elements-ignore path="Names/object">-->
-<!--                    <element in="Given" />-->
-<!--                    <element in="Family"/>-->
-<!--                    <element in="ActorIdentifier" out="DN"/>-->
-<!--                    <element-ignore/>-->
-<!--                </elements-ignore>-->
-<!--                <element-ignore/>-->
-<!--            </element>-->
-
-<!--            <element in="object">-->
-<!--                <element-create>new_element('CN',new_text(concat(../Given/text(),' ',../Family/text())))</element-create>-->
-<!--                <element-create>new_element('CA',new_text('aai'))</element-create>-->
-<!--                <element-create>new_element('VOMS',new_text('aai'))</element-create>-->
-<!--            </element>-->
-<!--        </processors>-->
-<!--    </view>-->
-
-<!--    <view name="CoManageEmail">-->
-<!--        <argument name="copersonid"/>-->
-
-<!--        <connector type="HTTPConnector">-->
-<!--            <parameter name="url" eval="concat('https://',property('comanage-user'),':',property('comanage-pwd'),'@aai.egi.eu/registry/email_addresses.json?copersonid=',$copersonid)"/>-->
-<!--            <parameter name="default">{"root":"empty"}</parameter>-->
-
-<!--        </connector>-->
-<!--        <serializer type="JSONStreamSerializer"/>-->
-
-
-<!--        <processors>-->
-<!--            <element in="object">-->
-<!--                <elements-ignore path="EmailAddresses/object">-->
-<!--                    <element in="Mail" out="mail"/>-->
-<!--                    <element-ignore/>-->
-<!--                </elements-ignore>-->
-<!--                <element-ignore/>-->
-<!--            </element>-->
-<!--        </processors>-->
-
-<!--    </view>-->
+    </view>
 
 
 </views>
