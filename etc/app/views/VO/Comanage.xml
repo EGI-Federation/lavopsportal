@@ -101,6 +101,7 @@
             <element in="object" out="users">
                 <elements-ignore path="CoPersonRoles/object">
                     <element in="Person" out="user" if="ancestor::object/Status='Active'">
+                        <element-create>new_element('VO',new_text($voname))</element-create>
                     <element-create>new_element('CN',new_text(concat(../Name/object/given/text(),' ',../Name/object/family/text())))</element-create>
                     <element-create>new_element('CA',new_text('aai'))</element-create>
                     <element-create>new_element('VOMS',new_text('aai'))</element-create>
@@ -127,6 +128,21 @@
                 <element in="vo">
                     <element-create>view('CoManageVOMembers',entry('voname',../@name))</element-create>
                 </element>
+            </element>
+            <element in="vos" out="list">
+                <element-ignore in="vo" >
+                    <element in="users" out="rows">
+                        <attribute-create out="VoName">../../@name</attribute-create>
+                        <element in="user" out="row"/>
+
+                    </element>
+
+                </element-ignore>
+            </element>
+
+            <element in="list">
+                <element-ignore in="rows" if="not(row)"/>
+
             </element>
         </processors>
 
