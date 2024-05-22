@@ -119,7 +119,7 @@
 
     <view name="CoManageUsersRaw">
         <connector type="XMLConnector">
-            <parameter name="view" eval="view('CoManageVOs')"></parameter>
+            <parameter name="content" eval="view('CoManageVOs')"></parameter>
         </connector>
 
         <processors>
