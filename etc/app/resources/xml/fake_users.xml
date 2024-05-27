@@ -51,13 +51,7 @@
         <e:entry key="EMAIL">cic-information@cc.in2p3.fr</e:entry>
         <e:entry key="CERTDN">/C=test/O=fake/CN=User site</e:entry>
     </e:entries>
-    <e:entries key="/C=DE/O=GermanGrid/OU=KIT/CN=Pavel Weber">
-        <e:entry key="ROLES">GRID BODY::project::EGI</e:entry>
-        <e:entry key="ROLES">Site Operations Manager::site::FZK-LCG2</e:entry>
-        <e:entry key="NAME">Pavel Weber</e:entry>
-        <e:entry key="EMAIL">pavel.weber@kit.edu</e:entry>
-        <e:entry key="CERTDN">/C=DE/O=GermanGrid/OU=KIT/CN=Pavel Weber</e:entry>
-    </e:entries>
+
 
     <e:entries key="/O=AAI/CN=Baptiste Grenier/Id=bf9ba8f9538b50d838194ed5fc6f3e90fbf156c637728214e311e80971a5d9d6@egi.eu">
         <e:entry key="ROLES">GRID BODY::project::EGI</e:entry>
@@ -133,13 +127,6 @@
         <e:entry key="CERTDN">/DC=org/DC=terena/DC=tcs/C=NL/O=Stichting EGI/CN=Alessandro Paolini apaolini@egi.eu</e:entry>
     </e:entries>
 
-    <e:entries key="/O=AAI/CN=Debora Testi/Id=0e2ac9a8d2e323f687db72592e953405cf1a987b0e94d8a89960ed9c692fc0fa@egi.eu">
-        <e:entry key="ROLES">Site Operations Manager::site::GRIDOPS-OPSPORTAL</e:entry>
-        <e:entry key="NAME">Debora Testi</e:entry>
-        <e:entry key="EMAIL">d.testi@cineca.it</e:entry>
-        <e:entry key="CERTDN">/O=AAI/CN=Debora Testi/Id=0e2ac9a8d2e323f687db72592e953405cf1a987b0e94d8a89960ed9c692fc0fa@egi.eu</e:entry>
-
-    </e:entries>
 
     <e:entries key="/O=dutchgrid/O=users/O=egi/CN=Gergely Sipos">
         <e:entry key="ROLES">Site Operations Manager::site::GRIDOPS-OPSPORTAL</e:entry>
@@ -170,23 +157,6 @@
         <e:entry key="CERTDN">/O=AAI/CN=Giuseppe La Rocca/Id=2048f453444002f7b8c0881fed245a531f8c0e7577f50f497312832988ccd4c9@egi.eu</e:entry>
     </e:entries>
 
-    <e:entries key="/O=AAI/CN=Guillaume PERRIER/Id=9799b7fc498e3ff8966fe6816e3ba6e3b804f3baa26091c0b684561d657c48dc@egi.eu">
-        <e:entry key="ROLES">Site Operations Manager::site::GRIDOPS-OPSPORTAL</e:entry>
-        <e:entry key="ROLES">VO MANAGER::vo::atlas</e:entry>
-        <e:entry key="ROLES">Site Operations Manager::site::IN2P3-CC</e:entry>
-        <e:entry key="NAME">Guillaume Perrier</e:entry>
-        <e:entry key="EMAIL">guillaume.perrier@cc.in2p3.fr</e:entry>
-        <e:entry key="CERTDN">/O=AAI/CN=Guillaume PERRIER/Id=9799b7fc498e3ff8966fe6816e3ba6e3b804f3baa26091c0b684561d657c48dc@egi.eu</e:entry>
-    </e:entries>
-
-    <e:entries key="/O=AAI/CN=Guillaume Perrier/Id=569bcab56c3521b148b75ca12f183a8dc8a3b3ed7b26ed51c89f076b3583c3e8@egi.eu">
-        <e:entry key="ROLES">Site Operations Manager::site::GRIDOPS-OPSPORTAL</e:entry>
-        <e:entry key="ROLES">VO MANAGER::vo::atlas</e:entry>
-        <e:entry key="ROLES">Site Operations Manager::site::IN2P3-CC</e:entry>
-        <e:entry key="NAME">Guillaume Perrier</e:entry>
-        <e:entry key="EMAIL">guillaume.perrier@cc.in2p3.fr</e:entry>
-        <e:entry key="CERTDN">/O=AAI/CN=Guillaume Perrier/Id=569bcab56c3521b148b75ca12f183a8dc8a3b3ed7b26ed51c89f076b3583c3e8@egi.eu</e:entry>
-    </e:entries>
 
 
     <e:entries key="/O=AAI/CN=Gordon Stewart/Id=52b3d0cdb2811474503326d0586a3fb2683a2118ad02762f59924a99dcf1aeab@egi.eu">
@@ -225,7 +195,13 @@
         <e:entry key="NAME">Daniel Kouril</e:entry>
         <e:entry key="EMAIL">1388@mail.muni.cz</e:entry>
         <e:entry key="CERTDN">/O=AAI/CN=Daniel Kouřil/Id=31932513eefc9850ac3c50ece88cca7f0f362670ad55659a7855381b1ce041c9@egi.eu</e:entry>
+    </e:entries>
 
+    <e:entries key="/O=AAI/CN=Damla Rowlandson/Id=c1fe256e870e1d68b1d8d241aba756e393e4d1990c70169ef2866be48a60fba4@egi.eu">
+        <e:entry key="ROLES">Site Operations Manager::site::GRIDOPS-OPSPORTAL</e:entry>
+        <e:entry key="NAME">Damla Rowlandson</e:entry>
+        <e:entry key="EMAIL">damla.rowlandson@egi.eu</e:entry>
+        <e:entry key="CERTDN">/O=AAI/CN=Damla Rowlandson/Id=c1fe256e870e1d68b1d8d241aba756e393e4d1990c70169ef2866be48a60fba4@egi.eu</e:entry>
     </e:entries>
 
 </e:entries>
