@@ -1033,10 +1033,18 @@
                 <element in="results">
                   <attribute-create out="month1_acc">../preceding-sibling::results[1]/@accounting</attribute-create>
                     <attribute-create out="month2_acc">../preceding-sibling::results[2]/@accounting</attribute-create>
-
                 </element>
             </element>
         </element>
+
+        <element in="root">
+            <element in="group">
+                <element in="results">
+                    <attribute if=".='NaN'">0</attribute>
+                </element>
+            </element>
+        </element>
+
     </processors>
 
         <cache type="FileCache">
