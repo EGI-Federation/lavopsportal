@@ -535,9 +535,11 @@
         <variable name="date_limit_start" eval="date:seconds(date:add(date:date(),'-P30D'))"/>
         <variable name="date_limit_end" eval="date:seconds(date:add(date:date(),'P30D'))"/>
 
+        <variable name="url" eval="concat(property('OPSCORE.gocdb.get_downtime'),'&amp;windowstart=',$one_month_ago,'&amp;windowend=',$one_month_after)"></variable>
+
 
         <connector type="HTTPConnector">
-            <parameter name="url" eval="concat(property('OPSCORE.gocdb.get_downtime'),'&amp;windowstart=',$one_month_ago,'&amp;windowend=',$one_month_after)"/>
+            <parameter name="url" eval="$url"/>
             <parameter name="certificate" eval="property('certificate.path')"/>
             <parameter name="passphrase" eval="property('certificate.password')"/>
         </connector>
@@ -546,6 +548,7 @@
         <processors>
             <element in="results">
                 <set variable="sitelist">view('OPSCORE_get_site')</set>
+                <attribute-create out="url">$url</attribute-create>
                 <element in="DOWNTIME">
                     <element-create>new_element('NGI',$sitelist/results/SITE[@NAME=current()/../HOSTED_BY/text()]/ROC/text())</element-create>
                     <element-create>new_element('TIER',choose($sitelist/results/SITE[@NAME=current()/../HOSTED_BY/text()]/TIER/text(),$sitelist/results/SITE[@NAME=current()/../HOSTED_BY/text()]/TIER/text(),'NA'))</element-create>
