@@ -690,6 +690,10 @@
                 </element>
             </element>
 
+            <element in="e:entries">
+                <element-ignore in="e:entries" if="e:entry[@key='START_DATE']/text()&gt;e:entry[@key='END_DATE']/text()"></element-ignore>
+            </element>
+
 
         </processors>
         <pre-renderers><namespace prefix="str" uri="http://exslt.org/strings"/><namespace prefix="e" uri="http://software.in2p3.fr/lavoisier/entries.xsd"/>

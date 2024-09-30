@@ -221,9 +221,10 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;Application.Run.executor&quot;: &quot;Run&quot;,
     &quot;Application.Start Lavoisier server.executor&quot;: &quot;Run&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/cyril/Projets/lavopsportal/etc&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/cyril/Projets/tp_final_karma_analysis&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -249,7 +250,7 @@
       <recent name="$PROJECT_DIR$/etc/app/resources/shell" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Start Lavoisier server">
+  <component name="RunManager" selected="Application.Run">
     <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
@@ -277,7 +278,7 @@
     <configuration name="Run" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="fr.in2p3.lavoisier.command.StandaloneExec" />
       <module name="lavopsportal" />
-      <option name="PROGRAM_PARAMETERS" value="VoActivities?nbsteps=999&amp;accept=xml" />
+      <option name="PROGRAM_PARAMETERS" value="OPSCORE_PORTAL_EGI_Releases?nbsteps=999&amp;accept=xml" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -350,8 +351,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
-        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.17890.1" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.17890.1" />
       </set>
     </attachedChunks>
   </component>
@@ -693,6 +694,17 @@
       <workItem from="1716817337254" duration="2437000" />
       <workItem from="1717766700451" duration="12000" />
       <workItem from="1717766724409" duration="608000" />
+      <workItem from="1718175665767" duration="1444000" />
+      <workItem from="1718802304840" duration="21000" />
+      <workItem from="1718802386568" duration="58000" />
+      <workItem from="1718802518958" duration="32000" />
+      <workItem from="1720183728960" duration="8000" />
+      <workItem from="1721891497391" duration="47000" />
+      <workItem from="1722933778099" duration="1287000" />
+      <workItem from="1723462494613" duration="922000" />
+      <workItem from="1725879477065" duration="886000" />
+      <workItem from="1727166687562" duration="999000" />
+      <workItem from="1727168221423" duration="989000" />
     </task>
     <task id="LOCAL-00075" summary="filtre tickets">
       <created>1536755736442</created>
