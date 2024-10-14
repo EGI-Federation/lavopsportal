@@ -961,7 +961,11 @@
                         <element-ignore/>
                     </element-ignore>
                 </element>
+            </element>
 
+            <element in="VOS">
+                <element in="VO" if="not(e:entries/e:entry[@key='ERROR'])"/>
+                <element-ignore/>
             </element>
         </processors>
 
@@ -1045,8 +1049,9 @@
                     <element-create>view('insert-voms-members-vo',entry('vo',../name/text()))</element-create>
                     <element-ignore/>
                 </element>
-
             </element>
+
+
 
         </processors>
 
