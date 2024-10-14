@@ -947,6 +947,63 @@
         </renderers>
     </view>
 
+    <view name="voms-iam-members">
+
+     <connector type="XMLConnector">
+         <parameter name="content" eval="view('vomses-vo')"></parameter>
+     </connector>
+
+        <processors>
+            <element in="VOS">
+                <element in="VO">
+                    <element-ignore in="VoVomsServer">
+                        <element-create>view('voms-iam-members-vo',entry('hostname',../@hostname))</element-create>
+                        <element-ignore/>
+                    </element-ignore>
+                </element>
+
+            </element>
+        </processors>
+
+        <cache type="FileCache">
+            <trigger type="FixedTimeTrigger">
+                <parameter name="hour">3</parameter>
+                <parameter name="minute">22</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+        </cache>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+    </view>
+
+    <view name="voms-iam-members-vo">
+            <argument name="hostname"></argument>
+
+        <connector type="HTTPConnector">
+            <parameter name="url" eval="concat('https://',$hostname,'/stats')"/>
+            <parameter name="force-redirect">true</parameter>
+            <parameter name="connect-timeout">4</parameter>
+            <fallback>
+                <exception type="java.lang.Exception"/>
+            </fallback>
+        </connector>
+        <serializer type="JSONStreamSerializer">
+        </serializer>
+
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+    </view>
+
+
+
     <view name="voms-members">
         
         <argument name="vo">_VO_</argument>
