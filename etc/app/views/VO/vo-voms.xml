@@ -985,6 +985,8 @@
 
         <connector type="HTTPConnector">
             <parameter name="url" eval="concat('https://',$hostname,'/stats')"/>
+            <parameter name="certificate" eval="property('certificate.path')"/>
+            <parameter name="passphrase" eval="property('certificate.password')"/>
             <parameter name="force-redirect">true</parameter>
             <parameter name="connect-timeout">4</parameter>
             <fallback>
