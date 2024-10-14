@@ -947,7 +947,7 @@
         </renderers>
     </view>
 
-    <view name="voms-iam-members">
+    <view name="voms-iam-members"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
 
      <connector type="XMLConnector">
          <parameter name="content" eval="view('vomses-vo')"></parameter>
@@ -984,7 +984,7 @@
         </renderers>
     </view>
 
-    <view name="voms-iam-members-vo">
+    <view name="voms-iam-members-vo"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
             <argument name="hostname"></argument>
 
         <connector type="HTTPConnector">
