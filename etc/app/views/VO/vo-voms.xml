@@ -947,28 +947,18 @@
         </renderers>
     </view>
 
-    <view name="voms-iam-members"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
-
-     <connector type="XMLConnector">
-         <parameter name="content" eval="view('vomses-vo')"></parameter>
-     </connector>
+    <view name="voms-iam-members">
+        <connector type="FileConnector">
+            <parameter name="path">/app/resources/xml/iam-vos.xml</parameter>
+        </connector>
 
         <processors>
             <element in="VOS">
                 <element in="VO">
-                    <element-ignore in="VoVomsServer">
-                        <element-create>view('voms-iam-members-vo',entry('hostname',../@hostname))</element-create>
-                        <element-ignore/>
-                    </element-ignore>
+                    <element-create>view('voms-iam-members-vo',entry('vo',../@name))</element-create>
                 </element>
             </element>
-
-            <element in="VOS">
-                <element in="VO" if="not(e:entries/e:entry[@key='ERROR'])"/>
-                <element-ignore/>
-            </element>
         </processors>
-
         <cache type="FileCache">
             <trigger type="FixedTimeTrigger">
                 <parameter name="hour">3</parameter>
@@ -977,18 +967,14 @@
             <trigger type="ViewNotifiedTrigger"/>
         </cache>
 
-        <renderers>
-            <renderer type="DefaultRenderer">
-                <parameter name="contentType">text/xml</parameter>
-            </renderer>
-        </renderers>
     </view>
+    <view name="voms-iam-members-vo">
 
-    <view name="voms-iam-members-vo"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
-            <argument name="hostname"></argument>
+        <argument name="vo"></argument>
+        <variable name="url" eval="concat('https://',$vo,'-auth.cern.ch/stats')"/>
 
         <connector type="HTTPConnector">
-            <parameter name="url" eval="concat('https://',$hostname,'/stats')"/>
+            <parameter name="url" eval="$url"/>
             <parameter name="certificate" eval="property('certificate.path')"/>
             <parameter name="passphrase" eval="property('certificate.password')"/>
             <parameter name="force-redirect">true</parameter>
@@ -1007,6 +993,8 @@
             </renderer>
         </renderers>
     </view>
+
+
 
 
 
