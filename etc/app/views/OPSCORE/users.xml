@@ -1003,12 +1003,23 @@
             </element>
 
             <element in="vos">
+
                 <element in="vo">
                     <attribute-create out="count" if="not(../@count)">count(../users/user)</attribute-create>
                     <attribute in="count" if=".=''">0</attribute>
                 </element>
             </element>
 
+            <element in="vos">
+                    <set variable="iam-vomses">view('voms-iam-members')</set>
+                    <element-ignore in="vo" if="@name=view('voms-iam-members')/vos/vo/@name"></element-ignore>
+            </element>
+
+            <element in="vos">
+                    <element-create>
+                      view('voms-iam-members')/vos/*
+                    </element-create>
+            </element>
 
         </processors>
 
