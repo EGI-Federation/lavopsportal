@@ -1,6 +1,6 @@
-<VOS>
-    <VO name='cms'></VO>
-    <VO name='alice'></VO>
-    <VO name='atlas'></VO>
-    <VO name='lhcb'></VO>
-</VOS>
+<vos>
+    <vo name='cms'></vo>
+    <vo name='alice'></vo>
+    <vo name='atlas'></vo>
+    <vo name='lhcb'></vo>
+</vos>

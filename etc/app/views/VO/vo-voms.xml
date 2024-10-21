@@ -953,11 +953,13 @@
         </connector>
 
         <processors>
+
             <element in="vos">
                 <element in="vo">
                     <element-create>view('voms-iam-members-vo',entry('vo',../@name))</element-create>
                 </element>
             </element>
+
             <element in="vos">
                 <element in="vo">
                     <attribute-create out="group_mgmt">'VOMS-IAM'</attribute-create>
@@ -965,6 +967,7 @@
                     <element-ignore/>
                 </element>
             </element>
+
         </processors>
         <cache type="FileCache">
             <trigger type="FixedTimeTrigger">
