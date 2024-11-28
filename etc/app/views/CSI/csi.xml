@@ -1163,7 +1163,6 @@
 
         <processors>
             <element in="result" out="e:entries">
-                <attribute-create out="query">$query</attribute-create>
                 <attribute-create out="count">count(../row)</attribute-create>
                 <attribute-create out="status">$status</attribute-create>
                 <element in="row" out="e:entries">
