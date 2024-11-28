@@ -21,11 +21,14 @@
 
 
 
-        <argument name="operation">OpGetOps</argument>
-        <argument name="service"/>
-        <argument name="ggus_user"/>
-        <argument name="password"/>
+
         <argument name="ggus_message">ggus_message_base</argument>
+        <argument name="service">GGUS_OPS</argument>
+        <argument name="operation">OpGetListOps</argument>
+        <argument name="ggus_user" eval="property('GGUS_OPS.user_name')"/>
+        <argument name="password" eval="property('GGUS_OPS.password')"/>
+
+        <variable name="url" eval="concat(property(concat('GGUS.url.',property('env'))),$service)"/>
 
         <variable name="header" eval="concat('&lt;AuthenticationInfo&gt;&lt;userName&gt;',$ggus_user,'&lt;/userName&gt;&lt;password&gt;',$password,'&lt;/password&gt;&lt;/AuthenticationInfo&gt;')" />
 
@@ -33,7 +36,7 @@
         <connector type="XMLConnector" >
             <parameter name="content" eval="view_post('SOAP_execute',
                     view($ggus_message),
-                    entry('url', concat(property(concat('GGUS.url.',property('env'))),$service))|
+                    entry('url', $url)|
                     entry('header', $header)|
                     entry('operation', concat('urn:CIC_HelpDesk/',$operation)))
                 "/>
@@ -56,12 +59,7 @@
         </connector>
     </view>
 
-    <!--<view name="ggus_message_terminal_state" xmlns:op="urn:CIC_HelpDesk" xmlns:param="urn:GGUS_OPS">-->
-        <!--<argument name="operation">OpGetListOps</argument>-->
-        <!--<connector type="XMLConnector">-->
-            <!--<parameter name="content" eval="new_element(concat('op:',$operation),new_element('Qualification', concat(apos('GHD_Ticket Type'), ' = 1 ')))"/>-->
-        <!--</connector>-->
-    <!--</view>-->
+
 
     <view name="ggus_message_ticket_id" xmlns:op="urn:CIC_HelpDesk" xmlns:param="urn:GGUS_OPS">
 

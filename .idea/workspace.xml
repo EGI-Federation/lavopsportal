@@ -6,7 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="mo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/app/views/VO/vo-voms.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/VO/vo-voms.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/app/views/CSI/csi.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/CSI/csi.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/app/views/GGUS/primary.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/GGUS/primary.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/app/views/VO/vo.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/VO/vo.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -279,7 +281,7 @@
     <configuration name="Run" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="fr.in2p3.lavoisier.command.StandaloneExec" />
       <module name="lavopsportal" />
-      <option name="PROGRAM_PARAMETERS" value="voms-iam-members?nbsteps=999&amp;accept=xml" />
+      <option name="PROGRAM_PARAMETERS" value="reportcsiIssues?nbsteps=999&amp;accept=xml" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -713,7 +715,20 @@
       <workItem from="1728643684040" duration="1065000" />
       <workItem from="1728904787845" duration="6638000" />
       <workItem from="1729063317422" duration="2955000" />
-      <workItem from="1729514237995" duration="1057000" />
+      <workItem from="1729514237995" duration="3345000" />
+      <workItem from="1729593611851" duration="1373000" />
+      <workItem from="1729603468934" duration="701000" />
+      <workItem from="1730213586284" duration="12000" />
+      <workItem from="1731403004862" duration="1831000" />
+      <workItem from="1732092614312" duration="7000" />
+      <workItem from="1732113496300" duration="122000" />
+      <workItem from="1732115847204" duration="709000" />
+      <workItem from="1732278894505" duration="551000" />
+      <workItem from="1732289099912" duration="1133000" />
+      <workItem from="1732522535418" duration="3149000" />
+      <workItem from="1732627939790" duration="1237000" />
+      <workItem from="1732697463874" duration="127000" />
+      <workItem from="1732780794491" duration="1605000" />
     </task>
     <task id="LOCAL-00075" summary="filtre tickets">
       <created>1536755736442</created>

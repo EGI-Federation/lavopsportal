@@ -1149,6 +1149,8 @@
 
         <argument name="status">critical</argument>
         <variable name="statusCode" eval="choose($status='critical',2,1)"/>
+        <variable name="nbdays" eval="choose($status='critical',1,7)"></variable>
+        <variable name="query" eval="concat('SELECT * from csi_nagios_history where status=',$statusCode,' AND updated_at > (NOW() - INTERVAL ', $nbdays ,' DAY)  order by ngi, site, host_name ASC, updated_at DESC')"></variable>
 
 
         <connector type="SQLConnector">
@@ -1156,16 +1158,12 @@
         <parameter name="url" eval="property('CSI.db.url')"/>
         <parameter name="username" eval="property('CSI.db.username')"/>
         <parameter name="password" eval="property('CSI.db.password')"/>
-        <parameter name="query">
-            <entry>SELECT * from csi_nagios_history </entry>
-            <entry> where status=</entry>
-            <entry eval="$statusCode"/>
-            <entry> order by ngi, site, host_name ASC, updated_at DESC</entry>
-        </parameter>
+        <parameter name="query" eval="$query"/>
         </connector>
 
         <processors>
             <element in="result" out="e:entries">
+                <attribute-create out="query">$query</attribute-create>
                 <attribute-create out="count">count(../row)</attribute-create>
                 <attribute-create out="status">$status</attribute-create>
                 <element in="row" out="e:entries">
@@ -1184,6 +1182,9 @@
                     </element>
                     <element in="created_at" out="e:entry">
                         <attribute-create out="key">'created_at'</attribute-create>
+                    </element>
+                    <element in="updated_at" out="e:entry">
+                        <attribute-create out="key">'updated_at'</attribute-create>
                     </element>
                     <element in="site" out="e:entry">
                         <attribute-create out="key">'site'</attribute-create>
