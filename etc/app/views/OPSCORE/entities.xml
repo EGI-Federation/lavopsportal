@@ -635,11 +635,7 @@
                 </element>
             </element>
         </processors>
-        <renderers>
-            <renderer type="DefaultRenderer">
-                <parameter name="contentType">text/xml</parameter>
-            </renderer>
-        </renderers>
+
 
         <cache type="FileCache">
             <trigger type="ViewNotifiedTrigger"></trigger>
