@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="mo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/app/views/GGUS/zammad.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/GGUS/zammad.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/app/views/DASHBOARD/commons.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/DASHBOARD/commons.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -732,7 +732,7 @@
       <workItem from="1732867206113" duration="14000" />
       <workItem from="1733233268825" duration="3600000" />
       <workItem from="1733386559660" duration="19713000" />
-      <workItem from="1733487825124" duration="13080000" />
+      <workItem from="1733487825124" duration="14560000" />
     </task>
     <task id="LOCAL-00075" summary="filtre tickets">
       <created>1536755736442</created>

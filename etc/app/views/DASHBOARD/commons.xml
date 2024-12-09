@@ -623,7 +623,7 @@
             </element>
 
             <element in="e:entries">
-                <element-ignore in="e:entries" if="not(e:entry[@key='wlcg_sites']) or e:entry[@key='wlcg_sites']/text()='null'"/>
+                <element-ignore in="e:entries" if="not(e:entry[@key='wlcg_sites']) or e:entry[@key='wlcg_sites']/text()='null' or e:entry[@key='state']/text()='solved'"/>
             </element>
 
 
@@ -632,7 +632,7 @@
 
         <cache type="FileCache">
             <trigger type="DeltaTimeTrigger">
-                <parameter name="minutes"  eval="choose(property('env')='test',22,5)"/>
+                <parameter name="minutes"  eval="choose(property('env')='test',8,5)"/>
             </trigger>
             <trigger type="ViewNotifiedTrigger"/>
             <trigger type="ViewCreatedTrigger"/>
