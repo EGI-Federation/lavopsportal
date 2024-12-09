@@ -81,6 +81,20 @@
             <parameter name="url" eval="choose($ticketId='_id_',concat($base_url,'/api/v1/tickets/search?query=customer_id:809'),concat($base_url,'/api/v1/tickets/',$ticketId))"></parameter>
         </connector>
         <serializer type="JSONStreamSerializer"></serializer>
+        <processors>
+
+            <element in="object" out="Tickets">
+                <element-ignore in="assets">
+                    <element-ignore in="Ticket">
+                        <element  out="Ticket">
+                            <element if="name()='id' or name()='title' or name()='wlcg_sites' or name()='state_id' or name()='updated_at' or name()='priority_id'"></element>
+                            <element-ignore/>
+                        </element>
+                    </element-ignore>
+                </element-ignore>
+
+            </element>
+        </processors>
     </view>
 
     <view name="createToken">

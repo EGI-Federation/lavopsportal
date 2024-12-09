@@ -606,6 +606,46 @@
     </view>
 
 
+    <view name="DASHBOARD_TICKETS_ZAMMAD" xmlns:ns0="urn:GGUS_OPS"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('getTickets')"/>
+        </connector>
+
+        <processors>
+            <element in="Tickets" out="e:entries">
+
+                <element in="Ticket" out="e:entries">
+
+                    <element-ignore>
+                        <element-create if="../text()">entry(local-name(..),../text())</element-create>
+                    </element-ignore>
+                </element>
+            </element>
+
+            <element in="e:entries">
+                <element-ignore in="e:entries" if="not(e:entry[@key='wlcg_sites']) or e:entry[@key='wlcg_sites']/text()='null'"/>
+            </element>
+
+
+
+        </processors>
+
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="minutes"  eval="choose(property('env')='test',22,5)"/>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="ViewCreatedTrigger"/>
+        </cache>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+
+    </view>
+
     <view name="DASHBOARD_TICKETS" xmlns:ns0="urn:GGUS_OPS"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
         <connector type="XMLConnector">
             <parameter name="content" eval="view('GGUS_OPS')"/>
@@ -748,7 +788,7 @@
 
                 <set variable="avRe">view('DASHBOARD_AV_RE',entry('summary',$summary))/e:entries</set>
                 <set variable="downtimes">view('OPSCORE_downtime_ongoing')/e:entries</set>
-                <set variable="tickets">view('DASHBOARD_TICKETS')/e:entries</set>
+                <set variable="tickets">view('DASHBOARD_TICKETS_ZAMMAD')/e:entries</set>
                 <set variable="notepads">view('DASHBOARD_notepads')/e:entries</set>
 
                 <element in="e:entries">
@@ -767,7 +807,7 @@
                     </element>
 
                     <element in="e:entries" if="@key='tickets'">
-                        <element-create>$tickets/e:entries[e:entry[@key='GHD_Affected_Site']/text()=current()/../../@key]</element-create>
+                        <element-create>$tickets/e:entries[e:entry[@key='wlcg_sites']/text()=current()/../../@key]</element-create>
                     </element>
 
                     <element in="e:entries" if="@key='notepads'">
@@ -872,7 +912,7 @@
                 <set variable="alarms">view('DASHBOARD_alarms_sec_filter',entry('SitesListFormatted',$SitesListFormatted)|entry('statusListFormatted',$statusListFormatted))/e:entries</set>
                 <set variable="avRe">view('DASHBOARD_AV_RE',entry('summary',$summary))/e:entries</set>
                 <set variable="downtimes">view('OPSCORE_downtime_ongoing')/e:entries</set>
-                <set variable="tickets">view('DASHBOARD_TICKETS')/e:entries</set>
+                <set variable="tickets">view('DASHBOARD_TICKETS_ZAMMAD')/e:entries</set>
                 <set variable="notepads">view('DASHBOARD_notepads')/e:entries</set>
 
                 <element in="e:entries">
@@ -892,7 +932,7 @@
                     </element>
 
                     <element in="e:entries" if="@key='tickets'">
-                        <element-create>$tickets/e:entries[e:entry[@key='GHD_Affected_Site']/text()=current()/../../@key]</element-create>
+                        <element-create>$tickets/e:entries[e:entry[@key='wlcg_sites']/text()=current()/../../@key]</element-create>
                     </element>
 
                     <element in="e:entries" if="@key='notepads'">
