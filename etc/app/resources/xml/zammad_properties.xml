@@ -1,0 +1,17 @@
+<properties>
+    <priorities>
+        <priority value="1">less urgent</priority>
+        <priority value="2">urgent</priority>
+        <priority value="3">very urgent</priority>
+    </priorities>
+
+    <states>
+        <state value="2">assigned</state >
+        <state value="8">in progress</state >
+        <state value="13">pending customer reply</state >
+        <state value="4">solved</state >
+        <state value="10">unsolved</state >
+        <state value="9">waiting for submitter's reply</state >
+    </states>
+
+</properties>

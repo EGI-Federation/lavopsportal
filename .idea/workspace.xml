@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="mo">
+      <change afterPath="$PROJECT_DIR$/etc/app/resources/xml/zammad_properties.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/app/views/DASHBOARD/commons.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/DASHBOARD/commons.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/etc/app/views/GGUS/zammad.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/GGUS/zammad.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -281,7 +281,7 @@
     <configuration name="Run" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="fr.in2p3.lavoisier.command.StandaloneExec" />
       <module name="lavopsportal" />
-      <option name="PROGRAM_PARAMETERS" value="DASHBOARD_TICKETS_ZAMMAD?nbsteps=999&amp;accept=xml" />
+      <option name="PROGRAM_PARAMETERS" value="getUsers?nbsteps=999&amp;accept=xml" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -733,7 +733,7 @@
       <workItem from="1732867206113" duration="14000" />
       <workItem from="1733233268825" duration="3600000" />
       <workItem from="1733386559660" duration="19713000" />
-      <workItem from="1733487825124" duration="4770000" />
+      <workItem from="1733487825124" duration="10628000" />
     </task>
     <task id="LOCAL-00075" summary="filtre tickets">
       <created>1536755736442</created>

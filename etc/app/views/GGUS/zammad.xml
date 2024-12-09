@@ -67,6 +67,37 @@
         <serializer type="JSONStreamSerializer"></serializer>
     </view>
 
+
+    <view name="getUsers">
+
+    <variable name="token" eval="property('zammad.sites.token')"/>
+    <variable name="base_url" eval="property(concat('zammad.url.',property('env')))"/>
+
+    <connector type="HTTPConnector">
+        <parameter name="method">GET</parameter>
+        <parameter name="header">
+            <entry key="Content-Type">application/json</entry>
+            <entry key="Authorization" eval="concat('Token token=',$token)"></entry>
+        </parameter>
+        <parameter name="url" eval="concat($base_url,'/api/v1/users/me')"></parameter>
+    </connector>
+        <serializer type="JSONStreamSerializer"></serializer>
+
+
+       <processors>
+            <element in="item" out="users">
+                <element in="object" out="user">
+                    <attribute-create out="id">../id/text()</attribute-create>
+                    <attribute-create out="name">concat(../firstname/text(),' ',../lastname/text())</attribute-create>
+                    <element-ignore></element-ignore>
+
+                </element>
+
+            </element>
+
+        </processors>
+    </view>
+
     <view name="getTickets">
         <argument name="ticketId">_id_</argument>
         <variable name="token" eval="property('zammad.sites.token')"/>
@@ -88,11 +119,19 @@
                     <element-ignore in="Ticket">
                         <element  out="Ticket">
                             <element if="name()='id' or name()='title' or name()='wlcg_sites' or name()='state_id' or name()='updated_at' or name()='priority_id'"></element>
+
+                            <element-create>new_element('state',new_text(view('zammadProperties')/properties/states/state[@value=current()/../state_id/text()]/text()))</element-create>
+                            <element-create>new_element('priority',new_text(view('zammadProperties')/properties/priorities/priority[@value=current()/../priority_id/text()]/text()))</element-create>
+
                             <element-ignore/>
                         </element>
                     </element-ignore>
                 </element-ignore>
 
+            </element>
+
+            <element in="Tickets">
+                <element-ignore if="name()!='Ticket'"/>
             </element>
         </processors>
     </view>
@@ -114,6 +153,14 @@
 
         </connector>
         <serializer type="JSONStreamSerializer"></serializer>
+    </view>
+
+
+
+    <view name="zammadProperties">
+        <connector type="FileConnector">
+            <parameter name="path">/app/resources/xml/zammad_properties.xml</parameter>
+        </connector>
     </view>
 
 </views>
