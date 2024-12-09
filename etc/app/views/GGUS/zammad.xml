@@ -98,6 +98,41 @@
         </processors>
     </view>
 
+    <view name="getTicketHistory" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
+
+    <argument name="ticketId">1393</argument>
+    <variable name="token" eval="property('zammad.sites.token')"/>
+    <variable name="base_url" eval="property(concat('zammad.url.',property('env')))"/>
+
+    <connector type="HTTPConnector">
+        <parameter name="method">GET</parameter>
+        <parameter name="header">
+            <entry key="Content-Type">application/json</entry>
+            <entry key="Authorization" eval="concat('Token token=',$token)"></entry>
+        </parameter>
+        <parameter name="url" eval="concat($base_url,'/api/v1/ticket_articles/by_ticket/',$ticketId)"></parameter>
+    </connector>
+    <serializer type="JSONStreamSerializer"></serializer>
+    <processors>
+
+        <element in="item" out="e:entries">
+            <element in="object" out="e:entries">
+                <element-ignore if="name()='from' or name()='subject' or name()='body' or name()='created_at'">
+                    <element-create>entry(name(..),../text())</element-create>
+                </element-ignore>
+            <element-ignore/>
+
+            </element>
+
+        </element>
+
+    </processors>
+
+
+
+
+    </view>
+
     <view name="getTickets">
         <argument name="ticketId">_id_</argument>
         <variable name="token" eval="property('zammad.sites.token')"/>
@@ -109,7 +144,7 @@
                 <entry key="Content-Type">application/json</entry>
                 <entry key="Authorization" eval="concat('Token token=',$token)"></entry>
             </parameter>
-            <parameter name="url" eval="choose($ticketId='_id_',concat($base_url,'/api/v1/tickets/search?query=customer_id:809'),concat($base_url,'/api/v1/tickets/',$ticketId))"></parameter>
+            <parameter name="url" eval="choose($ticketId='_id_',concat($base_url,'/api/v1/tickets/search?query=customer_id:809'),concat($base_url,'/api/v1/ticket_articles/by_ticket/',$ticketId))"></parameter>
         </connector>
         <serializer type="JSONStreamSerializer"></serializer>
         <processors>
@@ -130,7 +165,7 @@
 
             </element>
 
-            <element in="Tickets">
+            <element in="Tickets" if="$ticketId='_id_'">
                 <element-ignore if="name()!='Ticket'"/>
             </element>
         </processors>
