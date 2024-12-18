@@ -324,6 +324,7 @@
         </connector>
 
         <processors>
+
             <element in="results">
                 <set variable="osg_voms">view("osg_voms")</set>
                 <element-create as="first-child">$osg_voms</element-create>
@@ -331,7 +332,7 @@
 
             <element in="results">
                 <element-ignore in="root">
-                    <element in="item" out="SERVICE_ENDPOINT">
+                    <element in="item" out="SERVICE_ENDPOINT" if="not(following-sibling::SERVICE_ENDPOINT/HOSTNAME=current()/@HOSTNAME)">
                         <attribute-ignore/>
                         <attribute-create out="PRIMARY_KEY">concat(str:replace(../@HOSTNAME,'.','_'),'_',str:replace(../@VO,'.','_'))</attribute-create>
 
