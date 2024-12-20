@@ -337,7 +337,7 @@
                         <attribute-create out="PRIMARY_KEY">concat(str:replace(../@HOSTNAME,'.','_'),'_',str:replace(../@VO,'.','_'))</attribute-create>
 
                         <element-create>new_element('PRIMARY_KEY',concat(str:replace(../@HOSTNAME,'.','_'),'_',str:replace(../@VO,'.','_')))</element-create>
-                        <element-create>new_element('GOCDB_PORTAL_URL','http://myosg.grid.iu.edu/vovomsstatus?all_vos=on&amp;active=on&amp;active_value=1&amp;datasource=vomsstatus')</element-create>
+                        <element-create>new_element('GOCDB_PORTAL_URL','https://raw.githubusercontent.com/opensciencegrid/osg-vo-config/master/vomses')</element-create>
                         <element-create>new_element('HOSTNAME',new_text(../@HOSTNAME))</element-create>
                         <element-create>new_element('HOSTDN',new_text(../@VOMSDN))</element-create>
                         <element-create>new_element('SERVICE_TYPE','VOMS')</element-create>
