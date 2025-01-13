@@ -19,9 +19,6 @@
 
     <view name="ggus_soap" xmlns:op="urn:CIC_HelpDesk" xmlns:param="urn:GGUS_OPS">
 
-
-
-
         <argument name="ggus_message">ggus_message_base</argument>
         <argument name="service">GGUS_OPS</argument>
         <argument name="operation">OpGetListOps</argument>

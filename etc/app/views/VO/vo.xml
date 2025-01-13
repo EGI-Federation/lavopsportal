@@ -574,7 +574,10 @@
                 <parameter name="hours">4</parameter>
             </trigger>
             <trigger type="ViewNotifiedTrigger"/>
-
+            <trigger type="FixedTimeTrigger">
+                <parameter name="hour">9</parameter>
+                <parameter name="minute">02</parameter>
+            </trigger>
 
         </cache>
         <pre-renderers>

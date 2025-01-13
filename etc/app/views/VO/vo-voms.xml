@@ -1060,6 +1060,11 @@
                 <parameter name="minute">22</parameter>
             </trigger>
             <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="FixedTimeTrigger">
+                <parameter name="hour">7</parameter>
+                <parameter name="minute">22</parameter>
+            </trigger>
+
         </cache>
 
         <renderers>

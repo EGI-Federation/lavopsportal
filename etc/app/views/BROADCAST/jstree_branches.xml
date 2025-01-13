@@ -194,6 +194,10 @@
                     <entry>OPSCORE_prod_entities</entry>
                 </parameter>
             </trigger>
+            <trigger type="FixedTimeTrigger">
+                <parameter name="hour">6</parameter>
+                <parameter name="minute">15</parameter>
+            </trigger>
         </cache>
     </view>
 
@@ -253,6 +257,10 @@
                     <entry>JSTreeConf_Cached</entry>
                     <entry>OPSCORE_prod_entities_egi</entry>
                 </parameter>
+            </trigger>
+            <trigger type="FixedTimeTrigger">
+                <parameter name="hour">8</parameter>
+                <parameter name="minute">35</parameter>
             </trigger>
         </cache>
     </view>
