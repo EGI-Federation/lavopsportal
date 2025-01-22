@@ -1497,6 +1497,9 @@
             <trigger type="DeltaTimeTrigger">
                 <parameter name="hours">5</parameter>
             </trigger>
+            <trigger type="FixedTimeTrigger">
+                <parameter name="hour">7</parameter>
+            </trigger>
             <trigger type="ViewNotifiedTrigger"/>
         </cache>
         <renderers>

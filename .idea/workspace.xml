@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="mo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/app/views/BROADCAST/jstree_branches.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/BROADCAST/jstree_branches.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/app/views/GGUS/primary.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/GGUS/primary.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/etc/app/views/VO/vo.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/VO/vo.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -740,7 +738,9 @@
       <workItem from="1734533394259" duration="24000" />
       <workItem from="1734681281293" duration="1104000" />
       <workItem from="1735891365064" duration="29000" />
-      <workItem from="1736753399864" duration="870000" />
+      <workItem from="1736753399864" duration="1919000" />
+      <workItem from="1736777984503" duration="3000" />
+      <workItem from="1736844754839" duration="844000" />
     </task>
     <task id="LOCAL-00075" summary="filtre tickets">
       <created>1536755736442</created>

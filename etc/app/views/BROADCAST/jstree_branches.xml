@@ -218,6 +218,10 @@
                     <entry>OPSCORE_prod_entities_egi</entry>
                 </parameter>
             </trigger>
+            <trigger type="FixedTimeTrigger">
+                <parameter name="hour">8</parameter>
+                <parameter name="minute">18</parameter>
+            </trigger>
         </cache>
     </view>
 
