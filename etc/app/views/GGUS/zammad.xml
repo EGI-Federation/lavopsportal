@@ -149,10 +149,10 @@
         <serializer type="JSONStreamSerializer"></serializer>
         <processors>
 
-            <element in="object" out="Tickets">
-                <element-ignore in="assets">
-                    <element-ignore in="Ticket">
-                        <element  out="Ticket">
+            <element in="item" out="Tickets">
+
+
+                        <element in="object" out="Ticket">
                             <element if="name()='id' or name()='title' or name()='wlcg_sites' or name()='state_id' or name()='updated_at' or name()='priority_id'"></element>
 
                             <element-create>new_element('state',new_text(view('zammadProperties')/properties/states/state[@value=current()/../state_id/text()]/text()))</element-create>
@@ -160,8 +160,8 @@
 
                             <element-ignore/>
                         </element>
-                    </element-ignore>
-                </element-ignore>
+
+
 
             </element>
 
