@@ -6,7 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="0d05496c-bd02-448a-9952-f960be0b98c3" name="Default" comment="mo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/app/views/VO/vo.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/VO/vo.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/app/views/GGUS/ggus.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/GGUS/ggus.cup" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/app/views/GGUS/primary.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/GGUS/primary.bcup" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/app/views/GGUS/zammad.xml" beforeDir="false" afterPath="$PROJECT_DIR$/etc/app/views/GGUS/zammad.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -280,7 +282,7 @@
     <configuration name="Run" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="fr.in2p3.lavoisier.command.StandaloneExec" />
       <module name="lavopsportal" />
-      <option name="PROGRAM_PARAMETERS" value="getTicketHistory?nbsteps=999&amp;accept=xml" />
+      <option name="PROGRAM_PARAMETERS" value="createToken?nbsteps=999&amp;accept=xml" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -741,6 +743,7 @@
       <workItem from="1736753399864" duration="1919000" />
       <workItem from="1736777984503" duration="3000" />
       <workItem from="1736844754839" duration="844000" />
+      <workItem from="1738226683770" duration="335000" />
     </task>
     <task id="LOCAL-00075" summary="filtre tickets">
       <created>1536755736442</created>

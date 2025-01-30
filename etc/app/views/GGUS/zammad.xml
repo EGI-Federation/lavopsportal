@@ -173,8 +173,8 @@
 
     <view name="createToken">
 
-        <variable name="client-pwd">qZUer8Coj1Q758EZwz9rOmO4Cwkgz-36mZ744RQ2T6p6HOWcX6ui-2lRDT9D6_v5</variable>
-        <variable name="base_url" eval="'https://helpdesk-dev.ggus.eu'"/>
+        <variable name="client-pwd">pqzfOv80iPFZkdtIRW9_00xmY0QWKTTkmlS21</variable>
+        <variable name="base_url" eval="'https://helpdesk.ggus.eu'"/>
 
         <connector type="HTTPConnector">
             <parameter name="url" eval="concat($base_url,'/api/v1/user_access_token')"></parameter>
