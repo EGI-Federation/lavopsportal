@@ -646,57 +646,57 @@
 
     </view>
 
-    <view name="DASHBOARD_TICKETS" xmlns:ns0="urn:GGUS_OPS"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >
-        <connector type="XMLConnector">
-            <parameter name="content" eval="view('GGUS_OPS')"/>
-        </connector>
+<!--    <view name="DASHBOARD_TICKETS" xmlns:ns0="urn:GGUS_OPS"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >-->
+<!--        <connector type="XMLConnector">-->
+<!--            <parameter name="content" eval="view('GGUS_OPS')"/>-->
+<!--        </connector>-->
 
-        <processors>
-            <element in="ns0:OpGetListOpsResponse" out="e:entries">
+<!--        <processors>-->
+<!--            <element in="ns0:OpGetListOpsResponse" out="e:entries">-->
 
-                <element in="ns0:getListValues" out="e:entries">
+<!--                <element in="ns0:getListValues" out="e:entries">-->
 
-                    <element-ignore>
-                        <element-create if="../text()">entry(local-name(..),../text())</element-create>
-                    </element-ignore>
-                </element>
-            </element>
+<!--                    <element-ignore>-->
+<!--                        <element-create if="../text()">entry(local-name(..),../text())</element-create>-->
+<!--                    </element-ignore>-->
+<!--                </element>-->
+<!--            </element>-->
 
-            <element in="e:entries">
-                <element-ignore in="e:entries" if="not(e:entry[@key='GHD_Affected_Site'])"/>
-            </element>
+<!--            <element in="e:entries">-->
+<!--                <element-ignore in="e:entries" if="not(e:entry[@key='GHD_Affected_Site'])"/>-->
+<!--            </element>-->
 
-            <element in="e:entries">
-                <element-ignore in="e:entries" if="e:entry[@key='GHD_Problem_Type']/text()!='Operations'"/>
-                <element-ignore in="e:entries" if="e:entry[@key='GHD_Status']/text()='verified'"/>
-                <element in="e:entries">
-                    <element-ignore in="e:entry" if="@key='GHD_Soap_Client_Data'">
-                        <element-create>xml(../text())</element-create>
-                    </element-ignore>
+<!--            <element in="e:entries">-->
+<!--                <element-ignore in="e:entries" if="e:entry[@key='GHD_Problem_Type']/text()!='Operations'"/>-->
+<!--                <element-ignore in="e:entries" if="e:entry[@key='GHD_Status']/text()='verified'"/>-->
+<!--                <element in="e:entries">-->
+<!--                    <element-ignore in="e:entry" if="@key='GHD_Soap_Client_Data'">-->
+<!--                        <element-create>xml(../text())</element-create>-->
+<!--                    </element-ignore>-->
 
-                </element>
-            </element>
+<!--                </element>-->
+<!--            </element>-->
 
-            <elements path="e:entries/e:entries/e:entries">
-                <attribute-create out="key">'GHD_Soap_Client_Data'</attribute-create>
-            </elements>
-        </processors>
+<!--            <elements path="e:entries/e:entries/e:entries">-->
+<!--                <attribute-create out="key">'GHD_Soap_Client_Data'</attribute-create>-->
+<!--            </elements>-->
+<!--        </processors>-->
 
-        <cache type="FileCache">
-            <trigger type="DeltaTimeTrigger">
-                <parameter name="minutes"  eval="choose(property('env')='test',22,5)"/>
-            </trigger>
-            <trigger type="ViewNotifiedTrigger"/>
-            <trigger type="ViewCreatedTrigger"/>
-        </cache>
+<!--        <cache type="FileCache">-->
+<!--            <trigger type="DeltaTimeTrigger">-->
+<!--                <parameter name="minutes"  eval="choose(property('env')='test',22,5)"/>-->
+<!--            </trigger>-->
+<!--            <trigger type="ViewNotifiedTrigger"/>-->
+<!--            <trigger type="ViewCreatedTrigger"/>-->
+<!--        </cache>-->
 
-        <renderers>
-            <renderer type="DefaultRenderer">
-                <parameter name="contentType">text/xml</parameter>
-            </renderer>
-        </renderers>
+<!--        <renderers>-->
+<!--            <renderer type="DefaultRenderer">-->
+<!--                <parameter name="contentType">text/xml</parameter>-->
+<!--            </renderer>-->
+<!--        </renderers>-->
 
-    </view>
+<!--    </view>-->
 
 
     <view name="DASHBOARD_endpoints"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" >

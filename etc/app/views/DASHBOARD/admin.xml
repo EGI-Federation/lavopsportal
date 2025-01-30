@@ -79,24 +79,24 @@
         </renderers>
     </view>
     
-    <view name="rod_tickets">
-        <connector type="XMLConnector">
-            <parameter name="content" eval="view('GGUS_ROD')"/>
-        </connector>
-        <cache type="FileCache">
-            <trigger type="ViewNotifiedTrigger"/>
-            <trigger type="DeltaTimeTrigger">
-                <parameter name="minutes">6</parameter>
-                <parameter name="seconds">10</parameter>
-            </trigger>
-        </cache>
-        <renderers>
-            <renderer type="DefaultRenderer">
-                <parameter name="contentType">text/xml</parameter>
-            </renderer>
-        </renderers>
+<!--    <view name="rod_tickets">-->
+<!--        <connector type="XMLConnector">-->
+<!--            <parameter name="content" eval="view('GGUS_ROD')"/>-->
+<!--        </connector>-->
+<!--        <cache type="FileCache">-->
+<!--            <trigger type="ViewNotifiedTrigger"/>-->
+<!--            <trigger type="DeltaTimeTrigger">-->
+<!--                <parameter name="minutes">6</parameter>-->
+<!--                <parameter name="seconds">10</parameter>-->
+<!--            </trigger>-->
+<!--        </cache>-->
+<!--        <renderers>-->
+<!--            <renderer type="DefaultRenderer">-->
+<!--                <parameter name="contentType">text/xml</parameter>-->
+<!--            </renderer>-->
+<!--        </renderers>-->
 
-    </view>
+<!--    </view>-->
 
     <view name="rod_admin"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
         <connector type="XMLConnector">
