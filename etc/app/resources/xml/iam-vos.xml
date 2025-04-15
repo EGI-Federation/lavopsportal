@@ -3,4 +3,6 @@
     <vo name='alice'></vo>
     <vo name='atlas'></vo>
     <vo name='lhcb'></vo>
+    <vo name='ilc'></vo>
+    <vo name='calice'></vo>
 </vos>
