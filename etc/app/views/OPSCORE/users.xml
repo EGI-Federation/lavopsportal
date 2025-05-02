@@ -535,7 +535,7 @@
             <parameter name="username" eval="property('OPSCORE.db.username')"/>
             <parameter name="password" eval="property('OPSCORE.db.password')"/>
             <parameter name="query">
-                SELECT v.serial as ON_ENTITY, password( concat(c.first_name,' ' ,c.last_name) ) as PRIMARY_KEY,
+                SELECT v.serial as ON_ENTITY, sha2(concat(c.first_name,' ' ,c.last_name), 224) as PRIMARY_KEY,
                 concat(c.first_name,' ' ,c.last_name) as CN , c.email as EMAIL , c.DN as CERTDN , p.profile as USER_ROLE
                 FROM vo v, vo_header h, vo_contacts c, vo_contact_has_profile cp, vo_user_profile p
                 WHERE v.header_id = h.id
@@ -575,7 +575,7 @@
             <parameter name="username" eval="property('OPSCORE.db.username')"/>
             <parameter name="password" eval="property('OPSCORE.db.password')"/>
             <parameter name="query">
-                SELECT v.name as ON_ENTITY, password( concat(c.first_name,' ' ,c.last_name) ) as PRIMARY_KEY,
+                SELECT v.name as ON_ENTITY, sha2( concat(c.first_name,' ' ,c.last_name), 224 ) as PRIMARY_KEY,
                 concat(c.first_name,' ' ,c.last_name) as CN , c.email as EMAIL , c.DN as CERTDN , p.profile as USER_ROLE
                 FROM vo v, vo_header h, vo_contacts c, vo_contact_has_profile cp, vo_user_profile p
                 WHERE v.header_id = h.id

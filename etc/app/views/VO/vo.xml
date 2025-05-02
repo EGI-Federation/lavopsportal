@@ -1516,7 +1516,7 @@
 
         <argument name="option">VO</argument>
 
-        <argument name="date">2016-08</argument>
+        <argument name="date">2016-08-01</argument>
         <connector type="SQLConnector">
             <parameter name="driver">com.mysql.jdbc.Driver</parameter>
             <parameter name="url" eval="property('VO.db.url')"/>
@@ -2225,11 +2225,11 @@
             <parameter name="password" eval="property('VO.db.password')"/>
             <parameter name="query">
                 (SELECT vchp.serial, vc.* , vo.name , vo.last_change FROM vo_contact_has_profile vchp, vo_contacts vc ,
-                vo WHERE vo.last_change!='0000-00-00 00:00:00' and user_profile_id in (1,2) and vc.id=vchp.contact_id
+                vo WHERE vo.last_change!='1970-01-01 00:00:00' and user_profile_id in (1,2) and vc.id=vchp.contact_id
                 and vo.serial=vchp.serial)
                 UNION
-                (SELECT vchp.serial, vc.* , vo.name , '0000-00-00 00:00:00' FROM vo_contact_has_profile vchp,
-                vo_contacts vc , vo WHERE vo.last_change='0000-00-00 00:00:00' and user_profile_id in (1,2) and
+                (SELECT vchp.serial, vc.* , vo.name , '1970-01-01 00:00:00' FROM vo_contact_has_profile vchp,
+                vo_contacts vc , vo WHERE vo.last_change='1970-01-01 00:00:00' and user_profile_id in (1,2) and
                 vc.id=vchp.contact_id and vo.serial=vchp.serial)
             </parameter>
         </connector>
@@ -2256,10 +2256,10 @@
                 <element-ignore/>
 
                 <element-create>
-                    entry('date_validation',choose(../date_validation/text(),../date_validation/text(),'0000-00-00 00:00:00'))
+                    entry('date_validation',choose(../date_validation/text(),../date_validation/text(),'1970-01-01 00:00:00'))
                 </element-create>
                 <element-create>
-                    entry('date_last_email_sending',choose(../date_last_email_sending/text(),../date_last_email_sending/text(),'0000-00-00 00:00:00'))
+                    entry('date_last_email_sending',choose(../date_last_email_sending/text(),../date_last_email_sending/text(),'1970-01-01 00:00:00'))
                 </element-create>
                 <element-create as="first-child">entry('status',choose(../status/text(),../status/text(),100))
                 </element-create>
@@ -2378,26 +2378,26 @@
             <parameter name="query">
                 (SELECT vo.name, vo.serial , vs.status ,vo.creation_date, vo.validation_date, vo.last_change,
                 vh.homepage_url , vsc.scope from vo ,vo_header vh,
-                vo_status vs , vo_scope vsc where vo.last_change!='0000-00-00 00:00:00' and
-                vo.validation_date!='0000-00-00 00:00:00' and vo.header_id=vh.id and vh.status_id=vs.id and
+                vo_status vs , vo_scope vsc where vo.last_change!='1970-01-01 00:00:00' and
+                vo.validation_date!='1970-01-01 00:00:00' and vo.header_id=vh.id and vh.status_id=vs.id and
                 vh.scope_id=vsc.id)
                 UNION
-                (SELECT vo.name, vo.serial , vs.status ,vo.creation_date, vo.validation_date, '0000-00-00 00:00:00' as
+                (SELECT vo.name, vo.serial , vs.status ,vo.creation_date, vo.validation_date, '1970-01-01 00:00:00' as
                 last_change, vh.homepage_url , vsc.scope  from vo ,vo_header vh,
-                vo_status vs , vo_scope vsc where vo.last_change='0000-00-00 00:00:00' and
-                vo.validation_date!='0000-00-00 00:00:00' and vo.header_id=vh.id and vh.status_id=vs.id and
+                vo_status vs , vo_scope vsc where vo.last_change='1970-01-01 00:00:00' and
+                vo.validation_date!='1970-01-01 00:00:00' and vo.header_id=vh.id and vh.status_id=vs.id and
                 vh.scope_id=vsc.id)
                 UNION
-                (SELECT vo.name, vo.serial , vs.status ,vo.creation_date, '0000-00-00 00:00:00' as validation_date,
+                (SELECT vo.name, vo.serial , vs.status ,vo.creation_date, '1970-01-01 00:00:00' as validation_date,
                 vo.last_change, vh.homepage_url , vsc.scope
-                from vo ,vo_header vh, vo_status vs , vo_scope vsc where vo.last_change!='0000-00-00 00:00:00' and
-                vo.validation_date='0000-00-00 00:00:00' and vo.header_id=vh.id and vh.status_id=vs.id and
+                from vo ,vo_header vh, vo_status vs , vo_scope vsc where vo.last_change!='1970-01-01 00:00:00' and
+                vo.validation_date='1970-01-01 00:00:00' and vo.header_id=vh.id and vh.status_id=vs.id and
                 vh.scope_id=vsc.id)
                 UNION
-                (SELECT vo.name, vo.serial , vs.status ,'0000-00-00 00:00:00' as creation_date, '0000-00-00 00:00:00' as
+                (SELECT vo.name, vo.serial , vs.status ,'1970-01-01 00:00:00' as creation_date, '1970-01-01 00:00:00' as
                 validation_date, vo.last_change, vh.homepage_url , vsc.scope
-                from vo ,vo_header vh, vo_status vs , vo_scope vsc where vo.last_change='0000-00-00 00:00:00' and
-                vo.validation_date='0000-00-00 00:00:00' and vo.header_id=vh.id and vh.status_id=vs.id and
+                from vo ,vo_header vh, vo_status vs , vo_scope vsc where vo.last_change='1970-01-01 00:00:00' and
+                vo.validation_date='1970-01-01 00:00:00' and vo.header_id=vh.id and vh.status_id=vs.id and
                 vh.scope_id=vsc.id)
             </parameter>
         </connector>
@@ -2428,14 +2428,14 @@
             <parameter name="password" eval="property('VO.db.password')"/>
             <parameter name="query">
                 (SELECT vyv.id , vyv.serial , vyv.date_validation, vyv.date_last_email_sending FROM vo_yearly_validation
-                vyv where vyv.date_last_email_sending!='0000-00-00 00:00:00' and vyv.date_validation!='0000-00-00
+                vyv where vyv.date_last_email_sending!='1970-01-01 00:00:00' and vyv.date_validation!='1970-01-01
                 00:00:00' )
                 UNION
-                (SELECT vyv.id , vyv.serial , vyv.date_validation, '0000-00-00 00:00:00' FROM vo_yearly_validation vyv
-                where vyv.date_last_email_sending='0000-00-00 00:00:00')
+                (SELECT vyv.id , vyv.serial , vyv.date_validation, '1970-01-01 00:00:00' FROM vo_yearly_validation vyv
+                where vyv.date_last_email_sending='1970-01-01 00:00:00')
                 UNION
-                (SELECT vyv.id , vyv.serial , '0000-00-00 00:00:00', vyv.date_last_email_sending FROM
-                vo_yearly_validation vyv where vyv.date_validation='0000-00-00 00:00:00')
+                (SELECT vyv.id , vyv.serial , '1970-01-01 00:00:00', vyv.date_last_email_sending FROM
+                vo_yearly_validation vyv where vyv.date_validation='1970-01-01 00:00:00')
             </parameter>
 
 
@@ -2910,8 +2910,8 @@
             <parameter name="username" eval="property('VO.db.username')"/>
             <parameter name="password" eval="property('VO.db.password')"/>
             <parameter name="query">
-                <entry>(SELECT v.* , vs.* FROM vo v, vo_header vh , vo_voms_server vs WHERE v.last_change!='0000-00-00
-                00:00:00' and v.validation_date!='0000-00-00 00:00:00' and v.header_id=vh.id and vh.status_id=2 and
+                <entry>(SELECT v.* , vs.* FROM vo v, vo_header vh , vo_voms_server vs WHERE v.last_change!='1970-01-01
+                00:00:00' and v.validation_date!='1970-01-01 00:00:00' and v.header_id=vh.id and vh.status_id=2 and
                     v.serial=vs.serial)
                 </entry>
             </parameter>
@@ -3068,8 +3068,8 @@
         <parameter name="username" eval="property('VO.db.username')"/>
         <parameter name="password" eval="property('VO.db.password')"/>
         <parameter name="query">
-            (SELECT v.name, vh.description FROM vo v, vo_header vh WHERE v.last_change!='0000-00-00
-            00:00:00' and v.validation_date!='0000-00-00 00:00:00' and v.header_id=vh.id and vh.status_id=2)
+            (SELECT v.name, vh.description FROM vo v, vo_header vh WHERE v.last_change!='1970-01-01
+            00:00:00' and v.validation_date!='1970-01-01 00:00:00' and v.header_id=vh.id and vh.status_id=2)
         </parameter>
     </connector>
 
