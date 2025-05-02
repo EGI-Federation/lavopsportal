@@ -44,7 +44,8 @@
                 <entry>193.48.97.74</entry>
                 <entry>193.48.97.75</entry>
                 <entry>193.48.97.76</entry>
-
+		<!-- K8s -->
+		<entry>10.42.0.0/16</entry>
             </parameter>
         </authenticator>
     </authenticators>
