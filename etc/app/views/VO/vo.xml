@@ -573,16 +573,6 @@
 <!--            <processor type="ChangeNamespaceProcessor" match="//*"/>-->
 <!--        </processors>-->
 
-        <connector type="HTTPConnector">
-            <parameter name="url" eval="property('appdbpi.vo.disciplines')"/>
-            <parameter name="certificate" eval="property('certificate.path')"/>
-            <parameter name="passphrase" eval="property('certificate.password')"/>
-            <parameter name="force-redirect">true</parameter>
-        </connector>
-        <processors>
-            <processor type="ChangeNamespaceProcessor" match="//*"/>
-        </processors>
-
         <cache type="FileCache">
             <trigger type="DeltaTimeTrigger">
                 <parameter name="hours">4</parameter>
