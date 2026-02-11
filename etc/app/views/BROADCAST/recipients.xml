@@ -640,7 +640,7 @@
         <processors>
 
             <element in="data" out="Recipients">
-                <set variable="VAPOR_VoSites">view('VAPOR_VoSites')</set>
+                <set variable="VAPOR_VoSites">view('VAPOR_VO_SITES')</set>
                 <element in="Vo" out="Recipient">
                     <attribute-ignore/>
                     <element-create>new_element('label',new_text(../@name))</element-create>

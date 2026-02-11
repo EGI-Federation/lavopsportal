@@ -187,7 +187,6 @@
     <option name="height" value="1002" />
   </component>
   <component name="ProjectId" id="1skzuyGiLAchFbc5UIDh7QyMVZq" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <flattenPackages ProjectPane="false" />
@@ -225,8 +224,12 @@
     "Application.Run.executor": "Run",
     "Application.Start Lavoisier server.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/cyril/Projets/tp_final_karma_analysis",
+    "last_opened_file_path": "/home/cyril/Projets/anf-2026/formation-qualite-logicielle",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -280,7 +283,7 @@
     <configuration name="Run" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="fr.in2p3.lavoisier.command.StandaloneExec" />
       <module name="lavopsportal" />
-      <option name="PROGRAM_PARAMETERS" value="getUsers?nbsteps=999&amp;accept=xml" />
+      <option name="PROGRAM_PARAMETERS" value="CSI_API?nbsteps=999&amp;accept=xml" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -318,8 +321,11 @@
       </ExternalSystemSettings>
       <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <ExternalSystemDebugDisabled>false</ExternalSystemDebugDisabled>
       <DebugAllEnabled>false</DebugAllEnabled>
       <RunAsTest>false</RunAsTest>
+      <GradleProfilingDisabled>false</GradleProfilingDisabled>
+      <GradleCoverageDisabled>false</GradleCoverageDisabled>
       <method v="2" />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
@@ -353,8 +359,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.17890.1" />
-        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.17890.1" />
+        <option value="bundled-jdk-30f59d01ecdd-2fc7cc6b9a17-intellij.indexing.shared.core-IU-253.30387.90" />
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-IU-253.30387.90" />
       </set>
     </attachedChunks>
   </component>
@@ -754,6 +760,33 @@
       <workItem from="1744022219535" duration="840000" />
       <workItem from="1744699858797" duration="4000" />
       <workItem from="1744721503557" duration="519000" />
+      <workItem from="1746456106688" duration="21000" />
+      <workItem from="1747117623964" duration="489000" />
+      <workItem from="1747123046309" duration="102000" />
+      <workItem from="1747149346749" duration="476000" />
+      <workItem from="1747208984836" duration="857000" />
+      <workItem from="1747225636537" duration="14000" />
+      <workItem from="1747309813841" duration="275000" />
+      <workItem from="1747386972123" duration="1337000" />
+      <workItem from="1750144167400" duration="655000" />
+      <workItem from="1750660871075" duration="1674000" />
+      <workItem from="1750662965204" duration="972000" />
+      <workItem from="1750687489963" duration="1607000" />
+      <workItem from="1751611189180" duration="144000" />
+      <workItem from="1755585281034" duration="19000" />
+      <workItem from="1757575035523" duration="356000" />
+      <workItem from="1757575485479" duration="111000" />
+      <workItem from="1758278086746" duration="11000" />
+      <workItem from="1759215535824" duration="191000" />
+      <workItem from="1759402831394" duration="1940000" />
+      <workItem from="1761826659186" duration="10000" />
+      <workItem from="1762506693051" duration="611000" />
+      <workItem from="1764321798759" duration="29000" />
+      <workItem from="1764843121535" duration="3000" />
+      <workItem from="1764923339903" duration="40000" />
+      <workItem from="1765286281170" duration="520000" />
+      <workItem from="1768204644184" duration="933000" />
+      <workItem from="1770303720319" duration="256000" />
     </task>
     <task id="LOCAL-00075" summary="filtre tickets">
       <created>1536755736442</created>

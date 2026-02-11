@@ -6,4 +6,8 @@
     <vo name='ilc'></vo>
     <vo name='calice'></vo>
     <vo name='fcc'></vo>
+    <vo name='vo.compass.cern.ch'></vo>
+    <vo name='vo.moedal.org'></vo>
+    <vo name='ops'></vo>
+    <vo name='vo.scigne.fr'></vo>
 </vos>

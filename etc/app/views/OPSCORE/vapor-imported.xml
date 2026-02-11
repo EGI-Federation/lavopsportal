@@ -1,0 +1,936 @@
+<views xmlns="http://software.in2p3.fr/lavoisier/application.xsd">
+
+    <view name="gocdb-list-sites">
+        <info>
+            <description>List of EGI sites</description>
+        </info>
+        <connector type="HTTPConnector">
+            <parameter name="url" eval="concat('https://goc.egi.eu/gocdbpi/public/?method=', 'get_site_list')"/>
+            <parameter name="certificate" eval="property('certificate.path')"/>
+            <parameter name="passphrase" eval="property('certificate.password')"/>
+        </connector>
+
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="hours">1</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="ViewCreatedTrigger"/>
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="hours">2</parameter>
+            </trigger>
+        </cache>
+
+    </view>
+
+    <view name="gocdb-downtimes">
+        <info>
+
+            <description>List on going downtimes on EGI services</description>
+        </info>
+        <connector type="HTTPConnector">
+            <parameter name="url" eval="concat('https://goc.egi.eu/gocdbpi/public/?method=', 'get_downtime&amp;scope=EGI&amp;ongoing_only=yes')"/>
+            <parameter name="certificate" eval="property('certificate.path')"/>
+            <parameter name="passphrase" eval="property('certificate.password')"/>
+        </connector>
+        <processors>
+            <!-- Remove unnecessary elements -->
+            <element in="results">
+                <element in="DOWNTIME" out="Downtime">
+                    <attribute-ignore in="CLASSIFICATION" />
+                    <attribute-ignore in="ID" />
+                    <attribute-ignore in="PRIMARY_KEY" />
+                    <element-ignore if="name() != 'HOSTNAME' and
+						 name() != 'SERVICE_TYPE' and
+						 name() != 'ENDPOINT' and
+						 name() != 'HOSTED_BY' and
+						 name() != 'SEVERITY'"/>
+                    <element-create as="first-child" if="../@CLASSIFICATION='SCHEDULED'">new_element('Classification', 'Scheduled')</element-create>
+                    <element-create as="first-child" if="../@CLASSIFICATION='UNSCHEDULED'">new_element('Classification', 'Unscheduled')</element-create>
+                </element>
+            </element>
+
+        </processors>
+
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="hours">1</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="ViewCreatedTrigger"/>
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="hours">1</parameter>
+            </trigger>
+        </cache>
+
+        <renderers><renderer type="DefaultRenderer"><parameter name="contentType">text/xml</parameter></renderer></renderers>
+    </view>
+
+    <view xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" name="VAPOR_Endpoints_Policy">
+        <info>
+
+            <description>Policy Access related to ENDPOINTS</description>
+        </info>
+        <connector type="LDAPConnector">
+            <parameter name="url">ldap://bdii.egi.cro-ngi.hr:2170</parameter>
+            <parameter name="path">GLUE2GroupID=grid,o=glue</parameter>
+            <parameter name="filter">(&amp;(ObjectClass=GLUE2Policy)(ObjectClass=GLUE2AccessPolicy))</parameter>
+        </connector>
+
+        <processors>
+
+            <elements path="o/GLUE2GroupID">
+                <element in="GLUE2DomainID">
+                    <element-ignore in="GLUE2DomainID"><element/></element-ignore>
+                </element>
+            </elements>
+
+
+
+            <element in="o" out="e:entries">
+
+                <elements-ignore path="GLUE2GroupID/GLUE2DomainID/GLUE2GroupID/GLUE2ServiceID">
+                    <element in="GLUE2EndpointID" out="e:entries">
+
+                        <attribute-create out="EndpointKey">../../@id</attribute-create>
+                        <attribute-create out="Site">../../ancestor::GLUE2DomainID/@id</attribute-create>
+
+
+                        <element-ignore in="GLUE2PolicyID">
+                            <element in="GLUE2PolicyRule" out="VO"
+                                     if="contains(text(),'VO:') or contains(text(),'vo:')">
+                                <text if="contains(.,'VO:')">substring-after(.,'VO:')</text>
+                                <text if="contains(.,'vo:')">substring-after(.,'vo:')</text>
+                            </element>
+
+                            <element in="GLUE2PolicyRule" out="VOMS"
+                                     if="contains(text(),'VOMS:') or contains(text(),'voms:')">
+                                <text if="contains(.,'VOMS:')">substring-after(.,'VOMS:')</text>
+                                <text if="contains(.,'voms:')">substring-after(.,'voms:')</text>
+                            </element>
+
+                            <element in="GLUE2PolicyRule" out="MYPROXY"
+                                     if="contains(text(),'MYPROXY:') or contains(text(),'myproxy:')">
+                                <text if="contains(.,'MYPROXY:')">substring-after(.,'MYPROXY:')</text>
+                                <text if="contains(.,'myproxy:')">substring-after(.,'myproxy:')</text>
+                            </element>
+
+                        </element-ignore>
+                    </element>
+                </elements-ignore>
+            </element>
+
+            <elements path="e:entries/e:entries">
+                <element>
+                    <text if="contains(.,',')">substring-before(.,',')</text>
+                    <text if="contains(.,')')">substring-before(.,')')</text>
+                    <text if="starts-with(.,' ')">substring-after(.,' ')</text>
+                    <text if="starts-with(.,'.')">substring-after(.,'.')</text>
+                    <text if="ends-with(.,' ')">substring-before(.,' ')</text>
+                    <text-ignore if="starts-with(.,'@')"></text-ignore>
+                </element>
+            </elements>
+
+            <elements path="e:entries/e:entries">
+                <element in="VO">
+                    <text>lower-case(.)</text>
+                </element>
+            </elements>
+
+
+
+
+            <element in="e:entries">
+                <set variable="VAPOR_Sites">view('VAPOR_Sites')/*</set>
+                <set variable="VAPOR_Services">view('VAPOR_Services')/*</set>
+                <element in="e:entries">
+                    <attribute-create out="ngi">$VAPOR_Sites/site[@id=current()/../@Site]/@ngi</attribute-create>
+                    <attribute-create out="ServiceType">
+                        $VAPOR_Services/Service[@id=current()/../@EndpointKey]/@service_flavour
+                    </attribute-create>
+                </element>
+            </element>
+
+            <element in="e:entries">
+                <element in="e:entries">
+                    <attribute in="ngi" if=".=''">../@site</attribute>
+                </element>
+            </element>
+            <element in="e:entries">
+                <element-create>view('AppDB.endpointsList')/e:entries/*</element-create>
+            </element>
+
+
+
+
+        </processors>
+
+        <cache type="FileCache">
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="minutes">48</parameter>
+            </trigger>
+        </cache>
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+
+    </view>
+
+
+    <view xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" name="VAPOR_Sites">
+        <info>
+
+            <description>List of sites - GLUE2</description>
+        </info>
+        <connector type="LDAPConnector">
+            <parameter name="url">ldap://bdii.egi.cro-ngi.hr:2170</parameter>
+            <parameter name="path">GLUE2GroupID=grid,o=glue</parameter>
+            <parameter name="filter">(&amp;(ObjectClass=GLUE2Domain))</parameter>
+
+        </connector>
+
+        <processors>
+
+
+            <elements path="o/GLUE2GroupID">
+                <element in="GLUE2DomainID">
+                    <element-ignore in="GLUE2DomainID"><element/></element-ignore>
+                </element>
+            </elements>
+
+
+
+            <element in="o" out="sites">
+
+                <element-ignore in="GLUE2GroupID">
+                    <element in="GLUE2DomainID" out="site">
+
+                        <attribute-create out="ngiT" if="../GLUE2EntityOtherInfo[contains(text(),'EGI_NGI=')]">
+                            substring-after(../GLUE2EntityOtherInfo[contains(text(),'EGI_NGI=')]/text(),'EGI_NGI=')
+                        </attribute-create>
+                        <attribute-create out="description" if="../GLUE2DomainDescription/text()">
+                            ../GLUE2DomainDescription/text()
+                        </attribute-create>
+                        <attribute-create out="url" if="../GLUE2DomainWWW/text()">../GLUE2DomainWWW/text()
+                        </attribute-create>
+                        <attribute-create out="key">
+                            choose(../GLUE2AdminDomainAdminDomainForeignKey/text(),../GLUE2AdminDomainAdminDomainForeignKey/text(),../text())
+                        </attribute-create>
+                        <attribute-create out="logo" if="../GLUE2EntityOtherInfo[contains(text(),'ICON=')]">
+                            substring-after(../GLUE2EntityOtherInfo[contains(text(),'ICON=')]/text(),'ICON=')
+                        </attribute-create>
+                        <attribute-create out="Tier" if="../GLUE2EntityOtherInfo[contains(text(),'WLCG_TIER=')]">
+                            substring-after(../GLUE2EntityOtherInfo[contains(text(),'WLCG_TIER=')]/text(),'WLCG_TIER=')
+                        </attribute-create>
+
+                    </element>
+                </element-ignore>
+            </element>
+
+
+            <element in="sites">
+                <set variable="listSites">view('gocdb-list-sites')/*</set>
+
+
+                <element in="site">
+                    <attribute-create out="ngi" if="../@ngiT">../@ngiT</attribute-create>
+                    <attribute-ignore in="ngiT"></attribute-ignore>
+                    <attribute-create out="ngi" if="not(../@ngiT)">
+                        choose($listSites/SITE[@NAME=current()/../@id]/@ROC,$listSites/SITE[@NAME=current()/../@id]/@ROC,'Other')
+                    </attribute-create>
+                    <attribute-create if="not(../@id)" out="id">../@key</attribute-create>
+                    <attribute-ignore in="key"></attribute-ignore>
+
+                </element>
+            </element>
+
+
+            <element in="sites">
+
+                <set variable="listSites">view('gocdb-list-sites')/*</set>
+
+                <set variable="CPUs">view('VAPOR_ComputingEnv')/*</set>
+
+
+                <element in="site">
+                    <attribute-create out="country">lower-case($listSites/SITE[@NAME=current()/../@id]/@COUNTRY)</attribute-create>
+                    <attribute-create out="codeCountry">$listSites/SITE[@NAME=current()/../@id]/@COUNTRY_CODE
+                    </attribute-create>
+
+                    <attribute-create out="logCpu" if="$CPUs/site[@id=current()/../@id]/@LogicalCPUs">
+                        $CPUs/site[@id=current()/../@id]/@LogicalCPUs
+                    </attribute-create>
+                    <attribute-create out="PhyCpu" if="$CPUs/site[@id=current()/../@id]/@PhysicalCPUs">
+                        $CPUs/site[@id=current()/../@id]/@PhysicalCPUs
+                    </attribute-create>
+                    <text-ignore/>
+                    <element-ignore/>
+                </element>
+            </element>
+
+
+
+            <element in="sites">
+                <element-ignore in="site"></element-ignore>
+                <element-create>sort_by_string(../site,'concat(@ngi,@id)')</element-create>
+            </element>
+
+            <element in="sites">
+                <element in="site" if="starts-with(@id,'GRIF-')"
+                         attributes="preceding-sibling::site[@id='GRIF']/@*[name()!='id' and name()!='Tier']">
+                    <attribute-create out="id">../@id</attribute-create>
+                </element>
+            </element>
+
+            <element in="sites">
+                <element in="site">
+                    <attribute-create out="Tier" if="not(../@Tier)">'NA'</attribute-create>
+                </element>
+            </element>
+        </processors>
+
+
+        <cache type="FileCache">
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="minutes">25</parameter>
+            </trigger>
+
+        </cache>
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+
+        </renderers>
+
+
+    </view>
+
+    <view xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" name="VAPOR_Share_Policy">
+        <info>
+            <description>Policy Access related to SHARES</description>
+        </info>
+        <connector type="LDAPConnector">
+            <parameter name="url">ldap://bdii.egi.cro-ngi.hr:2170</parameter>
+            <parameter name="path">GLUE2GroupID=grid,o=glue</parameter>
+            <parameter name="filter">(&amp;(ObjectClass=GLUE2Policy)(ObjectClass=GLUE2MappingPolicy))</parameter>
+        </connector>
+
+        <processors>
+
+
+            <elements path="o/GLUE2GroupID">
+                <element in="GLUE2DomainID">
+                    <element-ignore in="GLUE2DomainID"><element/></element-ignore>
+                </element>
+            </elements>
+
+
+
+            <element in="o" out="e:entries">
+
+                <elements-ignore path="GLUE2GroupID/GLUE2DomainID/GLUE2GroupID/GLUE2ServiceID">
+                    <element in="GLUE2ShareID" out="e:entries">
+
+                        <attribute-create out="ServiceKey">../../@id</attribute-create>
+                        <attribute-create out="Site">../../ancestor::GLUE2DomainID/@id</attribute-create>
+
+
+                        <element-ignore in="GLUE2PolicyID">
+                            <element in="GLUE2PolicyRule" out="VO"
+                                     if="contains(text(),'VO:') or contains(text(),'vo:')">
+                                <text if="contains(.,'VO:')">substring-after(.,'VO:')</text>
+                                <text if="contains(.,'vo:')">substring-after(.,'vo:')</text>
+                            </element>
+
+                            <element in="GLUE2PolicyRule" out="VOMS"
+                                     if="contains(text(),'VOMS:') or contains(text(),'voms:')">
+                                <text if="contains(.,'VOMS:')">substring-after(.,'VOMS:')</text>
+                                <text if="contains(.,'voms:')">substring-after(.,'voms:')</text>
+                            </element>
+
+                            <element in="GLUE2PolicyRule" out="MYPROXY"
+                                     if="contains(text(),'MYPROXY:') or contains(text(),'myproxy:')">
+                                <text if="contains(.,'MYPROXY:')">substring-after(.,'MYPROXY:')</text>
+                                <text if="contains(.,'myproxy:')">substring-after(.,'myproxy:')</text>
+                            </element>
+
+                        </element-ignore>
+                    </element>
+                </elements-ignore>
+            </element>
+
+            <elements path="e:entries/e:entries">
+                <element>
+                    <text if="contains(.,',')">substring-before(.,',')</text>
+                    <text if="contains(.,')')">substring-before(.,')')</text>
+                    <text if="starts-with(.,' ')">substring-after(.,' ')</text>
+                    <text if="starts-with(.,'.')">substring-after(.,'.')</text>
+                    <text if="ends-with(.,' ')">substring-before(.,' ')</text>
+                    <text-ignore if="starts-with(.,'@')"></text-ignore>
+                </element>
+            </elements>
+
+
+            <elements path="e:entries/e:entries">
+                <element in="VO">
+                    <text>lower-case(.)</text>
+                </element>
+            </elements>
+
+
+            <element in="e:entries">
+                <set variable="VAPOR_Sites">view('VAPOR_Sites')/*</set>
+                <set variable="VAPOR_Services">view('VAPOR_Services')/*</set>
+                <element in="e:entries">
+                    <attribute-create out="ngi">$VAPOR_Sites/site[@id=current()/../@Site]/@ngi</attribute-create>
+                    <attribute-create out="ServiceType">
+                        $VAPOR_Services/Service[@id=current()/../@ServiceKey]/@service_flavour
+                    </attribute-create>
+                </element>
+            </element>
+
+            <element in="e:entries">
+                <element in="e:entries">
+                    <attribute in="ngi" if=".=''">../@site</attribute>
+                </element>
+            </element>
+
+        </processors>
+
+        <cache type="FileCache">
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="minutes">18</parameter>
+            </trigger>
+        </cache>
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+
+    </view>
+    <view xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" name="VAPOR_Services">
+        <info>
+
+            <description>List of services - GLUE2</description>
+        </info>
+        <connector type="LDAPConnector">
+            <parameter name="url">ldap://bdii.egi.cro-ngi.hr:2170</parameter>
+            <parameter name="path">GLUE2GroupID=grid,o=glue</parameter>
+            <parameter name="filter">(&amp;(ObjectClass=GLUE2Service))</parameter>
+        </connector>
+
+        <processors>
+
+            <elements path="o/GLUE2GroupID">
+                <element in="GLUE2DomainID">
+                    <element-ignore in="GLUE2DomainID"><element/></element-ignore>
+                </element>
+            </elements>
+
+
+            <element in="o" out="Services">
+                <element-ignore in="GLUE2GroupID">
+
+                    <element-ignore in="GLUE2DomainID">
+                        <element-ignore in="GLUE2GroupID">
+                            <element in="GLUE2ServiceID" out="Service">
+                                <attribute-create out="site">../ancestor::GLUE2DomainID/@id</attribute-create>
+                                <attribute-create out="host"
+                                                  if="../GLUE2EntityOtherInfo[contains(text(),'InfoProviderHost=')]">
+                                    substring-after(../GLUE2EntityOtherInfo[contains(text(),'InfoProviderHost=')]/text(),'InfoProviderHost=')
+                                </attribute-create>
+                                <attribute-create out="service_type">../GLUE2ServiceType/text()</attribute-create>
+                                <attribute-create out="quality">../GLUE2ServiceQualityLevel/text()</attribute-create>
+                                <attribute-create out="service_flavour">choose(../objectClass[text()!='GLUE2Service' and
+                                    text()!='GLUE2Entity'],substring-after(../objectClass[text()!='GLUE2Service' and
+                                    text()!='GLUE2Entity'],'GLUE2'),'Service')
+                                </attribute-create>
+
+                                <element-ignore></element-ignore>
+                            </element>
+                        </element-ignore>
+
+
+                    </element-ignore>
+
+                </element-ignore>
+            </element>
+
+            <element in="Services">
+                <set variable="goc-downtimes">view('gocdb-downtimes')</set>
+                <set variable="VAPOR_Sites">view('VAPOR_Sites')/*</set>
+                <element in="Service">
+                    <attribute-create out="ngi">$VAPOR_Sites/site[@id=current()/../@site]/@ngi</attribute-create>
+                    <attribute-create out="country">$VAPOR_Sites/site[@id=current()/../@site]/@country
+                    </attribute-create>
+                    <attribute-create out="downtime">
+                        choose($goc-downtimes/results/Downtime[HOSTNAME/text()=current()/../@host]/Classification/text(),$goc-downtimes/results/Downtime[HOSTNAME/text()=current()/../@host]/Classification/text(),'no')
+                    </attribute-create>
+                </element>
+            </element>
+
+
+        </processors>
+
+        <cache type="FileCache">
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="minutes">15</parameter>
+            </trigger>
+        </cache>
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+    </view>
+    <view xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" name="VAPOR_Endpoints">
+        <info>
+
+            <description>List of Computing Endpoints into Glue2 Top Bdii</description>
+        </info>
+        <connector type="LDAPConnector">
+            <parameter name="url">ldap://bdii.egi.cro-ngi.hr:2170</parameter>
+            <parameter name="path">GLUE2GroupID=grid,o=glue</parameter>
+            <parameter name="filter">(&amp;(ObjectClass=GLUE2Endpoint))</parameter>
+
+        </connector>
+
+        <processors>
+            <elements path="o/GLUE2GroupID">
+                <element in="GLUE2DomainID">
+                    <element-ignore in="GLUE2DomainID"><element/></element-ignore>
+                </element>
+            </elements>
+
+
+            <element in="o" out="e:entries">
+                <attribute-ignore/>
+                <elements-ignore path="GLUE2GroupID/GLUE2DomainID/GLUE2GroupID">
+                    <element in="GLUE2ServiceID" out="e:entries">
+                        <attribute in="id" out="key"></attribute>
+
+
+                        <element in="GLUE2EndpointID" out="e:entries">
+                            <attribute in="id" out="key"></attribute>
+
+                            <element-create>entry('site',../ancestor::GLUE2DomainID/@id)</element-create>
+
+                            <element-ignore in="GLUE2EntityOtherInfo">
+                                <element-create if="contains(../text(),'=')">
+                                    entry(
+                                    substring-before(../text(),'='),
+                                    substring-after(../text(),'='))
+                                </element-create>
+                            </element-ignore>
+
+                            <element-ignore if="starts-with(name(),'GLUE2EndpointImplementation')">
+                                <element-create>entry(substring-after(name(..),'GLUE2Endpoint'),../text())
+                                </element-create>
+                            </element-ignore>
+
+                            <element-ignore if="starts-with(name(),'GLUE2EndpointHealth')">
+                                <element-create>entry(substring-after(name(..),'GLUE2Endpoint'),../text())
+                                </element-create>
+                            </element-ignore>
+
+                            <element-ignore if="starts-with(name(),'GLUE2EndpointURL')">
+                                <element-create>entry(substring-after(name(..),'GLUE2Endpoint'),../text())
+                                </element-create>
+                            </element-ignore>
+
+                            <element-ignore if="starts-with(name(),'GLUE2QualityLevel')">
+                                <element-create>entry(substring-after(name(..),'GLUE2Endpoint'),../text())
+                                </element-create>
+                            </element-ignore>
+
+                            <element-ignore if="starts-with(name(),'GLUE2EntityCreationTime')">
+                                <element-create>entry(substring-after(name(..),'GLUE2'),../text())</element-create>
+                            </element-ignore>
+
+                            <element-ignore if="starts-with(name(),'GLUE2EndpointInterface')">
+                                <element-create>entry(substring-after(name(..),'GLUE2Endpoint'),../text())
+                                </element-create>
+                            </element-ignore>
+
+
+                            <element-ignore></element-ignore>
+                        </element>
+                    </element>
+                    <element-ignore></element-ignore>
+                </elements-ignore>
+            </element>
+
+
+            <element in="e:entries">
+                <element-ignore in="e:entries"></element-ignore>
+                <element-create>sort_by_string(../e:entries,"@key")</element-create>
+            </element>
+
+            <element in="e:entries">
+                <element-create-as-parent out="e:entries" group-by="@key" attributes="@key">
+                    <element in="e:entries"></element>
+                </element-create-as-parent>
+            </element>
+
+            <element in="e:entries">
+                <element in="e:entries">
+                    <element-ignore in="e:entries">
+                        <element></element>
+                    </element-ignore>
+                </element>
+            </element>
+
+
+            <element in="e:entries">
+                <set variable="gocdb-downtimes">view('gocdb-downtimes')/*</set>
+                <element in="e:entries">
+                    <element in="e:entries">
+                        <element-create>
+                            entry('Downtime',choose(
+                            $gocdb-downtimes/Downtime[HOSTNAME/text()=current()/../e:entry[@key='InfoProviderHost']/text()]/Classification/text(),
+                            $gocdb-downtimes/Downtime[HOSTNAME/text()=current()/../e:entry[@key='InfoProviderHost']/text()][1]/Classification/text(),'no'))
+                        </element-create>
+                    </element>
+                </element>
+            </element>
+
+
+        </processors>
+
+
+        <cache type="FileCache">
+
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="minutes">5</parameter>
+            </trigger>
+        </cache>
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+    </view>
+
+
+    <view name="VAPOR_VO_SITES" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        <info>
+
+            <description>List of the vo supported for sites of a given NGI</description>
+        </info>
+        <argument name="ngi">_NGI_</argument>
+        <argument name="vo">_VO_</argument>
+
+
+        <connector type="XMLConnector">
+            <parameter name="content" eval="view('VAPOR_Share_Policy')"></parameter>
+        </connector>
+        <processors>
+
+            <element in="e:entries">
+                <attribute-ignore/>
+                <element in="e:entries" if="@ngi=$ngi or $ngi='_NGI_'"></element>
+                <element-ignore></element-ignore>
+            </element>
+
+            <element in="e:entries">
+                <element in="e:entries" if="VO/text()=$vo or $vo='_VO_'"></element>
+                <element-ignore></element-ignore>
+            </element>
+
+
+            <element in="e:entries">
+                <element-ignore in="e:entries"></element-ignore>
+                <element-create>
+                    sort_by_string(../e:entries,'@Site')
+                </element-create>
+            </element>
+
+            <element in="e:entries">
+                <element-create-as-parent out="e:entries" group-by="../e:entries/@Site" attributes="@Site">
+                    <element in="e:entries"></element>
+                </element-create-as-parent>
+            </element>
+
+            <element in="e:entries">
+                <element in="e:entries">
+                    <element-ignore in="e:entries">
+                        <element></element>
+                    </element-ignore>
+                </element>
+            </element>
+
+            <element in="e:entries">
+                <element in="e:entries">
+                    <attribute in="Site" out="key"></attribute>
+                    <element-ignore></element-ignore>
+                    <element-create>uniq(../VO,'text()')</element-create>
+                </element>
+            </element>
+
+            <elements path="e:entries/e:entries">
+                <element in="VO" out="e:entry">
+                </element>
+            </elements>
+
+        </processors>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+    </view>
+
+
+    <view xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" name="VAPOR_ComputingEnv">
+
+        <info>
+
+            <description>Computing env</description>
+        </info>
+
+
+        <connector type="LDAPConnector">
+            <parameter name="url">ldap://bdii.egi.cro-ngi.hr:2170</parameter>
+            <parameter name="path">GLUE2GroupID=grid,o=glue</parameter>
+            <parameter name="filter">(&amp;(ObjectClass=GLUE2ExecutionEnvironment))</parameter>
+        </connector>
+
+        <processors>
+
+            <elements path="o/GLUE2GroupID">
+                <element in="GLUE2DomainID">
+                    <element-ignore in="GLUE2DomainID"><element/></element-ignore>
+                </element>
+            </elements>
+
+
+            <elements path="o/GLUE2GroupID/GLUE2DomainID/GLUE2GroupID/GLUE2ServiceID">
+                <elements-ignore path="GLUE2ManagerID/GLUE2GroupID">
+                    <element></element>
+                </elements-ignore>
+            </elements>
+
+
+            <element in="o" out="e:entries">
+                <attribute-ignore/>
+                <elements-ignore path="GLUE2GroupID">
+                    <element in="GLUE2DomainID" out="host">
+
+                        <attribute-create out="LogicalCPUs">
+                            ../GLUE2GroupID/GLUE2ServiceID/GLUE2ResourceID/GLUE2ExecutionEnvironmentLogicalCPUs/text()
+                        </attribute-create>
+                        <attribute-create out="PhysicalCPUs">
+                            ../GLUE2GroupID/GLUE2ServiceID/GLUE2ResourceID/GLUE2ExecutionEnvironmentPhysicalCPUs/text()
+                        </attribute-create>
+                        <attribute-create out="nbCores">
+                            substring-after(../GLUE2GroupID/GLUE2ServiceID/GLUE2ResourceID/GLUE2EntityOtherInfo[contains(text(),'Cores=')]/text(),'Cores=')
+                        </attribute-create>
+                        <attribute-create out="name">../GLUE2GroupID/GLUE2ServiceID/GLUE2ResourceID/@id
+                        </attribute-create>
+                        <attribute-create out="service">../GLUE2GroupID/GLUE2ServiceID/@id</attribute-create>
+                        <element-ignore></element-ignore>
+                    </element>
+                </elements-ignore>
+            </element>
+
+            <element in="e:entries">
+                <set variable="VAPOR_ComputingManager">view('VAPOR_ComputingManager')/*</set>
+                <element in="host">
+                    <attribute-create out="LogicalCPUsManager">
+                        $VAPOR_ComputingManager/host[@service=current()/../@service]/@LogicalCPUs
+                    </attribute-create>
+                </element>
+                <element-create>$VAPOR_ComputingManager/host[@id=not(current()/../@id)]</element-create>
+            </element>
+
+
+            <element in="e:entries">
+                <element in="host"
+                         if="@LogicalCPUs='' and @LogicalCPUsManager!='' and not(preceding-sibling::host/@service=@service)">
+                    <attribute in="LogicalCPUs">../@LogicalCPUsManager</attribute>
+                </element>
+            </element>
+
+
+
+            <elements path="e:entries">
+                <element-ignore></element-ignore>
+                <element-create>sort_by_string(../host,'@id')</element-create>
+            </elements>
+
+            <element in="e:entries">
+                <element-create-as-parent out="site" attributes="@id" group-by="@id">
+                    <element in="host"></element>
+                </element-create-as-parent>
+            </element>
+
+
+            <element in="e:entries">
+                <element in="site">
+                    <set variable="VAPOR_ComputingManager">view('VAPOR_ComputingManager')/*</set>
+                    <element-create>$VAPOR_ComputingManager/host[@id=current()/../@id and
+                        not(@service=current()/../host/@service) and @name!='cloud']
+                    </element-create>
+                </element>
+            </element>
+
+            <element in="e:entries">
+                <element in="site">
+                    <element in="host"
+                             if="following-sibling::host/@SI2000!='' and following-sibling::host/@LogicalCPUs='' and following-sibling::host/@service=@service">
+                        <attribute-create out="SI2000">../following-sibling::host/@SI2000</attribute-create>
+                    </element>
+                    <element-ignore in="host"
+                                    if="preceding-sibling::host/@service=@service and @SI2000!='' and @LogicalCPUs=''"></element-ignore>
+                </element>
+            </element>
+
+
+            <element in="e:entries">
+                <element in="site">
+                    <element in="host">
+                        <attribute-ignore if=".=''"></attribute-ignore>
+                    </element>
+                </element>
+            </element>
+
+            <element in="e:entries">
+                <element in="site">
+                    <element in="host">
+                        <attribute-create out="key"
+                                          if="string-length(../@service) &gt; 5 and ../@LogicalCPUs!=0 and ../@LogicalCPUs!='' ">
+                            concat(../@service,'---',../@LogicalCPUs)
+                        </attribute-create>
+                    </element>
+                </element>
+            </element>
+
+
+            <element in="e:entries">
+                <element in="site">
+                    <element in="host" if="not(preceding-sibling::host/@key=@key)"></element>
+                    <element-ignore></element-ignore>
+                </element>
+            </element>
+
+            <element in="e:entries">
+                <element in="site">
+                    <!-- COMPUTE THE SUM but exclude cloud -->
+                    <attribute-create out="LogicalCPUs">sum(../host[@LogicalCPUs!=''][@name!='cloud' and
+                        not(contains(@service,'cloud.compute'))]/@LogicalCPUs)
+                    </attribute-create>
+                    <attribute-create out="PhysicalCPUs">sum(../host[@PhysicalCPUs!=''][@name!='cloud' and
+                        not(contains(@service,'cloud.compute'))]/@PhysicalCPUs)
+                    </attribute-create>
+                    <attribute-create out="Cores">sum(../host[@nbCores!='' and @nbCores!='NaN'][@name!='cloud' and
+                        not(contains(@service,'cloud.compute'))]/@nbCores)
+                    </attribute-create>
+                </element>
+            </element>
+
+
+        </processors>
+
+        <cache type="FileCache">
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="minutes">36</parameter>
+            </trigger>
+
+        </cache>
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+    </view>
+
+    <view xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd" name="VAPOR_ComputingManager">
+        <info>
+
+            <description>Computing Manager</description>
+        </info>
+        <connector type="LDAPConnector">
+            <parameter name="url">ldap://bdii.egi.cro-ngi.hr:2170</parameter>
+            <parameter name="path">GLUE2GroupID=grid,o=glue</parameter>
+            <parameter name="filter">(&amp;(ObjectClass=GLUE2ComputingManager))</parameter>
+
+        </connector>
+        <processors>
+
+
+            <elements path="o/GLUE2GroupID">
+                <element in="GLUE2DomainID">
+                    <element-ignore in="GLUE2DomainID"><element/></element-ignore>
+                </element>
+            </elements>
+
+
+
+            <!--GLUE2GroupID/GLUE2ServiceID/GLUE2ManagerID/GLUE2EntityOtherInfo-->
+            <!--/GLUE2GroupID/GLUE2ServiceID/GLUE2ManagerID/GLUE2ComputingManagerTotalLogicalCPUs-->
+
+            <element in="o" out="e:entries">
+                <attribute-ignore/>
+                <elements-ignore path="GLUE2GroupID">
+                    <element in="GLUE2DomainID" out="host">
+
+                        <attribute-create out="LogicalCPUs">
+                            choose(../GLUE2GroupID/GLUE2ServiceID/GLUE2ManagerID/GLUE2ComputingManagerTotalLogicalCPUs/text(),../GLUE2GroupID/GLUE2ServiceID/GLUE2ManagerID/GLUE2ComputingManagerTotalLogicalCPUs/text())
+                        </attribute-create>
+                        <attribute-create out="PhysicalCPUs">
+                            choose(../GLUE2GroupID/GLUE2ServiceID/GLUE2ManagerID/GLUE2ComputingManagerTotalPhysicalCPUs/text(),../GLUE2GroupID/GLUE2ServiceID/GLUE2ManagerID/GLUE2ComputingManagerTotalPhysicalCPUs/text())
+                        </attribute-create>
+                        <attribute-create out="SI2000">
+                            substring-after(../GLUE2GroupID/GLUE2ServiceID/GLUE2ManagerID/GLUE2EntityOtherInfo[contains(text(),'CPUScalingReferenceSI00')]/text(),'CPUScalingReferenceSI00=')
+                        </attribute-create>
+                        <attribute-create out="name">../GLUE2GroupID/@id</attribute-create>
+                        <attribute-create out="host">
+                            substring-after(../GLUE2GroupID/GLUE2ServiceID/GLUE2ManagerID/GLUE2EntityOtherInfo[contains(text(),'InfoProviderHost=')]/text(),'InfoProviderHost=')
+                        </attribute-create>
+                        <attribute-create out="service">../GLUE2GroupID/GLUE2ServiceID/@id</attribute-create>
+                        <attribute-create out="lrms">choose(../GLUE2GroupID/GLUE2ServiceID/GLUE2ManagerID/GLUE2ManagerProductName,../GLUE2GroupID/GLUE2ServiceID/GLUE2ManagerID/GLUE2ManagerProductName/text(),'NA')</attribute-create>
+                        <element-ignore></element-ignore>
+                    </element>
+
+                </elements-ignore>
+            </element>
+
+
+            <element in="e:entries">
+                <element in="host">
+
+                </element>
+
+            </element>
+
+
+        </processors>
+
+        <cache type="FileCache">
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="minutes">13</parameter>
+            </trigger>
+
+        </cache>
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
+    </view>
+
+</views>
+
+

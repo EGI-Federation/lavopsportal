@@ -894,7 +894,7 @@
 
 <!--        history: customising the duration for checking the history of reports (default: 48 hours)-->
 <!--        severity: configuring the severity of tagged CVE (egi EGI-High or EGI-Critical, default: EGI-Critical)-->
-        <argument name="nbHours">48</argument>
+        <argument name="duration">24</argument>
         <argument name="severity">critical</argument>
         <argument name="cve">_cve_</argument>
         <argument name="test_name">_test_name_</argument>
@@ -902,6 +902,8 @@
         <argument name="ngi">_ngi_</argument>
         <argument name="test_name">_test_name_</argument>
         <argument name="format">_format_</argument>
+        <variable name="diffTime" eval="$duration*3600"/>
+        <variable name="refTimestamp" eval="date:seconds()-$diffTime"/>
 
         <connector type="SQLConnector">
             <parameter name="driver">com.mysql.jdbc.Driver</parameter>
@@ -911,11 +913,13 @@
             <parameter name="query">
                 <entry>SELECT * from csi_nagios_history</entry>
                 <entry>where updated_at > now() - interval ? hour</entry>
+                <entry>and last_report > ?</entry>
                 <entry > and status in (1,2,3)</entry>
                 <entry> order by ngi, site, host_name ASC, updated_at DESC</entry>
             </parameter>
             <parameter name="parameters">
-                <entry eval="$nbHours"/>
+                <entry eval="$duration"/>
+                <entry eval="$refTimestamp"/>
             </parameter>
 
         </connector>
@@ -1150,7 +1154,9 @@
         <argument name="status">critical</argument>
         <variable name="statusCode" eval="choose($status='critical',2,1)"/>
         <variable name="nbdays" eval="choose($status='critical',1,7)"></variable>
-        <variable name="query" eval="concat('SELECT * from csi_nagios_history where status=',$statusCode,' AND updated_at > (NOW() - INTERVAL ', $nbdays ,' DAY)  order by ngi, site, host_name ASC, updated_at DESC')"></variable>
+        <variable name="diffTime" eval="$nbdays*24*3600"/>
+        <variable name="refTimestamp" eval="date:seconds()-$diffTime"/>
+        <variable name="query" eval="concat('SELECT * from csi_nagios_history where status=',$statusCode,' AND updated_at > (NOW() - INTERVAL ', $nbdays ,' DAY) AND last_report > ' ,$refTimestamp , ' order by ngi, site, host_name ASC, updated_at DESC')"></variable>
 
 
         <connector type="SQLConnector">
@@ -1165,6 +1171,7 @@
             <element in="result" out="e:entries">
                 <attribute-create out="count">count(../row)</attribute-create>
                 <attribute-create out="status">$status</attribute-create>
+
                 <element in="row" out="e:entries">
                     <attribute-create out="key">../id/text()</attribute-create>
                     <element in="monitor_id" out="e:entry">
@@ -1196,6 +1203,8 @@
                     </element>
                     <element-ignore/>
                 </element>
+                <element-ignore></element-ignore>
+
             </element>
 
 

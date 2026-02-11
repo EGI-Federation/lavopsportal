@@ -608,44 +608,44 @@
     </view>
 
 
-<!--    <view name="OPSCORE_users_grid_body" authenticators="local">-->
+    <view name="OPSCORE_users_grid_body" authenticators="local">
 
 
-<!--        <connector type="SQLConnector">-->
-<!--            <parameter name="driver">com.mysql.jdbc.Driver</parameter>-->
-<!--            <parameter name="url" eval="property('OPSCORE.db.url')"/>-->
-<!--            <parameter name="username" eval="property('OPSCORE.db.username')"/>-->
-<!--            <parameter name="password" eval="property('OPSCORE.db.password')"/>-->
-<!--            <parameter name="query">-->
-<!--                SELECT password( concat(c.first_name,' ' ,c.last_name) ) as PRIMARY_KEY, concat(c.first_name,' '-->
-<!--                ,c.last_name) as CN , c.email as EMAIL , c.DN as CERTDN-->
-<!--                FROM vo_contacts c-->
-<!--                WHERE c.grid_body='1'-->
-<!--            </parameter>-->
-<!--        </connector>-->
+        <connector type="SQLConnector">
+            <parameter name="driver">com.mysql.jdbc.Driver</parameter>
+            <parameter name="url" eval="property('OPSCORE.db.url')"/>
+            <parameter name="username" eval="property('OPSCORE.db.username')"/>
+            <parameter name="password" eval="property('OPSCORE.db.password')"/>
+            <parameter name="query">
+                SELECT SHA1(concat(c.first_name,' ' ,c.last_name)) as PRIMARY_KEY, concat(c.first_name,' '
+                ,c.last_name) as CN , c.email as EMAIL , c.DN as CERTDN
+                FROM vo_contacts c
+                WHERE c.grid_body='1'
+            </parameter>
+        </connector>
 
-<!--        <processors>-->
-<!--            <processor match="/result/row/*[text()]" type="ReplaceProcessor"><parameter name="nodes" eval="entry(local-name(),text())"/></processor>-->
-<!--            <processor match="/result/row" type="InsertProcessor"><parameter name="nodes" eval="entry('ENTITY_TYPE','project')"/></processor>-->
-<!--            <processor match="/result/row" type="InsertProcessor"><parameter name="nodes" eval="entry('ON_ENTITY','EGI')"/></processor>-->
-<!--            <processor match="/result/row" type="InsertProcessor"><parameter name="nodes" eval="entry('USER_ROLE','GRID BODY')"/></processor>-->
-<!--        </processors>-->
+        <processors>
+            <processor match="/result/row/*[text()]" type="ReplaceProcessor"><parameter name="nodes" eval="entry(local-name(),text())"/></processor>
+            <processor match="/result/row" type="InsertProcessor"><parameter name="nodes" eval="entry('ENTITY_TYPE','project')"/></processor>
+            <processor match="/result/row" type="InsertProcessor"><parameter name="nodes" eval="entry('ON_ENTITY','EGI')"/></processor>
+            <processor match="/result/row" type="InsertProcessor"><parameter name="nodes" eval="entry('USER_ROLE','GRID BODY')"/></processor>
+        </processors>
 
-<!--        <cache type="FileCache">-->
-<!--            <trigger type="DeltaTimeTrigger">-->
-<!--                <parameter name="hours">1</parameter>-->
-<!--            </trigger>-->
-<!--            <trigger type="ViewNotifiedTrigger"/>-->
-<!--            <trigger ignore-during="PT1H" type="ViewCreatedTrigger"/>-->
-<!--        </cache>-->
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="hours">1</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+            <trigger ignore-during="PT1H" type="ViewCreatedTrigger"/>
+        </cache>
 
-<!--        <renderers>-->
-<!--            <renderer type="DefaultRenderer">-->
-<!--                <parameter name="contentType">text/xml</parameter>-->
-<!--            </renderer>-->
-<!--        </renderers>-->
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
 
-<!--    </view>-->
+    </view>
 
     <view name="OPSCORE_vo_users_raw" authenticators="local">
 

@@ -1,0 +1,349 @@
+<appdb datatype="classification" type="entry" host="appdb.egi.eu" apihost="appdb-pi.egi.eu" cacheState="0" permsState="0" requestedOn="1758265327.236" deliveredOn="1758265327.785" processingTime="0.548" version="1.0">
+    <version id="1" version="1.0" createdon="2014-01-16T15:17:09.914329" state="stable">
+        <discipline id="100" parentid="99" order="1" value="Analytical chemistry"/>
+        <discipline id="101" parentid="99" order="2" value="Chemistry"/>
+        <discipline id="102" parentid="99" order="3" value="Colloid chemistry"/>
+        <discipline id="103" parentid="99" order="4" value="Computational chemistry"/>
+        <discipline id="104" parentid="99" order="5" value="Electrochemistry"/>
+        <discipline id="105" parentid="99" order="6" value="Inorganic and nuclear chemistry"/>
+        <discipline id="106" parentid="99" order="7" value="Mathematical chemistry"/>
+        <discipline id="107" parentid="99" order="8" value="Organic chemistry"/>
+        <discipline id="108" parentid="99" order="9" value="Physical chemistry"/>
+        <discipline id="109" parentid="99" order="10" value="Polymer science"/>
+        <discipline id="10" parentid="6" order="4" value="Computer communications"/>
+        <discipline id="110" order="2" value="Engineering and Technology"/>
+        <discipline id="111" parentid="110" order="1" value="Civil engineering"/>
+        <discipline id="112" parentid="111" order="1" value="Architecture engineering"/>
+        <discipline id="113" parentid="111" order="2" value="Civil engineering"/>
+        <discipline id="114" parentid="111" order="3" value="Civil Protection"/>
+        <discipline id="115" parentid="111" order="4" value="Construction/Structural engineering"/>
+        <discipline id="116" parentid="111" order="5" value="Transport engineering"/>
+        <discipline id="117" parentid="110" order="2" value="Electrical, electronic and information engineering"/>
+        <discipline id="118" parentid="117" order="1" value="Communication engineering and systems"/>
+        <discipline id="119" parentid="117" order="2" value="Computer hardware and architecture"/>
+        <discipline id="11" parentid="6" order="5" value="Computer graphics"/>
+        <discipline id="120" parentid="117" order="3" value="Electrical and electronic engineering"/>
+        <discipline id="121" parentid="117" order="4" value="Robotics, Automation and Control Systems"/>
+        <discipline id="122" parentid="110" order="3" value="Mechanical engineering"/>
+        <discipline id="123" parentid="122" order="1" value="Applied mechanics"/>
+        <discipline id="124" parentid="122" order="2" value="Audio engineering"/>
+        <discipline id="125" parentid="122" order="3" value="Nuclear related engineering"/>
+        <discipline id="126" parentid="122" order="4" value="Reliability analysis"/>
+        <discipline id="127" parentid="122" order="5" value="Thermodynamics"/>
+        <discipline id="128" parentid="110" order="4" value="Aerospace engineering"/>
+        <discipline id="129" parentid="128" order="1" value="Aeronautical engineering"/>
+        <discipline id="12" parentid="6" order="6" value="Computer security and reliability"/>
+        <discipline id="130" parentid="128" order="2" value="Astronautical engineering"/>
+        <discipline id="131" parentid="110" order="5" value="Chemical engineering"/>
+        <discipline id="132" parentid="131" order="1" value="Chemical engineering (plants, products)"/>
+        <discipline id="133" parentid="131" order="2" value="Chemical process engineering"/>
+        <discipline id="134" parentid="110" order="6" value="Materials engineering"/>
+        <discipline id="135" parentid="134" order="1" value="Ceramics"/>
+        <discipline id="136" parentid="134" order="2" value="Coating and films"/>
+        <discipline id="137" parentid="134" order="3" value="Composites"/>
+        <discipline id="138" parentid="134" order="4" value="Paper and wood"/>
+        <discipline id="139" parentid="134" order="5" value="Textiles"/>
+        <discipline id="13" parentid="6" order="7" value="Data structures"/>
+        <discipline id="140" parentid="110" order="7" value="Bioengineering and Biomedical engineering"/>
+        <discipline id="141" parentid="140" order="1" value="Bioengineering"/>
+        <discipline id="142" parentid="140" order="2" value="Biomedical engineering"/>
+        <discipline id="143" parentid="110" order="8" value="Environmental engineering"/>
+        <discipline id="144" parentid="143" order="1" value="Energy and fuels"/>
+        <discipline id="145" parentid="143" order="2" value="Geological engineering"/>
+        <discipline id="146" parentid="143" order="3" value="Geotechnics"/>
+        <discipline id="147" parentid="143" order="4" value="Ocean engineering"/>
+        <discipline id="148" parentid="143" order="5" value="Mining and mineral processing"/>
+        <discipline id="149" parentid="143" order="6" value="Petroleum engineering"/>
+        <discipline id="14" parentid="6" order="8" value="Distributed computing"/>
+        <discipline id="150" parentid="143" order="7" value="Remote sensing"/>
+        <discipline id="151" parentid="143" order="8" value="Sea vessels"/>
+        <discipline id="152" parentid="110" order="9" value="Environmental biotechnology"/>
+        <discipline id="153" parentid="152" order="1" value="Bioremediation"/>
+        <discipline id="154" parentid="152" order="2" value="Diagnostic biotechnologies"/>
+        <discipline id="155" parentid="110" order="10" value="Industrial biotechnology"/>
+        <discipline id="156" parentid="155" order="1" value="Bio-derived novel materials"/>
+        <discipline id="157" parentid="155" order="2" value="Biocatalysis"/>
+        <discipline id="158" parentid="155" order="3" value="Bioderived bulk and fine chemicals"/>
+        <discipline id="159" parentid="155" order="4" value="Biofuels"/>
+        <discipline id="15" parentid="6" order="9" value="Human-computer interaction"/>
+        <discipline id="160" parentid="155" order="5" value="Biomaterials"/>
+        <discipline id="161" parentid="155" order="6" value="Bioprocessing technologies"/>
+        <discipline id="162" parentid="155" order="7" value="Bioproducts"/>
+        <discipline id="163" parentid="155" order="8" value="Fermentation"/>
+        <discipline id="164" parentid="110" order="11" value="Nano-technology"/>
+        <discipline id="165" parentid="164" order="1" value="Nano-materials"/>
+        <discipline id="166" parentid="164" order="2" value="Nano-processes"/>
+        <discipline id="167" order="3" value="Medical and Health Sciences"/>
+        <discipline id="168" parentid="167" order="1" value="Basic medicine"/>
+        <discipline id="169" parentid="168" order="1" value="Anatomy and morphology"/>
+        <discipline id="16" parentid="6" order="10" value="Operating systems"/>
+        <discipline id="170" parentid="168" order="2" value="Human genetics"/>
+        <discipline id="171" parentid="168" order="3" value="Immunology"/>
+        <discipline id="172" parentid="168" order="4" value="Medicinal chemistry"/>
+        <discipline id="173" parentid="168" order="5" value="Neuroscience"/>
+        <discipline id="174" parentid="168" order="6" value="Pathology"/>
+        <discipline id="175" parentid="168" order="7" value="Pharmacology and pharmacy"/>
+        <discipline id="176" parentid="168" order="8" value="Physiology"/>
+        <discipline id="177" parentid="168" order="9" value="Toxicology"/>
+        <discipline id="178" parentid="167" order="2" value="Clinical medicine"/>
+        <discipline id="179" parentid="178" order="1" value="Allergy"/>
+        <discipline id="17" parentid="6" order="11" value="Parallel computing"/>
+        <discipline id="180" parentid="178" order="2" value="Anaesthesiology"/>
+        <discipline id="181" parentid="178" order="3" value="Andrology"/>
+        <discipline id="182" parentid="178" order="4" value="Cardiac and Cardiovascular systems"/>
+        <discipline id="183" parentid="178" order="5" value="Critical care/Emergency medicine"/>
+        <discipline id="184" parentid="178" order="6" value="Dentistry, oral surgery/medicine"/>
+        <discipline id="185" parentid="178" order="7" value="Dermatology and venereal diseases"/>
+        <discipline id="186" parentid="178" order="8" value="Gastroenterology and hepatology"/>
+        <discipline id="187" parentid="178" order="9" value="General and internal medicine"/>
+        <discipline id="188" parentid="178" order="10" value="Geriatrics and gerontology"/>
+        <discipline id="189" parentid="178" order="11" value="Hematology"/>
+        <discipline id="18" parentid="6" order="12" value="Programming languages"/>
+        <discipline id="190" parentid="178" order="12" value="Integrative and Complementary medicine"/>
+        <discipline id="191" parentid="178" order="13" value="Medical imaging"/>
+        <discipline id="192" parentid="178" order="14" value="Nuclear medicine"/>
+        <discipline id="193" parentid="178" order="15" value="Obstetrics and gynaecology"/>
+        <discipline id="194" parentid="178" order="16" value="Oncology"/>
+        <discipline id="195" parentid="178" order="17" value="Ophthalmology"/>
+        <discipline id="196" parentid="178" order="18" value="Optometry"/>
+        <discipline id="197" parentid="178" order="19" value="Orthopaedics"/>
+        <discipline id="198" parentid="178" order="20" value="Otorhinolaryngology"/>
+        <discipline id="199" parentid="178" order="21" value="Paediatrics"/>
+        <discipline id="19" parentid="6" order="13" value="Quantum computing"/>
+        <discipline id="1" order="1" value="Natural Sciences"/>
+        <discipline id="200" parentid="178" order="22" value="Peripheral vascular disease"/>
+        <discipline id="201" parentid="178" order="23" value="Psychiatry"/>
+        <discipline id="202" parentid="178" order="24" value="Radiology"/>
+        <discipline id="203" parentid="178" order="25" value="Respiratory systems"/>
+        <discipline id="204" parentid="178" order="26" value="Rheumatology"/>
+        <discipline id="205" parentid="178" order="27" value="Surgery"/>
+        <discipline id="206" parentid="178" order="28" value="Transplantation"/>
+        <discipline id="207" parentid="178" order="29" value="Urology and nephrology"/>
+        <discipline id="208" parentid="167" order="3" value="Health sciences"/>
+        <discipline id="209" parentid="208" order="1" value="Epidemiology"/>
+        <discipline id="20" parentid="6" order="14" value="Software engineering"/>
+        <discipline id="210" parentid="208" order="2" value="Health care science and services"/>
+        <discipline id="211" parentid="208" order="3" value="Health policy and services"/>
+        <discipline id="212" parentid="208" order="4" value="Infectious diseases"/>
+        <discipline id="213" parentid="208" order="5" value="Medical ethics"/>
+        <discipline id="214" parentid="208" order="6" value="Nursing"/>
+        <discipline id="215" parentid="208" order="7" value="Nutrition and Dietetics"/>
+        <discipline id="216" parentid="208" order="8" value="Occupational health"/>
+        <discipline id="217" parentid="208" order="9" value="Parasitology"/>
+        <discipline id="218" parentid="208" order="10" value="Public and environmental health"/>
+        <discipline id="219" parentid="208" order="11" value="Social biomedical science"/>
+        <discipline id="21" parentid="6" order="15" value="Theory of computation"/>
+        <discipline id="220" parentid="208" order="12" value="Sport and fitness science"/>
+        <discipline id="221" parentid="208" order="13" value="Substance abuse"/>
+        <discipline id="222" parentid="208" order="14" value="Tropical medicine"/>
+        <discipline id="223" parentid="167" order="4" value="Medical biotechnology"/>
+        <discipline id="224" parentid="223" order="1" value="Biomedical devices"/>
+        <discipline id="225" parentid="223" order="2" value="Health-related biotechnology"/>
+        <discipline id="226" parentid="223" order="3" value="Pharmaceutical biotechnology"/>
+        <discipline id="227" parentid="223" order="4" value="Biotechnology and medical ethics"/>
+        <discipline id="228" parentid="223" order="5" value="Molecular diagnostics"/>
+        <discipline id="229" parentid="223" order="6" value="Biophysical manipulation"/>
+        <discipline id="22" parentid="1" order="3" value="Information sciences"/>
+        <discipline id="230" order="4" value="Agricultural Sciences"/>
+        <discipline id="231" parentid="230" order="1" value="Agriculture, forestry, and fisheries"/>
+        <discipline id="232" parentid="231" order="1" value="Agriculture"/>
+        <discipline id="233" parentid="231" order="2" value="Agronomy, plant breeding, plant protection"/>
+        <discipline id="234" parentid="231" order="3" value="Fishery"/>
+        <discipline id="235" parentid="231" order="4" value="Forestry"/>
+        <discipline id="236" parentid="231" order="5" value="Horticulture and viticulture"/>
+        <discipline id="237" parentid="231" order="6" value="Soil science"/>
+        <discipline id="238" parentid="230" order="2" value="Animal and dairy sciences"/>
+        <discipline id="239" parentid="238" order="1" value="Animal science"/>
+        <discipline id="23" parentid="22" order="1" value="Data management"/>
+        <discipline id="240" parentid="238" order="2" value="Dairy science"/>
+        <discipline id="241" parentid="238" order="3" value="Husbandry"/>
+        <discipline id="242" parentid="238" order="4" value="Pets"/>
+        <discipline id="243" parentid="230" order="3" value="Veterinary sciences"/>
+        <discipline id="244" parentid="243" order="1" value="Veterinary anaesthesiology"/>
+        <discipline id="245" parentid="243" order="2" value="Veterinary medicine"/>
+        <discipline id="246" parentid="243" order="3" value="Veterinary ophthalmology"/>
+        <discipline id="247" parentid="243" order="4" value="Veterinary pathobiology"/>
+        <discipline id="248" parentid="243" order="5" value="Veterinary radiology"/>
+        <discipline id="249" parentid="243" order="6" value="Veterinary reproduction"/>
+        <discipline id="24" parentid="22" order="2" value="Data mining"/>
+        <discipline id="250" parentid="243" order="7" value="Veterinary surgery"/>
+        <discipline id="251" parentid="230" order="4" value="Agricultural biotechnology"/>
+        <discipline id="252" parentid="251" order="1" value="Biomass feedstock production tech."/>
+        <discipline id="253" parentid="251" order="2" value="Biopharming"/>
+        <discipline id="254" parentid="251" order="3" value="Diagnostics"/>
+        <discipline id="255" parentid="251" order="4" value="Food biotechnology"/>
+        <discipline id="256" parentid="251" order="5" value="GM technology (crops, livestock)"/>
+        <discipline id="257" parentid="251" order="6" value="Livestock cloning"/>
+        <discipline id="258" parentid="251" order="7" value="Marker assisted selection"/>
+        <discipline id="259" order="5" value="Social Sciences"/>
+        <discipline id="25" parentid="22" order="3" value="Information retrieval"/>
+        <discipline id="260" parentid="259" order="1" value="Psychology"/>
+        <discipline id="261" parentid="260" order="1" value="Biological Psychology"/>
+        <discipline id="262" parentid="260" order="2" value="Clinical Psychology"/>
+        <discipline id="263" parentid="260" order="3" value="Cognitive Psychology"/>
+        <discipline id="264" parentid="260" order="4" value="Comparative Psychology"/>
+        <discipline id="265" parentid="260" order="5" value="Developmental Psychology"/>
+        <discipline id="266" parentid="260" order="6" value="Educational and School Psychology"/>
+        <discipline id="267" parentid="260" order="7" value="Evolutionary Psychology"/>
+        <discipline id="268" parentid="260" order="8" value="Industrial-organisational Psychology"/>
+        <discipline id="269" parentid="260" order="9" value="Personality Psychology"/>
+        <discipline id="26" parentid="22" order="4" value="Information management"/>
+        <discipline id="270" parentid="260" order="10" value="Positive Psychology"/>
+        <discipline id="271" parentid="260" order="11" value="Social Psychology"/>
+        <discipline id="272" parentid="259" order="2" value="Economics, finance and business"/>
+        <discipline id="273" parentid="272" order="1" value="Business and Management"/>
+        <discipline id="274" parentid="272" order="2" value="Economics and Econometrics"/>
+        <discipline id="275" parentid="272" order="3" value="Finance"/>
+        <discipline id="276" parentid="272" order="4" value="Industrial relations"/>
+        <discipline id="277" parentid="259" order="3" value="Educational sciences"/>
+        <discipline id="278" parentid="277" order="1" value="General Education"/>
+        <discipline id="279" parentid="277" order="2" value="Special Education (learning disabilities)"/>
+        <discipline id="27" parentid="22" order="5" value="Knowledge management"/>
+        <discipline id="280" parentid="259" order="4" value="Sociology"/>
+        <discipline id="281" parentid="280" order="1" value="Anthropology"/>
+        <discipline id="282" parentid="280" order="2" value="Demography"/>
+        <discipline id="283" parentid="280" order="3" value="Ethnology"/>
+        <discipline id="284" parentid="280" order="4" value="Family studies"/>
+        <discipline id="285" parentid="280" order="5" value="Social issues"/>
+        <discipline id="286" parentid="280" order="6" value="Social work"/>
+        <discipline id="287" parentid="280" order="7" value="Sociology"/>
+        <discipline id="288" parentid="280" order="8" value="Women and gender studies"/>
+        <discipline id="289" parentid="259" order="5" value="Law"/>
+        <discipline id="28" parentid="22" order="6" value="Multimedia, hypermedia"/>
+        <discipline id="290" parentid="289" order="1" value="Canon Law"/>
+        <discipline id="291" parentid="289" order="2" value="Civil Law"/>
+        <discipline id="292" parentid="289" order="3" value="Comparative Law"/>
+        <discipline id="293" parentid="289" order="4" value="Competition Law"/>
+        <discipline id="294" parentid="289" order="5" value="Constitutional Law"/>
+        <discipline id="295" parentid="289" order="6" value="Criminal Law"/>
+        <discipline id="296" parentid="289" order="7" value="Islamic Law"/>
+        <discipline id="297" parentid="289" order="8" value="Jewish Law"/>
+        <discipline id="298" parentid="289" order="9" value="Jurisprudence (Philosophy of Law)"/>
+        <discipline id="299" parentid="259" order="6" value="Political sciences"/>
+        <discipline id="29" parentid="1" order="4" value="Earth sciences"/>
+        <discipline id="2" parentid="1" order="1" value="Mathematics"/>
+        <discipline id="300" parentid="299" order="1" value="Comparative politics"/>
+        <discipline id="301" parentid="299" order="2" value="Empirical pata analysis"/>
+        <discipline id="302" parentid="299" order="3" value="International relations"/>
+        <discipline id="303" parentid="299" order="4" value="Organisation theory"/>
+        <discipline id="304" parentid="299" order="5" value="Political economy"/>
+        <discipline id="305" parentid="299" order="6" value="Political philosophy"/>
+        <discipline id="306" parentid="299" order="7" value="Public administration"/>
+        <discipline id="307" parentid="299" order="8" value="Theories of the state"/>
+        <discipline id="308" parentid="259" order="7" value="Social and economic geography"/>
+        <discipline id="309" parentid="308" order="1" value="Cultural and economic geography"/>
+        <discipline id="30" parentid="29" order="1" value="Atmospheric science"/>
+        <discipline id="310" parentid="308" order="2" value="Transport planning"/>
+        <discipline id="311" parentid="308" order="3" value="Urban studies"/>
+        <discipline id="312" parentid="259" order="8" value="Media and communications"/>
+        <discipline id="313" parentid="312" order="1" value="Information science - social"/>
+        <discipline id="314" parentid="312" order="2" value="Journalism"/>
+        <discipline id="315" parentid="312" order="3" value="Library science"/>
+        <discipline id="316" parentid="312" order="4" value="Media and socio-cultural communication"/>
+        <discipline id="317" order="6" value="Humanities"/>
+        <discipline id="318" parentid="317" order="1" value="History and Archaeology"/>
+        <discipline id="319" parentid="318" order="1" value="Archaeology"/>
+        <discipline id="31" parentid="29" order="2" value="Climate research"/>
+        <discipline id="320" parentid="318" order="2" value="History (Prehistory; Ancient; Modern world)"/>
+        <discipline id="321" parentid="317" order="2" value="Languages and literature"/>
+        <discipline id="322" parentid="321" order="4" value="Literary theory"/>
+        <discipline id="323" parentid="321" order="1" value="General language studies"/>
+        <discipline id="324" parentid="321" order="2" value="General literature studies"/>
+        <discipline id="325" parentid="321" order="3" value="Linguistics"/>
+        <discipline id="326" parentid="321" order="5" value="Specific languages"/>
+        <discipline id="327" parentid="321" order="6" value="Specific literatures"/>
+        <discipline id="328" parentid="317" order="3" value="Philosophy, ethics and religion"/>
+        <discipline id="329" parentid="328" order="1" value="Ethics"/>
+        <discipline id="32" parentid="29" order="3" value="Geochemistry"/>
+        <discipline id="330" parentid="328" order="2" value="Philosophy of science/technology"/>
+        <discipline id="331" parentid="328" order="3" value="Philosophy"/>
+        <discipline id="332" parentid="328" order="4" value="Religious studies"/>
+        <discipline id="333" parentid="328" order="5" value="Theology"/>
+        <discipline id="334" parentid="317" order="4" value="Arts"/>
+        <discipline id="335" parentid="334" order="1" value="Architectural design"/>
+        <discipline id="336" parentid="334" order="2" value="Folklore studies"/>
+        <discipline id="337" parentid="334" order="3" value="Media Studies (Film, Radio, TV)"/>
+        <discipline id="338" parentid="334" order="4" value="Musicology"/>
+        <discipline id="339" parentid="334" order="5" value="Performing arts studies"/>
+        <discipline id="33" parentid="29" order="4" value="Geology"/>
+        <discipline id="340" order="7" value="Support Activities"/>
+        <discipline id="341" parentid="340" order="1" value="Digital Archives"/>
+        <discipline id="342" parentid="340" order="2" value="Infrastructure Development"/>
+        <discipline id="343" parentid="340" order="3" value="Training/Demonstrations"/>
+        <discipline id="344" order="998" value="Other"/>
+        <discipline id="345" parentid="340" order="4" value="Miscellaneous"/>
+        <discipline id="34" parentid="29" order="5" value="Geophysics"/>
+        <discipline id="35" parentid="29" order="6" value="Hydrology"/>
+        <discipline id="36" parentid="29" order="7" value="Mineralogy"/>
+        <discipline id="37" parentid="29" order="8" value="Oceanography"/>
+        <discipline id="38" parentid="29" order="9" value="Palaeontology"/>
+        <discipline id="39" parentid="29" order="10" value="Physical geography"/>
+        <discipline id="3" parentid="2" order="1" value="Applied mathematics"/>
+        <discipline id="40" parentid="29" order="11" value="Seismology"/>
+        <discipline id="41" parentid="29" order="12" value="Volcanology"/>
+        <discipline id="42" parentid="1" order="5" value="Biological sciences"/>
+        <discipline id="43" parentid="42" order="1" value="Aerobiology"/>
+        <discipline id="44" parentid="42" order="2" value="Bacteriology"/>
+        <discipline id="45" parentid="42" order="3" value="Behavioural biology"/>
+        <discipline id="46" parentid="42" order="4" value="Biochemistry and molecular biology"/>
+        <discipline id="47" parentid="42" order="5" value="Biodiversity conservation"/>
+        <discipline id="48" parentid="42" order="6" value="Bioinformatics"/>
+        <discipline id="49" parentid="42" order="7" value="Biological rhythm"/>
+        <discipline id="4" parentid="2" order="2" value="Pure mathematics"/>
+        <discipline id="50" parentid="42" order="8" value="Biology"/>
+        <discipline id="51" parentid="42" order="9" value="Biophysics"/>
+        <discipline id="52" parentid="42" order="10" value="Botany"/>
+        <discipline id="53" parentid="42" order="11" value="Cell biology"/>
+        <discipline id="54" parentid="42" order="12" value="Computational biology"/>
+        <discipline id="55" parentid="42" order="13" value="Cryobiology"/>
+        <discipline id="56" parentid="42" order="14" value="Developmental biology"/>
+        <discipline id="57" parentid="42" order="15" value="Ecology"/>
+        <discipline id="58" parentid="42" order="16" value="Evolutionary biology"/>
+        <discipline id="59" parentid="42" order="17" value="Genetics and heredity"/>
+        <discipline id="5" parentid="2" order="3" value="Statistics and probability"/>
+        <discipline id="60" parentid="42" order="18" value="Marine and Freshwater biology"/>
+        <discipline id="61" parentid="42" order="19" value="Mathematical biology"/>
+        <discipline id="62" parentid="42" order="20" value="Microbiology"/>
+        <discipline id="63" parentid="42" order="21" value="Mycology"/>
+        <discipline id="64" parentid="42" order="22" value="Plant science"/>
+        <discipline id="65" parentid="42" order="23" value="Reproductive biology"/>
+        <discipline id="66" parentid="42" order="24" value="Structural biology"/>
+        <discipline id="67" parentid="42" order="25" value="Taxonomy"/>
+        <discipline id="68" parentid="42" order="26" value="Theoretical biology"/>
+        <discipline id="69" parentid="42" order="27" value="Thermal biology"/>
+        <discipline id="6" parentid="1" order="2" value="Computer sciences"/>
+        <discipline id="70" parentid="42" order="28" value="Virology"/>
+        <discipline id="71" parentid="42" order="29" value="Zoology"/>
+        <discipline id="72" parentid="1" order="6" value="Physical sciences"/>
+        <discipline id="73" parentid="72" order="1" value="Accelerator physics"/>
+        <discipline id="74" parentid="72" order="2" value="Acoustics"/>
+        <discipline id="75" parentid="72" order="3" value="Aerosol physics"/>
+        <discipline id="76" parentid="72" order="4" value="Astrobiology"/>
+        <discipline id="77" parentid="72" order="5" value="Astronomy"/>
+        <discipline id="78" parentid="72" order="6" value="Astroparticle physics"/>
+        <discipline id="79" parentid="72" order="7" value="Astrophysics"/>
+        <discipline id="7" parentid="6" order="1" value="Algorithms"/>
+        <discipline id="80" parentid="72" order="8" value="Atomic"/>
+        <discipline id="81" parentid="72" order="9" value="Chemical physics"/>
+        <discipline id="82" parentid="72" order="10" value="Computational physics"/>
+        <discipline id="83" parentid="72" order="11" value="Condensed matter physics"/>
+        <discipline id="84" parentid="72" order="12" value="Cryogenics"/>
+        <discipline id="85" parentid="72" order="13" value="Fluid Mechanics"/>
+        <discipline id="86" parentid="72" order="14" value="Fusion"/>
+        <discipline id="87" parentid="72" order="15" value="High energy physics"/>
+        <discipline id="88" parentid="72" order="16" value="Mathematical physics"/>
+        <discipline id="89" parentid="72" order="17" value="Medical physics"/>
+        <discipline id="8" parentid="6" order="2" value="Artificial Intelligence (expert systems, machine learning, robotics)"/>
+        <discipline id="90" parentid="72" order="18" value="Molecular physics"/>
+        <discipline id="91" parentid="72" order="19" value="Nuclear physics"/>
+        <discipline id="92" parentid="72" order="20" value="Optics"/>
+        <discipline id="93" parentid="72" order="21" value="Particle physics"/>
+        <discipline id="94" parentid="72" order="22" value="Physics"/>
+        <discipline id="95" parentid="72" order="23" value="Planetary science"/>
+        <discipline id="96" parentid="72" order="24" value="Plasma physics"/>
+        <discipline id="97" parentid="72" order="25" value="Space science"/>
+        <discipline id="98" parentid="72" order="26" value="Quantum physics"/>
+        <discipline id="99" parentid="1" order="7" value="Chemical sciences"/>
+        <discipline id="9" parentid="6" order="3" value="Computer architecture"/>
+    </version>
+</appdb>

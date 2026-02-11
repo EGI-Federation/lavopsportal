@@ -964,7 +964,7 @@
             <element in="vos">
                 <element in="vo">
                     <attribute-create out="group_mgmt">'VOMS-IAM'</attribute-create>
-                    <attribute-create out="count">../object/numberOfUsers/text()</attribute-create>
+                    <attribute-create out="count">../object/activeUsers/text()</attribute-create>
                     <element-ignore/>
                 </element>
             </element>
