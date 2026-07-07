@@ -665,12 +665,17 @@
     <view name="OPSCORE_PORTAL_EGI_Releases"  xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
 
 
+	<connector type="FileConnector">
+            <parameter name="path">/app/resources/xml/releases.xml</parameter>
+        </connector>
+<!--
         <connector type="HTTPConnector">
             <parameter name="url">https://gitlab.in2p3.fr/api/v4/projects/1357/issues?scope=all&amp;per_page=100</parameter>
             <parameter name="method">GET</parameter>
             <parameter name="header" eval="concat('PRIVATE-TOKEN: ',property('gitlab.token'))"/>
         </connector>
         <serializer type="JSONStreamSerializer"/>
+-->
 
         <processors>
             <element in="item" out="e:entries">

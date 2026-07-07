@@ -1,0 +1,1810 @@
+<e:entries xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+    <e:entries key="0">
+        <e:entries key="162376">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">162376</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">[VO ID CARD] Bug with multiple email address es</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">&gt; Dear Cyril,
+
+&gt; We found a problem when updating VO ID Cards. When setting up multiple addresses, we always get an error, as  depicted below [1].
+
+&gt; Could you please verify if this is a bug?
+
+&gt; To reproduce the issue, edit any VO ID Card General information (e.g. https://operations-portal.egi.eu/vo/update/serial/...) and try to use multiple email addresses for the Security field.
+
+&gt; Thanks,
+
+&gt; Nacho.
+
+![image](/uploads/279b7070d43b0a449854b0387909e07f/image.png)</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">opened</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">null</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/150</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+            </e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="161322">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">161322</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">[MAILING] Layout uniformization of email skeleton</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+            </e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2022-09-08T10:14:08.186+02:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/148</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">enhancement</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="159869">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">159869</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">Filter logs returned by Lavoisier</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">In case of problem with Lavoisier connection an error is thrown
+- the logs are too verbose
+- we should manage it like 'ERROR 500'</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">opened</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">null</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/142</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">enhancement</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="159634">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">159634</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">Evaluate the possibility to use VO Manager role from AAI to give access to VO ID cards</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">Attributes related to the VO/group membership and role information are available in AAI.
+Maybe it could be used to identify VO Managers .
+
+  # Syntax 
+
+An entitlement value expressing group membership and role information has the following syntax (components enclosed in square brackets are OPTIONAL):
+
+` urn:mace:egi.eu:group:&lt;GROUP&gt;[:&lt;SUBGROUP&gt;*][:role=&lt;ROLE&gt;]#&lt;GROUP-AUTHORITY&gt;`
+
+where:
+
+- `&lt;GROUP&gt;` is the name of a VO, research collaboration or a top level arbitrary group. &lt;GROUP&gt; names are unique within the urn:mace:egi.eu:group namespace;
+- zero or more `&lt;SUBGROUP&gt;` components represent the hierarchy of subgroups in the &lt;GROUP&gt;; specifying sub-groups is optional
+- the optional `&lt;ROLE&gt;` component is scoped to the rightmost (sub)group; if no group information is specified, the role applies to the VO
+- `&lt;GROUP-AUTHORITY&gt;` is a non-empty string that indicates the authoritative source for the entitlement value. For example, it can be the FQDN of the group management system that is responsible for the identified group membership information</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">opened</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">null</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/139</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">enhancement</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="159385">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">159385</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">Add anonymisation of data &gt; 18 months</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">Add anonymisation of data &gt; 18 months
+- [ ] Users Table
+- [ ] other tables ?</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">opened</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">null</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/135</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">task</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="158961">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">158961</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">Capture of VOMS Users</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">- Email is not updated if the user already exists</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">opened</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">null</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/131</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">bug</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="114661">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">114661</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">[DASHBOARD] The EGI.eu support unit is no more supported</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">If a a ticket is created again GRIDOPS-* site , an exception is raised because the Support Unit associated to this type of site is EGI.eu 
+SoapFault: ERROR (10019): ; The support unit "EGI.eu" specified in GGUS ticket (#) is not valid! Please contact either your system administrator or support@ggus.org about this error.
+
+The GGUS mapping should be reviewed</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2022-09-08T08:45:04.130+02:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/113</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">bug</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="113391">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">113391</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">[DASHBOARD] Check services status more dynamically</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">The service status is determined when an alarm is registered and is registered in DB.
+This status is never updated if the alarm is not updated.
+Instead of registering this status in DB , it could be done with Lavoisier and the PSCORE_host_service view</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">opened</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">null</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/106</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">enhancement</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="13116">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">13116</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">[SOMBO] Filter EOSC-Hub test issues in JIRA</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">The orders with the field "EOSC hub test"  should be removed from statistics</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2020-05-05T10:32:58.743+02:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/89</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+            </e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="12920">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">12920</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">Insert VO Users from CoManage API</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">* [x]  Finalize the views into Lavoisier
+* [x]  Use these views to insert users in DB</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2021-12-20T08:55:20.126+01:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/88</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">enhancement</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+    </e:entries>
+    <e:entries key="489">
+        <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">489</e:entry>
+        <e:entry key="iid" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">5</e:entry>
+        <e:entry key="project_id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">1357</e:entry>
+        <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">v5.1</e:entry>
+        <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">v5.1</e:entry>
+        <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">active</e:entry>
+        <e:entry key="created_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2019-07-18T10:11:11.715+02:00</e:entry>
+        <e:entry key="updated_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2019-10-04T09:16:52.091+02:00</e:entry>
+        <e:entry key="due_date" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2019-10-30</e:entry>
+        <e:entry key="start_date" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2019-07-22</e:entry>
+        <e:entry key="expired" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">true</e:entry>
+        <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/milestones/5</e:entry>
+        <e:entries key="10234">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">10234</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">[Vo ID Card]  - Improve url check reports</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">Example : https://operations-portal.egi.eu/vo/voUrlCheckReport/voname/aegis
+
+The http code should be more visible with color labels (200 in green, 400/ 500 in red , the other in yellow)</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2019-10-04T15:10:56.172+02:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/68</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">enhancement</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="10144">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">10144</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">[ROD] Improvements for the dashboard</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+* [x]  Make the complete template visible for ticket - not only the part related to alarms .
+* [x]  Once a ticket has been opened, remove alarms from the list (refresh the list properly)
+* [x]  Make visible the expiration date of tickets</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2019-10-30T13:31:55.530+01:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/67</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">enhancement</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="10113">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">10113</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">[SOMBO] Fix behaviour for tables in firefox</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">Table of JIRA issues is not taking the whole width with firefox.
+It works with chrome</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2019-09-04T15:15:34.078+02:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/66</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">bug</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="10037">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">10037</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">[VO] remove the roles into user info for vo not in production</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">*  the roles displayed in User info and in the top bar should be related to Vo in production</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2019-09-03T14:09:30.721+02:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/65</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">enhancement</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+    </e:entries>
+    <e:entries key="505">
+        <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">505</e:entry>
+        <e:entry key="iid" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">6</e:entry>
+        <e:entry key="project_id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">1357</e:entry>
+        <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">v5.2</e:entry>
+        <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">v5.2</e:entry>
+        <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">active</e:entry>
+        <e:entry key="created_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2019-10-04T09:51:30.230+02:00</e:entry>
+        <e:entry key="updated_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2019-11-12T15:50:04.803+01:00</e:entry>
+        <e:entry key="due_date" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2019-11-28</e:entry>
+        <e:entry key="start_date" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2019-10-04</e:entry>
+        <e:entry key="expired" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">true</e:entry>
+        <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/milestones/6</e:entry>
+        <e:entries key="10549">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">10549</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">[SOMBO] fix bugs and feature</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">* [x] put fields "assagnee" and “Scientific discipline” to be not mandatory because it's blocking the submission of the form.
+* [x] separate the form ticket into 2 form. One for ticket and one for the epic ticket.
+* [x] add the name of the user and diferents color for comments.
+* [x] show all the state available for transitions and update some id transitions.
+* [x] show details and comments for the orphan projects
+* [x] Add a chart summarizing the distribution of service order per status</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2019-11-12T15:51:44.936+01:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/70</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">bug</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="10296">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">10296</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">[Vo Id  Card] - Reflect the vo id cards fields into the view</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">The section vo resources is not reflected properly into the read only mode (view) .
+Example : https://operations-portal.egi.eu/vo/view/voname/alice</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2019-10-04T14:59:59.946+02:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/69</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">enhancement</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+    </e:entries>
+    <e:entries key="520">
+        <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">520</e:entry>
+        <e:entry key="iid" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">7</e:entry>
+        <e:entry key="project_id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">1357</e:entry>
+        <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">v5.3</e:entry>
+        <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        </e:entry>
+        <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">active</e:entry>
+        <e:entry key="created_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2019-11-12T15:54:37.245+01:00</e:entry>
+        <e:entry key="updated_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2020-03-02T14:09:23.364+01:00</e:entry>
+        <e:entry key="due_date" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2020-03-08</e:entry>
+        <e:entry key="start_date" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2019-12-01</e:entry>
+        <e:entry key="expired" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">true</e:entry>
+        <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/milestones/7</e:entry>
+        <e:entries key="11724">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">11724</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">[SOMBO] sort of the jira issues is not working properly</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">When you sort the table of jira issues per Id the sort is not done properly :
+*  EOSCPR11, EOSCPR12, **EOSCPR120**, EOSCPR13</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2020-04-21T15:06:07.153+02:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/76</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+            </e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="11485">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">11485</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">[ROD] bug modal don't show if data is not in the first page</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">the buttons to create notepad and ticket don't work proprely if we are using pagination or searching.</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2020-03-02T14:05:01.471+01:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/75</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">bug</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="10768">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">10768</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">[ROD] Handover feature</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">Add a panel "handover" into the dashboard with the following possibilities
+ 
+* [x]  Define a group of persons to communicate with (ex : NGI_UK) .This group is composed with users registered in the DB 
+* [x]  Define communication with this group (email could be sent), handover should be visible by the users in the group
+* [x]  The group should be editable and modifiable by the creator . Anyone in the group could remove himself
+* [x]  An entry should be created for each user of the group
+* [x]  create test unit for group and handover</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2020-03-02T14:05:44.377+01:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/73</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">enhancement</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="10615">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">10615</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">Management of the version of the release</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">*  Adding a new entry for each new release into Lavoisier is not comfortable
+*  Remove the v - before the version on the home page</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2020-03-02T14:03:43.563+01:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/72</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">enhancement</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="10613">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">10613</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">[SOMBO] improvement</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">* [x]  fix bug help modal
+* [x]  show data in list ticket only if permission
+* [x]  put combobox for list user in manager authorisation</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2020-03-02T14:05:30.728+01:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/71</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">bug</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+    </e:entries>
+    <e:entries key="582">
+        <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">582</e:entry>
+        <e:entry key="iid" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">8</e:entry>
+        <e:entry key="project_id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">1357</e:entry>
+        <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">v5.4</e:entry>
+        <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">Vo ID Card review</e:entry>
+        <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">active</e:entry>
+        <e:entry key="created_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2020-03-02T14:06:53.621+01:00</e:entry>
+        <e:entry key="updated_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2020-04-20T14:42:17.425+02:00</e:entry>
+        <e:entry key="due_date" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2020-04-20</e:entry>
+        <e:entry key="start_date" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2020-02-02</e:entry>
+        <e:entry key="expired" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">true</e:entry>
+        <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/milestones/8</e:entry>
+        <e:entries key="12639">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">12639</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">[VO] Vo validity and VO security</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">Some improvements should be done on these pages . 
+
+
+&gt; Hi Cyril,
+&gt; 
+&gt; Following the recent discussions it would be handy to have the
+&gt; possibility to:
+&gt; - filter VO in the Secuirty and VOValidity pages (like every VO having
+&gt;    at least a problem, or only VO lacking AUP,...)
+&gt; - it would be good if all the required bits could be checked on the VO
+&gt;    VOValidity page
+&gt; - Having a way to ease/automate contacting and recontacting all the
+&gt;    "broken" VO could be great
+&gt; 
+&gt; More generally it would be good to have links everywhere between the
+&gt; various entries, to easily switch from one view to another while also
+&gt; having to click as less as possible (you are welcome for such a generic
+&gt; and unclear request, will see if I can come with something more
+&gt; concrete...)
+&gt; 
+&gt; Cheers,
+&gt; Baptiste</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2020-04-15T17:05:51.257+02:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/81</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+            </e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="12632">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">12632</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">[ROD] Indicators of load</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">In case of creation of tickets the browser could load during a long time .
+The different actions should be blocked during this time and some indicators should be visible .
+
+Ticket : https://ggus.eu/index.php?mode=ticket_info&amp;ticket_id=146395</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2020-04-15T17:05:01.396+02:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/80</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+            </e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="12623">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">12623</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">[ROD] clean up of alarms</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd"> A daily script should be put in place to :
+* [x]  remove alarms non assigned in OK status after 3 days
+* [x]  remove all alarms non assigned after 10 days 
+* [x]  remove the corresponding history in the 2 previous cases
+* [x]  add the call to this script into Lavoisier</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2020-04-15T17:07:49.848+02:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/79</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+            </e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+    </e:entries>
+    <e:entries key="606">
+        <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">606</e:entry>
+        <e:entry key="iid" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">9</e:entry>
+        <e:entry key="project_id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">1357</e:entry>
+        <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">v5.5</e:entry>
+        <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        </e:entry>
+        <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">active</e:entry>
+        <e:entry key="created_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2020-04-21T15:04:25.947+02:00</e:entry>
+        <e:entry key="updated_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2020-06-17T09:02:28.923+02:00</e:entry>
+        <e:entry key="due_date" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2020-06-17</e:entry>
+        <e:entry key="start_date" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2020-04-21</e:entry>
+        <e:entry key="expired" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">true</e:entry>
+        <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/milestones/9</e:entry>
+        <e:entries key="13285">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">13285</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">[ROD] eror display dowtimes</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+            </e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2020-05-18T17:44:21.907+02:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/92</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">bug</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="13138">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">13138</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">[SOMBO] add name user in comments with provider</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">additionally to the above if there have been an exchange of comments
+with the user to clarify the request these are also not shown in the
+page that the provider receives, can we add them?</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2020-06-17T09:01:57.839+02:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/91</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">enhancement</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="13137">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">13137</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">[SOMBO] add information about user when we send a request to the selected provider</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">when we send a request to the selected provider (by "add provider")
+in managing the order, the provider receives the email with the
+information in the order to accept or reject it but in the page there
+is no reference to the user making the request or his/her contact
+information. Can we add also the information coming from the parent
+Epic? this will allow the providers to further communicate with the
+user for the provisioning of the order.</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2020-06-17T09:14:01.051+02:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/90</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">enhancement</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="12905">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">12905</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">[CSI] Improvements on CSI dashboard</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">* [x] add a script similar to cleanAlarmsAction for the CsiNagiosProblem table
+* [x] change the name of the tab from #profile to #csi
+* [x] in case of changes into CSI settings load the csi tab instead of the default one</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2020-05-04T10:05:58.748+02:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/87</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">update database</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="12904">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">12904</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">[ROD] remove Profile alarm in settings</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">remove Profile alarm in settings form and entity</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2020-04-23T09:18:00.705+02:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/86</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">update database</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="12652">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">12652</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">[VO] Vo module improvements</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">* [x] Switch easily from read to update when looking at VO ID cards
+* [x] Merge the vo search page and the update one . Browse VO ID cards for update and view
+* [x] Highlight changes into VO Update page
+* [x] Make the resources section visible on request
+* [x] Add documentation for CVFMS
+* [x] Review VO Registration Procedure access
+* [ ] Add entries related to the VO ID card into the profile
+* [x] Check the homogeneity of documentations links (icon, color , look and feel)
+* [ ] Study a page to gather accounts with different identities (DN)
+
+ 
+
+&gt; Some more points for you to evaluate/discuss.
+&gt; 
+&gt; Something I would find handy: being able to always switch easily from 
+&gt; read to update when looking at VO ID cards to be able to always switch 
+&gt; to edit/view in a click.
+&gt; 
+&gt; It could be nice to merge list and "Register/update" menu entries into 
+&gt; one, it would make things a bit simpler (and I don't see anymore a 
+&gt; search field on https://operations-portal.egi.eu/next/vo/search). In my 
+&gt; opinion the list page is not adding much useful info/features not 
+&gt; available from the register/update page.
+&gt; 
+&gt; On the VO creation page, if the account is having multiple certs linked 
+&gt; to it, it would be nice to be able to select one of them or add a custom 
+&gt; one. (for now it's filled with one of my deprecated cert). Not sure if 
+&gt; it was said but keep in mind that EGI SSO will be decommissioned at some 
+&gt; point, we would like to rely only on EGI Check-in (But I expect that you 
+&gt; already get the EGI SSO IdP info from the Check-in).
+&gt; 
+&gt; On the page for updating VO it would be nice if fields that have been 
+&gt; updated are highlighted (so that people don't make change without 
+&gt; noticing it). Or even locked so that they are only edited one by one 
+&gt; (maybe like a bit how it's done in Jira where you can edit the 
+&gt; description/or a field of an issue independently)
+&gt; 
+&gt; Not the most important but it could be nice if Resources section could 
+&gt; be shown only when needed/requested (i.e. grouping and hiding queue and 
+&gt; jobs sections unless it's said that's the VO should support grid, same 
+&gt; for the cloud part). It would also be nice to have some links to some 
+&gt; documentation for things like CVMFS.
+&gt; 
+&gt; It's nice to have the "Check VO registration procedure" but people may 
+&gt; miss it/not realise what it is, better it could be clarified in a short 
+&gt; intro paragraph/sentence? With potentially link for getting some support 
+&gt; (ops@? ucst?)
+&gt; 
+&gt; It would be nice to mark more strongly the fields that have not been 
+&gt; filled, the contextual info is nice, but if it could be possible to have 
+&gt; something a bit more visible (surrounding the field in red?) it may be 
+&gt; clearer, especially for people with less young eyes.
+&gt; 
+&gt; It would be nice to have the ongoing VO creation/tickets listed in a 
+&gt; page accessible from the "My account" menu (maybe having my roles being 
+&gt; a link, and having something else like "My activity"?).
+&gt; 
+&gt; On the https://operations-portal.egi.eu/next/vo/userTracking page the 
+&gt; icon in front of "How to use the tool" should be something more looking 
+&gt; at a question mark, more usual for documentation. And this should be 
+&gt; consistent across menus (for now list, register/update and user tracking 
+&gt; are showing things differently while it's always to provide some 
+&gt; documentation). And documentation link should have a different look an 
+&gt; fell that action buttons (like the "Send global mail" from the security 
+&gt; page)
+&gt; 
+&gt; Thanks!
+&gt; 
+&gt; Cheers,
+&gt; Baptiste</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2020-06-17T09:15:14.053+02:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/82</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+            </e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="11766">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">11766</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">[DOWNTIMES] improve ergonomics</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">* [x] overing the entries in the timeline is not working very well when the over dialog is at the bottom/right of the browser window, I had to zoom out to be able to read it without problem
+* [x] https://operations-portal.egi.eu/downtimes/a/timeline: the site entities are not ordered alphabetically
+* [x] when using search engine : the timeline chart is not displayed properly
+* [x] the mechanism to register a subscription is not clear (too much actions , communication channel ...)</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2020-06-17T09:03:01.865+02:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/77</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">enhancement</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+    </e:entries>
+    <e:entries key="628">
+        <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">628</e:entry>
+        <e:entry key="iid" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">10</e:entry>
+        <e:entry key="project_id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">1357</e:entry>
+        <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">v5.6</e:entry>
+        <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        </e:entry>
+        <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">active</e:entry>
+        <e:entry key="created_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2020-06-17T09:13:12.283+02:00</e:entry>
+        <e:entry key="updated_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2020-06-30T15:03:45.743+02:00</e:entry>
+        <e:entry key="due_date" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2020-06-30</e:entry>
+        <e:entry key="start_date" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2020-06-17</e:entry>
+        <e:entry key="expired" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">true</e:entry>
+        <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/milestones/10</e:entry>
+        <e:entries key="13695">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">13695</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">[VO] External registry</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">- [x] Add the possibility to use any external registry
+- [x] Use by default the enrollment url as basis for this external registry</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2020-06-25T11:21:52.415+02:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/95</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">new feature</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="13551">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">13551</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">[SOMBO] Improvements</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">Report from Debora
+
+* [x] The disciplines in the Epic is not read from JIRA “CP-ScientificDiscipline:”
+* [x] I have updated or the EUDAT services thee order target email in the Marketplace but this change as not propagated to SOMBO (URGENT)
+* [x] When adding a service provider the start date should not be in 1970 (I would suggest to use the current date and the typical interval should be of one year and not 10 years.
+* [x] When sending a request to the service provider all information and comments to Project and order should be readable. (URGENT, already mentioned in a previous email)
+* [x] When going into manage SO for an order in state “new” on the left there are 3 statuses (in progress, done , ready) if we click on done or ready an error appears. From “new” the only transition would be either to “in progress” or to “waiting for respond” and from these to “Approved” or “Rejected”. Then from “Approved” to “Ready”.
+* [x] It would be useful for the order shifters to have a dashboard with the list of orders where there is a request to a provider in waiting for respond so not to have to open all orders. (URGENT)
+* [x] It would be helpful to have a notification when a provider replies with a comment (as now we have to open all tickets to see if there is any update) (URGENT)
+* [x] It would be useful to have an automatic update of the order status when the service provider replies to the request (order moved to approved is request validated, order moved to rejected if the request is rejected).
+* [x] As alternative it might be good to have a notification to the order management team when a provider has replied. 
+* [x] Even better it would be to have an escalation process that gives evidence to tickets waiting for a reply for more than a certain time.
+* [x] Can you please let us  know who can now access the SOMBO interface for order management?
+* [x] Multiple emails are not working for the provider</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2020-06-30T15:03:07.939+02:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/94</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+            </e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="13359">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">13359</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">[ROD] date column on ROD dashboard should be sorted by date</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">&gt;  at the moment when I click 'sort' on the date column it sorts the reports alphannumerially and not by date. So I have
+20/04/2020
+20/05/2020
+21/04/2020
+22/05/2020 etc etc
+when what I want is
+20/04/2020
+21/04/2020
+20/05/2020
+22/05/2020</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2020-06-30T15:04:36.467+02:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/93</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+            </e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+    </e:entries>
+    <e:entries key="635">
+        <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">635</e:entry>
+        <e:entry key="iid" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">11</e:entry>
+        <e:entry key="project_id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">1357</e:entry>
+        <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">v5.7</e:entry>
+        <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        </e:entry>
+        <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">active</e:entry>
+        <e:entry key="created_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2020-06-30T15:04:26.840+02:00</e:entry>
+        <e:entry key="updated_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2020-11-05T15:32:52.200+01:00</e:entry>
+        <e:entry key="due_date" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2020-11-12</e:entry>
+        <e:entry key="start_date" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2020-06-16</e:entry>
+        <e:entry key="expired" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">true</e:entry>
+        <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/milestones/11</e:entry>
+        <e:entries key="14318">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">14318</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">[VO] Replace link into VO ID cards by API links</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">Some links are used into the VO ID card to visualize data in xml . These links should be replaced by API links and completed (JSON format) :
+- http://operations-portal.egi.eu/xml/voIDCard/public/voname/$vo_name
+- http://operations-portal.egi.eu/xml/voIDCard/public/all/true</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2020-11-05T15:30:42.848+01:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/100</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">enhancement</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="13918">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">13918</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">[VO] Authorize the change of name of a VO</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">- [x] Authorize the change of name of a VO by EGI Operations Team
+- [x] Currently only the name in the header is changed</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2020-11-05T15:33:38.177+01:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/99</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">bug</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="13773">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">13773</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">[SOMBO] Remove the EGI references</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">comments to orders in SOMBO are reported coming from "EGI marketplace" or "EGI Operations Portal" .
+
+Would it be possible to have them called just "Marketplace" and "Operations portal" ?</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2020-07-08T10:08:52.849+02:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/96</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">enhancement</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="12893">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">12893</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">Operations Portal API</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">All access to the portal should be made through EGI Checkin which could cause some problems for links like the VO ID cards xml feed . But this information could not accessible publicly .
+So the solution is to put in place an API with :
+* [x] a page describing all the methods and parameters in free access (swagger UI is a good example)
+* [x] restricted pages giving access to information via a token
+* [x] a page asking for a token with the reason</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2020-11-05T15:36:49.365+01:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/85</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">new feature</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="12791">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">12791</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">[sf1] Replace the insertion for CSI records</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">Add a script to import the CSI Nagios record from this view : CsiAlarmsImport into the table csi_nagios_history
+
+monitor_id is the key of the issue
+
+*  Create an entity related to the table csi_nagios_history
+
+1) There is no record with the same monitor_id
+
+Insert a new record :
+* update_at = created_at = now ()
+* start_date=end_date
+* ops_flags=flags=0
+
+2) A record with the same monitor_id exists 
+
+*  If details and summary have not changed =&gt; update the field updated_at
+*  If details or summary have changed =&gt; insert a new record and update the end_date of the previous record with the new start_date</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2020-11-05T15:29:49.365+01:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/83</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">task</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="12518">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">12518</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">[VO] VO id card xml feed</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">With the changes related to the VO registration we have adapted the xml of the Vo ID card feed :
+* [x]  the middleware section has been completely **removed**
+
+```xml
+&lt;Middlewares ARC="1" gLite="1" UNICORE="0" GLOBUS="0" CLOUD_STORAGE="0" CLOUD_COMPUTING="0"/&gt;
+```
+
+* [x]  the resources section has been adapted 
+
+```xml
+&lt;Ressources&gt;
+  &lt;QueueConfiguration&gt;
+    &lt;JobMaxCPUTime&gt;1320&lt;/JobMaxCPUTime&gt;
+    &lt;JobMaxWallClockTime&gt;1500&lt;/JobMaxWallClockTime&gt;
+  &lt;/QueueConfiguration&gt;
+  &lt;SingleCoreJobs&gt;
+    &lt;RAM_per_i386_Core&gt;2000&lt;/RAM_per_i386_Core&gt;
+    &lt;RAM_per_x86_64_Core&gt;2000&lt;/RAM_per_x86_64_Core&gt;
+    &lt;JobScratchSpace&gt;10000&lt;/JobScratchSpace&gt;
+  &lt;/SingleCoreJobs&gt;
+  &lt;MultiCoreJobs&gt;
+    &lt;RamValuesPerJob&gt;
+      &lt;min/&gt;
+      &lt;prefered/&gt;
+      &lt;max/&gt;
+    &lt;/RamValuesPerJob&gt;
+    &lt;ScratchValuesPerJob&gt;
+      &lt;min/&gt;
+      &lt;prefered/&gt;
+      &lt;max/&gt;
+    &lt;/ScratchValuesPerJob&gt;
+    &lt;CoresValuesPerJob&gt;
+      &lt;min/&gt;
+     &lt;prefered/&gt;
+     &lt;max/&gt;
+    &lt;/CoresValuesPerJob&gt;
+  &lt;/MultiCoreJobs&gt;
+  &lt;CloudCompute&gt;
+    &lt;CloudCPUCore/&gt;
+    &lt;CloudStorageSize/&gt;
+    &lt;CloudVmRam/&gt;
+  &lt;/CloudCompute&gt;
+  &lt;CernCVMFS&gt;
+    &lt;endpoints/&gt;
+  &lt;/CernCVMFS&gt;
+  &lt;OtherRequirements/&gt;
+&lt;/Ressources&gt;
+```
+
+* [x]  The VOMS section is now displaying Perun and CoManage
+
+1) Traditionnal VOMS 
+
+```xml
+
+&lt;VOMSServers&gt;
+  &lt;VOMS_Server HttpsPort="8443" VomsesPort="15000" IsVomsAdminServer="1" MembersListUrl="https://lcg-voms2.cern.ch:8443/voms/alice/services/VOMSAdmin?method=listMembers"&gt;
+    &lt;hostname&gt;lcg-voms2.cern.ch&lt;/hostname&gt;
+    &lt;X509Cert&gt;
+      &lt;DN&gt;/DC=ch/DC=cern/OU=computers/CN=lcg-voms2.cern.ch&lt;/DN&gt;
+      &lt;CA_DN&gt;/DC=ch/DC=cern/CN=CERN Grid Certification Authority&lt;/CA_DN&gt;
+      &lt;X509PublicKey&gt;-----BEGIN CERTIFICATE-----  [...] ----END CERTIFICATE-----&lt;/X509PublicKey&gt;
+      &lt;SerialNumber&gt;212988084436761876117054&lt;/SerialNumber&gt;
+    &lt;/X509Cert&gt;
+  &lt;/VOMS_Server&gt;
+&lt;VOMSServers&gt;
+```</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2020-11-05T15:39:49.397+01:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/78</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">enhancement</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="11295">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">11295</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">Remove historical dependencies to sf1 repository</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">Lavoisier is still using 2 modules of the historical version of the portal : xml and cron
+* [x]  Remove dependency from xml
+* [x]  Remove dependency from cron
+* [x]  Move these dependencies into sf3 and use anonymous access to provide it
+* [x]  Remove the certificate check on the cluster and the sf1 redirection in htaccess</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2021-04-21T15:56:47.425+02:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/74</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">enhancement</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+    </e:entries>
+    <e:entries key="690">
+        <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">690</e:entry>
+        <e:entry key="iid" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">12</e:entry>
+        <e:entry key="project_id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">1357</e:entry>
+        <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">v6.0</e:entry>
+        <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        </e:entry>
+        <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">active</e:entry>
+        <e:entry key="created_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2020-11-05T15:33:14.051+01:00</e:entry>
+        <e:entry key="updated_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2021-05-19T09:45:57.210+02:00</e:entry>
+        <e:entry key="due_date" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2021-05-19</e:entry>
+        <e:entry key="start_date" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2020-11-05</e:entry>
+        <e:entry key="expired" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">true</e:entry>
+        <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/milestones/12</e:entry>
+        <e:entries key="113521">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">113521</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">Migrate the site to WoK Plateform</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">- [x] create nginx image
+- [x] create php image
+- [x] configure gitlab CI to get the whole chain of deployment
+- [x] enable the project in WoK
+- [x] Perform tests / calibrate resources 
+- [x] Migrate DNS to the new access point (EGI)</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2021-06-08T10:24:54.906+02:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/108</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">task</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="113506">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">113506</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">Add public pages</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">Some of the pages are already accessible publicly (/dowtimes/a/*, /home/a/*)
+- make it more visible into the home page (locker icon ) 
+- this locker could be also added into the menu on the right
+- add a page with the list of the VO</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2021-04-27T09:24:48.801+02:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/107</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">enhancement</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="113250">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">113250</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">Different Charts are not working</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">- [x] Downtime visualisation chart : https://operations-portal.egi.eu/downtimes/a/timeline
+The downtime table is displayed properly but not the chart .
+There is  a problem with the javascript .
+
+- [x] Metrics visualisation charts : https://operations-portal.egi.eu/metrics/metricsReportsList/vo/2021-03-01%2000:00:00
+Same problem : table is displayed properly but not the chart .
+There is  a problem with the javascript .</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2021-04-21T15:55:12.422+02:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/105</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">bug</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="112907">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">112907</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">[BROADCAST] Targets are not displayed in the summary before sending</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">When the button is submitted a summary is displayed before sending.
+In that summary the targets are supposed to appear and this is not the case .</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2021-04-07T09:48:58.988+02:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/104</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">bug</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="15257">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">15257</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">[API] Remove all existing references to sf1</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">- remove all visible links to /xml/ /rss/
+- remove the certificate checkings 
+- remove sf1 directory
+- change vo_full view into lavoiiser</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2021-04-21T15:55:30.259+02:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/103</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">task</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="15082">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">15082</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">[SOMBO] Add date for the records of request for service providers</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">-  when a service provider is associated to a service order a record is registered in database but the date of creation of this record is missing .
+- it could useful for metrics for the capicity plan</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2021-05-19T11:03:49.611+02:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/102</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">enhancement</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="12876">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">12876</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">Automatize release process</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">* [x]  clear caches / logs de NEXT =&gt; à faire en premier pour éviter les envois intempestifs
+* [x]  Lavoisier upgrade
+* [x]  DB Upgrade
+* [x]  change parameters.yml : utiliser parameters.prod
+* [x]  change config.yml
+* [x]  change config_prod.yml 
+* [x]  switch to AAI prod (metadata )
+* [x]  htaccess
+* [x]  upgrade gitlab milestone (date)
+* [x]  change app.php
+* [x]  Vérifier web/index.php 
+* [x]  Copier le contenu de documents à la racine PROD =&gt; NEXT
+* [x]  Changer nom de la PROD en PROD_{DATE} , changer le NEXT en PROD et créer répertoire vide NEXT</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2021-11-10T18:09:12.605+01:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/84</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+            </e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+    </e:entries>
+    <e:entries key="997">
+        <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">997</e:entry>
+        <e:entry key="iid" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">13</e:entry>
+        <e:entry key="project_id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">1357</e:entry>
+        <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">v6.1</e:entry>
+        <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        </e:entry>
+        <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">active</e:entry>
+        <e:entry key="created_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2021-06-08T15:21:13.385+02:00</e:entry>
+        <e:entry key="updated_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2021-07-06T15:30:20.817+02:00</e:entry>
+        <e:entry key="due_date" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2021-07-06</e:entry>
+        <e:entry key="start_date" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2021-05-03</e:entry>
+        <e:entry key="expired" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">true</e:entry>
+        <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/milestones/13</e:entry>
+        <e:entries key="114309">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">114309</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">[VO ID CARD] Error when updating a Vo ID Card</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">On the dev instance : https://opsportal-egi-dev.in2p3.fr/
+After an update of the VO an error is triggered :
+
+&gt; The CSRF token is invalid. Please try to resubmit the form</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2021-07-06T15:55:06.891+02:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/112</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">bug</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="114293">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">114293</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">[ROD] Bug with the notepad creation / deletion</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">When a notepad is created the id in the database is empty .
+So the deletion is causing problems .</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2021-07-06T15:54:53.985+02:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/111</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">bug</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="114063">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">114063</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">Review the public display of the VO ID cards</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">Example : https://operations-portal.egi.eu/vo/view/voname/juno
+
+- [x] Remove the field "GGUS dedicated user support"
+- [x] Remove the field "VOMS setup support"
+- [x] Display properly all AUP use cases (text, url, file)
+- [x] Display properly the "Validation date"
+- [x] Display the different types of registry (VOMS , Perun and CoManage)</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2021-07-06T16:56:02.937+02:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/110</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">enhancement</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="114048">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">114048</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">Bug with AUP provided trough url</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">When AUP is provided through an url there are 2 issues
+- [x] the link is not visible in the Vo ID card in private mode
+- [x] the display in the VO in public mode is not properly done
+
+Examples :
+https://operations-portal.egi.eu/vo/update/serial/362
+https://operations-portal.egi.eu/vo/view/voname/vo.access.egi.eu</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2021-07-06T16:56:12.041+02:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/109</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">bug</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="13899">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">13899</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">[VO] Modify GGUS fields for the registration</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">Some ticket fields are not properly declared for the registration ticket 
+- [x]  "VO specific" should be set to "Yes"
+- [x]  "Ticket Category" should be set to "Service Request"</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2021-07-06T16:56:18.459+02:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/98</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">enhancement</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+    </e:entries>
+    <e:entries key="1263">
+        <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">1263</e:entry>
+        <e:entry key="iid" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">14</e:entry>
+        <e:entry key="project_id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">1357</e:entry>
+        <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">v6.2</e:entry>
+        <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        </e:entry>
+        <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">active</e:entry>
+        <e:entry key="created_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2021-10-05T17:11:52.961+02:00</e:entry>
+        <e:entry key="updated_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2021-10-19T13:30:42.319+02:00</e:entry>
+        <e:entry key="due_date" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2021-10-19</e:entry>
+        <e:entry key="start_date" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2021-08-04</e:entry>
+        <e:entry key="expired" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">true</e:entry>
+        <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/milestones/14</e:entry>
+        <e:entries key="155101">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">155101</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">SLAs Violations Dashboard</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">Dashboard in the Operation Portal to display the violations in the several SLAs
+
+- [x]  input from the SLA Service Groups in GOCDB ,Monitored by ARGO: https://argo.egi.eu/egi/report-ar/SLA/SERVICEGROUPS
+
+- [x] List of the SLA Service Groups
+
+- [x]  a summary of SLA violations in the last 6 months for each SLA
+Clicking on the given SLA group we can see the details:
+
+involved sites, service types, service endpoints
+for each site: (allow to customise the time window?)
+ - monthly trend of the last 6 months
+ - violations
+ - possibility to open a ticket related to the violations?
+ - for each month, link to ARGO for the details of the tests results?
+SLA A/R targets: on ARGO or in the dashboard ?
+
+Details : https://jira.egi.eu/browse/EGIREQ-84</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2021-11-03T10:41:04.794+01:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/116</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">new feature</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="155100">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">155100</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">Cloud badges feature</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+  `It would be useful to have the cloud badge hosted in the Operations Portal:
+  It is a script that collects information from ARGO and the Accounting Portal, and determines each month the badge of each site.
+  Valeria can provide more details and also the access to the code.`
+
+Details : https://jira.eosc-hub.eu/browse/EGIREQ-70</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2021-11-03T10:41:40.993+01:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/115</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">new feature</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+    </e:entries>
+    <e:entries key="1311">
+        <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">1311</e:entry>
+        <e:entry key="iid" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">15</e:entry>
+        <e:entry key="project_id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">1357</e:entry>
+        <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">v6.3</e:entry>
+        <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        </e:entry>
+        <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">active</e:entry>
+        <e:entry key="created_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2021-10-19T13:31:42.261+02:00</e:entry>
+        <e:entry key="updated_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2022-03-22T10:06:59.613+01:00</e:entry>
+        <e:entry key="due_date" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2022-03-22</e:entry>
+        <e:entry key="start_date" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2022-01-05</e:entry>
+        <e:entry key="expired" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">true</e:entry>
+        <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/milestones/15</e:entry>
+        <e:entries key="157896">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">157896</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">[SLA] Bug within customized tresholds</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">Customized thresholds are registered for a given site.
+This customisation could affect several SLAs , the complete path is required to register thresholds : SLA Group + service + site .</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2022-02-10T11:11:02.109+01:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/126</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">bug</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="157854">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">157854</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">[SLA] Selection of the time window in the SLA dashboard</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">By default the dashboard shows the performance of the last 7 months (including the current one): would it be possible to choose the time window?
+The reports that we produce refer to a 6 month period plus the previous 3 months, so in total 9 months (but having the possibility to choose the length of the time window would be useful).
+
+Details : [](https://jira.egi.eu/browse/EGITCB-251)</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2022-02-09T17:16:24.722+01:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/124</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">enhancement</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="157479">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">157479</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">Upgrade of the libraries</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">- upgrade of symfony : 3.4 =&gt; 5.4
+- upgrade of bootstrap : 4.3 =&gt; 5.1.2
+- upgrade of all twig templates
+- upgrade of the assets software manager</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2022-03-18T15:47:56.570+01:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/123</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">enhancement</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="156584">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">156584</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">[API] Add the acknowledgement section into VO ID Card</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">- the call /vo-idcard/{voName}/{_format} is providing information about VO but the acknowledge statement is not present in the json response.</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2022-01-20T09:43:37.678+01:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/121</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">enhancement</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="156308">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">156308</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">Improve the description of the menu</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+ The Ops portal is more and more promoted/accessed in EOSC (and elsewhere) by people who are not familiar with the tool, and not even with the EGI jargons. (E.g. they don't know what a VO is). 
+
+We need longer, and more basic descriptions about the portal and its various buttons/pages to the landing page. Alessandro pls involve me if needed. We can e.g. draft the sentences in a GoogleDoc. or on a Mural page. 
+
+- https://jira.egi.eu/browse/EGIREQ-69
+- https://docs.google.com/document/d/1Df3wYveREXQiiuxE6xE72Nd3xUh_V3DgASn_fMqAJEk/edit#</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2021-12-01T16:18:07.317+01:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/120</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">enhancement</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="155443">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">155443</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">Review the list of changes before the merge with the new branch sf5</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">- [x] check that all changes are visible on the new branch
+- [x] test all the features in the new branch</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2022-02-09T17:17:43.854+01:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/118</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">task</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="155442">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">155442</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">Review CSI import machanism</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">- [ ] check the status of the insertions (new insert vs update)</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2022-03-18T15:48:09.490+01:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/117</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">bug</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="154773">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">154773</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">[VO] Manage properly all registries</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">- [ ] add the new VOMS type (IAM connection)
+- [ ] manage the capture of users for IAM VOMS
+- [x] manage the capture of users for coManage
+- [x] clean up the registry urls for CoManage
+
+Link : https://indigo-iam.github.io/v/current/docs/tasks/user/client-registration/
+
+Check on lcg rollout mailing list for more details</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2022-01-20T09:45:34.929+01:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/114</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">enhancement</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="13819">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">13819</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">Review email templates</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">- [x] Provide a generic template for email 
+- [x] Check that the alternative text part is working properly 
+- [x] Remove ads links (especially from CSI notifications )
+- [x] Remove VO part into downtimes notifications if it is empty
+- [x] Remove the last bullet for the security notifications</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2022-01-20T09:44:17.954+01:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/97</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">enhancement</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+    </e:entries>
+    <e:entries key="1420">
+        <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">1420</e:entry>
+        <e:entry key="iid" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">16</e:entry>
+        <e:entry key="project_id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">1357</e:entry>
+        <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">v6.4</e:entry>
+        <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        </e:entry>
+        <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">active</e:entry>
+        <e:entry key="created_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2022-01-20T09:47:16.441+01:00</e:entry>
+        <e:entry key="updated_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2022-04-13T08:56:33.807+02:00</e:entry>
+        <e:entry key="due_date" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2022-04-13</e:entry>
+        <e:entry key="start_date" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2022-02-01</e:entry>
+        <e:entry key="expired" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">true</e:entry>
+        <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/milestones/16</e:entry>
+        <e:entries key="159536">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">159536</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">Privacy policy improvements</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://operations-portal.egi.eu/home/a/privacyPolicy
+
+privacyPolicy could be replaced by privacyNotice or dataProtection (AUP
+to be updated accordingly).
+
+Please also add a line break between those sentences:
+
+---------8&lt;--------8&lt;-------------8&lt;------------8&lt;------------8&lt;----------
+In particular, the data you provide to us will not be used for
+marketing. For the purposes given in this privacy policy, personal
+data may be passed to the following third parties:
+---------8&lt;--------8&lt;-------------8&lt;------------8&lt;------------8&lt;----------</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2022-04-11T09:17:44.114+02:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/138</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">enhancement</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="159485">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">159485</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">[VO ID card] Registration of external registry</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">- [x] once a registry of a VO has been registered as 'external registry' it appears as VOMS in the interface</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2022-04-11T09:14:06.594+02:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/137</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">bug</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="159404">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">159404</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">[VO ID CARD]  bug: changing the name of VO alters the AUP text</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">If a VO is registered and you try to change the name the content of the AUP is completely messed up .
+ 	
+Detailed Description:
+ 	 
+Hi Cyril,
+A quite weird bug: we have tried to edit the name of the VO on https://operations-portal.egi.eu/vo/update/serial/886 (tested with different browsers and by two of us)
+And while editing only the title it messed up with the AUP text!
+
+I've a screen recording of this if you want, can send it to you.
+
+Can you please have a look?
+
+Would it also be possible to revert the change on the AUP of this VO ID Card (or put the default template)?
+
+Thanks!
+
+Cheers,
+Baptiste</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2022-04-11T09:14:17.380+02:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/136</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">bug</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="159233">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">159233</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">[Admin] Improve access</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">- [x] Add the possibility for Admin to fake any user
+- [x] Improve the way to be Super User</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2022-03-25T12:38:02.279+01:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/133</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">enhancement,new feature</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="159232">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">159232</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">[VO] Improvements for the VO ID cards</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">- [x] The update follows the rules of DNS naming for the name of the VO - which doesn't work with historical vo like cms, atlas ...
+- [x] add an authenticated / non authenticated mode on the VO ID card (contact details should not be visible for public access)
+- [x] Fix problem of multiple vo contacts.</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2022-04-11T09:22:16.783+02:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/132</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">bug,enhancement</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="158196">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">158196</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">policy document</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">FROM AAI TEAM :
+_Please provide a valid privacy policy file. 
+If needed, you can adapt the following template with your specific information: https://docs.google.com/document/d/1ZU7VjH3g7qcfWcz0Z8TTv-vQiVoRA_wOsuMyJaz28Og/edit_</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2022-04-11T09:13:51.942+02:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/129</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">enhancement</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="157478">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">157478</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">Manage VOMS IAM</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">- add the entry into the VO ID card
+- add the capture of users into lavoisier</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2022-02-09T17:21:05.617+01:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/122</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">enhancement</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="155951">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">155951</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">Manage multiple profiles</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">Some users have several different profiles registered in the application.
+It could be interesting to merge all these profiles to deserve authorizations.
+The reference could be done on the email address .</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2022-03-31T16:31:47.316+02:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/119</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">new feature</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+    </e:entries>
+    <e:entries key="1478">
+        <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">1478</e:entry>
+        <e:entry key="iid" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">17</e:entry>
+        <e:entry key="project_id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">1357</e:entry>
+        <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">v6.5</e:entry>
+        <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        </e:entry>
+        <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">active</e:entry>
+        <e:entry key="created_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2022-03-24T17:13:11.607+01:00</e:entry>
+        <e:entry key="updated_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2022-10-05T11:12:55.893+02:00</e:entry>
+        <e:entry key="due_date" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2022-10-05</e:entry>
+        <e:entry key="start_date" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2022-03-23</e:entry>
+        <e:entry key="expired" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">true</e:entry>
+        <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/milestones/17</e:entry>
+        <e:entries key="161396">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">161396</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">[AAI] Upgrade client and OIDC Endpoints</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">From AAI team :
+&gt; We are writing to remind you that the legacy EGI Check-in OpenID Provider (based on MITREid Connect) will be decommissioned on Friday 16th of September 2022.
+&gt; Please make sure to reconfigure your Service before that date as described in the previous email.
+&gt; In case you miss the decommission date, the users of your service will not be able to login, but you will be able to update your configuration with the new OIDC Endpoints anytime.
+&gt; 
+&gt; Warm regards,
+&gt; EGI Check-in team</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2022-10-05T10:33:37.689+02:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/149</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">task</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="161321">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">161321</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">[SLA] Make "Reliability" and "Availability" configurable</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+            </e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2022-09-08T09:02:03.020+02:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/147</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">enhancement</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="161320">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">161320</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">[ROD / DASHBOARD] Add new CVE vulnerabilities section</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">Cron procees to integrate new daily CVEs
+Add graph of vulnerabilities with date search feature</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2022-09-08T08:44:50.026+02:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/146</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">new feature</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="161319">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">161319</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">[ROD / DASHBOARD] : Integrate the filter panels search fields into datatables adhoc search fields.</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+            </e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2022-09-08T08:26:39.390+02:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/145</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">new feature</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="159878">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">159878</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">[DASHBOARD] Automate computing of KPI showing infrastructure patch status for vulnerabilities over time</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+Complete Description : https://jira.egi.eu/browse/EGITCB-321</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2022-10-05T10:36:19.728+02:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/143</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">new feature</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="159868">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">159868</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">[DASHBOARD] Security settings are not working</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">Feedback from Baptiste
+
+&gt; This morning, IRTF got this security dashboard's notification email,
+&gt; including all the sites having security issues.
+&gt; 
+&gt; The email (see excerpt below) contains the ITEP site, while this one was
+&gt; suspended last week:
+&gt; https://goc.egi.eu/portal/index.php?Page_Type=Site&amp;id=307
+&gt; 
+&gt; It's a bit unexpected for us, how is computed/filtered the information
+&gt; included in the mail?
+&gt; 
+&gt; Following this, we also encountered some issues with the filtering in
+&gt; the security dashboard: if we go to the Security Dashboard, click
+&gt; "Settings Security", set a filter to Sites that have a "Certified
+&gt; status" set to "certified" with "Only problems" and Alarms with "Alarm
+&gt; status" set to only "Critical", the list of results contains apparently
+&gt; all the sites (there are 780 entries), not only the affected sites.
+&gt; Apparently if we force the display of the Nagios Critical and Status
+&gt; column it helps finding the correct info and seeing that the filtering
+&gt; seems not done.
+
+- Check the behaviour of the filters and correct it
+- Check if the filters are applied in the summary sent by mails</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2022-10-05T10:36:58.728+02:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/141</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">bug</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="159705">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">159705</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">Change computation for the cloud badges</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd"> # Feedback from Catalin
+
+As far as I can tell my report on Cloud badges at OMB is based on data over previous 3 months i.e. report for Jan'22 was based on data from Oct-Nov-Dec 2021
+However it appears that a different logic is applied on the Ops Portal. Here the star(s) for a month are calculated based on AV and RE for previous two months and that month i.e. star(s) for March'22 are calculated based on data for Jan-Feb-Mar 2022. And I'd say this is wrong as the badge of the current month should not take into account the A/R for this month (also we can have different no. of stars at 10th of the month and another number at the end of the month for a site).
+
+ # Feedback from IISAS-FedCloud
+
+Badges for March and April are incorrect with the current figures</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2022-04-29T13:36:39.770+02:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/140</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">bug,enhancement</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="159351">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">159351</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">Add tests for users api</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">- [x] check the script to retrieve users 
+- [x] check the content of the users method in the API</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2022-09-08T08:45:54.366+02:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/134</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">enhancement</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="158181">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">158181</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">Remove deprecated methods and calls</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">Analyse deprecation notices into the CI and upgrade consequently the code / methods / composer.</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2022-09-08T08:20:40.259+02:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/127</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">enhancement</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+    </e:entries>
+    <e:entries key="1590">
+        <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">1590</e:entry>
+        <e:entry key="iid" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">18</e:entry>
+        <e:entry key="project_id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">1357</e:entry>
+        <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">v6.6</e:entry>
+        <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        </e:entry>
+        <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">active</e:entry>
+        <e:entry key="created_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2022-10-05T10:35:35.542+02:00</e:entry>
+        <e:entry key="updated_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2023-03-13T12:35:01.052+01:00</e:entry>
+        <e:entry key="due_date" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2023-03-13</e:entry>
+        <e:entry key="start_date" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2022-10-05</e:entry>
+        <e:entry key="expired" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">true</e:entry>
+        <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/milestones/18</e:entry>
+        <e:entries key="164878">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">164878</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">[METRICS] Improvements of the ergonomics</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">- Remove the notion of national / International VOs
+- Add a start and end date for all cases</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2023-03-13T12:35:45.240+01:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/152</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">enhancement</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="164859">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">164859</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">[DOWNTIMES] add the cloud vo and the related topology in the downtime subscription</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">Add in the downtime subscription page the possibility to use the topology related to cloud / Vos by using the app db API .
+More details here : https://jira.egi.eu/browse/EGIREQ-135</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2023-03-13T12:36:05.109+01:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/151</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">new feature</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="159879">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">159879</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">[DASHBOARD] New API call in Operations Portal for IRTF to identify sites vulnerable to critical vulnerabilities</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">&gt; Following the discussions we had, please find below information regarding the implementation of a new Operations Portal API call to be used by IRTF to identify sites vulnerable to critical vulnerabilities.
+&gt; 
+&gt; The output should ideally be in CSV format and providing the following data:
+&gt; 
+&gt; 
+&gt; - tag - severity of CVE tagged in pakiti (eg EGI-Critical)
+&gt; 
+&gt; - cve - CVE identificator
+&gt; 
+&gt; - site - site name
+&gt;
+&gt; -  host - host name
+&gt; 
+&gt; - os - OS of host
+&gt; 
+&gt; - arch - host architecture
+&gt; 
+&gt; - last_report - time of last report from host
+&gt; The default (without any parameter) would be to provide hosts vulnerable to critical issues detected over the past 48 hours (and not fixed in the meantime).
+&gt; 
+&gt; Having parameters allowing to customise the query may be handy:
+&gt; 
+&gt; - history: customising the duration for checking the history of reports (default: 48 hours)
+&gt; - severity: configuring the severity of tagged CVE (egi EGI-High or EGI-Critical, default: EGI-Critical)
+&gt; 
+&gt; This is similar to the output of a Pakiti call we are using (but that is lacking the consolidation with the mitigation/checks from nagios), and would allow us to easily integrate this with existing IRTF tooling.
+
+- It needs a validation of the token + csirt Role
+
+Complete Description : https://jira.egi.eu/browse/EGITCB-320</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2024-01-16T10:22:57.846+01:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/144</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">new feature</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="158202">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">158202</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">Check the capture of Perun Users</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">- check the process in Lavoisier
+- check the status in the DB</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2023-03-13T12:36:23.188+01:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/130</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">task</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="157855">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">157855</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">[VO] Manage VOMS IAM registry</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">* [x] add the new VOMS type (IAM connection)
+* [x] manage the capture of users for IAM VOMS
+
+Link : https://indigo-iam.github.io/v/current/docs/tasks/user/client-registration/
+Check on lcg rollout mailing list for more details</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2023-03-13T12:36:32.512+01:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/125</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">enhancement</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+    </e:entries>
+    <e:entries key="1769">
+        <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">1769</e:entry>
+        <e:entry key="iid" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">19</e:entry>
+        <e:entry key="project_id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">1357</e:entry>
+        <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">v6.7</e:entry>
+        <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        </e:entry>
+        <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">active</e:entry>
+        <e:entry key="created_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2023-04-06T08:58:16.686+02:00</e:entry>
+        <e:entry key="updated_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2023-04-06T08:58:16.686+02:00</e:entry>
+        <e:entry key="due_date" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2023-04-05</e:entry>
+        <e:entry key="start_date" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2023-02-01</e:entry>
+        <e:entry key="expired" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">true</e:entry>
+        <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/milestones/19</e:entry>
+        <e:entries key="165876">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">165876</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">Improve fedcloud badges</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">- Add the accounting verification
+- Shift the time window of one month</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2023-04-06T09:03:34.198+02:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/155</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">enhancement</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="165875">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">165875</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">Upgrade symfony</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">- upgrade composer
+- upgrade symfony to version 6.2</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2023-04-06T09:03:53.605+02:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/154</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">enhancement</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="165874">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">165874</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">Upgrade the portal to php 8.0</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">- Remove deprecated methods
+- Upgrade libraries
+- Upgrade composer</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2023-04-06T09:03:39.244+02:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/153</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">enhancement</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="158182">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">158182</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">Study the upgrade to symfony 6.0 and php8</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">- symfony 6.0
+- php 8.0</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2023-04-06T09:03:47.900+02:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/128</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">enhancement</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+    </e:entries>
+    <e:entries key="1822">
+        <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">1822</e:entry>
+        <e:entry key="iid" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">20</e:entry>
+        <e:entry key="project_id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">1357</e:entry>
+        <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">v6.8</e:entry>
+        <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        </e:entry>
+        <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">active</e:entry>
+        <e:entry key="created_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2023-06-08T08:54:06.820+02:00</e:entry>
+        <e:entry key="updated_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2023-09-07T10:43:21.618+02:00</e:entry>
+        <e:entry key="due_date" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2023-09-06</e:entry>
+        <e:entry key="start_date" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2023-05-08</e:entry>
+        <e:entry key="expired" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">true</e:entry>
+        <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/milestones/20</e:entry>
+        <e:entries key="172204">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">172204</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">[EGI REPORTS] Improve the metrics for VO creation metrics</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">- Harmonize the behaviour in the first page
+- Remove the national/ international references (not used anymore)</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2023-08-24T11:14:53.036+02:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/160</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">enhancement</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="168364">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">168364</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">Extend API with EGI reports</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">I was wondering whether there are any plans to extend the current API in  order to query the EGI reports [1] section and extract the number of users per VO.
+Thank you.
+&gt; Cheers, Giuseppe</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2023-08-24T11:11:17.996+02:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/159</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">enhancement</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="167604">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">167604</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">Upgrade symfony and php in components</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">- [x] [GGUS Workflow] Resolve dependency injection case issue
+- [x] Upgrade lavoisier client</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2023-08-24T11:15:40.823+02:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/158</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">enhancement</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="167602">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">167602</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">improve the cloud badge system including also the accounting data</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">- [x] Add the accounting data verification into the system
+- [x] Propose icons close to the initial pages
+
+Initial request : https://jira.egi.eu/browse/EGITCB-398?filter=-8</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2023-08-24T11:11:50.322+02:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/157</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">enhancement</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="167601">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">167601</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">[BROADCAST] filter the NGIs and Sites by scope in the broadcast tool</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">On GOCDB there are also NGIs and Sites with different scope than EGI so quite often it happens that when sending a broadcast to NGI Managers and Site-Administrators this non-EGI entities are included among the recipients because people don't notice them. We would like to avoid this situation.
+
+
+- [x] 1) in the branches NGI Managers, Site-Administrators, and Site Security Contacts, list only the NGIs and Sites with the "EGI" scope tag
+
+- [x] 2) create a new branch named for example "non-EGI recipients" where you can put NGIs, Site Admins, and Site Security Contacts tagged with other scopes.
+
+Original request : https://jira.egi.eu/browse/EGITCB-494?filter=-1</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2023-08-24T11:15:08.517+02:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/156</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">enhancement</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+    </e:entries>
+    <e:entries key="1904">
+        <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">1904</e:entry>
+        <e:entry key="iid" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">21</e:entry>
+        <e:entry key="project_id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">1357</e:entry>
+        <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">v6.9</e:entry>
+        <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        </e:entry>
+        <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">active</e:entry>
+        <e:entry key="created_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2023-09-08T09:45:58.070+02:00</e:entry>
+        <e:entry key="updated_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2023-12-18T14:29:49.256+01:00</e:entry>
+        <e:entry key="due_date" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2023-12-18</e:entry>
+        <e:entry key="start_date" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2023-09-05</e:entry>
+        <e:entry key="expired" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">true</e:entry>
+        <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/milestones/21</e:entry>
+        <e:entries key="175484">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">175484</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">Improve API : new methods</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">- add a new method to provide information about sla reports
+- add a new methods for the users accounting history</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2023-12-18T14:29:07.574+01:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/162</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">new feature</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="175483">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">175483</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">Align the Operation Portal with EGI Brand Guidelines</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">- Guideline : https://cdn.egi.eu/app/uploads/2023/03/egi-brandguide-2023.pdf</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2023-12-18T14:28:38.242+01:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/161</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">enhancement</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+    </e:entries>
+    <e:entries key="2003">
+        <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2003</e:entry>
+        <e:entry key="iid" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">22</e:entry>
+        <e:entry key="project_id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">1357</e:entry>
+        <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">v6.10</e:entry>
+        <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+        </e:entry>
+        <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">active</e:entry>
+        <e:entry key="created_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2024-01-16T10:22:31.573+01:00</e:entry>
+        <e:entry key="updated_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2024-05-14T11:17:03.863+02:00</e:entry>
+        <e:entry key="due_date" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2024-05-14</e:entry>
+        <e:entry key="start_date" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2023-12-12</e:entry>
+        <e:entry key="expired" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">true</e:entry>
+        <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/milestones/22</e:entry>
+        <e:entries key="179216">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">179216</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">Add methods for VO information into the API</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">Add  different methods providing information for EGI reports :
+- VO accounting
+- Vo Users History
+- Vo metrics per disciplines</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2024-05-14T11:39:01.042+02:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/165</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">new feature</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="175999">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">175999</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">Improve CSI API</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
+- [x]  is it possible that you could create API when I would be able to download that pakiti history for x days back?
+- [x] is it possible that in daily reports you will not take only last status, but you would take history for example 7 days back and if there will be CRITICAL then it will be in morning report?... I know that it can be confusing for us if last status is already OK, but it is still better for us to check if the site fixed that vulnerability then not getting it at all. Because as you said that you are taking only the last report then it is possible that one CE(CRITICAL) is vulnerable but we won't see it because other CE(with status OK) for that site will report before 7am and we will think everything is ok.
+- [x] The CVE is not always properly exposed</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2024-05-14T11:38:18.467+02:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/164</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">enhancement</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+        <e:entries key="175997">
+            <e:entry key="id" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">175997</e:entry>
+            <e:entry key="title" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">Aligning the Operation Portal with EGI Brand Guidelines</e:entry>
+            <e:entry key="description" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">I am writing to inform you about our recently published brand guidelines, which outline the visual identity and design principles for the EGI brand, materials, website, and platforms. Since you are responsible for the Operation Portal (http://operations-portal.egi.eu/) development and maintenance, we kindly request your cooperation in aligning your platform's visual elements with the EGI brand.
+
+Our new brand guidelines provide clear instructions for website developers to ensure a cohesive and unified visual identity across all EGI platforms. It is essential for us to maintain consistency in our digital presence to enhance our brand recognition and user experience.
+
+We understand that each platform has its unique identity, and we are not seeking a complete revamp. Instead, we request specific adjustments that will visually align your platform with our brand. These adjustments might include incorporating our colour schemes, typography, imagery usage, and other design elements in subtle ways that resonate with the EGI brand.
+
+You can access the brand guidelines document through the following link: https://cdn.egi.eu/app/uploads/2023/03/egi-brandguide-2023.pdf</e:entry>
+            <e:entry key="state" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">closed</e:entry>
+            <e:entry key="closed_at" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">2024-05-14T11:17:15.204+02:00</e:entry>
+            <e:entry key="web_url" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">https://gitlab.in2p3.fr/opsportal/sf3/-/work_items/163</e:entry>
+            <e:entry key="labels" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">enhancement</e:entry>
+            <e:entry key="type" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">items</e:entry>
+        </e:entries>
+    </e:entries>
+</e:entries>
