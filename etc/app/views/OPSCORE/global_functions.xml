@@ -860,66 +860,141 @@
 
     <view name="accounting-portal.cloud.all" xmlns:date="http://exslt.org/dates-and-times">
 
+        <variable name="start_year"  eval="date:year(date:add(date:date(),'-P14M'))"/>
         <variable name="start_month" eval="date:month-in-year(date:add(date:date(),'-P14M'))"/>
-        <variable name="start_year" eval="date:year(date:add(date:date(),'-P14M'))"/>
-        <variable name="end_month" eval="date:month-in-year(date:date())"/>
-        <variable name="end_year" eval="date:year(date:date())"/>
+        <variable name="end_year"    eval="date:year(date:add(date:date(),'P1M'))"/>
+        <variable name="end_month"   eval="date:month-in-year(date:add(date:date(),'P1M'))"/>
 
+        <variable name="start" eval="concat($start_year,'-',substring(concat('0',$start_month),string-length($start_month)),'-01')"/>
+        <variable name="end"   eval="concat($end_year,'-',substring(concat('0',$end_month),string-length($end_month)),'-01')"/>
 
         <connector type="HTTPConnector">
-            <parameter name="url" eval="concat(property('accportal.baseurl'),'cloud/sum_elap_processors/SITE/DATE/',$start_year,'/',$start_month,'/',$end_year,'/',$end_month,'/egi/onlyinfrajobs/JSON')"/>
+            <parameter name="url" eval="concat(
+                property('accportal.baseurl'),
+                'ui/api/datasources/proxy/uid/', property('accportal.datasource.uid'),
+                '/query?db=', property('accportal.db'),
+                '&amp;q=SELECT+max(s)+FROM+(SELECT+sum(raw_wc_time)+AS+s+FROM+summary',
+                &quot;+WHERE+infra='Cloud'&quot;,
+                &quot;+AND+time>='&quot;,$start,&quot;'&quot;,
+                &quot;+AND+time&lt;'&quot;,$end,&quot;'&quot;,
+                '+GROUP+BY+time(1d),site,country)',
+                '+GROUP+BY+time(1d),site+fill(none)')"/>
+            <parameter name="header">
+                <entry key="Accept">application/json</entry>
+            </parameter>
         </connector>
-        <serializer type="JSONStreamSerializer"></serializer>
+
+        <serializer type="JSONStreamSerializer"/>
 
         <processors>
-            <element in="item" out="results">
-                <element in="object" out="site" if="id/text()!='Total' and id/text()!='Percent' and id/text()!='xlegend' and id/text()!='ylegend' and id/text()!='var'">
-                    <attribute-create out="name">../id/text()</attribute-create>
-                    <element out="date" if="starts-with(name(),'_')">
-                        <attribute-create out="month">substring-after(name(..),'_')</attribute-create>
-                        <attribute-create out="type">'full'</attribute-create>
-                    </element>
-                    <element-ignore/>
-                </element>
-                <element-ignore/>
+            <!-- the tree is object/results/object/series/object: arrays of
+                 objects become <object>, arrays of scalars become <item> -->
+            <element in="object" out="results">
+                <element-ignore in="results">
+                    <element-ignore in="object">
+                        <element-ignore in="series">
+                            <element in="object" out="site">
+                                <attribute-create out="name">../tags/site/text()</attribute-create>
+                                <element-ignore in="name"/>
+                                <element-ignore in="tags"/>
+                                <element-ignore in="columns"/>
+                                <element-ignore in="values">
+                                    <element in="item" out="date">
+                                        <attribute-create out="month">substring(../item[1],1,7)</attribute-create>
+                                        <attribute-create out="type">'full'</attribute-create>
+                                        <text-create>../item[2]</text-create>
+                                        <element-ignore/>
+                                    </element>
+                                </element-ignore>
+                            </element>
+                        </element-ignore>
+                    </element-ignore>
+                </element-ignore>
             </element>
         </processors>
 
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="minutes">12</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+        </cache>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
     </view>
 
     <view name="accounting-portal.cloud.excluded" xmlns:date="http://exslt.org/dates-and-times">
 
+        <variable name="start_year"  eval="date:year(date:add(date:date(),'-P14M'))"/>
         <variable name="start_month" eval="date:month-in-year(date:add(date:date(),'-P14M'))"/>
-        <variable name="start_year" eval="date:year(date:add(date:date(),'-P14M'))"/>
-        <variable name="end_month" eval="date:month-in-year(date:date())"/>
-        <variable name="end_year" eval="date:year(date:date())"/>
+        <variable name="end_year"    eval="date:year(date:add(date:date(),'P1M'))"/>
+        <variable name="end_month"   eval="date:month-in-year(date:add(date:date(),'P1M'))"/>
 
+        <variable name="start" eval="concat($start_year,'-',substring(concat('0',$start_month),string-length($start_month)),'-01')"/>
+        <variable name="end"   eval="concat($end_year,'-',substring(concat('0',$end_month),string-length($end_month)),'-01')"/>
 
         <connector type="HTTPConnector">
-            <parameter name="url" eval="concat(property('accportal.baseurl'),'cloud/sum_elap_processors/SITE/DATE/',$start_year,'/',$start_month,'/',$end_year,'/',$end_month,'/custom-dteam,fedcloud.egi.eu,ops/onlyinfrajobs/JSON')"/>
+            <parameter name="url" eval="concat(
+                property('accportal.baseurl'),
+                'ui/api/datasources/proxy/uid/', property('accportal.datasource.uid'),
+                '/query?db=', property('accportal.db'),
+                '&amp;q=SELECT+max(s)+FROM+(SELECT+sum(raw_wc_time)+AS+s+FROM+summary',
+                &quot;+WHERE+infra='Cloud'&quot;,
+                '+AND+vo=~/^(dteam|fedcloud\.egi\.eu|ops)$/',
+                &quot;+AND+time>='&quot;,$start,&quot;'&quot;,
+                &quot;+AND+time&lt;'&quot;,$end,&quot;'&quot;,
+                '+GROUP+BY+time(1d),site,country)',
+                '+GROUP+BY+time(1d),site+fill(none)')"/>
+            <parameter name="header">
+                <entry key="Accept">application/json</entry>
+            </parameter>
         </connector>
-        <serializer type="JSONStreamSerializer"></serializer>
+
+        <serializer type="JSONStreamSerializer"/>
 
         <processors>
-            <element in="item" out="results">
-                <element in="object" out="site" if="id/text()!='Total' and id/text()!='Percent' and id/text()!='xlegend' and id/text()!='ylegend' and id/text()!='var'">
-                    <attribute-create out="name">../id/text()</attribute-create>
-                    <element out="date" if="starts-with(name(),'_')">
-                        <attribute-create out="month">substring-after(name(..),'_')</attribute-create>
-                        <attribute-create out="type">'excluded'</attribute-create>
-                    </element>
-                    <element-ignore/>
-                </element>
-                <element-ignore/>
-            </element>
-
-            <element in="results">
-                <element in="site">
-                    <element in="date" if="text()='null'"><text>0</text></element>
-                </element>
+            <!-- the tree is object/results/object/series/object: arrays of
+                 objects become <object>, arrays of scalars become <item> -->
+            <element in="object" out="results">
+                <element-ignore in="results">
+                    <element-ignore in="object">
+                        <element-ignore in="series">
+                            <element in="object" out="site">
+                                <attribute-create out="name">../tags/site/text()</attribute-create>
+                                <element-ignore in="name"/>
+                                <element-ignore in="tags"/>
+                                <element-ignore in="columns"/>
+                                <element-ignore in="values">
+                                    <element in="item" out="date">
+                                        <attribute-create out="month">substring(../item[1],1,7)</attribute-create>
+                                        <attribute-create out="type">'excluded'</attribute-create>
+                                        <text-create>../item[2]</text-create>
+                                        <element-ignore/>
+                                    </element>
+                                </element-ignore>
+                            </element>
+                        </element-ignore>
+                    </element-ignore>
+                </element-ignore>
             </element>
         </processors>
 
+        <cache type="FileCache">
+            <trigger type="DeltaTimeTrigger">
+                <parameter name="minutes">12</parameter>
+            </trigger>
+            <trigger type="ViewNotifiedTrigger"/>
+        </cache>
+
+        <renderers>
+            <renderer type="DefaultRenderer">
+                <parameter name="contentType">text/xml</parameter>
+            </renderer>
+        </renderers>
     </view>
 
     <view name="accounting-portal.cloud.computed" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
@@ -966,7 +1041,10 @@
             <element in="results">
                 <element in="site">
                     <element in="result">
-                        <attribute-create out="diff">../date[@type='full'] - ../date[@type='excluded']</attribute-create>
+                        <attribute-create out="diff">choose(
+                            ../date[@type='excluded'],
+                            ../date[@type='full'] - ../date[@type='excluded'],
+                            ../date[@type='full'])</attribute-create>
                         <element-ignore/>
                     </element>
                 </element>
@@ -998,6 +1076,7 @@
             </renderer>
         </renderers>
     </view>
+
 
     <view name="cloud_reports" xmlns:date="http://exslt.org/dates-and-times" xmlns:e="http://software.in2p3.fr/lavoisier/entries.xsd">
         <variable name="end_date" eval="substring(date:date(),0,11)"/>
